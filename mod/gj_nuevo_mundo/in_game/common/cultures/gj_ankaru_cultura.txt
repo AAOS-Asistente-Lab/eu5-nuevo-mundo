@@ -4,7 +4,7 @@ gj_ankaruno = {
 
 	color = gj_map_ankaruno
 
-	tags = { south_american_gfx }
+	tags = { tibetan_gfx east_asian_gfx } # ASPECTO (corte culturas-nombres, Gabriel puede volver): antes { south_american_gfx }
 
 	country_modifier = {
 		global_construction_speed = 0.05
