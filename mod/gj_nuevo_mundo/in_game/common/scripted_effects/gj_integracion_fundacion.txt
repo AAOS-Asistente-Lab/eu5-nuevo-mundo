@@ -3,6 +3,8 @@
 # religion de partida del pais, y todos los de la tierra que gana al empezar (gj_tierra_nueva).
 gj_fundar_faccion = {
 	set_variable = gj_faccion_$clave$
+	# el nombre ya es el titulo entero: sin el rango delante (gj_integracion_nombres.txt)
+	set_variable = gj_nombre_propio
 
 	culture = { save_scope_as = gj_cultura_vieja }
 	religion = { save_scope_as = gj_religion_vieja }

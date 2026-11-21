@@ -17,8 +17,10 @@
 //      la que nadie alcanza.
 // Todo sale en listas ordenadas y sin azar: el mismo mundo y el mismo dibujo dan los mismos bytes.
 
+import { esMala } from './capitales.mjs';
 export const FRACCION_FACCION = 0.25; // parte de su zona que tiene cada faccion al empezar
 export const FACCION_MINIMO = 30;     // ninguna faccion empieza con menos en su zona
+export const MAX_PASILLO = 3;       // pasos de pasillo como mucho hasta una sub-zona; si no, enclave
 export const MINIMO_SUBZONA = 8;      // localizaciones de la faccion en cada sub-zona de su zona
 // [parte de los paises, talla minima, talla maxima]
 export const TALLAS = [[0.45, 8, 18], [0.40, 20, 50], [0.15, 55, 110]];
@@ -49,7 +51,7 @@ export function trozosDe(locs, vec) {
   return r;
 }
 
-export function reparteTierra({ liga, vec, paises, asignados, facciones, subzonas = [], menores = [], poblacion = new Map(), minimoSubzona = MINIMO_SUBZONA, fraccionFaccion = FRACCION_FACCION, faccionMinimo = FACCION_MINIMO, tallas = TALLAS, tallaMenor = TALLA_MENOR, conDueno = CON_DUENO, estironMaximo = ESTIRON_MAXIMO }) {
+export function reparteTierra({ liga, vec, paises, asignados, facciones, subzonas = [], menores = [], poblacion = new Map(), minimoSubzona = MINIMO_SUBZONA, maxPasillo = MAX_PASILLO, puntua = null, plant = new Map(), fraccionFaccion = FRACCION_FACCION, faccionMinimo = FACCION_MINIMO, tallas = TALLAS, tallaMenor = TALLA_MENOR, conDueno = CON_DUENO, estironMaximo = ESTIRON_MAXIMO }) {
   const tierra = [...liga.tierra].sort();
   const esTierra = new Set(tierra);
   const zonaId = (l) => liga.zonaDe.get(l)?.id;
@@ -144,7 +146,8 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
   for (const m of porOrden) if (cuantas(m.tag) < tallaMenor[0]) muda(m);
   creceMenores();
 
-  // 3. facciones: dentro de su zona, hacia el centro de la zona
+  // 3. facciones: dentro de su zona, alrededor de su capital
+  const capitalElegida = new Map();
   for (const [z, d] of [...duenoZona].sort(([a], [b]) => a.localeCompare(b))) {
     const deZona = tierra.filter((l) => zonaId(l) === z);
     const meta = Math.max(faccionMinimo, Math.round(fraccionFaccion * deZona.length));
@@ -163,6 +166,26 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
     }
     const enZona = () => mias().filter((l) => zonaId(l) === z).length;
     if (semilla) { const c0 = crecedor(d.tag, centroDe(z), tomable); c0.siembra(semilla); c0.toma(); }
+    // la capital, antes de crecer (la tierra crece en anillos desde ella): la que mejor puntua
+    // (capitales.mjs) de su tierra en la zona o de la tomable a 3 pasos o menos. La de RNW se
+    // queda si no es MALA (montaña, desierto, pantano, artico) y no puntua 2 puntos peor.
+    if (puntua) {
+      const p0c = paises.find((x) => x.tag === d.tag);
+      const nuc = mias().filter((l) => zonaId(l) === z);
+      if (nuc.length) {
+        const cen = [0, 1].map((i) => nuc.reduce((s, l) => s + liga.xy.get(l)[i], 0) / nuc.length);
+        const paso = new Map(nuc.map((l) => [l, 0])), cola = [...nuc].sort();
+        for (let i = 0; i < cola.length; i++) {
+          const l = cola[i]; if (paso.get(l) >= 3) continue;
+          for (const v of [...(vec.get(l) || [])].sort()) if (!paso.has(v) && esTierra.has(v) && tomable(v)) { paso.set(v, paso.get(l) + 1); cola.push(v); }
+        }
+        const pt = (l) => puntua(l, cen, liga.xy);
+        const mejor = [...paso.keys()].filter((l) => liga.xy.has(l)).sort((a, b) => pt(b) - pt(a) || a.localeCompare(b))[0];
+        const deRnw = p0c && dueno.get(p0c.capital) === d.tag && zonaId(p0c.capital) === z ? p0c.capital : null;
+        const cap = deRnw && !esMala(plant.get(deRnw)) && pt(deRnw) >= pt(mejor) - 2 ? deRnw : mejor;
+        if (cap) { dueno.set(cap, d.tag); capitalElegida.set(d.tag, cap); }
+      }
+    }
     // un brazo hasta cada sub-zona gj_zona_* de su zona (mas de la mitad dentro) donde aun no tiene
     // MINIMO_SUBZONA localizaciones: crece hacia el centro de la sub-zona, sin soltarse del nucleo.
     // Lo piden sus mecanicas (los cuatro clanes de Kaivan votan si la faccion tiene tierra en su cuarto).
@@ -191,11 +214,30 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
           coste.set(v, c); de.set(v, l); (cap ? luego : ahora).push(v);
         }
       }
-      for (let l = fin; l && de.get(l) !== null; l = de.get(l)) dueno.set(l, d.tag);
+      // pasillo solo si es corto (MAX_PASILLO pasos): si no, un enclave compacto en la sub-zona,
+      // sembrado en su localizacion tomable mas cerca de su centro (las tiras largas, fuera)
+      const camino = []; for (let l = fin; l && de.get(l) !== null; l = de.get(l)) camino.push(l);
+      if (fin && camino.length <= maxPasillo + 1) for (const l of camino) dueno.set(l, d.tag);
+      else {
+        const dp = distA(punto);
+        const s = ls.filter((l) => tomable(l)).sort((a, b) => dp(a) - dp(b) || a.localeCompare(b))[0];
+        if (s) dueno.set(s, d.tag);
+      }
       const brazo = crecedor(d.tag, punto, (l) => enSub.has(l) && tomable(l), false);
       while (falta() && brazo.toma());
     }
-    const c = crecedor(d.tag, centroDe(z), tomable);
+    // crece en anillos alrededor de su nucleo (su capital, o la semilla si se ha mudado), no hacia
+    // el centro de la zona: hacia el centro salian tiras largas (Ostrevar, 21-11)
+    const p0 = paises.find((x) => x.tag === d.tag);
+    const nucleoZ = mias().filter((l) => zonaId(l) === z);
+    // con capital elegida: el centro de las `meta` localizaciones mas cercanas a ella por pasos; una
+    // capital en la costa queda en el borde y el pais no sale como una tira a lo largo de la costa
+    const bola = (s) => { const v = new Set([s]), c = [s]; for (let i = 0; i < c.length && c.length < meta; i++) for (const w of vec.get(c[i]) || []) if (!v.has(w) && liga.xy.has(w) && (dueno.get(w) === d.tag || tomable(w)) && c.length < meta) { v.add(w); c.push(w); } return c; };
+    const centroBola = (s) => { const b = bola(s); return [0, 1].map((i) => b.reduce((t, l) => t + liga.xy.get(l)[i], 0) / b.length); };
+    const puntoNucleo = capitalElegida.has(d.tag) ? centroBola(capitalElegida.get(d.tag)) : semilla ? liga.xy.get(semilla)
+      : p0 && dueno.get(p0.capital) === d.tag && zonaId(p0.capital) === z && liga.xy.has(p0.capital) ? liga.xy.get(p0.capital)
+      : nucleoZ.length ? [0, 1].map((i) => nucleoZ.reduce((s, l) => s + liga.xy.get(l)[i], 0) / nucleoZ.length) : centroDe(z);
+    const c = crecedor(d.tag, puntoNucleo, tomable);
     for (let n = enZona(); n < meta && c.toma(); n++);
   }
   for (const p of porTag) if (!zonaDeTag.has(p.tag) && !esMenor.has(p.tag)) dejaNucleo(p);
@@ -235,16 +277,28 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
     else if (!t && a) suelta[l] = a;
   }
   const capital = {};
-  // la capital nueva va a la localizacion con mas gente del pais (la distancia desempata)
+  // la capital nueva va a la localizacion con mas gente del pais (la distancia desempata); con
+  // puntuacion (capitales.mjs), a la que mejor puntua. Una capital de RNW MALA (montaña,
+  // desierto, pantano, artico) se muda si el pais tiene un sitio 3 puntos mejor que no es malo.
   const gente = (l) => poblacion.get(l) || 0;
   for (const p of porTag) {
-    if (zonaDeTag.has(p.tag) || dueno.get(p.capital) === p.tag || !liga.xy.has(p.capital)) continue;
+    if (zonaDeTag.has(p.tag) || !liga.xy.has(p.capital)) continue;
+    const suyas = tierra.filter((l) => dueno.get(l) === p.tag);
+    if (!suyas.length) continue;
+    const cen = [0, 1].map((i) => suyas.reduce((s, l) => s + liga.xy.get(l)[i], 0) / suyas.length);
+    const pt = puntua ? (l) => puntua(l, cen, liga.xy) : null;
+    const tiene = dueno.get(p.capital) === p.tag;
+    if (tiene && !(pt && esMala(plant.get(p.capital)))) continue;
     const dist = distA(puntoDe(p));
-    const s = tierra.filter((l) => dueno.get(l) === p.tag).sort((a, b) => gente(b) - gente(a) || dist(a) - dist(b) || a.localeCompare(b))[0];
-    if (s) capital[p.tag] = { de: p.capital, a: s, clave: esMenor.has(p.tag) ? 'menor' : 'estado de RNW' };
+    // la mejor que no sea MALA; una capital MALA solo se queda si el pais no tiene otra cosa
+    const s = [...suyas].sort(pt ? (a, b) => (esMala(plant.get(a)) - esMala(plant.get(b))) || pt(b) - pt(a) || a.localeCompare(b) : (a, b) => gente(b) - gente(a) || dist(a) - dist(b) || a.localeCompare(b))[0];
+    if (!s || s === p.capital || (tiene && esMala(plant.get(s)))) continue;
+    capital[p.tag] = { de: p.capital, a: s, clave: esMenor.has(p.tag) ? 'menor' : 'estado de RNW' };
   }
   for (const [z, d] of [...duenoZona].sort(([a], [b]) => a.localeCompare(b))) {
     const p = paises.find((x) => x.tag === d.tag);
+    const elegida = capitalElegida.get(d.tag);
+    if (p && elegida && dueno.get(elegida) === d.tag) { if (elegida !== p.capital) capital[d.tag] = { de: p.capital, a: elegida, clave: d.clave }; continue; }
     if (!p || (dueno.get(p.capital) === d.tag && zonaId(p.capital) === z)) continue;
     const dist = distA(centroDe(z));
     const s = tierra.filter((l) => dueno.get(l) === d.tag && zonaId(l) === z).sort((a, b) => gente(b) - gente(a) || dist(a) - dist(b) || a.localeCompare(b))[0];

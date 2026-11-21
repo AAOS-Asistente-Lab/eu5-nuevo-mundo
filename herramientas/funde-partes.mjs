@@ -340,6 +340,8 @@ escribeConBom(I('in_game/common/scripted_effects/gj_integracion_fundacion.txt'),
 # religion de partida del pais, y todos los de la tierra que gana al empezar (gj_tierra_nueva).
 gj_fundar_faccion = {
 \tset_variable = gj_faccion_$clave$
+\t# el nombre ya es el titulo entero: sin el rango delante (gj_integracion_nombres.txt)
+\tset_variable = gj_nombre_propio
 
 \tculture = { save_scope_as = gj_cultura_vieja }
 \treligion = { save_scope_as = gj_religion_vieja }
@@ -412,19 +414,29 @@ for (const k of huerfanos) {
   ganchosHijos.get(elegido.gancho).push(k);
   enganchadosSolos.push(`\`${k}\` → \`${elegido.gancho}\` (${elegido.por})`);
 }
-const ganchosFinal = new Map([['on_game_start', ['gj_integracion_inicio', ...(ganchosHijos.get('on_game_start') || [])]], ...[...ganchosHijos].filter(([g]) => g !== 'on_game_start')]);
+// El inicio (y los on_game_start de las partes, en el mismo orden de antes) va en
+// on_game_started_after_lobby: en on_game_start el juego aun no ha puesto los pops ni los
+// personajes del setup, y every_pop no encuentra nada (error.log: «has no pops of its primary culture»).
+const INICIO = 'on_game_started_after_lobby';
+const ganchosFinal = new Map([[INICIO, ['gj_integracion_inicio', ...(ganchosHijos.get('on_game_start') || []), ...(ganchosHijos.get(INICIO) || [])]], ...[...ganchosHijos].filter(([g]) => g !== 'on_game_start' && g !== INICIO)]);
 escribeConBom(I('in_game/common/on_action/gj_integracion_on_actions.txt'),
 `# GJ Nuevo Mundo, integracion: los UNICOS ganchos del juego del mod. Cada uno, una vez, con la
 # lista de todas las partes; el juego la suma a la suya (junta on_actions del mismo nombre).
 # GENERADO por funde-partes.mjs.
-${[...ganchosFinal].sort(([a], [b]) => (a === 'on_game_start' ? -1 : b === 'on_game_start' ? 1 : a.localeCompare(b))).map(([g, hs]) => `\n${g} = {\n\ton_actions = {\n${hs.map((h) => `\t\t${h}`).join('\n')}\n\t}\n}`).join('\n')}
+${[...ganchosFinal].sort(([a], [b]) => (a === INICIO ? -1 : b === INICIO ? 1 : a.localeCompare(b))).map(([g, hs]) => `\n${g} = {\n\ton_actions = {\n${hs.map((h) => `\t\t${h}`).join('\n')}\n\t}\n}`).join('\n')}
 
 # Cada faccion entra en su pais de partida. Las que no tienen todas sus piezas no se crean.
 gj_integracion_inicio = {
 \teffect = {
-\t\tgj_asigna_recursos = yes
-\t\tgj_reparte_tierra = yes
-${[...FUND, ...MEN.filter((m) => m.tag)].map(llamada).join('\n')}
+\t\t# una sola vez por partida, aunque el gancho vuelva a saltar
+\t\tif = {
+\t\t\tlimit = { NOT = { has_global_variable = gj_integracion_hecha } }
+\t\t\tset_global_variable = gj_integracion_hecha
+\t\t\tgj_asigna_recursos = yes
+\t\t\tgj_reparte_tierra = yes
+\t\t\tgj_rangos_iniciales = yes
+${[...FUND, ...MEN.filter((m) => m.tag)].map(llamada).join('\n').replace(/^/gm, '\t')}
+\t\t}
 \t}
 }
 `);
@@ -439,6 +451,7 @@ const tagsFaccion = new Set([...Object.values(VINC.paises || {}), ...Object.valu
 const dadas = Object.entries(TIERRA.da || {}).sort(([a], [b]) => a.localeCompare(b));
 const capitales = Object.entries(TIERRA.capital || {}).sort(([a], [b]) => a.localeCompare(b));
 const sueltas = Object.entries(TIERRA.suelta || {}).sort(([a], [b]) => a.localeCompare(b));
+const rangos = Object.entries(TIERRA.rangos || {}).sort(([a], [b]) => a.localeCompare(b));
 const popsDe = (dueno) => (tagsFaccion.has(dueno) ? 'gj_marca_tierra_nueva = yes' : `every_pop = { change_pop_culture = c:${dueno}.culture change_pop_religion = c:${dueno}.religion }`);
 // primero la capital nueva de quien la muda (los estados de RNW antes que las facciones): asi
 // ningun pais se queda sin tierra ni sin capital a mitad del efecto
@@ -459,6 +472,25 @@ ${capOrden.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su 
 ${dadas.filter(([l]) => !capLocs.has(l)).map(daLinea).join('\n')}
 	# trozos sueltos que nadie ha tomado: quedan sin dueno, para colonizar
 ${sueltas.map(([l, t2]) => `\tc:${t2} = { abandon_location = location:${l} }`).join('\n')}
+}
+
+# Ciudades y pueblos de la tierra repartida (asigna-facciones.mjs): la capital de cada pais, ciudad;
+# un pueblo cada --pueblo-cada localizaciones, mejor en la costa o junto a cultivos.
+gj_rangos_iniciales = {
+${rangos.map(([l, r]) => `\tlocation:${l} = { change_location_rank = location_rank:${r} }`).join('\n')}
+}
+`);
+
+// El nombre de una faccion es su titulo entero («Alto Reino de Ostrevar»): que el juego no le ponga
+// el rango delante («Condado de ...»). La regla se suma a las del juego, que solo usa la suya de
+// reserva (fallback = yes) cuando no cuadra ninguna otra.
+escribeConBom(I('in_game/common/customizable_localization/gj_integracion_nombres.txt'),
+`# GJ Nuevo Mundo, integracion: nombre propio de las facciones. GENERADO por funde-partes.mjs.
+INJECT:country_name_construction = {
+\ttext = {
+\t\tlocalization_key = country_name_construction_name
+\t\ttrigger = { has_variable = gj_nombre_propio }
+\t}
 }
 `);
 

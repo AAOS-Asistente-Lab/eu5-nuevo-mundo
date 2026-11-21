@@ -17,6 +17,7 @@
 //   --zonas-mapa        usa el mapa final aunque el mundo no encaje (solo para probar)
 //   --sin-reparto       no reparte la tierra al empezar (reparte-tierra.mjs)
 //   --sin-vegetacion    no mezcla la vegetacion (mezcla-vegetacion.mjs)
+//   --pueblo-cada <n>   un pueblo cada n localizaciones de cada pais (rangos.mjs; por defecto 17)
 //
 // Con un mundo hecho con el dibujo de mapa/final, cada faccion se queda el pais con mas
 // localizaciones en su zona del dibujo, y los gj_zona_* salen del dibujo (zonas-mapa.mjs).
@@ -33,6 +34,8 @@ import { asignaRecursos, informeRecursos } from './asigna-recursos.mjs';
 import { cargaMundo, vecinos, centros } from './mundo.mjs';
 import { mezclaVegetacion, textoVegetacion, tablaDelJuego } from './mezcla-vegetacion.mjs';
 import { reparteTierra, textoTierra, TALLA_MENOR } from './reparte-tierra.mjs';
+import { rangosIniciales, PUEBLO_CADA } from './rangos.mjs';
+import { puntuaCapital } from './capitales.mjs';
 import { ligaMapa, defineZonas, DIR_MAPA, CALIDAD_MINIMA } from './zonas-mapa.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
@@ -321,7 +324,9 @@ for (const [l, j] of jer) { if (!locsDeArea.has(j.area)) locsDeArea.set(j.area, 
 const subzonas = Object.entries(zonas).filter(([, d]) => d.ambito === 'localizacion')
   .map(([nombre, d]) => ({ nombre, locs: d.lista.flatMap((x) => (x.tipo === 'location' ? [x.clave] : x.tipo === 'area' ? locsDeArea.get(x.clave) || [] : [])).sort() }))
   .filter((s) => s.locs.length >= 20); // las ruinas y las vetas (1-5 localizaciones) no cuentan
-const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
+const fPuertos = conMapa ? enMundo('in_game', 'map_data', 'ports.csv') : null;
+const puertos = new Set(fPuertos ? leeTexto(fPuertos).texto.split(/\r?\n/).slice(1).map((x) => x.split(';')[0]).filter(Boolean) : []);
+const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, puntua: conMapa ? puntuaCapital({ plant: mundoM.plant, costa: mundoM.costa, puertos, vec: vecM, poblacion: poblacionM }) : null, plant: mundoM?.plant || new Map(), menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
 
 // ---------------------------------------------------------------- vegetacion mezclada
 // Ciudades de las facciones: sus capitales.
@@ -334,6 +339,22 @@ if (conMapa && !tiene('--sin-vegetacion')) {
   const zonaSurFaccion = new Set(liga.tierra.filter((l) => sur.has(liga.zonaDe.get(l)?.id)));
   const tabla = tablaDelJuego(leeTexto(path.join(JUEGO, 'in_game', 'map_data', 'location_templates.txt')).texto);
   vegR = mezclaVegetacion({ tierra: liga.tierra, plant: mundoM.plant, vec: vecM, cen: await centros(MUNDO, JUEGO), costa: mundoM.costa, ciudades, capitales: tagsF.map((t) => capitalDe.get(t)).filter(Boolean), zonaSurFaccion, tabla });
+}
+
+// ---------------------------------------------------------------- ciudades y pueblos (rangos.mjs)
+let rangosR = null;
+if (tierraR) {
+  const duenoFin = new Map();
+  for (const p of paises) for (const l of p.locs) if (liga.tierra.includes(l) && !tierraR.suelta[l]) duenoFin.set(l, p.tag);
+  for (const [l, t] of Object.entries(tierraR.da)) duenoFin.set(l, t);
+  const capitalesFin = new Map(paises.map((p) => [p.tag, tierraR.capital?.[p.tag]?.a || p.capital]));
+  const f07 = enMundo('main_menu', 'setup', '1337', '07_cities_and_buildings.txt');
+  const yaTienen = new Map(f07 ? [...leeTexto(f07).texto.matchAll(/^\s*([A-Za-z0-9_\-.]+)\s*=\s*\{\s*rank\s*=\s*([a-z_]+)/gm)].map((m) => [m[1], m[2]]) : []);
+  const vegFin = new Map(liga.tierra.map((l) => [l, vegR?.veg.get(l) || mundoM.plant.get(l)?.veg]));
+  const cada = Number(arg('--pueblo-cada', PUEBLO_CADA));
+  const r = rangosIniciales({ dueno: duenoFin, capitales: capitalesFin, vec: vecM, costa: mundoM.costa, veg: vegFin, yaTienen, cada });
+  const n = (x) => Object.values(r).filter((v) => v === x).length;
+  rangosR = { rangos: r, ciudades: n('city'), pueblos: n('town'), cada, ya: [...yaTienen.keys()].filter((l) => liga.tierra.includes(l)).length };
 }
 
 // ---------------------------------------------------------------- informe
@@ -362,6 +383,9 @@ ${sinPais.length ? `**Sin pais:** ${sinPais.join(', ')}. No se crean en esta par
 ${tierraR ? textoTierra(tierraR) : ''}
 
 ${vegR ? textoVegetacion(vegR) : ''}
+${rangosR ? `## Ciudades y pueblos al empezar (rangos.mjs)
+RNW trae ${rangosR.ya} localizaciones del Nuevo Mundo con rango. Se añaden ${rangosR.ciudades} ciudades (la capital de cada pais) y ${rangosR.pueblos} pueblos (uno cada ${rangosR.cada} localizaciones de cada pais; se cambia con --pueblo-cada).
+` : ''}
 
 ## Zonas (${Object.keys(zonas).length})
 ${Object.entries(zonas).map(([z, d]) => `- \`${z}\` (${d.ambito}): ${dz?.detalle[z] || `${d.lista.length} ${d.lista[0]?.tipo === 'area' ? 'areas del pais de la faccion' : d.lista[0]?.tipo || ''}`}`).join('\n') || '- ninguna pedida'}
@@ -392,7 +416,7 @@ const vinculo = {
   paises: paisesVinculo,
   menores: Object.fromEntries(Object.entries(menores).map(([k, p]) => [k, p.tag]).sort()),
   zonas,
-  tierra: tierraR ? { da: tierraR.da, suelta: tierraR.suelta, capital: tierraR.capital } : null,
+  tierra: tierraR ? { da: tierraR.da, suelta: tierraR.suelta, capital: tierraR.capital, rangos: rangosR?.rangos || {} } : null,
   recursos: Object.fromEntries(rec.cambian.map((l) => [l, rec.asignado.get(l)])),
 };
 const rutaVinculo = path.join(OBRA, 'vinculo.json');

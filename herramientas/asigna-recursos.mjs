@@ -25,6 +25,8 @@ const AQUI = path.dirname(fileURLToPath(import.meta.url));
 export const TOPE_DOMINANTE = 0.55;
 export const MAX_JUNTAS = 4;
 export const MIN_POR_CONTINENTE = 4;
+export const TOPE_REGION = 0.25; // ninguna region con mas de esta parte de un metal o un precioso
+export const TOPE_BIEN = 0.08;   // ningun bien por encima de esta parte del Nuevo Mundo
 export const EXP_PRIOR = Number(process.env.GJ_EXP_PRIOR || 0.6);
 
 // Identidades de zona (MECANICAS y PLAN 5): que bienes tira cada una.
@@ -121,6 +123,9 @@ export async function asignaRecursos({ juego = juegoPorDefecto(), mundo = null, 
   for (const l of M.locsAmerica) { const a = M.jer.get(l).area; if (!areas.has(a)) areas.set(a, []); areas.get(a).push(l); }
   const P = new Map();
   for (const l of M.locsAmerica) { const p = M.plant.get(l); P.set(l, aptitud({ clima: p.clima, topo: p.topo, veg: p.veg, costa: M.costa.has(l) })); }
+  // camellos solo en desierto o matorral de clima arido (si no, el clima arid que RNW copia del
+  // Viejo Mundo por latitud los ponia en ~10 % del Nuevo Mundo)
+  for (const l of M.locsAmerica) { const p = M.plant.get(l); if (!(['desert', 'sparse'].includes(p.veg) && ['arid', 'cold_arid'].includes(p.clima))) P.get(l).set('camels', 0); }
 
   // 2. identidad de cada area, region a region y en orden fijo
   const identidad = new Map(), faccionArea = new Map();
@@ -211,6 +216,54 @@ export async function asignaRecursos({ juego = juegoPorDefecto(), mundo = null, 
     }
   }
 
+  // 4b. criterio de los jugadores (21-11): oro y plata un poco en todas las regiones; los metales
+  //     en todas las regiones y, si se puede, en cada area con montes, con mas peso en montaña y
+  //     colinas; ninguna region acapara un metal ni un precioso (TOPE_REGION); y ningun bien pasa
+  //     de su tope en el Nuevo Mundo (dos veces su parte en el juego base, entre el 1 y el 8 %).
+  const METALES = ['iron', 'copper', 'tin', 'lead'].filter((b) => bienes.has(b));
+  const PRECIOSOS = ['goods_gold', 'silver'].filter((b) => bienes.has(b));
+  const protegidos = new Set([...METALES, ...PRECIOSOS]);
+  const relieve = (l) => ({ mountains: 3, hills: 2, plateau: 1.5 }[M.plant.get(l).topo] || 1);
+  const porRegion = new Map();
+  for (const l of M.locsAmerica) { const r = M.jer.get(l).region || '?'; if (!porRegion.has(r)) porRegion.set(r, []); porRegion.get(r).push(l); }
+  const minimoEn = (b, n) => Math.min({ iron: Math.max(3, Math.round(0.01 * n)), copper: 3, tin: 2, lead: 2, goods_gold: 2, silver: 2 }[b] || 1, Math.max(1, Math.floor(n / 40)));
+  const cuentaDe = (ls, b) => ls.filter((l) => asignado.get(l) === b).length;
+  const total = new Map(); for (const l of M.locsAmerica) total.set(asignado.get(l), (total.get(asignado.get(l)) || 0) + 1);
+  const cambia = (l, b) => { const v = asignado.get(l); total.set(v, total.get(v) - 1); total.set(b, (total.get(b) || 0) + 1); asignado.set(l, b); };
+  const nJ = [...J.plant.values()].filter((p) => p.bien).length;
+  const parteJ = new Map(); for (const p of J.plant.values()) if (p.bien) parteJ.set(p.bien, (parteJ.get(p.bien) || 0) + 1 / nJ);
+  const topeNM = (b) => Math.round(M.locsAmerica.length * Math.min(TOPE_BIEN, Math.max(0.01, 2 * (parteJ.get(b) || 0))));
+  const siguiente = (l, fuera) => [...P.get(l)].filter(([b, p]) => p > 0 && !fuera.has(b) && (total.get(b) || 0) < topeNM(b) && mancha(l, b) <= MAX_JUNTAS)
+    .sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]))[0]?.[0];
+  const garantias = { metidos: 0, enAreas: 0, recortados: 0 };
+  for (const [, ls] of [...porRegion].sort(([a], [b]) => a.localeCompare(b))) {
+    for (const b of [...METALES, ...PRECIOSOS]) {
+      let falta = minimoEn(b, ls.length) - cuentaDe(ls, b);
+      const cands = ls.filter((l) => !protegidos.has(asignado.get(l))).map((l) => [l, (P.get(l).get(b) || 0) * relieve(l)]).sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]));
+      for (const [l] of cands) { if (falta <= 0) break; if (mancha(l, b) > MAX_JUNTAS) continue; cambia(l, b); falta--; garantias.metidos++; }
+    }
+  }
+  for (const a of ordenAreas) {
+    const ls = areas.get(a);
+    if (ls.some((l) => METALES.includes(asignado.get(l)))) continue;
+    const c = ls.filter((l) => ['mountains', 'hills'].includes(M.plant.get(l).topo) && !protegidos.has(asignado.get(l)))
+      .flatMap((l) => METALES.map((b) => [l, b, (P.get(l).get(b) || 0) * relieve(l)])).sort((x, y) => y[2] - x[2] || x[0].localeCompare(y[0]) || x[1].localeCompare(y[1]))
+      .find(([l, b]) => mancha(l, b) <= MAX_JUNTAS);
+    if (c) { cambia(c[0], c[1]); garantias.enAreas++; }
+  }
+  for (const b of [...METALES, ...PRECIOSOS]) {
+    const tope = Math.ceil(TOPE_REGION * (total.get(b) || 0));
+    for (const [, ls] of [...porRegion].sort(([a], [x]) => a.localeCompare(x))) {
+      const mias = ls.filter((l) => asignado.get(l) === b).sort((x, y) => (P.get(x).get(b) || 0) * relieve(x) - (P.get(y).get(b) || 0) * relieve(y) || x.localeCompare(y));
+      for (const l of mias.slice(0, Math.max(0, mias.length - Math.max(tope, minimoEn(b, ls.length))))) { const o = siguiente(l, protegidos); if (o) { cambia(l, o); garantias.recortados++; } }
+    }
+  }
+  for (const [b] of [...total].sort((x, y) => (y[1] - topeNM(y[0])) - (x[1] - topeNM(x[0])) || x[0].localeCompare(y[0]))) {
+    if (protegidos.has(b) || (total.get(b) || 0) <= topeNM(b)) continue;
+    const suyas = M.locsAmerica.filter((l) => asignado.get(l) === b).sort((x, y) => (P.get(x).get(b) || 0) - (P.get(y).get(b) || 0) || x.localeCompare(y));
+    for (const l of suyas) { if (total.get(b) <= topeNM(b)) break; const o = siguiente(l, new Set([b, ...protegidos])); if (o) { cambia(l, o); garantias.recortados++; } }
+  }
+
   // estadisticas (las manchas se miden de nuevo: el paso 4 puede haberlas partido)
   const porSub = {};
   for (const l of M.locsAmerica) { const s = M.jer.get(l).subcontinente || '?'; (porSub[s] ??= new Map()).set(asignado.get(l), (porSub[s].get(asignado.get(l)) || 0) + 1); }
@@ -219,7 +272,7 @@ export async function asignaRecursos({ juego = juegoPorDefecto(), mundo = null, 
   let maxCuota = 0; for (const a of ordenAreas) { const ls = areas.get(a); if (ls.length < 3) continue; const n = ls.filter((l) => asignado.get(l) === dominante.get(a)).length; maxCuota = Math.max(maxCuota, n / ls.length); }
   const identidades = {}; for (const id of identidad.values()) identidades[id] = (identidades[id] || 0) + 1;
   const cambian = M.locsAmerica.filter((l) => asignado.get(l) !== M.plant.get(l).bien);
-  return { M, bienes, sinRegla, rellenos, asignado, identidad, dominante, faccionArea, porSub, maxJuntas, maxCuota, identidades, cambian, areas };
+  return { M, bienes, sinRegla, rellenos, garantias, asignado, identidad, dominante, faccionArea, porSub, maxJuntas, maxCuota, identidades, cambian, areas };
 }
 
 export function textoEfectos(r) {

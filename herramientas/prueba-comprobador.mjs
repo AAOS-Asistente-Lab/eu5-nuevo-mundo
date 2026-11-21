@@ -42,7 +42,7 @@ const mutantes = [
   ['sin BOM', () => { const r = ficheros('main_menu/localization/spanish', ES)[0]; escribe(r, lee(r).replace(/^\uFEFF/, '')); return 'falta el BOM'; }],
   ['texto que falta en ingles', () => { const { r, m } = busca('main_menu/localization/english', /^ ([A-Za-z0-9_.]+):\d* "[^\n]*\n/m, EN); cambia(r, m[0], ''); return `'${m[1]}'`; }],
   ['cultura inexistente', () => { const { r, m } = busca('in_game', /culture:(gj_[a-z0-9_]+)/); cambia(r, m[0], m[0] + 'zz'); return `culture:${m[1]}zz no existe`; }],
-  ['effect directo en un gancho', () => { cambia(ON, 'on_game_start = {\n', 'on_game_start = {\n\teffect = { }\n'); return 'solo se admite on_actions'; }],
+  ['effect directo en un gancho', () => { cambia(ON, 'on_game_started_after_lobby = {\n', 'on_game_started_after_lobby = {\n\teffect = { }\n'); return 'solo se admite on_actions'; }],
   ['ruta privada', () => { escribe(IDENT, '﻿# /Users/alguien/gj\n' + lee(IDENT).replace(/^\uFEFF/, '')); return 'privacidad'; }],
   ['carpeta mal escrita', () => { fs.renameSync(ab('in_game/common/religion_groups'), ab('in_game/common/religon_groups')); return "la carpeta 'in_game/common/religon_groups'"; }],
   ['evento fuera del namespace', () => {

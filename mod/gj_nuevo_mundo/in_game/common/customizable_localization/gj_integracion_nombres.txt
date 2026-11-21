@@ -1,0 +1,7 @@
+﻿# GJ Nuevo Mundo, integracion: nombre propio de las facciones. GENERADO por funde-partes.mjs.
+INJECT:country_name_construction = {
+	text = {
+		localization_key = country_name_construction_name
+		trigger = { has_variable = gj_nombre_propio }
+	}
+}
