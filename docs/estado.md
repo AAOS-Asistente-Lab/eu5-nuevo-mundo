@@ -15,7 +15,7 @@
 - **Las herramientas funcionan en un clon limpio:** faltaba `mapa/png.mjs` en el repo; ahora es `herramientas/png.mjs`.
 
 ## El reparto de tierra
-Un efecto de `on_game_start` (`gj_reparte_tierra`) deja el mapa repartido antes de elegir país (la pantalla de selección ya lo enseña). Lo calcula `herramientas/reparte-tierra.mjs`. Regla de Javier (21-11): **un país no puede estar partido en trozos sueltos por el continente.**
+El arranque va en dos tiempos. En `on_game_start` (`gj_integracion_arranque`) entran los bienes y el nombre y el color de cada facción, y la pantalla de selección ya los enseña; las ciudades y los pueblos van en la copia de `main_menu/setup/1337/07_cities_and_buildings.txt`, con su `town_setup`. Después del lobby (`gj_integracion_inicio`, una sola vez por partida) entran la tierra (`gj_reparte_tierra`) y la cultura y la fe: antes no hay pops del setup, y la tierra cambiada se quedaría con pops de otro dueño (error.log, `country_manager.cpp:375`). Lo calcula `herramientas/reparte-tierra.mjs`. Regla de los jugadores (21-11): **un país no puede estar partido en trozos sueltos por el continente.**
 
 1. **Cada país se queda solo con su núcleo.** La facción, su trozo con más tierra en su zona del dibujo; los demás, el trozo de su capital.
 2. **Los 15 menores con nombre crecen primero**, alrededor de su capital, hasta una talla de 22 a 40 localizaciones (`TALLA_MENOR`). El que no tiene tierra en su zona del dibujo, o está encerrado, se muda a ella: empieza en la tierra libre de su zona (6 de los 15). No toman tierra de la zona de una facción que no sea su vecina, y ninguna facción les quita la suya.

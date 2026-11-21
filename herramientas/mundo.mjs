@@ -188,6 +188,64 @@ async function leeLocalizaciones(dir, juego) {
   } };
 }
 
+// Filas de un PNG de 8 bits sin entrelazar (RGB, RGBA o con paleta), ya sin filtro: alFila(fila, y).
+async function filasDePng(fichero, alFila) {
+  const buf = fs.readFileSync(fichero);
+  const w = buf.readUInt32BE(16), h = buf.readUInt32BE(20), prof = buf[24], tipo = buf[25];
+  if (prof !== 8 || ![2, 3, 6].includes(tipo) || buf[28]) throw new Error(`${fichero}: formato PNG no previsto`);
+  const bpp = tipo === 6 ? 4 : tipo === 2 ? 3 : 1, ancho = w * bpp, idat = [];
+  for (let o = 8; o < buf.length;) { const n = buf.readUInt32BE(o); if (buf.toString('ascii', o + 4, o + 8) === 'IDAT') idat.push(buf.subarray(o + 8, o + 8 + n)); o += 12 + n; }
+  let prev = Buffer.alloc(ancho), cur = Buffer.alloc(ancho), fila = 0, pos = -1, filtro = 0;
+  await pipeline(Readable.from(idat), zlib.createInflate(), new Writable({
+    write(trozo, _, listo) {
+      for (let k = 0; k < trozo.length; k++) {
+        if (pos < 0) { filtro = trozo[k]; pos = 0; continue; }
+        cur[pos++] = trozo[k];
+        if (pos === ancho) {
+          for (let i = 0; i < ancho; i++) {
+            const a = i >= bpp ? cur[i - bpp] : 0, b = prev[i], c = i >= bpp ? prev[i - bpp] : 0;
+            let x = cur[i];
+            if (filtro === 1) x += a; else if (filtro === 2) x += b; else if (filtro === 3) x += (a + b) >> 1;
+            else if (filtro === 4) { const p = a + b - c, pa = Math.abs(p - a), pb = Math.abs(p - b), pc = Math.abs(p - c); x += pa <= pb && pa <= pc ? a : pb <= pc ? b : c; }
+            cur[i] = x & 255;
+          }
+          alFila(cur, fila++); [prev, cur] = [cur, prev]; pos = -1;
+        }
+      }
+      listo();
+    },
+  }));
+  return { w, h };
+}
+
+// Rios de cada localizacion (map_data/rivers.png, del mismo tamano que locations.png): los
+// indices 3-11 de la paleta son rio, de mas estrecho a mas ancho (0-2: nacimiento, union y
+// division; 254-255: nada). Map(loc -> [pixeles de rio, indice de anchura maximo]), en cache.
+export async function rios(dir, juego = juegoPorDefecto()) {
+  const fR = enMundo(dir, juego, 'in_game', 'map_data', 'rivers.png'), fL = enMundo(dir, juego, 'in_game', 'map_data', 'locations.png');
+  if (!fR || !fL) return new Map();
+  const st = [fR, fL].map((f) => fs.statSync(f));
+  const huella = crypto.createHash('sha256').update(`${path.resolve(fR)}|${st[0].size}|${st[0].mtimeMs}|${st[1].size}|${st[1].mtimeMs}`).digest('hex').slice(0, 16);
+  const cR = path.join(AQUI, 'cache', `rios-${huella}.json`);
+  if (!fs.existsSync(cR)) {
+    let riv = null, wR = 0;
+    await filasDePng(fR, (f, y) => { if (!riv) { wR = f.length; riv = new Uint8Array(f.length * 8192); } if ((y + 1) * wR > riv.length) { const n = new Uint8Array(riv.length * 2); n.set(riv); riv = n; } riv.set(f, y * wR); });
+    const acc = new Map(); // color -> [pixeles, ancho maximo]
+    await filasDePng(fL, (f, y) => {
+      for (let x = 0, o = y * wR; x < wR; x++) {
+        const r = riv[o + x]; if (r < 3 || r > 11) continue;
+        const col = (f[x * 3] << 16) | (f[x * 3 + 1] << 8) | f[x * 3 + 2];
+        const a = acc.get(col); if (a) { a[0]++; if (r > a[1]) a[1] = r; } else acc.set(col, [1, r]);
+      }
+    });
+    const porColor = coloresDeLocalizaciones(dir, juego), out = {};
+    for (const [c, a] of acc) { const l = porColor.get(c); if (l) out[l] = a; }
+    fs.mkdirSync(path.dirname(cR), { recursive: true });
+    fs.writeFileSync(cR, JSON.stringify(out));
+  }
+  return new Map(Object.entries(JSON.parse(fs.readFileSync(cR, 'utf8'))));
+}
+
 // Centro de cada localizacion en pixeles de locations.png: Map(loc -> [x, y, pixeles]).
 // El tamano del mapa va en la clave _tamano.
 export async function centros(dir, juego = juegoPorDefecto()) {

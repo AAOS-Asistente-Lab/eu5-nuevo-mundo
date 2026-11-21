@@ -31,7 +31,7 @@ import { fileURLToPath } from 'node:url';
 import { juegoPorDefecto } from './pdx.mjs';
 import { analizaFichero, leeTexto, esBloque, hijo, valoresSueltos, escribeConBom, listaFicheros } from './pdx.mjs';
 import { asignaRecursos, informeRecursos } from './asigna-recursos.mjs';
-import { cargaMundo, vecinos, centros } from './mundo.mjs';
+import { cargaMundo, vecinos, centros, rios } from './mundo.mjs';
 import { mezclaVegetacion, textoVegetacion, tablaDelJuego } from './mezcla-vegetacion.mjs';
 import { reparteTierra, textoTierra, TALLA_MENOR } from './reparte-tierra.mjs';
 import { rangosIniciales, PUEBLO_CADA } from './rangos.mjs';
@@ -326,7 +326,8 @@ const subzonas = Object.entries(zonas).filter(([, d]) => d.ambito === 'localizac
   .filter((s) => s.locs.length >= 20); // las ruinas y las vetas (1-5 localizaciones) no cuentan
 const fPuertos = conMapa ? enMundo('in_game', 'map_data', 'ports.csv') : null;
 const puertos = new Set(fPuertos ? leeTexto(fPuertos).texto.split(/\r?\n/).slice(1).map((x) => x.split(';')[0]).filter(Boolean) : []);
-const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, puntua: conMapa ? puntuaCapital({ plant: mundoM.plant, costa: mundoM.costa, puertos, vec: vecM, poblacion: poblacionM }) : null, plant: mundoM?.plant || new Map(), menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
+const rioM = conMapa ? await rios(MUNDO, JUEGO) : new Map();
+const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, provincia: new Map([...jer].map(([l, j]) => [l, j.provincia])), puntua: conMapa ? puntuaCapital({ plant: mundoM.plant, costa: mundoM.costa, puertos, vec: vecM, poblacion: poblacionM, rio: rioM }) : null, plant: mundoM?.plant || new Map(), rio: rioM, menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
 
 // ---------------------------------------------------------------- vegetacion mezclada
 // Ciudades de las facciones: sus capitales.
@@ -438,6 +439,29 @@ if (vegR?.cambia.size && fu.status === 0) {
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.writeFileSync(dest, nuevo, 'utf8');
   console.log(`Vegetacion: ${n} localizaciones cambiadas en in_game/map_data/location_templates.txt (copia del del mundo).`);
+}
+// Las ciudades y los pueblos van en una copia del 07_cities_and_buildings.txt del mundo, con el
+// town_setup de la localizacion con rango de RNW mas cercana (del mismo rango si la hay): asi el
+// juego pone sus edificios al empezar y la pantalla de eleccion ya los ensena. Un
+// change_location_rank en un gancho cambia el rango, pero no trae los edificios del setup.
+if (rangosR && Object.keys(rangosR.rangos).length && fu.status === 0) {
+  const f7 = enMundo('main_menu', 'setup', '1337', '07_cities_and_buildings.txt') || muere('no encuentro 07_cities_and_buildings.txt');
+  const t7 = fs.readFileSync(f7, 'utf8');
+  const cen7 = await centros(MUNDO, JUEGO);
+  const fin = t7.search(/^\}/m); // cierre del bloque locations={
+  const conSetup = [...t7.slice(0, fin).matchAll(/^\s*([A-Za-z0-9_\-.]+)\s*=\s*\{[^}\n]*?\brank\s*=\s*([a-z_]+)[^}\n]*?\btown_setup\s*=\s*([A-Za-z0-9_]+)/gm)]
+    .map((x) => ({ l: x[1], r: x[2], s: x[3] })).filter((x) => cen7.has(x.l) && jer.get(x.l)?.continente === 'america');
+  const xyDe = (l) => { const c = cen7.get(l); return Array.isArray(c) ? c : [c.x, c.y]; };
+  const setupDe = (l, r) => {
+    const [x, y] = xyDe(l), d = (o) => { const [a, b] = xyDe(o.l); return (a - x) ** 2 + (b - y) ** 2; };
+    const lista = conSetup.filter((o) => o.r === r).length ? conSetup.filter((o) => o.r === r) : conSetup;
+    return lista.length ? lista.reduce((m, o) => (d(o) < d(m) ? o : m)).s : null;
+  };
+  const lineas = Object.entries(rangosR.rangos).filter(([l]) => cen7.has(l)).map(([l, r]) => { const s = setupDe(l, r); return `\t${l} = { rank = ${r}${s ? ` town_setup = ${s}` : ''} }`; });
+  const dest = path.join(obraMod, 'main_menu', 'setup', '1337', '07_cities_and_buildings.txt');
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.writeFileSync(dest, t7.slice(0, fin) + `\n\t# GJ Nuevo Mundo (asigna-facciones.mjs): ${lineas.length} ciudades y pueblos de la tierra repartida\n${lineas.join('\n')}\n` + t7.slice(fin), 'utf8');
+  console.log(`Rangos: ${lineas.length} localizaciones en main_menu/setup/1337/07_cities_and_buildings.txt (copia del del mundo).`);
 }
 if (fu.status !== 0) muere('funde-partes ha fallado: no sigo');
 const rutaMeta = path.join(obraMod, '.metadata', 'metadata.json');

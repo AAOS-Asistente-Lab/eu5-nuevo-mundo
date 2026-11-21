@@ -134,12 +134,12 @@ const RESERVADAS_AVANCE = S(C.clavesAvanceNoModificador);
 
 // ---------------------------------------------------------------- ficheros del mod
 // Ficheros del mundo que la copia vinculada reescribe a proposito (asigna-facciones.mjs: la
-// vegetacion mezclada). No son scripts nuestros: solo se mira que el mundo traiga el mismo fichero.
-const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt'];
+// vegetacion mezclada y los rangos). No son scripts nuestros: solo se mira que el mundo traiga el mismo fichero.
+const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'main_menu/setup/1337/07_cities_and_buildings.txt'];
 const todos = listaFicheros(MOD).filter((f) => {
   const r = rel(f);
   if (!COPIAS_MUNDO.includes(r)) return true;
-  if (MUNDO && fs.existsSync(path.join(MUNDO, r))) aviso(r, 0, 'sustituye al del mundo a proposito (vegetacion mezclada)');
+  if (MUNDO && fs.existsSync(path.join(MUNDO, r))) aviso(r, 0, 'sustituye al del mundo a proposito (vegetacion o rangos)');
   else err(r, 0, 'es la copia de un fichero del mundo, pero el mundo no lo trae');
   return false;
 });

@@ -25,7 +25,12 @@ const AQUI = path.dirname(fileURLToPath(import.meta.url));
 export const TOPE_DOMINANTE = 0.55;
 export const MAX_JUNTAS = 4;
 export const MIN_POR_CONTINENTE = 4;
-export const TOPE_REGION = 0.25; // ninguna region con mas de esta parte de un metal o un precioso
+export const TOPE_REGION = 0.25; // ninguna region con mas de esta parte de un bien
+// Los unicos que se libran del tope por region: atados al clima. En el Viejo Mundo del juego base
+// tambien se concentran asi (mayor cuota de una region: clavo 95 %, pimienta 45 %, elefantes 37 %,
+// te 35 %, marfil 31 %).
+export const ATADOS_AL_CLIMA = ['cloves', 'pepper', 'elephants', 'tea', 'ivory'];
+export const HOLGURA_TOPE = 1.15; // al recortar por region, el bien que entra puede pasar su tope del Nuevo Mundo hasta un 15 %
 export const TOPE_BIEN = 0.08;   // ningun bien por encima de esta parte del Nuevo Mundo
 export const EXP_PRIOR = Number(process.env.GJ_EXP_PRIOR || 0.6);
 
@@ -233,7 +238,7 @@ export async function asignaRecursos({ juego = juegoPorDefecto(), mundo = null, 
   const nJ = [...J.plant.values()].filter((p) => p.bien).length;
   const parteJ = new Map(); for (const p of J.plant.values()) if (p.bien) parteJ.set(p.bien, (parteJ.get(p.bien) || 0) + 1 / nJ);
   const topeNM = (b) => Math.round(M.locsAmerica.length * Math.min(TOPE_BIEN, Math.max(0.01, 2 * (parteJ.get(b) || 0))));
-  const siguiente = (l, fuera) => [...P.get(l)].filter(([b, p]) => p > 0 && !fuera.has(b) && (total.get(b) || 0) < topeNM(b) && mancha(l, b) <= MAX_JUNTAS)
+  const siguiente = (l, fuera, holgura = 1) => [...P.get(l)].filter(([b, p]) => p > 0 && !fuera.has(b) && (total.get(b) || 0) < holgura * topeNM(b) && mancha(l, b) <= MAX_JUNTAS)
     .sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]))[0]?.[0];
   const garantias = { metidos: 0, enAreas: 0, recortados: 0 };
   for (const [, ls] of [...porRegion].sort(([a], [b]) => a.localeCompare(b))) {
@@ -264,6 +269,16 @@ export async function asignaRecursos({ juego = juegoPorDefecto(), mundo = null, 
     for (const l of suyas) { if (total.get(b) <= topeNM(b)) break; const o = siguiente(l, new Set([b, ...protegidos])); if (o) { cambia(l, o); garantias.recortados++; } }
   }
 
+  // el mismo tope por region para los demas bienes, salvo los atados al clima (ATADOS_AL_CLIMA);
+  // dos vueltas, porque el bien que entra en lugar de otro puede pasarse a su vez
+  for (let vuelta = 0; vuelta < 2; vuelta++) for (const b of [...total.keys()].sort()) {
+    if (protegidos.has(b) || ATADOS_AL_CLIMA.includes(b)) continue;
+    const tope = Math.ceil(TOPE_REGION * (total.get(b) || 0));
+    for (const [, ls] of [...porRegion].sort(([a], [x]) => a.localeCompare(x))) {
+      const mias = ls.filter((l) => asignado.get(l) === b).sort((x, y) => (P.get(x).get(b) || 0) - (P.get(y).get(b) || 0) || x.localeCompare(y));
+      for (const l of mias.slice(0, Math.max(0, mias.length - tope))) { const o = siguiente(l, new Set([b, ...protegidos]), HOLGURA_TOPE); if (o) { cambia(l, o); garantias.recortados++; } }
+    }
+  }
   // estadisticas (las manchas se miden de nuevo: el paso 4 puede haberlas partido)
   const porSub = {};
   for (const l of M.locsAmerica) { const s = M.jer.get(l).subcontinente || '?'; (porSub[s] ??= new Map()).set(asignado.get(l), (porSub[s].get(asignado.get(l)) || 0) + 1); }

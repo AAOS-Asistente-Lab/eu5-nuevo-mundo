@@ -17,10 +17,25 @@
 //      la que nadie alcanza.
 // Todo sale en listas ordenadas y sin azar: el mismo mundo y el mismo dibujo dan los mismos bytes.
 
-import { esMala } from './capitales.mjs';
+import { esMala, RIO_ANCHO } from './capitales.mjs';
 export const FRACCION_FACCION = 0.25; // parte de su zona que tiene cada faccion al empezar
 export const FACCION_MINIMO = 30;     // ninguna faccion empieza con menos en su zona
-export const MAX_PASILLO = 3;       // pasos de pasillo como mucho hasta una sub-zona; si no, enclave
+// pasos de pasillo como mucho hasta una sub-zona; si no, enclave. Sin tope: un pais no puede quedar
+// partido en trozos sueltos por el continente (regla de los jugadores, comprueba-trozos.mjs)
+export const MAX_PASILLO = Infinity;
+// Crecimiento con fronteras naturales: cada paso cuesta segun el terreno (montaña, pantano y
+// desierto hacen de frontera), con un ruido de semilla fija; las provincias empezadas se acaban
+// antes de abrir otras. PESO_PUNTO tira hacia el punto de crecimiento para que salga compacto.
+export const COSTE_TOPO = { flatland: 1, plateau: 1.3, hills: 1.7, mountains: 4, wetlands: 3 };
+export const COSTE_VEG = { desert: 2.5, jungle: 1.6, forest: 1.2 };
+export const RUIDO = 0.8;
+export const PESO_PUNTO = 1.0;
+export const SEMILLA = 'gj-nuevo-mundo';
+export const RECARGO_OCUPADA = 4;
+export const BONO_PROVINCIA = 1.5;
+export const COSTE_RIO_ANCHO = 1.5; // entrar en una localizacion con rio ancho (rivers.png): el rio hace de frontera
+export const ESTIRA = 1.3;           // cada pais crece en una elipse (ejes 1,3:1, angulo de su tag): ni circulo perfecto ni tira
+export const ANCHO_PASILLO = 1;      // vecinos que se suman a cada lado del pasillo a una sub-zona: cuello de 3, no de 1
 export const MINIMO_SUBZONA = 8;      // localizaciones de la faccion en cada sub-zona de su zona
 // [parte de los paises, talla minima, talla maxima]
 export const TALLAS = [[0.45, 8, 18], [0.40, 20, 50], [0.15, 55, 110]];
@@ -51,7 +66,7 @@ export function trozosDe(locs, vec) {
   return r;
 }
 
-export function reparteTierra({ liga, vec, paises, asignados, facciones, subzonas = [], menores = [], poblacion = new Map(), minimoSubzona = MINIMO_SUBZONA, maxPasillo = MAX_PASILLO, puntua = null, plant = new Map(), fraccionFaccion = FRACCION_FACCION, faccionMinimo = FACCION_MINIMO, tallas = TALLAS, tallaMenor = TALLA_MENOR, conDueno = CON_DUENO, estironMaximo = ESTIRON_MAXIMO }) {
+export function reparteTierra({ liga, vec, paises, asignados, facciones, subzonas = [], menores = [], poblacion = new Map(), minimoSubzona = MINIMO_SUBZONA, maxPasillo = MAX_PASILLO, puntua = null, plant = new Map(), provincia = new Map(), costeTopo = COSTE_TOPO, costeVeg = COSTE_VEG, ruido = RUIDO, pesoPunto = PESO_PUNTO, semilla = SEMILLA, recargoOcupada = RECARGO_OCUPADA, bonoProvincia = BONO_PROVINCIA, rio = new Map(), costeRioAncho = COSTE_RIO_ANCHO, estira = ESTIRA, anchoPasillo = ANCHO_PASILLO, fraccionFaccion = FRACCION_FACCION, faccionMinimo = FACCION_MINIMO, tallas = TALLAS, tallaMenor = TALLA_MENOR, conDueno = CON_DUENO, estironMaximo = ESTIRON_MAXIMO }) {
   const tierra = [...liga.tierra].sort();
   const esTierra = new Set(tierra);
   const zonaId = (l) => liga.zonaDe.get(l)?.id;
@@ -83,20 +98,35 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
   const porTag = [...paises].sort((a, b) => a.tag.localeCompare(b.tag));
   for (const p of porTag) if (zonaDeTag.has(p.tag)) dejaNucleo(p);
 
-  // crecimiento compacto: de la tierra libre que toca la del pais, la mas cerca de un punto
+  // crecimiento con fronteras naturales: de la tierra libre que toca la del pais, la de menor
+  // coste = coste de terreno acumulado desde su tierra + PESO_PUNTO x pasos hasta el punto
+  const pasoMedio = (() => { const ds = []; for (const l of tierra.slice(0, 4000)) for (const v of vec.get(l) || []) if (liga.xy.has(v)) { const [a, b] = liga.xy.get(l), [c, e] = liga.xy.get(v); ds.push(Math.hypot(a - c, b - e)); } ds.sort((x, y) => x - y); return ds[ds.length >> 1] || 1; })();
+  const paso = (l) => { const p = plant.get(l) || {}; const pr = provincia.get(l); return (costeTopo[p.topo] ?? 1) * (costeVeg[p.veg] ?? 1) * (1 + ruido * (2 * fraccion(`${semilla}:${l}`) - 1)) * (pr ? 1 + ruido * (2 * fraccion(`${semilla}:p:${pr}`) - 1) : 1) * (rio.get(l)?.[0] >= 8 && rio.get(l)[1] >= RIO_ANCHO ? costeRioAncho : 1); };
   const crecedor = (tag, punto, libre, antesLibre = true) => {
-    const dist = distA(punto);
-    const borde = new Map(); // libre que toca -> distancia
-    const mira = (l) => { for (const v of [...(vec.get(l) || [])].sort()) if (esTierra.has(v) && !borde.has(v) && libre(v)) borde.set(v, dist(v)); };
+    // distancia al punto en una elipse de ejes estira:1, girada un angulo que sale de su tag
+    const th = 2 * Math.PI * fraccion(`${semilla}:angulo:${tag}`), co = Math.cos(th), si = Math.sin(th), k = Math.sqrt(estira);
+    const dist = (l) => { const [x, y] = liga.xy.get(l), dx = x - punto[0], dy = y - punto[1]; return Math.hypot((dx * co + dy * si) / k, (dy * co - dx * si) * k); };
+    const g = new Map(); // coste acumulado desde la tierra del pais
+    const borde = new Map(); // libre que toca -> coste
+    const empezadas = new Set(); // provincias donde ya tiene tierra
+    const prio = (v) => g.get(v) + pesoPunto * dist(v) / pasoMedio;
+    const mira = (l) => {
+      if (provincia.has(l)) empezadas.add(provincia.get(l));
+      const gl = g.get(l) ?? 0;
+      for (const v of [...(vec.get(l) || [])].sort()) if (esTierra.has(v) && libre(v)) { const nv = gl + paso(v); if (!g.has(v) || nv < g.get(v)) { g.set(v, nv); borde.set(v, prio(v)); } }
+    };
     for (const l of tierra) if (dueno.get(l) === tag) mira(l);
     return {
-      siembra: (l) => { borde.set(l, dist(l)); },
+      siembra: (l) => { g.set(l, 0); borde.set(l, prio(l)); },
       toma: () => {
-        let mejor = null, dm = Infinity, ocupada = true;
-        for (const [l, d] of borde) {
+        let mejor = null, dm = Infinity;
+        for (const [l, d0] of borde) {
           if (!libre(l)) { borde.delete(l); continue; }
-          const o = antesLibre && dueno.has(l); // antes la tierra sin dueno que la de otro pais
-          if ((ocupada && !o) || (o === ocupada && (d < dm || (d === dm && l < mejor)))) { mejor = l; dm = d; ocupada = o; }
+          // la tierra de otro pais cuesta RECARGO_OCUPADA pasos mas (con prioridad estricta, la
+          // faccion rodeaba a los estados de RNW y salia en forma de C); la que acaba una provincia
+          // empezada, BONO_PROVINCIA menos
+          const d = d0 + (antesLibre && dueno.has(l) ? recargoOcupada : 0) - (empezadas.has(provincia.get(l)) ? bonoProvincia : 0);
+          if (mejor === null || d < dm || (d === dm && l < mejor)) { mejor = l; dm = d; }
         }
         if (mejor === null) return false;
         borde.delete(mejor); dueno.set(mejor, tag); mira(mejor);
@@ -145,6 +175,13 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
   // capitales pegadas en la misma zona) se le muda ahora, con la tierra ya repartida
   for (const m of porOrden) if (cuantas(m.tag) < tallaMenor[0]) muda(m);
   creceMenores();
+  // tercera vuelta: el que sigue por debajo de su talla minima (sin tierra libre alrededor) toma
+  // tierra de un estado de RNW, nunca su capital, con el recargo de la tierra ocupada
+  const deEstado = (l) => dueno.has(l) && !zonaDeTag.has(dueno.get(l)) && !esMenor.has(dueno.get(l)) && !capitales.has(l);
+  for (const p of porTag) if (esMenor.has(p.tag) && puntoDe(p) && cuantas(p.tag) < tallaMenor[0]) {
+    const c = crecedor(p.tag, puntoDe(p), (l) => (!dueno.has(l) || deEstado(l)) && (!duenoZona.has(zonaId(l)) || zonasDelMenor.get(p.tag).has(zonaId(l))));
+    for (let n = cuantas(p.tag); n < tallaMenor[0] && c.toma(); n++);
+  }
 
   // 3. facciones: dentro de su zona, alrededor de su capital
   const capitalElegida = new Map();
@@ -217,7 +254,15 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
       // pasillo solo si es corto (MAX_PASILLO pasos): si no, un enclave compacto en la sub-zona,
       // sembrado en su localizacion tomable mas cerca de su centro (las tiras largas, fuera)
       const camino = []; for (let l = fin; l && de.get(l) !== null; l = de.get(l)) camino.push(l);
-      if (fin && camino.length <= maxPasillo + 1) for (const l of camino) dueno.set(l, d.tag);
+      if (fin && camino.length <= maxPasillo + 1) {
+        for (const l of camino) dueno.set(l, d.tag);
+        // el pasillo se ensancha anchoPasillo vecinos a cada lado (nunca capitales ajenas)
+        for (let a = 0, borde = [...camino]; a < anchoPasillo; a++) {
+          const nuevos = [];
+          for (const l of borde) for (const v of vec.get(l) || []) if (pasable(v) && dueno.get(v) !== d.tag && !capitales.has(v)) { dueno.set(v, d.tag); nuevos.push(v); }
+          borde = nuevos;
+        }
+      }
       else {
         const dp = distA(punto);
         const s = ls.filter((l) => tomable(l)).sort((a, b) => dp(a) - dp(b) || a.localeCompare(b))[0];
@@ -267,6 +312,14 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
       }
     }
     if (dueno.size >= metaDueno) break;
+  }
+
+  // 4b. huecos: la tierra libre que solo toca tierra de un mismo pais (el coste de la montaña la
+  // saltaba y quedaba un agujero dentro) pasa a ese pais; dos vueltas, para los huecos de dos
+  for (let vuelta = 0; vuelta < 2; vuelta++) for (const l of tierra) {
+    if (dueno.has(l)) continue;
+    const ts = new Set([...(vec.get(l) || [])].filter((v) => esTierra.has(v)).map((v) => dueno.get(v)));
+    if (ts.size === 1 && [...ts][0]) dueno.set(l, [...ts][0]);
   }
 
   // 5. lo que cambia de manos, lo que se abandona y las capitales

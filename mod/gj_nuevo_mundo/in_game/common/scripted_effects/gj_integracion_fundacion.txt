@@ -1,11 +1,21 @@
 ﻿# GJ Nuevo Mundo, integracion: convierte un pais generado por RNW en una faccion (scope: pais).
 # Pasa a la cultura y la fe de la faccion los pops y los personajes que tenian la cultura o la
 # religion de partida del pais, y todos los de la tierra que gana al empezar (gj_tierra_nueva).
-gj_fundar_faccion = {
+#
+# En dos tiempos. gj_bautizar_faccion va en on_game_start, para que la pantalla de eleccion ya
+# ensene el nombre y el color. gj_fundar_faccion va despues del lobby, cuando ya hay pops y
+# personajes del setup: si la cultura del pais cambia antes, el juego avisa de que no tiene
+# pops de su cultura (error.log, initialize_from_bookmark.cpp:232).
+gj_bautizar_faccion = {
 	set_variable = gj_faccion_$clave$
 	# el nombre ya es el titulo entero: sin el rango delante (gj_integracion_nombres.txt)
 	set_variable = gj_nombre_propio
+	change_country_name = $nombre$
+	change_country_adjective = $nombre$_ADJ
+	change_country_color = $color$
+}
 
+gj_fundar_faccion = {
 	culture = { save_scope_as = gj_cultura_vieja }
 	religion = { save_scope_as = gj_religion_vieja }
 
@@ -47,7 +57,4 @@ gj_fundar_faccion = {
 
 	change_culture = culture:$cultura$
 	change_religion = religion:$religion$
-	change_country_name = $nombre$
-	change_country_adjective = $nombre$_ADJ
-	change_country_color = $color$
 }
