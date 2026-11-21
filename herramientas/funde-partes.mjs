@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BOM, escribeConBom, leeTexto, listaFicheros, analizaFichero, esBloque, juegoPorDefecto } from './pdx.mjs';
+import { cargaEstilos, ficherosCulturas, lugares, tablaGrupos } from './nombres.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const RAIZ = path.join(AQUI, '..');
@@ -141,6 +142,16 @@ for (const p of partes) {
     } else fs.copyFileSync(f, destino);
     resumen[p].ficheros++;
   }
+}
+
+// ---------------------------------------------------------------- 2a. grupos nuevos (nombres.mjs)
+// Los grupos, culturas y lenguas de los paises de relleno salen del silabario de estilos-nombres.json;
+// sus nombres de persona pasan a claves gj_n_* en 2b como los de las partes.
+const ESTILOS = cargaEstilos();
+for (const [r, t] of Object.entries(ficherosCulturas(ESTILOS))) {
+  if (origen.has(r)) { errores.push(`${origen.get(r)} trae ${r}, que genera nombres.mjs`); continue; }
+  origen.set(r, 'nombres.mjs');
+  escribeConBom(path.join(MOD, r), t);
 }
 
 // ---------------------------------------------------------------- 2b. nombres de las lenguas
@@ -397,6 +408,10 @@ gj_fundar_faccion = {
 }
 `);
 
+// Paises de relleno (vinculo.nombres, nombres.mjs): el mismo gj_fundar_faccion tras el lobby, con la
+// cultura de su grupo y la fe de la mayoria de sus pops (la de su religion_definition).
+const RELL = Object.entries(VINC.nombres?.rellenos || {}).sort(([a], [b]) => (a < b ? -1 : 1));
+const llamadaRelleno = ([tag, r]) => `\t\tevery_country = {\n\t\t\tlimit = { tag = ${tag} }\n\t\t\tgj_fundar_faccion = { cultura = ${r.cultura} religion = ${r.religion} }\n\t\t}`;
 const bautizo = (f) => `\t\tevery_country = {\n\t\t\tlimit = { gj_${f.clave}_tag_inicial = yes }\n\t\t\tgj_bautizar_faccion = { clave = ${f.clave} nombre = GJ_${f.clave.toUpperCase()} color = gj_pais_${f.clave} }\n\t\t}`;
 const llamada = (f) => `\t\tevery_country = {\n\t\t\tlimit = { gj_${f.clave}_tag_inicial = yes }\n\t\t\tgj_fundar_faccion = { cultura = ${f.cultura} religion = ${f.religion} }${f.escuela ? `\n\t\t\tset_religious_school = religious_school:${f.escuela}` : ''}${f.gobierno ? `\n\t\t\tif = {\n\t\t\t\tlimit = { NOT = { government_type = government_type:${f.gobierno} } }\n\t\t\t\tchange_government_type = government_type:${f.gobierno}\n\t\t\t}` : ''}\n\t\t}`;
 // on_actions gj_ de las partes que nadie llama: los pulsos anuales se enganchan solos al pulso
@@ -455,6 +470,7 @@ gj_integracion_inicio = {
 \t\t\tgj_reparte_tierra = yes
 \t\t\tgj_rangos_iniciales = yes
 ${[...FUND, ...MEN.filter((m) => m.tag)].map(llamada).join('\n').replace(/^/gm, '\t')}
+${RELL.length ? `\t\t\t# paises de relleno: cultura de su grupo (nombres.mjs)\n${RELL.map(llamadaRelleno).join('\n').replace(/^/gm, '\t')}` : ''}
 \t\t}
 \t}
 }
@@ -466,7 +482,9 @@ ${[...FUND, ...MEN.filter((m) => m.tag)].map(llamada).join('\n').replace(/^/gm, 
 // gj_tierra_nueva, y gj_fundar_faccion pasa todos sus pops a la cultura y la fe de la faccion; la
 // que pasa a otro pais toma aqui mismo la cultura y la fe de ese pais. Sin mundo, no hace nada.
 const TIERRA = VINC.tierra || { da: {} };
-const tagsFaccion = new Set([...Object.values(VINC.paises || {}), ...Object.values(VINC.menores || {})]); // facciones y menores con nombre: los funda gj_fundar_faccion
+const tagsFaccion = new Set([...Object.values(VINC.paises || {}), ...Object.values(VINC.menores || {}), ...RELL.map(([t]) => t)]); // facciones, menores con nombre y paises de relleno: los funda gj_fundar_faccion
+// la tierra de los paises de relleno que nadie tenia en RNW ya es suya en el setup: se marca para que gj_fundar_faccion pase todos sus pops
+const nuevasRelleno = Object.entries(TIERRA.nuevos || {}).filter(([, t]) => VINC.nombres?.rellenos?.[t]).sort(([a], [b]) => (a < b ? -1 : 1));
 const dadas = Object.entries(TIERRA.da || {}).sort(([a], [b]) => a.localeCompare(b));
 const capitales = Object.entries(TIERRA.capital || {}).sort(([a], [b]) => a.localeCompare(b));
 const sueltas = Object.entries(TIERRA.suelta || {}).sort(([a], [b]) => a.localeCompare(b));
@@ -492,6 +510,7 @@ gj_marca_tierra_nueva = {
 gj_reparte_tierra = {
 ${enSetup ? '\t# la tierra y las capitales van en el setup (copia de 10_countries): aqui, la cultura y la fe de la tierra que cambia de manos' : capOrden.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su zona o la ha perdido; pasa a ${c.a}\n${TIERRA.da[c.a] ? daLinea([c.a, TIERRA.da[c.a]]) + '\n' : ''}\tc:${t2} = { set_capital = location:${c.a} }`).join('\n')}
 ${dadas.filter(([l]) => enSetup || !capLocs.has(l)).map(daLinea).join('\n')}
+${nuevasRelleno.length ? `\t# tierra de los paises de relleno que no era de nadie: toda a la cultura de su grupo (gj_fundar_faccion)\n${nuevasRelleno.map(([l]) => `\tlocation:${l} = { gj_marca_tierra_nueva = yes }`).join('\n')}` : ''}
 ${enSetup ? '' : '\t# trozos sueltos que nadie ha tomado: quedan sin dueno, para colonizar\n'}${enSetup ? '' : sueltas.map(([l, t2]) => `\tc:${t2} = { abandon_location = location:${l} }`).join('\n')}
 }
 
@@ -543,6 +562,15 @@ const lineasLoc = (lg) => [
 ];
 for (const [lengua, lg] of [['spanish', 'es'], ['english', 'en']]) {
   escribeConBom(I(`main_menu/localization/${lengua}/gj_integracion_l_${lengua}.yml`), `l_${lengua}:\n # GENERADO por funde-partes.mjs desde facciones.json\n${lineasLoc(lg).join('\n')}\n`);
+}
+
+// Nombres de las localizaciones del Nuevo Mundo (nombres.mjs, vinculo.nombres.estiloLoc): pisan las
+// claves rnw_loc_* de RNW desde localization/<lengua>/replace/ (el motor trata aparte esa carpeta:
+// la cadena "/replace/" esta en binaries/eu5.exe). Iguales en castellano y en ingles.
+const nombresLugar = VINC.nombres?.estiloLoc ? lugares(ESTILOS, VINC.nombres.estiloLoc) : new Map();
+if (nombresLugar.size) for (const lengua of ['spanish', 'english']) {
+  escribeConBom(I(`main_menu/localization/${lengua}/replace/gj_nombres_lugares_l_${lengua}.yml`),
+    `l_${lengua}:\n # GENERADO por funde-partes.mjs (nombres.mjs): nombre inventado de cada localizacion, con el estilo de su dueno o de su zona\n${[...nombresLugar].map(([l, n]) => ` ${l}: "${n}"`).join('\n')}\n`);
 }
 
 // ingles: si una parte no trae el fichero ingles, va el castellano (mejor que la clave en bruto)
@@ -616,6 +644,12 @@ Un icono que no existe en el juego sale en blanco; se cambia por uno fijo del ju
 ${iconosCambiados.length ? `\n| Parte | Avance | Icono pedido | Categoría | Icono puesto |\n|---|---|---|---|---|\n${iconosCambiados.map((x) => `| ${x.parte} | \`${x.avance}\` | \`${x.antes}\` | ${x.categoria} | \`${x.despues}\` |`).join('\n')}\n` : '- ninguno\n'}
 ## Textos de modificadores
 - ${modsTextos} claves \`STATIC_MODIFIER_*\`/\`AUTO_MODIFIER_*\` generadas desde la clave pelada que traían las partes (\`gj_integracion_modificadores_l_*.yml\`).
+
+## Culturas y nombres inventados (nombres.mjs)
+- ${nombresLugar.size} localizaciones con nombre nuevo (\`replace/gj_nombres_lugares_l_*.yml\`)${VINC.nombres?.cuenta ? `: ${VINC.nombres.cuenta.dueno} con el estilo de su dueno, ${VINC.nombres.cuenta.zona} con el de su zona, ${VINC.nombres.cuenta.vecino} con el de la zona de un vecino` : ''}.
+- ${RELL.length} paises de relleno con cultura de grupo nuevo tras el lobby: ${RELL.map(([t, r]) => `${t} ${r.nombre} (${r.cultura}, ${r.zona})`).join(', ') || 'ninguno'}.
+
+${tablaGrupos(ESTILOS)}
 
 ## Nombres de las lenguas
 - ${nombresCambiados} nombres sin texto pasados a ${nombresGen.size} claves \`gj_n_*\` con su texto en \`gj_integracion_nombres_l_*.yml\` (como hace el juego con \`name_*\`).

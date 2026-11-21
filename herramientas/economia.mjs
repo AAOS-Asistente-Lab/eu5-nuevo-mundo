@@ -256,7 +256,8 @@ export function caminosPais({ locs, capital, vec, destinos, parte, yaTienen = ne
 // rangos: Map(loc -> rango) final del Nuevo Mundo; tribus: Map(tag -> parte que sigue tribal).
 export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rangos, vec, tribus = new Map(), m = MANDOS }) {
   const dirs = [obra, mundo, juego];
-  const leeW = (f) => fs.readFileSync(primero([mundo, juego], ...SET, f), 'utf8');
+  // la copia del montaje manda si ya existe (setup-paises.mjs ya ha movido los mercados de 03)
+  const leeW = (f) => fs.readFileSync(primero([obra, mundo, juego], ...SET, f), 'utf8');
   const escribe = (f, t) => { const d = path.join(obra, ...SET, f); fs.mkdirSync(path.dirname(d), { recursive: true }); fs.writeFileSync(d, t, 'utf8'); };
   const perfil = perfilEuropa(juego, jer, m);
   const t06 = leeW('06_pops.txt'), viejos = leePops(t06);

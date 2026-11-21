@@ -450,6 +450,8 @@ const vinculo = {
   zonas,
   tierra: tierraR ? { da: tierraR.da, suelta: tierraR.suelta, capital: tierraR.capital, rangos: rangosR?.efecto || {}, nuevos: Object.fromEntries([...enSetupNuevo].sort()), enSetup: true } : null,
   recursos: Object.fromEntries(rec.cambian.map((l) => [l, rec.asignado.get(l)])),
+  // culturas y nombres (nombres.mjs): estilo de nombre de cada localizacion y grupo, cultura, fe y nombre de cada pais de relleno
+  nombres: tierraR ? (await import('./nombres.mjs')).vinculoNombres({ liga, dueno: duenoFin, paises: paisesVinculo, menores: Object.fromEntries(Object.entries(menores).map(([k, p]) => [k, p.tag])), nuevos: tierraR.nuevos || [], fe: feM, zonaFaccion: new Map(FAC.facciones.map((f) => [facZona(f), f.clave])), vec: vecM }) : null,
 };
 const rutaVinculo = path.join(OBRA, 'vinculo.json');
 fs.writeFileSync(rutaVinculo, JSON.stringify(vinculo, null, 2) + '\n', 'utf8');
@@ -502,7 +504,7 @@ if (rangosR && Object.keys(rangosR.setup).length && fu.status === 0) {
 // edificios, la seleccion de pais ensena el reparto y los pops nacen con su dueno. Despues del
 // lobby solo cambian la cultura y la fe (gj_reparte_tierra). Los paises nuevos (reparte-tierra.mjs,
 // paso 4c) entran en la misma copia: su definicion (la cultura y la fe de la mayoria de sus pops),
-// su nombre (el de su capital, como los paises de RNW), la tecnologia del pais de RNW mas cercano
+// su nombre (del silabario de su grupo, nombres.mjs), la tecnologia del pais de RNW mas cercano
 // y un gobierno valido para cualquier cultura (setup-paises.mjs). Despues, setup-paises.mjs retira
 // los estados sin tierra y las tribus vacias (--retirados quitar|vacio), saca de las tribus la tierra
 // con dueno, da a las tribus la tierra suelta, quita las lineas de 07/12/18/20/26 que nombran a los
@@ -558,18 +560,21 @@ if (tierraR && fu.status === 0) {
   const mayoria = (m, locs) => { const c = new Map(); for (const l of locs) for (const [k, n] of m.get(l) || []) c.set(k, (c.get(k) || 0) + n); return [...c].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] || null; };
   const areasDe = (locs) => { const s = new Set(); for (const l of locs) { s.add(jer.get(l)?.area); for (const w of vecM.get(l) || []) s.add(jer.get(w)?.area); } s.delete(undefined); return [...s].sort(); };
   const color = (tag, k) => { const h = crypto.createHash('sha256').update(`gj-nuevo-${k}-${tag}`).digest(); return `rgb { ${40 + (h[0] % 176)} ${40 + (h[1] % 176)} ${40 + (h[2] % 176)} }`; };
-  const nombresDe = (lg) => { const m = new Map(); const f = enMundo('main_menu', 'localization', lg, `rnw_new_world_l_${lg}.yml`); if (f) for (const x of leeTexto(f).texto.matchAll(/^\s*(rnw_loc_\d+):\d*\s*"([^"]*)"/gm)) m.set(x[1], x[2]); return m; };
-  const nomEn = nombresDe('english');
+  // nombre, adjetivo y fe de cada pais de relleno: los de vinculo.nombres (nombres.mjs, silabario de su grupo)
+  const rell = vinculo.nombres?.rellenos || {};
   const defs = [], entradas = [], sinCultura = [];
   for (const nv of [...(tierraR.nuevos || [])].sort((a, b) => a.tag.localeCompare(b.tag))) {
     const suyas = (suyasDe.get(nv.tag) || []).sort();
     if (!suyas.includes(nv.capital)) muere(`${nv.tag}: su capital ${nv.capital} no es suya`);
-    const cultura = mayoria(culturaM, suyas), fe = mayoria(feM, suyas);
+    if (!rell[nv.tag]) muere(`${nv.tag}: sin nombre ni cultura en vinculo.nombres`);
+    // la cultura del setup sigue siendo la de la mayoria de sus pops (una cultura sin pops en la
+    // definicion da initialize_from_bookmark.cpp:232); la nueva (rell.cultura) la pone gj_fundar_faccion tras el lobby
+    const cultura = mayoria(culturaM, suyas), fe = rell[nv.tag].religion;
     if (!cultura || !fe) { sinCultura.push(nv.tag); continue; }
     const p = cercana(nv.capital);
     defs.push(`${nv.tag} = {\n\tcolor = ${color(nv.tag, 1)}\n\tcolor2 = ${color(nv.tag, 2)}\n\n\tculture_definition = ${cultura}\n\treligion_definition = ${fe}\n}\n`);
     entradas.push(`\t${nv.tag} = {\n\t\town_control_core = {\n\t\t\t${suyas.join(' ')}\n\t\t}\n\t\tcapital = ${nv.capital}\n${p.hijos.map((h) => h.lineas.join('\n')).join('\n') || `\t\tstarting_technology_level = ${SP.TECNOLOGIA_NUEVOS}`}\n${SP.GOBIERNO_NUEVOS}\n\t\tdiscovered_areas = {\n\t\t\t${areasDe(suyas).join(' ')}\n\t\t}\n\t}`);
-    nv.cultura = cultura; nv.fe = fe; nv.plantilla = p.tag; nv.nombre = nomEn.get(nv.capital) || nv.capital;
+    nv.cultura = cultura; nv.fe = fe; nv.plantilla = p.tag; nv.nombre = rell[nv.tag].nombre; nv.adj = rell[nv.tag].adj;
   }
   if (sinCultura.length) muere(`paises nuevos sin pops con cultura y fe: ${sinCultura.join(' ')}`);
   const faltan = [...suyasDe.keys()].filter((t) => !vistos.has(t) && !(tierraR.nuevos || []).some((nv) => nv.tag === t));
@@ -577,9 +582,8 @@ if (tierraR && fu.status === 0) {
   if (entradas.length) {
     escribeConBom(path.join(obraMod, 'in_game', 'setup', 'countries', 'gj_paises_nuevos.txt'), `# GJ Nuevo Mundo (asigna-facciones.mjs): paises nuevos en la tierra que nadie tenia al empezar.\n# Cultura y fe: las de la mayoria de sus pops.\n\n${defs.join('\n')}`);
     for (const lg of fs.readdirSync(path.join(obraMod, 'main_menu', 'localization')).filter((d) => fs.statSync(path.join(obraMod, 'main_menu', 'localization', d)).isDirectory()).sort()) {
-      const nom = lg === 'english' ? nomEn : nombresDe(lg);
-      const lineas = tierraR.nuevos.filter((nv) => nv.cultura).sort((a, b) => a.tag.localeCompare(b.tag)).flatMap((nv) => { const n = (nom.get(nv.capital) || nv.nombre).replace(/"/g, ''); return [` ${nv.tag}: "${n}"`, ` ${nv.tag}_ADJ: "${n}"`]; });
-      escribeConBom(path.join(obraMod, 'main_menu', 'localization', lg, `gj_paises_nuevos_l_${lg}.yml`), `l_${lg}:\n # GENERADO por asigna-facciones.mjs: el nombre de su capital\n${lineas.join('\n')}\n`);
+      const lineas = tierraR.nuevos.filter((nv) => nv.cultura).sort((a, b) => a.tag.localeCompare(b.tag)).flatMap((nv) => [` ${nv.tag}: "${nv.nombre}"`, ` ${nv.tag}_ADJ: "${nv.adj}"`]);
+      escribeConBom(path.join(obraMod, 'main_menu', 'localization', lg, `gj_paises_nuevos_l_${lg}.yml`), `l_${lg}:\n # GENERADO por asigna-facciones.mjs: nombre y adjetivo del silabario de su grupo (nombres.mjs)\n${lineas.join('\n')}\n`);
     }
   }
   const cierre = t10b.match(/\r?\n\}\r?\n\}\s*$/) || muere('10_countries.txt: no encuentro el cierre de countries = { countries = {');

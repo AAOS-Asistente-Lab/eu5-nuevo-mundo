@@ -1,0 +1,325 @@
+{
+  "_nota": "Silabarios de nombres inventados (nombres.mjs). Un nombre de lugar = inicio + 0-2 nucleos + coda (+ sufijo a veces, + prefijo a veces). Personas: inicio + nucleo + masc/fem/dinastia. 'hereda' copia el estilo padre y pisa lo que se da. Estilos: uno por faccion y por menor (clave de facciones.json, propuesta de tmp-mundo/estudio-v5/culturas-nombres.md) y uno por grupo nuevo. 'prohibido': lo que suena quechua, nahuatl o maya; ningun nombre lo lleva. 'zonas': grupo nuevo de cada zona del dibujo (mundo/zonas.json): los paises de relleno con la capital en esa zona son de ese grupo, y la tierra libre de una zona sin faccion toma su estilo.",
+  "prohibido": "tl|tz|x|hua|hue|hui|q(?!u)|'|bamba|pampa|cocha|tepe|coat|chak|ayll|uaq|yax|cuau",
+  "estilos": {
+    "ostrevar": {
+      "inicio": ["Al", "Ber", "Cas", "Fun", "Mar", "Tor", "Va", "Pa", "Os", "Ro", "Gual", "Ans", "Bel", "Dur", "Ar", "Mon", "Lo", "Ve", "Bru", "Ger"],
+      "nucleo": ["de", "ma", "re", "tal", "ver", "ga", "so", "ri", "lo", "ben"],
+      "coda": ["mar", "ero", "alto", "vado", "ar", "ena", "edo", "al", "uz", "ona", "oya", "ante"],
+      "sufijos": ["burgo", "mont", "fuente", "torre", "puente", "claro"]
+    },
+    "tarnavia": {
+      "hereda": "ostrevar",
+      "inicio": ["Tar", "Pon", "Cien", "Va", "Ar", "Bal", "Cor", "Es", "Fo"],
+      "coda": ["ar", "el", "arel", "ena", "avia", "ado"],
+      "sufijos": ["puentes", "pontar", "vado"]
+    },
+    "marisma_gris": {
+      "inicio": ["Ag", "Bru", "Do", "Fen", "Gor", "Ce", "Dun", "Lio", "Mor", "Tur", "Bre", "Cal"],
+      "nucleo": ["re", "ma", "an", "ne", "ga", "lo"],
+      "coda": ["el", "mo", "vo", "ar", "ach", "egar", "wen", "in"],
+      "sufijos": ["turba", "bruma"]
+    },
+    "vigia_alto": {
+      "inicio": ["Al", "Bar", "Cor", "Dun", "Hal", "Ra", "Glen", "Kil", "Inver", "Stra", "Bal", "Mor"],
+      "nucleo": ["de", "ve", "ro", "na", "lo"],
+      "coda": ["an", "eck", "ald", "or", "ach", "ie", "alt", "aig"],
+      "sufijos": ["vigia", "ness", "mor"]
+    },
+    "ultima_ceniza": {
+      "inicio": ["Cor", "Orm", "Ce", "Wol", "Sta", "Bor", "Kra", "Ze", "Vil", "Gro", "Zar", "Pel"],
+      "nucleo": ["ni", "za", "ro", "wi", "de", "lo"],
+      "coda": ["in", "und", "al", "ek", "ow", "ica", "isk", "ad"],
+      "sufijos": ["grod", "mund", "zal"]
+    },
+    "durnhal": {
+      "inicio": ["Khel", "Vor", "Dur", "Grom", "Thor", "Bar", "Kaz", "Dorn", "Bran", "Gar", "Hond", "Kor", "Drak", "Mor", "Bal", "Gund"],
+      "nucleo": ["un", "ak", "ar", "um", "og", "rim", "ed"],
+      "coda": ["drun", "dhal", "dun", "hal", "grim", "dak", "rak", "gar", "im", "ok"],
+      "sufijos": ["heim", "dun", "hal"],
+      "prefijos": ["Yunque", "Hondo"],
+      "p_prefijo": 0.04
+    },
+    "hondarr": {
+      "hereda": "durnhal",
+      "inicio": ["Hon", "Dar", "Bor", "Kad", "Grun", "Tor", "Bel"],
+      "sufijos": ["negro", "hondo", "alto", "pozo"],
+      "prefijos": ["Pozo", "Yunque", "Canto"],
+      "p_prefijo": 0.08
+    },
+    "kaivan": {
+      "inicio": ["Tol", "Mer", "Ber", "Nur", "Uz", "Tar", "Kar", "Bat", "Ul", "Ak", "Ser", "Tem", "Or", "Ar", "Bor", "Kyz", "Al", "Bai"],
+      "nucleo": ["gu", "ke", "ba", "sa", "dy", "ye", "ma", "ru"],
+      "coda": ["khar", "ur", "ai", "ghan", "tai", "an", "ul", "kent", "sar", "ukh", "ir", "gen"],
+      "sufijos": ["khan", "bulak", "kol", "dag", "su"]
+    },
+    "tres_pozos": {
+      "hereda": "kaivan",
+      "inicio": ["Ar", "Cha", "Go", "Ke", "Ta", "Bu", "Sa", "Oz"],
+      "coda": ["kai", "gor", "an", "ur", "tai", "ek"],
+      "prefijos": ["Pozo"],
+      "p_prefijo": 0.06
+    },
+    "hrimval": {
+      "inicio": ["Hrím", "Is", "Dal", "Vyrn", "Veld", "Ors", "Hel", "Grav", "Kald", "Ymr", "Thur", "Ísen", "Nor"],
+      "nucleo": ["e", "dru", "ra", "mun", "va", "ne"],
+      "coda": ["var", "dal", "mund", "rune", "isen", "vyrn", "holt", "ir", "rik", "hild"],
+      "sufijos": ["holt", "dal", "vyrn", "isen"]
+    },
+    "skarren": {
+      "inicio": ["Skar", "Orm", "Tor", "Bjør", "Hal", "Sten", "Grøn", "Lyn", "Vest", "Ask", "Ulf", "Rav", "Sol", "Kvi", "Bre", "Fjel"],
+      "nucleo": ["re", "a", "sø", "ke", "ni", "e"],
+      "coda": ["ren", "vik", "holm", "havn", "by", "fjord", "stad", "ø", "sund", "nes", "dal"],
+      "sufijos": ["vik", "holm", "havn", "fjord", "by"]
+    },
+    "isbrant": {
+      "hereda": "skarren",
+      "inicio": ["Brun", "Is", "Sal", "Hav", "Ebb", "Tor", "Sild", "Grim"],
+      "coda": ["nal", "brant", "ed", "ung", "ø", "vik"],
+      "sufijos": ["salt", "brant", "nal"],
+      "prefijos": ["Salinas de"],
+      "p_prefijo": 0.06
+    },
+    "lagunas": {
+      "inicio": ["Kuu", "Pe", "Jär", "Lah", "Nie", "Vuo", "Saa", "Kos", "Tai", "Haa", "Ilo", "Mäk", "Ruo", "Vää", "Ahti"],
+      "nucleo": ["ta", "rä", "ki", "lu", "va", "no", "si"],
+      "coda": ["lahti", "järvi", "niemi", "järn", "la", "nen", "koski", "saari", "maa", "vesi"],
+      "sufijos": ["lahti", "järvi", "niemi", "koski"],
+      "p_sufijo": 0.2,
+      "vocales_dobles": true
+    },
+    "nenvar": {
+      "hereda": "lagunas",
+      "inicio": ["Nen", "Lu", "Me", "Va", "Ilo", "Saa", "Ke"],
+      "coda": ["nar", "var", "men", "la", "nen", "ari"],
+      "sufijos": ["lumen", "nar"],
+      "prefijos": ["Faro de"],
+      "p_prefijo": 0.05
+    },
+    "sorava": {
+      "inicio": ["Sor", "La", "Per", "Ca", "Fio", "Mon", "Ver", "Al", "Bel", "Ro", "Tra", "Vi", "Lu", "Cor", "Ser"],
+      "nucleo": ["ri", "la", "vi", "ce", "de", "ma", "to"],
+      "coda": ["mar", "na", "ero", "ella", "ia", "ano", "ina", "ola", "eno", "viva", "esca"],
+      "prefijos": ["Porto", "Monte", "Val"],
+      "p_prefijo": 0.1
+    },
+    "brazalmar": {
+      "hereda": "sorava",
+      "inicio": ["Al", "Bren", "Dro", "Var", "Ga", "Ri", "Bra", "Zal"],
+      "coda": ["van", "varo", "ano", "esco", "almo", "ella"]
+    },
+    "cabo_halcor": {
+      "hereda": "sorava",
+      "inicio": ["Cor", "Bras", "Hal", "Mal", "Tar", "Fal", "Cal"],
+      "coda": ["aldo", "men", "or", "al", "ena", "uro"],
+      "prefijos": ["Cabo", "Punta"],
+      "p_prefijo": 0.06
+    },
+    "thalassar": {
+      "inicio": ["Ah", "Or", "Ka", "Mel", "Thal", "Ky", "Ne", "Pha", "Ar", "Ly", "Ze", "Ea", "Dio", "Ple", "Hel"],
+      "nucleo": ["te", "ve", "lo", "ri", "na", "the", "si"],
+      "coda": ["os", "ia", "ssa", "ion", "thos", "la", "ren", "eia", "on", "ene"],
+      "sufijos": ["polis", "thos"]
+    },
+    "marea_negra": {
+      "inicio": ["Sal", "Cuer", "Ne", "Ro", "Ma", "Bar", "Pe", "Bo", "Gar", "Tri", "Bre"],
+      "nucleo": ["da", "lo", "ri", "ca"],
+      "coda": ["ino", "ola", "obre", "egra", "ina", "ero", "al", "eta"],
+      "sufijos": ["negra", "sal", "roca", "brea"]
+    },
+    "ondan": {
+      "inicio": ["Ul", "O", "Te", "Ma", "Ka", "Lu", "Ha", "Ra", "Ta", "Ni", "Va", "Mo"],
+      "nucleo": ["ma", "sha", "lu", "ka", "no", "ri", "ha", "ve"],
+      "coda": ["ren", "ndi", "an", "ua", "ki", "ani", "ea", "ono", "ahi", "ue"]
+    },
+    "velathi": {
+      "inicio": ["Au", "Nu", "Ve", "Mae", "Tev", "Ith", "Ela", "Ser", "Lo", "Ae", "Fi", "Ny", "Cel", "Ar"],
+      "nucleo": ["re", "vi", "la", "the", "li", "na", "rhe", "ma"],
+      "coda": ["ael", "iel", "ith", "var", "hen", "thar", "lin", "wen", "ion", "mar"],
+      "sufijos": ["hen", "thil"]
+    },
+    "sotolar": {
+      "hereda": "velathi",
+      "inicio": ["El", "So", "To", "Do", "Va", "Ra", "Sil"],
+      "coda": ["oran", "van", "lar", "dor", "en", "ith"]
+    },
+    "ankaru": {
+      "inicio": ["Il", "So", "Yu", "Kui", "Dra", "Lha", "Gya", "Tse", "Nam", "Pel", "Do", "Sha", "Ri", "Ten", "Ka"],
+      "nucleo": ["mu", "than", "va", "lan", "ka", "po", "dzi", "rin"],
+      "coda": ["gang", "la", "tse", "dzong", "ri", "ling", "pa", "ma", "tang", "mo"],
+      "sufijos": ["dzong", "gang", "la", "tse"]
+    },
+    "tirnauk": {
+      "hereda": "ankaru",
+      "inicio": ["Au", "U", "Que", "Sa", "Ti", "Na", "Ma", "Tir"],
+      "coda": ["caro", "lan", "nuar", "rimu", "uk", "an", "ar"],
+      "sufijos": []
+    },
+    "orunmar": {
+      "inicio": ["Ze", "Om", "A", "Ke", "Ne", "Mer", "Sek", "Ta", "Hor", "Ra", "Ish", "Ib", "Nub", "Me"],
+      "nucleo": ["mu", "ru", "bra", "ve", "ne", "sa", "ka", "the"],
+      "coda": ["uth", "akh", "ankh", "mer", "ut", "aten", "van", "ekh", "osh", "en"],
+      "sufijos": ["ankh", "aten", "uth"]
+    },
+    "yorumbe": {
+      "inicio": ["Yo", "Ka", "Om", "Mba", "Nku", "Za", "Lu", "Bwa", "Ki", "Ngo", "Ma", "Tu", "Se"],
+      "nucleo": ["ru", "su", "bu", "ye", "nde", "la", "ko", "wa"],
+      "coda": ["mbe", "da", "yo", "run", "ndi", "ga", "ni", "wa", "le", "ba"]
+    },
+    "pakhun": {
+      "inicio": ["Pa", "Or", "Ka", "Ta", "Ma", "Ju", "Yu", "Ira", "Ape", "Mu", "Ku", "Ho"],
+      "nucleo": ["kh", "que", "ku", "ra", "ri", "po", "na"],
+      "coda": ["un", "el", "uro", "ire", "ami", "oa", "iru", "eba", "ana"]
+    },
+    "eslavo": {
+      "inicio": ["Vol", "Dre", "Zhe", "Bor", "Kra", "Mir", "Sta", "Ve", "Gor", "Ros", "Ni", "Yar", "Sve", "Le", "Bel", "Ush"],
+      "nucleo": ["no", "li", "sla", "ve", "ro", "za", "mi", "shi"],
+      "coda": ["grad", "ov", "sk", "ets", "ino", "ka", "an", "evo", "itsa", "yn"],
+      "sufijos": ["grad", "gorod", "sk"],
+      "masc": ["slav", "mir", "ko", "ov", "ei", "dan"],
+      "fem": ["a", "ava", "ina", "ka", "ya", "mira"],
+      "dinastia": ["ov", "in", "sky", "ich", "enko", "ets"],
+      "adj": ["ski", "ian", "ovo", "an"]
+    },
+    "oriental": {
+      "inicio": ["Shi", "Ka", "To", "Ha", "Mi", "Na", "Yo", "Ko", "Se", "Hwa", "Dae", "Jin", "Ta", "Ma", "Ri", "Sa"],
+      "nucleo": ["ra", "ku", "mo", "shi", "no", "yo", "ta", "ga"],
+      "coda": ["shan", "dō", "gun", "ri", "wa", "ma", "no", "sō", "yang", "ji"],
+      "sufijos": ["shan", "dō", "gun"],
+      "masc": ["ro", "ji", "shi", "o", "hyun", "ho"],
+      "fem": ["ko", "mi", "e", "na", "yeon", "ri"],
+      "dinastia": ["da", "moto", "gawa", "yama", "sei", "min"],
+      "adj": ["ni", "an", "ese"]
+    },
+    "indio": {
+      "inicio": ["Ra", "Ka", "Ma", "Sri", "Vi", "De", "Cha", "Pa", "Ta", "Ha", "Su", "Na", "Ja", "Go", "Ve"],
+      "nucleo": ["ma", "la", "ri", "ya", "va", "dha", "ga", "na"],
+      "coda": ["pur", "nagar", "ur", "palli", "am", "kota", "pet", "garh", "ai"],
+      "sufijos": ["pur", "nagar", "palli", "garh"],
+      "masc": ["an", "esh", "ar", "endra", "it", "deva"],
+      "fem": ["i", "a", "ika", "avati", "ya", "ini"],
+      "dinastia": ["varman", "ra", "singh", "dasa", "nath", "pala"],
+      "adj": ["i", "an", "ese"]
+    },
+    "persa": {
+      "inicio": ["Far", "Ka", "Is", "Ner", "Ba", "Da", "Gol", "Shi", "Ham", "Mar", "Ta", "Sar", "Zar", "Kho", "Ros", "Mah"],
+      "nucleo": ["ra", "va", "sha", "da", "ri", "mi", "za", "be"],
+      "coda": ["abad", "shah", "kand", "an", "ar", "esh", "ran", "stan", "dar", "vand"],
+      "sufijos": ["abad", "kand", "shahr", "dez"],
+      "masc": ["ush", "ad", "ar", "an", "iyar", "ab"],
+      "fem": ["a", "ana", "in", "eh", "ia", "ak"],
+      "dinastia": ["ian", "zad", "vand", "shahi", "ani", "dar"],
+      "adj": ["i", "ani", "ian"]
+    },
+    "levantino": {
+      "inicio": ["Sah", "Ka", "Ma", "Ha", "Ja", "Ba", "Na", "Ta", "Ra", "Da", "Zi", "Sul", "Ab", "Al", "Il"],
+      "nucleo": ["ri", "di", "ba", "la", "ma", "si", "ja"],
+      "coda": ["ra", "im", "an", "ir", "ah", "un", "at", "iya", "ar", "ush"],
+      "prefijos": ["Bab", "Dar", "Ain"],
+      "p_prefijo": 0.1,
+      "masc": ["ir", "id", "un", "an", "al", "im"],
+      "fem": ["a", "ah", "iya", "ina", "un", "at"],
+      "dinastia": ["ani", "id", "awi", "uni", "ari", "is"],
+      "adj": ["i", "ani", "ite"]
+    },
+    "africano": {
+      "inicio": ["Ka", "Ma", "Ba", "Kou", "Djen", "Si", "Ti", "Wa", "Se", "Ga", "Ni", "Fa", "Ko", "Do", "Sa"],
+      "nucleo": ["ra", "li", "ba", "ma", "ne", "so", "ko", "fa"],
+      "coda": ["ko", "ba", "ra", "ni", "dou", "ma", "ssa", "gou", "kan", "na"],
+      "sufijos": ["bougou", "dougou", "koro"],
+      "masc": ["ba", "ou", "en", "ari", "ko", "ma"],
+      "fem": ["a", "ata", "ou", "ina", "ye", "ira"],
+      "dinastia": ["ta", "ra", "kou", "ssi", "ke", "ba"],
+      "adj": ["n", "ri", "an"]
+    },
+    "celta": {
+      "inicio": ["Ker", "Lan", "Pen", "Tre", "Gwen", "Bro", "Cad", "Lle", "Mor", "Pol", "Bod", "Aber", "Cor", "Dol", "Ros"],
+      "nucleo": ["e", "ar", "wy", "ga", "no", "re", "va"],
+      "coda": ["ec", "wen", "ydd", "an", "og", "en", "ol", "ach", "ys", "el"],
+      "sufijos": ["wen", "ach", "ydd"],
+      "masc": ["ec", "an", "or", "wyn", "og", "el"],
+      "fem": ["wen", "a", "eth", "ys", "ana", "enn"],
+      "dinastia": ["ek", "ydd", "an", "ow", "ach", "ell"],
+      "adj": ["ec", "ian", "ish"]
+    },
+    "iberico": {
+      "inicio": ["Cas", "Lu", "Vi", "Al", "Ber", "Ga", "Mon", "Fer", "Ri", "Sal", "Tor", "Bel", "Ola", "Etxe", "Zu", "Sol"],
+      "nucleo": ["la", "ra", "de", "ri", "ve", "sa", "go"],
+      "coda": ["oso", "eira", "ago", "edo", "ica", "uri", "ola", "elo", "ar", "inho", "ena"],
+      "prefijos": ["Vila", "Puerto"],
+      "p_prefijo": 0.08,
+      "masc": ["o", "ando", "ero", "ues", "io", "on"],
+      "fem": ["a", "ina", "eira", "ela", "ia", "una"],
+      "dinastia": ["ez", "ira", "eda", "uri", "oso", "aga"],
+      "adj": ["ego", "ano", "es"]
+    },
+    "baltico": {
+      "inicio": ["Ais", "Gir", "Ven", "Rau", "Lie", "Kel", "Dra", "Wen", "Sko", "Tra", "Mai", "Zal", "Bir", "Ke", "Ola"],
+      "nucleo": ["ta", "du", "ni", "ga", "ri", "la", "wi", "sa"],
+      "coda": ["ai", "iai", "ava", "ice", "ow", "as", "ene", "upe", "enai", "isk"],
+      "sufijos": ["upe", "ice", "ow"],
+      "masc": ["as", "is", "us", "imir", "aitis", "ys"],
+      "fem": ["a", "e", "ute", "ija", "ava", "ene"],
+      "dinastia": ["aitis", "enas", "ski", "owicz", "unas", "ys"],
+      "adj": ["ian", "ish", "ai"]
+    },
+    "indochino": {
+      "inicio": ["Kam", "Su", "Pha", "Ma", "Lan", "Ban", "Si", "Cham", "Tra", "Ka", "Pe", "Ra", "Na", "Ang", "Ta"],
+      "nucleo": ["la", "ri", "ya", "ba", "pa", "wi", "sa", "da"],
+      "coda": ["pura", "buri", "nam", "kor", "ang", "lay", "pong", "ka", "sak", "dan"],
+      "sufijos": ["buri", "pura", "nam"],
+      "masc": ["an", "ong", "it", "ak", "on", "ai"],
+      "fem": ["a", "i", "ani", "ya", "en", "ari"],
+      "dinastia": ["vong", "deva", "sak", "pura", "nara", "an"],
+      "adj": ["i", "ese", "an"]
+    }
+  },
+  "grupos": [
+    { "id": "eslavo", "culturas": [
+      { "id": "gj_volskari", "tags": ["russian_gfx", "east_slavic_gfx", "eastern_european_gfx", "european_gfx"] },
+      { "id": "gj_drevani", "tags": ["ruthenian_gfx", "slavic_gfx", "eastern_european_gfx", "european_gfx"] } ] },
+    { "id": "oriental", "culturas": [
+      { "id": "gj_shanri", "tags": ["japanese_gfx", "east_asian_gfx"] },
+      { "id": "gj_ezori", "tags": ["ainu_gfx", "east_asian_gfx"] } ] },
+    { "id": "indio", "culturas": [
+      { "id": "gj_peruvali", "tags": ["dravidian_gfx", "indian_gfx", "afrasian_gfx"] },
+      { "id": "gj_nagari", "tags": ["indian_gfx", "afrasian_gfx"] } ] },
+    { "id": "persa", "culturas": [
+      { "id": "gj_farsadi", "tags": ["persian_gfx", "persianate_gfx", "middle_east_gfx", "afrasian_gfx"] },
+      { "id": "gj_kandari", "tags": ["persianate_gfx", "central_asian_gfx", "middle_east_gfx"] } ] },
+    { "id": "levantino", "culturas": [
+      { "id": "gj_sahrani", "tags": ["arabian_gfx", "middle_east_gfx", "afrasian_gfx"] },
+      { "id": "gj_kadimi", "tags": ["levantine_gfx", "middle_east_gfx", "afrasian_gfx"] },
+      { "id": "gj_amazri", "tags": ["amazigh_gfx", "maghrebi_gfx", "middle_east_gfx"] } ] },
+    { "id": "africano", "culturas": [
+      { "id": "gj_mandeni", "tags": ["mande_gfx", "african_gfx"] },
+      { "id": "gj_saheli", "tags": ["saharan_gfx", "african_gfx", "afrasian_gfx"] } ] },
+    { "id": "celta", "culturas": [
+      { "id": "gj_brevani", "tags": ["breton_gfx", "celtic_gfx", "european_gfx"] },
+      { "id": "gj_kymrai", "tags": ["welsh_gfx", "celtic_gfx", "european_gfx"] } ] },
+    { "id": "iberico", "culturas": [
+      { "id": "gj_castrelo", "tags": ["castilian_gfx", "iberian_gfx", "western_european_gfx", "european_gfx"] },
+      { "id": "gj_lusmeiro", "tags": ["portuguese_gfx", "iberian_gfx", "western_european_gfx", "european_gfx"] },
+      { "id": "gj_baskoi", "tags": ["basque_gfx", "iberian_gfx", "european_gfx"] } ] },
+    { "id": "baltico", "culturas": [
+      { "id": "gj_aistari", "tags": ["baltic_gfx", "eastern_european_gfx", "european_gfx"] },
+      { "id": "gj_wendari", "tags": ["west_slavic_gfx", "baltic_gfx", "european_gfx"] },
+      { "id": "gj_kurshi", "tags": ["baltic_gfx", "north_american_gfx"] } ] },
+    { "id": "indochino", "culturas": [
+      { "id": "gj_khemari", "tags": ["indochina_gfx", "east_asian_gfx"] },
+      { "id": "gj_malayu", "tags": ["austronesian_gfx", "indian_gfx"] },
+      { "id": "gj_champai", "tags": ["indochina_gfx", "south_american_gfx"] } ] }
+  ],
+  "zonas": {
+    "kaivan": "persa", "menor-n7": "persa",
+    "durnhal": "oriental", "menor-n5": "oriental",
+    "liga": "baltico", "menor-n6": "baltico",
+    "skarren": "eslavo", "menor-n2": "eslavo", "menor-n3": "eslavo", "hrimval": "eslavo",
+    "ostrevar": "celta", "menor-n4": "celta",
+    "ankaru": "indochino", "menor-s3": "indochino",
+    "orunmar": "levantino", "menor-s6": "levantino", "menor-s7": "levantino",
+    "thalassar": "indio", "menor-s2": "indio",
+    "velathi": "africano", "menor-s5": "africano",
+    "sorava": "iberico", "menor-s1": "iberico", "marea-negra": "iberico"
+  }
+}

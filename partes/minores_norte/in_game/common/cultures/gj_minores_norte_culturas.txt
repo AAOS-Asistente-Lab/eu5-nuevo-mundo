@@ -7,7 +7,7 @@ gj_tarnavi = {
 
 	color = gj_minores_norte_map_tarnavi
 
-	tags = { swedish_gfx north_german_gfx western_european_gfx european_gfx }
+	tags = { north_german_gfx western_european_gfx european_gfx } # antes: swedish_gfx delante (empataba a 400 con north_german_gfx; error.log graphical_culturetype.cpp:522)
 
 	opinions = {
 		gj_marismeno = negative
@@ -72,7 +72,7 @@ gj_isbranti = {
 
 	color = gj_minores_norte_map_isbranti
 
-	tags = { norwegian_gfx swedish_gfx western_european_gfx european_gfx }
+	tags = { norwegian_gfx western_european_gfx european_gfx } # antes: con swedish_gfx (empataba a 400 con norwegian_gfx; error.log graphical_culturetype.cpp:522)
 
 	opinions = {
 		gj_nenvari = negative
@@ -136,7 +136,7 @@ gj_aryuki = {
 
 	color = gj_minores_norte_map_aryuki
 
-	tags = { mongol_gfx central_asian_gfx turkic_gfx middle_east_gfx afrasian_gfx }
+	tags = { mongol_gfx central_asian_gfx middle_east_gfx afrasian_gfx } # antes: con turkic_gfx (empataba a 300 con mongol_gfx; error.log graphical_culturetype.cpp:522)
 
 	opinions = {
 		gj_hondarri = negative

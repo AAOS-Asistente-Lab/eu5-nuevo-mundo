@@ -91,7 +91,7 @@ gj_tirnauki = {
 
 	color = gj_map_tirnauki
 
-	tags = { south_american_gfx american_gfx }
+	tags = { tibetan_gfx indian_gfx } # ASPECTO (corte culturas-nombres, Gabriel puede volver): antes { south_american_gfx american_gfx }
 
 	country_modifier = {
 		global_population_capacity_modifier = 0.05
@@ -175,7 +175,7 @@ gj_pakhuni = {
 
 	color = gj_map_pakhuni
 
-	tags = { amazonian_gfx south_american_gfx }
+	tags = { papuan_gfx african_gfx } # ASPECTO (corte culturas-nombres, Gabriel puede volver): antes { amazonian_gfx south_american_gfx }
 
 	country_modifier = {
 		global_wild_game_output_modifier = 0.10

@@ -3,7 +3,7 @@
 
 	color = gj_orunmar_color
 
-	tags = { aztec_gfx native_american_tag south_american_gfx american_gfx aztec_coa_gfx }
+	tags = { nubian_gfx east_african_gfx african_gfx afrasian_gfx } # ASPECTO (corte culturas-nombres, Gabriel puede volver): antes { aztec_gfx native_american_tag south_american_gfx american_gfx aztec_coa_gfx }
 
 	country_modifier = {
 		monthly_religious_influence = 0.05

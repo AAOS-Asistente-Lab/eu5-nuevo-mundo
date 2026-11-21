@@ -312,6 +312,27 @@ for (const [k, { f, item }] of def('cultures')) {
   for (const t of hijos(b, 'tags')) for (const v of valoresSueltos(t.v)) necesita(f, t, GFX.has(v), `etiqueta grafica '${v}' no la usa ninguna cultura del juego`);
   for (const g of hijos(b, 'culture_groups')) for (const v of valoresSueltos(g.v)) necesita(f, g, existe('culture_groups', 'culture_groups', v), `grupo de cultura '${v}' no existe`);
 }
+// Dos etiquetas graficas de una cultura con la misma prioridad: el juego avisa «has graphical cultures
+// with conflicting priorities» (error.log, graphical_culturetype.cpp:522). Prioridades: las de
+// in_game/gfx/graphical_culture_types del juego, sus DLC y el mod (ninguna cultura del juego empata).
+{
+  const prio = new Map();
+  for (const raiz of [JUEGO, ...(fs.existsSync(path.join(JUEGO, 'dlc')) ? fs.readdirSync(path.join(JUEGO, 'dlc')).sort().map((d) => path.join(JUEGO, 'dlc', d)) : []), MOD]) {
+    for (const f of listaFicheros(path.join(raiz, 'in_game', 'gfx', 'graphical_culture_types'), (r) => r.endsWith('.txt')).sort()) {
+      for (const it of analizaFichero(f).arbol.items) { const p = it.k && hijo(it.v, 'priority'); if (p) prio.set(it.k, Number(p.v)); }
+    }
+  }
+  if (!prio.size) aviso('in_game/common/cultures', 0, 'no encuentro las prioridades graficas del juego (in_game/gfx/graphical_culture_types): no compruebo empates');
+  for (const [k, { f, item }] of def('cultures')) {
+    const vistas = new Map();
+    for (const t of hijos(item.v, 'tags')) for (const v of valoresSueltos(t.v)) {
+      if (!prio.has(v)) continue;
+      const otra = vistas.get(prio.get(v));
+      if (otra && otra !== v) err(rel(f), t.l, `la cultura ${k} tiene dos etiquetas graficas con la misma prioridad ${prio.get(v)}: ${otra} y ${v} (el juego avisa: graphical_culturetype.cpp:522)`);
+      vistas.set(prio.get(v), v);
+    }
+  }
+}
 for (const [k, { f, item }] of def('culture_groups')) pideLoc(k, f, item.l);
 for (const [k, { f, item }] of def('language_families')) { pideLoc(k, f, item.l); const col = hijo(item.v, 'color'); if (col && typeof col.v === 'string') necesita(f, col, J.named_colors.has(col.v) || def('colores').has(col.v), `color '${col.v}' no existe`); }
 // Presagios y metodos de produccion propios llevan nombre en pantalla, como en el juego.
@@ -455,6 +476,9 @@ const reLinea = /^ ([A-Za-z0-9_.\-']+):\d* "(.*)"\s*(#.*)?$/;
 // Claves de texto del juego, por lengua: solo hacen falta si el mod trae replace/.
 const locReplace = new Set(); const locJuegoCache = {};
 const locJuego = (lg) => locJuegoCache[lg] ??= new Set(listaFicheros(path.join(JUEGO, 'main_menu', 'localization', lg), (x) => x.endsWith('.yml')).flatMap((x) => [...leeTexto(x).texto.matchAll(/^ ([A-Za-z0-9_.\-']+):/gm)].map((mm) => mm[1])));
+// y las del mundo (--mundo): en replace/ tambien vale pisar una clave de RNW (rnw_loc_*)
+const locMundoCache = {}, replacePor = {};
+const locMundo = (lg) => locMundoCache[lg] ??= new Set(MUNDO ? listaFicheros(path.join(MUNDO, 'main_menu', 'localization', lg), (x) => x.endsWith('.yml')).flatMap((x) => [...leeTexto(x).texto.matchAll(/^ ([A-Za-z0-9_.\-']+):/gm)].map((mm) => mm[1])) : []);
 for (const f of ymls) {
   const r = rel(f);
   const esReplace = /^main_menu\/localization\/[a-z_]+\/replace\//.test(r);
@@ -473,7 +497,7 @@ for (const f of ymls) {
     const [, k, val] = mm;
     if (loc[m[1]].has(k)) err(r, l, `clave '${k}' repetida`);
     loc[m[1]].set(k, { val, r, l });
-    if (esReplace) { locReplace.add(k); if (!locJuego(m[1]).has(k)) err(r, l, `clave '${k}' en replace/ que no existe en el juego: no pisa nada`); }
+    if (esReplace) { locReplace.add(k); ((replacePor[path.basename(r).replace(/_l_[a-z_]+\.yml$/, '')] ??= {})[m[1]] ??= new Set()).add(k); if (!locJuego(m[1]).has(k) && !locMundo(m[1]).has(k)) err(r, l, `clave '${k}' en replace/ que no existe en el juego${MUNDO ? ' ni en el mundo' : ' (sin --mundo no miro las del mundo)'}: no pisa nada`); }
     else if (!/gj_|GJ_/.test(k) && !tagsMod.has(k.replace(/_ADJ$/, ''))) err(r, l, `clave '${k}' sin prefijo gj_: puede pisar una del juego`);
     for (const s of val.matchAll(/SCOPE\.s[A-Za-z]+\('([a-z_0-9]+)'\)/g)) if (!scopesMod.has(s[1])) err(r, l, `el texto usa el scope '${s[1]}', que no se guarda en ningun evento`);
     const abre = (val.match(/\[/g) || []).length, cierra = (val.match(/\]/g) || []).length;
@@ -484,6 +508,12 @@ for (const f of ymls) {
 for (const [k, o] of locNecesaria) for (const lg of LENGUAS) if (!loc[lg].has(k) && !locJuego(lg).has(k)) err(o.f, o.l, `falta la localizacion '${k}' en ${lg}`);
 for (const k of loc.spanish.keys()) if (!loc.english.has(k) && !locReplace.has(k)) err(loc.spanish.get(k).r, loc.spanish.get(k).l, `'${k}' esta en spanish y no en english`);
 for (const k of loc.english.keys()) if (!loc.spanish.has(k) && !locReplace.has(k)) err(loc.english.get(k).r, loc.english.get(k).l, `'${k}' esta en english y no en spanish`);
+// un fichero de replace/ que va en las dos lenguas pisa las mismas claves en las dos (si no, un nombre cambiaria con el idioma)
+for (const [base, por] of Object.entries(replacePor)) for (const [a, b] of [['spanish', 'english'], ['english', 'spanish']]) {
+  if (!por[a] || !por[b]) continue;
+  const faltanR = [...por[a]].filter((k) => !por[b].has(k));
+  if (faltanR.length) err(`main_menu/localization/${b}/replace/${base}_l_${b}.yml`, 0, `${faltanR.length} claves de ${base}_l_${a}.yml que no estan en ${b} (p. ej. ${faltanR.slice(0, 3).join(' ')})`);
+}
 for (const k of loc.spanish.keys()) if (!locNecesaria.has(k) && !locOpcional.has(k) && !locReplace.has(k)) aviso(loc.spanish.get(k).r, loc.spanish.get(k).l, `'${k}' no lo usa ningun script del mod`);
 
 // ---------------------------------------------------------------- descriptor

@@ -69,6 +69,7 @@ const mutantes = [
     escribe(VINC, u); return 'asignada a dos facciones';
   }],
   ['evento inexistente', () => { const { r, m } = busca('in_game', /(trigger_event[a-z_]*\s*=\s*\{\s*id\s*=\s*)(gj_[a-z0-9_]+)\.(\d+)/); cambia(r, m[0], `${m[1]}${m[2]}.9998`); return `'${m[2]}.9998'`; }],
+  ['prioridad grafica empatada', () => { const { r, m } = busca('in_game/common/cultures', /tags = \{ /); cambia(r, m[0], 'tags = { danish_gfx english_gfx '); return 'danish_gfx y english_gfx'; }],
   ['grupo de religion que falta', () => { const t = lee(GRUPOS); const b = t.match(/\ngj_fe_norte = \{[\s\S]*?\n\}\n/); if (!b) throw new SinObjetivo('gj_fe_norte no esta en ' + GRUPOS); escribe(GRUPOS, t.replace(b[0], '\n')); return 'gj_fe_norte'; }],
 ];
 
