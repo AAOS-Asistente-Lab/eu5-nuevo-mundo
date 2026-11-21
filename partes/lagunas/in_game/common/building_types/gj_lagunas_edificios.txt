@@ -1,0 +1,248 @@
+﻿# Edificios de la Liga de las Mil Lagunas (5). Todos mejoran con la era: su nivel maximo
+# sube con la edad (ver script_values/gj_lagunas_valores.txt). Ninguno supera en mas de un
+# nivel a su equivalente del juego base, y todos tienen un limite de lugar.
+
+# 1. Mercado Flotante: solo junto a un lago. Mas capacidad de mercado y mas comercio por burgues.
+gj_lag_mercado_flotante = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_lag_mercado_flotante_max_level
+
+	category = trade_category
+	employment_size = trade_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = merchant_build_time
+
+	country_potential = {
+		gj_es_lagunas = yes
+	}
+	location_potential = {
+		is_adjacent_to_lake = yes
+	}
+
+	modifier = {
+		local_merchant_capacity = 1.5
+		local_merchant_power = 0.5
+		local_trades_per_burgher = 0.10
+	}
+
+	unique_production_methods = {
+		gj_lag_mercado_flotante_maintenance = {
+			icon_type = building_type
+			icon = commerce_center
+			fish = 0.08
+			cloth = 0.06
+			salt = 0.04
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = town_building_construction
+}
+
+# 2. Muelle de los Barqueros: puerto de lago o de mar. Mas marineros y mas astilleros locales.
+gj_lag_muelle_barqueros = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_lag_muelle_barqueros_max_level
+
+	category = trade_category
+	employment_size = trade_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = merchant_build_time
+
+	country_potential = {
+		gj_es_lagunas = yes
+	}
+	location_potential = {
+		OR = {
+			is_adjacent_to_lake = yes
+			is_coastal = yes
+		}
+	}
+	allow = {
+		is_port = yes
+	}
+
+	modifier = {
+		local_sailors_modifier = 0.10
+		local_ship_build_speed = 0.10
+		local_trade_protection_factor = 0.05
+	}
+
+	unique_production_methods = {
+		gj_lag_muelle_barqueros_maintenance = {
+			icon_type = building_type
+			icon = commerce_center
+			naval_supplies = 0.06
+			fish = 0.04
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = town_building_construction
+}
+
+# 3. Casa de las Pesas y Medidas: solo en un centro de mercado. Centra el comercio de la Liga.
+gj_lag_casa_de_pesas = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_lag_casa_de_pesas_max_level
+
+	category = trade_category
+	employment_size = trade_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = market_build_time
+
+	country_potential = {
+		gj_es_lagunas = yes
+	}
+	location_potential = {
+		is_market_center = yes
+	}
+
+	remove_if = {
+		location = { is_market_center = no }
+	}
+
+	modifier = {
+		local_merchant_capacity = 0.5
+		local_trades_per_burgher = 0.10
+	}
+
+	market_center_modifier = {
+		local_trade_center_power = 0.05
+		maximum_stockpile_capacity = 10
+	}
+
+	unique_production_methods = {
+		gj_lag_casa_de_pesas_maintenance = {
+			icon_type = building_type
+			icon = funduq
+			paper = 0.06
+			jewelry = 0.02
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = market_center_building_construction
+}
+
+# 4. Salon de la Asamblea: solo en la capital y solo uno. Sede de las votaciones del Barquero Mayor.
+gj_lag_salon_asamblea = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_lag_salon_asamblea_max_level
+
+	category = government_category
+	employment_size = trade_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = large_capital_build_time
+
+	country_potential = {
+		gj_es_lagunas = yes
+	}
+	location_potential = {
+		counts_as_capital = yes
+	}
+	allow = {
+		is_capital = yes
+		country_has_no_other_copy_of_building = { type = gj_lag_salon_asamblea }
+	}
+
+	remove_if = {
+		is_no_longer_capital = yes
+	}
+
+	capital_country_modifier = {
+		monthly_republican_tradition = 0.02
+		diplomatic_capacity = 0.5
+		global_burghers_estate_power = 0.03
+	}
+
+	unique_production_methods = {
+		gj_lag_salon_asamblea_maintenance = {
+			icon_type = building_type
+			icon = royal_court
+			paper = 0.10
+			furniture = 0.05
+			books = 0.04
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = early_capital_building_construction
+}
+
+# 5. Astillero de Barcazas: puerto de lago. Barcazas y barcos ligeros mas baratos de poner a flote.
+gj_lag_astillero_barcazas = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_lag_astillero_barcazas_max_level
+
+	category = trade_category
+	employment_size = trade_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = merchant_build_time
+
+	country_potential = {
+		gj_es_lagunas = yes
+	}
+	location_potential = {
+		is_adjacent_to_lake = yes
+	}
+	allow = {
+		is_port = yes
+	}
+
+	modifier = {
+		local_ship_build_speed = 0.20
+		local_sailors_modifier = 0.05
+		local_naval_supplies_output_modifier = 0.10
+	}
+
+	unique_production_methods = {
+		gj_lag_astillero_barcazas_maintenance = {
+			icon_type = building_type
+			icon = commerce_center
+			naval_supplies = 0.08
+			lumber = 0.10
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = town_building_construction
+}

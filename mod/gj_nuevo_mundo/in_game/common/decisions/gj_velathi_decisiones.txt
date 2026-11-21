@@ -1,0 +1,151 @@
+﻿# Decisiones de los velathi.
+
+gj_velathi_plantar_bosque_antiguo = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_velathi = yes
+	}
+
+	allow = {
+		NOT = { has_variable = gj_velathi_plantando }
+		gold >= root.monthly_income_trade_and_tax
+		any_owned_location = {
+			development < 15
+			NOT = { has_location_modifier = gj_velathi_bosque_antiguo }
+		}
+	}
+
+	ai_will_do = {
+		value = 10
+	}
+
+	option = {
+		name = gj_velathi_plantar_bosque_antiguo.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = root.monthly_income_trade_and_tax
+				multiply = -1
+			}
+			random_owned_location = {
+				limit = {
+					development < 15
+					NOT = { has_location_modifier = gj_velathi_bosque_antiguo }
+				}
+				add_location_modifier = { modifier = gj_velathi_bosque_antiguo years = -1 mode = add }
+				add_location_modifier = { modifier = gj_velathi_brote_reciente years = 15 mode = add_and_extend }
+			}
+			gj_velathi_karma_gran_bonus_effect = yes
+			set_variable = { name = gj_velathi_plantando years = 5 }
+			trigger_event_non_silently = { id = gj_velathi.16 days = 3650 }
+		}
+	}
+}
+
+gj_velathi_convocar_concilio = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_es_velathi = yes
+	}
+
+	allow = {
+		OR = {
+			has_country_modifier = gj_velathi_cansancio_1
+			has_country_modifier = gj_velathi_cansancio_2
+			has_country_modifier = gj_velathi_cansancio_3
+		}
+		at_war = no
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	option = {
+		name = gj_velathi_convocar_concilio.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_prestige = prestige_mild_penalty
+			gj_velathi_reinicia_cansancio_effect = yes
+			add_country_modifier = { modifier = gj_velathi_heredera_en_el_consejo years = 10 mode = add_and_extend }
+		}
+	}
+}
+
+gj_velathi_despertar_al_rey = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_es_velathi = yes
+		has_country_modifier = gj_velathi_consejo_regente
+	}
+
+	allow = {
+		at_war = no
+	}
+
+	ai_will_do = {
+		value = 5
+	}
+
+	option = {
+		name = gj_velathi_despertar_al_rey.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_legitimacy = legitimacy_weak_penalty
+			trigger_event_non_silently = { id = gj_velathi.4 days = 30 }
+		}
+	}
+}
+
+gj_velathi_cerrar_los_caminos = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_es_velathi = yes
+		NOT = { has_country_modifier = gj_velathi_puertas_cerradas }
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_velathi_puertas_abiertas }
+	}
+
+	ai_will_do = {
+		value = 2
+	}
+
+	option = {
+		name = gj_velathi_cerrar_los_caminos.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = { modifier = gj_velathi_puertas_cerradas years = 20 mode = add_and_extend }
+		}
+	}
+}
+
+gj_velathi_abrir_los_caminos = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_es_velathi = yes
+		NOT = { has_country_modifier = gj_velathi_puertas_abiertas }
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_velathi_puertas_cerradas }
+	}
+
+	ai_will_do = {
+		value = 3
+	}
+
+	option = {
+		name = gj_velathi_abrir_los_caminos.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = { modifier = gj_velathi_puertas_abiertas years = 20 mode = add_and_extend }
+		}
+	}
+}

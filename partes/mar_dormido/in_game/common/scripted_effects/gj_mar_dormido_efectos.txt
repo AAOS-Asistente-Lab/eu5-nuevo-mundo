@@ -1,0 +1,43 @@
+# Efectos de pais (root = country) del Mar Dormido.
+
+# Como lee esta religion un cometa o un eclipse (lo llama mundo_bestias, sin argumentos).
+gj_mar_dormido_lee_presagio = {
+	if = {
+		limit = {
+			religion = religion:gj_mar_dormido
+		}
+		trigger_event_non_silently = { id = gj_mar_dormido.12 }
+	}
+}
+
+# Cada rito cantado cuenta. Al quinto, la marea sube al encuentro del reino (evento .11, una vez).
+gj_mar_registra_rito = {
+	if = {
+		limit = {
+			NOT = { has_variable = gj_mar_ritos }
+		}
+		set_variable = { name = gj_mar_ritos value = 0 }
+	}
+	change_variable = {
+		name = gj_mar_ritos
+		add = 1
+	}
+	if = {
+		limit = {
+			var:gj_mar_ritos >= 5
+			NOT = { has_variable = gj_mar_marea_alta_vista }
+		}
+		set_variable = { name = gj_mar_marea_alta_vista value = 1 }
+		trigger_event_non_silently = { id = gj_mar_dormido.11 days = 10 }
+	}
+}
+
+# Para mundo_bestias: calmar a la bestia de las aguas del pais (sin argumentos).
+gj_mar_calma_a_la_bestia = {
+	add_country_modifier = {
+		modifier = gj_mar_kraken_calmado
+		years = 10
+		mode = add_and_extend
+	}
+	gj_mar_registra_rito = yes
+}

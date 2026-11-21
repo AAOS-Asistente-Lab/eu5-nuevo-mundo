@@ -1,0 +1,503 @@
+﻿namespace = gj_cielo_clanes
+
+# ------------------------------------------------------------
+# El Cielo de los Clanes: 12 eventos (1 oculto)
+# ------------------------------------------------------------
+
+# El dios del reinado: lo elige cada kan al subir al trono
+gj_cielo_clanes.1 = {
+	type = country_event
+	title = gj_cielo_clanes.1.title
+	desc = gj_cielo_clanes.1.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_ruler = yes
+	}
+
+	immediate = {
+		ruler_or_regent = { save_scope_as = target_character }
+	}
+
+	option = {
+		name = gj_cielo_clanes.1.a
+		gj_cielo_clanes_fija_dios = { dios = aurak num = 1 }
+		ai_chance = {
+			base = 10
+			modifier = { add = 10 at_war = no }
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.1.b
+		gj_cielo_clanes_fija_dios = { dios = ilsa num = 2 }
+		ai_chance = {
+			base = 10
+			modifier = { add = 10 at_war = no }
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.1.c
+		gj_cielo_clanes_fija_dios = { dios = korvun num = 3 }
+		ai_chance = {
+			base = 10
+			modifier = { add = 30 at_war = yes }
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.1.d
+		gj_cielo_clanes_fija_dios = { dios = halet num = 4 }
+		ai_chance = {
+			base = 10
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.1.e
+		gj_cielo_clanes_fija_dios = { dios = mura num = 5 }
+		ai_chance = {
+			base = 10
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.1.f
+		gj_cielo_clanes_fija_dios = { dios = dzerek num = 6 }
+		ai_chance = {
+			base = 5
+			modifier = { add = 15 at_war = yes }
+		}
+	}
+
+	after = {
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+}
+
+# El pabellon del Cielo cae
+gj_cielo_clanes.2 = {
+	type = country_event
+	title = gj_cielo_clanes.2.title
+	desc = gj_cielo_clanes.2.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_variable = gj_dios_reinado
+		NOT = { has_variable = gj_cd_pabellon }
+	}
+
+	immediate = {
+		set_variable = {
+			name = gj_cd_pabellon
+			value = 1
+			years = 12
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.2.a
+		change_gold_effect = { scale = -1 }
+		add_prestige = prestige_weak_bonus
+		gj_cielo_clanes_favor = { n = 1 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+
+	option = {
+		name = gj_cielo_clanes.2.b
+		add_country_modifier = {
+			modifier = gj_pabellon_caido
+			years = modifier_duration_years_normal
+			mode = add_and_extend
+		}
+		gj_cielo_clanes_favor = { n = -1 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+}
+
+# Las cuatro lunas: fiesta de la primavera de los pastos
+gj_cielo_clanes.3 = {
+	type = country_event
+	title = gj_cielo_clanes.3.title
+	desc = gj_cielo_clanes.3.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		at_war = no
+		NOT = { has_variable = gj_cd_lunas }
+	}
+
+	immediate = {
+		set_variable = {
+			name = gj_cd_lunas
+			value = 1
+			years = 10
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.3.a
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = {
+			modifier = gj_fiesta_cuatro_lunas
+			years = modifier_duration_years_normal
+			mode = add_and_extend
+		}
+		gj_cielo_clanes_favor = { n = 1 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+
+	option = {
+		name = gj_cielo_clanes.3.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+# Un cometa sobre el campamento
+gj_cielo_clanes.4 = {
+	type = country_event
+	title = gj_cielo_clanes.4.title
+	desc = gj_cielo_clanes.4.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_variable = gj_dios_reinado
+		NOT = { has_variable = gj_cd_cometa }
+	}
+
+	immediate = {
+		set_variable = {
+			name = gj_cd_cometa
+			value = 1
+			years = 20
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.4.a
+		gj_cielo_clanes_lee_presagio = { tipo = cometa }
+	}
+}
+
+# El viejo del mastil
+gj_cielo_clanes.5 = {
+	type = country_event
+	title = gj_cielo_clanes.5.title
+	desc = gj_cielo_clanes.5.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_ruler = yes
+		NOT = { has_variable = gj_cd_viejo }
+	}
+
+	immediate = {
+		set_variable = {
+			name = gj_cd_viejo
+			value = 1
+			years = 15
+		}
+		ruler_or_regent = { save_scope_as = target_character }
+	}
+
+	option = {
+		name = gj_cielo_clanes.5.a
+		change_gold_effect = { scale = -1 }
+		add_legitimacy = legitimacy_mild_bonus
+		gj_cielo_clanes_favor = { n = 1 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+
+	option = {
+		name = gj_cielo_clanes.5.b
+		add_prestige = prestige_weak_bonus
+		gj_cielo_clanes_favor = { n = -1 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+}
+
+# El dia que se cerro el Cielo (eclipse)
+gj_cielo_clanes.6 = {
+	type = country_event
+	title = gj_cielo_clanes.6.title
+	desc = gj_cielo_clanes.6.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_variable = gj_dios_reinado
+		NOT = { has_variable = gj_cd_eclipse }
+	}
+
+	immediate = {
+		set_variable = {
+			name = gj_cd_eclipse
+			value = 1
+			years = 25
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.6.a
+		gj_cielo_clanes_lee_presagio = { tipo = eclipse }
+	}
+}
+
+# Potros de dos colores (el reinado de Ilsa)
+gj_cielo_clanes.7 = {
+	type = country_event
+	title = gj_cielo_clanes.7.title
+	desc = gj_cielo_clanes.7.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_variable = gj_dios_reinado
+		var:gj_dios_reinado = 2
+		NOT = { has_variable = gj_cd_potros }
+	}
+
+	immediate = {
+		set_variable = {
+			name = gj_cd_potros
+			value = 1
+			years = 15
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.7.a
+		add_country_modifier = {
+			modifier = gj_potros_de_oro
+			years = modifier_duration_years_long
+			mode = add_and_extend
+		}
+		gj_cielo_clanes_favor = { n = 1 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+
+	option = {
+		name = gj_cielo_clanes.7.b
+		change_gold_effect = { scale = 1 }
+	}
+}
+
+# Dos clanes, un rito
+gj_cielo_clanes.8 = {
+	type = country_event
+	title = gj_cielo_clanes.8.title
+	desc = gj_cielo_clanes.8.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = angry
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_ruler = yes
+		NOT = { has_variable = gj_cd_ritos }
+	}
+
+	immediate = {
+		set_variable = {
+			name = gj_cd_ritos
+			value = 1
+			years = 12
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.8.a
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_penalty
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.8.b
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_estate_satisfaction = {
+			type = estate_type:nobles_estate
+			value = estate_satisfaction_mild_penalty
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.8.c
+		add_prestige = prestige_weak_penalty
+		gj_cielo_clanes_favor = { n = 1 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+}
+
+# La hermandad de los lobos (reinados de Korvun y del Lobo Gris)
+gj_cielo_clanes.9 = {
+	type = country_event
+	title = gj_cielo_clanes.9.title
+	desc = gj_cielo_clanes.9.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = armed
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_variable = gj_dios_reinado
+		OR = {
+			var:gj_dios_reinado = 3
+			var:gj_dios_reinado = 6
+		}
+		at_war = yes
+		NOT = { has_variable = gj_cd_lobos }
+	}
+
+	immediate = {
+		set_variable = {
+			name = gj_cd_lobos
+			value = 1
+			years = 15
+		}
+	}
+
+	option = {
+		name = gj_cielo_clanes.9.a
+		add_country_modifier = {
+			modifier = gj_hermandad_de_lobos
+			years = modifier_duration_years_normal
+			mode = add_and_extend
+		}
+		gj_cielo_clanes_favor = { n = 1 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+
+	option = {
+		name = gj_cielo_clanes.9.b
+		add_prestige = prestige_weak_bonus
+		add_war_exhaustion = war_exhaustion_weak_bonus
+	}
+}
+
+# Peregrinacion al Mastil (la dispara la decision)
+gj_cielo_clanes.10 = {
+	type = country_event
+	title = gj_cielo_clanes.10.title
+	desc = gj_cielo_clanes.10.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+	}
+
+	option = {
+		name = gj_cielo_clanes.10.a
+		add_country_modifier = {
+			modifier = gj_peregrino_del_mastil
+			years = modifier_duration_years_normal
+			mode = add_and_extend
+		}
+		add_legitimacy = legitimacy_mild_bonus
+		gj_cielo_clanes_favor = { n = 2 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+}
+
+# El Cielo se reconcilia (tras cuatro reinados)
+gj_cielo_clanes.11 = {
+	type = country_event
+	title = gj_cielo_clanes.11.title
+	desc = gj_cielo_clanes.11.desc
+	outcome = positive
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		has_variable = gj_reinados_cielo
+		var:gj_reinados_cielo >= 4
+	}
+
+	option = {
+		name = gj_cielo_clanes.11.a
+		add_country_modifier = {
+			modifier = gj_cielo_reconciliado
+			years = -1
+			mode = add
+		}
+		add_prestige = prestige_mild_bonus
+		gj_cielo_clanes_favor = { n = 2 }
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+}
+
+# Oculto: recalcula el favor cada ano
+gj_cielo_clanes.12 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		religion = religion:gj_cielo_clanes
+	}
+
+	immediate = {
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+}

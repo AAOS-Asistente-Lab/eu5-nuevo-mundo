@@ -1,0 +1,261 @@
+﻿# Menores del norte: ocho culturas, cada una dentro de un grupo cultural de las facciones del norte.
+# Los grupos (gj_grupo_*) los define la integracion; aqui solo se usan.
+
+# Ciudad-estado de los cien puentes: gremios, obra publica y notarios.
+gj_tarnavi = {
+	language = gj_minores_norte_tarnavi_dialect
+
+	color = gj_minores_norte_map_tarnavi
+
+	tags = { swedish_gfx north_german_gfx western_european_gfx european_gfx }
+
+	opinions = {
+		gj_marismeno = negative
+		gj_vigiano = positive
+		gj_nenvari = positive
+	}
+
+	country_modifier = {
+		global_construction_speed = 0.1
+		global_burghers_max_literacy = 5
+		tax_income_efficiency = 0.05
+	}
+	location_modifier = {
+		local_build_buildings_efficiency = 0.1
+		local_trades_per_burgher = 0.05
+	}
+	character_modifier = {
+		court_spending_efficiency = 0.1
+		monthly_prestige = 0.02
+	}
+
+	culture_groups = {
+		gj_grupo_ostrevari
+	}
+}
+
+# Cofradia de los faros del lago: cartografos, pescadores y fareros.
+gj_nenvari = {
+	language = gj_minores_norte_nenvari_dialect
+
+	color = gj_minores_norte_map_nenvari
+
+	tags = { finnish_gfx swedish_gfx western_european_gfx european_gfx }
+
+	opinions = {
+		gj_isbranti = negative
+		gj_tarnavi = positive
+	}
+
+	country_modifier = {
+		global_fish_output_modifier = 0.1
+		global_merchant_capacity_modifier = 0.1
+		trade_range_modifier = 0.1
+	}
+	location_modifier = {
+		local_fish_output_modifier = 0.15
+		local_sailors_modifier = 0.1
+	}
+	character_modifier = {
+		exploration_mission_speed = 0.1
+		monthly_legitimacy = 0.02
+	}
+
+	culture_groups = {
+		gj_grupo_lagunas
+	}
+}
+
+# Hansa de la sal y el ahumado: salineros que no juran a nadie.
+gj_isbranti = {
+	language = gj_minores_norte_isbranti_dialect
+
+	color = gj_minores_norte_map_isbranti
+
+	tags = { norwegian_gfx swedish_gfx western_european_gfx european_gfx }
+
+	opinions = {
+		gj_nenvari = negative
+		gj_aryuki = positive
+	}
+
+	country_modifier = {
+		global_salt_output_modifier = 0.15
+		global_fish_output_modifier = 0.1
+		global_food_decay = -0.1
+	}
+	location_modifier = {
+		local_salt_output_modifier = 0.2
+		local_food_capacity_modifier = 0.05
+	}
+	character_modifier = {
+		land_morale_modifier = 0.03
+		monthly_prestige = 0.01
+	}
+
+	culture_groups = {
+		gj_grupo_fiordo
+	}
+}
+
+# Clan de la piedra sorda: mineros que no quieren ser de ninguna corona.
+gj_hondarri = {
+	language = gj_minores_norte_hondarri_dialect
+
+	color = gj_minores_norte_map_hondarri
+
+	tags = { german_gfx south_german_gfx western_european_gfx european_gfx }
+
+	opinions = {
+		gj_aryuki = negative
+		gj_tarnavi = positive
+	}
+
+	country_modifier = {
+		global_stone_output_modifier = 0.15
+		global_iron_output_modifier = 0.1
+		fort_maintenance_efficiency = 0.1
+	}
+	location_modifier = {
+		local_defensive = 0.1
+		local_max_rgo_size = 0.05
+	}
+	character_modifier = {
+		discipline = 0.03
+		land_morale_modifier = 0.03
+	}
+
+	culture_groups = {
+		gj_grupo_enano
+	}
+}
+
+# Horda de los tres pozos: pastores de agua escasa y de memoria larga.
+gj_aryuki = {
+	language = gj_minores_norte_aryuki_dialect
+
+	color = gj_minores_norte_map_aryuki
+
+	tags = { mongol_gfx central_asian_gfx turkic_gfx eastern_european_gfx }
+
+	opinions = {
+		gj_hondarri = negative
+		gj_isbranti = positive
+		gj_vigiano = enemy
+	}
+
+	country_modifier = {
+		army_light_cavalry_power = 0.1
+		global_horses_output_modifier = 0.15
+		army_movement_speed = 0.1
+	}
+	location_modifier = {
+		local_manpower_modifier = 0.1
+		local_supply_limit_modifier = 0.1
+	}
+	character_modifier = {
+		military_tactics = 0.05
+		monthly_prestige = 0.01
+	}
+
+	culture_groups = {
+		gj_grupo_estepa
+	}
+}
+
+# Clanes de la marisma gris: turba, ganso y niebla.
+gj_marismeno = {
+	language = gj_minores_norte_marismeno_dialect
+
+	color = gj_minores_norte_map_marismeno
+
+	tags = { irish_gfx gaelic_gfx celtic_gfx european_gfx }
+
+	opinions = {
+		gj_tarnavi = negative
+		gj_vigiano = kindred
+	}
+
+	country_modifier = {
+		global_disease_resistance = 0.1
+		global_wild_game_output_modifier = 0.1
+		global_hostile_attrition = 0.15
+	}
+	location_modifier = {
+		local_hostile_attrition = 0.25
+		local_disease_resistance = 0.1
+	}
+	character_modifier = {
+		character_life_expectancy = 2
+		discipline = 0.02
+	}
+
+	culture_groups = {
+		gj_grupo_ostrevari
+	}
+}
+
+# Marca del vigia alto: guardia de paso y de atalaya.
+gj_vigiano = {
+	language = gj_minores_norte_vigiano_dialect
+
+	color = gj_minores_norte_map_vigiano
+
+	tags = { scottish_highland_gfx scottish_gfx north_british_gfx european_gfx }
+
+	opinions = {
+		gj_aryuki = enemy
+		gj_marismeno = kindred
+		gj_tarnavi = positive
+	}
+
+	country_modifier = {
+		global_garrison_size_modifier = 0.15
+		fort_maintenance_efficiency = 0.1
+		global_defensive = 0.05
+	}
+	location_modifier = {
+		local_defensive = 0.1
+		local_garrison_size = 0.1
+	}
+	character_modifier = {
+		discipline = 0.02
+		land_morale_modifier = 0.02
+	}
+
+	culture_groups = {
+		gj_grupo_ostrevari
+	}
+}
+
+# Capitulo de la ultima ceniza: orden de sepultores que cierra tumbas contra el hielo.
+gj_cenizario = {
+	language = gj_minores_norte_cenizario_dialect
+
+	color = gj_minores_norte_map_cenizario
+
+	tags = { gothic_gfx polish_gfx eastern_european_gfx european_gfx }
+
+	opinions = {
+		gj_vigiano = positive
+		gj_tarnavi = positive
+	}
+
+	country_modifier = {
+		global_disease_resistance = 0.15
+		global_life_expectancy = 1
+		monthly_legitimacy = 0.02
+	}
+	location_modifier = {
+		local_disease_resistance = 0.15
+		local_unrest = -0.5
+	}
+	character_modifier = {
+		monthly_legitimacy = 0.02
+		character_life_expectancy = 3
+	}
+
+	culture_groups = {
+		gj_grupo_insepulto
+	}
+}

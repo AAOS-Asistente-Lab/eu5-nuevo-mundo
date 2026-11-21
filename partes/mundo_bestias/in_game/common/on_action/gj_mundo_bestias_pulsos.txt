@@ -1,0 +1,93 @@
+# Pulsos de las bestias. Cada pulso tiene un trigger barato de entrada, para que no lo evalue todo el mundo.
+
+# El dragon de la caldera: solo lo miran los paises que tienen tierra en la caldera.
+gj_mundo_bestias_pulso_dragon = {
+	trigger = {
+		gj_mundo_bestias_dragon_vivo = yes
+		gj_mundo_bestias_pais_caldera = yes
+	}
+	random_events = {
+		chance_to_happen = 60
+		30 = gj_mundo_bestias.1
+		30 = gj_mundo_bestias.2
+		25 = gj_mundo_bestias.3
+		25 = gj_mundo_bestias.4
+		40 = gj_mundo_bestias.5
+		35 = gj_mundo_bestias.6
+		15 = gj_mundo_bestias.7
+		10 = gj_mundo_bestias.8
+		25 = gj_mundo_bestias.9
+		100 = 0
+	}
+}
+
+# Los krakens del estrecho: solo los paises con puerto en el paso.
+gj_mundo_bestias_pulso_kraken = {
+	trigger = {
+		gj_mundo_bestias_kraken_vivo = yes
+		gj_mundo_bestias_pais_estrecho = yes
+	}
+	random_events = {
+		chance_to_happen = 45
+		40 = gj_mundo_bestias.20
+		40 = gj_mundo_bestias.21
+		25 = gj_mundo_bestias.22
+		15 = gj_mundo_bestias.23
+		30 = gj_mundo_bestias.24
+		100 = 0
+	}
+}
+
+# Plagas de bestias: lobos, wyverns y enjambres. Cada evento comprueba su propio terreno.
+gj_mundo_bestias_pulso_plagas = {
+	trigger = {
+		current_age_or_later = { age = age_1_traditions }
+	}
+	random_events = {
+		chance_to_happen = 6
+		35 = gj_mundo_bestias.30
+		30 = gj_mundo_bestias.31
+		30 = gj_mundo_bestias.32
+		10 = gj_mundo_bestias.33
+		200 = 0
+	}
+}
+
+# Respaldo de los presagios: si la cadena de eventos se rompiera (el pais elegido desaparece), un pulso muy raro la retoma.
+gj_mundo_bestias_pulso_presagio = {
+	trigger = {
+		NOT = { has_global_variable = gj_mundo_bestias_presagio_lock }
+	}
+	random_events = {
+		chance_to_happen = 0.5
+		1 = gj_mundo_bestias.40
+	}
+}
+
+# Quien tiene el pacto con el dragon despierto lo nota aunque no tenga tierra en la caldera.
+gj_mundo_bestias_pulso_pacto = {
+	trigger = {
+		has_variable = gj_llama_pacto_dragon
+		gj_mundo_bestias_dragon_despierto = yes
+	}
+	random_events = {
+		chance_to_happen = 40
+		1 = gj_mundo_bestias.7
+	}
+}
+
+yearly_country_pulse = {
+	on_actions = {
+		gj_mundo_bestias_pulso_pacto
+		gj_mundo_bestias_pulso_dragon
+		gj_mundo_bestias_pulso_kraken
+		gj_mundo_bestias_pulso_plagas
+		gj_mundo_bestias_pulso_presagio
+	}
+}
+
+on_game_start = {
+	effect = {
+		gj_mundo_bestias_inicia = yes
+	}
+}

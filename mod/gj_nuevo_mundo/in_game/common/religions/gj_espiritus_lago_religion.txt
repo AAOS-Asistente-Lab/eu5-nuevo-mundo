@@ -1,0 +1,31 @@
+﻿# Los Espiritus del Lago: religion de los presagios del hielo y del agua.
+# Mecanica propia: has_omens (presagios). Dos escuelas: barqueros (comercio) y sagas (incursion).
+# El grupo gj_fe_norte lo define la integracion.
+
+gj_espiritus_lago = {
+	color = gj_espiritus_lago_color
+	group = gj_fe_norte
+
+	religious_aspects = 2
+
+	has_omens = yes
+
+	religious_school = gj_escuela_barqueros
+	religious_school = gj_escuela_sagas
+
+	definition_modifier = {
+		omens_offered = 1
+		omen_strength_modifier = 0.1
+		global_fish_output_modifier = 0.1
+		trade_sea_efficiency = small_trade_sea_efficiency_bonus
+		land_cost_on_frozen_water = -0.25
+		tolerance_heathen = 1
+	}
+
+	opinions = {
+	}
+
+	tags = {
+		folk_european_gfx pagan_gfx
+	}
+}

@@ -1,0 +1,7 @@
+﻿gj_velathi_umbral = {
+	limit = gj_velathi_umbral_unit_limit
+}
+
+gj_velathi_raiz = {
+	limit = gj_velathi_raiz_unit_limit
+}

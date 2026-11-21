@@ -1,0 +1,146 @@
+﻿# Efectos de Ankarú: el Calendario Solar y el enlace para los eclipses.
+# Variables de país: gj_ank_fase (1 siembra, 2 cosecha, 3 festival, 4 ayuno), gj_ank_anios (años dentro de la fase),
+# gj_ank_era_vista (última era celebrada) y gj_ank_eclipse_pendiente (la pone gj_ankaru_eclipse_effect).
+
+# Lo llaman el pulso anual de Ankarú, y las religiones o el mundo (cometas y eclipses) cuando haya un eclipse visible.
+gj_ankaru_eclipse_effect = {
+	set_variable = { name = gj_ank_eclipse_pendiente value = 1 }
+}
+
+gj_ank_quita_fases = {
+	if = {
+		limit = { has_country_modifier = gj_ank_fase_siembra }
+		remove_country_modifier = gj_ank_fase_siembra
+	}
+	if = {
+		limit = { has_country_modifier = gj_ank_fase_cosecha }
+		remove_country_modifier = gj_ank_fase_cosecha
+	}
+	if = {
+		limit = { has_country_modifier = gj_ank_fase_festival }
+		remove_country_modifier = gj_ank_fase_festival
+	}
+	if = {
+		limit = { has_country_modifier = gj_ank_fase_ayuno }
+		remove_country_modifier = gj_ank_fase_ayuno
+	}
+}
+
+# Pone el modificador de la fase actual durante 5 años.
+gj_ank_aplica_fase = {
+	gj_ank_quita_fases = yes
+	if = {
+		limit = { var:gj_ank_fase = 1 }
+		add_country_modifier = { modifier = gj_ank_fase_siembra years = 5 mode = replace }
+	}
+	else_if = {
+		limit = { var:gj_ank_fase = 2 }
+		add_country_modifier = { modifier = gj_ank_fase_cosecha years = 5 mode = replace }
+	}
+	else_if = {
+		limit = { var:gj_ank_fase = 3 }
+		add_country_modifier = { modifier = gj_ank_fase_festival years = 5 mode = replace }
+	}
+	else = {
+		add_country_modifier = { modifier = gj_ank_fase_ayuno years = 5 mode = replace }
+	}
+}
+
+# Avanza el calendario un año: arranca, cambia de fase cada 5 años, celebra los cambios de era y lee los eclipses.
+gj_ank_avanza_calendario = {
+	if = {
+		limit = { NOT = { has_variable = gj_ank_fase } }
+		set_variable = { name = gj_ank_fase value = 1 }
+		set_variable = { name = gj_ank_anios value = 0 }
+		set_variable = { name = gj_ank_era_vista value = 1 }
+		trigger_event_non_silently = gj_ankaru.1
+	}
+	else = {
+		change_variable = { name = gj_ank_anios add = 1 }
+		if = {
+			limit = { var:gj_ank_anios >= 5 }
+			set_variable = { name = gj_ank_anios value = 0 }
+			change_variable = { name = gj_ank_fase add = 1 }
+			if = {
+				limit = { var:gj_ank_fase > 4 }
+				set_variable = { name = gj_ank_fase value = 1 }
+			}
+			if = {
+				limit = { var:gj_ank_fase = 1 }
+				trigger_event_non_silently = gj_ankaru.2
+			}
+			else_if = {
+				limit = { var:gj_ank_fase = 2 }
+				trigger_event_non_silently = gj_ankaru.3
+			}
+			else_if = {
+				limit = { var:gj_ank_fase = 3 }
+				trigger_event_non_silently = gj_ankaru.4
+			}
+			else = {
+				trigger_event_non_silently = gj_ankaru.5
+			}
+		}
+		# Cambio de era: un evento por era nueva.
+		if = {
+			limit = {
+				current_age_or_later = { age = age_2_renaissance }
+				var:gj_ank_era_vista < 2
+			}
+			set_variable = { name = gj_ank_era_vista value = 2 }
+			trigger_event_non_silently = gj_ankaru.20
+		}
+		else_if = {
+			limit = {
+				current_age_or_later = { age = age_3_discovery }
+				var:gj_ank_era_vista < 3
+			}
+			set_variable = { name = gj_ank_era_vista value = 3 }
+			trigger_event_non_silently = gj_ankaru.20
+		}
+		else_if = {
+			limit = {
+				current_age_or_later = { age = age_4_reformation }
+				var:gj_ank_era_vista < 4
+			}
+			set_variable = { name = gj_ank_era_vista value = 4 }
+			trigger_event_non_silently = gj_ankaru.20
+		}
+		else_if = {
+			limit = {
+				current_age_or_later = { age = age_5_absolutism }
+				var:gj_ank_era_vista < 5
+			}
+			set_variable = { name = gj_ank_era_vista value = 5 }
+			trigger_event_non_silently = gj_ankaru.20
+		}
+		else_if = {
+			limit = {
+				current_age_or_later = { age = age_6_revolutions }
+				var:gj_ank_era_vista < 6
+			}
+			set_variable = { name = gj_ank_era_vista value = 6 }
+			trigger_event_non_silently = gj_ankaru.20
+		}
+		# Un eclipse propio del calendario: unos pocos casos por siglo.
+		random = {
+			chance = 3
+			gj_ankaru_eclipse_effect = yes
+		}
+		if = {
+			limit = { has_variable = gj_ank_eclipse_pendiente }
+			remove_variable = gj_ank_eclipse_pendiente
+			if = {
+				limit = { var:gj_ank_fase = 3 }
+				trigger_event_non_silently = gj_ankaru.6
+			}
+			else_if = {
+				limit = { var:gj_ank_fase = 4 }
+				trigger_event_non_silently = gj_ankaru.7
+			}
+			else = {
+				trigger_event_non_silently = gj_ankaru.8
+			}
+		}
+	}
+}

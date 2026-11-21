@@ -1,0 +1,83 @@
+﻿##############################################################
+# THALASSAR: on_actions
+# Se enganchan a los pulsos del juego base. Si el motor no fusionara estas
+# claves con las del base, la integracion los llama desde su propio fichero.
+##############################################################
+
+yearly_country_pulse = {
+	on_actions = {
+		gj_thalassar_pulso_anual
+	}
+}
+
+biyearly_country_pulse = {
+	on_actions = {
+		gj_thalassar_pulso_bienal
+	}
+}
+
+gj_thalassar_pulso_anual = {
+	trigger = {
+		gj_es_thalassar = yes
+	}
+
+	effect = {
+		gj_thalassar_cosecha_anual = yes
+		# La decadencia sube cada ano mientras la ciudad no haya emergido.
+		if = {
+			limit = {
+				NOT = { gj_thalassar_fase_al_menos = { N = 5 } }
+			}
+			if = {
+				limit = { NOT = { has_variable = gj_decadencia } }
+				set_variable = { name = gj_decadencia value = 0 }
+			}
+			change_variable = { name = gj_decadencia add = 1 }
+		}
+	}
+
+	# Aviso, una sola vez por racha, a los 20 anos de estancamiento.
+	first_valid = {
+		gj_thalassar.30
+	}
+
+	random_events = {
+		chance_to_happen = 45
+
+		chance_of_no_event = 20
+
+		100 = gj_thalassar.1
+		100 = gj_thalassar.2
+		60 = gj_thalassar.3
+		80 = gj_thalassar.5
+		80 = gj_thalassar.7
+		80 = gj_thalassar.8
+		80 = gj_thalassar.11
+		80 = gj_thalassar.14
+		80 = gj_thalassar.17
+		60 = gj_thalassar.20
+	}
+}
+
+gj_thalassar_pulso_bienal = {
+	trigger = {
+		gj_es_thalassar = yes
+	}
+
+	random_events = {
+		chance_to_happen = 50
+
+		chance_of_no_event = 20
+
+		100 = gj_thalassar.4
+		100 = gj_thalassar.6
+		80 = gj_thalassar.9
+		80 = gj_thalassar.10
+		80 = gj_thalassar.12
+		60 = gj_thalassar.13
+		60 = gj_thalassar.15
+		60 = gj_thalassar.16
+		60 = gj_thalassar.18
+		60 = gj_thalassar.19
+	}
+}

@@ -1,0 +1,66 @@
+﻿##############################
+# Avances compartidos por estilo: dos por estilo, para todos los menores del sur de ese estilo.
+##############################
+
+# --- Ciudades-estado de puerto ---
+gj_minores_sur_concejo_de_gremios = {
+	potential = { gj_minores_sur_estilo_ciudad = yes }
+	age = age_2_renaissance
+	icon = scholasticism
+	requires = guilds
+
+	global_production_efficiency = 0.05
+	global_burghers_estate_power = 0.05
+}
+
+gj_minores_sur_muelles_francos = {
+	potential = { gj_minores_sur_estilo_ciudad = yes }
+	age = age_4_reformation
+	icon = banking_advance
+	requires = global_trade_advance
+
+	export_efficiency = 0.10
+	trade_sea_efficiency = 0.05
+}
+
+# --- Jefaturas y clanes de selva ---
+gj_minores_sur_senderos_de_selva = {
+	potential = { gj_minores_sur_estilo_selva = yes }
+	age = age_2_renaissance
+	icon = agriculture_advance
+	requires = rgo_size_advance_renaissance
+
+	global_max_rgo_size_modifier = 0.10
+	global_supply_limit_modifier = 0.10
+}
+
+gj_minores_sur_ritos_de_cosecha_menor = {
+	potential = { gj_minores_sur_estilo_selva = yes }
+	age = age_4_reformation
+	icon = agriculture_advance
+	requires = food_advance_reformation
+
+	food_consumption_modifier = -0.05
+	global_raw_material_output = 0.05
+}
+
+# --- Marcas, protectorados y pueblos de frontera ---
+gj_minores_sur_palabra_de_vasallo = {
+	potential = { gj_minores_sur_estilo_marca = yes }
+	age = age_2_renaissance
+	icon = defensive_mentality
+	requires = renaissance_subject_opinions_advance
+
+	monthly_legitimacy = 0.05
+	tolerance_own = 1
+}
+
+gj_minores_sur_baluartes_de_frontera = {
+	potential = { gj_minores_sur_estilo_marca = yes }
+	age = age_4_reformation
+	icon = defensive_mentality
+	requires = artillery_institution_advance
+
+	fort_maintenance_efficiency = 0.10
+	global_defensive = 0.05
+}

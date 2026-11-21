@@ -1,0 +1,50 @@
+﻿#######################################################################
+# Enganches de Kaivan (parte "kaivan").
+# Se suman a los on_action del juego base (si el motor no los fusiona, la integracion
+# tiene que pasar estas dos listas a mano: ver NECESITA.md).
+#######################################################################
+
+# Al morir el kan (el dia siguiente) se reune el Circulo.
+on_ruler_death_delayed = {
+	events = {
+		gj_kaivan.1
+	}
+}
+
+# Pulso anual de flavor de Kaivan: barato por fuera, solo entra si es la faccion.
+yearly_country_pulse = {
+	on_actions = {
+		gj_kaivan_pulso_anual
+	}
+}
+
+gj_kaivan_pulso_anual = {
+	trigger = {
+		gj_es_kaivan = yes
+		is_subject = no
+	}
+
+	random_events = {
+		chance_to_happen = 35
+
+		100 = gj_kaivan.30
+		100 = gj_kaivan.31
+		60 = gj_kaivan.32
+		60 = gj_kaivan.33
+		80 = gj_kaivan.34
+		60 = gj_kaivan.35
+		60 = gj_kaivan.36
+		60 = gj_kaivan.37
+		60 = gj_kaivan.38
+		60 = gj_kaivan.39
+		60 = gj_kaivan.40
+		60 = gj_kaivan.41
+		60 = gj_kaivan.42
+		60 = gj_kaivan.43
+		60 = gj_kaivan.44
+		60 = gj_kaivan.45
+		60 = gj_kaivan.46
+		60 = gj_kaivan.47
+		200 = 0
+	}
+}

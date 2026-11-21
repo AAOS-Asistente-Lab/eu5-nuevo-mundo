@@ -1,0 +1,414 @@
+﻿namespace = gj_escarcha_silente
+
+# .1 La primera helada de la cuenta
+gj_escarcha_silente.1 = {
+	type = country_event
+	title = gj_escarcha_silente.1.title
+	desc = gj_escarcha_silente.1.desc
+	outcome = neutral
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		doom < 40
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.1.a
+		add_doom = doom_weak_bonus
+		add_legitimacy = legitimacy_weak_bonus
+	}
+
+	option = {
+		name = gj_escarcha_silente.1.b
+		add_doom = doom_weak_penalty
+		add_country_modifier = {
+			modifier = gj_escarcha_silente_hielo_en_las_venas
+			years = 5
+			mode = extend
+		}
+	}
+}
+
+# .2 Los nombres sobre la nieve
+gj_escarcha_silente.2 = {
+	type = country_event
+	title = gj_escarcha_silente.2.title
+	desc = gj_escarcha_silente.2.desc
+	outcome = neutral
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		doom >= 25
+		doom < 75
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.2.a
+		add_prestige = prestige_mild_bonus
+		add_doom = doom_weak_penalty
+	}
+
+	option = {
+		name = gj_escarcha_silente.2.b
+		add_doom = doom_weak_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# .3 El ayuno de los callados
+gj_escarcha_silente.3 = {
+	type = country_event
+	title = gj_escarcha_silente.3.title
+	desc = gj_escarcha_silente.3.desc
+	outcome = neutral
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		doom >= 40
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_escarcha_silente.3.a
+		add_country_modifier = {
+			modifier = gj_escarcha_silente_ayuno_de_los_callados
+			years = 3
+			mode = extend
+		}
+		add_stability = stability_weak_penalty
+	}
+
+	option = {
+		name = gj_escarcha_silente.3.b
+		add_doom = doom_weak_bonus
+		change_gold_effect = { scale = -2 }
+	}
+
+	option = {
+		name = gj_escarcha_silente.3.c
+		add_prestige = prestige_weak_bonus
+		add_doom = doom_weak_penalty
+	}
+}
+
+# .4 Peregrinos a la cumbre callada
+gj_escarcha_silente.4 = {
+	type = country_event
+	title = gj_escarcha_silente.4.title
+	desc = gj_escarcha_silente.4.desc
+	outcome = positive
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.4.a
+		add_country_modifier = {
+			modifier = gj_escarcha_silente_pregon_del_hielo
+			years = 10
+			mode = extend
+		}
+		random_owned_location = {
+			add_location_modifier = {
+				modifier = gj_escarcha_silente_ceniza_bendita
+				months = 240
+				mode = add_and_extend
+			}
+		}
+	}
+
+	option = {
+		name = gj_escarcha_silente.4.b
+		change_gold_effect = { scale = 2 }
+		add_doom = doom_weak_penalty
+	}
+}
+
+# .5 Un verano demasiado cálido
+gj_escarcha_silente.5 = {
+	type = country_event
+	title = gj_escarcha_silente.5.title
+	desc = gj_escarcha_silente.5.desc
+	outcome = negative
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		doom < 60
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.5.a
+		add_doom = doom_weak_penalty
+		add_legitimacy = legitimacy_weak_bonus
+	}
+
+	option = {
+		name = gj_escarcha_silente.5.b
+		add_stability = stability_weak_penalty
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# .6 El cantor sin lengua
+gj_escarcha_silente.6 = {
+	type = country_event
+	title = gj_escarcha_silente.6.title
+	desc = gj_escarcha_silente.6.desc
+	outcome = neutral
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		has_ruler = yes
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_escarcha_silente.6.a
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = {
+			modifier = gj_escarcha_silente_pregon_del_hielo
+			years = 5
+			mode = extend
+		}
+	}
+
+	option = {
+		name = gj_escarcha_silente.6.b
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .7 Un hereje bajo la nieve
+gj_escarcha_silente.7 = {
+	type = country_event
+	title = gj_escarcha_silente.7.title
+	desc = gj_escarcha_silente.7.desc
+	outcome = negative
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		doom >= 10
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.7.a
+		add_legitimacy = legitimacy_weak_penalty
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = gj_escarcha_silente.7.b
+		evil_option = yes
+		add_doom = doom_mild_penalty
+		add_prestige = prestige_weak_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# .8 La cuenta se acerca
+gj_escarcha_silente.8 = {
+	type = country_event
+	title = gj_escarcha_silente.8.title
+	desc = gj_escarcha_silente.8.desc
+	outcome = negative
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		doom >= 70
+		doom < 100
+		NOT = { has_variable = gj_escarcha_silente_noche_propia }
+	}
+
+	illustration_tags = {
+		10 = armed
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.8.a
+		add_army_tradition = army_tradition_mild_bonus
+		add_doom = doom_weak_penalty
+	}
+
+	option = {
+		name = gj_escarcha_silente.8.b
+		add_doom = doom_severe_bonus
+		add_stability = stability_mild_penalty
+	}
+}
+
+# .9 La Noche Blanca. Lo lanza on_max_doom_reached o la decision de convocarla.
+gj_escarcha_silente.9 = {
+	type = country_event
+	title = gj_escarcha_silente.9.title
+	desc = gj_escarcha_silente.9.desc
+	outcome = negative
+	major = yes
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.9.a
+		gj_escarcha_silente_abre_noche = yes
+	}
+
+	option = {
+		name = gj_escarcha_silente.9.b
+		set_doom = 50
+		add_country_modifier = {
+			modifier = gj_escarcha_silente_cuenta_rota
+			years = 10
+			mode = extend
+		}
+		add_prestige = prestige_mild_penalty
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_severe_penalty }
+	}
+}
+
+# .10 La Corte se duerme (fin de la Noche Blanca)
+gj_escarcha_silente.10 = {
+	type = country_event
+	title = gj_escarcha_silente.10.title
+	desc = gj_escarcha_silente.10.desc
+	outcome = neutral
+
+	trigger = {
+		has_variable = gj_escarcha_silente_noche_propia
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.10.a
+		remove_variable = gj_escarcha_silente_noche_propia
+		remove_country_modifier = gj_escarcha_silente_noche_blanca_fiel
+		set_doom = 0
+		add_country_modifier = {
+			modifier = gj_escarcha_silente_corte_dormida
+			years = 5
+			mode = extend
+		}
+	}
+}
+
+# .11 Los callados reclaman su parte
+gj_escarcha_silente.11 = {
+	type = country_event
+	title = gj_escarcha_silente.11.title
+	desc = gj_escarcha_silente.11.desc
+	outcome = neutral
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		doom >= 50
+	}
+
+	illustration_tags = {
+		10 = armed
+		10 = interior
+	}
+
+	option = {
+		name = gj_escarcha_silente.11.a
+		add_army_tradition = army_tradition_mild_bonus
+		add_country_modifier = {
+			modifier = gj_escarcha_silente_hielo_en_las_venas
+			years = 3
+			mode = extend
+		}
+		add_doom = doom_weak_penalty
+	}
+
+	option = {
+		name = gj_escarcha_silente.11.b
+		add_doom = doom_weak_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# .12 El último invierno (al completar el foco del mismo nombre)
+gj_escarcha_silente.12 = {
+	type = country_event
+	title = gj_escarcha_silente.12.title
+	desc = gj_escarcha_silente.12.desc
+	outcome = positive
+
+	trigger = {
+		religion = religion:gj_escarcha_silente
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_escarcha_silente.12.a
+		add_doom = doom_severe_bonus
+		add_country_modifier = {
+			modifier = gj_escarcha_silente_hielo_en_las_venas
+			years = 20
+			mode = extend
+		}
+	}
+
+	option = {
+		name = gj_escarcha_silente.12.b
+		add_prestige = prestige_mild_bonus
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}

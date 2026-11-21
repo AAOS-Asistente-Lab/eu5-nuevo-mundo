@@ -1,0 +1,67 @@
+# Menores del sur: tope de niveles de los tres edificios compartidos. Suben con las eras, sin romperse (3 niveles al final).
+
+gj_minores_sur_nivel_lonja = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_3_discovery } }
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_5_absolutism } }
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+gj_minores_sur_nivel_palafito = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_4_reformation } }
+		add = {
+			desc = "age_4_reformation"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+gj_minores_sur_nivel_torre = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_5_absolutism } }
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	min = 1
+}

@@ -1,0 +1,62 @@
+﻿# Aspectos de Los Dioses Hambrientos: se eligen 2 de 4.
+# El Guardian de los Silos y La Hoja del Alba se excluyen entre si.
+
+gj_dioses_hambrientos_aspecto_mesa_servida = { # La Mesa Siempre Servida: el pueblo come primero
+	religion = gj_dioses_hambrientos
+
+	modifier = {
+		global_monthly_food_modifier = monthly_food_productivity_weak_bonus
+		global_pop_food_consumption = -0.05
+	}
+
+	opinions = {
+		gj_dioses_hambrientos_aspecto_mesa_servida = 10
+	}
+}
+
+gj_dioses_hambrientos_aspecto_hoja_del_alba = { # La Hoja del Alba: la guerra es el primer plato
+	religion = gj_dioses_hambrientos
+
+	enabled = {
+		NOT = { has_religious_aspect = religious_aspect:gj_dioses_hambrientos_aspecto_guardian_silos }
+	}
+
+	modifier = {
+		amount_looted_modifier = 0.25
+		global_war_score_efficiency = 0.1
+	}
+
+	opinions = {
+		gj_dioses_hambrientos_aspecto_hoja_del_alba = 10
+	}
+}
+
+gj_dioses_hambrientos_aspecto_guardian_silos = { # El Guardian de los Silos: ahorrar para no matar (hace mas lento el hambre de la paz)
+	religion = gj_dioses_hambrientos
+
+	enabled = {
+		NOT = { has_religious_aspect = religious_aspect:gj_dioses_hambrientos_aspecto_hoja_del_alba }
+	}
+
+	modifier = {
+		monthly_legitimacy = 0.1
+		global_garrison_size_modifier = 0.1
+	}
+
+	opinions = {
+		gj_dioses_hambrientos_aspecto_guardian_silos = 10
+	}
+}
+
+gj_dioses_hambrientos_aspecto_pozo_de_ofrendas = { # El Pozo de las Ofrendas: el clero lleva la Cuenta
+	religion = gj_dioses_hambrientos
+
+	modifier = {
+		global_clergy_estate_power = 0.1
+		monthly_religious_influence = 0.05
+	}
+
+	opinions = {
+		gj_dioses_hambrientos_aspecto_pozo_de_ofrendas = 10
+	}
+}

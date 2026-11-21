@@ -1,0 +1,3 @@
+﻿gj_velathi_language_family = {
+	color = gj_map_velathi_language_family
+}

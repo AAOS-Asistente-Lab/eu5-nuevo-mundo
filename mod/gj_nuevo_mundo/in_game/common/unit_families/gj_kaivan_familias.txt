@@ -1,0 +1,4 @@
+﻿# Los Jinetes Lobo comparten un solo cupo en todas las eras.
+gj_kaivan_lobos = {
+	limit = gj_kaivan_limite_lobos
+}

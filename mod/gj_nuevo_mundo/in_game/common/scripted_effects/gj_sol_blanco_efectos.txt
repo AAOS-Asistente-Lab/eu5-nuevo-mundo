@@ -1,0 +1,25 @@
+﻿# Efectos del Sol Blanco.
+#
+# gj_sol_blanco_lee_presagio: como lee esta religion un cometa o un eclipse.
+# Lo llama mundo_bestias, con root = pais, de este modo:
+#     gj_sol_blanco_lee_presagio = { TIPO = eclipse }
+#     gj_sol_blanco_lee_presagio = { TIPO = cometa }
+# Si el pais no sigue el Sol Blanco, no hace nada.
+
+gj_sol_blanco_lee_presagio = {
+	if = {
+		limit = {
+			exists = religion
+			religion = religion:gj_sol_blanco
+		}
+		gj_sol_blanco_lee_$TIPO$ = yes
+	}
+}
+
+gj_sol_blanco_lee_eclipse = {
+	trigger_event_non_silently = { id = gj_sol_blanco.8 }
+}
+
+gj_sol_blanco_lee_cometa = {
+	trigger_event_non_silently = { id = gj_sol_blanco.9 }
+}

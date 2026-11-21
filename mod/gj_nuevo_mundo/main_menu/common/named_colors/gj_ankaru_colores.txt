@@ -1,0 +1,4 @@
+﻿colors = {
+	gj_map_ankaruno = rgb { 226 170 40 }
+	gj_map_lengua_ankaruna = rgb { 200 150 50 }
+}

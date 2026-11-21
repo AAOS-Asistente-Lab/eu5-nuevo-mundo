@@ -1,0 +1,81 @@
+﻿# Triggers de mundo_contacto.
+
+# El pais es del Viejo Mundo: su capital esta en Europa, Asia o Africa (la misma regla que usa el juego base).
+gj_pais_viejo_mundo = {
+	capital ?= {
+		OR = {
+			continent = continent:europe
+			continent = continent:asia
+			continent = continent:africa
+		}
+	}
+}
+
+# El pais es del Nuevo Mundo.
+gj_pais_nuevo_mundo = {
+	capital ?= {
+		continent = continent:america
+	}
+}
+
+# Ya hay alguien del Viejo Mundo con una location poblada en America.
+gj_viejo_mundo_en_america = {
+	continent:america = {
+		any_location_in_continent = {
+			population > 0
+			owner_from_old_world = yes
+		}
+	}
+}
+
+# Pais del Nuevo Mundo que ya ha tenido su primer contacto.
+gj_con_contacto = {
+	has_variable = gj_contacto_hecho
+}
+
+# Pais del Nuevo Mundo que aun no ha tenido su primer contacto y esta en condiciones de tenerlo:
+# ya hay gente del Viejo Mundo en America y conoce a alguno de ellos, o los tiene de vecinos.
+gj_contacto_posible = {
+	gj_pais_nuevo_mundo = yes
+	NOT = { has_variable = gj_contacto_hecho }
+	has_ruler = yes
+	gj_viejo_mundo_en_america = yes
+	OR = {
+		any_neighbor_country = {
+			gj_pais_viejo_mundo = yes
+		}
+		any_known_country = {
+			gj_pais_viejo_mundo = yes
+			any_owned_location = {
+				continent = continent:america
+			}
+		}
+	}
+}
+
+# Cerro sus puertos.
+gj_puertos_cerrados = {
+	has_country_modifier = gj_contacto_via_cerrado
+}
+
+# Va por detras de algun pais del Viejo Mundo que conoce (con el umbral guardado en la variable gj_umbral_1).
+gj_rezagado_1 = {
+	any_known_country = {
+		gj_pais_viejo_mundo = yes
+		num_of_advances_researched > root.var:gj_umbral_1
+	}
+}
+
+gj_rezagado_2 = {
+	any_known_country = {
+		gj_pais_viejo_mundo = yes
+		num_of_advances_researched > root.var:gj_umbral_2
+	}
+}
+
+gj_rezagado_3 = {
+	any_known_country = {
+		gj_pais_viejo_mundo = yes
+		num_of_advances_researched > root.var:gj_umbral_3
+	}
+}

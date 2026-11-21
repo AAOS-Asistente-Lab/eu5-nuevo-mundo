@@ -1,0 +1,17 @@
+gj_durnhal_lengua = {
+	color = map_gj_durnhali
+	family = gj_enano_language_family
+
+	male_names = {
+		Aldrek Brannok Dorvun Eskald Falgrim Garrund Halvek Irmund Jorgrim Korvald Ludrek Morgund Norvik Orbrand Pelgrim Quendor Rotgar Skeldor Torvald Ulbrek Varrund Wolgrim Yskar Zorbrek Harkund Belgrund Tarvok Dunmark Osvald
+	}
+	female_names = {
+		Brunna Dagmara Eldris Falka Gerhild Hertha Ilsegund Jorna Kelda Lirunn Magda Norhild Orla Presa Runhild Sigrund Torva Ulfhild Vendra Wilda
+	}
+	dynasty_names = {
+		Hondomartillo Carbonfrio Yunqueviejo Piconegro Salderroca Lamparalarga Cobrefino Puntalfirme Vetaclara Brasaquieta Canteralta Ecohondo
+	}
+	lowborn = {
+		Pedrero Carretero Faroler Pozoseco Cuerdacorta Barrenero Acarreo Mechero Aserrin Cernidor Hollin Lastre
+	}
+}

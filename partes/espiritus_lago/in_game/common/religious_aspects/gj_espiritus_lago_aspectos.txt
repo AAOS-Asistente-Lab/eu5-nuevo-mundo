@@ -1,0 +1,66 @@
+# Aspectos de los Espiritus del Lago (se eligen 2 de 4).
+# Remo y Red y La Ola Larga se excluyen: el que comercia no incursiona, y al reves.
+
+gj_espiritus_lago_aspecto_hielo_que_canta = {
+	religion = gj_espiritus_lago
+
+	modifier = {
+		land_cost_on_frozen_water = -0.25
+		global_defensive = 0.1
+		land_unit_attrition = -0.1
+	}
+
+	opinions = {
+		gj_espiritus_lago_aspecto_hielo_que_canta = 10
+	}
+}
+
+gj_espiritus_lago_aspecto_remo_y_red = {
+	religion = gj_espiritus_lago
+
+	enabled = {
+		NOT = { has_religious_aspect = religious_aspect:gj_espiritus_lago_aspecto_ola_larga }
+	}
+
+	modifier = {
+		global_fish_output_modifier = 0.1
+		global_merchant_capacity_modifier = 0.1
+		export_efficiency = 0.05
+	}
+
+	opinions = {
+		gj_espiritus_lago_aspecto_remo_y_red = 10
+	}
+}
+
+gj_espiritus_lago_aspecto_ola_larga = {
+	religion = gj_espiritus_lago
+
+	enabled = {
+		NOT = { has_religious_aspect = religious_aspect:gj_espiritus_lago_aspecto_remo_y_red }
+	}
+
+	modifier = {
+		amount_looted_modifier = 0.2
+		naval_damage_done = 0.05
+		diplomatic_reputation = -1
+	}
+
+	opinions = {
+		gj_espiritus_lago_aspecto_ola_larga = 10
+	}
+}
+
+gj_espiritus_lago_aspecto_fuego_de_orilla = {
+	religion = gj_espiritus_lago
+
+	modifier = {
+		omen_time_modifier = 0.2
+		select_omen_god_cost_modifier = -0.2
+		monthly_legitimacy = 0.05
+	}
+
+	opinions = {
+		gj_espiritus_lago_aspecto_fuego_de_orilla = 10
+	}
+}

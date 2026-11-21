@@ -1,0 +1,167 @@
+﻿l_spanish:
+ # ===== .1 El juramento de la Lonja =====
+ gj_sorava.1.title: "El juramento de la Lonja"
+ gj_sorava.1.desc: "Al amanecer, diez Casas se reúnen ante la balanza grande de la sala del Concejo. El pesador mayor coloca la primera pesa: «Lo que se jura aquí se cumple aunque el mar se seque». No hay corona en Sorava, solo un libro y diez firmas, y todos saben que de la palabra de unos pocos depende el pan de muchos."
+ gj_sorava.1.a: "Que se grabe en piedra."
+ gj_sorava.1.b: "Que quede entre las Casas."
+
+ # ===== .2 La temporada de las perlas =====
+ gj_sorava.2.title: "La temporada de las perlas"
+ gj_sorava.2.desc: "Con la marea baja de otoño los buzos descubren bancos de ostras como no se recordaban. Los pregoneros no dan abasto: todas las Casas quieren su parte, y las más antiguas exigen quedarse con las mejores calas."
+ gj_sorava.2.a: "Abrir los bancos a todas las Casas."
+ gj_sorava.2.b: "Reservar los mejores al Concejo."
+
+ # ===== .3 Las especias llegan mojadas =====
+ gj_sorava.3.title: "Las especias llegan mojadas"
+ gj_sorava.3.desc: "Una nave de pimienta ha entrado en el puerto con la carga perdida a medias por una vía de agua. Los compradores esperan en el muelle con los contratos en la mano, y el capitán jura que no fue por descuido."
+ gj_sorava.3.a: "Indemnizar a los compradores."
+ gj_sorava.3.b: "Cargar la pérdida a la tripulación."
+ gj_sorava.3.c: "Venderlo igual, como si nada."
+
+ # ===== .4 Corsarios en el estrecho =====
+ gj_sorava.4.title: "Corsarios en el estrecho"
+ gj_sorava.4.desc: "Tres naves sin bandera acechan en la boca del estrecho y han abordado dos mercantes. Los armadores piden remedio: unos, escoltas; otros, un acuerdo discreto con quien manda a los corsarios."
+ gj_sorava.4.a: "Armar escoltas para la ruta."
+ gj_sorava.4.b: "Pagar un rescate y cerrar el asunto."
+ gj_sorava.4.c: "Esperar a que se cansen."
+
+ # ===== .5 La Liga rebaja los fletes =====
+ gj_sorava.5.title: "La Liga rebaja los fletes"
+ gj_sorava.5.desc: "Los barqueros de las lagunas han anunciado precios que ninguna Casa de Sorava puede igualar sin perder dinero. Los armadores del estrecho miran a las lonjas, y las lonjas miran al Concejo."
+ gj_sorava.5.a: "Igualar los precios, aunque duela."
+ gj_sorava.5.b: "Aguantar: nuestra palabra vale más."
+ gj_sorava.5.c: "Proponer un pacto de tarifas."
+
+ # ===== .6 El tasador honrado =====
+ gj_sorava.6.title: "El tasador honrado"
+ gj_sorava.6.desc: "Un tasador del puerto devolvió una bolsa de perlas que un mercader extranjero había dejado por error en su mostrador. La noticia ha corrido por las lonjas del golfo, y hasta los rivales alaban la limpieza de Sorava."
+ gj_sorava.6.a: "Premiarlo ante todo el Concejo."
+ gj_sorava.6.b: "Que se cuente su historia en las cortes."
+
+ # ===== .7 Pesas falsas en el mercado del puerto =====
+ gj_sorava.7.title: "Pesas falsas en el mercado"
+ gj_sorava.7.desc: "Un inspector ha descubierto pesas ligeras en tres mostradores del puerto. Los dueños son de buenas Casas, con cuñados en el Concejo, y piden discreción."
+ gj_sorava.7.a: "Castigo ejemplar, con nombre y apellidos."
+ gj_sorava.7.b: "Mirar a otro lado y cobrar la multa."
+
+ # ===== .8 El hijo de la Casa quiere el timón =====
+ gj_sorava.8.title: "El hijo de la Casa quiere el timón"
+ gj_sorava.8.desc: "El hijo mayor de una de las Casas más antiguas quiere dirigir la flota, pero no ha navegado una sola vez. Los armadores lo ven con simpatía; los nobles del puerto, con recelo."
+ gj_sorava.8.a: "Darle el mando."
+ gj_sorava.8.b: "Enviarlo un año a la mar, a remar con la tripulación."
+
+ # ===== .9 Tormenta de otoño =====
+ gj_sorava.9.title: "Tormenta de otoño"
+ gj_sorava.9.desc: "Un temporal ha barrido la bahía durante tres noches. Cuando amaina, hay mástiles rotos en la playa y ningún capitán se atreve a salir antes de revisar los cascos."
+ gj_sorava.9.a: "Esperar a que el mar se calme."
+ gj_sorava.9.b: "Pagar a los astilleros para reparar deprisa."
+
+ # ===== .10 Enviados del interior =====
+ gj_sorava.10.title: "Enviados del interior"
+ gj_sorava.10.desc: "Una caravana de gente de tierras altas ha llegado a la lonja pidiendo tratar. No conocen el uso de la balanza, pero traen pieles y mineral, y parecen dispuestos a aprender."
+ gj_sorava.10.a: "Recibirlos con honores y una mesa de traductores."
+ gj_sorava.10.b: "Que firmen ante la Sala de las Balanzas."
+
+ # ===== .11 Una Casa menor propone una ruta nueva =====
+ gj_sorava.11.title: "Una Casa menor propone una ruta"
+ gj_sorava.11.desc: "Una Casa pequeña, sin apenas flota, trae un plan: cruzar mar abierto por una derrota que solo ella conoce. Los pilotos mayores dudan; los jóvenes, no."
+ gj_sorava.11.a: "Financiar la expedición."
+ gj_sorava.11.b: "Rechazar el plan, sin más."
+
+ # ===== .12 Tintes en la lonja =====
+ gj_sorava.12.title: "Tintes en la lonja"
+ gj_sorava.12.desc: "Un tintorero ha descubierto un azul que no destiñe con el agua de mar. Pide un mostrador, tres aprendices y el secreto bien guardado."
+ gj_sorava.12.a: "Concederle el mostrador."
+ gj_sorava.12.b: "Comprarle la receta y que se vaya."
+
+ # ===== .13 La cofradía de pilotos =====
+ gj_sorava.13.title: "La cofradía de pilotos"
+ gj_sorava.13.desc: "Los pilotos veteranos piden fundar una cofradía donde enseñar el oficio a los jóvenes, con una casa propia, una caja de socorro y su santo en el altar de la lonja."
+ gj_sorava.13.a: "Apoyarla con fondos del Concejo."
+ gj_sorava.13.b: "Disolverla: no queremos más gremios."
+
+ # ===== .14 Moneda falsa en las balanzas =====
+ gj_sorava.14.title: "Moneda falsa en las balanzas"
+ gj_sorava.14.desc: "En las bolsas de las Casas aparecen monedas de cobre bañadas en plata. Todos sospechan de todos, y nadie quiere admitir que ha cobrado alguna."
+ gj_sorava.14.a: "Recoger todas las monedas y reembolsarlas."
+ gj_sorava.14.b: "Callar y que cada cual cargue con la suya."
+
+ # ===== .15 Gran incendio en los almacenes =====
+ gj_sorava.15.title: "Gran incendio en los almacenes"
+ gj_sorava.15.desc: "Una noche de viento, una lámpara de un depósito de especias lo prendió todo. Al amanecer solo queda ceniza olorosa y un puerto que huele a clavo quemado durante una semana."
+ gj_sorava.15.a: "Reconstruir con fondos del Concejo."
+ gj_sorava.15.b: "Que cada Casa levante lo suyo."
+
+ # ===== .16 La Fiesta de la Balanza =====
+ gj_sorava.16.title: "La Fiesta de la Balanza"
+ gj_sorava.16.desc: "Cada año, el día en que el sol cae justo sobre la gran balanza del puerto, las Casas cierran sus mostradores y la gente sale a la calle con pesas de colores colgadas del cuello. Se cuenta que ese día ningún trato puede romperse."
+ gj_sorava.16.a: "Que sea fiesta grande."
+ gj_sorava.16.b: "Fiesta austera, que hay trabajo."
+
+ # ===== .17 Las cartas de los pilotos (era 3) =====
+ gj_sorava.17.title: "Las cartas de los pilotos"
+ gj_sorava.17.desc: "Los pilotos más viejos han dibujado en cuero las corrientes de todo el golfo y más allá. Dicen que, con esas cartas, una nave puede cruzar en la mitad de tiempo. Quieren ponerlas a disposición de las Casas, por un precio."
+ gj_sorava.17.a: "Comprar las cartas y armar una flota nueva."
+ gj_sorava.17.b: "Venderlas a quien las pague."
+
+ # ===== .18 Los galeones de la Compañía (era 5) =====
+ gj_sorava.18.title: "Los galeones de la Compañía"
+ gj_sorava.18.desc: "Los armadores proponen fundir sus flotas en una sola Compañía, con acciones, un consejo y una bandera. Sería la empresa más grande del golfo, y también la que más poder concentraría. Las Casas pequeñas temen quedarse sin voz."
+ gj_sorava.18.a: "Autorizar la Compañía."
+ gj_sorava.18.b: "Que las Casas sigan siendo independientes."
+
+ # ===== .19 La Bolsa del Estrecho (era 6) =====
+ gj_sorava.19.title: "La Bolsa del Estrecho"
+ gj_sorava.19.desc: "Un grupo de corredores quiere abrir una sala donde se compren y vendan cargamentos que todavía no han zarpado. Es rápido, es rentable y es, a ojos de los más viejos, una apuesta con la palabra de Sorava como fianza."
+ gj_sorava.19.a: "Abrir la Bolsa."
+ gj_sorava.19.b: "Exigir que cada trato lleve garantía real."
+
+ # ===== .21 Contrato de especias: cierre =====
+ gj_sorava.21.title: "Cierre del Contrato de especias"
+ gj_sorava.21.desc: "Han pasado cinco años y llega el día de pesar los sacos. Los compradores han venido con las pesas oficiales en las manos. Es la hora de que las Casas demuestren qué vale su firma."
+ gj_sorava.21.a: "Entregar de más: que nadie dude de Sorava."
+ gj_sorava.21.b: "Cumplir lo pactado, ni un saco más."
+ gj_sorava.21.c: "Romper el contrato: el mercado ha cambiado."
+
+ # ===== .22 Contrato de perlas: cierre =====
+ gj_sorava.22.title: "Cierre del Contrato de perlas"
+ gj_sorava.22.desc: "Los buzos han cumplido su turno de cinco años y las perlas están contadas. Un comprador extranjero llama a cada Casa por su nombre, con un cofre de plata en el suelo."
+ gj_sorava.22.a: "Entregar de más: que nadie dude de Sorava."
+ gj_sorava.22.b: "Cumplir lo pactado, ni una perla más."
+ gj_sorava.22.c: "Romper el contrato y vender a otro comprador."
+
+ # ===== .23 Contrato de escolta: cierre =====
+ gj_sorava.23.title: "Cierre del Contrato de escolta"
+ gj_sorava.23.desc: "Las escoltas vuelven de cinco años de ruta con las armas gastadas y los escudos marcados. El socio que las contrató manda a un delegado a comprobar que no ha faltado un solo hombre."
+ gj_sorava.23.a: "Renovar armas y pagar el exceso: que se vea el cumplimiento."
+ gj_sorava.23.b: "Cumplir lo pactado y nada más."
+ gj_sorava.23.c: "Quedarse con el pago sin responder de nada."
+
+ # ===== .30 Llega a la Liga =====
+ gj_sorava.30.title: "Sorava disputa el estrecho"
+ gj_sorava.30.desc: "Una flota de las Casas de Sorava ha tomado posición en la boca del estrecho. No ha disparado un tiro, pero cada nave de la Liga que cruza recibe la visita de un oficial con una balanza y un pliego de condiciones."
+ gj_sorava.30.a: "Que nuestras bandera y cargamento se vean."
+ gj_sorava.30.b: "Pagar el peaje y seguir."
+
+ # ===== .40 Comienza la Quiebra =====
+ gj_sorava.40.title: "La Quiebra de las Casas"
+ gj_sorava.40.desc: "Las Casas menores han empezado a cerrar sus mostradores: nadie quiere prestar a un país que no cumple lo que firma. En el Concejo, el pesador mayor deja la balanza en el suelo."
+ gj_sorava.40.a: "Poner el tesoro como garantía."
+ gj_sorava.40.b: "Declarar una moratoria y ganar tiempo."
+
+ # ===== .41 Termina la Quiebra =====
+ gj_sorava.41.title: "Las Casas vuelven a firmar"
+ gj_sorava.41.desc: "Un año de cuentas claras, de pagos puntuales y de promesas cumplidas ha devuelto algo de crédito. Esta mañana, la primera Casa menor ha vuelto a abrir su mostrador."
+ gj_sorava.41.a: "Que no se repita."
+
+ # ===== .42 Los acreedores llaman a la puerta =====
+ gj_sorava.42.title: "Los acreedores llaman a la puerta"
+ gj_sorava.42.desc: "Un grupo de acreedores se ha plantado ante la sala del Concejo. Traen los pagarés en la mano y no piensan irse sin respuesta."
+ gj_sorava.42.a: "Pagarles con lo que haya."
+ gj_sorava.42.b: "Que los echen de la sala."
+
+ # ===== .43 Las Casas menores huyen =====
+ gj_sorava.43.title: "Las Casas menores huyen"
+ gj_sorava.43.desc: "Varias Casas pequeñas han hecho las maletas y piensan marcharse al otro lado del golfo con sus libros y sus naves. Dicen que Sorava ya no es el lugar donde una firma vale algo."
+ gj_sorava.43.a: "Retenerlas con ventajas."
+ gj_sorava.43.b: "Dejarlas ir."

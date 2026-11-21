@@ -1,0 +1,659 @@
+﻿namespace = gj_orunmar
+
+########################################
+# gj_orunmar.1  La Mesa Roja se reune (una vez, al empezar)
+########################################
+gj_orunmar.1 = {
+	type = country_event
+	title = gj_orunmar.1.title
+	desc = gj_orunmar.1.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	option = {
+		name = gj_orunmar.1.a
+		random_neighbor_country = {
+			limit = {
+				NOT = { is_subject_of = root }
+				NOT = { is_allied_with = { target = root } }
+			}
+			root = {
+				add_casus_belli = { target = prev type = casus_belli:cb_gj_orunmar_cosecha }
+			}
+		}
+		add_country_modifier = {
+			modifier = gj_orunmar_marcha_de_cosecha
+			years = 5
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.1.b
+		add_country_modifier = {
+			modifier = gj_orunmar_niebla_bendita
+			years = 8
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.1.c
+		add_country_modifier = {
+			modifier = gj_orunmar_bonanza_de_tinte
+			years = 8
+			mode = add_and_extend
+		}
+	}
+}
+
+########################################
+# gj_orunmar.2  Los Segadores piden marcha
+########################################
+gj_orunmar.2 = {
+	type = country_event
+	title = gj_orunmar.2.title
+	desc = gj_orunmar.2.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_orunmar = yes
+		at_war = no
+		gj_orunmar_anios_de_paz >= 2
+	}
+
+	option = {
+		name = gj_orunmar.2.a
+		random_neighbor_country = {
+			limit = {
+				NOT = { is_subject_of = root }
+				NOT = { is_allied_with = { target = root } }
+			}
+			root = {
+				add_casus_belli = { target = prev type = casus_belli:cb_gj_orunmar_cosecha }
+			}
+		}
+		add_country_modifier = {
+			modifier = gj_orunmar_marcha_de_cosecha
+			years = 5
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.2.b
+		add_religious_influence = religious_influence_weak_penalty
+		add_stability = stability_weak_bonus
+	}
+}
+
+########################################
+# gj_orunmar.3  Cautivos en las puertas (tras ganar una guerra)
+########################################
+gj_orunmar.3 = {
+	type = country_event
+	title = gj_orunmar.3.title
+	desc = gj_orunmar.3.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	option = {
+		name = gj_orunmar.3.a
+		add_religious_influence = religious_influence_mild_bonus
+		add_country_modifier = {
+			modifier = gj_orunmar_banquete_de_victoria
+			years = 3
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.3.b
+		change_variable = { name = gj_orunmar_cautivos add = 3 }
+		add_country_modifier = {
+			modifier = gj_orunmar_cosecha_de_esclavos
+			years = 5
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.3.c
+		add_gold = 100
+		add_prestige = prestige_weak_bonus
+	}
+	after = {
+		random_list = {
+			30 = { trigger_event_non_silently = gj_orunmar.20 }
+			70 = { }
+		}
+	}
+}
+
+########################################
+# gj_orunmar.4  El sacerdote cuenta los anos de paz
+########################################
+gj_orunmar.4 = {
+	type = country_event
+	title = gj_orunmar.4.title
+	desc = gj_orunmar.4.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_orunmar = yes
+		at_war = no
+		gj_orunmar_anios_de_paz >= 4
+	}
+
+	option = {
+		name = gj_orunmar.4.a
+		add_stability = stability_weak_penalty
+		add_country_modifier = {
+			modifier = gj_orunmar_ayuno_cumplido
+			years = 5
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.4.b
+		add_country_modifier = {
+			modifier = gj_orunmar_paz_cobardia
+			years = 3
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.4.c
+		random_neighbor_country = {
+			limit = {
+				NOT = { is_subject_of = root }
+				NOT = { is_allied_with = { target = root } }
+			}
+			root = {
+				add_casus_belli = { target = prev type = casus_belli:cb_gj_orunmar_cosecha }
+			}
+		}
+	}
+}
+
+########################################
+# gj_orunmar.5  Los esclavos de la veta murmuran
+########################################
+gj_orunmar.5 = {
+	type = country_event
+	title = gj_orunmar.5.title
+	desc = gj_orunmar.5.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_orunmar = yes
+		has_variable = gj_orunmar_cautivos
+		var:gj_orunmar_cautivos >= 6
+	}
+
+	option = {
+		name = gj_orunmar.5.a
+		add_stability = stability_weak_penalty
+		change_variable = { name = gj_orunmar_cautivos add = -2 }
+	}
+	option = {
+		name = gj_orunmar.5.b
+		add_country_modifier = {
+			modifier = gj_orunmar_rebelion_de_cautivos
+			years = 4
+			mode = add_and_extend
+		}
+		change_variable = { name = gj_orunmar_cautivos add = -4 }
+	}
+	option = {
+		name = gj_orunmar.5.c
+		add_gold = -50
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_bonus }
+		change_variable = { name = gj_orunmar_cautivos add = -3 }
+	}
+}
+
+########################################
+# gj_orunmar.6  La lluvia del tinte
+########################################
+gj_orunmar.6 = {
+	type = country_event
+	title = gj_orunmar.6.title
+	desc = gj_orunmar.6.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	option = {
+		name = gj_orunmar.6.a
+		add_country_modifier = {
+			modifier = gj_orunmar_bonanza_de_tinte
+			years = 6
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.6.b
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_gold = 40
+	}
+}
+
+########################################
+# gj_orunmar.7  La niebla baja a los campos
+########################################
+gj_orunmar.7 = {
+	type = country_event
+	title = gj_orunmar.7.title
+	desc = gj_orunmar.7.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	option = {
+		name = gj_orunmar.7.a
+		add_country_modifier = {
+			modifier = gj_orunmar_niebla_bendita
+			years = 6
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.7.b
+		add_religious_influence = religious_influence_weak_bonus
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+########################################
+# gj_orunmar.8  El mercader del vidrio rojo
+########################################
+gj_orunmar.8 = {
+	type = country_event
+	title = gj_orunmar.8.title
+	desc = gj_orunmar.8.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	option = {
+		name = gj_orunmar.8.a
+		add_gold = 80
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_bonus }
+	}
+	option = {
+		name = gj_orunmar.8.b
+		add_prestige = prestige_mild_bonus
+		add_gold = -30
+	}
+}
+
+########################################
+# gj_orunmar.9  El heredero de la Mesa
+########################################
+gj_orunmar.9 = {
+	type = country_event
+	title = gj_orunmar.9.title
+	desc = gj_orunmar.9.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_orunmar = yes
+		has_ruler = yes
+	}
+
+	option = {
+		name = gj_orunmar.9.a
+		add_legitimacy = legitimacy_mild_bonus
+		add_religious_influence = religious_influence_weak_penalty
+	}
+	option = {
+		name = gj_orunmar.9.b
+		add_army_tradition = army_tradition_mild_bonus
+		add_stability = stability_weak_penalty
+	}
+}
+
+########################################
+# gj_orunmar.10  La Escalinata sangra
+########################################
+gj_orunmar.10 = {
+	type = country_event
+	title = gj_orunmar.10.title
+	desc = gj_orunmar.10.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_orunmar = yes
+		any_owned_location = {
+			has_building_with_at_least_one_level = gj_orunmar_escalinata_ofrendas
+		}
+	}
+
+	option = {
+		name = gj_orunmar.10.a
+		trigger = {
+			has_variable = gj_orunmar_cautivos
+			var:gj_orunmar_cautivos >= 3
+		}
+		change_variable = { name = gj_orunmar_cautivos add = -3 }
+		add_religious_influence = religious_influence_severe_bonus
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_orunmar.10.b
+		add_religious_influence = religious_influence_weak_bonus
+	}
+}
+
+########################################
+# gj_orunmar.11  Embajada de los hijos del Sol
+########################################
+gj_orunmar.11 = {
+	type = country_event
+	title = gj_orunmar.11.title
+	desc = gj_orunmar.11.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_orunmar = yes
+		any_neighbor_country = {
+			religion = religion:gj_sol_blanco
+		}
+	}
+
+	immediate = {
+		random_neighbor_country = {
+			limit = {
+				religion = religion:gj_sol_blanco
+			}
+			save_scope_as = gj_vecino_del_sol
+		}
+	}
+
+	option = {
+		name = gj_orunmar.11.a
+		add_country_modifier = {
+			modifier = gj_orunmar_paz_con_el_sol
+			years = 6
+			mode = add_and_extend
+		}
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_orunmar.11.b
+		add_casus_belli = { target = scope:gj_vecino_del_sol type = casus_belli:cb_gj_orunmar_cosecha }
+		add_country_modifier = {
+			modifier = gj_orunmar_marcha_de_cosecha
+			years = 4
+			mode = add_and_extend
+		}
+	}
+}
+
+########################################
+# gj_orunmar.12  Desertores del dosel
+########################################
+gj_orunmar.12 = {
+	type = country_event
+	title = gj_orunmar.12.title
+	desc = gj_orunmar.12.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_orunmar = yes
+		at_war = yes
+	}
+
+	option = {
+		name = gj_orunmar.12.a
+		add_country_modifier = {
+			modifier = gj_orunmar_levas_de_ayuno
+			years = 3
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.12.b
+		add_stability = stability_weak_penalty
+		add_army_tradition = army_tradition_weak_bonus
+	}
+}
+
+########################################
+# gj_orunmar.13  Comienza el Gran Ayuno (lo lanza el desastre)
+########################################
+gj_orunmar.13 = {
+	type = country_event
+	title = gj_orunmar.13.title
+	desc = gj_orunmar.13.desc
+	outcome = negative
+
+	option = {
+		name = gj_orunmar.13.a
+		random_neighbor_country = {
+			limit = {
+				NOT = { is_subject_of = root }
+				NOT = { is_allied_with = { target = root } }
+			}
+			root = {
+				add_casus_belli = { target = prev type = casus_belli:cb_gj_orunmar_cosecha }
+			}
+		}
+	}
+	option = {
+		name = gj_orunmar.13.b
+		add_stability = stability_weak_penalty
+	}
+}
+
+########################################
+# gj_orunmar.14  Hambre en la mesa (mensual en el Gran Ayuno)
+########################################
+gj_orunmar.14 = {
+	type = country_event
+	title = gj_orunmar.14.title
+	desc = gj_orunmar.14.desc
+	outcome = negative
+
+	option = {
+		name = gj_orunmar.14.a
+		add_stability = stability_weak_penalty
+		add_religious_influence = religious_influence_weak_penalty
+	}
+	option = {
+		name = gj_orunmar.14.b
+		trigger = {
+			has_variable = gj_orunmar_cautivos
+			var:gj_orunmar_cautivos >= 2
+		}
+		change_variable = { name = gj_orunmar_cautivos add = -2 }
+		add_religious_influence = religious_influence_mild_bonus
+	}
+}
+
+########################################
+# gj_orunmar.15  Termina el Gran Ayuno
+########################################
+gj_orunmar.15 = {
+	type = country_event
+	title = gj_orunmar.15.title
+	desc = gj_orunmar.15.desc
+	outcome = positive
+
+	option = {
+		name = gj_orunmar.15.a
+		add_country_modifier = {
+			modifier = gj_orunmar_ayuno_cumplido
+			years = 5
+			mode = add_and_extend
+		}
+	}
+}
+
+########################################
+# gj_orunmar.16  Las orugas rojas
+########################################
+gj_orunmar.16 = {
+	type = country_event
+	title = gj_orunmar.16.title
+	desc = gj_orunmar.16.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				OR = {
+					topography = hills
+					topography = mountains
+					topography = plateau
+				}
+			}
+			save_scope_as = gj_campo_afectado
+			add_location_modifier = {
+				modifier = gj_orunmar_orugas_rojas
+				years = 4
+				mode = add_and_extend
+			}
+		}
+	}
+
+	option = {
+		name = gj_orunmar.16.a
+		add_stability = stability_weak_penalty
+	}
+	option = {
+		name = gj_orunmar.16.b
+		add_gold = -40
+	}
+}
+
+########################################
+# gj_orunmar.17  Un poeta de la niebla
+########################################
+gj_orunmar.17 = {
+	type = country_event
+	title = gj_orunmar.17.title
+	desc = gj_orunmar.17.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_orunmar = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_orunmar.17.a
+		add_country_modifier = {
+			modifier = gj_orunmar_mecenas_de_la_niebla
+			years = 8
+			mode = add_and_extend
+		}
+		add_gold = -30
+	}
+	option = {
+		name = gj_orunmar.17.b
+		add_religious_influence = religious_influence_weak_bonus
+	}
+}
+
+########################################
+# gj_orunmar.18  Los porteadores se niegan
+########################################
+gj_orunmar.18 = {
+	type = country_event
+	title = gj_orunmar.18.title
+	desc = gj_orunmar.18.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_orunmar = yes
+		at_war = yes
+	}
+
+	option = {
+		name = gj_orunmar.18.a
+		add_gold = -40
+		add_army_tradition = army_tradition_weak_bonus
+	}
+	option = {
+		name = gj_orunmar.18.b
+		add_stability = stability_weak_penalty
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+########################################
+# gj_orunmar.19  El Banquete de las Eras (cada era nueva)
+########################################
+gj_orunmar.19 = {
+	type = country_event
+	title = gj_orunmar.19.title
+	desc = gj_orunmar.19.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	option = {
+		name = gj_orunmar.19.a
+		add_religious_influence = religious_influence_mild_bonus
+		add_country_modifier = {
+			modifier = gj_orunmar_banquete_de_victoria
+			years = 5
+			mode = add_and_extend
+		}
+	}
+	option = {
+		name = gj_orunmar.19.b
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+########################################
+# gj_orunmar.20  El senor cautivo (sigue a .3)
+########################################
+gj_orunmar.20 = {
+	type = country_event
+	title = gj_orunmar.20.title
+	desc = gj_orunmar.20.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	option = {
+		name = gj_orunmar.20.a
+		add_gold = 150
+		add_prestige = prestige_weak_penalty
+	}
+	option = {
+		name = gj_orunmar.20.b
+		add_country_modifier = {
+			modifier = gj_orunmar_botin_de_nobles
+			years = 5
+			mode = add_and_extend
+		}
+		add_religious_influence = religious_influence_mild_bonus
+	}
+	option = {
+		name = gj_orunmar.20.c
+		add_legitimacy = legitimacy_weak_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+	}
+}

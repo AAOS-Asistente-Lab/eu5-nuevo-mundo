@@ -1,0 +1,61 @@
+﻿##############################################################
+# THALASSAR: efectos de ayuda (root = pais)
+##############################################################
+
+gj_thalassar_gana_cristales = {
+	if = {
+		limit = { NOT = { has_variable = gj_cristales_marea } }
+		set_variable = { name = gj_cristales_marea value = 0 }
+	}
+	change_variable = { name = gj_cristales_marea add = $N$ }
+}
+
+gj_thalassar_gasta_cristales = {
+	if = {
+		limit = { has_variable = gj_cristales_marea }
+		change_variable = { name = gj_cristales_marea subtract = $N$ }
+		if = {
+			limit = { var:gj_cristales_marea < 0 }
+			set_variable = { name = gj_cristales_marea value = 0 }
+		}
+	}
+}
+
+gj_thalassar_baja_decadencia = {
+	if = {
+		limit = { has_variable = gj_decadencia }
+		change_variable = { name = gj_decadencia subtract = $N$ }
+		if = {
+			limit = { var:gj_decadencia < 0 }
+			set_variable = { name = gj_decadencia value = 0 }
+		}
+	}
+}
+
+# Subida de fase: la llaman las decisiones de la Ciudad Hundida.
+gj_thalassar_sube_fase = {
+	if = {
+		limit = { NOT = { has_variable = gj_alzar_fase } }
+		set_variable = { name = gj_alzar_fase value = 0 }
+	}
+	change_variable = { name = gj_alzar_fase add = 1 }
+	set_variable = { name = gj_decadencia value = 0 }
+}
+
+# Cosecha anual de cristales: base + 1, mas lo que den los Faros (1, 2 o 3 segun nivel).
+gj_thalassar_cosecha_anual = {
+	gj_thalassar_gana_cristales = { N = 1 }
+	save_scope_as = gj_thal_pais
+	every_owned_location = {
+		limit = { has_building = building_type:gj_thalassar_faro_de_marea_1 }
+		scope:gj_thal_pais = { gj_thalassar_gana_cristales = { N = 1 } }
+	}
+	every_owned_location = {
+		limit = { has_building = building_type:gj_thalassar_faro_de_marea_2 }
+		scope:gj_thal_pais = { gj_thalassar_gana_cristales = { N = 2 } }
+	}
+	every_owned_location = {
+		limit = { has_building = building_type:gj_thalassar_faro_de_marea_3 }
+		scope:gj_thal_pais = { gj_thalassar_gana_cristales = { N = 3 } }
+	}
+}

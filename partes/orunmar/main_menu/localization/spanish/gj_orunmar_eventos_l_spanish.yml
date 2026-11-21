@@ -1,0 +1,104 @@
+﻿l_spanish:
+ gj_orunmar.1.title: "La Mesa Roja se reúne"
+ gj_orunmar.1.desc: "Los nueve linajes han subido a la sala de piedra teñida. En el centro hay una silla vacía para los dioses y, a su alrededor, nueve voces que discuten por turnos. El más viejo habla primero: «La Hegemonía debe decidir qué quiere ser. ¿La mano que siega, la que siembra o la que tiñe?»"
+ gj_orunmar.1.a: "Segar: que la hueste marche en la próxima luna."
+ gj_orunmar.1.b: "Sembrar: que la niebla llene los escalones."
+ gj_orunmar.1.c: "Teñir: que los tintoreros llenen los mercados."
+
+ gj_orunmar.2.title: "Los Segadores piden marcha"
+ gj_orunmar.2.desc: "Han pasado varias lunas sin que suenen los cuernos. Los jefes de los Segadores se presentan ante la Mesa con las lanzas limpias y la mirada seria: «Los jóvenes se aburren, los dioses se impacientan y el vecino engorda. ¿A quién esperamos?»"
+ gj_orunmar.2.a: "Que suenen los cuernos."
+ gj_orunmar.2.b: "Esperad otra luna. Los graneros primero."
+
+ gj_orunmar.3.title: "Cautivos en las puertas"
+ gj_orunmar.3.desc: "La columna vuelve a los barrancos de Orunmar con cuerdas rojas en las manos y silencio en los ojos. Los cautivos son muchos, y cada uno tiene un destino en la cabeza de alguien: el sacerdote los quiere en la Escalinata, el capataz en las vetas, el mercader en la cuenta de rescates."
+ gj_orunmar.3.a: "A la Escalinata: que los dioses coman."
+ gj_orunmar.3.b: "A las vetas y a los campos."
+ gj_orunmar.3.c: "Que sus familias los rescaten con plata."
+
+ gj_orunmar.4.title: "El sacerdote cuenta los años de paz"
+ gj_orunmar.4.desc: "El sumo sacerdote de las Nueve Hambres se presenta ante la Mesa con una cuerda de nudos. «Cada nudo es un año sin marcha», dice. «Ya no hay sitio para otro. Los dioses no gritan, pero tampoco ayudan, y los campos lo saben.»"
+ gj_orunmar.4.a: "Proclamar un ayuno voluntario."
+ gj_orunmar.4.b: "No es hora de guerra. Que murmuren."
+ gj_orunmar.4.c: "Tiene razón. Que marchen los Segadores."
+
+ gj_orunmar.5.title: "Los esclavos de la veta murmuran"
+ gj_orunmar.5.desc: "Los capataces informan de que los cautivos de las minas ya no cantan. Hablan bajo, en lenguas que nadie entiende, y por las noches se reúnen en los pozos más hondos. Hay demasiados bajo tierra, y los dioses no comen lo suficiente de ellos."
+ gj_orunmar.5.a: "Doblar la guardia y ofrecer a los cabecillas."
+ gj_orunmar.5.b: "Dejar que estalle: lo aplastaremos después."
+ gj_orunmar.5.c: "Repartir comida y prometer libertad a los más viejos."
+
+ gj_orunmar.6.title: "La lluvia del tinte"
+ gj_orunmar.6.desc: "Las nubes de tormenta llegan antes de la cosecha del rojo, y cuando descargan, la grana prende en la lana como nunca antes. Los tintoreros dicen que los dioses han bendecido el color; los mercaderes dicen que es un buen año para vender."
+ gj_orunmar.6.a: "Que cada taller trabaje hasta que se acabe la lluvia."
+ gj_orunmar.6.b: "Venderlo ahora, antes de que sobre."
+
+ gj_orunmar.7.title: "La niebla baja a los campos"
+ gj_orunmar.7.desc: "Una mañana, la bruma de las cumbres baja hasta los escalones de cultivo y se queda tres días. Los campesinos cuentan que oyeron voces en ella; los sacerdotes, que los dioses estaban de buen humor."
+ gj_orunmar.7.a: "Aprovechar la humedad: que se siembre."
+ gj_orunmar.7.b: "Dar gracias en cada terraza."
+
+ gj_orunmar.8.title: "El mercader del vidrio rojo"
+ gj_orunmar.8.desc: "Un mercader de tierras lejanas llega a la cantera con una caravana de mulas y una sonrisa. Ha oído hablar del vidrio rojo, la piedra que corta como el bronce y brilla como una brasa. Trae plata, y también muchas preguntas."
+ gj_orunmar.8.a: "Vender sin hacer preguntas."
+ gj_orunmar.8.b: "Regalarle una pieza y hacer que lo cuente por todas partes."
+
+ gj_orunmar.9.title: "El heredero de la Mesa"
+ gj_orunmar.9.desc: "El nuevo hijo de la Mesa ha cumplido la edad de elegir su camino. Los sacerdotes quieren que ayune en la Escalinata, y los Segadores, que corra con la hueste. La Mesa, como casi siempre, no se pone de acuerdo."
+ gj_orunmar.9.a: "Que ayune: será un hombre de dioses."
+ gj_orunmar.9.b: "Que corra con los Segadores: será un hombre de guerra."
+
+ gj_orunmar.10.title: "La Escalinata sangra"
+ gj_orunmar.10.desc: "En la fiesta del solsticio, los cien peldaños de la Escalinata se ven más rojos que de costumbre. Los sacerdotes dicen que es la piedra, que absorbe lo que le dan. El pueblo cree que es un presagio, y ya hay quien pide una ofrenda mayor."
+ gj_orunmar.10.a: "Una gran ofrenda: que suban tres cautivos."
+ gj_orunmar.10.b: "Una ofrenda modesta: grano y flores."
+
+ gj_orunmar.11.title: "Embajada de los hijos del Sol"
+ gj_orunmar.11.desc: "Un séquito de túnicas blancas sube por la calzada de nubes con regalos y sonrisas finas. Son los hijos del Sol, nuestros vecinos de las terrazas, y traen una propuesta de paz y de comercio. Los sacerdotes les huelen el miedo a leguas."
+ gj_orunmar.11.a: "Aceptar los regalos y pactar la paz."
+ gj_orunmar.11.b: "Devolver los regalos y declararles la Marcha."
+
+ gj_orunmar.12.title: "Desertores del dosel"
+ gj_orunmar.12.desc: "En plena marcha, un puñado de hombres se pierde entre la espesura. Dicen los capitanes que están hartos de caminar de noche, de comer raíces y de volver con las manos vacías. Los más viejos callan: ellos también lo pensaron."
+ gj_orunmar.12.a: "Rastrearlos y ejecutarlos ante la tropa."
+ gj_orunmar.12.b: "Perdonar a los que vuelvan por su pie."
+
+ gj_orunmar.13.title: "Comienza el Gran Ayuno"
+ gj_orunmar.13.desc: "Han pasado demasiados años sin cautivos, sin banquetes, sin marcha. Un sacerdote cae de rodillas ante la Mesa Roja y anuncia con voz temblorosa: «Los dioses ya no hablan. Han comenzado a ayunar con nosotros.» En las terrazas, los cultivos amarillean."
+ gj_orunmar.13.a: "Que marchen los Segadores: la guerra pone fin al Ayuno."
+ gj_orunmar.13.b: "Esperar, rezar y ayunar con ellos."
+
+ gj_orunmar.14.title: "Hambre en la mesa"
+ gj_orunmar.14.desc: "El Ayuno aprieta. Los graneros se vacían, los sacerdotes enflaquecen y el pueblo mira con rencor a la Mesa. Alguien propone sacrificar a los cautivos que quedan: quizás así los dioses se contenten."
+ gj_orunmar.14.a: "Aguantar con lo que tenemos."
+ gj_orunmar.14.b: "Que suban dos cautivos a la Escalinata."
+
+ gj_orunmar.15.title: "El Gran Ayuno ha terminado"
+ gj_orunmar.15.desc: "Los cuernos suenan por fin en los barrancos y, con ellos, se rompe el silencio de los dioses. Las nubes se abren, los campos reverdecen y los sacerdotes vuelven a la Escalinata con cuerdas de nudos recién atados. El hambre ha vuelto a tener alimento."
+ gj_orunmar.15.a: "Que se grabe en la piedra: la marcha nunca debe parar."
+
+ gj_orunmar.16.title: "Las orugas rojas"
+ gj_orunmar.16.desc: "En una ladera de cultivo, los campesinos hallan las hojas devoradas hasta el nervio y el suelo cubierto de orugas encarnadas. Dicen los viejos que vienen en los años en que los dioses están disgustados con la Mesa. Los más jóvenes sólo ven una plaga."
+ gj_orunmar.16.a: "Quemar la ladera entera."
+ gj_orunmar.16.b: "Pagar a los herbolarios para que las combatan."
+
+ gj_orunmar.17.title: "Un poeta de la niebla"
+ gj_orunmar.17.desc: "Un poeta de las terrazas ha compuesto un canto de nueve mil versos sobre la Marcha de la Cosecha. Ni los sacerdotes ni los Segadores salen bien parados, y sin embargo todos lo repiten. Pide un puesto en la corte, o al menos una mula."
+ gj_orunmar.17.a: "Darle una casa en la ciudad alta y un sueldo."
+ gj_orunmar.17.b: "Que cante en la Escalinata: será un himno."
+
+ gj_orunmar.18.title: "Los porteadores se niegan"
+ gj_orunmar.18.desc: "En medio de la selva, los porteadores dejan las cargas en el suelo y se sientan. No dicen nada. Los capitanes, sin ellos, no pueden avanzar, y los sacerdotes de campaña empiezan a mirar a los más débiles con interés."
+ gj_orunmar.18.a: "Pagarles una ración doble."
+ gj_orunmar.18.b: "Azotar al décimo de ellos."
+
+ gj_orunmar.19.title: "El Banquete de las Eras"
+ gj_orunmar.19.desc: "El mundo cambia de era y la Mesa Roja decide celebrarlo como celebra todo: con un banquete. En la gran sala, las mesas se ponen en nueve círculos y la comida llega en cuerdas. Hay música, hay rojo en todas partes, y hay sillas que nadie ocupará."
+ gj_orunmar.19.a: "Un banquete de dioses: que la Escalinata tenga su parte."
+ gj_orunmar.19.b: "Un banquete de linajes: que los nueve queden contentos."
+
+ gj_orunmar.20.title: "El señor cautivo"
+ gj_orunmar.20.desc: "Entre los cautivos de la última marcha hay un señor de rango, de manos finas y mirada altiva. Dice que su familia pagará lo que sea. El sumo sacerdote le mira el cuello; el tesorero, la bolsa; el Consejo, el futuro."
+ gj_orunmar.20.a: "Rescatarlo: que pague y vuelva."
+ gj_orunmar.20.b: "A la Escalinata: un señor sacia mejor a los dioses."
+ gj_orunmar.20.c: "Adoptarlo en un linaje: será un buen aliado."

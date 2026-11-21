@@ -1,0 +1,127 @@
+﻿# Modificadores temporales de la mecánica de los velathi. No cuentan como bonificaciones permanentes.
+
+# --- Reinados largos: el cansancio del trono sube cada 25 años del mismo rey ---
+gj_velathi_cansancio_1 = {
+	game_data = { category = country }
+	research_speed_modifier = -0.05
+}
+gj_velathi_cansancio_2 = {
+	game_data = { category = country }
+	research_speed_modifier = -0.10
+	global_construction_speed = -0.05
+}
+gj_velathi_cansancio_3 = {
+	game_data = { category = country }
+	research_speed_modifier = -0.15
+	global_construction_speed = -0.10
+	monthly_legitimacy = -0.03
+}
+
+# --- El Sueño Largo: gobierna el consejo ---
+gj_velathi_consejo_regente = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.03
+	stability_decay = -0.00025
+	research_speed_modifier = -0.05
+	army_maintenance_efficiency = -0.10
+}
+
+# --- El rey que despierta ---
+gj_velathi_rey_renovado = {
+	game_data = { category = character }
+	adm = 1
+	dip = 1
+	mil = 1
+}
+gj_velathi_rey_dormido = {
+	game_data = { category = character }
+	adm = -2
+	dip = -2
+	mil = -2
+}
+
+# --- Bosque y tala ---
+gj_velathi_tala_reciente = {
+	game_data = { category = country }
+	global_lumber_output_modifier = 0.15
+	monthly_legitimacy = -0.02
+}
+gj_velathi_otono_eterno = {
+	game_data = { category = country }
+	global_lumber_output_modifier = 0.10
+	global_wild_game_output_modifier = 0.10
+}
+gj_velathi_savia_serena = {
+	game_data = { category = country }
+	global_disease_resistance = 0.05
+	monthly_prestige = 0.05
+}
+gj_velathi_senda_del_dosel = {
+	game_data = { category = country }
+	army_movement_speed = 0.10
+	global_supply_limit_modifier = 0.10
+}
+gj_velathi_estandarte_de_hojas = {
+	game_data = { category = country }
+	land_morale_modifier = 0.10
+	discipline = 0.03
+}
+gj_velathi_puertas_cerradas = {
+	game_data = { category = country }
+	stability_decay = -0.00025
+	trade_income = -0.05
+}
+gj_velathi_puertas_abiertas = {
+	game_data = { category = country }
+	research_speed_modifier = 0.08
+	global_pop_assimilation_speed_modifier = 0.05
+}
+gj_velathi_reinado_de_raices = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.03
+	global_monthly_prosperity = 0.001
+}
+gj_velathi_reinado_de_hojas = {
+	game_data = { category = country }
+	research_speed_modifier = 0.06
+	monthly_prestige = 0.05
+}
+gj_velathi_reinado_de_espinas = {
+	game_data = { category = country }
+	land_morale_modifier = 0.08
+	global_defensive = 0.05
+}
+gj_velathi_heredera_en_el_consejo = {
+	game_data = { category = country }
+	country_cabinet_efficiency = 0.10
+}
+gj_velathi_trueque_de_madera = {
+	game_data = { category = country }
+	global_lumber_output_modifier = -0.10
+	trade_income = 0.10
+}
+
+# --- Localidades ---
+gj_velathi_bosque_antiguo = {
+	game_data = { category = location }
+	local_defensive = 0.25
+	local_hostile_attrition = 1
+	local_monthly_control = 0.002
+	local_population_growth = 0.001
+	local_lumber_output_modifier = 0.10
+}
+gj_velathi_brote_reciente = {
+	game_data = { category = location }
+	local_monthly_development = 0.005
+	local_monthly_prosperity = 0.002
+}
+gj_velathi_incendio_en_la_copa = {
+	game_data = { category = location }
+	local_monthly_prosperity = -0.004
+	local_lumber_output_modifier = -0.25
+}
+gj_velathi_savia_que_cura = {
+	game_data = { category = location }
+	local_population_growth = 0.002
+	local_disease_resistance = 0.10
+}

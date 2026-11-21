@@ -1,0 +1,72 @@
+﻿# El panteon de la Llama Profunda: cinco Voces del Fuego de Abajo, mas la Brasa Mayor (el dragon),
+# que solo entra en el panteon por el pacto (decision gj_llama_profunda_pactar_dragon).
+
+# Orgad, el Yunque Primero: la forja y el oficio.
+gj_llama_orgad_god = {
+	icon = god_folk_orange
+	religion = gj_llama_profunda
+
+	country_modifier = {
+		global_production_efficiency = 0.05
+	}
+}
+
+# Thurn, el Centinela de Piedra: el muro y la paciencia.
+gj_llama_thurn_god = {
+	icon = god_folk_blue
+	religion = gj_llama_profunda
+
+	country_modifier = {
+		global_defensive = 0.1
+	}
+}
+
+# Veshka, la Madre Hondura: la tierra que da poco y da bien.
+gj_llama_veshka_god = {
+	is_female = yes
+	icon = god_folk_green
+	religion = gj_llama_profunda
+
+	country_modifier = {
+		global_pop_food_consumption = -0.05
+	}
+}
+
+# Ildra, la Brasa Callada: el fuego que no se ve, el de dentro de la piedra.
+gj_llama_ildra_god = {
+	is_female = yes
+	icon = god_folk_red
+	religion = gj_llama_profunda
+
+	country_modifier = {
+		monthly_purity = 0.15
+	}
+}
+
+# Maruk, el Cantero: la obra bien medida.
+gj_llama_maruk_god = {
+	icon = god_folk_brown
+	religion = gj_llama_profunda
+
+	country_modifier = {
+		global_build_buildings_efficiency = 0.1
+	}
+}
+
+# Zhurgan, la Brasa Mayor: el dragon de la caldera, dios prestado por una decada cada vez.
+# Da mucho y cobra caro: baja la pureza todos los meses y pide su diezmo (evento gj_llama_profunda.4).
+# Solo se anade con add_god desde la decision del pacto; no forma parte del panteon de partida.
+gj_llama_zhurgan_god = {
+	icon = god_folk_black
+	religion = gj_llama_profunda
+
+	potential = {
+		has_variable = gj_llama_pacto_dragon
+	}
+
+	country_modifier = {
+		army_artillery_power = 0.15
+		global_weaponry_output_modifier = 0.2
+		monthly_purity = -0.3
+	}
+}

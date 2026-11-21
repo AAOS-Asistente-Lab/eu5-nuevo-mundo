@@ -1,0 +1,161 @@
+﻿gj_n_skarren_corredor_1_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_1_traditions
+	icon = swedish_tradition
+	unlock_unit = gj_n_skarren_corredor_1
+
+	requires = ship_building_advance
+}
+
+gj_n_skarren_corredor_2_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	unlock_unit = gj_n_skarren_corredor_2
+
+	requires = dock_advance
+}
+
+gj_n_skarren_corredor_3_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_3_discovery
+	icon = swedish_tradition
+	unlock_unit = gj_n_skarren_corredor_3
+
+	requires = unlock_flute_advance
+}
+
+gj_n_skarren_corredor_4_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_4_reformation
+	icon = swedish_tradition
+	unlock_unit = gj_n_skarren_corredor_4
+
+	requires = unlock_brig_advance
+}
+
+gj_n_skarren_corredor_5_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_5_absolutism
+	icon = swedish_tradition
+	unlock_unit = gj_n_skarren_corredor_5
+
+	requires = unlock_merchantman_advance
+}
+
+gj_n_skarren_corredor_6_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_6_revolutions
+	icon = swedish_tradition
+	unlock_unit = gj_n_skarren_corredor_6
+
+	requires = unlock_eastindiaman_advance
+}
+
+gj_a_skarren_hachero_1_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_1_traditions
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_hachero_1
+
+	requires = unlock_footmen_advance
+}
+
+gj_a_skarren_hachero_2_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_hachero_2
+
+	requires = unlock_men_at_arms_advance
+}
+
+gj_a_skarren_hachero_3_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_3_discovery
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_hachero_3
+
+	requires = unlock_early_arquebusiers_advance
+}
+
+gj_a_skarren_hachero_4_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_4_reformation
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_hachero_4
+
+	requires = unlock_arquebusiers_advance
+}
+
+gj_a_skarren_hachero_5_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_5_absolutism
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_hachero_5
+
+	requires = unlock_musketeers_advance
+}
+
+gj_a_skarren_hachero_6_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_6_revolutions
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_hachero_6
+
+	requires = unlock_fusiliers_advance
+}
+
+gj_a_skarren_arponero_1_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_1_traditions
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_arponero_1
+
+	requires = unlock_archers_advance
+}
+
+gj_a_skarren_arponero_2_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_arponero_2
+
+	requires = unlock_crossbowmen_advance
+}
+
+gj_a_skarren_arponero_3_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_3_discovery
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_arponero_3
+
+	requires = unlock_early_arquebusiers_advance
+}
+
+gj_a_skarren_arponero_4_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_4_reformation
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_arponero_4
+
+	requires = unlock_arquebusiers_advance
+}
+
+gj_a_skarren_arponero_5_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_5_absolutism
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_arponero_5
+
+	requires = unlock_musketeers_advance
+}
+
+gj_a_skarren_arponero_6_advance = {
+	potential = { gj_es_skarren = yes }
+	age = age_6_revolutions
+	icon = swedish_tradition
+	unlock_unit = gj_a_skarren_arponero_6
+
+	requires = unlock_sharpshooters_advance
+}

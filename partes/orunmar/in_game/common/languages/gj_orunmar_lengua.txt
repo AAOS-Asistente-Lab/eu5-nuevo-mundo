@@ -1,0 +1,24 @@
+﻿gj_orunmar_lengua = {
+
+	color = gj_orunmar_color
+
+	male_names = {
+		Aruvan Barumel Cozhan Duremar Erukhan Hamurak Ithuvar Kemoruth Lazurem Mokhaval
+		Nuvarek Orvenak Pazhuun Qemural Ruvakhel Sorumeth Tavorun Umbrakel Vorukhan Zemuruth
+		Yarumbel Kharuvem Otheruun Mavorekh Dhurumen Gavorash Hethuran Imorekh Jhovarum Korvanuth
+		Mhurazel Nhorakel Oruvath Pheruman Rhazumel Shavorek Tuhurem Uvakhorn Velumash Zhorunel
+	}
+	female_names = {
+		Alurem Bavuruna Cemhira Dunaveth Elmuuna Havarune Ilumaru Kemuvra Lhorane Maruvel
+		Nhaveru Ormuthe Pavhiru Rhumenna Savuleth Thamuri Uvarenne Vheluna Zumarith Ayhumel
+		Berunah Chavorra Dhimure Eshuvala Ghoranne Hiruvel Imbrune Jhaluma Khemuri Luvarat
+		Mhirana Nuruvel Othavra Pheluma Ruhanne Shumeth Tharovel Yluvana Zhemura Uthrane
+	}
+	dynasty_names = {
+		Vhorum Kemurath Tharuvel Ombrakh Zhalumen Dhuravek Mornuth Savakhel Uruvane Lhazumar
+		Hothemar Ghurunel Naruvath Pheremun Ishuvak Rhokamel Yumbarel Teshuvran Brumekh Cavonel
+	}
+	lowborn = {
+		Ruda Tohar Melu Vanu Kesh Orum Hela Dru Nabu Zefa Ilu Pohan Sere Lutu Gora Wemu
+	}
+}

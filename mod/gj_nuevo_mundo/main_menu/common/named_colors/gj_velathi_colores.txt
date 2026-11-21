@@ -1,0 +1,5 @@
+﻿colors = {
+	gj_map_velathi = rgb { 52 124 82 }
+	gj_map_velathi_language = rgb { 74 148 98 }
+	gj_map_velathi_language_family = rgb { 96 168 118 }
+}

@@ -1,0 +1,14 @@
+﻿# Triggers de la Luz de los Fundadores (scope: pais).
+
+gj_luz_fundadores_sigue = {
+	religion = religion:gj_luz_fundadores
+}
+
+# El soberano actual lleva 15 puntos de fundador o mas.
+gj_luz_fundadores_reinado_de_fundador = {
+	has_ruler = yes
+	ruler = {
+		has_variable = gj_fundador_puntos
+		var:gj_fundador_puntos >= 15
+	}
+}

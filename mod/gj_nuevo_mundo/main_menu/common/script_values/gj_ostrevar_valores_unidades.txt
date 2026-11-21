@@ -1,0 +1,38 @@
+﻿# Cupos de las unidades de Ostrevar.
+
+gj_ostrevar_guardia_cupo = {
+	add = {
+		value = 1
+		desc = "SUBUNIT_LIMIT_BASE"
+	}
+	add = {
+		desc = "GJ_OSTREVAR_CUPO_EDIFICIOS"
+		value = total_effective_building_levels:gj_ostrevar_torre_gremio
+		multiply = 2
+	}
+}
+
+gj_ostrevar_ballesteros_cupo = {
+	add = {
+		value = 1
+		desc = "SUBUNIT_LIMIT_BASE"
+	}
+	add = {
+		desc = "GJ_OSTREVAR_CUPO_EDIFICIOS"
+		value = total_effective_building_levels:gj_ostrevar_torre_gremio
+		multiply = 2
+	}
+}
+
+gj_ostrevar_artilleros_cupo = {
+	add = {
+		value = 1
+		desc = "SUBUNIT_LIMIT_BASE"
+	}
+	add = {
+		desc = "GJ_OSTREVAR_CUPO_EDIFICIOS"
+		value = total_effective_building_levels:gj_ostrevar_canteria_real
+		multiply = 1
+	}
+}
+

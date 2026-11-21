@@ -1,0 +1,39 @@
+# Pulsos de Durnhal. gj_durnhal_pulso_anual se engancha en yearly_country_pulse.
+
+gj_durnhal_pulso_anual = {
+	trigger = {
+		gj_es_durnhal = yes
+	}
+	random_events = {
+		chance_to_happen = 45
+		30 = gj_durnhal.1
+		30 = gj_durnhal.2
+		25 = gj_durnhal.3
+		30 = gj_durnhal.4
+		30 = gj_durnhal.5
+		25 = gj_durnhal.6
+		60 = gj_durnhal.7
+		50 = gj_durnhal.8
+		60 = gj_durnhal.9
+		25 = gj_durnhal.10
+		30 = gj_durnhal.11
+		30 = gj_durnhal.12
+		20 = gj_durnhal.13
+		35 = gj_durnhal.14
+		30 = gj_durnhal.15
+		30 = gj_durnhal.16
+		35 = gj_durnhal.17
+		25 = gj_durnhal.18
+		30 = gj_durnhal.19
+		25 = gj_durnhal.20
+		20 = gj_durnhal.21
+		25 = gj_durnhal.22
+		300 = 0
+	}
+}
+
+yearly_country_pulse = {
+	on_actions = {
+		gj_durnhal_pulso_anual
+	}
+}

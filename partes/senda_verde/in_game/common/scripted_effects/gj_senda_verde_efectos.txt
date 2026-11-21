@@ -1,0 +1,39 @@
+﻿# Efectos de la Senda Verde.
+
+# Empuja el karma hacia el equilibrio (-33..33). Root = pais.
+gj_senda_verde_hacia_equilibrio = {
+	if = {
+		limit = { karma > 33 }
+		add_karma = karma_mild_penalty
+	}
+	if = {
+		limit = { karma < -33 }
+		add_karma = karma_mild_bonus
+	}
+}
+
+# Como lee la Senda Verde un cometa o un eclipse. Root = pais que lo ve.
+# Quien lo llame fija antes en ese pais: set_variable = { name = gj_presagio_tipo value = 1 } (cometa)
+# o value = 2 (eclipse). Sin variable se lee como cometa.
+gj_senda_verde_lee_presagio = {
+	if = {
+		limit = {
+			has_variable = gj_presagio_tipo
+			var:gj_presagio_tipo = 2
+		}
+		# Eclipse: el Gran Silencio. El bosque calla y el pueblo aprende a escuchar.
+		add_country_modifier = { modifier = gj_senda_verde_silencio_del_bosque years = 3 mode = add_and_extend }
+		add_karma = karma_weak_bonus
+		add_stability = stability_weak_penalty
+	}
+	else = {
+		# Cometa: una rama de luz poda el cielo. El bosque se prepara.
+		add_country_modifier = { modifier = gj_senda_verde_poda_celeste years = 5 mode = add_and_extend }
+		gj_senda_verde_hacia_equilibrio = yes
+		add_prestige = prestige_weak_bonus
+	}
+	if = {
+		limit = { has_variable = gj_presagio_tipo }
+		remove_variable = gj_presagio_tipo
+	}
+}

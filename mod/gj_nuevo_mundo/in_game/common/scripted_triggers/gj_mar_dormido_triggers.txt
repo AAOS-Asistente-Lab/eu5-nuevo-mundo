@@ -1,0 +1,36 @@
+﻿# Triggers de pais (root = country) del Mar Dormido.
+
+gj_mar_es_creyente = {
+	religion = religion:gj_mar_dormido
+}
+
+gj_mar_es_marea_negra = {
+	religion = religion:gj_mar_dormido
+	religious_school ?= religious_school:gj_escuela_marea_negra
+}
+
+# El mar duerme hondo / se agita (los mismos umbrales que los auto_modifiers).
+gj_mar_duerme_hondo = {
+	religion = religion:gj_mar_dormido
+	rite_power > 60
+}
+
+gj_mar_se_agita = {
+	religion = religion:gj_mar_dormido
+	rite_power < 25
+}
+
+# Hay un rito de proteccion o de bendicion en vigor (no se apilan).
+gj_mar_tiene_rito_activo = {
+	OR = {
+		has_country_modifier = gj_mar_kraken_calmado
+		has_country_modifier = gj_mar_flota_bendita
+		has_country_modifier = gj_mar_corriente_ofrendada
+		has_country_modifier = gj_mar_gran_vigilia
+	}
+}
+
+# Lo puede leer mundo_bestias: el pais ha calmado al kraken hace poco.
+gj_mar_kraken_calmado_trigger = {
+	has_country_modifier = gj_mar_kraken_calmado
+}

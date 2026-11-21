@@ -1,0 +1,189 @@
+﻿gj_marea_negra_puerto_libre_max_niveles = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_2_renaissance }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_4_reformation }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_5_absolutism }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+}
+
+gj_marea_negra_astillero_corsario_max_niveles = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_2_renaissance }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_4_reformation }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+}
+
+gj_marea_negra_casa_de_las_cuerdas_max_niveles = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_2_renaissance }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+}
+
+gj_marea_negra_almacen_del_botin_max_niveles = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_2_renaissance }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_4_reformation }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+}
+
+gj_marea_negra_faro_falso_max_niveles = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_2_renaissance }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+		add = {
+			desc = "GJ_MAREA_NEGRA_NIVEL_POR_ERA"
+			value = 1
+		}
+	}
+}
+

@@ -1,0 +1,10 @@
+﻿gj_marea_negra_limite_abordadores = {
+	add = {
+		value = 2
+		desc = "SUBUNIT_LIMIT_BASE"
+	}
+	add = {
+		desc = "GJ_MAREA_NEGRA_LIMITE_PUERTOS"
+		value = total_effective_building_levels:gj_marea_negra_puerto_libre
+	}
+}

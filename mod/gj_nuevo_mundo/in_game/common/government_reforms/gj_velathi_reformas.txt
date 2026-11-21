@@ -1,0 +1,43 @@
+﻿# Reformas de gobierno propias de los velathi.
+
+gj_velathi_corona_de_siglos = {
+	unique = yes
+	age = age_1_traditions
+	potential = {
+		gj_es_velathi = yes
+	}
+	country_modifier = {
+		monthly_legitimacy = 0.10
+		stability_decay = -0.00025
+		research_speed_modifier = -0.05
+	}
+	years = 3
+}
+
+gj_velathi_consejo_de_raices = {
+	unique = yes
+	age = age_2_renaissance
+	potential = {
+		gj_es_velathi = yes
+	}
+	country_modifier = {
+		country_cabinet_efficiency = 0.10
+		legislative_efficiency = 0.10
+		diplomatic_capacity = 1
+	}
+	years = 3
+}
+
+gj_velathi_juramento_del_bosque = {
+	unique = yes
+	age = age_3_discovery
+	potential = {
+		gj_es_velathi = yes
+	}
+	country_modifier = {
+		global_hostile_attrition = 0.5
+		global_defensive = 0.10
+		army_maintenance_efficiency = 0.10
+	}
+	years = 5
+}

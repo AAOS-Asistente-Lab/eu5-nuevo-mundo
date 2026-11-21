@@ -1,0 +1,299 @@
+﻿# Modificadores estaticos de Ostrevar: la Llamada de las Ciudades, los Legados por era y los de eventos.
+
+gj_ostrevar_llamada_ciudades = {
+	game_data = {
+		category = country
+	}
+	non_rural_migration_attraction = 0.25
+	global_migration_speed_modifier = 0.20
+	global_peasants_pop_growth = -0.05
+	peasants_estate_target_satisfaction = -0.10
+	diplomatic_reputation = -1
+}
+
+gj_ostrevar_cuenta_del_ejercito = {
+	game_data = {
+		category = country
+	}
+	levy_maintenance_modifier = 0.10
+	global_manpower_modifier = -0.05
+}
+
+gj_ostrevar_conquista_reciente = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = -0.05
+	global_burghers_estate_power = -0.05
+}
+
+gj_ostrevar_legado_1_granero = {
+	game_data = {
+		category = country
+	}
+	global_food_capacity_modifier = 0.020
+	global_peasants_pop_growth = 0.020
+}
+
+gj_ostrevar_legado_1_cantera = {
+	game_data = {
+		category = country
+	}
+	global_build_buildings_efficiency = 0.030
+	global_masonry_output_modifier = 0.030
+}
+
+gj_ostrevar_legado_1_rio = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.020
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+gj_ostrevar_legado_1_marmol = {
+	game_data = {
+		category = country
+	}
+	global_non_rural_monthly_prosperity = 0.004
+	global_max_urban_control = 0.020
+}
+
+gj_ostrevar_legado_2_granero = {
+	game_data = {
+		category = country
+	}
+	global_food_capacity_modifier = 0.020
+	global_peasants_pop_growth = 0.020
+}
+
+gj_ostrevar_legado_2_cantera = {
+	game_data = {
+		category = country
+	}
+	global_build_buildings_efficiency = 0.030
+	global_masonry_output_modifier = 0.030
+}
+
+gj_ostrevar_legado_2_rio = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.020
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+gj_ostrevar_legado_2_marmol = {
+	game_data = {
+		category = country
+	}
+	global_non_rural_monthly_prosperity = 0.004
+	global_max_urban_control = 0.020
+}
+
+gj_ostrevar_legado_3_granero = {
+	game_data = {
+		category = country
+	}
+	global_food_capacity_modifier = 0.020
+	global_peasants_pop_growth = 0.020
+}
+
+gj_ostrevar_legado_3_cantera = {
+	game_data = {
+		category = country
+	}
+	global_build_buildings_efficiency = 0.030
+	global_masonry_output_modifier = 0.030
+}
+
+gj_ostrevar_legado_3_rio = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.020
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+gj_ostrevar_legado_3_marmol = {
+	game_data = {
+		category = country
+	}
+	global_non_rural_monthly_prosperity = 0.004
+	global_max_urban_control = 0.020
+}
+
+gj_ostrevar_legado_4_granero = {
+	game_data = {
+		category = country
+	}
+	global_food_capacity_modifier = 0.040
+	global_peasants_pop_growth = 0.040
+}
+
+gj_ostrevar_legado_4_cantera = {
+	game_data = {
+		category = country
+	}
+	global_build_buildings_efficiency = 0.060
+	global_masonry_output_modifier = 0.060
+}
+
+gj_ostrevar_legado_4_rio = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.040
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+gj_ostrevar_legado_4_marmol = {
+	game_data = {
+		category = country
+	}
+	global_non_rural_monthly_prosperity = 0.008
+	global_max_urban_control = 0.040
+}
+
+gj_ostrevar_legado_5_granero = {
+	game_data = {
+		category = country
+	}
+	global_food_capacity_modifier = 0.040
+	global_peasants_pop_growth = 0.040
+}
+
+gj_ostrevar_legado_5_cantera = {
+	game_data = {
+		category = country
+	}
+	global_build_buildings_efficiency = 0.060
+	global_masonry_output_modifier = 0.060
+}
+
+gj_ostrevar_legado_5_rio = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.040
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+gj_ostrevar_legado_5_marmol = {
+	game_data = {
+		category = country
+	}
+	global_non_rural_monthly_prosperity = 0.008
+	global_max_urban_control = 0.040
+}
+
+gj_ostrevar_legado_6_granero = {
+	game_data = {
+		category = country
+	}
+	global_food_capacity_modifier = 0.040
+	global_peasants_pop_growth = 0.040
+}
+
+gj_ostrevar_legado_6_cantera = {
+	game_data = {
+		category = country
+	}
+	global_build_buildings_efficiency = 0.060
+	global_masonry_output_modifier = 0.060
+}
+
+gj_ostrevar_legado_6_rio = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.040
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+gj_ostrevar_legado_6_marmol = {
+	game_data = {
+		category = country
+	}
+	global_non_rural_monthly_prosperity = 0.008
+	global_max_urban_control = 0.040
+}
+
+gj_ostrevar_ev_obra_mayor = {
+	game_data = {
+		category = country
+	}
+	global_construction_speed = 0.10
+	global_masonry_output_modifier = 0.05
+}
+
+gj_ostrevar_ev_huelga = {
+	game_data = {
+		category = country
+	}
+	global_build_buildings_efficiency = -0.10
+	global_burghers_estate_power = 0.05
+}
+
+gj_ostrevar_ev_festival = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.05
+	global_non_rural_monthly_prosperity = 0.005
+}
+
+gj_ostrevar_ev_censo = {
+	game_data = {
+		category = country
+	}
+	tax_income_efficiency = 0.05
+	global_monthly_literacy = 0.01
+}
+
+gj_ostrevar_ev_corona = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.05
+	diplomatic_reputation = 1
+}
+
+gj_ostrevar_ev_maestro = {
+	game_data = {
+		category = country
+	}
+	global_urban_build_buildings_efficiency = 0.10
+}
+
+gj_ostrevar_ev_inmigracion = {
+	game_data = {
+		category = country
+	}
+	non_rural_migration_attraction = 0.10
+	global_migration_speed_modifier = 0.10
+}
+
+gj_ostrevar_ev_crecida = {
+	game_data = {
+		category = location
+	}
+	local_monthly_prosperity = -0.05
+	local_food_capacity_modifier = -0.10
+}
+
+gj_ostrevar_ev_incendio = {
+	game_data = {
+		category = location
+	}
+	local_population_capacity_modifier = -0.10
+	local_construction_speed = 0.10
+}
+
+gj_ostrevar_ev_lazareto = {
+	game_data = {
+		category = location
+	}
+	local_monthly_prosperity = -0.03
+}
+

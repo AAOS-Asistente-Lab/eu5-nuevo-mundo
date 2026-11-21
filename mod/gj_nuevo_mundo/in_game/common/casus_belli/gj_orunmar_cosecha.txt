@@ -1,0 +1,23 @@
+﻿#root is country
+#scope:target is the target
+
+# Marcha de la Cosecha: la guerra ritual de la Hegemonia Carmesi contra sus vecinos.
+# Se crea sin esperar y no cuesta la agresion normal (ver el war goal gj_orunmar_superiority_cosecha).
+cb_gj_orunmar_cosecha = {
+	create_visible = {
+		gj_es_orunmar = yes
+	}
+
+	create_enabled = {
+		is_neighbor_of = scope:target
+		scope:target = {
+			NOT = { is_subject_of = root }
+		}
+	}
+
+	declare_enabled = {
+		gj_es_orunmar = yes
+	}
+
+	war_goal_type = gj_orunmar_superiority_cosecha
+}

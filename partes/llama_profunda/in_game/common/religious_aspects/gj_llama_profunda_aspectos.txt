@@ -1,0 +1,45 @@
+﻿# Aspectos de la Llama Profunda (se eligen 2 de 4).
+
+# La doctrina de la forja: el metal es la oracion que se puede tocar.
+gj_llama_aspecto_yunque_vivo = {
+	icon = religious_aspect_folk_red
+	religion = gj_llama_profunda
+
+	modifier = {
+		global_iron_output_modifier = 0.1
+		global_weaponry_output_modifier = 0.1
+	}
+}
+
+# La doctrina de la guardia: alguien tiene que velar la brasa para que no se apague.
+gj_llama_aspecto_vigilia_brasa = {
+	icon = religious_aspect_folk_yellow
+	religion = gj_llama_profunda
+
+	modifier = {
+		stability_cost_efficiency = 0.1
+		monthly_purity = 0.1
+	}
+}
+
+# La doctrina del muro: la montana es un templo y se defiende como tal.
+gj_llama_aspecto_pacto_piedra = {
+	icon = religious_aspect_folk_blue
+	religion = gj_llama_profunda
+
+	modifier = {
+		global_defensive = 0.1
+		fort_limit_modifier = 0.1
+	}
+}
+
+# La doctrina del fondo: lo que hay mas abajo es de quien se atreva. Rinde, y mancha la llama.
+gj_llama_aspecto_culto_fondo = {
+	icon = religious_aspect_folk_dark_blue
+	religion = gj_llama_profunda
+
+	modifier = {
+		global_gems_output_modifier = 0.1
+		monthly_purity = -0.1
+	}
+}

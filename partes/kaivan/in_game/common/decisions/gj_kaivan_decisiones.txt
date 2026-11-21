@@ -1,0 +1,183 @@
+﻿#######################################################################
+# Decisiones de Kaivan (parte "kaivan"): 4.
+#######################################################################
+
+# La Gran Cabalgada: los clanes se reunen diez anos. Mas velocidad y saqueo; despues la hierba cuesta volver.
+gj_kaivan_gran_cabalgada_decision = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_kaivan = yes
+	}
+
+	allow = {
+		is_subject = no
+		NOT = { has_variable = gj_kaivan_cabalgada_enfriamiento }
+		NOT = { has_variable = gj_kaivan_disputa_abierta }
+		NOT = { has_country_modifier = gj_kaivan_gran_cabalgada }
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_kaivan_gran_cabalgada_decision.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = {
+				modifier = gj_kaivan_gran_cabalgada
+				years = 10
+				mode = add
+			}
+			add_prestige = prestige_weak_bonus
+			set_variable = { name = gj_kaivan_cabalgada_enfriamiento value = 1 days = 18250 }
+			trigger_event_non_silently = { id = gj_kaivan.48 days = 3650 }
+		}
+	}
+}
+
+# Ganar el favor de un clan antes de que muera el kan: oro y promesas.
+gj_kaivan_ganar_favor_decision = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_kaivan = yes
+	}
+
+	allow = {
+		is_subject = no
+		NOT = { has_variable = gj_kaivan_favor_enfriamiento }
+	}
+
+	ai_will_do = {
+		value = 10
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_kaivan_ganar_favor_decision.uzhar
+		ai_chance = { value = 25 }
+		effect = {
+			gj_kaivan_prepara_circulo = yes
+			gj_kaivan_apoya_clan = { C = uzhar }
+			add_gold = { value = root.monthly_income_trade_and_tax multiply = -2 }
+			set_variable = { name = gj_kaivan_favor_enfriamiento value = 1 days = 1825 }
+		}
+	}
+	option = {
+		name = gj_kaivan_ganar_favor_decision.tarkhen
+		ai_chance = { value = 25 }
+		effect = {
+			gj_kaivan_prepara_circulo = yes
+			gj_kaivan_apoya_clan = { C = tarkhen }
+			add_gold = { value = root.monthly_income_trade_and_tax multiply = -2 }
+			set_variable = { name = gj_kaivan_favor_enfriamiento value = 1 days = 1825 }
+		}
+	}
+	option = {
+		name = gj_kaivan_ganar_favor_decision.ilbari
+		ai_chance = { value = 25 }
+		effect = {
+			gj_kaivan_prepara_circulo = yes
+			gj_kaivan_apoya_clan = { C = ilbari }
+			add_gold = { value = root.monthly_income_trade_and_tax multiply = -2 }
+			set_variable = { name = gj_kaivan_favor_enfriamiento value = 1 days = 1825 }
+		}
+	}
+	option = {
+		name = gj_kaivan_ganar_favor_decision.merghan
+		ai_chance = { value = 25 }
+		effect = {
+			gj_kaivan_prepara_circulo = yes
+			gj_kaivan_apoya_clan = { C = merghan }
+			add_gold = { value = root.monthly_income_trade_and_tax multiply = -2 }
+			set_variable = { name = gj_kaivan_favor_enfriamiento value = 1 days = 1825 }
+		}
+	}
+}
+
+# Convocar el Circulo en vida del kan: la corte cambia de tierra una vez por generacion.
+gj_kaivan_convocar_circulo_decision = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_kaivan = yes
+	}
+
+	allow = {
+		is_subject = no
+		at_war = no
+		NOT = { has_variable = gj_kaivan_circulo_enfriamiento }
+		NOT = { has_variable = gj_kaivan_disputa_abierta }
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_kaivan_convocar_circulo_decision.a
+		ai_chance = { value = 0 }
+		effect = {
+			set_variable = { name = gj_kaivan_circulo_enfriamiento value = 1 days = 9125 }
+			add_legitimacy = legitimacy_weak_penalty
+			trigger_event_non_silently = gj_kaivan.1
+		}
+	}
+}
+
+# La Feria de Verano: la capital abre sus corrales a todos los mercaderes de la estepa.
+gj_kaivan_feria_de_verano_decision = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_kaivan = yes
+	}
+
+	allow = {
+		is_subject = no
+		at_war = no
+		NOT = { has_variable = gj_kaivan_feria_enfriamiento }
+	}
+
+	ai_will_do = {
+		value = 30
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_kaivan_feria_de_verano_decision.a
+		ai_chance = { value = 100 }
+		effect = {
+			capital = {
+				add_location_modifier = {
+					modifier = gj_kaivan_feria_de_verano
+					years = 10
+					mode = add_and_extend
+				}
+			}
+			add_gold = { value = root.monthly_income_trade_and_tax multiply = -3 }
+			add_prestige = prestige_weak_bonus
+			set_variable = { name = gj_kaivan_feria_enfriamiento value = 1 days = 3650 }
+		}
+	}
+}

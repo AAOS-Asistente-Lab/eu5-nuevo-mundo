@@ -1,0 +1,34 @@
+﻿# La Escarcha Silente. Religion de la Corte Insepulta del norte helado.
+# Mecanica propia: la perdicion (doom) es el reloj de la Noche Blanca.
+# La bandera del motor es enable_doom (en definition_modifier), igual que en la religion nahua del juego base.
+# El grupo gj_fe_norte lo define la integracion.
+
+gj_escarcha_silente = {
+	color = gj_escarcha_silente_color
+	group = gj_fe_norte
+
+	conversion_resistance = 0.8
+
+	religious_aspects = 2
+
+	definition_modifier = {
+		enable_doom = yes
+		land_morale_modifier = 0.05
+		global_defensive = 0.1
+		global_hostile_attrition = 0.5
+		global_life_expectancy = 2
+		monthly_doom = 0.15
+	}
+
+	religious_focuses = {
+		gj_escarcha_silente_foco_cantar_el_hielo
+		gj_escarcha_silente_foco_levas_de_ceniza
+		gj_escarcha_silente_foco_pan_de_invierno
+		gj_escarcha_silente_foco_la_cumbre_callada
+		gj_escarcha_silente_foco_el_ultimo_invierno
+	}
+
+	tags = {
+		folk_european_gfx pagan_gfx
+	}
+}

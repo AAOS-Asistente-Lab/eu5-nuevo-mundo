@@ -1,0 +1,88 @@
+﻿gj_velathi_arboleda_antigua_max_level = {
+	add = { desc = "BUILDING_LEVEL_BASE" value = 1 }
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = { desc = "age_2_renaissance" value = 1 }
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_3_discovery } }
+		add = { desc = "age_3_discovery" value = 1 }
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_5_absolutism } }
+		add = { desc = "age_5_absolutism" value = 1 }
+	}
+	if = {
+		limit = { location_rank ?= location_rank:city }
+		add = { desc = "BUILDING_LEVEL_IS_CITY" value = 1 }
+	}
+}
+
+gj_velathi_salon_de_raices_max_level = {
+	add = { desc = "BUILDING_LEVEL_BASE" value = 1 }
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = { desc = "age_2_renaissance" value = 1 }
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_4_reformation } }
+		add = { desc = "age_4_reformation" value = 1 }
+	}
+	if = {
+		limit = { location_rank ?= location_rank:city }
+		add = { desc = "BUILDING_LEVEL_IS_CITY" value = 1 }
+	}
+}
+
+gj_velathi_aserradero_vivo_max_level = {
+	add = { desc = "BUILDING_LEVEL_BASE" value = 1 }
+	if = {
+		limit = { current_age_or_later = { age = age_3_discovery } }
+		add = { desc = "age_3_discovery" value = 1 }
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_5_absolutism } }
+		add = { desc = "age_5_absolutism" value = 1 }
+	}
+	if = {
+		limit = { location_rank ?= location_rank:city }
+		add = { desc = "BUILDING_LEVEL_IS_CITY" value = 1 }
+	}
+}
+
+gj_velathi_jardin_de_sanacion_max_level = {
+	add = { desc = "BUILDING_LEVEL_BASE" value = 1 }
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = { desc = "age_2_renaissance" value = 1 }
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_4_reformation } }
+		add = { desc = "age_4_reformation" value = 1 }
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_6_revolutions } }
+		add = { desc = "age_6_revolutions" value = 1 }
+	}
+	if = {
+		limit = { location_rank ?= location_rank:city }
+		add = { desc = "BUILDING_LEVEL_IS_CITY" value = 1 }
+	}
+}
+
+gj_velathi_torre_de_copas_max_level = {
+	add = { desc = "BUILDING_LEVEL_BASE" value = 1 }
+	if = {
+		limit = { current_age_or_later = { age = age_3_discovery } }
+		add = { desc = "age_3_discovery" value = 1 }
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_5_absolutism } }
+		add = { desc = "age_5_absolutism" value = 1 }
+	}
+	if = {
+		limit = { location_rank ?= location_rank:city }
+		add = { desc = "BUILDING_LEVEL_IS_CITY" value = 1 }
+	}
+}
+

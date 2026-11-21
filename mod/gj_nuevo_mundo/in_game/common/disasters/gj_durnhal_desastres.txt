@@ -1,0 +1,39 @@
+﻿# Desastre propio de Durnhal: la profundidad despierta cuando la inquietud pasa de 85
+gj_durnhal_lo_que_duerme_debajo = {
+	image = "gfx/interface/illustrations/disaster/revolution_disaster.dds"
+
+	monthly_spawn_chance = monthly_spawn_chance_low
+
+	can_start = {
+		gj_es_durnhal = yes
+		has_any_active_disaster = no
+		gj_durnhal_inquietud_alta = yes
+	}
+
+	can_end = {
+		has_global_variable = gj_inquietud_caldera
+		global_var:gj_inquietud_caldera <= 40
+	}
+
+	modifier = {
+		monthly_legitimacy = -0.05
+		global_production_efficiency = -0.10
+		global_laborers_desired_pop = -0.05
+	}
+
+	on_start = {
+		trigger_event_non_silently = gj_durnhal.30
+	}
+	on_end = {
+		trigger_event_non_silently = gj_durnhal.33
+	}
+	on_monthly = {
+		hidden_effect = {
+			random_list = {
+				1000 = {}
+				40 = { trigger_event_silently = gj_durnhal.31 }
+				40 = { trigger_event_silently = gj_durnhal.32 }
+			}
+		}
+	}
+}

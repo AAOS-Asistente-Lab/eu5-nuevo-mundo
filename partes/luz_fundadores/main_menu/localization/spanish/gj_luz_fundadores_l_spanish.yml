@@ -1,0 +1,122 @@
+﻿l_spanish:
+ # ---------- Religion ----------
+ gj_luz_fundadores: "Luz de los Fundadores"
+ gj_luz_fundadores_ADJ: "lumbrista"
+ gj_luz_fundadores_desc: "La $gj_luz_fundadores$ enseña que ninguna ciudad nace sola: alguien tuvo que encender la primera lumbre en un valle sin nombre, y esa llama, pasada de hogar en hogar, sigue ardiendo en cada plaza. Los santos de esta fe son los [gj_fundadores|el]: soberanos y cantores que fundaron villas, trazaron calles y dejaron sus nombres grabados en las piedras. Quien los canoniza no pide milagros; pide cimientos.\n\nLos lumbristas encienden una lumbre pública al fundar cada ciudad y la mantienen viva mientras los vecinos la alimenten. Dejarla apagarse es la peor desgracia que conocen."
+
+ # ---------- Conceptos ----------
+ game_concept_gj_fundadores: "Fundadores"
+ game_concept_gj_fundadores_desc: "Un fundador es un [character|el] reconocido por la [religion|el] [ShowReligionName('gj_luz_fundadores')|l] por las lumbres que encendió en vida: las villas y ciudades que creció su reinado. El proceso para ser reconocido como fundador se denomina [canonization|el]. Cada Fundador canonizado puede dar nombre a una ciudad del reino, que gana población y control."
+ game_concept_gj_fundador: "Fundador"
+ game_concept_gj_fundador_desc: "$game_concept_gj_fundadores_desc$"
+
+ # ---------- Aspectos ----------
+ gj_aspecto_hogar_comun: "El Hogar Común"
+ gj_aspecto_hogar_comun_desc: "Bajo una misma lumbre cabe el pueblo entero: el pan se reparte, las puertas no tienen cerrojo de dentro y quien llega con frío encuentra sitio. Las ciudades que arden con este aspecto crecen llenas."
+ gj_aspecto_primera_piedra: "La Primera Piedra"
+ gj_aspecto_primera_piedra_desc: "Toda obra empieza con una piedra puesta con cuidado y una cuerda tensa. Los canteros lumbristas bendicen cada cimiento y juran no dejar nada a medias, de manera que las ciudades se levantan antes y duran más."
+ gj_aspecto_lumbre_vigilante: "La Lumbre Vigilante"
+ gj_aspecto_lumbre_vigilante_desc: "Una lumbre sin guardia es una lumbre perdida. Cada atalaya de la frontera custodia su fuego, y cada guarnición sabe que lo que defiende no son muros, sino la llama que hay dentro."
+ gj_aspecto_caminos_de_luz: "Los Caminos de Luz"
+ gj_aspecto_caminos_de_luz_desc: "Los fundadores no se quedaron quietos: abrieron veredas entre un hogar y otro. Los lumbristas encienden faroles en los cruces, y los mercaderes y los eruditos viajan seguros de ciudad en ciudad llevando noticias y mercancía."
+
+ # ---------- Tipos de lugar sagrado ----------
+ gj_fundadores_primer_hogar: "Primer Hogar"
+ gj_fundadores_primer_hogar_desc: "El lugar donde, según la tradición, se encendió la primera lumbre de un pueblo. Es un [holy_site|el] importante para todos los que siguen la [ShowReligionName('gj_luz_fundadores')|l]."
+ gj_fundadores_atalaya_lumbre: "Atalaya de la Lumbre"
+ gj_fundadores_atalaya_lumbre_desc: "Una torre en alto cuyo fuego nunca se apaga y que se ve desde tres valles. Es un [holy_site|el] importante para todos los que siguen la [ShowReligionName('gj_luz_fundadores')|l]."
+
+ # ---------- Modificadores ----------
+ STATIC_MODIFIER_NAME_gj_lumbre_consagrada_modifier: "Lumbre consagrada"
+ STATIC_MODIFIER_DESC_gj_lumbre_consagrada_modifier: "La plaza arde con fuego bendito y el pueblo se siente bien alimentado."
+ STATIC_MODIFIER_NAME_gj_lumbres_flacas_modifier: "Lumbres flacas"
+ STATIC_MODIFIER_DESC_gj_lumbres_flacas_modifier: "Las lumbres de las ciudades arden bajas y las obras se hacen con desgana."
+ STATIC_MODIFIER_NAME_gj_obra_humilde_modifier: "Obra humilde"
+ STATIC_MODIFIER_DESC_gj_obra_humilde_modifier: "Se levanta con la piedra del lugar y manos de los vecinos."
+ STATIC_MODIFIER_NAME_gj_peregrinos_de_piedra_modifier: "Peregrinos de piedra"
+ STATIC_MODIFIER_DESC_gj_peregrinos_de_piedra_modifier: "Los caminos se llenan de gente que lleva una piedra de la ciudad del Fundador."
+ STATIC_MODIFIER_NAME_gj_cisma_hogares_modifier: "Cisma de los hogares"
+ STATIC_MODIFIER_DESC_gj_cisma_hogares_modifier: "Cada ciudad guarda la lumbre a su manera y nadie se pone de acuerdo."
+ STATIC_MODIFIER_NAME_gj_hogar_unico_modifier: "Hogar único"
+ STATIC_MODIFIER_DESC_gj_hogar_unico_modifier: "Un solo rito para todas las lumbres del reino."
+ STATIC_MODIFIER_NAME_gj_lumbre_errante_modifier: "Lumbre errante"
+ STATIC_MODIFIER_DESC_gj_lumbre_errante_modifier: "Familias enteras parten con un tizón encendido a fundar donde nadie ha fundado."
+ STATIC_MODIFIER_NAME_gj_libro_de_cimientos_modifier: "Libro de Cimientos"
+ STATIC_MODIFIER_DESC_gj_libro_de_cimientos_modifier: "Los cronistas copian los planos y las cuentas de cada fundación para que no se pierdan."
+ STATIC_MODIFIER_NAME_gj_presagio_lumbre_modifier: "Presagio de lumbre nueva"
+ STATIC_MODIFIER_DESC_gj_presagio_lumbre_modifier: "El cielo ha encendido una lumbre y el reino la lee como una promesa."
+ STATIC_MODIFIER_NAME_gj_presagio_sombra_modifier: "Presagio de hogar cubierto"
+ STATIC_MODIFIER_DESC_gj_presagio_sombra_modifier: "El cielo ha cubierto su fuego y el reino redobla la guardia."
+ STATIC_MODIFIER_NAME_gj_aclamacion_fundadores_modifier: "Aclamación de los Fundadores"
+ STATIC_MODIFIER_DESC_gj_aclamacion_fundadores_modifier: "Tres nombres grabados en las piedras: el reino se reconoce en sus Fundadores."
+ STATIC_MODIFIER_NAME_gj_ciudad_del_fundador_modifier: "Ciudad del Fundador"
+ STATIC_MODIFIER_DESC_gj_ciudad_del_fundador_modifier: "Esta ciudad lleva el nombre de un Fundador canonizado y su lumbre no se ha apagado desde entonces."
+ STATIC_MODIFIER_NAME_gj_hogar_consagrado_modifier: "Hogar consagrado"
+ STATIC_MODIFIER_DESC_gj_hogar_consagrado_modifier: "Una lumbre bendita arde en la plaza."
+ STATIC_MODIFIER_NAME_gj_lumbre_apagada_modifier: "Lumbre apagada"
+ STATIC_MODIFIER_DESC_gj_lumbre_apagada_modifier: "La plaza está a oscuras y los vecinos murmuran."
+
+ # ---------- Otros textos ----------
+ gj_luz_fundadores_canonizar_tt: "El soberano podrá ser [canonization|l] como [gj_fundadores|l] con la acción de canonizar."
+
+ # ---------- Eventos ----------
+ gj_luz_fundadores.1.title: "La lumbre de [gj_ciudad.GetNameWithNoTooltip]"
+ gj_luz_fundadores.1.desc: "Cuando [gj_ciudad.GetNameWithNoTooltip] era una una aldea de barro y una hilera de chozas, alguien llevó hasta allí una brasa envuelta en musgo. Hoy, en la plaza mayor, la lumbre sigue ardiendo bajo su cobertizo de piedra, y los ancianos dicen que no se ha apagado ni una sola noche. Los sacerdotes piden permiso para organizar la fiesta de la Lumbre Nueva."
+ gj_luz_fundadores.1.a: "Que la plaza entera la consagre."
+ gj_luz_fundadores.1.b: "Basta con que cada casa guarde una brasa."
+
+ gj_luz_fundadores.2.title: "Los altares piden un Fundador"
+ gj_luz_fundadores.2.desc: "[gj_difunto.GetShortNameWithNoTooltip] ha muerto, y con su muerte han crecido las ciudades que dejó en pie: más lumbres de las que nadie recordaba. En cada plaza del reino se han reunido los vecinos y los clérigos, y todos piden lo mismo: que su nombre se grabe junto al de los Fundadores. Los cantores ya tienen preparados los versos."
+ gj_luz_fundadores.2.a: "Que se le cante como Fundador."
+ gj_luz_fundadores.2.b: "Que descanse sin altares: bastará con sus ciudades."
+
+ gj_luz_fundadores.3.title: "Un nombre para las piedras"
+ gj_luz_fundadores.3.desc: "[gj_santo.GetShortNameWithNoTooltip] ha sido canonizado y la Luz de los Fundadores cuenta con un santo más. Según la costumbre, una ciudad del reino debe tomar su nombre y guardar su lumbre. Los clérigos proponen [gj_ciudad.GetNameWithNoTooltip] para ello, y los cronistas esperan la decisión de la corona para grabarlo en la Piedra de Cimientos."
+ gj_luz_fundadores.3.a: "Que la ciudad lleve su nombre."
+ gj_luz_fundadores.3.b: "Que su lumbre viaje a todas las villas."
+
+ gj_luz_fundadores.4.title: "El cantero que no quiso mármol"
+ gj_luz_fundadores.4.desc: "Un maestro cantero ha rechazado el mármol que le ofrecía la corona para una obra nueva. «La Primera Piedra», dice, «es la del lugar: la que pisaron los fundadores». Los vecinos le apoyan; los mayordomos del tesoro, no tanto, porque el mármol ya estaba pagado."
+ gj_luz_fundadores.4.a: "Que se construya con piedra del lugar."
+ gj_luz_fundadores.4.b: "Pagaremos la piedra que él prefiera, venga de donde venga."
+
+ gj_luz_fundadores.5.title: "Una lumbre que se apaga"
+ gj_luz_fundadores.5.desc: "En [gj_ciudad.GetNameWithNoTooltip] la lumbre pública lleva dos inviernos ardiendo baja, y esta noche ha amanecido apagada. Los vecinos hablan en voz baja del mal agüero. Los clérigos piden fondos para reavivarla y hacerle una casa nueva; el consejo recuerda que hay gastos más urgentes."
+ gj_luz_fundadores.5.a: "Que se reavive con el tesoro del reino."
+ gj_luz_fundadores.5.b: "Que arda cuando haya con qué."
+
+ gj_luz_fundadores.6.title: "Peregrinos de piedra"
+ gj_luz_fundadores.6.desc: "Llegan caravanas enteras desde los valles vecinos: gente que lleva a la espalda una piedra de su aldea para dejarla en la ciudad del Fundador. Dicen que cada piedra es una promesa de volver a encender la lumbre de su casa. Las posadas desbordan y los clérigos reclaman un albergue de peregrinos."
+ gj_luz_fundadores.6.a: "Que se les dé albergue y pan."
+ gj_luz_fundadores.6.b: "Que paguen la entrada: las piedras no llenan arcas."
+
+ gj_luz_fundadores.7.title: "El cisma de los hogares"
+ gj_luz_fundadores.7.desc: "Los lumbristas de las ciudades del interior sostienen que la lumbre debe arder sin cesar; los de la costa, que basta con encenderla en la fiesta mayor. Cada bando acusa al otro de dejar morir la llama. Los clérigos piden a la corona que decida el rito, o que al menos deje de mirar para otro lado."
+ gj_luz_fundadores.7.a: "Un solo rito para todas las lumbres del reino."
+ gj_luz_fundadores.7.b: "Que cada ciudad guarde su costumbre."
+
+ gj_luz_fundadores.8.title: "El fuego errante"
+ gj_luz_fundadores.8.desc: "Un grupo de familias de la sierra afirma que la Luz no se queda en un solo valle: que los Fundadores partieron con un tizón encendido y que los hijos deben hacer lo mismo. Piden permiso y hachas para marchar a fundar donde nadie ha fundado. Los que se quedan temen que el reino se vacíe de manos."
+ gj_luz_fundadores.8.a: "Que partan con nuestra bendición."
+ gj_luz_fundadores.8.b: "Que se queden junto a sus hogares."
+
+ gj_luz_fundadores.9.title: "Una villa se alza a ciudad"
+ gj_luz_fundadores.9.desc: "Los cantores traen noticia de que [gj_ciudad.GetNameWithNoTooltip] ya cuenta con más lumbres de las que las crónicas anotan para una villa. La plaza se ha ensanchado, la muralla se ha adelantado a los arrabales y hay quien pide encender un fuego nuevo en el centro. Es la costumbre."
+ gj_luz_fundadores.9.a: "Que se encienda la lumbre nueva."
+ gj_luz_fundadores.9.b: "Que se guarde el aceite: bastará con la fiesta."
+
+ gj_luz_fundadores.10.title: "El Libro de Cimientos"
+ gj_luz_fundadores.10.desc: "Los cronistas de la Luz han reunido en un solo volumen los planos, las cuentas y las canciones de cada fundación del reino: cómo se midió la plaza, de dónde vino la piedra, qué dijo el primer vecino. Piden permiso para copiar el libro y repartirlo entre las ciudades."
+ gj_luz_fundadores.10.a: "Que se copie en cada ciudad."
+ gj_luz_fundadores.10.b: "Que lo guarde el clero y lo lea el clero."
+
+ gj_luz_fundadores.11.title: "Cuando el cielo enciende otra lumbre"
+ gj_luz_fundadores.11.desc.cometa: "Una estrella con cola cruza el cielo cada noche. Los lumbristas nunca la habían visto, y en las plazas la gente discute su significado. Algunos creen que es una lumbre nueva encendida por los Fundadores; otros, que algo ha cambiado en el hogar mayor."
+ gj_luz_fundadores.11.desc.eclipse: "El sol se ha cubierto a mediodía y la plaza ha quedado a oscuras. Las lumbres públicas, por un momento, han parecido la única luz del mundo. Los lumbristas dicen que no ocurre nada tan grande sin que alguien lo mande."
+ gj_luz_fundadores.11.a: "Es una lumbre que viene: una promesa de ciudades."
+ gj_luz_fundadores.11.b: "Es un hogar que se cubre: redoblad la guardia."
+
+ gj_luz_fundadores.12.title: "La Aclamación de los Fundadores"
+ gj_luz_fundadores.12.desc: "Tres nombres grabados en las piedras de tres plazas. Nunca había sucedido en el reino. Los vecinos de todos los valles se han puesto de acuerdo para celebrar una fiesta de la Lumbre Mayor, donde cada familia lleva una brasa de su casa para unirla al fuego común. Los cantores ya componen la letra: «Hubo tres, hay tres, y habrá»."
+ gj_luz_fundadores.12.a: "Que se grabe en cada plaza: el reino es obra de sus Fundadores."
+ gj_luz_fundadores.12.b: "Que sea fiesta: tres días de lumbre y pan."

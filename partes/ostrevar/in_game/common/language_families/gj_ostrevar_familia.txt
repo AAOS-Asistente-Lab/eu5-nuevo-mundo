@@ -1,0 +1,3 @@
+﻿gj_ostrevari_language_family = {
+	color = map_gj_ostrevari_family
+}

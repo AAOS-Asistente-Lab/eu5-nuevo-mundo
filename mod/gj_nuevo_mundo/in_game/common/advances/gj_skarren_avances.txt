@@ -1,0 +1,263 @@
+﻿gj_skarren_remo_largo = {
+	potential = { gj_es_skarren = yes }
+	age = age_1_traditions
+	icon = swedish_tradition
+	navy_movement_speed = 0.1
+	army_disembark_speed = 0.2
+
+	requires = ship_building_advance
+}
+
+gj_skarren_botin_compartido = {
+	potential = { gj_es_skarren = yes }
+	age = age_1_traditions
+	icon = swedish_tradition
+	amount_looted_modifier = 0.1
+	monthly_prestige = 0.05
+
+	requires = gj_skarren_remo_largo
+}
+
+gj_skarren_casas_largas = {
+	potential = { gj_es_skarren = yes }
+	age = age_1_traditions
+	icon = swedish_tradition
+	global_manpower_modifier = 0.1
+	global_levy_size_modifier = 0.1
+
+	requires = feudalism_advance
+}
+
+gj_skarren_ahumaderos = {
+	potential = { gj_es_skarren = yes }
+	age = age_1_traditions
+	icon = swedish_tradition
+	global_fish_output_modifier = 0.15
+	global_salt_output_modifier = 0.1
+
+	requires = agriculture_advance
+}
+
+gj_skarren_piedra_de_runas = {
+	potential = { gj_es_skarren = yes }
+	age = age_1_traditions
+	icon = swedish_tradition
+	monthly_legitimacy = 0.05
+	unlock_building = gj_skarren_salon_sagas
+
+	requires = gj_skarren_botin_compartido
+}
+
+gj_skarren_quillas_de_cuchilla = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	navy_transport_power = 0.1
+	ship_build_speed = 0.1
+
+	requires = dock_advance
+}
+
+gj_skarren_pacto_de_sangre = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	land_morale_modifier = 0.05
+	army_tradition_from_battle = 0.1
+
+	requires = gj_skarren_casas_largas
+}
+
+gj_skarren_mercado_del_botin = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	global_merchant_capacity_modifier = 0.1
+	slave_raid_efficiency = 0.15
+
+	requires = merchants_and_trade
+}
+
+gj_skarren_hogueras_de_aviso = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	fort_maintenance_efficiency = 0.1
+	own_coast_naval_combat_bonus = 0.1
+
+	requires = coastal_fort_advance
+}
+
+gj_skarren_sagas_recitadas = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	monthly_prestige = 0.05
+	cultural_tradition = 1
+
+	requires = gj_skarren_piedra_de_runas
+}
+
+gj_skarren_calafateo_de_brea = {
+	potential = { gj_es_skarren = yes }
+	age = age_2_renaissance
+	icon = swedish_tradition
+	navy_maintenance_efficiency = 0.1
+	naval_unit_attrition = -0.1
+
+	requires = gj_skarren_quillas_de_cuchilla
+}
+
+gj_skarren_rutas_del_hielo = {
+	potential = { gj_es_skarren = yes }
+	age = age_3_discovery
+	icon = swedish_tradition
+	naval_range = 0.15
+	global_maritime_presence_modifier = 0.1
+
+	requires = maritime_advance_age_3
+}
+
+gj_skarren_abordaje_en_masa = {
+	potential = { gj_es_skarren = yes }
+	age = age_3_discovery
+	icon = swedish_tradition
+	ship_capture_chance = 0.2
+	naval_morale_modifier = 0.05
+
+	requires = boarding_parties
+}
+
+gj_skarren_dinero_de_proteccion = {
+	potential = { gj_es_skarren = yes }
+	age = age_3_discovery
+	icon = swedish_tradition
+	amount_looted_modifier = 0.1
+	casus_belli_creation_speed = 0.1
+
+	requires = claim_fabrication
+}
+
+gj_skarren_corsarios_del_norte = {
+	potential = { gj_es_skarren = yes }
+	age = age_4_reformation
+	icon = swedish_tradition
+	navy_light_ship_power = 0.1
+	global_sailors_modifier = 0.15
+
+	requires = letters_of_marque
+}
+
+gj_skarren_fundicion_de_anclas = {
+	potential = { gj_es_skarren = yes }
+	age = age_4_reformation
+	icon = swedish_tradition
+	global_naval_supplies_output_modifier = 0.2
+	navy_galley_power = 0.1
+
+	requires = maritime_advance_age_4
+}
+
+gj_skarren_senores_de_bahia = {
+	potential = { gj_es_skarren = yes }
+	age = age_4_reformation
+	icon = swedish_tradition
+	diplomatic_capacity = 1
+	monthly_legitimacy = 0.05
+
+	requires = gj_skarren_sagas_recitadas
+}
+
+gj_skarren_diezmo_del_saqueo = {
+	potential = { gj_es_skarren = yes }
+	age = age_4_reformation
+	icon = swedish_tradition
+	amount_looted_modifier = 0.1
+	prestige_from_naval_battle = 0.15
+
+	requires = gj_skarren_dinero_de_proteccion
+}
+
+gj_skarren_escuadras_de_asalto = {
+	potential = { gj_es_skarren = yes }
+	age = age_5_absolutism
+	icon = swedish_tradition
+	army_heavy_infantry_power = 0.1
+	discipline = 0.05
+
+	requires = military_revolution_advance
+}
+
+gj_skarren_fortalezas_del_paso = {
+	potential = { gj_es_skarren = yes }
+	age = age_5_absolutism
+	icon = swedish_tradition
+	global_supply_limit_modifier = 0.1
+	army_food_gathering_modifier = 0.15
+
+	requires = supply_depot_advance_age_5_absolutism
+}
+
+gj_skarren_hijos_del_hielo_y_el_hierro = {
+	potential = { gj_es_skarren = yes }
+	age = age_5_absolutism
+	icon = swedish_tradition
+	global_manpower_modifier = 0.1
+	global_levy_size_modifier = 0.1
+
+	requires = regiment_reinforcement_speed_absolutism
+}
+
+gj_skarren_vapor_y_arpon = {
+	potential = { gj_es_skarren = yes }
+	age = age_6_revolutions
+	icon = swedish_tradition
+	navy_transport_power = 0.1
+	naval_morale_modifier = 0.1
+
+	requires = maritime_advance_age_6
+}
+
+gj_skarren_ultimo_saqueo = {
+	potential = { gj_es_skarren = yes }
+	age = age_6_revolutions
+	icon = swedish_tradition
+	amount_looted_modifier = 0.1
+	monthly_prestige = 0.1
+
+	requires = gj_skarren_diezmo_del_saqueo
+}
+
+gj_skarren_la_gran_saga = {
+	potential = { gj_es_skarren = yes }
+	age = age_6_revolutions
+	icon = swedish_tradition
+	monthly_legitimacy = 0.1
+	diplomatic_reputation = 2
+
+	requires = gj_skarren_senores_de_bahia
+}
+
+gj_skarren_cultura_voz_del_fiordo = {
+	potential = { culture = culture:gj_skarren }
+	age = age_1_traditions
+	icon = swedish_tradition
+	land_morale_modifier = 0.05
+	cultural_tradition = 1
+}
+
+gj_skarren_cultura_ojos_de_marea = {
+	potential = { culture = culture:gj_skarren }
+	age = age_3_discovery
+	icon = swedish_tradition
+	naval_morale_modifier = 0.05
+	global_sailors_modifier = 0.1
+}
+
+gj_skarren_cultura_fiordo_eterno = {
+	potential = { culture = culture:gj_skarren }
+	age = age_5_absolutism
+	icon = swedish_tradition
+	global_manpower_modifier = 0.05
+	monthly_legitimacy = 0.05
+}

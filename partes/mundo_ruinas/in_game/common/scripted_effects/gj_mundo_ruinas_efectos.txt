@@ -1,0 +1,276 @@
+﻿# mundo_ruinas: efectos propios.
+# Se invocan como  nombre = yes  (o con parametros: nombre = { clave = valor }).
+
+##############################################################################
+# LOCATION: cierre de una ruina explorada
+##############################################################################
+
+# Ruina explorada con exito: deja de estar intacta y pasa a restaurada.
+gj_ruinas_cierra_ruina = {
+	set_variable = gj_ruina_explorada
+	if = {
+		limit = { has_location_modifier = gj_ruina_atlante_intacta }
+		remove_location_modifier = gj_ruina_atlante_intacta
+		add_location_modifier = { modifier = gj_ruina_atlante_restaurada }
+	}
+	else_if = {
+		limit = { has_location_modifier = gj_ruina_enana_intacta }
+		remove_location_modifier = gj_ruina_enana_intacta
+		add_location_modifier = { modifier = gj_ruina_enana_restaurada }
+	}
+	else_if = {
+		limit = { has_location_modifier = gj_ruina_antigua_intacta }
+		remove_location_modifier = gj_ruina_antigua_intacta
+		add_location_modifier = { modifier = gj_ruina_antigua_restaurada }
+	}
+}
+
+# Ruina que ha despertado: queda explorada, pero sigue sin restaurar hasta sellarla.
+gj_ruinas_cierra_ruina_despierta = {
+	set_variable = gj_ruina_explorada
+}
+
+# Ruina sellada: quita el despertar y la deja restaurada.
+gj_ruinas_sella_ruina = {
+	remove_location_modifier = gj_ruina_guardianes
+	remove_location_modifier = gj_ruina_plaga_bestias
+	remove_location_modifier = gj_ruina_maldicion
+	if = {
+		limit = { has_location_modifier = gj_ruina_atlante_intacta }
+		remove_location_modifier = gj_ruina_atlante_intacta
+		add_location_modifier = { modifier = gj_ruina_atlante_restaurada }
+	}
+	else_if = {
+		limit = { has_location_modifier = gj_ruina_enana_intacta }
+		remove_location_modifier = gj_ruina_enana_intacta
+		add_location_modifier = { modifier = gj_ruina_enana_restaurada }
+	}
+	else_if = {
+		limit = { has_location_modifier = gj_ruina_antigua_intacta }
+		remove_location_modifier = gj_ruina_antigua_intacta
+		add_location_modifier = { modifier = gj_ruina_antigua_restaurada }
+	}
+}
+
+##############################################################################
+# PAIS: marcas de ruinas y vetas en las locations propias (cada ano)
+##############################################################################
+gj_ruinas_marca_localizaciones = {
+	every_owned_location = {
+		limit = {
+			gj_zona_ruina_atlante = yes
+			NOT = { has_variable = gj_ruina_explorada }
+			NOT = { has_location_modifier = gj_ruina_atlante_intacta }
+		}
+		add_location_modifier = { modifier = gj_ruina_atlante_intacta }
+	}
+	every_owned_location = {
+		limit = {
+			gj_zona_ruina_enana = yes
+			NOT = { has_variable = gj_ruina_explorada }
+			NOT = { has_location_modifier = gj_ruina_enana_intacta }
+		}
+		add_location_modifier = { modifier = gj_ruina_enana_intacta }
+	}
+	every_owned_location = {
+		limit = {
+			gj_zona_ruina_antigua = yes
+			NOT = { has_variable = gj_ruina_explorada }
+			NOT = { has_location_modifier = gj_ruina_antigua_intacta }
+		}
+		add_location_modifier = { modifier = gj_ruina_antigua_intacta }
+	}
+	every_owned_location = {
+		limit = {
+			gj_zona_veta_fuego = yes
+			NOT = { has_location_modifier = gj_veta_fuego_marca }
+		}
+		add_location_modifier = { modifier = gj_veta_fuego_marca }
+	}
+	every_owned_location = {
+		limit = {
+			gj_zona_veta_marea = yes
+			NOT = { has_location_modifier = gj_veta_marea_marca }
+		}
+		add_location_modifier = { modifier = gj_veta_marea_marca }
+	}
+	every_owned_location = {
+		limit = {
+			gj_zona_veta_raiz = yes
+			NOT = { has_location_modifier = gj_veta_raiz_marca }
+		}
+		add_location_modifier = { modifier = gj_veta_raiz_marca }
+	}
+	every_owned_location = {
+		limit = {
+			gj_zona_veta_estrella = yes
+			NOT = { has_location_modifier = gj_veta_estrella_marca }
+		}
+		add_location_modifier = { modifier = gj_veta_estrella_marca }
+	}
+}
+
+##############################################################################
+# PAIS: artefactos. Un artefacto vive en una location (variable gj_art_<id>);
+# el pais que la posee tiene el modificador. Si la pierde, lo pierde.
+##############################################################################
+gj_ruinas_sync_art = {
+	if = {
+		limit = {
+			any_owned_location = { has_variable = gj_art_$id$ }
+			NOT = { has_country_modifier = gj_art_$id$_mod }
+		}
+		add_country_modifier = { modifier = gj_art_$id$_mod }
+	}
+	else_if = {
+		limit = {
+			NOT = { any_owned_location = { has_variable = gj_art_$id$ } }
+			has_country_modifier = gj_art_$id$_mod
+		}
+		remove_country_modifier = gj_art_$id$_mod
+	}
+}
+
+gj_ruinas_sincroniza_artefactos = {
+	gj_ruinas_sync_art = { id = astrolabio }
+	gj_ruinas_sync_art = { id = cetro }
+	gj_ruinas_sync_art = { id = martillo }
+	gj_ruinas_sync_art = { id = cuerno }
+	gj_ruinas_sync_art = { id = escudo }
+	gj_ruinas_sync_art = { id = tablillas }
+	gj_ruinas_sync_art = { id = corona }
+	gj_ruinas_sync_art = { id = lampara }
+}
+
+##############################################################################
+# PAIS: niveles de los monumentos de veta. Nivel efectivo >= 1,5: n2; >= 2,5: n3.
+##############################################################################
+gj_ruinas_veta_tier = {
+	if = {
+		limit = { total_effective_building_levels:gj_monumento_$tipo$ >= 2.5 }
+		if = {
+			limit = { has_country_modifier = gj_veta_$tipo$_n2 }
+			remove_country_modifier = gj_veta_$tipo$_n2
+		}
+		if = {
+			limit = { NOT = { has_country_modifier = gj_veta_$tipo$_n3 } }
+			add_country_modifier = { modifier = gj_veta_$tipo$_n3 }
+		}
+	}
+	else_if = {
+		limit = { total_effective_building_levels:gj_monumento_$tipo$ >= 1.5 }
+		if = {
+			limit = { has_country_modifier = gj_veta_$tipo$_n3 }
+			remove_country_modifier = gj_veta_$tipo$_n3
+		}
+		if = {
+			limit = { NOT = { has_country_modifier = gj_veta_$tipo$_n2 } }
+			add_country_modifier = { modifier = gj_veta_$tipo$_n2 }
+		}
+	}
+	else = {
+		if = {
+			limit = { has_country_modifier = gj_veta_$tipo$_n2 }
+			remove_country_modifier = gj_veta_$tipo$_n2
+		}
+		if = {
+			limit = { has_country_modifier = gj_veta_$tipo$_n3 }
+			remove_country_modifier = gj_veta_$tipo$_n3
+		}
+	}
+}
+
+gj_ruinas_sincroniza_vetas = {
+	gj_ruinas_veta_tier = { tipo = fuego }
+	gj_ruinas_veta_tier = { tipo = marea }
+	gj_ruinas_veta_tier = { tipo = raiz }
+	gj_ruinas_veta_tier = { tipo = estrella }
+}
+
+##############################################################################
+# PAIS: la tirada de la expedicion. Pesos por parametro segun el enfoque.
+# Requiere scope:gj_ruina_loc. Afinidad: la cultura de los constructores tira mejor.
+##############################################################################
+gj_ruinas_tirada = {
+	random_list = {
+		$menor$ = {
+			trigger_event_non_silently = { id = gj_mundo_ruinas.2 }
+		}
+		$artefacto$ = {
+			modifier = {
+				add = 20
+				gj_afin_atlante_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_atlante_intacta }
+			}
+			modifier = {
+				add = 20
+				gj_afin_enana_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_enana_intacta }
+			}
+			modifier = {
+				add = 20
+				gj_afin_antigua_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_antigua_intacta }
+			}
+			modifier = {
+				add = 8
+				gj_afin_atlante_leve = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_atlante_intacta }
+			}
+			modifier = {
+				add = 8
+				gj_afin_enana_leve = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_enana_intacta }
+			}
+			modifier = {
+				add = 8
+				gj_afin_antigua_leve = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_antigua_intacta }
+			}
+			trigger_event_non_silently = { id = gj_mundo_ruinas.3 }
+		}
+		$saber$ = {
+			modifier = {
+				add = 12
+				gj_afin_atlante_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_atlante_intacta }
+			}
+			modifier = {
+				add = 12
+				gj_afin_enana_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_enana_intacta }
+			}
+			modifier = {
+				add = 12
+				gj_afin_antigua_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_antigua_intacta }
+			}
+			trigger_event_non_silently = { id = gj_mundo_ruinas.4 }
+		}
+		$despertar$ = {
+			modifier = {
+				add = -10
+				gj_afin_atlante_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_atlante_intacta }
+			}
+			modifier = {
+				add = -10
+				gj_afin_enana_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_enana_intacta }
+			}
+			modifier = {
+				add = -10
+				gj_afin_antigua_fuerte = yes
+				scope:gj_ruina_loc = { has_location_modifier = gj_ruina_antigua_intacta }
+			}
+			random_list = {
+				40 = { trigger_event_non_silently = { id = gj_mundo_ruinas.5 } }
+				30 = { trigger_event_non_silently = { id = gj_mundo_ruinas.6 } }
+				30 = { trigger_event_non_silently = { id = gj_mundo_ruinas.7 } }
+			}
+		}
+		$muerte$ = {
+			trigger_event_non_silently = { id = gj_mundo_ruinas.8 }
+		}
+	}
+}

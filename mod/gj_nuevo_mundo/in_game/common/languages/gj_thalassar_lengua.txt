@@ -1,0 +1,45 @@
+﻿gj_talasia_language = {
+	color = map_gj_talasio
+
+	family = gj_talasia_language_family
+
+	male_names = {
+		gj_n_maresso gj_n_kaloren gj_n_ithlaro gj_n_velamar gj_n_osrenth gj_n_nerevaan gj_n_thalmio gj_n_corvenal gj_n_ismaro gj_n_telmaro
+		gj_n_aurenko gj_n_dessaran gj_n_halvoreth gj_n_imbrel gj_n_lucaneth gj_n_orvasco gj_n_pelamir gj_n_quelvaro gj_n_rhosendi gj_n_sarvelo
+		gj_n_tiberenth gj_n_ulmaro gj_n_veshanor gj_n_yrdemar gj_n_zaloreth gj_n_anthelo gj_n_belmaro gj_n_cassenor gj_n_dorvemar gj_n_elthamir
+	}
+	female_names = {
+		gj_n_ahvela gj_n_marisel gj_n_orvenia gj_n_illaria gj_n_sevanthe gj_n_talmira gj_n_kaelisa gj_n_nymeth gj_n_ondrelle gj_n_esmerel
+		gj_n_aurelane gj_n_belisenne gj_n_corvalia gj_n_daveline gj_n_elsamar gj_n_fenthira gj_n_galenne gj_n_helvira gj_n_isaramel gj_n_jhoselle
+		gj_n_kaltheia gj_n_lorvenne gj_n_mireldis gj_n_naveline gj_n_orsalie gj_n_pelamarra gj_n_quillane gj_n_rhevanne gj_n_selmira gj_n_tessavel
+	}
+	dynasty_names = {
+		gj_n_orsellan gj_n_kaeldris gj_n_marenthil gj_n_talvaris gj_n_ismerai gj_n_duorenne gj_n_pelavane gj_n_sarcondel gj_n_nythara gj_n_oselvane
+		gj_n_ardemaris gj_n_belthoran gj_n_corvelline gj_n_duskamar gj_n_elvarensi gj_n_faltheris gj_n_gaumarel gj_n_hylvandor gj_n_ithavell gj_n_jorvemar
+	}
+	lowborn = {
+		gj_n_redero gj_n_buzo gj_n_salinero gj_n_nasero gj_n_faenero gj_n_perlero gj_n_calafate gj_n_corallero gj_n_marisquero gj_n_mareante
+	}
+
+	dialects = {
+		gj_talasio_dialect = {
+			male_names = {
+				gj_n_maresso gj_n_kaloren gj_n_ithlaro gj_n_velamar gj_n_osrenth gj_n_nerevaan gj_n_thalmio gj_n_corvenal gj_n_ismaro gj_n_telmaro
+				gj_n_aurenko gj_n_dessaran gj_n_halvoreth gj_n_imbrel gj_n_lucaneth gj_n_orvasco gj_n_pelamir gj_n_quelvaro gj_n_rhosendi gj_n_sarvelo
+				gj_n_tiberenth gj_n_ulmaro gj_n_veshanor gj_n_yrdemar gj_n_zaloreth gj_n_anthelo gj_n_belmaro gj_n_cassenor gj_n_dorvemar gj_n_elthamir
+			}
+			female_names = {
+				gj_n_ahvela gj_n_marisel gj_n_orvenia gj_n_illaria gj_n_sevanthe gj_n_talmira gj_n_kaelisa gj_n_nymeth gj_n_ondrelle gj_n_esmerel
+				gj_n_aurelane gj_n_belisenne gj_n_corvalia gj_n_daveline gj_n_elsamar gj_n_fenthira gj_n_galenne gj_n_helvira gj_n_isaramel gj_n_jhoselle
+				gj_n_kaltheia gj_n_lorvenne gj_n_mireldis gj_n_naveline gj_n_orsalie gj_n_pelamarra gj_n_quillane gj_n_rhevanne gj_n_selmira gj_n_tessavel
+			}
+			dynasty_names = {
+				gj_n_orsellan gj_n_kaeldris gj_n_marenthil gj_n_talvaris gj_n_ismerai gj_n_duorenne gj_n_pelavane gj_n_sarcondel gj_n_nythara gj_n_oselvane
+				gj_n_ardemaris gj_n_belthoran gj_n_corvelline gj_n_duskamar gj_n_elvarensi gj_n_faltheris gj_n_gaumarel gj_n_hylvandor gj_n_ithavell gj_n_jorvemar
+			}
+			lowborn = {
+				gj_n_redero gj_n_buzo gj_n_salinero gj_n_nasero gj_n_faenero gj_n_perlero gj_n_calafate gj_n_corallero gj_n_marisquero gj_n_mareante
+			}
+		}
+	}
+}

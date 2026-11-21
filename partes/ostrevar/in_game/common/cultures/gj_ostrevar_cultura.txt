@@ -1,0 +1,21 @@
+﻿# Cultura de Ostrevar: los hombres de los valles del oeste.
+gj_ostrevari = {
+	language = gj_ostrevari_language
+	color = map_gj_ostrevari
+	tags = { western_european_gfx european_gfx }
+
+	country_modifier = {
+		global_construction_speed = 0.03
+		non_rural_migration_attraction = 0.05
+	}
+	location_modifier = {
+		local_masonry_output_modifier = 0.05
+	}
+	character_modifier = {
+		character_cabinet_efficiency = 0.05
+	}
+
+	culture_groups = {
+		gj_grupo_ostrevari
+	}
+}

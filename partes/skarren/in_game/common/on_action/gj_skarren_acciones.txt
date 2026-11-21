@@ -1,0 +1,64 @@
+﻿# Pulso anual propio de la parte skarren. Lo engancha el INJECT de abajo.
+gj_skarren_pulso_anual = {
+	trigger = { gj_es_skarren = yes }
+	events = {
+		gj_skarren.1
+		gj_skarren.40
+	}
+	random_events = {
+		chance_to_happen = 35
+		100 = gj_skarren.2
+		100 = gj_skarren.3
+		100 = gj_skarren.4
+		100 = gj_skarren.5
+		100 = gj_skarren.6
+		100 = gj_skarren.7
+		100 = gj_skarren.8
+		100 = gj_skarren.9
+		100 = gj_skarren.11
+		100 = gj_skarren.13
+		100 = gj_skarren.14
+		100 = gj_skarren.15
+		100 = gj_skarren.16
+		100 = gj_skarren.17
+		100 = gj_skarren.18
+		100 = gj_skarren.19
+		100 = gj_skarren.22
+		300 = 0
+	}
+}
+
+# Enganches a las acciones del juego base. Se usa INJECT, como el propio juego en sus DLC.
+INJECT:yearly_country_pulse = {
+	on_actions = {
+		gj_skarren_pulso_anual
+	}
+}
+
+INJECT:on_battle_won = {
+	effect = {
+		scope:actor.owner ?= {
+			if = {
+				limit = { gj_es_skarren = yes }
+				gj_skarren_suma_gloria = { N = 1 }
+			}
+		}
+	}
+}
+
+INJECT:on_location_occupied = {
+	effect = {
+		if = {
+			limit = { gj_es_skarren = yes }
+			gj_skarren_suma_gloria = { N = 2 }
+			change_gold_effect = { scale = 1 }
+			set_variable = { name = gj_skarren_botin_reciente value = yes years = 6 }
+		}
+	}
+}
+
+INJECT:on_new_ruler = {
+	events = {
+		gj_skarren.12
+	}
+}

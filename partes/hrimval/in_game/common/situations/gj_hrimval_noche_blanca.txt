@@ -1,0 +1,88 @@
+﻿# La Noche Blanca: cuando el reloj de la Corte Insepulta llega al maximo (variable gj_noche_reloj = 100),
+# el norte entero entra en un invierno sobrenatural durante unos cuatro anos.
+gj_hrimval_noche_blanca = {
+	monthly_spawn_chance = monthly_spawn_chance_unique
+	hint_tag = hint_gj_hrimval_noche_blanca
+
+	can_start = {
+		any_country = {
+			gj_es_hrimval = yes
+			var:gj_noche_reloj >= 100
+		}
+	}
+
+	outcome = {
+		name = "gj_hrimval_noche_blanca_amanece"
+		trigger = {
+			var:gj_noche_meses >= 48
+		}
+	}
+
+	visible = {
+		OR = {
+			gj_es_hrimval = yes
+			gj_zona_norte = yes
+		}
+	}
+
+	on_start = {
+		set_variable = { name = gj_noche_meses value = 0 }
+		every_country = {
+			limit = { gj_es_hrimval = yes }
+			add_country_modifier = { modifier = gj_hrimval_noche_blanca years = 5 mode = add_and_extend }
+			trigger_event_non_silently = gj_hrimval.20
+		}
+		every_country = {
+			limit = {
+				gj_zona_norte = yes
+				NOT = { gj_es_hrimval = yes }
+			}
+			add_country_modifier = { modifier = gj_hrimval_noche_blanca_invierno years = 5 mode = add_and_extend }
+			every_owned_location = {
+				add_location_modifier = { modifier = gj_hrimval_invierno_blanco years = 5 mode = add_and_extend }
+			}
+			trigger_event_non_silently = gj_hrimval.21
+		}
+	}
+
+	on_monthly = {
+		change_variable = { name = gj_noche_meses add = 1 }
+		every_country = {
+			limit = { gj_es_hrimval = yes }
+			gj_hrimval_recoge_caidos = { N = 1 }
+			random_list = {
+				88 = { }
+				12 = {
+					random_neighbor_country = {
+						limit = {
+							NOT = { has_country_modifier = gj_hrimval_diezmo_pagado }
+						}
+						trigger_event_non_silently = gj_hrimval.30
+					}
+				}
+			}
+		}
+	}
+
+	on_ended = {
+		remove_variable = gj_noche_meses
+		every_country = {
+			limit = { gj_es_hrimval = yes }
+			set_variable = { name = gj_noche_reloj value = 0 }
+			remove_country_modifier = gj_hrimval_noche_blanca
+			trigger_event_non_silently = gj_hrimval.22
+		}
+		every_country = {
+			limit = {
+				gj_zona_norte = yes
+				NOT = { gj_es_hrimval = yes }
+			}
+			remove_country_modifier = gj_hrimval_noche_blanca_invierno
+			every_owned_location = {
+				limit = { has_location_modifier = gj_hrimval_invierno_blanco }
+				remove_location_modifier = gj_hrimval_invierno_blanco
+			}
+			trigger_event_non_silently = gj_hrimval.23
+		}
+	}
+}

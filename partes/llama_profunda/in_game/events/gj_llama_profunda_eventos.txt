@@ -1,0 +1,454 @@
+﻿namespace = gj_llama_profunda
+
+# ------------------------------------------------------------
+# Eventos de la Llama Profunda (fe de Durnhal).
+# Los lanza el pulso anual (on_action gj_llama_profunda_pulso_anual), salvo el .4 y el .11, que los programan
+# la decision del pacto y el efecto de romperlo, y el .20, que es oculto.
+# ------------------------------------------------------------
+
+# .1 El Encendido de la Primera Forja (fiesta, pureza media o alta)
+gj_llama_profunda.1 = {
+	type = country_event
+	title = gj_llama_profunda.1.title
+	desc = gj_llama_profunda.1.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		purity >= 30
+		at_war = no
+		NOT = { has_variable = gj_llama_encendido_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_encendido_enfriamiento value = 1 years = 10 }
+	}
+
+	option = {
+		name = gj_llama_profunda.1.a
+		add_gold = -40
+		add_prestige = prestige_mild_bonus
+		add_purity = purity_mild_bonus
+	}
+
+	option = {
+		name = gj_llama_profunda.1.b
+		add_gold = -20
+		add_country_modifier = { modifier = gj_llama_forja_bendita years = 8 mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_llama_profunda.1.c
+		add_stability = stability_weak_bonus
+		add_purity = purity_weak_bonus
+	}
+}
+
+# .2 La brasa de la Casa de las Cenizas se apaga (pureza baja)
+gj_llama_profunda.2 = {
+	type = country_event
+	title = gj_llama_profunda.2.title
+	desc = gj_llama_profunda.2.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = interior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		purity < 40
+		NOT = { has_variable = gj_llama_ceniza_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_ceniza_enfriamiento value = 1 years = 8 }
+	}
+
+	option = {
+		name = gj_llama_profunda.2.a
+		trigger = { gold >= 50 }
+		add_gold = -50
+		add_purity = purity_severe_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = gj_llama_profunda.2.b
+		add_prestige = prestige_mild_penalty
+		add_purity = purity_mild_bonus
+	}
+
+	option = {
+		name = gj_llama_profunda.2.c
+		add_gold = 30
+		add_purity = purity_mild_penalty
+		add_country_modifier = { modifier = gj_llama_ceniza_fria years = 5 mode = add_and_extend }
+	}
+}
+
+# .3 La Voz de la Brasa (pureza alta)
+gj_llama_profunda.3 = {
+	type = country_event
+	title = gj_llama_profunda.3.title
+	desc = gj_llama_profunda.3.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		purity > 75
+		NOT = { has_variable = gj_llama_voz_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_voz_enfriamiento value = 1 years = 15 }
+	}
+
+	option = {
+		name = gj_llama_profunda.3.a
+		add_country_modifier = { modifier = gj_llama_forja_bendita years = 10 mode = add_and_extend }
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_llama_profunda.3.b
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_bonus }
+		add_purity = purity_weak_penalty
+		add_country_modifier = { modifier = gj_llama_voz_brasa years = 10 mode = add_and_extend }
+	}
+}
+
+# .4 El Diezmo del Ala (cada diez anos, mientras dure el pacto con el dragon)
+gj_llama_profunda.4 = {
+	type = country_event
+	title = gj_llama_profunda.4.title
+	desc = gj_llama_profunda.4.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		has_variable = gj_llama_pacto_dragon
+	}
+
+	option = {
+		name = gj_llama_profunda.4.a
+		random_owned_location = {
+			every_pop = { add_pop_size = { value = pop_size multiply = -0.08 } }
+		}
+		random_owned_location = {
+			every_pop = { add_pop_size = { value = pop_size multiply = -0.08 } }
+		}
+		random_owned_location = {
+			every_pop = { add_pop_size = { value = pop_size multiply = -0.08 } }
+		}
+		add_purity = purity_weak_penalty
+		add_country_modifier = { modifier = gj_llama_dragon_pacto_cumplido years = 10 mode = add_and_extend }
+		trigger_event_silently = { id = gj_llama_profunda.4 days = 3650 }
+	}
+
+	option = {
+		name = gj_llama_profunda.4.b
+		trigger = { gold >= 250 }
+		add_gold = -250
+		add_country_modifier = { modifier = gj_llama_dragon_pacto_cumplido years = 10 mode = add_and_extend }
+		trigger_event_silently = { id = gj_llama_profunda.4 days = 3650 }
+	}
+
+	option = {
+		name = gj_llama_profunda.4.c
+		gj_llama_profunda_rompe_pacto = yes
+	}
+}
+
+# .5 El latido bajo la piedra (hay inquietud de la profundidad)
+gj_llama_profunda.5 = {
+	type = country_event
+	title = gj_llama_profunda.5.title
+	desc = gj_llama_profunda.5.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		has_global_variable = gj_inquietud_caldera
+		global_var:gj_inquietud_caldera > 0
+		NOT = { has_variable = gj_llama_latido_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_latido_enfriamiento value = 1 years = 6 }
+	}
+
+	option = {
+		name = gj_llama_profunda.5.a
+		trigger = { gold >= 30 }
+		add_gold = -30
+		add_purity = purity_weak_bonus
+		gj_llama_profunda_baja_inquietud = { PUNTOS = 5 }
+	}
+
+	option = {
+		name = gj_llama_profunda.5.b
+		add_gold = 60
+		add_purity = purity_weak_penalty
+		gj_llama_profunda_sube_inquietud = { PUNTOS = 5 }
+	}
+}
+
+# .6 El yunque que canto
+gj_llama_profunda.6 = {
+	type = country_event
+	title = gj_llama_profunda.6.title
+	desc = gj_llama_profunda.6.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		purity >= 50
+		NOT = { has_variable = gj_llama_yunque_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_yunque_enfriamiento value = 1 years = 12 }
+	}
+
+	option = {
+		name = gj_llama_profunda.6.a
+		add_country_modifier = { modifier = gj_llama_forja_bendita years = 10 mode = add_and_extend }
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_llama_profunda.6.b
+		add_gold = 100
+		add_purity = purity_weak_penalty
+	}
+}
+
+# .7 La herejia del Hierro Frio
+gj_llama_profunda.7 = {
+	type = country_event
+	title = gj_llama_profunda.7.title
+	desc = gj_llama_profunda.7.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		purity < 70
+		at_war = no
+		NOT = { has_variable = gj_llama_hierro_frio_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_hierro_frio_enfriamiento value = 1 years = 20 }
+	}
+
+	option = {
+		name = gj_llama_profunda.7.a
+		add_stability = stability_weak_penalty
+		add_purity = purity_mild_bonus
+	}
+
+	option = {
+		name = gj_llama_profunda.7.b
+		trigger = { gold >= 20 }
+		add_gold = -20
+		add_prestige = prestige_weak_bonus
+		add_purity = purity_weak_bonus
+	}
+}
+
+# .8 Peregrinos al Pozo de la Llama
+gj_llama_profunda.8 = {
+	type = country_event
+	title = gj_llama_profunda.8.title
+	desc = gj_llama_profunda.8.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		at_war = no
+		NOT = { has_variable = gj_llama_peregrinos_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_peregrinos_enfriamiento value = 1 years = 10 }
+	}
+
+	option = {
+		name = gj_llama_profunda.8.a
+		trigger = { gold >= 30 }
+		add_gold = -30
+		add_purity = purity_weak_bonus
+		random_owned_location = {
+			add_location_modifier = { modifier = gj_llama_santuario_concurrido years = 10 mode = add_and_extend }
+		}
+	}
+
+	option = {
+		name = gj_llama_profunda.8.b
+		add_gold = 40
+		add_purity = purity_weak_penalty
+	}
+}
+
+# .9 Las cenizas de los caidos (en guerra)
+gj_llama_profunda.9 = {
+	type = country_event
+	title = gj_llama_profunda.9.title
+	desc = gj_llama_profunda.9.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		at_war = yes
+		NOT = { has_variable = gj_llama_cenizas_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_cenizas_enfriamiento value = 1 years = 8 }
+	}
+
+	option = {
+		name = gj_llama_profunda.9.a
+		add_country_modifier = { modifier = gj_llama_cenizas_fundidas years = 5 mode = add_and_extend }
+		add_purity = purity_weak_penalty
+	}
+
+	option = {
+		name = gj_llama_profunda.9.b
+		add_purity = purity_mild_bonus
+		add_stability = stability_weak_bonus
+	}
+}
+
+# .10 La veta que respira (cavar o sellar)
+gj_llama_profunda.10 = {
+	type = country_event
+	title = gj_llama_profunda.10.title
+	desc = gj_llama_profunda.10.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		at_war = no
+		NOT = { has_variable = gj_llama_veta_enfriamiento }
+	}
+
+	immediate = {
+		set_variable = { name = gj_llama_veta_enfriamiento value = 1 years = 12 }
+	}
+
+	option = {
+		name = gj_llama_profunda.10.a
+		add_gold = 100
+		add_purity = purity_weak_penalty
+		gj_llama_profunda_sube_inquietud = { PUNTOS = 6 }
+	}
+
+	option = {
+		name = gj_llama_profunda.10.b
+		trigger = { gold >= 30 }
+		add_gold = -30
+		add_purity = purity_mild_bonus
+		gj_llama_profunda_baja_inquietud = { PUNTOS = 4 }
+	}
+
+	option = {
+		name = gj_llama_profunda.10.c
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .11 La Brasa Mayor no olvida (lo programa romper el pacto)
+gj_llama_profunda.11 = {
+	type = country_event
+	title = gj_llama_profunda.11.title
+	desc = gj_llama_profunda.11.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		NOT = { has_variable = gj_llama_pacto_dragon }
+		has_country_modifier = gj_llama_dragon_rencor
+	}
+
+	option = {
+		name = gj_llama_profunda.11.a
+		trigger = { gold >= 100 }
+		add_gold = -100
+		remove_country_modifier = gj_llama_dragon_rencor
+	}
+
+	option = {
+		name = gj_llama_profunda.11.b
+		add_prestige = prestige_mild_bonus
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .20 Oculto: da el panteon de partida a quien sigue la fe y aun no lo tiene
+gj_llama_profunda.20 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		religion = religion:gj_llama_profunda
+		NOT = { has_variable = gj_llama_panteon_dado }
+	}
+
+	immediate = {
+		gj_llama_profunda_da_panteon = yes
+	}
+}

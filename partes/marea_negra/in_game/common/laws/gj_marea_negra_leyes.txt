@@ -1,0 +1,120 @@
+﻿gj_marea_negra_reparto_ley = {
+	unique = yes
+	law_category = socioeconomic
+
+	potential = {
+		has_reform = government_reform:gj_marea_negra_codigo_reform
+	}
+
+	gj_marea_negra_reparto_igual_policy = {
+		country_modifier = {
+			monthly_legitimacy = 0.1
+			global_sailors_modifier = 0.05
+		}
+		estate_preferences = {
+			peasants_estate
+		}
+		years = 2
+	}
+	gj_marea_negra_parte_del_capitan_policy = {
+		country_modifier = {
+			amount_looted_modifier = 0.15
+			navy_tradition_from_battle = 0.1
+		}
+		estate_preferences = {
+			nobles_estate
+		}
+		years = 2
+	}
+	gj_marea_negra_fondo_comun_policy = {
+		country_modifier = {
+			global_build_buildings_efficiency = 0.1
+			navy_maintenance_efficiency = 0.1
+		}
+		estate_preferences = {
+			burghers_estate
+		}
+		years = 2
+	}
+}
+
+gj_marea_negra_prisioneros_ley = {
+	unique = yes
+	law_category = military
+
+	potential = {
+		has_reform = government_reform:gj_marea_negra_codigo_reform
+	}
+
+	gj_marea_negra_rescate_policy = {
+		country_modifier = {
+			amount_looted_modifier = 0.1
+			diplomatic_reputation = diplomatic_reputation_weak_bonus
+		}
+		estate_preferences = {
+			burghers_estate
+		}
+		years = 2
+	}
+	gj_marea_negra_leva_forzosa_policy = {
+		country_modifier = {
+			global_sailors_modifier = 0.15
+			diplomatic_reputation = diplomatic_reputation_weak_penalty
+		}
+		estate_preferences = {
+			peasants_estate
+		}
+		years = 2
+	}
+	gj_marea_negra_sin_cuartel_policy = {
+		country_modifier = {
+			naval_morale = 0.1
+			diplomatic_reputation = diplomatic_reputation_mild_penalty
+		}
+		estate_preferences = {
+			nobles_estate
+		}
+		years = 2
+	}
+}
+
+gj_marea_negra_capitania_ley = {
+	unique = yes
+	law_category = leadership
+
+	potential = {
+		has_reform = government_reform:gj_marea_negra_codigo_reform
+	}
+
+	gj_marea_negra_capitania_abierta_policy = {
+		country_modifier = {
+			global_sailors_modifier = 0.1
+			monthly_legitimacy = -0.05
+		}
+		estate_preferences = {
+			peasants_estate
+		}
+		years = 2
+	}
+	gj_marea_negra_capitania_por_hazanas_policy = {
+		country_modifier = {
+			navy_tradition_from_battle = 0.2
+			monthly_navy_tradition = 0.05
+		}
+		estate_preferences = {
+			nobles_estate
+		}
+		years = 2
+	}
+	gj_marea_negra_capitania_de_casas_de_mar_policy = {
+		country_modifier = {
+			monthly_legitimacy = 0.1
+			global_monthly_control = 0.001
+		}
+		estate_preferences = {
+			burghers_estate
+		}
+		years = 2
+	}
+}
+

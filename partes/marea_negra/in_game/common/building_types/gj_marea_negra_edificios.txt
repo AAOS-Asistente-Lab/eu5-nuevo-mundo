@@ -1,0 +1,176 @@
+﻿gj_marea_negra_puerto_libre = {
+	audio_tier = 2
+	is_foreign = no
+	stronger_power_projection = no
+	max_levels = gj_marea_negra_puerto_libre_max_niveles
+	need_good_relation = no
+	pop_type = peasants
+
+	category = trade_category
+
+	employment_size = pirate_building_employment
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+	location_potential = {
+		is_coastal = yes
+	}
+
+	possible_production_methods = {
+		gj_marea_negra_puerto_libre_mantenimiento
+	}
+	build_time = pirate_build_time
+
+	modifier = {
+		scaled_gold_to_building_owner = 0.05
+		merchant_capacity_from_building = 1
+		local_unrest = 0.03
+	}
+}
+
+gj_marea_negra_astillero_corsario = {
+	audio_tier = 2
+	is_foreign = no
+	stronger_power_projection = no
+	max_levels = gj_marea_negra_astillero_corsario_max_niveles
+	need_good_relation = no
+	pop_type = peasants
+
+	category = naval_category
+
+	employment_size = pirate_building_employment
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+	location_potential = {
+		is_coastal = yes
+	}
+
+	possible_production_methods = {
+		gj_marea_negra_astillero_corsario_mantenimiento
+	}
+	build_time = pirate_build_time
+
+	modifier = {
+		local_ship_build_speed = 0.1
+		local_sailors = 0.01
+	}
+}
+
+gj_marea_negra_casa_de_las_cuerdas = {
+	audio_tier = 2
+	is_foreign = no
+	stronger_power_projection = no
+	max_levels = gj_marea_negra_casa_de_las_cuerdas_max_niveles
+	need_good_relation = no
+	pop_type = soldiers
+
+	category = military_category
+
+	employment_size = pirate_building_employment
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+	location_potential = {
+		is_coastal = yes
+	}
+
+	possible_production_methods = {
+		gj_marea_negra_casa_de_las_cuerdas_mantenimiento
+	}
+	build_time = pirate_build_time
+
+	modifier = {
+		local_sailors = 0.01
+		local_max_control = 0.02
+	}
+}
+
+gj_marea_negra_almacen_del_botin = {
+	audio_tier = 2
+	is_foreign = no
+	stronger_power_projection = no
+	max_levels = gj_marea_negra_almacen_del_botin_max_niveles
+	need_good_relation = no
+	pop_type = peasants
+
+	category = trade_category
+
+	employment_size = pirate_building_employment
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+	location_potential = {
+		is_coastal = yes
+	}
+
+	possible_production_methods = {
+		gj_marea_negra_almacen_del_botin_mantenimiento
+	}
+	build_time = pirate_build_time
+
+	modifier = {
+		merchant_capacity_from_building = 1
+		local_trade_protection_factor = 0.05
+	}
+}
+
+gj_marea_negra_faro_falso = {
+	audio_tier = 2
+	is_foreign = no
+	stronger_power_projection = no
+	max_levels = gj_marea_negra_faro_falso_max_niveles
+	need_good_relation = no
+	pop_type = soldiers
+
+	category = defense_category
+
+	employment_size = pirate_building_employment
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+	location_potential = {
+		is_coastal = yes
+	}
+
+	possible_production_methods = {
+		gj_marea_negra_faro_falso_mantenimiento
+	}
+	build_time = pirate_build_time
+
+	modifier = {
+		local_hostile_attrition = 0.05
+		local_navy_attrition = 0.05
+	}
+}
+

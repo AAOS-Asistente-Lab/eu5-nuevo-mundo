@@ -1,0 +1,19 @@
+﻿# Lengua ostrevari.
+gj_ostrevari_language = {
+	color = map_gj_ostrevari
+	family = gj_ostrevari_language_family
+
+	male_names = {
+		gj_n_aldemar gj_n_ansgar gj_n_berenguer gj_n_bertran Casimiro Dagoberto gj_n_eldric gj_n_edmar gj_n_fabian gj_n_gerardo gj_n_godomar gj_n_haldemar gj_n_hildebrando
+		gj_n_ingmar gj_n_isidro gj_n_leovigildo gj_n_lotario gj_n_maelgar gj_n_odon gj_n_osric gj_n_otmar gj_n_ramiro gj_n_renaldo gj_n_rodmar gj_n_sigfrido gj_n_teodric gj_n_ulmer gj_n_valdemar gj_n_wenceslao
+	}
+	female_names = {
+		gj_n_adalinda Aldana Brunilda Edelmira gj_n_elvira gj_n_gisela gj_n_hermesinda gj_n_ildara gj_n_irmina Isaura gj_n_leonor gj_n_maelis gj_n_matilde Nuria gj_n_odila gj_n_oriana gj_n_rosamunda gj_n_sancha gj_n_teodora gj_n_valdis
+	}
+	dynasty_names = {
+		gj_n_altamarca gj_n_casaviva gj_n_fuenteclara gj_n_marmoleda gj_n_pasoalto gj_n_piedrafirme gj_n_ribalta gj_n_sietepuentes gj_n_torrenueva gj_n_valdeaguas gj_n_vadoluz gj_n_cantalupo
+	}
+	lowborn = {
+		gj_n_albanil Cantero gj_n_carretero Herrero gj_n_hilandero gj_n_tejedor gj_n_pozo gj_n_puente gj_n_meson gj_n_vado_2
+	}
+}

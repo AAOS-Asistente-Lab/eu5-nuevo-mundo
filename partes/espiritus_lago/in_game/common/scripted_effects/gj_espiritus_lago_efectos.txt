@@ -1,0 +1,35 @@
+# Efectos de pais (root = country) de los Espiritus del Lago.
+
+# Cada vez que el pais lee un presagio sube el contador de lecturas.
+# A la quinta lectura llega el Gran Presagio (una sola vez por partida).
+gj_espiritus_lago_registra_lectura = {
+	if = {
+		limit = {
+			NOT = { has_variable = gj_espiritus_lago_lecturas }
+		}
+		set_variable = { name = gj_espiritus_lago_lecturas value = 0 }
+	}
+	change_variable = {
+		name = gj_espiritus_lago_lecturas
+		add = 1
+	}
+	if = {
+		limit = {
+			var:gj_espiritus_lago_lecturas >= 5
+			NOT = { has_variable = gj_espiritus_lago_gran_presagio }
+		}
+		set_variable = { name = gj_espiritus_lago_gran_presagio value = 1 }
+		trigger_event_non_silently = { id = gj_espiritus_lago.10 }
+	}
+}
+
+# Como lee esta religion un cometa o un eclipse (lo llama mundo_bestias, sin argumentos).
+# Si el que llama deja la variable global gj_presagio_tipo (1 = cometa, 2 = eclipse), el evento la tiene en cuenta.
+gj_espiritus_lago_lee_presagio = {
+	if = {
+		limit = {
+			religion = religion:gj_espiritus_lago
+		}
+		trigger_event_non_silently = { id = gj_espiritus_lago.11 }
+	}
+}

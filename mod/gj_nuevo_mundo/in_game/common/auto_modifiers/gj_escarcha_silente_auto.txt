@@ -1,0 +1,28 @@
+﻿# Modificadores automaticos de la Escarcha Silente.
+# El primero crece con la perdicion: cuanto mas cerca de la Noche Blanca, mas fuerte el aliento.
+# El segundo es la guerra, que apresura la cuenta.
+
+gj_escarcha_silente_aliento = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_escarcha_silente
+	}
+	scales_with = {
+		value = doom
+	}
+
+	land_morale_modifier = 0.0008
+	global_defensive = 0.0015
+	global_hostile_attrition = 0.006
+	prestige_from_land_battle = 0.001
+}
+
+gj_escarcha_silente_guerra = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_escarcha_silente
+		at_war = yes
+	}
+
+	monthly_doom = 0.12
+}

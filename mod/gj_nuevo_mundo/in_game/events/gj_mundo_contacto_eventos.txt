@@ -1,0 +1,805 @@
+﻿# Eventos de mundo_contacto. Namespace gj_mundo_contacto.
+# .1 a .5: la cadena de Primer contacto (velas, visitante, comercio, escuela, cierre).
+# .6 a .11: las Fiebres de los barcos (la gran plaga suavizada).
+# .12: la inmunidad parcial sube. .13 a .21: el intercambio y la difusion del saber (anuales, por pais).
+namespace = gj_mundo_contacto
+
+##################################################
+# PRIMER CONTACTO
+##################################################
+
+# Velas en el horizonte: el primer contacto del pais con el Viejo Mundo.
+gj_mundo_contacto.1 = {
+	type = country_event
+	title = gj_mundo_contacto.1.title
+	desc = gj_mundo_contacto.1.desc
+	outcome = neutral
+	historical_info = gj_mundo_contacto.1.historical_info
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_contacto_posible = yes
+	}
+
+	immediate = {
+		gj_contacto_marca = yes
+		if = {
+			limit = { exists = scope:gj_visitante }
+			scope:gj_visitante = {
+				trigger_event_non_silently = { id = gj_mundo_contacto.2 days = 20 }
+				trigger_event_non_silently = { id = gj_mundo_contacto.19 years = 3 }
+			}
+		}
+	}
+
+	option = {
+		name = gj_mundo_contacto.1.a
+		ai_chance = { base = 50 }
+		gj_contacto_elige_comerciar = yes
+		gj_contacto_ensena_al_visitante = yes
+		change_gold_effect = { scale = 2 }
+		trigger_event_non_silently = { id = gj_mundo_contacto.3 years = 2 }
+	}
+
+	option = {
+		name = gj_mundo_contacto.1.b
+		ai_chance = { base = 35 }
+		gj_contacto_elige_aprender = yes
+		gj_contacto_ensena_al_visitante = yes
+		change_gold_effect = { scale = -1 }
+		trigger_event_non_silently = { id = gj_mundo_contacto.4 years = 2 }
+	}
+
+	option = {
+		name = gj_mundo_contacto.1.c
+		ai_chance = { base = 15 }
+		gj_contacto_elige_cerrarse = yes
+		trigger_event_non_silently = { id = gj_mundo_contacto.5 years = 5 }
+	}
+}
+
+# Noticias del otro lado del mar: lo que ven los del Viejo Mundo (el visitante).
+gj_mundo_contacto.2 = {
+	type = country_event
+	title = gj_mundo_contacto.2.title
+	desc = gj_mundo_contacto.2.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_pais_viejo_mundo = yes
+	}
+
+	option = {
+		name = gj_mundo_contacto.2.a
+		ai_chance = { base = 50 }
+		add_research_progress = research_progress_weak_bonus
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_mundo_contacto.2.b
+		ai_chance = { base = 40 }
+		change_gold_effect = { scale = 1 }
+	}
+
+	option = {
+		name = gj_mundo_contacto.2.c
+		ai_chance = { base = 10 }
+		add_stability = stability_weak_bonus
+	}
+}
+
+# La primera caravana de ultramar (via del comercio).
+gj_mundo_contacto.3 = {
+	type = country_event
+	title = gj_mundo_contacto.3.title
+	desc = gj_mundo_contacto.3.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_via
+		var:gj_contacto_via = 1
+	}
+
+	option = {
+		name = gj_mundo_contacto.3.a
+		ai_chance = { base = 40 }
+		change_gold_effect = { scale = 3 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = gj_mundo_contacto.3.b
+		ai_chance = { base = 35 }
+		add_research_progress = research_progress_severe_bonus
+		add_country_modifier = { modifier = gj_ev_cultivo_llegado years = modifier_duration_years_normal mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_mundo_contacto.3.c
+		ai_chance = { base = 25 }
+		add_country_modifier = { modifier = gj_ev_ola_de_maestros years = modifier_duration_years_normal mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+# La escuela del puerto (via del aprendizaje).
+gj_mundo_contacto.4 = {
+	type = country_event
+	title = gj_mundo_contacto.4.title
+	desc = gj_mundo_contacto.4.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_via
+		var:gj_contacto_via = 2
+	}
+
+	option = {
+		name = gj_mundo_contacto.4.a
+		ai_chance = { base = 35 }
+		add_research_progress = research_progress_severe_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_penalty }
+	}
+
+	option = {
+		name = gj_mundo_contacto.4.b
+		ai_chance = { base = 30 }
+		add_country_modifier = { modifier = gj_ev_ola_de_maestros years = modifier_duration_years_normal mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = gj_mundo_contacto.4.c
+		ai_chance = { base = 35 }
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_ev_imprenta_en_el_muelle years = modifier_duration_years_long mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# Los muros de la fe (via del cierre).
+gj_mundo_contacto.5 = {
+	type = country_event
+	title = gj_mundo_contacto.5.title
+	desc = gj_mundo_contacto.5.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_via
+		var:gj_contacto_via = 3
+		gj_puertos_cerrados = yes
+	}
+
+	option = {
+		name = gj_mundo_contacto.5.a
+		ai_chance = { base = 70 }
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = gj_mundo_contacto.5.b
+		ai_chance = { base = 30 }
+		remove_country_modifier = gj_contacto_via_cerrado
+		set_variable = { name = gj_contacto_via value = 1 }
+		add_country_modifier = { modifier = gj_contacto_via_comercio years = modifier_duration_years_normal mode = add_and_extend }
+		add_stability = stability_weak_penalty
+	}
+}
+
+##################################################
+# FIEBRES DE LOS BARCOS
+##################################################
+
+# Las fiebres llegan al pais (sustituye a great_pestilence.1).
+gj_mundo_contacto.6 = {
+	type = country_event
+	category = situation_event
+	title = gj_mundo_contacto.6.title
+	desc = gj_mundo_contacto.6.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/situation/great_pestilence.dds"
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				disease_presence = { disease = disease:great_pestilence value > 0 }
+			}
+			save_scope_as = gj_loc_brote
+		}
+	}
+
+	option = {
+		name = gj_mundo_contacto.6.a
+		ai_chance = { base = 45 }
+		gj_fiebres_pon_cuarentena = yes
+		add_country_modifier = { modifier = gj_ev_cuarentena_muelles years = 3 mode = add_and_extend }
+		change_gold_effect = { scale = -1 }
+	}
+
+	option = {
+		name = gj_mundo_contacto.6.b
+		ai_chance = { base = 35 }
+		add_country_modifier = { modifier = gj_ev_oracion_y_hierbas years = modifier_duration_years_short mode = add_and_extend }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+
+	option = {
+		name = gj_mundo_contacto.6.c
+		ai_chance = { base = 20 }
+		trigger = {
+			has_variable = gj_contacto_via
+			NOT = { gj_puertos_cerrados = yes }
+		}
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_ev_medicos_del_otro_lado years = modifier_duration_years_short mode = add_and_extend }
+	}
+}
+
+# Un brote en el barrio del muelle (mensual, durante las fiebres).
+gj_mundo_contacto.7 = {
+	type = country_event
+	category = situation_event
+	title = gj_mundo_contacto.7.title
+	desc = gj_mundo_contacto.7.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/situation/great_pestilence.dds"
+
+	trigger = {
+		any_owned_location = {
+			disease_presence = { disease = disease:great_pestilence value > 0 }
+		}
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				disease_presence = { disease = disease:great_pestilence value > 0 }
+			}
+			save_scope_as = gj_loc_brote
+		}
+	}
+
+	option = {
+		name = gj_mundo_contacto.7.a
+		ai_chance = { base = 45 }
+		change_gold_effect = { scale = -1 }
+		scope:gj_loc_brote = {
+			add_location_modifier = { modifier = gj_loc_casa_de_curanderos years = modifier_duration_years_short mode = add_and_extend }
+		}
+	}
+
+	option = {
+		name = gj_mundo_contacto.7.b
+		ai_chance = { base = 35 }
+		add_stability = stability_weak_penalty
+		scope:gj_loc_brote = {
+			add_location_modifier = { modifier = gj_loc_cuarentena years = 2 mode = add_and_extend }
+		}
+	}
+
+	option = {
+		name = gj_mundo_contacto.7.c
+		ai_chance = { base = 20 }
+		gj_hrimval_recoge_caidos = { N = 1 }
+		scope:gj_loc_brote = {
+			add_location_modifier = { modifier = gj_loc_rastro_de_fiebres years = 3 mode = add_and_extend }
+		}
+	}
+}
+
+# El curandero y el fraile: dos remedios, una ciudad.
+gj_mundo_contacto.8 = {
+	type = country_event
+	category = situation_event
+	title = gj_mundo_contacto.8.title
+	desc = gj_mundo_contacto.8.desc
+	outcome = neutral
+
+	image = "gfx/interface/illustrations/situation/great_pestilence.dds"
+
+	trigger = {
+		country_has_disease = disease:great_pestilence
+	}
+
+	option = {
+		name = gj_mundo_contacto.8.a
+		ai_chance = { base = 50 }
+		change_societal_value = { type = spiritualist_vs_humanist value = societal_value_minor_move_to_right }
+		add_country_modifier = { modifier = gj_ev_medicos_del_otro_lado years = modifier_duration_years_short mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_penalty }
+	}
+
+	option = {
+		name = gj_mundo_contacto.8.b
+		ai_chance = { base = 50 }
+		change_societal_value = { type = spiritualist_vs_humanist value = societal_value_minor_move_to_left }
+		add_country_modifier = { modifier = gj_ev_oracion_y_hierbas years = modifier_duration_years_short mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+# La barca sin tripulacion.
+gj_mundo_contacto.9 = {
+	type = country_event
+	category = situation_event
+	title = gj_mundo_contacto.9.title
+	desc = gj_mundo_contacto.9.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/situation/great_pestilence.dds"
+
+	trigger = {
+		country_has_disease = disease:great_pestilence
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				disease_presence = { disease = disease:great_pestilence value > 0 }
+			}
+			save_scope_as = gj_loc_brote
+		}
+	}
+
+	option = {
+		name = gj_mundo_contacto.9.a
+		ai_chance = { base = 60 }
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_ev_cuarentena_muelles years = 3 mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_mundo_contacto.9.b
+		ai_chance = { base = 40 }
+		change_gold_effect = { scale = 2 }
+		gj_hrimval_recoge_caidos = { N = 1 }
+		scope:gj_loc_brote = {
+			add_location_modifier = { modifier = gj_loc_rastro_de_fiebres years = 3 mode = add_and_extend }
+		}
+	}
+}
+
+# Los que no enfermaron.
+gj_mundo_contacto.10 = {
+	type = country_event
+	category = situation_event
+	title = gj_mundo_contacto.10.title
+	desc = gj_mundo_contacto.10.desc
+	outcome = positive
+
+	image = "gfx/interface/illustrations/situation/great_pestilence.dds"
+
+	trigger = {
+		country_has_disease = disease:great_pestilence
+	}
+
+	option = {
+		name = gj_mundo_contacto.10.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_ev_oracion_y_hierbas years = modifier_duration_years_normal mode = add_and_extend }
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_mundo_contacto.10.b
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_ev_cuarentena_muelles years = modifier_duration_years_short mode = add_and_extend }
+	}
+}
+
+# Se van las fiebres (cada pais que las tuvo, al acabar la situacion).
+gj_mundo_contacto.11 = {
+	type = country_event
+	category = situation_event
+	title = gj_mundo_contacto.11.title
+	desc = gj_mundo_contacto.11.desc
+	outcome = positive
+
+	image = "gfx/interface/illustrations/situation/great_pestilence.dds"
+
+	option = {
+		name = gj_mundo_contacto.11.a
+		ai_chance = { base = 60 }
+		add_legitimacy = legitimacy_weak_bonus
+		add_country_modifier = { modifier = gj_ev_oracion_y_hierbas years = modifier_duration_years_long mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_mundo_contacto.11.b
+		ai_chance = { base = 40 }
+		change_gold_effect = { scale = -2 }
+		capital ?= {
+			add_location_modifier = { modifier = gj_loc_casa_de_curanderos years = modifier_duration_years_long mode = add_and_extend }
+		}
+	}
+}
+
+# La inmunidad parcial sube (10, 25 y 50 anos de contacto).
+gj_mundo_contacto.12 = {
+	type = country_event
+	title = gj_mundo_contacto.12.title
+	desc = gj_mundo_contacto.12.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_mundo_contacto.12.a
+		ai_chance = { base = 100 }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+##################################################
+# EL INTERCAMBIO Y LA DIFUSION DEL SABER (anuales, por pais)
+##################################################
+
+# Llegan los caballos (o los llegados mejoran la cria).
+gj_mundo_contacto.13 = {
+	type = country_event
+	title = gj_mundo_contacto.13.title
+	desc = gj_mundo_contacto.13.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_hecho
+		NOT = { has_variable = gj_ev_caballos }
+		NOT = { gj_puertos_cerrados = yes }
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	immediate = {
+		set_variable = gj_ev_caballos
+	}
+
+	option = {
+		name = gj_mundo_contacto.13.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_ev_caballos_llegados years = modifier_duration_years_long mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_mundo_contacto.13.b
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = 2 }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+# Un cultivo nuevo en el mercado.
+gj_mundo_contacto.14 = {
+	type = country_event
+	title = gj_mundo_contacto.14.title
+	desc = gj_mundo_contacto.14.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_hecho
+		NOT = { has_variable = gj_ev_cultivo }
+		NOT = { gj_puertos_cerrados = yes }
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	immediate = {
+		set_variable = gj_ev_cultivo
+	}
+
+	option = {
+		name = gj_mundo_contacto.14.a
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_ev_cultivo_llegado years = modifier_duration_years_long mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_bonus }
+	}
+
+	option = {
+		name = gj_mundo_contacto.14.b
+		ai_chance = { base = 40 }
+		change_gold_effect = { scale = 2 }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+# Los interpretes del puerto.
+gj_mundo_contacto.15 = {
+	type = country_event
+	title = gj_mundo_contacto.15.title
+	desc = gj_mundo_contacto.15.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_hecho
+		NOT = { has_variable = gj_ev_interpretes }
+		NOT = { gj_puertos_cerrados = yes }
+	}
+
+	immediate = {
+		set_variable = gj_ev_interpretes
+	}
+
+	option = {
+		name = gj_mundo_contacto.15.a
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_ev_lengua_del_puerto years = modifier_duration_years_long mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_mundo_contacto.15.b
+		ai_chance = { base = 40 }
+		add_prestige = prestige_weak_bonus
+		add_research_progress = research_progress_weak_bonus
+	}
+}
+
+# Una imprenta en el muelle (desde el descubrimiento).
+gj_mundo_contacto.16 = {
+	type = country_event
+	title = gj_mundo_contacto.16.title
+	desc = gj_mundo_contacto.16.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_hecho
+		NOT = { has_variable = gj_ev_imprenta }
+		NOT = { gj_puertos_cerrados = yes }
+		current_age_or_later = { age = age_3_discovery }
+	}
+
+	immediate = {
+		set_variable = gj_ev_imprenta
+	}
+
+	option = {
+		name = gj_mundo_contacto.16.a
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_ev_imprenta_en_el_muelle years = modifier_duration_years_long mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_mundo_contacto.16.b
+		ai_chance = { base = 50 }
+		add_research_progress = research_progress_mild_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_penalty }
+	}
+}
+
+# Los hijos del cierre: la generacion que nacio tras los muros.
+gj_mundo_contacto.17 = {
+	type = country_event
+	title = gj_mundo_contacto.17.title
+	desc = gj_mundo_contacto.17.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_puertos_cerrados = yes
+		has_variable = gj_contacto_anos
+		var:gj_contacto_anos >= 8
+		NOT = { has_variable = gj_ev_hijos_cierre }
+	}
+
+	immediate = {
+		set_variable = gj_ev_hijos_cierre
+	}
+
+	option = {
+		name = gj_mundo_contacto.17.a
+		ai_chance = { base = 40 }
+		remove_country_modifier = gj_contacto_via_cerrado
+		set_variable = { name = gj_contacto_via value = 2 }
+		add_country_modifier = { modifier = gj_contacto_via_aprender years = modifier_duration_years_normal mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = gj_mundo_contacto.17.b
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_ev_viejo_rencor years = modifier_duration_years_normal mode = add_and_extend }
+	}
+}
+
+# Llegan maestros de ultramar (solo si vas por detras).
+gj_mundo_contacto.18 = {
+	type = country_event
+	title = gj_mundo_contacto.18.title
+	desc = gj_mundo_contacto.18.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_hecho
+		NOT = { gj_puertos_cerrados = yes }
+		has_variable = gj_umbral_1
+		has_variable = gj_contacto_anos
+		gj_rezagado_1 = yes
+		OR = {
+			NOT = { has_variable = gj_ev_maestros_prox }
+			var:gj_contacto_anos >= var:gj_ev_maestros_prox
+		}
+	}
+
+	# Se puede repetir cada 8 anos de contacto.
+	immediate = {
+		set_variable = { name = gj_ev_maestros_prox value = var:gj_contacto_anos }
+		change_variable = { name = gj_ev_maestros_prox add = 8 }
+	}
+
+	option = {
+		name = gj_mundo_contacto.18.a
+		ai_chance = { base = 60 }
+		add_research_progress = research_progress_severe_bonus
+		add_country_modifier = { modifier = gj_ev_ola_de_maestros years = modifier_duration_years_normal mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_mundo_contacto.18.b
+		ai_chance = { base = 40 }
+		change_gold_effect = { scale = 1 }
+		add_research_progress = research_progress_mild_bonus
+	}
+}
+
+# Lo que aprendieron los del Viejo Mundo (el visitante, tres anos despues del contacto).
+gj_mundo_contacto.19 = {
+	type = country_event
+	title = gj_mundo_contacto.19.title
+	desc = gj_mundo_contacto.19.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_pais_viejo_mundo = yes
+	}
+
+	option = {
+		name = gj_mundo_contacto.19.a
+		ai_chance = { base = 50 }
+		add_research_progress = research_progress_mild_bonus
+	}
+
+	option = {
+		name = gj_mundo_contacto.19.b
+		ai_chance = { base = 50 }
+		add_prestige = prestige_weak_bonus
+		change_gold_effect = { scale = 1 }
+	}
+}
+
+# El interprete que se quedo: pasados unos anos de contacto, alguien del otro lado se instala.
+gj_mundo_contacto.20 = {
+	type = country_event
+	title = gj_mundo_contacto.20.title
+	desc = gj_mundo_contacto.20.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_hecho
+		NOT = { gj_puertos_cerrados = yes }
+		has_variable = gj_contacto_anos
+		var:gj_contacto_anos >= 6
+		NOT = { has_variable = gj_ev_interprete_quedo }
+	}
+
+	immediate = {
+		set_variable = gj_ev_interprete_quedo
+	}
+
+	option = {
+		name = gj_mundo_contacto.20.a
+		ai_chance = { base = 50 }
+		add_research_progress = research_progress_mild_bonus
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_mundo_contacto.20.b
+		ai_chance = { base = 50 }
+		add_legitimacy = legitimacy_weak_bonus
+		add_country_modifier = { modifier = gj_ev_lengua_del_puerto years = modifier_duration_years_normal mode = add_and_extend }
+	}
+}
+
+# El mapa del capitan: las cartas del otro lado del mar.
+gj_mundo_contacto.21 = {
+	type = country_event
+	title = gj_mundo_contacto.21.title
+	desc = gj_mundo_contacto.21.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		has_variable = gj_contacto_hecho
+		NOT = { gj_puertos_cerrados = yes }
+		NOT = { has_variable = gj_ev_mapa_capitan }
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	immediate = {
+		set_variable = gj_ev_mapa_capitan
+	}
+
+	option = {
+		name = gj_mundo_contacto.21.a
+		ai_chance = { base = 50 }
+		add_research_progress = research_progress_mild_bonus
+	}
+
+	option = {
+		name = gj_mundo_contacto.21.b
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = 2 }
+	}
+}

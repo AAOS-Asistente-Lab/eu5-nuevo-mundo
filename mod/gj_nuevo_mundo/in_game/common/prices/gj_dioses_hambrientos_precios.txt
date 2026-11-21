@@ -1,0 +1,12 @@
+﻿gj_dioses_hambrientos_ofrenda_de_cautivos = {
+	scaled_gold = 1
+}
+
+gj_dioses_hambrientos_gran_banquete = {
+	scaled_gold = 3
+	religious_influence = 30
+}
+
+gj_dioses_hambrientos_ayuno_penitente = {
+	stability = 5
+}

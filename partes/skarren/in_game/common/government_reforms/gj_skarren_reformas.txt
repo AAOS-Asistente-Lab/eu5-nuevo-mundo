@@ -1,0 +1,40 @@
+﻿gj_skarren_senorio_de_la_quilla = {
+	age = age_1_traditions
+	potential = { gj_es_skarren = yes }
+	allow = {
+		capital = { is_port = yes }
+	}
+	country_modifier = {
+		global_navy_levy_size_modifier = 0.5
+		navy_galley_build_cost_modifier = -0.25
+		allow_privateers_slave_raid = yes
+	}
+	years = 2
+}
+
+gj_skarren_asamblea_de_las_sagas = {
+	age = age_2_renaissance
+	potential = { gj_es_skarren = yes }
+	allow = {
+	}
+	country_modifier = {
+		monthly_legitimacy = 0.1
+		monthly_prestige = 0.1
+		cultural_tradition = 2
+	}
+	years = 2
+}
+
+gj_skarren_flotas_de_asalto = {
+	age = age_4_reformation
+	potential = { gj_es_skarren = yes }
+	allow = {
+		capital = { is_port = yes }
+	}
+	country_modifier = {
+		navy_light_ship_power = 0.1
+		amount_looted_modifier = 0.15
+		can_hire_privateers = yes
+	}
+	years = 2
+}

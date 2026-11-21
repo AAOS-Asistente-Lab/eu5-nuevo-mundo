@@ -1,0 +1,188 @@
+# Modificadores de los ritos y de los eventos del Mar Dormido.
+
+# ---- Evento .1 (la respiracion de la marea)
+gj_mar_cancion_cuna = {
+	game_data = {
+		category = country
+	}
+	global_fish_output_modifier = 0.1
+	monthly_legitimacy = 0.03
+}
+
+gj_mar_silencio_respetuoso = {
+	game_data = {
+		category = country
+	}
+	naval_unit_attrition = -0.1
+	naval_morale_modifier = 0.05
+}
+
+gj_mar_decima_al_agua = {
+	game_data = {
+		category = country
+	}
+	amount_looted_modifier = 0.15
+	ship_capture_chance = 0.1
+}
+
+# ---- Ritos (decisiones)
+gj_mar_nana_cantada = {
+	game_data = {
+		category = country
+	}
+	monthly_rite_power = 0.1
+	monthly_legitimacy = 0.02
+}
+
+gj_mar_kraken_calmado = {
+	game_data = {
+		category = country
+	}
+	naval_unit_attrition = -0.2
+	naval_damage_taken = -0.1
+}
+
+gj_mar_flota_bendita = {
+	game_data = {
+		category = country
+	}
+	naval_morale_modifier = 0.1
+	naval_damage_done = 0.05
+	ship_repair_at_sea = 0.1
+}
+
+gj_mar_corriente_ofrendada = {
+	game_data = {
+		category = country
+	}
+	export_efficiency = 0.1
+	import_efficiency = 0.05
+	trade_sea_efficiency = 0.1
+}
+
+gj_mar_gran_vigilia = {
+	game_data = {
+		category = country
+	}
+	monthly_prestige = 0.15
+	monthly_legitimacy = 0.1
+	monthly_rite_power = 0.2
+	global_fish_output_modifier = 0.1
+}
+
+gj_mar_sangre_en_la_marea = {
+	game_data = {
+		category = country
+	}
+	amount_looted_modifier = 0.25
+	naval_damage_done = 0.1
+	naval_unit_attrition = 0.1
+}
+
+gj_mar_ciudad_alzada = {
+	game_data = {
+		category = location
+	}
+	local_fish_output_modifier = 0.3
+	local_sailors_modifier = 0.25
+	local_port_build_buildings_efficiency = 0.15
+}
+
+# ---- Eventos .2 a .12
+gj_mar_kraken_visto = {
+	game_data = {
+		category = country
+	}
+	naval_morale_modifier = -0.1
+	global_sailors_modifier = -0.05
+}
+
+gj_mar_luna_ausente = {
+	game_data = {
+		category = country
+	}
+	naval_unit_attrition = 0.2
+	global_fish_output_modifier = -0.1
+}
+
+gj_mar_cantora_de_la_rada = {
+	game_data = {
+		category = country
+	}
+	monthly_rite_power = 0.15
+	monthly_prestige = 0.05
+}
+
+gj_mar_pesca_de_lo_hondo = {
+	game_data = {
+		category = country
+	}
+	global_fish_output_modifier = 0.2
+	monthly_rite_power = -0.05
+}
+
+gj_mar_naufragio_honrado = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.05
+	monthly_rite_power = 0.08
+}
+
+gj_mar_cuna_rota = {
+	game_data = {
+		category = country
+	}
+	monthly_rite_power = -0.15
+	monthly_legitimacy = -0.05
+}
+
+gj_mar_faroleros_en_marcha = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.05
+	naval_morale_modifier = 0.05
+}
+
+gj_mar_marea_roja = {
+	game_data = {
+		category = country
+	}
+	amount_looted_modifier = 0.2
+	naval_damage_done = 0.1
+	monthly_legitimacy = -0.05
+}
+
+gj_mar_sueno_roto = {
+	game_data = {
+		category = country
+	}
+	naval_morale_modifier = -0.15
+	monthly_legitimacy = -0.1
+}
+
+gj_mar_marea_alta_del_alma = {
+	game_data = {
+		category = country
+	}
+	monthly_prestige = 0.2
+	global_fish_output_modifier = 0.15
+	global_sailors_modifier = 0.1
+}
+
+gj_mar_presagio_calma = {
+	game_data = {
+		category = country
+	}
+	naval_unit_attrition = -0.15
+	monthly_legitimacy = 0.03
+}
+
+gj_mar_presagio_tormenta = {
+	game_data = {
+		category = country
+	}
+	naval_damage_taken = 0.1
+	amount_looted_modifier = 0.1
+}

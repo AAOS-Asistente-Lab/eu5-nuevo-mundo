@@ -1,0 +1,28 @@
+﻿# Ganchos del Mar Dormido.
+# [a probar] que el motor FUNDA estas entradas con las del juego base (como en las demas religiones del mod).
+
+# Cada ano: la respiracion de la marea, y de vez en cuando un suceso del mar.
+# yearly_country_pulse: lo engancha gj_integracion_on_actions.txt (gj_mar_pulso_anual).
+
+gj_mar_pulso_anual = {
+	trigger = {
+		religion = religion:gj_mar_dormido
+	}
+
+	events = {
+		gj_mar_dormido.1
+		gj_mar_dormido.10
+	}
+
+	random_events = {
+		chance_to_happen = 30
+		100 = gj_mar_dormido.2
+		100 = gj_mar_dormido.3
+		100 = gj_mar_dormido.4
+		100 = gj_mar_dormido.5
+		100 = gj_mar_dormido.6
+		100 = gj_mar_dormido.7
+		100 = gj_mar_dormido.8
+		60 = gj_mar_dormido.9
+	}
+}

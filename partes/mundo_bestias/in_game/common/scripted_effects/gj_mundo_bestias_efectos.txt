@@ -1,0 +1,147 @@
+﻿# Efectos de las bestias y los presagios (mundo_bestias). Todos los que no dicen otra cosa, con root = pais.
+
+# ---------- Arranque del mundo ----------
+# Lo llama on_game_start (ambito global). Deja el dragon dormido, los krakens sueltos y arma la cadena de presagios.
+gj_mundo_bestias_inicia = {
+	set_global_variable = { name = gj_dragon_estado value = 0 }
+	set_global_variable = { name = gj_mundo_bestias_kraken_furia value = 0 }
+	random_country = {
+		limit = { is_real_country = yes }
+		random_list = {
+			1 = { trigger_event_silently = { id = gj_mundo_bestias.46 days = 1800 } }
+			1 = { trigger_event_silently = { id = gj_mundo_bestias.46 days = 3650 } }
+			1 = { trigger_event_silently = { id = gj_mundo_bestias.46 days = 5500 } }
+		}
+	}
+}
+
+# Arma el siguiente presagio de la cadena: de 25 a 37 años, a un pais cualquiera (root = pais).
+gj_mundo_bestias_rearma_presagios = {
+	random_country = {
+		limit = { is_real_country = yes }
+		random_list = {
+			1 = { trigger_event_silently = { id = gj_mundo_bestias.46 days = 9000 } }
+			1 = { trigger_event_silently = { id = gj_mundo_bestias.46 days = 10500 } }
+			1 = { trigger_event_silently = { id = gj_mundo_bestias.46 days = 12000 } }
+			1 = { trigger_event_silently = { id = gj_mundo_bestias.46 days = 13500 } }
+		}
+	}
+}
+
+# ---------- El dragon ----------
+# Parametro: ESTADO (0, 1 o 2). Lo pueden llamar durnhal y llama_profunda.
+gj_mundo_bestias_dragon_pone_estado = {
+	set_global_variable = { name = gj_dragon_estado value = $ESTADO$ }
+}
+
+# Sube el estado un punto, sin pasar de 2.
+gj_mundo_bestias_dragon_sube_estado = {
+	set_global_variable = {
+		name = gj_dragon_estado
+		value = {
+			value = global_var:gj_dragon_estado
+			add = 1
+			max = 2
+		}
+	}
+}
+
+# Baja el estado un punto, sin bajar de 0.
+gj_mundo_bestias_dragon_baja_estado = {
+	set_global_variable = {
+		name = gj_dragon_estado
+		value = {
+			value = global_var:gj_dragon_estado
+			subtract = 1
+			min = 0
+		}
+	}
+}
+
+# Scope: location. El dragon pasa por aqui: gente muerta, riqueza perdida y tropas chamuscadas.
+gj_mundo_bestias_quema_location = {
+	change_prosperity = prosperity_severe_penalty
+	every_pop = {
+		add_pop_size = {
+			value = pop_size
+			multiply = -0.12
+		}
+	}
+	every_unit_in_location = {
+		damage_unit_percent = { 0.2 0.5 }
+		damage_unit_morale_percent = { 0.4 0.8 }
+	}
+	add_location_modifier = { modifier = gj_mundo_bestias_tierra_calcinada years = 10 mode = add_and_extend }
+}
+
+# Los muertos del dragon engordan a la Corte Insepulta (efecto de hrimval; solo actua en ella).
+gj_mundo_bestias_alimenta_la_corte = {
+	every_country = {
+		limit = { is_real_country = yes }
+		gj_hrimval_recoge_caidos = { N = $N$ }
+	}
+}
+
+# Mata al general de un ejercito cualquiera de este pais (el que mande mas tropas no importa: el azar elige).
+gj_mundo_bestias_pierde_un_general = {
+	random_army = {
+		limit = { exists = leader }
+		leader = { save_scope_as = general_caido }
+	}
+	if = {
+		limit = { exists = scope:general_caido }
+		kill_character = {
+			target = scope:general_caido
+			reason = battle
+		}
+	}
+}
+
+# ---------- Los krakens ----------
+# Un coloso se cobra una flota: un navio al azar queda hecho astillas.
+gj_mundo_bestias_kraken_cobra_flota = {
+	random_navy = {
+		damage_unit_percent = { 0.3 0.6 }
+		damage_unit_morale_percent = { 0.4 0.8 }
+	}
+}
+
+gj_mundo_bestias_kraken_sube_furia = {
+	set_global_variable = {
+		name = gj_mundo_bestias_kraken_furia
+		value = {
+			value = global_var:gj_mundo_bestias_kraken_furia
+			add = 1
+			max = 2
+		}
+	}
+}
+
+# ---------- Presagios: cada fe lee el cielo a su manera ----------
+# Fija el tipo de presagio global (1 cometa, 2 eclipse; lo lee gj_espiritus_lago_lee_presagio)
+# y llama, con root = pais, a la lectura de cada religion. Cada una solo actua si el pais la sigue.
+gj_mundo_bestias_lee_presagio_cometa = {
+	gj_cielo_clanes_lee_presagio = { tipo = cometa }
+	gj_escarcha_silente_lee_presagio = { ECLIPSE = no }
+	gj_espiritus_lago_lee_presagio = yes
+	gj_llama_profunda_lee_presagio = yes
+	gj_luz_fundadores_lee_presagio_cometa = yes
+	gj_mar_dormido_lee_presagio = yes
+	gj_pacto_balanza_lee_presagio = yes
+	gj_sol_blanco_lee_presagio = { TIPO = cometa }
+	gj_dioses_hambrientos_lee_presagio = yes
+	gj_senda_verde_lee_presagio = yes
+}
+
+gj_mundo_bestias_lee_presagio_eclipse = {
+	gj_cielo_clanes_lee_presagio = { tipo = eclipse }
+	gj_escarcha_silente_lee_presagio = { ECLIPSE = yes }
+	gj_espiritus_lago_lee_presagio = yes
+	gj_llama_profunda_lee_presagio = yes
+	gj_luz_fundadores_lee_presagio_eclipse = yes
+	gj_mar_dormido_lee_presagio = yes
+	gj_pacto_balanza_lee_presagio = yes
+	gj_sol_blanco_lee_presagio = { TIPO = eclipse }
+	gj_dioses_hambrientos_lee_presagio = yes
+	gj_senda_verde_lee_presagio = yes
+}

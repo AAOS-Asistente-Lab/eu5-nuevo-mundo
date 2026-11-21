@@ -1,0 +1,3 @@
+colors = {
+	gj_color_mar_dormido = rgb { 38 96 140 }
+}

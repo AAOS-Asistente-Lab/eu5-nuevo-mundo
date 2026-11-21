@@ -1,0 +1,23 @@
+﻿#######################################################################
+# Grupo cultural de la estepa del norte (parte "kaivan").
+# Lo comparten los clanes y menores de la estepa, no solo los kaivani.
+#######################################################################
+
+gj_grupo_estepa = {
+	country_modifier = {
+		global_horses_output_modifier = 0.1
+		army_light_cavalry_maintenance_cost_modifier = -0.05
+	}
+
+	location_modifier = {
+		local_supply_limit_modifier = 0.1
+	}
+
+	character_modifier = {
+	}
+
+	goods_demand_modifier = {
+		horses = 0.5
+		wool = 0.5
+	}
+}

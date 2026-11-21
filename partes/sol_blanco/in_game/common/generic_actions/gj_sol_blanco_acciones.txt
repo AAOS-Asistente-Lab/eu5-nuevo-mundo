@@ -1,0 +1,169 @@
+﻿# Acciones religiosas del Sol Blanco. scope:actor = pais, scope:recipient = religion.
+# Calcadas de las del culto inti del juego base (mismo molde y mismos precios),
+# pero con los cuatro Hermanos propios y con un festival que depende del equilibrio.
+
+# El Rito del Contrapeso: ofrecer al Sol o a la Luna para mover el yanantin.
+gj_sol_blanco_rito_contrapeso = {
+	type = religious
+
+	sound = UI_action_religion_generic
+
+	potential = {
+		scope:actor.religion = religion:gj_sol_blanco
+	}
+
+	allow = {
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+
+	automation_tick = monthly
+	automation_tick_frequency = 1
+	player_automated_category = religiousdoctrines
+
+	price = price:cleansing_ritual_yanantin
+
+	select_trigger = {
+		looking_for_a = religion
+		source = actor
+		target_flag = recipient
+		name = "choose_religion"
+		column = { data = name }
+	}
+
+	select_trigger = {
+		looking_for_a = god
+		target_flag = target
+		name = "favor_god_choose_god"
+		none_available_msg_key = "favor_god_no_gods"
+		column = { data = name }
+		visible = {
+			scope:actor = {
+				any_current_gods = {
+					this = root
+				}
+			}
+		}
+	}
+
+	effect = {
+		scope:actor = {
+			if = {
+				limit = { exists = scope:target }
+				switch = {
+					trigger = scope:target
+					# Hermanos del Sol
+					god:gj_sol_blanco_iscarel = { add_yanantin = -10 }
+					god:gj_sol_blanco_tauhuel = { add_yanantin = -10 }
+					# Hermanas de la Luna
+					god:gj_sol_blanco_nauquil = { add_yanantin = 10 }
+					god:gj_sol_blanco_oseyra = { add_yanantin = 10 }
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		if = {
+			limit = { scope:target = god:gj_sol_blanco_iscarel }
+			add = "scope:actor.currency_utility(yanantin|-10)"
+		}
+		else_if = {
+			limit = { scope:target = god:gj_sol_blanco_tauhuel }
+			add = "scope:actor.currency_utility(yanantin|-10)"
+		}
+		else_if = {
+			limit = { scope:target = god:gj_sol_blanco_nauquil }
+			add = "scope:actor.currency_utility(yanantin|10)"
+		}
+		else_if = {
+			limit = { scope:target = god:gj_sol_blanco_oseyra }
+			add = "scope:actor.currency_utility(yanantin|10)"
+		}
+	}
+}
+
+# El Festival de las Dos Luces: una vez al ano. Cuanto mas cerca del equilibrio,
+# mejor el premio; con el yanantin muy inclinado, solo se celebra al astro que falta.
+gj_sol_blanco_festival_luces = {
+	type = religious
+
+	sound = UI_action_religion_generic
+
+	potential = {
+		scope:actor.religion = religion:gj_sol_blanco
+	}
+
+	allow = {
+		scope:actor.gold >= {
+			value = scope:actor.monthly_income_trade_and_tax
+			multiply = 4
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+
+	automation_tick = monthly
+	automation_tick_frequency = 1
+	player_automated_category = religiousdoctrines
+
+	price = price:inti_ceremonial_festivals
+
+	cooldown = {
+		type = gj_sol_blanco_festival_luces
+		years = 1
+	}
+
+	select_trigger = {
+		looking_for_a = religion
+		source = actor
+		target_flag = recipient
+		name = "choose_religion"
+		column = { data = name }
+	}
+
+	effect = {
+		scope:actor = {
+			if = {
+				limit = {
+					yanantin > -15
+					yanantin < 15
+				}
+				custom_tooltip = { text = gj_sol_blanco_festival_equilibrio_tt }
+				add_country_modifier = { modifier = gj_sol_blanco_festival_equilibrio years = 1 mode = add }
+			}
+			else_if = {
+				limit = { yanantin <= -15 }
+				custom_tooltip = { text = gj_sol_blanco_festival_luna_tt }
+				add_country_modifier = { modifier = gj_sol_blanco_festival_luna years = 1 mode = add }
+			}
+			else = {
+				custom_tooltip = { text = gj_sol_blanco_festival_sol_tt }
+				add_country_modifier = { modifier = gj_sol_blanco_festival_sol years = 1 mode = add }
+			}
+		}
+	}
+
+	ai_will_do = {
+		if = {
+			limit = {
+				scope:actor = {
+					yanantin > -15
+					yanantin < 15
+				}
+			}
+			add = "scope:actor.add_static_modifier_utility(gj_sol_blanco_festival_equilibrio)"
+		}
+		else_if = {
+			limit = {
+				scope:actor = { yanantin <= -15 }
+			}
+			add = "scope:actor.add_static_modifier_utility(gj_sol_blanco_festival_luna)"
+		}
+		else = {
+			add = "scope:actor.add_static_modifier_utility(gj_sol_blanco_festival_sol)"
+		}
+	}
+}

@@ -1,0 +1,88 @@
+﻿# Decisiones de Ostrevar.
+
+gj_ostrevar_llamada_activar = {
+	decision_category = country_specific_decisions
+	potential = { gj_es_ostrevar = yes }
+	allow = {
+		NOT = { has_variable = gj_ostrevar_llamada }
+		stability >= 0
+	}
+	ai_will_do = { value = 20 }
+	option = {
+		name = gj_ostrevar_llamada_activar.a
+		ai_chance = { value = 50 }
+		effect = {
+			set_variable = gj_ostrevar_llamada
+			add_country_modifier = { modifier = gj_ostrevar_llamada_ciudades mode = add }
+			add_prestige = prestige_weak_bonus
+		}
+	}
+}
+
+gj_ostrevar_llamada_apagar = {
+	decision_category = country_specific_decisions
+	potential = { gj_es_ostrevar = yes has_variable = gj_ostrevar_llamada }
+	allow = { always = yes }
+	ai_will_do = { value = 20 }
+	option = {
+		name = gj_ostrevar_llamada_apagar.a
+		ai_chance = { value = 50 }
+		effect = {
+			remove_variable = gj_ostrevar_llamada
+			remove_country_modifier = gj_ostrevar_llamada_ciudades
+		}
+	}
+}
+
+gj_ostrevar_primera_piedra = {
+	decision_category = country_specific_decisions
+	potential = { gj_es_ostrevar = yes }
+	allow = {
+		current_age_or_later = { age = age_2_renaissance }
+		NOT = { has_variable = gj_ostrevar_primera_piedra }
+	}
+	only_once = yes
+	ai_will_do = { value = 100 }
+	option = {
+		name = gj_ostrevar_primera_piedra.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			set_variable = gj_ostrevar_primera_piedra
+			add_country_modifier = { modifier = gj_ostrevar_ev_obra_mayor years = modifier_duration_years_short mode = add_and_extend }
+			add_prestige = prestige_weak_bonus
+		}
+	}
+}
+
+gj_ostrevar_legado_final = {
+	decision_category = country_specific_decisions
+	potential = { gj_es_ostrevar = yes current_age = age_6_revolutions }
+	allow = { NOT = { has_variable = gj_ostrevar_legado_6 } }
+	only_once = yes
+	ai_will_do = { value = 100 }
+	option = {
+		name = gj_ostrevar_legado_final.a
+		ai_chance = { value = 40 }
+		effect = {
+			set_variable = gj_ostrevar_legado_6
+			add_country_modifier = { modifier = gj_ostrevar_legado_6_marmol mode = add }
+		}
+	}
+	option = {
+		name = gj_ostrevar_legado_final.b
+		ai_chance = { value = 30 }
+		effect = {
+			set_variable = gj_ostrevar_legado_6
+			add_country_modifier = { modifier = gj_ostrevar_legado_6_cantera mode = add }
+		}
+	}
+	option = {
+		name = gj_ostrevar_legado_final.c
+		ai_chance = { value = 30 }
+		effect = {
+			set_variable = gj_ostrevar_legado_6
+			add_country_modifier = { modifier = gj_ostrevar_legado_6_granero mode = add }
+		}
+	}
+}

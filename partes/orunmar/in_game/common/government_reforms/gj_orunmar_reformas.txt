@@ -1,0 +1,41 @@
+﻿##############################
+# Reformas de gobierno unicas de la Hegemonia Carmesi (3)
+##############################
+gj_orunmar_mesa_roja = {
+	unique = yes
+	age = age_1_traditions
+	potential = { gj_es_orunmar = yes }
+	allow = { }
+
+	country_modifier = {
+		monthly_religious_influence = 0.1
+		war_no_cb_cost_modifier = -0.25
+		global_estate_target_satisfaction = tiny_permanent_target_satisfaction
+	}
+}
+
+gj_orunmar_casta_de_segadores = {
+	unique = yes
+	age = age_3_discovery
+	potential = { gj_es_orunmar = yes }
+	allow = { }
+
+	country_modifier = {
+		global_manpower_modifier = 0.1
+		slave_raid_efficiency = 0.1
+		global_slaves_pop_growth = 0.05
+	}
+}
+
+gj_orunmar_gran_banquete = {
+	unique = yes
+	age = age_5_absolutism
+	potential = { gj_es_orunmar = yes }
+	allow = { }
+
+	country_modifier = {
+		monthly_religious_influence = 0.1
+		global_slaves_goods_output_modifier = 0.1
+		global_raw_material_output = 0.05
+	}
+}

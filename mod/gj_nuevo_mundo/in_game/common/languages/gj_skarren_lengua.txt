@@ -1,0 +1,30 @@
+﻿gj_lengua_skarren = {
+	color = gj_color_lengua_skarren
+
+	family = gj_familia_fiordo
+
+	male_names = {
+		gj_n_ormak gj_n_vessik gj_n_torren gj_n_halgrim gj_n_brannok gj_n_eskarn gj_n_tyrvar gj_n_havrek gj_n_orvald gj_n_ulvran
+		gj_n_kerrik gj_n_aldrek gj_n_brosk gj_n_hallmar gj_n_dregan gj_n_torsk gj_n_ysmund gj_n_vorrek gj_n_skeld gj_n_rannulf
+		gj_n_gudrek gj_n_haldor gj_n_brenn gj_n_orlek gj_n_svarrik gj_n_tolvar gj_n_yrmak gj_n_dunnar gj_n_kolbek gj_n_harnuk
+	}
+	female_names = {
+		gj_n_asveig gj_n_brynja gj_n_eldra gj_n_gunnveig gj_n_hallra gj_n_ingvarra gj_n_jorunn gj_n_kelda gj_n_marrit gj_n_orrunn
+		gj_n_ranveig gj_n_sigdis gj_n_thorveig gj_n_ulvhild gj_n_ysra gj_n_vendra gj_n_aldis gj_n_bergdis gj_n_dagrun gj_n_eyja
+	}
+	dynasty_names = {
+		gj_n_skarrholm gj_n_ormvik gj_n_selkholm gj_n_brannhavn gj_n_vrakfjord gj_n_dunnvik gj_n_korvik gj_n_hallgard gj_n_tyrnes gj_n_valdfjord
+		gj_n_ysmeres gj_n_tolvik gj_n_ormskjer gj_n_gudmark gj_n_brosknes gj_n_haldorsen gj_n_vessiksson gj_n_kerrikeld
+	}
+	lowborn = {
+		gj_n_remero gj_n_pescador gj_n_calafate gj_n_ahumador gj_n_arponero gj_n_faroles gj_n_cordelero gj_n_salinero
+		gj_n_gaviota gj_n_foca gj_n_bruma gj_n_escarcha gj_n_marejada_2 gj_n_orilla gj_n_quilla gj_n_varadero
+	}
+	patronym_suffix_son = "gj_patronimico_skarren_hijo"
+	patronym_suffix_daughter = "gj_patronimico_skarren_hija"
+	location_prefix = "gj_prefijo_skarren"
+	dialects = {
+		gj_dialecto_skarren = {
+		}
+	}
+}

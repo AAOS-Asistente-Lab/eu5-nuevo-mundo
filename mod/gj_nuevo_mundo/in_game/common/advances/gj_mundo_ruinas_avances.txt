@@ -1,0 +1,65 @@
+﻿# mundo_ruinas: saberes perdidos. Solo se desbloquean con el evento de la expedicion
+# (unlock_advance_effect). Dos por tipo de ruina: uno de la 2.a era y otro de la 4.a.
+
+##############################
+# Ruinas atlantes
+##############################
+gj_saber_mareas_hundidas = {
+	potential = { has_unlocked_advance_trigger = { type = gj_saber_mareas_hundidas } }
+	age = age_2_renaissance
+	allow = { has_unlocked_advance_trigger = { type = gj_saber_mareas_hundidas } }
+	ship_build_speed = 0.1
+	trade_sea_efficiency = 0.05
+	naval_morale_modifier = 0.05
+}
+
+gj_saber_cartas_abisales = {
+	potential = { has_unlocked_advance_trigger = { type = gj_saber_cartas_abisales } }
+	age = age_4_reformation
+	allow = { has_unlocked_advance_trigger = { type = gj_saber_cartas_abisales } }
+	exploration_mission_speed = 0.2
+	global_merchant_power = 0.1
+	naval_morale_modifier = 0.1
+}
+
+##############################
+# Ruinas enanas
+##############################
+gj_saber_forja_cantora = {
+	potential = { has_unlocked_advance_trigger = { type = gj_saber_forja_cantora } }
+	age = age_2_renaissance
+	allow = { has_unlocked_advance_trigger = { type = gj_saber_forja_cantora } }
+	global_production_efficiency = 0.05
+	global_iron_output_modifier = 0.1
+	global_build_buildings_efficiency = 0.05
+}
+
+gj_saber_runas_de_carga = {
+	potential = { has_unlocked_advance_trigger = { type = gj_saber_runas_de_carga } }
+	age = age_4_reformation
+	allow = { has_unlocked_advance_trigger = { type = gj_saber_runas_de_carga } }
+	discipline = 0.05
+	global_defensive = 0.1
+	siege_ability = 0.1
+}
+
+##############################
+# Ruinas de los Anteriores
+##############################
+gj_saber_riego_anterior = {
+	potential = { has_unlocked_advance_trigger = { type = gj_saber_riego_anterior } }
+	age = age_2_renaissance
+	allow = { has_unlocked_advance_trigger = { type = gj_saber_riego_anterior } }
+	global_monthly_food_modifier = 0.05
+	global_population_growth = 0.001
+	tax_income_efficiency = 0.03
+}
+
+gj_saber_calendario_primero = {
+	potential = { has_unlocked_advance_trigger = { type = gj_saber_calendario_primero } }
+	age = age_4_reformation
+	allow = { has_unlocked_advance_trigger = { type = gj_saber_calendario_primero } }
+	research_speed_modifier = 0.08
+	global_institution_growth_modifier = 0.05
+	global_monthly_literacy = 0.01
+}

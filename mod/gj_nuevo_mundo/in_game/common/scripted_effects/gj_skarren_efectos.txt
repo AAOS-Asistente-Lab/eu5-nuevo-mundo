@@ -1,0 +1,55 @@
+﻿gj_skarren_suma_gloria = {
+	if = {
+		limit = { NOT = { has_variable = gj_skarren_gloria } }
+		set_variable = { name = gj_skarren_gloria value = 0 }
+	}
+	change_variable = { name = gj_skarren_gloria add = $N$ }
+	gj_skarren_comprueba_saga = yes
+}
+
+gj_skarren_comprueba_saga = {
+	if = {
+		limit = { NOT = { has_variable = gj_skarren_sagas } }
+		set_variable = { name = gj_skarren_sagas value = 0 }
+	}
+	if = {
+		limit = {
+			var:gj_skarren_sagas = 0
+			var:gj_skarren_gloria >= 15
+		}
+		change_variable = { name = gj_skarren_sagas add = 1 }
+		trigger_event_non_silently = { id = gj_skarren.10 }
+	}
+	if = {
+		limit = {
+			var:gj_skarren_sagas = 1
+			var:gj_skarren_gloria >= 40
+		}
+		change_variable = { name = gj_skarren_sagas add = 1 }
+		trigger_event_non_silently = { id = gj_skarren.10 }
+	}
+	if = {
+		limit = {
+			var:gj_skarren_sagas = 2
+			var:gj_skarren_gloria >= 80
+		}
+		change_variable = { name = gj_skarren_sagas add = 1 }
+		trigger_event_non_silently = { id = gj_skarren.10 }
+	}
+	if = {
+		limit = {
+			var:gj_skarren_sagas = 3
+			var:gj_skarren_gloria >= 130
+		}
+		change_variable = { name = gj_skarren_sagas add = 1 }
+		trigger_event_non_silently = { id = gj_skarren.10 }
+	}
+	if = {
+		limit = {
+			var:gj_skarren_sagas = 4
+			var:gj_skarren_gloria >= 200
+		}
+		change_variable = { name = gj_skarren_sagas add = 1 }
+		trigger_event_non_silently = { id = gj_skarren.10 }
+	}
+}

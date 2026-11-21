@@ -1,0 +1,34 @@
+﻿# Menores del sur: cupo de cada familia de unidades = una base y un punto por nivel del edificio de su estilo.
+
+gj_minores_sur_limite_guardias = {
+	add = {
+		desc = "SUBUNIT_LIMIT_BASE"
+		value = 3
+	}
+	add = {
+		desc = "GJ_MINORES_SUR_NIVELES_LONJA"
+		value = total_effective_building_levels:gj_minores_sur_lonja_del_concejo
+	}
+}
+
+gj_minores_sur_limite_lanceros = {
+	add = {
+		desc = "SUBUNIT_LIMIT_BASE"
+		value = 4
+	}
+	add = {
+		desc = "GJ_MINORES_SUR_NIVELES_PALAFITO"
+		value = total_effective_building_levels:gj_minores_sur_palafito_mayor
+	}
+}
+
+gj_minores_sur_limite_jinetes = {
+	add = {
+		desc = "SUBUNIT_LIMIT_BASE"
+		value = 2
+	}
+	add = {
+		desc = "GJ_MINORES_SUR_NIVELES_TORRE"
+		value = total_effective_building_levels:gj_minores_sur_torre_de_frontera
+	}
+}

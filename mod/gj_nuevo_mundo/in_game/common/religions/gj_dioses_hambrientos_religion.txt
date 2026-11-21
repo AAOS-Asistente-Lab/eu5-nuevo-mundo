@@ -1,0 +1,28 @@
+﻿# Los Dioses Hambrientos: religion de las selvas de altura del sur.
+# Mecanica: influencia religiosa (la devocion). Sube con los cautivos ofrecidos
+# en la Mesa y baja en los anos de paz. Ver gj_dioses_hambrientos_efectos.txt.
+gj_dioses_hambrientos = {
+	color = gj_color_dioses_hambrientos
+	group = gj_fe_sur
+
+	# Se eligen 2 de los 4 aspectos (religious_aspects/gj_dioses_hambrientos_aspectos.txt).
+	religious_aspects = 2
+	has_religious_influence = yes
+
+	definition_modifier = {
+		monthly_religious_influence = 0.1
+		maximum_religious_influence = 25
+		slave_raid_efficiency = 0.15
+		any_pop_can_be_slave = yes
+		prestige_from_land_battle = 0.1
+	}
+
+	# Tres enfoques religiosos propios (religious_focuses/).
+	religious_focuses = {
+		gj_dioses_hambrientos_foco_cuenta_larga
+		gj_dioses_hambrientos_foco_mesa_larga
+		gj_dioses_hambrientos_foco_hierro_del_alba
+	}
+
+	tags = { tonal_gfx }
+}

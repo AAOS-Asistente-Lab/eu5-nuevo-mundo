@@ -1,0 +1,32 @@
+﻿# El Sol Blanco: religion de la altura solar (Ankaru).
+# Mecanica propia: el yanantin (equilibrio entre lo solar y lo lunar) y los focos religiosos.
+# El grupo gj_fe_sur lo define la integracion.
+
+gj_sol_blanco = {
+	color = rgb { 238 226 176 }
+	group = gj_fe_sur
+
+	has_yanantin = yes
+	religious_aspects = 2
+
+	religious_focuses = {
+		gj_sol_blanco_foco_calendario
+		gj_sol_blanco_foco_terrazas
+		gj_sol_blanco_foco_cuerdas
+		gj_sol_blanco_foco_zenit
+		gj_sol_blanco_foco_hilanderia
+		gj_sol_blanco_foco_ayuno
+		gj_sol_blanco_foco_vigilia
+		gj_sol_blanco_foco_concordia
+	}
+
+	definition_modifier = {
+		global_food_capacity_modifier = 0.05
+		stability_cost_efficiency = 0.1
+		cultural_tradition_modifier = 0.05
+		tolerance_own = 1
+	}
+
+	opinions = {
+	}
+}

@@ -1,0 +1,94 @@
+# Valores de Durnhal
+
+gj_durnhal_niveles_por_era = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_2_renaissance } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_3_discovery } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_4_reformation } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_5_absolutism } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_6_revolutions } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+gj_durnhal_niveles_salon = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_3_discovery } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_5_absolutism } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+gj_durnhal_niveles_baluarte = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_3_discovery } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_5_absolutism } } }
+		add = {
+			desc = "GJ_DURNHAL_NIVEL_ERA"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+gj_durnhal_coste_cavar = 40
+gj_durnhal_coste_sellar = 15
+gj_durnhal_coste_rito = 30
+gj_durnhal_coste_forja = 25
+gj_durnhal_coste_consejo = 20

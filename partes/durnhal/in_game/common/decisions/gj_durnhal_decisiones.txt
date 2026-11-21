@@ -1,0 +1,171 @@
+# Decisiones de Durnhal
+
+gj_durnhal_cavar_mas_hondo = {
+	decision_category = economy_decisions
+
+	potential = {
+		gj_es_durnhal = yes
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_durnhal_obra_en_curso }
+		political_influence >= gj_durnhal_coste_cavar
+		any_owned_location = { gj_durnhal_puede_profundizar = yes }
+	}
+
+	ai_will_do = {
+		value = 50
+	}
+
+	option = {
+		name = gj_durnhal_cavar_mas_hondo.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_political_influence = {
+				value = gj_durnhal_coste_cavar
+				multiply = -1
+			}
+			ordered_owned_location = {
+				limit = { gj_durnhal_puede_profundizar = yes }
+				order_by = population
+				max = 1
+				gj_durnhal_profundizar_efecto = yes
+			}
+			gj_durnhal_cambia_inquietud = { valor = 6 }
+			add_country_modifier = { modifier = gj_durnhal_obra_en_curso years = 2 mode = add_and_extend }
+		}
+	}
+}
+
+gj_durnhal_sellar_galeria = {
+	decision_category = economy_decisions
+
+	potential = {
+		gj_es_durnhal = yes
+	}
+
+	allow = {
+		political_influence >= gj_durnhal_coste_sellar
+		any_owned_location = {
+			has_variable = gj_nivel_mina
+			var:gj_nivel_mina >= 2
+		}
+	}
+
+	ai_will_do = {
+		value = 50
+	}
+
+	option = {
+		name = gj_durnhal_sellar_galeria.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_political_influence = {
+				value = gj_durnhal_coste_sellar
+				multiply = -1
+			}
+			random_owned_location = {
+				limit = {
+					has_variable = gj_nivel_mina
+					var:gj_nivel_mina >= 2
+				}
+				gj_durnhal_sellar_efecto = yes
+			}
+			gj_durnhal_cambia_inquietud = { valor = -10 }
+		}
+	}
+}
+
+gj_durnhal_rito_de_contencion = {
+	decision_category = religious_decisions
+
+	potential = {
+		gj_es_durnhal = yes
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_durnhal_rito_de_contencion }
+		political_influence >= gj_durnhal_coste_rito
+		has_global_variable = gj_inquietud_caldera
+		global_var:gj_inquietud_caldera >= 15
+	}
+
+	ai_will_do = {
+		value = 50
+	}
+
+	option = {
+		name = gj_durnhal_rito_de_contencion.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_political_influence = {
+				value = gj_durnhal_coste_rito
+				multiply = -1
+			}
+			gj_durnhal_cambia_inquietud = { valor = -15 }
+			add_country_modifier = { modifier = gj_durnhal_rito_de_contencion years = 5 mode = add_and_extend }
+		}
+	}
+}
+
+gj_durnhal_encender_la_gran_forja = {
+	decision_category = economy_decisions
+
+	potential = {
+		gj_es_durnhal = yes
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_durnhal_forja_encendida }
+		political_influence >= gj_durnhal_coste_forja
+		any_owned_location = { has_building = building_type:gj_durnhal_gran_forja }
+	}
+
+	ai_will_do = {
+		value = 50
+	}
+
+	option = {
+		name = gj_durnhal_encender_la_gran_forja.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_political_influence = {
+				value = gj_durnhal_coste_forja
+				multiply = -1
+			}
+			add_country_modifier = { modifier = gj_durnhal_forja_encendida years = 3 mode = add_and_extend }
+		}
+	}
+}
+
+gj_durnhal_convocar_el_conclave = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_es_durnhal = yes
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_durnhal_consejo_reciente }
+		political_influence >= gj_durnhal_coste_consejo
+	}
+
+	ai_will_do = {
+		value = 50
+	}
+
+	option = {
+		name = gj_durnhal_convocar_el_conclave.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_political_influence = {
+				value = gj_durnhal_coste_consejo
+				multiply = -1
+			}
+			add_legitimacy = legitimacy_mild_bonus
+			add_stability = stability_weak_bonus
+			add_country_modifier = { modifier = gj_durnhal_consejo_reciente years = 8 mode = add_and_extend }
+		}
+	}
+}
+

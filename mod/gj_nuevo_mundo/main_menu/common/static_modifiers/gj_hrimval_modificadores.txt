@@ -1,0 +1,102 @@
+﻿# Modificadores estaticos de la Corte Insepulta de Hrimval
+
+# La Noche Blanca: lo que recibe la Corte mientras dura
+gj_hrimval_noche_blanca = {
+	game_data = {
+		category = country
+	}
+	land_unit_attrition = -0.5
+	land_morale_modifier = 0.15
+	army_heavy_infantry_power = 0.10
+	global_manpower_modifier = 0.25
+	tax_income_efficiency = -0.15
+	monthly_legitimacy = -0.05
+}
+
+# La Noche Blanca: lo que sufren los demas paises del norte
+gj_hrimval_noche_blanca_invierno = {
+	game_data = {
+		category = country
+	}
+	global_food_capacity_modifier = -0.15
+	global_population_growth = -0.002
+	land_morale_modifier = -0.03
+}
+
+# Localidades del norte durante la Noche Blanca
+gj_hrimval_invierno_blanco = {
+	game_data = {
+		category = location
+	}
+	local_food_capacity_modifier = -0.25
+	local_monthly_control = -0.001
+	local_unrest = 0.05
+}
+
+# El Diezmo de Huesos pagado: la Corte no marcha sobre quien lo paga
+gj_hrimval_diezmo_pagado = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = -0.05
+	monthly_prestige = -0.05
+}
+
+# Los caidos alzados por un decreto de la Corte
+gj_hrimval_caidos_alzados = {
+	game_data = {
+		category = country
+	}
+	global_manpower_modifier = 0.15
+	land_morale_modifier = 0.05
+	global_pop_food_consumption = -0.05
+}
+
+# El relicario cuida al rey: no envejece mientras el relicario siga en pie
+gj_hrimval_rey_bajo_el_hielo = {
+	game_data = {
+		category = character
+	}
+	is_immortal = yes
+}
+
+# Fuera del hielo la tierra de la Corte se deshace
+gj_hrimval_deshielo = {
+	game_data = {
+		category = location
+	}
+	local_max_control = -0.25
+	local_monthly_control = -0.003
+	local_population_capacity_modifier = -0.25
+	local_unrest = 0.1
+}
+
+# Dentro del hielo la Corte se asienta
+gj_hrimval_frio_propio = {
+	game_data = {
+		category = location
+	}
+	local_monthly_control = 0.001
+	local_garrison_growth = 0.1
+	local_unrest = -0.1
+}
+
+# Un pueblo vecino arrasado por las Marchas de Escarcha
+gj_hrimval_marcha_arrasada = {
+	game_data = {
+		category = location
+	}
+	local_population_growth = -0.003
+	local_monthly_control = -0.002
+	local_unrest = 0.1
+}
+
+# La Corte dormida: despues de cada Noche Blanca, unos anos de silencio
+gj_hrimval_corte_dormida = {
+	game_data = {
+		category = country
+	}
+	global_manpower_modifier = -0.20
+	land_morale_modifier = -0.05
+	monthly_prestige = -0.05
+}

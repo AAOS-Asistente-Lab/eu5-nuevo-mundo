@@ -1,0 +1,567 @@
+﻿# Unidades unicas de la Corte Insepulta de Hrimval: Huestes de Hueso, Gigantes de Escarcha y Acechadores del Hielo
+# Cada una tiene una version por era: copy_from sobre la plantilla de su era y upgrades_to_only a la siguiente.
+
+a_gj_hrimval_huestes_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_huestes_2
+
+	family = gj_hrimval_huestes
+
+	morale_damage_taken = -0.15
+	strength_damage_taken = 0.05
+	movement_speed = -0.10
+	food_consumption_per_strength = -0.5
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.15
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_hrimval_gigantes_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	limit = 3
+
+	upgrades_to_only = a_gj_hrimval_gigantes_2
+
+	family = gj_hrimval_gigantes
+
+	strength_damage_done = 0.15
+	morale_damage_done = 0.15
+	strength_damage_taken = 0.10
+	movement_speed = -0.25
+	build_time_modifier = 1.0
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { heavy_tag }
+}
+
+a_gj_hrimval_acechadores_1 = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_acechadores_2
+
+	family = gj_hrimval_acechadores
+
+	movement_speed = 0.10
+	attrition_loss = -0.5
+	flanking_ability = 0.15
+	strength_damage_taken = 0.10
+	morale_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	impact = {
+		arctic = -0.30
+		desert = 0.20
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.20
+		desert = -0.20
+		jungle = -0.20
+		grasslands = -0.10
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_hrimval_huestes_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_huestes_3
+
+	family = gj_hrimval_huestes
+
+	morale_damage_taken = -0.15
+	strength_damage_taken = 0.05
+	movement_speed = -0.10
+	food_consumption_per_strength = -0.5
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.15
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_hrimval_gigantes_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	buildable = yes
+	limit = 3
+
+	upgrades_to_only = a_gj_hrimval_gigantes_3
+
+	family = gj_hrimval_gigantes
+
+	strength_damage_done = 0.15
+	morale_damage_done = 0.15
+	strength_damage_taken = 0.10
+	movement_speed = -0.25
+	build_time_modifier = 1.0
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { heavy_tag }
+}
+
+a_gj_hrimval_acechadores_2 = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_acechadores_3
+
+	family = gj_hrimval_acechadores
+
+	movement_speed = 0.10
+	attrition_loss = -0.5
+	flanking_ability = 0.15
+	strength_damage_taken = 0.10
+	morale_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	impact = {
+		arctic = -0.30
+		desert = 0.20
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.20
+		desert = -0.20
+		jungle = -0.20
+		grasslands = -0.10
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_hrimval_huestes_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_huestes_4
+
+	family = gj_hrimval_huestes
+
+	morale_damage_taken = -0.15
+	strength_damage_taken = 0.05
+	movement_speed = -0.10
+	food_consumption_per_strength = -0.5
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.15
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+a_gj_hrimval_gigantes_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	buildable = yes
+	limit = 3
+
+	upgrades_to_only = a_gj_hrimval_gigantes_4
+
+	family = gj_hrimval_gigantes
+
+	strength_damage_done = 0.15
+	morale_damage_done = 0.15
+	strength_damage_taken = 0.10
+	movement_speed = -0.25
+	build_time_modifier = 1.0
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { heavy_tag musket_tag }
+}
+
+a_gj_hrimval_acechadores_3 = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_acechadores_4
+
+	family = gj_hrimval_acechadores
+
+	movement_speed = 0.10
+	attrition_loss = -0.5
+	flanking_ability = 0.15
+	strength_damage_taken = 0.10
+	morale_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	impact = {
+		arctic = -0.30
+		desert = 0.20
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.20
+		desert = -0.20
+		jungle = -0.20
+		grasslands = -0.10
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+a_gj_hrimval_huestes_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_huestes_5
+
+	family = gj_hrimval_huestes
+
+	morale_damage_taken = -0.15
+	strength_damage_taken = 0.05
+	movement_speed = -0.10
+	food_consumption_per_strength = -0.5
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.15
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+a_gj_hrimval_gigantes_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	buildable = yes
+	limit = 3
+
+	upgrades_to_only = a_gj_hrimval_gigantes_5
+
+	family = gj_hrimval_gigantes
+
+	strength_damage_done = 0.15
+	morale_damage_done = 0.15
+	strength_damage_taken = 0.10
+	movement_speed = -0.25
+	build_time_modifier = 1.0
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { heavy_tag musket_tag }
+}
+
+a_gj_hrimval_acechadores_4 = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_acechadores_5
+
+	family = gj_hrimval_acechadores
+
+	movement_speed = 0.10
+	attrition_loss = -0.5
+	flanking_ability = 0.15
+	strength_damage_taken = 0.10
+	morale_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	impact = {
+		arctic = -0.30
+		desert = 0.20
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.20
+		desert = -0.20
+		jungle = -0.20
+		grasslands = -0.10
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+a_gj_hrimval_huestes_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_huestes_6
+
+	family = gj_hrimval_huestes
+
+	morale_damage_taken = -0.15
+	strength_damage_taken = 0.05
+	movement_speed = -0.10
+	food_consumption_per_strength = -0.5
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.15
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+a_gj_hrimval_gigantes_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	buildable = yes
+	limit = 3
+
+	upgrades_to_only = a_gj_hrimval_gigantes_6
+
+	family = gj_hrimval_gigantes
+
+	strength_damage_done = 0.15
+	morale_damage_done = 0.15
+	strength_damage_taken = 0.10
+	movement_speed = -0.25
+	build_time_modifier = 1.0
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { heavy_tag musket_tag }
+}
+
+a_gj_hrimval_acechadores_5 = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	buildable = yes
+
+	upgrades_to_only = a_gj_hrimval_acechadores_6
+
+	family = gj_hrimval_acechadores
+
+	movement_speed = 0.10
+	attrition_loss = -0.5
+	flanking_ability = 0.15
+	strength_damage_taken = 0.10
+	morale_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	impact = {
+		arctic = -0.30
+		desert = 0.20
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.20
+		desert = -0.20
+		jungle = -0.20
+		grasslands = -0.10
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+a_gj_hrimval_huestes_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+	buildable = yes
+
+	family = gj_hrimval_huestes
+
+	morale_damage_taken = -0.15
+	strength_damage_taken = 0.05
+	movement_speed = -0.10
+	food_consumption_per_strength = -0.5
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.15
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+a_gj_hrimval_gigantes_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	limit = 3
+
+	family = gj_hrimval_gigantes
+
+	strength_damage_done = 0.15
+	morale_damage_done = 0.15
+	strength_damage_taken = 0.10
+	movement_speed = -0.25
+	build_time_modifier = 1.0
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.25
+		desert = -0.25
+		jungle = -0.25
+		grasslands = -0.15
+	}
+
+	gfx_tags = { heavy_tag musket_tag }
+}
+
+a_gj_hrimval_acechadores_6 = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+	buildable = yes
+
+	family = gj_hrimval_acechadores
+
+	movement_speed = 0.10
+	attrition_loss = -0.5
+	flanking_ability = 0.15
+	strength_damage_taken = 0.10
+	morale_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	impact = {
+		arctic = -0.30
+		desert = 0.20
+	}
+
+	combat = {
+		arctic = 0.10
+		arid = -0.20
+		desert = -0.20
+		jungle = -0.20
+		grasslands = -0.10
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+

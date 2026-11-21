@@ -1,0 +1,33 @@
+﻿# La Luz de los Fundadores: religion de los valles del norte.
+# Mecanica propia: canonizacion. Los santos son Fundadores: soberanos que encendieron lumbres (ciudades) y
+# sus nombres quedan en las piedras. Ver gj_luz_fundadores_on_actions.txt y los eventos gj_luz_fundadores.*
+# El grupo gj_fe_norte lo define la integracion (contrato, tabla 5).
+
+gj_luz_fundadores = {
+	color = rgb { 232 190 96 }
+	group = gj_fe_norte
+
+	religious_aspects = 2
+
+	# Los santos cuestan influencia religiosa (precio canonize): hace falta la moneda.
+	has_religious_influence = yes
+	has_canonization = yes
+	saints_concept = gj_fundadores
+
+	definition_modifier = {
+		country_allow_canonization = yes
+		canonize_cost_modifier = -0.25
+		monthly_religious_influence = 0.08
+		town_upgrade_cost_modifier = -0.1
+		city_upgrade_cost_modifier = -0.1
+		global_construction_speed = 0.05
+		tolerance_heathen = 1
+	}
+
+	opinions = {
+	}
+
+	tags = {
+		folk_european_gfx pagan_gfx
+	}
+}

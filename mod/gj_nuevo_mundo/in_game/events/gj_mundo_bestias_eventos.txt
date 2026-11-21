@@ -1,0 +1,1039 @@
+﻿# Eventos de las bestias y los presagios. Namespace gj_mundo_bestias.
+# .1 a .13: el dragon de la caldera. .20 a .26: los krakens del estrecho. .30 a .34: plagas de bestias.
+# .40 a .46: cometas y eclipses.
+namespace = gj_mundo_bestias
+
+# =====================================================================
+# EL DRAGON DE LA CALDERA
+# =====================================================================
+
+# .1 La Durmiente se revuelve (estado 0 a 1)
+gj_mundo_bestias.1 = {
+	type = country_event
+	title = gj_mundo_bestias.1.title
+	desc = gj_mundo_bestias.1.desc
+	outcome = negative
+
+	trigger = {
+		gj_mundo_bestias_dragon_dormido = yes
+		gj_mundo_bestias_pais_caldera = yes
+		OR = {
+			gj_mundo_bestias_inquietud_caldera_alta = yes
+			at_war = yes
+			current_age_or_later = { age = age_4_reformation }
+		}
+	}
+
+	immediate = {
+		gj_mundo_bestias_dragon_pone_estado = { ESTADO = 1 }
+	}
+
+	option = {
+		name = gj_mundo_bestias.1.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_mundo_bestias_dragon_alerta years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.1.b
+		ai_chance = { base = 30 }
+		trigger = { gold >= gj_mundo_bestias_coste_aplacar }
+		add_gold = {
+			value = gj_mundo_bestias_coste_aplacar
+			multiply = -1
+		}
+		add_country_modifier = { modifier = gj_mundo_bestias_dragon_aplacado years = 5 mode = add_and_extend }
+		random_list = {
+			40 = { gj_mundo_bestias_dragon_pone_estado = { ESTADO = 0 } }
+			60 = { }
+		}
+	}
+	option = {
+		name = gj_mundo_bestias.1.c
+		ai_chance = { base = 20 }
+		add_gold = 60
+	}
+}
+
+# .2 Temblores bajo las ollas
+gj_mundo_bestias.2 = {
+	type = country_event
+	title = gj_mundo_bestias.2.title
+	desc = gj_mundo_bestias.2.desc
+	outcome = negative
+
+	trigger = {
+		gj_mundo_bestias_dragon_vivo = yes
+		global_var:gj_dragon_estado >= 1
+		gj_mundo_bestias_pais_caldera = yes
+		NOT = { has_variable = gj_mundo_bestias_temblor_cd }
+	}
+
+	immediate = {
+		set_variable = { name = gj_mundo_bestias_temblor_cd value = 1 years = 6 }
+	}
+
+	option = {
+		name = gj_mundo_bestias.2.a
+		ai_chance = { base = 60 }
+		trigger = { gold >= 50 }
+		add_gold = -50
+	}
+	option = {
+		name = gj_mundo_bestias.2.b
+		ai_chance = { base = 40 }
+		add_gold = 40
+		random_owned_location = {
+			limit = { gj_zona_caldera = yes }
+			add_location_modifier = { modifier = gj_mundo_bestias_suelo_agrietado years = 5 mode = add_and_extend }
+		}
+	}
+}
+
+# .3 Las aves huyen del valle
+gj_mundo_bestias.3 = {
+	type = country_event
+	title = gj_mundo_bestias.3.title
+	desc = gj_mundo_bestias.3.desc
+	outcome = neutral
+
+	trigger = {
+		gj_mundo_bestias_dragon_inquieto = yes
+		gj_mundo_bestias_pais_caldera = yes
+	}
+
+	option = {
+		name = gj_mundo_bestias.3.a
+		ai_chance = { base = 50 }
+		trigger = { gold >= 40 }
+		add_gold = -40
+		add_prestige = prestige_weak_bonus
+		random_list = {
+			25 = { gj_mundo_bestias_dragon_pone_estado = { ESTADO = 0 } }
+			75 = { }
+		}
+	}
+	option = {
+		name = gj_mundo_bestias.3.b
+		ai_chance = { base = 50 }
+		random_list = {
+			60 = { add_army_tradition = army_tradition_mild_bonus }
+			40 = { add_gold = -40 }
+		}
+	}
+}
+
+# .4 Kharuun despierta (estado 1 a 2)
+gj_mundo_bestias.4 = {
+	type = country_event
+	title = gj_mundo_bestias.4.title
+	desc = gj_mundo_bestias.4.desc
+	outcome = negative
+	major = yes
+
+	trigger = {
+		gj_mundo_bestias_dragon_inquieto = yes
+		gj_mundo_bestias_pais_caldera = yes
+		OR = {
+			gj_mundo_bestias_inquietud_caldera_critica = yes
+			AND = {
+				at_war = yes
+				current_age_or_later = { age = age_3_discovery }
+			}
+			current_age_or_later = { age = age_5_absolutism }
+		}
+	}
+
+	immediate = {
+		gj_mundo_bestias_dragon_pone_estado = { ESTADO = 2 }
+	}
+
+	option = {
+		name = gj_mundo_bestias.4.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_mundo_bestias_dragon_alerta years = 8 mode = add_and_extend }
+		add_stability = stability_weak_penalty
+	}
+	option = {
+		name = gj_mundo_bestias.4.b
+		ai_chance = { base = 40 }
+		trigger = { gold >= 100 }
+		add_gold = -100
+		set_variable = { name = gj_mundo_bestias_evacuado value = 1 years = 6 }
+	}
+	option = {
+		name = gj_mundo_bestias.4.c
+		ai_chance = { base = 30 }
+		trigger = { religion = religion:gj_llama_profunda }
+		add_stability = stability_weak_bonus
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = { modifier = gj_mundo_bestias_nido_protegido years = 3 mode = add_and_extend }
+	}
+}
+
+# .5 El tributo de brasa
+gj_mundo_bestias.5 = {
+	type = country_event
+	title = gj_mundo_bestias.5.title
+	desc = gj_mundo_bestias.5.desc
+	outcome = negative
+
+	trigger = {
+		gj_mundo_bestias_dragon_despierto = yes
+		gj_mundo_bestias_pais_caldera = yes
+		NOT = { gj_mundo_bestias_tiene_pacto_dragon = yes }
+		NOT = { has_variable = gj_mundo_bestias_tributo_cd }
+	}
+
+	immediate = {
+		set_variable = { name = gj_mundo_bestias_tributo_cd value = 1 years = 3 }
+	}
+
+	option = {
+		name = gj_mundo_bestias.5.a
+		ai_chance = { base = 60 }
+		trigger = { gold >= gj_mundo_bestias_tributo_dragon }
+		add_gold = {
+			value = gj_mundo_bestias_tributo_dragon
+			multiply = -1
+		}
+		add_country_modifier = { modifier = gj_mundo_bestias_dragon_aplacado years = 3 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.5.b
+		ai_chance = { base = 40 }
+		add_prestige = prestige_mild_bonus
+		trigger_event_non_silently = { id = gj_mundo_bestias.6 days = 20 }
+	}
+}
+
+# .6 La Durmiente baja por el valle
+gj_mundo_bestias.6 = {
+	type = country_event
+	title = gj_mundo_bestias.6.title
+	desc = gj_mundo_bestias.6.desc
+	outcome = negative
+
+	trigger = {
+		gj_mundo_bestias_dragon_despierto = yes
+		gj_mundo_bestias_pais_caldera = yes
+		NOT = { gj_mundo_bestias_tiene_pacto_dragon = yes }
+		NOT = { has_variable = gj_mundo_bestias_evacuado }
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = { gj_zona_caldera = yes }
+			gj_mundo_bestias_quema_location = yes
+		}
+		gj_mundo_bestias_alimenta_la_corte = { N = 3 }
+	}
+
+	option = {
+		name = gj_mundo_bestias.6.a
+		ai_chance = { base = 50 }
+		trigger = { gold >= 80 }
+		add_gold = -80
+		random_owned_location = {
+			limit = { has_location_modifier = gj_mundo_bestias_tierra_calcinada }
+			remove_location_modifier = gj_mundo_bestias_tierra_calcinada
+		}
+	}
+	option = {
+		name = gj_mundo_bestias.6.b
+		ai_chance = { base = 50 }
+		add_stability = stability_weak_penalty
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .7 El nido protegido (pacto con el dragon)
+gj_mundo_bestias.7 = {
+	type = country_event
+	title = gj_mundo_bestias.7.title
+	desc = gj_mundo_bestias.7.desc
+	outcome = positive
+
+	trigger = {
+		gj_mundo_bestias_dragon_despierto = yes
+		gj_mundo_bestias_tiene_pacto_dragon = yes
+		NOT = { has_country_modifier = gj_mundo_bestias_nido_protegido }
+	}
+
+	option = {
+		name = gj_mundo_bestias.7.a
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_mundo_bestias_nido_protegido years = 10 mode = add_and_extend }
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_mundo_bestias.7.b
+		ai_chance = { base = 40 }
+		trigger = { gold >= 60 }
+		add_gold = -60
+		add_country_modifier = { modifier = gj_mundo_bestias_nido_protegido years = 10 mode = add_and_extend }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .8 Kharuun vuelve a su sueño (estado 2 a 1)
+gj_mundo_bestias.8 = {
+	type = country_event
+	title = gj_mundo_bestias.8.title
+	desc = gj_mundo_bestias.8.desc
+	outcome = positive
+
+	trigger = {
+		gj_mundo_bestias_dragon_despierto = yes
+		gj_mundo_bestias_pais_caldera = yes
+	}
+
+	immediate = {
+		gj_mundo_bestias_dragon_pone_estado = { ESTADO = 1 }
+	}
+
+	option = {
+		name = gj_mundo_bestias.8.a
+		ai_chance = { base = 60 }
+		add_prestige = prestige_weak_bonus
+		add_stability = stability_weak_bonus
+	}
+	option = {
+		name = gj_mundo_bestias.8.b
+		ai_chance = { base = 40 }
+		add_country_modifier = { modifier = gj_mundo_bestias_dragon_alerta years = 5 mode = add_and_extend }
+	}
+}
+
+# .9 La ceniza fértil
+gj_mundo_bestias.9 = {
+	type = country_event
+	title = gj_mundo_bestias.9.title
+	desc = gj_mundo_bestias.9.desc
+	outcome = neutral
+
+	trigger = {
+		gj_mundo_bestias_dragon_vivo = yes
+		global_var:gj_dragon_estado >= 1
+		gj_mundo_bestias_pais_caldera = yes
+		NOT = { has_variable = gj_mundo_bestias_ceniza_cd }
+	}
+
+	immediate = {
+		set_variable = { name = gj_mundo_bestias_ceniza_cd value = 1 years = 12 }
+	}
+
+	option = {
+		name = gj_mundo_bestias.9.a
+		ai_chance = { base = 60 }
+		random_owned_location = {
+			limit = { gj_zona_caldera = yes }
+			add_location_modifier = { modifier = gj_mundo_bestias_ceniza_fertil years = 8 mode = add_and_extend }
+		}
+	}
+	option = {
+		name = gj_mundo_bestias.9.b
+		ai_chance = { base = 40 }
+		add_gold = 70
+	}
+}
+
+# .11 La Gran Cacería: Kharuun cae (lo lanza la decision)
+gj_mundo_bestias.11 = {
+	type = country_event
+	title = gj_mundo_bestias.11.title
+	desc = gj_mundo_bestias.11.desc
+	outcome = positive
+	major = yes
+
+	trigger = {
+		gj_mundo_bestias_dragon_vivo = yes
+	}
+
+	immediate = {
+		set_global_variable = { name = gj_dragon_muerto value = 1 }
+		every_country = {
+			limit = { has_variable = gj_llama_pacto_dragon }
+			trigger_event_non_silently = { id = gj_mundo_bestias.13 }
+		}
+		every_country = {
+			limit = { has_variable = gj_llama_pacto_dragon }
+			gj_llama_profunda_rompe_pacto = yes
+		}
+		gj_mundo_bestias_dragon_pone_estado = { ESTADO = 0 }
+		add_prestige = prestige_extreme_bonus
+		add_army_tradition = army_tradition_mild_bonus
+	}
+
+	option = {
+		name = gj_mundo_bestias.11.a
+		ai_chance = { base = 40 }
+		add_country_modifier = { modifier = gj_mundo_bestias_escamas_de_brasa years = 40 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.11.b
+		ai_chance = { base = 40 }
+		add_country_modifier = { modifier = gj_mundo_bestias_corazon_de_brasa years = 40 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.11.c
+		ai_chance = { base = 20 }
+		add_country_modifier = { modifier = gj_mundo_bestias_cazador_de_dragones years = 40 mode = add_and_extend }
+		add_legitimacy = legitimacy_severe_bonus
+	}
+}
+
+# .12 La Gran Cacería fracasa
+gj_mundo_bestias.12 = {
+	type = country_event
+	title = gj_mundo_bestias.12.title
+	desc = gj_mundo_bestias.12.desc
+	outcome = negative
+
+	trigger = {
+		gj_mundo_bestias_dragon_vivo = yes
+	}
+
+	immediate = {
+		gj_mundo_bestias_pierde_un_general = yes
+		every_army = {
+			damage_unit_percent = { 0.3 0.6 }
+			damage_unit_morale_percent = { 0.5 0.9 }
+		}
+		gj_mundo_bestias_dragon_pone_estado = { ESTADO = 2 }
+		add_country_modifier = { modifier = gj_mundo_bestias_caceria_fallida years = 8 mode = add_and_extend }
+		every_country = {
+			limit = {
+				gj_mundo_bestias_pais_caldera = yes
+				NOT = { gj_mundo_bestias_tiene_pacto_dragon = yes }
+			}
+			add_country_modifier = { modifier = gj_mundo_bestias_dragon_furioso years = 5 mode = add_and_extend }
+		}
+	}
+
+	option = {
+		name = gj_mundo_bestias.12.a
+		ai_chance = { base = 60 }
+		add_stability = stability_weak_penalty
+	}
+	option = {
+		name = gj_mundo_bestias.12.b
+		ai_chance = { base = 40 }
+		add_legitimacy = legitimacy_weak_penalty
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .13 Se apaga la Brasa Mayor (quien tenia el pacto, cuando el dragon muere)
+gj_mundo_bestias.13 = {
+	type = country_event
+	title = gj_mundo_bestias.13.title
+	desc = gj_mundo_bestias.13.desc
+	outcome = negative
+
+	option = {
+		name = gj_mundo_bestias.13.a
+		ai_chance = { base = 60 }
+		add_stability = stability_weak_penalty
+	}
+	option = {
+		name = gj_mundo_bestias.13.b
+		ai_chance = { base = 40 }
+		add_army_tradition = army_tradition_mild_bonus
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+# =====================================================================
+# LOS KRAKENS DEL ESTRECHO
+# =====================================================================
+
+# .20 Algo bajo el casco
+gj_mundo_bestias.20 = {
+	type = country_event
+	title = gj_mundo_bestias.20.title
+	desc = gj_mundo_bestias.20.desc
+	outcome = negative
+
+	weight_multiplier = {
+		base = 4
+		modifier = {
+			add = -2
+			has_country_modifier = gj_mundo_bestias_kraken_patrulla
+		}
+		modifier = {
+			add = -2
+			gj_mar_kraken_calmado_trigger = yes
+		}
+		modifier = {
+			add = 2
+			gj_mundo_bestias_kraken_enfurecido = yes
+		}
+	}
+
+	trigger = {
+		gj_mundo_bestias_kraken_vivo = yes
+		gj_mundo_bestias_pais_estrecho = yes
+	}
+
+	option = {
+		name = gj_mundo_bestias.20.a
+		ai_chance = { base = 30 }
+		gj_mundo_bestias_kraken_cobra_flota = yes
+		add_country_modifier = { modifier = gj_mundo_bestias_luto_de_la_flota years = 3 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.20.b
+		ai_chance = { base = 50 }
+		trigger = { gold >= gj_mundo_bestias_coste_cebo }
+		add_gold = {
+			value = gj_mundo_bestias_coste_cebo
+			multiply = -1
+		}
+		add_country_modifier = { modifier = gj_mundo_bestias_kraken_cebo years = 3 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.20.c
+		ai_chance = { base = 80 }
+		trigger = { religion = religion:gj_mar_dormido }
+		gj_mar_calma_a_la_bestia = yes
+	}
+}
+
+# .21 Mástiles en el agua
+gj_mundo_bestias.21 = {
+	type = country_event
+	title = gj_mundo_bestias.21.title
+	desc = gj_mundo_bestias.21.desc
+	outcome = negative
+
+	weight_multiplier = {
+		base = 4
+		modifier = {
+			add = -2
+			has_country_modifier = gj_mundo_bestias_kraken_patrulla
+		}
+		modifier = {
+			add = -2
+			gj_mar_kraken_calmado_trigger = yes
+		}
+		modifier = {
+			add = 2
+			gj_mundo_bestias_kraken_enfurecido = yes
+		}
+	}
+
+	trigger = {
+		gj_mundo_bestias_kraken_vivo = yes
+		gj_mundo_bestias_pais_estrecho = yes
+		NOT = { has_country_modifier = gj_mundo_bestias_kraken_comercio_caido }
+	}
+
+	option = {
+		name = gj_mundo_bestias.21.a
+		ai_chance = { base = 40 }
+		add_country_modifier = { modifier = gj_mundo_bestias_kraken_comercio_caido years = 4 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.21.b
+		ai_chance = { base = 60 }
+		trigger = { gold >= 80 }
+		add_gold = -80
+		add_country_modifier = { modifier = gj_mundo_bestias_kraken_patrulla years = 3 mode = add_and_extend }
+	}
+}
+
+# .22 Las redes vuelven vacías
+gj_mundo_bestias.22 = {
+	type = country_event
+	title = gj_mundo_bestias.22.title
+	desc = gj_mundo_bestias.22.desc
+	outcome = negative
+
+	trigger = {
+		gj_mundo_bestias_kraken_vivo = yes
+		gj_mundo_bestias_pais_estrecho = yes
+	}
+
+	option = {
+		name = gj_mundo_bestias.22.a
+		ai_chance = { base = 50 }
+		trigger = { gold >= 40 }
+		add_gold = -40
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_mundo_bestias.22.b
+		ai_chance = { base = 50 }
+		random_owned_location = {
+			limit = {
+				gj_zona_estrecho = yes
+				has_ports = yes
+			}
+			add_location_modifier = { modifier = gj_mundo_bestias_pesca_vacia years = 3 mode = add_and_extend }
+		}
+	}
+}
+
+# .23 El naufragio del Cormorán Gris
+gj_mundo_bestias.23 = {
+	type = country_event
+	title = gj_mundo_bestias.23.title
+	desc = gj_mundo_bestias.23.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_mundo_bestias_kraken_vivo = yes
+		gj_mundo_bestias_pais_estrecho = yes
+	}
+
+	option = {
+		name = gj_mundo_bestias.23.a
+		ai_chance = { base = 50 }
+		random_list = {
+			70 = { add_gold = 120 }
+			30 = { gj_mundo_bestias_kraken_cobra_flota = yes }
+		}
+	}
+	option = {
+		name = gj_mundo_bestias.23.b
+		ai_chance = { base = 50 }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .24 La sombra bajo la quilla
+gj_mundo_bestias.24 = {
+	type = country_event
+	title = gj_mundo_bestias.24.title
+	desc = gj_mundo_bestias.24.desc
+	outcome = neutral
+
+	trigger = {
+		gj_mundo_bestias_kraken_vivo = yes
+		gj_mundo_bestias_pais_estrecho = yes
+		NOT = { has_variable = gj_mundo_bestias_sombra_cd }
+	}
+
+	immediate = {
+		set_variable = { name = gj_mundo_bestias_sombra_cd value = 1 years = 8 }
+	}
+
+	option = {
+		name = gj_mundo_bestias.24.a
+		ai_chance = { base = 70 }
+		add_navy_tradition = navy_tradition_weak_bonus
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_mundo_bestias.24.b
+		ai_chance = { base = 30 }
+		add_prestige = prestige_mild_bonus
+		gj_mundo_bestias_kraken_sube_furia = yes
+	}
+}
+
+# .25 Ullamar cae (lo lanza la decision)
+gj_mundo_bestias.25 = {
+	type = country_event
+	title = gj_mundo_bestias.25.title
+	desc = gj_mundo_bestias.25.desc
+	outcome = positive
+	major = yes
+
+	trigger = {
+		gj_mundo_bestias_kraken_vivo = yes
+	}
+
+	immediate = {
+		set_global_variable = { name = gj_mundo_bestias_kraken_muerto value = 1 }
+		add_prestige = prestige_extreme_bonus
+		add_navy_tradition = navy_tradition_mild_bonus
+	}
+
+	option = {
+		name = gj_mundo_bestias.25.a
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_mundo_bestias_dominio_del_estrecho years = 30 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.25.b
+		ai_chance = { base = 40 }
+		add_gold = 300
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .26 Ullamar responde (lo lanza la decision)
+gj_mundo_bestias.26 = {
+	type = country_event
+	title = gj_mundo_bestias.26.title
+	desc = gj_mundo_bestias.26.desc
+	outcome = negative
+
+	trigger = {
+		gj_mundo_bestias_kraken_vivo = yes
+	}
+
+	immediate = {
+		gj_mundo_bestias_kraken_cobra_flota = yes
+		gj_mundo_bestias_kraken_cobra_flota = yes
+		gj_mundo_bestias_kraken_sube_furia = yes
+		add_country_modifier = { modifier = gj_mundo_bestias_kraken_furioso years = 6 mode = add_and_extend }
+	}
+
+	option = {
+		name = gj_mundo_bestias.26.a
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_mundo_bestias_luto_de_la_flota years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.26.b
+		ai_chance = { base = 40 }
+		trigger = { gold >= 60 }
+		add_gold = -60
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# =====================================================================
+# PLAGAS DE BESTIAS
+# =====================================================================
+
+# .30 La Jauría Blanca (lobos grandes de la estepa)
+gj_mundo_bestias.30 = {
+	type = country_event
+	title = gj_mundo_bestias.30.title
+	desc = gj_mundo_bestias.30.desc
+	outcome = negative
+
+	trigger = {
+		any_owned_location = {
+			gj_mundo_bestias_location_de_estepa = yes
+			NOT = { has_location_modifier = gj_mundo_bestias_plaga_lobos }
+		}
+	}
+
+	option = {
+		name = gj_mundo_bestias.30.a
+		ai_chance = { base = 50 }
+		trigger = { gold >= 50 }
+		add_gold = -50
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_mundo_bestias.30.b
+		ai_chance = { base = 50 }
+		random_owned_location = {
+			limit = {
+				gj_mundo_bestias_location_de_estepa = yes
+				NOT = { has_location_modifier = gj_mundo_bestias_plaga_lobos }
+			}
+			add_location_modifier = { modifier = gj_mundo_bestias_plaga_lobos years = 4 mode = add_and_extend }
+		}
+	}
+}
+
+# .31 Alas de Pedernal (wyverns de las cumbres)
+gj_mundo_bestias.31 = {
+	type = country_event
+	title = gj_mundo_bestias.31.title
+	desc = gj_mundo_bestias.31.desc
+	outcome = negative
+
+	trigger = {
+		any_owned_location = {
+			gj_mundo_bestias_location_de_cumbre = yes
+			NOT = { has_location_modifier = gj_mundo_bestias_plaga_wyverns }
+		}
+	}
+
+	option = {
+		name = gj_mundo_bestias.31.a
+		ai_chance = { base = 40 }
+		trigger = { gold >= 50 }
+		add_gold = -50
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_mundo_bestias.31.b
+		ai_chance = { base = 30 }
+		random_owned_location = {
+			limit = {
+				gj_mundo_bestias_location_de_cumbre = yes
+				NOT = { has_location_modifier = gj_mundo_bestias_plaga_wyverns }
+			}
+			add_location_modifier = { modifier = gj_mundo_bestias_plaga_wyverns years = 4 mode = add_and_extend }
+		}
+	}
+	option = {
+		name = gj_mundo_bestias.31.c
+		ai_chance = { base = 30 }
+		trigger = { gold >= 30 }
+		add_gold = -30
+		random_list = {
+			50 = { add_gold = 90 }
+			50 = { }
+		}
+	}
+}
+
+# .32 La Nube Zumbadora (enjambres de la selva y los humedales)
+gj_mundo_bestias.32 = {
+	type = country_event
+	title = gj_mundo_bestias.32.title
+	desc = gj_mundo_bestias.32.desc
+	outcome = negative
+
+	trigger = {
+		any_owned_location = {
+			gj_mundo_bestias_location_de_enjambre = yes
+			NOT = { has_location_modifier = gj_mundo_bestias_plaga_enjambre }
+		}
+	}
+
+	option = {
+		name = gj_mundo_bestias.32.a
+		ai_chance = { base = 50 }
+		trigger = { gold >= 40 }
+		add_gold = -40
+	}
+	option = {
+		name = gj_mundo_bestias.32.b
+		ai_chance = { base = 50 }
+		random_owned_location = {
+			limit = {
+				gj_mundo_bestias_location_de_enjambre = yes
+				NOT = { has_location_modifier = gj_mundo_bestias_plaga_enjambre }
+			}
+			add_location_modifier = { modifier = gj_mundo_bestias_plaga_enjambre years = 4 mode = add_and_extend }
+		}
+	}
+}
+
+# .33 Cachorros de la nieve (los pueblos de la estepa domestican a los lobos)
+gj_mundo_bestias.33 = {
+	type = country_event
+	title = gj_mundo_bestias.33.title
+	desc = gj_mundo_bestias.33.desc
+	outcome = positive
+
+	trigger = {
+		capital ?= { dominant_culture ?= culture:gj_kaivani }
+		NOT = { has_country_modifier = gj_mundo_bestias_lobos_domados }
+	}
+
+	option = {
+		name = gj_mundo_bestias.33.a
+		ai_chance = { base = 70 }
+		add_country_modifier = { modifier = gj_mundo_bestias_lobos_domados years = 15 mode = add_and_extend }
+		add_army_tradition = army_tradition_weak_bonus
+	}
+	option = {
+		name = gj_mundo_bestias.33.b
+		ai_chance = { base = 30 }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .34 La Batida regresa (lo lanza la decision)
+gj_mundo_bestias.34 = {
+	type = country_event
+	title = gj_mundo_bestias.34.title
+	desc = gj_mundo_bestias.34.desc
+	outcome = positive
+
+	option = {
+		name = gj_mundo_bestias.34.a
+		ai_chance = { base = 50 }
+		add_gold = 60
+	}
+	option = {
+		name = gj_mundo_bestias.34.b
+		ai_chance = { base = 50 }
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# =====================================================================
+# COMETAS Y ECLIPSES
+# =====================================================================
+
+# .40 Presagio (oculto): reparte un cometa o un eclipse a todo el mundo a la vez
+gj_mundo_bestias.40 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		NOT = { has_global_variable = gj_mundo_bestias_presagio_lock }
+	}
+
+	immediate = {
+		set_global_variable = { name = gj_mundo_bestias_presagio_lock value = 1 years = 14 }
+		random_list = {
+			60 = {
+				set_global_variable = { name = gj_presagio_tipo value = 1 }
+				every_country = {
+					limit = { is_real_country = yes }
+					trigger_event_non_silently = { id = gj_mundo_bestias.41 }
+				}
+			}
+			40 = {
+				set_global_variable = { name = gj_presagio_tipo value = 2 }
+				every_country = {
+					limit = { is_real_country = yes }
+					trigger_event_non_silently = { id = gj_mundo_bestias.42 }
+				}
+			}
+		}
+	}
+}
+
+# .41 Un cometa
+gj_mundo_bestias.41 = {
+	type = country_event
+	title = gj_mundo_bestias.41.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { current_age = age_1_traditions }
+				desc = gj_mundo_bestias.41.desc.1
+			}
+			triggered_desc = {
+				trigger = { current_age = age_2_renaissance }
+				desc = gj_mundo_bestias.41.desc.2
+			}
+			triggered_desc = {
+				trigger = { current_age = age_3_discovery }
+				desc = gj_mundo_bestias.41.desc.3
+			}
+			triggered_desc = {
+				trigger = { current_age = age_4_reformation }
+				desc = gj_mundo_bestias.41.desc.4
+			}
+			triggered_desc = {
+				trigger = { current_age = age_5_absolutism }
+				desc = gj_mundo_bestias.41.desc.5
+			}
+			triggered_desc = {
+				desc = gj_mundo_bestias.41.desc.6
+			}
+		}
+	}
+	outcome = neutral
+
+	after = {
+		gj_mundo_bestias_lee_presagio_cometa = yes
+	}
+
+	option = {
+		name = gj_mundo_bestias.41.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_mundo_bestias_cometa_bueno years = 5 mode = add_and_extend }
+		trigger_event_non_silently = { id = gj_mundo_bestias.44 days = 1460 }
+	}
+	option = {
+		name = gj_mundo_bestias.41.b
+		ai_chance = { base = 40 }
+		add_country_modifier = { modifier = gj_mundo_bestias_cometa_malo years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.41.c
+		ai_chance = { base = 10 }
+		trigger = {
+			current_age_or_later = { age = age_3_discovery }
+			gold >= 40
+		}
+		add_gold = -40
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .42 Un eclipse
+gj_mundo_bestias.42 = {
+	type = country_event
+	title = gj_mundo_bestias.42.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { current_age = age_1_traditions }
+				desc = gj_mundo_bestias.42.desc.1
+			}
+			triggered_desc = {
+				trigger = { current_age = age_3_discovery }
+				desc = gj_mundo_bestias.42.desc.3
+			}
+			triggered_desc = {
+				desc = gj_mundo_bestias.42.desc.5
+			}
+		}
+	}
+	outcome = neutral
+
+	after = {
+		gj_mundo_bestias_lee_presagio_eclipse = yes
+	}
+
+	option = {
+		name = gj_mundo_bestias.42.a
+		ai_chance = { base = 45 }
+		add_country_modifier = { modifier = gj_mundo_bestias_eclipse_renovacion years = 5 mode = add_and_extend }
+		trigger_event_non_silently = { id = gj_mundo_bestias.45 days = 1460 }
+	}
+	option = {
+		name = gj_mundo_bestias.42.b
+		ai_chance = { base = 45 }
+		add_country_modifier = { modifier = gj_mundo_bestias_eclipse_encierro years = 3 mode = add_and_extend }
+	}
+	option = {
+		name = gj_mundo_bestias.42.c
+		ai_chance = { base = 10 }
+		trigger = { at_war = yes }
+		add_country_modifier = { modifier = gj_mundo_bestias_cometa_bueno years = 2 mode = add_and_extend }
+	}
+}
+
+# .44 El augurio del cometa se cumple, o no
+gj_mundo_bestias.44 = {
+	type = country_event
+	title = gj_mundo_bestias.44.title
+	desc = gj_mundo_bestias.44.desc
+	outcome = neutral
+
+	option = {
+		name = gj_mundo_bestias.44.a
+		ai_chance = { base = 100 }
+		random_list = {
+			50 = { add_prestige = prestige_mild_bonus }
+			50 = { add_legitimacy = legitimacy_weak_penalty }
+		}
+	}
+}
+
+# .45 El eclipse deja su cuenta
+gj_mundo_bestias.45 = {
+	type = country_event
+	title = gj_mundo_bestias.45.title
+	desc = gj_mundo_bestias.45.desc
+	outcome = neutral
+
+	option = {
+		name = gj_mundo_bestias.45.a
+		ai_chance = { base = 100 }
+		random_list = {
+			50 = { add_legitimacy = legitimacy_weak_bonus }
+			50 = { add_stability = stability_weak_penalty }
+		}
+	}
+}
+
+# .46 La cadena de presagios (oculto): arma el siguiente y lanza el presente
+gj_mundo_bestias.46 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		gj_mundo_bestias_rearma_presagios = yes
+		trigger_event_silently = { id = gj_mundo_bestias.40 }
+	}
+}

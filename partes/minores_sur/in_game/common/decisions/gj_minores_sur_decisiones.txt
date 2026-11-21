@@ -1,0 +1,236 @@
+# Menores del sur: dos decisiones por estilo (ciudad, selva y marca).
+# Todas cuestan oro o paciencia, duran unos años y no se pueden repetir mientras dura su efecto.
+
+# ------------------------------------------------------------------ Ciudad
+
+gj_minores_sur_abrir_la_lonja = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_minores_sur_estilo_ciudad = yes
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_minores_sur_lonja_abierta }
+		at_war = no
+		gold > {
+			value = monthly_income_trade_and_tax
+			multiply = 3
+		}
+	}
+
+	ai_will_do = {
+		value = 40
+	}
+
+	option = {
+		name = gj_minores_sur_abrir_la_lonja.a
+		ai_chance = { base = 100 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			add_country_modifier = {
+				modifier = gj_minores_sur_lonja_abierta
+				years = 8
+				mode = add
+			}
+		}
+	}
+}
+
+gj_minores_sur_pregon_de_aranceles = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_minores_sur_estilo_ciudad = yes
+	}
+
+	allow = {
+		NOR = {
+			has_country_modifier = gj_minores_sur_aranceles_bajos
+			has_country_modifier = gj_minores_sur_aranceles_altos
+		}
+	}
+
+	ai_will_do = {
+		value = 30
+	}
+
+	option = {
+		name = gj_minores_sur_pregon_de_aranceles.a
+		ai_chance = { base = 60 }
+		effect = {
+			add_country_modifier = {
+				modifier = gj_minores_sur_aranceles_bajos
+				years = 10
+				mode = add
+			}
+		}
+	}
+	option = {
+		name = gj_minores_sur_pregon_de_aranceles.b
+		ai_chance = { base = 40 }
+		effect = {
+			add_country_modifier = {
+				modifier = gj_minores_sur_aranceles_altos
+				years = 10
+				mode = add
+			}
+		}
+	}
+}
+
+# ------------------------------------------------------------------ Selva
+
+gj_minores_sur_convocar_la_crecida = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_minores_sur_estilo_selva = yes
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_minores_sur_crecida_convocada }
+		at_war = no
+		gold > {
+			value = monthly_income_trade_and_tax
+			multiply = 2
+		}
+	}
+
+	ai_will_do = {
+		value = 40
+	}
+
+	option = {
+		name = gj_minores_sur_convocar_la_crecida.a
+		ai_chance = { base = 100 }
+		effect = {
+			change_gold_effect = { scale = -2 }
+			add_country_modifier = {
+				modifier = gj_minores_sur_crecida_convocada
+				years = 6
+				mode = add
+			}
+			trigger_event_non_silently = {
+				id = gj_minores_sur.20
+				months = 72
+			}
+		}
+	}
+}
+
+gj_minores_sur_pacto_de_los_vados = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_minores_sur_estilo_selva = yes
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_minores_sur_pacto_de_los_vados }
+		at_war = no
+	}
+
+	ai_will_do = {
+		value = 25
+	}
+
+	option = {
+		name = gj_minores_sur_pacto_de_los_vados.a
+		ai_chance = { base = 100 }
+		effect = {
+			add_prestige = prestige_weak_penalty
+			add_country_modifier = {
+				modifier = gj_minores_sur_pacto_de_los_vados
+				years = 12
+				mode = add
+			}
+		}
+	}
+}
+
+# ------------------------------------------------------------------ Marca
+
+gj_minores_sur_renovar_el_homenaje = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_minores_sur_estilo_marca = yes
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_minores_sur_homenaje_renovado }
+		at_war = no
+		gold > {
+			value = monthly_income_trade_and_tax
+			multiply = 2
+		}
+	}
+
+	ai_will_do = {
+		value = 35
+	}
+
+	option = {
+		name = gj_minores_sur_renovar_el_homenaje.a
+		ai_chance = { base = 100 }
+		effect = {
+			change_gold_effect = { scale = -2 }
+			add_country_modifier = {
+				modifier = gj_minores_sur_homenaje_renovado
+				years = 15
+				mode = add
+			}
+		}
+	}
+}
+
+gj_minores_sur_alzar_la_atalaya = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_minores_sur_estilo_marca = yes
+	}
+
+	allow = {
+		gold > {
+			value = monthly_income_trade_and_tax
+			multiply = 3
+		}
+		any_owned_location = {
+			OR = {
+				is_port = yes
+				topography = hills
+				topography = mountains
+			}
+			NOT = { has_location_modifier = gj_minores_sur_atalaya_encendida }
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	option = {
+		name = gj_minores_sur_alzar_la_atalaya.a
+		ai_chance = { base = 100 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			random_owned_location = {
+				limit = {
+					OR = {
+						is_port = yes
+						topography = hills
+						topography = mountains
+					}
+					NOT = { has_location_modifier = gj_minores_sur_atalaya_encendida }
+				}
+				add_location_modifier = {
+					modifier = gj_minores_sur_atalaya_encendida
+					years = 40
+					mode = add
+				}
+			}
+		}
+	}
+}

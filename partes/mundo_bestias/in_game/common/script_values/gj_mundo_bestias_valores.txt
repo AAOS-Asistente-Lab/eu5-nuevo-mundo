@@ -1,0 +1,10 @@
+# Valores de las bestias (mundo_bestias): costes y umbrales
+
+gj_mundo_bestias_coste_aplacar = 120
+gj_mundo_bestias_coste_caceria = 400
+gj_mundo_bestias_coste_patrulla = 100
+gj_mundo_bestias_coste_cazar_coloso = 300
+gj_mundo_bestias_coste_batida = 60
+gj_mundo_bestias_coste_cebo = 70
+gj_mundo_bestias_tributo_dragon = 90
+gj_mundo_bestias_regimientos_caceria = 25

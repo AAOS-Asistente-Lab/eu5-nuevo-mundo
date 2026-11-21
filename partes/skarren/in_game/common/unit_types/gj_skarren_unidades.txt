@@ -1,0 +1,326 @@
+﻿gj_n_skarren_corredor_1 = {
+	copy_from = n_age_1_traditions_transport
+	is_special = yes
+	buildable = yes
+	age = "age_1_traditions"
+	category = navy_transport
+	upgrades_to_only = gj_n_skarren_corredor_2
+
+	movement_speed = 1
+	transport_capacity = 0.05
+	cannons = -2
+	hull_size = -1
+	strength_damage_taken = 0.15
+
+	limit = 12
+
+	country_potential = { gj_es_skarren = yes }
+
+}
+
+gj_n_skarren_corredor_2 = {
+	copy_from = n_age_2_renaissance_transport
+	is_special = yes
+	buildable = yes
+	age = "age_2_renaissance"
+	category = navy_transport
+	upgrades_to_only = gj_n_skarren_corredor_3
+
+	movement_speed = 1
+	transport_capacity = 0.1
+	cannons = -2
+	hull_size = -1
+	strength_damage_taken = 0.15
+
+	limit = 14
+
+	country_potential = { gj_es_skarren = yes }
+
+}
+
+gj_n_skarren_corredor_3 = {
+	copy_from = n_age_3_discovery_transport
+	is_special = yes
+	buildable = yes
+	age = "age_3_discovery"
+	category = navy_transport
+	upgrades_to_only = gj_n_skarren_corredor_4
+
+	movement_speed = 1
+	transport_capacity = 0.15
+	cannons = -2
+	hull_size = -1
+	strength_damage_taken = 0.15
+
+	limit = 16
+
+	country_potential = { gj_es_skarren = yes }
+
+}
+
+gj_n_skarren_corredor_4 = {
+	copy_from = n_age_4_reformation_transport
+	is_special = yes
+	buildable = yes
+	age = "age_4_reformation"
+	category = navy_transport
+	upgrades_to_only = gj_n_skarren_corredor_5
+
+	movement_speed = 1
+	transport_capacity = 0.2
+	cannons = -2
+	hull_size = -1
+	strength_damage_taken = 0.15
+
+	limit = 18
+
+	country_potential = { gj_es_skarren = yes }
+
+}
+
+gj_n_skarren_corredor_5 = {
+	copy_from = n_age_5_absolutism_transport
+	is_special = yes
+	buildable = yes
+	age = "age_5_absolutism"
+	category = navy_transport
+	upgrades_to_only = gj_n_skarren_corredor_6
+
+	movement_speed = 1
+	transport_capacity = 0.25
+	cannons = -2
+	hull_size = -1
+	strength_damage_taken = 0.15
+
+	limit = 20
+
+	country_potential = { gj_es_skarren = yes }
+
+}
+
+gj_n_skarren_corredor_6 = {
+	copy_from = n_age_6_revolutions_transport
+	is_special = yes
+	buildable = yes
+	age = "age_6_revolutions"
+	category = navy_transport
+
+	movement_speed = 1
+	transport_capacity = 0.3
+	cannons = -2
+	hull_size = -1
+	strength_damage_taken = 0.15
+
+	limit = 22
+
+	country_potential = { gj_es_skarren = yes }
+
+}
+
+gj_a_skarren_hachero_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_1_traditions"
+	upgrades_to_only = gj_a_skarren_hachero_2
+
+	morale_damage_done = 0.1
+	strength_damage_taken = 0.1
+
+	limit = 15
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag }
+}
+
+gj_a_skarren_hachero_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_2_renaissance"
+	upgrades_to_only = gj_a_skarren_hachero_3
+
+	morale_damage_done = 0.1
+	strength_damage_taken = 0.1
+
+	limit = 18
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag }
+}
+
+gj_a_skarren_hachero_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_3_discovery"
+	upgrades_to_only = gj_a_skarren_hachero_4
+
+	morale_damage_done = 0.1
+	strength_damage_taken = 0.1
+
+	limit = 21
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_a_skarren_hachero_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_4_reformation"
+	upgrades_to_only = gj_a_skarren_hachero_5
+
+	morale_damage_done = 0.1
+	strength_damage_taken = 0.1
+
+	limit = 24
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_a_skarren_hachero_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_5_absolutism"
+	upgrades_to_only = gj_a_skarren_hachero_6
+
+	morale_damage_done = 0.1
+	strength_damage_taken = 0.1
+
+	limit = 27
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_a_skarren_hachero_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_6_revolutions"
+
+	morale_damage_done = 0.1
+	strength_damage_taken = 0.1
+
+	limit = 30
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_a_skarren_arponero_1 = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_1_traditions"
+	upgrades_to_only = gj_a_skarren_arponero_2
+
+	initiative = 1
+	strength_damage_done = 0.05
+	strength_damage_taken = 0.15
+
+	limit = 13
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag }
+}
+
+gj_a_skarren_arponero_2 = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_2_renaissance"
+	upgrades_to_only = gj_a_skarren_arponero_3
+
+	initiative = 1
+	strength_damage_done = 0.05
+	strength_damage_taken = 0.15
+
+	limit = 16
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag }
+}
+
+gj_a_skarren_arponero_3 = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_3_discovery"
+	upgrades_to_only = gj_a_skarren_arponero_4
+
+	initiative = 1
+	strength_damage_done = 0.05
+	strength_damage_taken = 0.15
+
+	limit = 19
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_a_skarren_arponero_4 = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_4_reformation"
+	upgrades_to_only = gj_a_skarren_arponero_5
+
+	initiative = 1
+	strength_damage_done = 0.05
+	strength_damage_taken = 0.15
+
+	limit = 22
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_a_skarren_arponero_5 = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_5_absolutism"
+	upgrades_to_only = gj_a_skarren_arponero_6
+
+	initiative = 1
+	strength_damage_done = 0.05
+	strength_damage_taken = 0.15
+
+	limit = 25
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_a_skarren_arponero_6 = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+	buildable = yes
+	age = "age_6_revolutions"
+
+	initiative = 1
+	strength_damage_done = 0.05
+	strength_damage_taken = 0.15
+
+	limit = 28
+
+	country_potential = { gj_es_skarren = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}

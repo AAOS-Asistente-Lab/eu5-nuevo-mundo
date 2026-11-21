@@ -1,0 +1,17 @@
+﻿gj_grupo_velathi = {
+	country_modifier = {
+		global_hostile_attrition = 0.5
+	}
+	character_modifier = {
+		character_cabinet_efficiency = 0.05
+	}
+	location_modifier = {
+		local_supply_limit_modifier = 0.10
+	}
+	goods_demand_modifier = {
+		wild_game = 1
+		medicaments = 1
+		furniture = 0.5
+		wheat = -0.25
+	}
+}

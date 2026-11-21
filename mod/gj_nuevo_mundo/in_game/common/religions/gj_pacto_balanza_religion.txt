@@ -1,0 +1,28 @@
+﻿# El Pacto de la Balanza: la fe de los contratos. Mecanica del motor: honor (has_honor).
+# El honor sube al cumplir pactos y contratos y baja al romperlos (ver on_action, eventos y decisiones de esta parte).
+# El grupo gj_fe_sur lo define la integracion.
+
+gj_pacto_balanza = {
+	color = rgb { 196 154 62 }
+	group = gj_fe_sur
+
+	religious_aspects = 2
+
+	has_honor = yes
+	max_sects = 1
+
+	definition_modifier = {
+		monthly_honor = 0.05
+		tolerance_heathen = 1
+		improve_relation_impact = 0.1
+		global_merchant_capacity_modifier = 0.05
+		total_loan_capacity_modifier = 0.1
+		honoring_alliance_call_cost_modifier = -0.25
+		war_breaking_truce_cost_modifier = 0.25
+	}
+
+	opinions = {
+	}
+
+	tags = { folk_african_gfx pagan_gfx }
+}

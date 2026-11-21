@@ -1,0 +1,38 @@
+﻿# Sorava: pulso anual. La integracion tiene que anadir `gj_sorava_pulso_anual` a la lista `on_actions` de
+# `yearly_country_pulse` (ver NECESITA.md). El disparador deja pasar solo a la faccion.
+
+gj_sorava_pulso_anual = {
+	trigger = {
+		gj_es_sorava = yes
+	}
+
+	effect = {
+		gj_sorava_deriva_palabra = yes
+	}
+
+	events = {
+		gj_sorava.1
+	}
+
+	random_events = {
+		chance_to_happen = 45
+		60 = gj_sorava.2
+		60 = gj_sorava.3
+		50 = gj_sorava.4
+		50 = gj_sorava.5
+		50 = gj_sorava.6
+		50 = gj_sorava.7
+		40 = gj_sorava.8
+		50 = gj_sorava.9
+		40 = gj_sorava.10
+		40 = gj_sorava.11
+		40 = gj_sorava.12
+		40 = gj_sorava.13
+		30 = gj_sorava.14
+		30 = gj_sorava.15
+		40 = gj_sorava.16
+		100 = gj_sorava.17
+		100 = gj_sorava.18
+		100 = gj_sorava.19
+	}
+}

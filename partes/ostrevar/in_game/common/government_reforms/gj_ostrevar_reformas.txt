@@ -1,0 +1,41 @@
+﻿# Reformas de gobierno unicas del Alto Reino de Ostrevar.
+
+gj_ostrevar_carta_de_las_ciudades_reforma = {
+	unique = yes
+	age = age_2_renaissance
+	potential = { gj_es_ostrevar = yes }
+	allow = { has_advance = gj_ostrevar_carta_de_las_ciudades }
+	country_modifier = {
+		global_burghers_estate_power = 0.15
+		global_build_buildings_efficiency = 0.05
+		burghers_estate_max_tax = 0.10
+	}
+	years = 1
+}
+
+gj_ostrevar_consejo_de_piedra = {
+	unique = yes
+	age = age_4_reformation
+	potential = { gj_es_ostrevar = yes }
+	allow = { has_advance = gj_ostrevar_las_leyes_del_rio }
+	country_modifier = {
+		global_estate_target_satisfaction = small_permanent_target_satisfaction
+		global_construction_speed = 0.10
+		monthly_legitimacy = 0.05
+	}
+	years = 1
+}
+
+gj_ostrevar_mancomunidad_de_los_valles = {
+	unique = yes
+	age = age_6_revolutions
+	potential = { gj_es_ostrevar = yes }
+	allow = { has_advance = gj_ostrevar_la_metropoli }
+	country_modifier = {
+		global_population_capacity_modifier = 0.05
+		global_peasant_enfranchisment = 0.05
+		global_max_literacy = 2
+	}
+	years = 1
+}
+

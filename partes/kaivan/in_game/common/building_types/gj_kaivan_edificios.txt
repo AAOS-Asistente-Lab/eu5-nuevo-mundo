@@ -1,0 +1,336 @@
+﻿#######################################################################
+# Edificios de Kaivan (parte "kaivan"): 5, y todos mejoran con las eras.
+#   - El tope de niveles sube con la era (gj_kaivan_niveles_por_era: eras 2, 4 y 6).
+#   - Los metodos de produccion avanzados se abren con current_age_or_later.
+# Equilibrio: ninguno pasa de un nivel respecto a su equivalente del juego base (kurultai, gremio, fortaleza...).
+#######################################################################
+
+# 1. Campamento del Kan. Fuerza: cria caballos y conserva control. Debilidad: poca mano de obra propia.
+#    Limite: solo donde domina la cultura kaivani (o por evento, en las capitales viejas).
+gj_kaivan_campamento_kan = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = gj_kaivan_campamento_max_nivel
+	employment_size = tiny_soldier_employment
+
+	category = military_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = soldier_building
+	construction_demand = early_soldier_building_construction
+
+	country_potential = {
+		gj_es_kaivan = yes
+	}
+
+	location_potential = {
+		dominant_culture ?= culture:gj_kaivani
+	}
+
+	modifier = {
+		local_manpower = 0.03
+		local_max_control = 0.025
+		local_supply_limit_modifier = 0.1
+	}
+
+	unique_production_methods = {
+		gj_kaivan_cria_trashumante = {
+			icon_type = goods
+			icon = horses
+			livestock = 0.6
+			produced = horses
+			output = 0.5
+			category = building_maintenance
+			debug_max_profit = rural_profit_margin
+		}
+		gj_kaivan_cria_selecta = {
+			icon_type = goods
+			icon = horses
+			livestock = 0.5
+			legumes = 0.3
+			produced = horses
+			output = 0.9
+			category = building_maintenance
+			debug_max_profit = rural_profit_margin
+			allow = {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+		gj_kaivan_remonta_de_hierro = {
+			icon_type = goods
+			icon = horses
+			livestock = 0.5
+			tools = 0.1
+			produced = horses
+			output = 1.2
+			category = building_maintenance
+			debug_max_profit = rural_profit_margin
+			allow = {
+				current_age_or_later = { age = age_5_absolutism }
+			}
+		}
+	}
+}
+
+# 2. Feria de las Yeguadas. Fuerza: convierte pastos en cuero, panos y pieles finas. Debilidad: nada de villorrios.
+#    Limite: solo en pueblos y ciudades.
+gj_kaivan_feria_yeguadas = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_kaivan_feria_max_nivel
+	employment_size = guild_employment
+
+	category = trade_category
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = rural_build_time
+	construction_demand = guild_construction
+
+	country_potential = {
+		gj_es_kaivan = yes
+	}
+
+	modifier = {
+		local_migration_attraction = 0.05
+		local_horses_output_modifier = 0.1
+	}
+
+	unique_production_methods = {
+		gj_kaivan_feria_cueros = {
+			icon_type = goods
+			icon = leather
+			livestock = 0.4
+			salt = 0.1
+			produced = leather
+			output = 0.5
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+		}
+		gj_kaivan_feria_panos = {
+			icon_type = goods
+			icon = cloth
+			wool = 0.5
+			dyes = 0.1
+			produced = cloth
+			output = 0.6
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+			allow = {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+		gj_kaivan_feria_peleteria = {
+			icon_type = goods
+			icon = fine_cloth
+			fur = 0.4
+			salt = 0.1
+			produced = fine_cloth
+			output = 0.3
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+			allow = {
+				current_age_or_later = { age = age_5_absolutism }
+			}
+		}
+	}
+}
+
+# 3. Fragua de la Estepa. Fuerza: armas para los clanes. Debilidad: necesita mercado de hierro o cobre en la zona.
+#    Limite: solo en pueblos y ciudades; los metodos buenos llegan tarde.
+gj_kaivan_fragua_estepa = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = guild_max_level
+	employment_size = guild_employment
+
+	category = weapons_industry_category
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = guild_build_time
+	construction_demand = guild_construction
+
+	country_potential = {
+		gj_es_kaivan = yes
+	}
+
+	allow = {
+		OR = {
+			market = { is_produced_in_market = goods:iron }
+			market = { is_produced_in_market = goods:copper }
+		}
+	}
+
+	modifier = {
+		local_levy_size_modifier = 0.05
+	}
+
+	unique_production_methods = {
+		gj_kaivan_fragua_de_carros = {
+			icon_type = goods
+			icon = weaponry
+			iron = 0.4
+			lumber = 0.2
+			produced = weaponry
+			output = 0.5
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+		}
+		gj_kaivan_fragua_de_coraza = {
+			icon_type = goods
+			icon = weaponry
+			iron = 0.4
+			coal = 0.2
+			tools = 0.1
+			produced = weaponry
+			output = 0.8
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+			allow = {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+		gj_kaivan_fragua_de_acero = {
+			icon_type = goods
+			icon = weaponry
+			steel = 0.3
+			tools = 0.2
+			produced = weaponry
+			output = 1.0
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+			allow = {
+				current_age_or_later = { age = age_5_absolutism }
+			}
+		}
+	}
+}
+
+# 4. Atalaya de las Hogueras. Fuerza: avisa, frena a los invasores y propaga control. Debilidad: no produce nada.
+#    Limite: 1 nivel de base y 1 mas en las eras 2, 4 y 6 (maximo 4).
+gj_kaivan_atalaya_hogueras = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = gj_kaivan_atalaya_max_nivel
+	employment_size = tiny_soldier_employment
+
+	category = defense_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = soldier_building
+	construction_demand = early_soldier_building_construction
+
+	country_potential = {
+		gj_es_kaivan = yes
+	}
+
+	modifier = {
+		local_max_control = 0.025
+		local_hostile_attrition = 0.25
+		local_supply_limit_modifier = 0.05
+	}
+
+	unique_production_methods = {
+		gj_kaivan_vigias_de_madera = {
+			icon_type = goods
+			icon = lumber
+			lumber = 0.2
+			category = building_maintenance
+		}
+		gj_kaivan_vigias_con_polvora = {
+			icon_type = goods
+			icon = saltpeter
+			lumber = 0.2
+			saltpeter = 0.1
+			category = building_maintenance
+			allow = {
+				current_age_or_later = { age = age_4_reformation }
+			}
+		}
+	}
+}
+
+# 5. Gran Tienda del Circulo. Fuerza: legitimidad y capacidad diplomatica. Debilidad: solo en la capital y viaja con ella.
+#    Limite: una sola; si la capital se muda, se desmonta (y el Circulo la levanta en la capital nueva).
+gj_kaivan_tienda_del_circulo = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = nobles
+	max_levels = gj_kaivan_tienda_max_nivel
+	employment_size = large_noble_employment
+
+	category = government_category
+
+	town = yes
+	city = yes
+	megalopolis = yes
+	rural_settlement = yes
+
+	expensive = yes
+	build_time = small_capital_build_time
+
+	country_potential = {
+		gj_es_kaivan = yes
+	}
+
+	location_potential = {
+		counts_as_capital = yes
+	}
+
+	allow = {
+		is_capital = yes
+		country_has_no_other_copy_of_building = { type = gj_kaivan_tienda_del_circulo }
+	}
+
+	remove_if = {
+		is_no_longer_capital = yes
+	}
+
+	capital_country_modifier = {
+		monthly_legitimacy = 0.01
+		diplomatic_capacity = 0.5
+	}
+
+	unique_production_methods = {
+		gj_kaivan_tienda_de_fieltro = {
+			icon_type = goods
+			icon = wool
+			wool = 0.2
+			fur = 0.1
+			category = building_maintenance
+		}
+		gj_kaivan_tienda_de_seda_y_laca = {
+			icon_type = goods
+			icon = fine_cloth
+			wool = 0.2
+			fine_cloth = 0.1
+			furniture = 0.1
+			category = building_maintenance
+			allow = {
+				current_age_or_later = { age = age_3_discovery }
+			}
+		}
+	}
+}

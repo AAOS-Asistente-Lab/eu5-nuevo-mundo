@@ -1,0 +1,5 @@
+﻿colors = {
+	gj_hrimval_mapa_insepulto = rgb { 176 206 226 }
+	gj_hrimval_mapa_lengua_insepulta = rgb { 150 188 214 }
+	gj_hrimval_mapa_familia_insepulta = rgb { 122 160 190 }
+}

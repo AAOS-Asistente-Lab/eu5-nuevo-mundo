@@ -1,0 +1,524 @@
+# Menores del sur: tres cadenas de 6 versiones, una por era (patron de los jenizaros del juego base).
+# Guardia del Muelle (infanteria pesada, ciudades-estado): aguanta en la costa y en el rio, flojea tierra adentro, es lenta y mata menos.
+# Lancero del Vado (infanteria ligera, selva): ataca mas fuerte y se mueve mas, pero se rompe antes y solo rinde en selva, humedal y rio.
+# Jinete de Frontera (caballeria ligera, marcas): rapido y bueno en colina y bosque, pero nervioso (moral) y malo en llano.
+# Cada una se recluta solo donde domina la cultura de su estilo y tiene cupo (ver script_values).
+
+########################
+# Guardia del Muelle
+########################
+
+a_gj_minores_sur_guardia_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_guardia_2
+	family = gj_minores_sur_guardias
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	strength_damage_done = -0.05
+	movement_speed = -0.05
+
+	combat = {
+		coastal = 0.10
+		river = 0.05
+		inland = -0.10
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_brazalmi
+			dominant_culture ?= culture:gj_ondani
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_minores_sur_guardia_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_guardia_3
+	family = gj_minores_sur_guardias
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	strength_damage_done = -0.05
+	movement_speed = -0.05
+
+	combat = {
+		coastal = 0.10
+		river = 0.05
+		inland = -0.10
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_brazalmi
+			dominant_culture ?= culture:gj_ondani
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_minores_sur_guardia_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_guardia_4
+	family = gj_minores_sur_guardias
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	strength_damage_done = -0.05
+	movement_speed = -0.05
+
+	combat = {
+		coastal = 0.10
+		river = 0.05
+		inland = -0.10
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_brazalmi
+			dominant_culture ?= culture:gj_ondani
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_minores_sur_guardia_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_guardia_5
+	family = gj_minores_sur_guardias
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	strength_damage_done = -0.05
+	movement_speed = -0.05
+
+	combat = {
+		coastal = 0.10
+		river = 0.05
+		inland = -0.10
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_brazalmi
+			dominant_culture ?= culture:gj_ondani
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_minores_sur_guardia_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_guardia_6
+	family = gj_minores_sur_guardias
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	strength_damage_done = -0.05
+	movement_speed = -0.05
+
+	combat = {
+		coastal = 0.10
+		river = 0.05
+		inland = -0.10
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_brazalmi
+			dominant_culture ?= culture:gj_ondani
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_minores_sur_guardia_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	family = gj_minores_sur_guardias
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	strength_damage_done = -0.05
+	movement_speed = -0.05
+
+	combat = {
+		coastal = 0.10
+		river = 0.05
+		inland = -0.10
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_brazalmi
+			dominant_culture ?= culture:gj_ondani
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+########################
+# Lancero del Vado
+########################
+
+a_gj_minores_sur_lancero_1 = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_lancero_2
+	family = gj_minores_sur_lanceros
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	movement_speed = 0.05
+
+	combat = {
+		jungle = 0.15
+		wetlands = 0.10
+		river = 0.10
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_yorumbi
+			dominant_culture ?= culture:gj_pakhuni
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_lancero_2 = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_lancero_3
+	family = gj_minores_sur_lanceros
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	movement_speed = 0.05
+
+	combat = {
+		jungle = 0.15
+		wetlands = 0.10
+		river = 0.10
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_yorumbi
+			dominant_culture ?= culture:gj_pakhuni
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_lancero_3 = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_lancero_4
+	family = gj_minores_sur_lanceros
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	movement_speed = 0.05
+
+	combat = {
+		jungle = 0.15
+		wetlands = 0.10
+		river = 0.10
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_yorumbi
+			dominant_culture ?= culture:gj_pakhuni
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_lancero_4 = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_lancero_5
+	family = gj_minores_sur_lanceros
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	movement_speed = 0.05
+
+	combat = {
+		jungle = 0.15
+		wetlands = 0.10
+		river = 0.10
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_yorumbi
+			dominant_culture ?= culture:gj_pakhuni
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_lancero_5 = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_lancero_6
+	family = gj_minores_sur_lanceros
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	movement_speed = 0.05
+
+	combat = {
+		jungle = 0.15
+		wetlands = 0.10
+		river = 0.10
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_yorumbi
+			dominant_culture ?= culture:gj_pakhuni
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_lancero_6 = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+	buildable = yes
+	family = gj_minores_sur_lanceros
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	movement_speed = 0.05
+
+	combat = {
+		jungle = 0.15
+		wetlands = 0.10
+		river = 0.10
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_yorumbi
+			dominant_culture ?= culture:gj_pakhuni
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+########################
+# Jinete de Frontera
+########################
+
+a_gj_minores_sur_jinete_1 = {
+	copy_from = a_age_1_traditions_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_jinete_2
+	family = gj_minores_sur_jinetes
+
+	movement_speed = 0.10
+	strength_damage_done = 0.05
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = 0.15
+		forest = 0.10
+		mountains = 0.05
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_halcori
+			dominant_culture ?= culture:gj_tirnauki
+			dominant_culture ?= culture:gj_sotolari
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_jinete_2 = {
+	copy_from = a_age_2_renaissance_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_jinete_3
+	family = gj_minores_sur_jinetes
+
+	movement_speed = 0.10
+	strength_damage_done = 0.05
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = 0.15
+		forest = 0.10
+		mountains = 0.05
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_halcori
+			dominant_culture ?= culture:gj_tirnauki
+			dominant_culture ?= culture:gj_sotolari
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_jinete_3 = {
+	copy_from = a_age_3_discovery_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_jinete_4
+	family = gj_minores_sur_jinetes
+
+	movement_speed = 0.10
+	strength_damage_done = 0.05
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = 0.15
+		forest = 0.10
+		mountains = 0.05
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_halcori
+			dominant_culture ?= culture:gj_tirnauki
+			dominant_culture ?= culture:gj_sotolari
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_jinete_4 = {
+	copy_from = a_age_4_reformation_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_jinete_5
+	family = gj_minores_sur_jinetes
+
+	movement_speed = 0.10
+	strength_damage_done = 0.05
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = 0.15
+		forest = 0.10
+		mountains = 0.05
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_halcori
+			dominant_culture ?= culture:gj_tirnauki
+			dominant_culture ?= culture:gj_sotolari
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_jinete_5 = {
+	copy_from = a_age_5_absolutism_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_minores_sur_jinete_6
+	family = gj_minores_sur_jinetes
+
+	movement_speed = 0.10
+	strength_damage_done = 0.05
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = 0.15
+		forest = 0.10
+		mountains = 0.05
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_halcori
+			dominant_culture ?= culture:gj_tirnauki
+			dominant_culture ?= culture:gj_sotolari
+		}
+	}
+
+	gfx_tags = { light_tag }
+}
+
+a_gj_minores_sur_jinete_6 = {
+	copy_from = a_age_6_revolutions_light_cavalry
+	is_special = yes
+	buildable = yes
+	family = gj_minores_sur_jinetes
+
+	movement_speed = 0.10
+	strength_damage_done = 0.05
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = 0.15
+		forest = 0.10
+		mountains = 0.05
+		flatland = -0.15
+	}
+
+	location_potential = {
+		OR = {
+			dominant_culture ?= culture:gj_halcori
+			dominant_culture ?= culture:gj_tirnauki
+			dominant_culture ?= culture:gj_sotolari
+		}
+	}
+
+	gfx_tags = { light_tag }
+}

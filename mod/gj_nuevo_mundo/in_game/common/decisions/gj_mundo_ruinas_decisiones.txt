@@ -1,0 +1,105 @@
+﻿# mundo_ruinas: decisiones de las ruinas y de las vetas.
+
+# Enviar una expedicion a una ruina intacta de tierra propia.
+gj_ruinas_expedicion = {
+	decision_category = expansion_decisions
+
+	potential = {
+		any_owned_location = {
+			gj_ruina_intacta = yes
+		}
+	}
+
+	allow = {
+		NOT = { has_variable = gj_expedicion_cd }
+		at_war = no
+		gold > { value = monthly_income_trade_and_tax multiply = 4 }
+		any_owned_location = {
+			gj_ruina_intacta = yes
+			local_control > 0.5
+		}
+	}
+
+	ai_will_do = { value = 40 }
+
+	option = {
+		name = gj_ruinas_expedicion.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			set_variable = { name = gj_expedicion_cd days = 730 }
+			random_owned_location = {
+				limit = {
+					gj_ruina_intacta = yes
+					local_control > 0.5
+				}
+				save_scope_as = gj_ruina_loc
+			}
+			trigger_event_non_silently = { id = gj_mundo_ruinas.1 }
+		}
+	}
+}
+
+# Sellar una ruina que ha despertado (guardianes, bestias o maldicion).
+gj_ruinas_sellar = {
+	decision_category = other_decisions
+
+	potential = {
+		any_owned_location = {
+			gj_ruina_con_despertar = yes
+		}
+	}
+
+	allow = {
+		gold > { value = monthly_income_trade_and_tax multiply = 3 }
+	}
+
+	ai_will_do = { value = 60 }
+
+	option = {
+		name = gj_ruinas_sellar.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			add_prestige = prestige_weak_bonus
+			every_owned_location = {
+				limit = { gj_ruina_con_despertar = yes }
+				gj_ruinas_sella_ruina = yes
+			}
+		}
+	}
+}
+
+# Rito de la veta: una ofrenda a la veta, cada diez anos, para quien tiene un monumento.
+gj_ruinas_rito_veta = {
+	decision_category = religious_decisions
+
+	potential = {
+		any_owned_location = {
+			OR = {
+				has_building = building_type:gj_monumento_fuego
+				has_building = building_type:gj_monumento_marea
+				has_building = building_type:gj_monumento_raiz
+				has_building = building_type:gj_monumento_estrella
+			}
+		}
+	}
+
+	allow = {
+		NOT = { has_variable = gj_veta_rito_cd }
+		gold > { value = monthly_income_trade_and_tax multiply = 5 }
+	}
+
+	ai_will_do = { value = 30 }
+
+	option = {
+		name = gj_ruinas_rito_veta.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -4 }
+			set_variable = { name = gj_veta_rito_cd days = 3650 }
+			add_country_modifier = { modifier = gj_veta_rito years = 10 }
+			add_prestige = prestige_mild_bonus
+		}
+	}
+}

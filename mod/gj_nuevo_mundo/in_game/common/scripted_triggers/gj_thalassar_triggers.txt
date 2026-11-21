@@ -1,0 +1,36 @@
+﻿##############################################################
+# THALASSAR: triggers de ayuda
+# Variables del pais (root = pais):
+#   gj_cristales_marea  reserva de cristales de marea
+#   gj_alzar_fase       fase de la Ciudad Hundida (0 a 5)
+#   gj_decadencia       anos sin avanzar el proyecto
+##############################################################
+
+gj_thalassar_tiene_cristales = {
+	has_variable = gj_cristales_marea
+	var:gj_cristales_marea >= $N$
+}
+
+gj_thalassar_fase_al_menos = {
+	has_variable = gj_alzar_fase
+	var:gj_alzar_fase >= $N$
+}
+
+# Ciudad alzada: lo usara el formable «Thalassar Restaurada» que define la integracion.
+gj_thalassar_ciudad_alzada = {
+	gj_es_thalassar = yes
+	has_variable = gj_alzar_fase
+	var:gj_alzar_fase >= 5
+}
+
+# Condicion de la fase 3: dominar el mar interior (3 puertos propios en el) o haber explorado una ruina atlante.
+gj_thalassar_domina_el_mar = {
+	OR = {
+		any_owned_location = {
+			is_port = yes
+			gj_zona_mar_interior = yes
+			count >= 3
+		}
+		has_variable = gj_ruina_atlante_explorada
+	}
+}

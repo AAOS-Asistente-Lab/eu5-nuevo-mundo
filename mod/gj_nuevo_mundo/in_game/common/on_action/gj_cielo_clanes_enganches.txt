@@ -1,0 +1,8 @@
+﻿# ENGANCHES: cuelgan nuestras on_actions de las del juego base.
+# Si el motor fusiona on_actions del mismo nombre entre ficheros, esto basta.
+# Si el fichero del mod PISA la on_action del juego base, NO usar este fichero:
+# copiar las dos lineas de abajo dentro de yearly_country_pulse y on_new_ruler del base.
+
+# yearly_country_pulse: lo engancha gj_integracion_on_actions.txt (gj_cielo_clanes_anual).
+
+# on_new_ruler: lo engancha gj_integracion_on_actions.txt (gj_cielo_clanes_nuevo_kan).

@@ -1,0 +1,33 @@
+﻿gj_lagunero = {
+	language = gj_lagunero_dialect
+
+	color = map_gj_lagunero
+
+	tags = { swedish_gfx western_european_gfx european_gfx }
+
+	# Rasgos de la cultura (cuentan como bonificaciones de cultura)
+	country_modifier = {
+		# Pueblo de remeros: marineros de agua dulce y salada
+		global_sailors_modifier = 0.05
+		# Contrato firmado, contrato cumplido: el comercio rinde un poco mas
+		trade_income = 0.03
+	}
+	location_modifier = {
+		# Las orillas pobladas por laguneños pescan mas
+		local_fish_output_modifier = 0.05
+	}
+	character_modifier = {
+		# Los laguneños nacen negociando
+		dip = 3
+	}
+
+	opinions = {
+		gj_skarren = enemy
+		gj_soravi = negative
+		gj_ostrevari = positive
+	}
+
+	culture_groups = {
+		gj_grupo_lagunas
+	}
+}

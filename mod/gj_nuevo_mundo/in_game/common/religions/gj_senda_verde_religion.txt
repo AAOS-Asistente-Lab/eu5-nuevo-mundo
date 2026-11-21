@@ -1,0 +1,25 @@
+﻿# La Senda Verde: religion del pueblo del bosque.
+# Mecanica: karma (has_karma). Escala -100..+100; el mejor punto es el equilibrio (-33..33).
+# El grupo gj_fe_sur lo define la integracion.
+
+gj_senda_verde = {
+	color = rgb { 62 128 84 }
+	group = gj_fe_sur
+
+	has_karma = yes
+	religious_aspects = 2
+
+	definition_modifier = {
+		monthly_karma_decay = 0.02
+		global_lumber_output_modifier = 0.15
+		global_medicaments_output_modifier = 0.15
+		global_monthly_prosperity = 0.0005
+		tolerance_heathen = 1
+		tolerance_own = 1
+		colonial_migration_size_modifier = -0.25
+	}
+
+	tags = {
+		folk_european_gfx pagan_gfx
+	}
+}

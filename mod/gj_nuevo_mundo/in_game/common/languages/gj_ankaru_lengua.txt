@@ -1,0 +1,19 @@
+﻿# Lengua ankaruna: sonora, de sílabas abiertas, con nombres que suenan a piedra y a sol.
+gj_lengua_ankaruna = {
+	color = gj_map_lengua_ankaruna
+
+	male_names = {
+		gj_n_ankar gj_n_ilmu gj_n_sothan gj_n_taquel gj_n_yuvar gj_n_ruvan gj_n_orrel gj_n_kuilan gj_n_maqui gj_n_isqar gj_n_helvu gj_n_ambar gj_n_veshu Naru gj_n_tarem gj_n_ilkaru gj_n_sumel
+		gj_n_tolvan gj_n_eshkar gj_n_urmai gj_n_cholu gj_n_anquir gj_n_rimel gj_n_dovan gj_n_pellu gj_n_quemar
+	}
+	female_names = {
+		Illa gj_n_maruya gj_n_aymel gj_n_soriel gj_n_tulana gj_n_nairu gj_n_chalve gj_n_iramel gj_n_ushanta gj_n_vellu gj_n_orvana gj_n_sielu gj_n_taimar gj_n_kelani gj_n_ruvella
+		gj_n_antuya gj_n_isolva gj_n_meraya gj_n_yuvela
+	}
+	dynasty_names = {
+		gj_n_ilmuqar gj_n_sothavel gj_n_yuvarin gj_n_antakel gj_n_orrenai gj_n_kuilamar gj_n_tenquelu gj_n_isqaran gj_n_veshumar gj_n_altasol gj_n_pedralum
+	}
+	lowborn = {
+		gj_n_tapi gj_n_runel gj_n_chalo Mikal gj_n_paru gj_n_sendo gj_n_oqui gj_n_lumbra gj_n_tarro gj_n_vesco
+	}
+}

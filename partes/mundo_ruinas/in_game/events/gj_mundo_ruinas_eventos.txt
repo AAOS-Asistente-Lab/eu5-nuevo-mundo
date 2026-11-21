@@ -1,0 +1,738 @@
+﻿namespace = gj_mundo_ruinas
+
+##############################################################################
+# A1. RUINAS DE LOS ANTIGUOS: la expedicion
+# La decision gj_ruinas_expedicion guarda la ruina en scope:gj_ruina_loc y lanza el .1.
+##############################################################################
+
+# .1 La expedicion parte: se elige el enfoque.
+gj_mundo_ruinas.1 = {
+	type = country_event
+	title = gj_mundo_ruinas.1.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { gj_ruina_es_atlante = yes } }
+				desc = gj_mundo_ruinas.1.desc.atlante
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { gj_ruina_es_enana = yes } }
+				desc = gj_mundo_ruinas.1.desc.enana
+			}
+			triggered_desc = {
+				desc = gj_mundo_ruinas.1.desc.antigua
+			}
+		}
+	}
+	outcome = neutral
+
+	option = {
+		name = gj_mundo_ruinas.1.a
+		ai_chance = { base = 40 }
+		gj_ruinas_tirada = { menor = 50 artefacto = 14 saber = 14 despertar = 6 muerte = 2 }
+	}
+	option = {
+		name = gj_mundo_ruinas.1.b
+		ai_chance = { base = 40 }
+		gj_ruinas_tirada = { menor = 20 artefacto = 30 saber = 22 despertar = 18 muerte = 10 }
+	}
+	option = {
+		name = gj_mundo_ruinas.1.c
+		trigger = {
+			gold > { value = monthly_income_trade_and_tax multiply = 2 }
+		}
+		ai_chance = { base = 20 }
+		change_gold_effect = { scale = -3 }
+		gj_ruinas_tirada = { menor = 30 artefacto = 24 saber = 22 despertar = 12 muerte = 2 }
+	}
+}
+
+# .2 Hallazgo menor.
+gj_mundo_ruinas.2 = {
+	type = country_event
+	title = gj_mundo_ruinas.2.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { gj_ruina_es_atlante = yes } }
+				desc = gj_mundo_ruinas.2.desc.atlante
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { gj_ruina_es_enana = yes } }
+				desc = gj_mundo_ruinas.2.desc.enana
+			}
+			triggered_desc = {
+				desc = gj_mundo_ruinas.2.desc.antigua
+			}
+		}
+	}
+	outcome = positive
+
+	immediate = {
+		scope:gj_ruina_loc = { gj_ruinas_cierra_ruina = yes }
+	}
+
+	option = {
+		name = gj_mundo_ruinas.2.a
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = 5 }
+	}
+	option = {
+		name = gj_mundo_ruinas.2.b
+		ai_chance = { base = 50 }
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = { modifier = gj_hallazgo_botin years = 10 }
+	}
+}
+
+# .3 Un artefacto. Cada artefacto existe una sola vez en el mundo; si ya no queda ninguno
+# del tipo de la ruina, solo hay una reliquia sin poder.
+gj_mundo_ruinas.3 = {
+	type = country_event
+	title = gj_mundo_ruinas.3.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { has_variable = gj_art_astrolabio } }
+				desc = gj_mundo_ruinas.3.desc.astrolabio
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { has_variable = gj_art_cetro } }
+				desc = gj_mundo_ruinas.3.desc.cetro
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { has_variable = gj_art_martillo } }
+				desc = gj_mundo_ruinas.3.desc.martillo
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { has_variable = gj_art_cuerno } }
+				desc = gj_mundo_ruinas.3.desc.cuerno
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { has_variable = gj_art_escudo } }
+				desc = gj_mundo_ruinas.3.desc.escudo
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { has_variable = gj_art_tablillas } }
+				desc = gj_mundo_ruinas.3.desc.tablillas
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { has_variable = gj_art_corona } }
+				desc = gj_mundo_ruinas.3.desc.corona
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { has_variable = gj_art_lampara } }
+				desc = gj_mundo_ruinas.3.desc.lampara
+			}
+			triggered_desc = {
+				desc = gj_mundo_ruinas.3.desc.reliquia
+			}
+		}
+	}
+	outcome = positive
+
+	immediate = {
+		scope:gj_ruina_loc = {
+			if = {
+				limit = { gj_ruina_es_atlante = yes }
+				random_list = {
+					50 = {
+						modifier = { add = -50 has_global_variable = gj_art_astrolabio_hallado }
+						set_variable = gj_art_astrolabio
+						root = { set_global_variable = gj_art_astrolabio_hallado }
+					}
+					50 = {
+						modifier = { add = -50 has_global_variable = gj_art_cetro_hallado }
+						set_variable = gj_art_cetro
+						root = { set_global_variable = gj_art_cetro_hallado }
+					}
+					1 = { }
+				}
+			}
+			else_if = {
+				limit = { gj_ruina_es_enana = yes }
+				random_list = {
+					34 = {
+						modifier = { add = -34 has_global_variable = gj_art_martillo_hallado }
+						set_variable = gj_art_martillo
+						root = { set_global_variable = gj_art_martillo_hallado }
+					}
+					33 = {
+						modifier = { add = -33 has_global_variable = gj_art_cuerno_hallado }
+						set_variable = gj_art_cuerno
+						root = { set_global_variable = gj_art_cuerno_hallado }
+					}
+					33 = {
+						modifier = { add = -33 has_global_variable = gj_art_escudo_hallado }
+						set_variable = gj_art_escudo
+						root = { set_global_variable = gj_art_escudo_hallado }
+					}
+					1 = { }
+				}
+			}
+			else = {
+				random_list = {
+					34 = {
+						modifier = { add = -34 has_global_variable = gj_art_tablillas_hallado }
+						set_variable = gj_art_tablillas
+						root = { set_global_variable = gj_art_tablillas_hallado }
+					}
+					33 = {
+						modifier = { add = -33 has_global_variable = gj_art_corona_hallado }
+						set_variable = gj_art_corona
+						root = { set_global_variable = gj_art_corona_hallado }
+					}
+					33 = {
+						modifier = { add = -33 has_global_variable = gj_art_lampara_hallado }
+						set_variable = gj_art_lampara
+						root = { set_global_variable = gj_art_lampara_hallado }
+					}
+					1 = { }
+				}
+			}
+			gj_ruinas_cierra_ruina = yes
+		}
+		gj_ruinas_sincroniza_artefactos = yes
+	}
+
+	# Custodiarlo en la ruina: queda donde esta (y lo hereda quien conquiste esa tierra).
+	option = {
+		name = gj_mundo_ruinas.3.a
+		ai_chance = { base = 50 }
+		add_prestige = prestige_weak_bonus
+		change_gold_effect = { scale = 1 }
+	}
+	# Llevarlo a la capital: queda donde esta la corte (y se pierde si cae la capital).
+	option = {
+		name = gj_mundo_ruinas.3.b
+		ai_chance = { base = 50 }
+		gj_ruinas_mueve_artefactos = yes
+		gj_ruinas_sincroniza_artefactos = yes
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .4 Saber perdido: un avance de la era siguiente, antes de tiempo.
+gj_mundo_ruinas.4 = {
+	type = country_event
+	title = gj_mundo_ruinas.4.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { gj_ruina_es_atlante = yes } }
+				desc = gj_mundo_ruinas.4.desc.atlante
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { gj_ruina_es_enana = yes } }
+				desc = gj_mundo_ruinas.4.desc.enana
+			}
+			triggered_desc = {
+				desc = gj_mundo_ruinas.4.desc.antigua
+			}
+		}
+	}
+	outcome = positive
+
+	immediate = {
+		scope:gj_ruina_loc = { gj_ruinas_cierra_ruina = yes }
+	}
+
+	option = {
+		name = gj_mundo_ruinas.4.a
+		ai_chance = { base = 70 }
+		add_country_modifier = { modifier = gj_saber_perdido_impulso years = 10 }
+		if = {
+			limit = { scope:gj_ruina_loc = { gj_ruina_es_atlante = yes } }
+			if = {
+				limit = { current_age_or_later = { age = age_3_discovery } }
+				unlock_advance_effect = { type = gj_saber_cartas_abisales }
+			}
+			else = {
+				unlock_advance_effect = { type = gj_saber_mareas_hundidas }
+			}
+		}
+		else_if = {
+			limit = { scope:gj_ruina_loc = { gj_ruina_es_enana = yes } }
+			if = {
+				limit = { current_age_or_later = { age = age_3_discovery } }
+				unlock_advance_effect = { type = gj_saber_runas_de_carga }
+			}
+			else = {
+				unlock_advance_effect = { type = gj_saber_forja_cantora }
+			}
+		}
+		else = {
+			if = {
+				limit = { current_age_or_later = { age = age_3_discovery } }
+				unlock_advance_effect = { type = gj_saber_calendario_primero }
+			}
+			else = {
+				unlock_advance_effect = { type = gj_saber_riego_anterior }
+			}
+		}
+	}
+	option = {
+		name = gj_mundo_ruinas.4.b
+		ai_chance = { base = 30 }
+		change_gold_effect = { scale = 12 }
+	}
+}
+
+# .5 Despertar: los guardianes se alzan.
+gj_mundo_ruinas.5 = {
+	type = country_event
+	title = gj_mundo_ruinas.5.title
+	desc = gj_mundo_ruinas.5.desc
+	outcome = negative
+
+	immediate = {
+		scope:gj_ruina_loc = {
+			gj_ruinas_cierra_ruina_despierta = yes
+			add_location_modifier = { modifier = gj_ruina_guardianes years = 15 }
+		}
+	}
+
+	option = {
+		name = gj_mundo_ruinas.5.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_expedicion_agotada years = 5 }
+	}
+	option = {
+		name = gj_mundo_ruinas.5.b
+		trigger = {
+			gold > { value = monthly_income_trade_and_tax multiply = 3 }
+		}
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = -4 }
+		scope:gj_ruina_loc = { gj_ruinas_sella_ruina = yes }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .6 Despertar: una plaga de bestias sale de las galerias.
+gj_mundo_ruinas.6 = {
+	type = country_event
+	title = gj_mundo_ruinas.6.title
+	desc = gj_mundo_ruinas.6.desc
+	outcome = negative
+
+	immediate = {
+		scope:gj_ruina_loc = {
+			gj_ruinas_cierra_ruina_despierta = yes
+			add_location_modifier = { modifier = gj_ruina_plaga_bestias years = 8 }
+		}
+	}
+
+	option = {
+		name = gj_mundo_ruinas.6.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_expedicion_agotada years = 5 }
+	}
+	option = {
+		name = gj_mundo_ruinas.6.b
+		trigger = {
+			gold > { value = monthly_income_trade_and_tax multiply = 3 }
+		}
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = -4 }
+		scope:gj_ruina_loc = { gj_ruinas_sella_ruina = yes }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .7 Despertar: una maldicion cae sobre la comarca.
+gj_mundo_ruinas.7 = {
+	type = country_event
+	title = gj_mundo_ruinas.7.title
+	desc = gj_mundo_ruinas.7.desc
+	outcome = negative
+
+	immediate = {
+		scope:gj_ruina_loc = {
+			gj_ruinas_cierra_ruina_despierta = yes
+			add_location_modifier = { modifier = gj_ruina_maldicion years = 12 }
+		}
+	}
+
+	option = {
+		name = gj_mundo_ruinas.7.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_expedicion_agotada years = 5 }
+	}
+	option = {
+		name = gj_mundo_ruinas.7.b
+		trigger = {
+			gold > { value = monthly_income_trade_and_tax multiply = 3 }
+		}
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = -4 }
+		scope:gj_ruina_loc = { gj_ruinas_sella_ruina = yes }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .8 La expedicion no regresa: puede morir quien la dirigia.
+gj_mundo_ruinas.8 = {
+	type = country_event
+	title = gj_mundo_ruinas.8.title
+	desc = gj_mundo_ruinas.8.desc
+	outcome = negative
+
+	immediate = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				is_courtier = yes
+			}
+			save_scope_as = gj_lider
+		}
+		if = {
+			limit = { exists = scope:gj_lider }
+			kill_character_silently = scope:gj_lider
+		}
+	}
+
+	option = {
+		name = gj_mundo_ruinas.8.a
+		ai_chance = { base = 50 }
+		add_prestige = prestige_weak_penalty
+	}
+	option = {
+		name = gj_mundo_ruinas.8.b
+		trigger = {
+			gold > { value = monthly_income_trade_and_tax multiply = 2 }
+		}
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = -3 }
+		remove_variable = gj_expedicion_cd
+	}
+}
+
+##############################################################################
+# A2. VETAS DE PODER: cambio de manos
+# Se lanzan desde gj_ruinas_cambio_dueno (on_location_changed_owner).
+# scope:gj_veta_loc = la location de la veta; scope:winner y scope:loser.
+##############################################################################
+
+# .30 Para quien recibe la veta.
+gj_mundo_ruinas.30 = {
+	type = country_event
+	title = gj_mundo_ruinas.30.title
+	desc = gj_mundo_ruinas.30.desc
+	outcome = positive
+
+	option = {
+		name = gj_mundo_ruinas.30.a
+		ai_chance = { base = 60 }
+		add_prestige = prestige_weak_bonus
+		scope:gj_veta_loc = { add_location_modifier = { modifier = gj_veta_guarnicion years = 10 } }
+	}
+	option = {
+		name = gj_mundo_ruinas.30.b
+		ai_chance = { base = 40 }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .31 Para quien la pierde: puede jurar recuperarla (reclamacion sobre la veta).
+gj_mundo_ruinas.31 = {
+	type = country_event
+	title = gj_mundo_ruinas.31.title
+	desc = gj_mundo_ruinas.31.desc
+	outcome = negative
+
+	option = {
+		name = gj_mundo_ruinas.31.a
+		ai_chance = { base = 60 }
+		add_casus_belli = {
+			target = scope:winner
+			type = casus_belli:gj_cb_reclamar_veta
+			province = scope:gj_veta_loc.province
+		}
+	}
+	option = {
+		name = gj_mundo_ruinas.31.b
+		ai_chance = { base = 40 }
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+# .32 Para quien recibe un artefacto con la tierra.
+gj_mundo_ruinas.32 = {
+	type = country_event
+	title = gj_mundo_ruinas.32.title
+	desc = gj_mundo_ruinas.32.desc
+	outcome = positive
+
+	option = {
+		name = gj_mundo_ruinas.32.a
+		ai_chance = { base = 100 }
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .33 Para quien pierde un artefacto con la tierra.
+gj_mundo_ruinas.33 = {
+	type = country_event
+	title = gj_mundo_ruinas.33.title
+	desc = gj_mundo_ruinas.33.desc
+	outcome = negative
+
+	option = {
+		name = gj_mundo_ruinas.33.a
+		ai_chance = { base = 100 }
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+##############################################################################
+# A2. VETAS DE PODER: efecto de cada decada del nivel 3 (uno por tipo)
+##############################################################################
+
+# .40 Fuego: la Gran Colada.
+gj_mundo_ruinas.40 = {
+	type = country_event
+	title = gj_mundo_ruinas.40.title
+	desc = gj_mundo_ruinas.40.desc
+	outcome = positive
+
+	option = {
+		name = gj_mundo_ruinas.40.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_veta_fuego_colada years = 10 }
+	}
+	option = {
+		name = gj_mundo_ruinas.40.b
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = 15 }
+	}
+}
+
+# .41 Marea: la Pleamar.
+gj_mundo_ruinas.41 = {
+	type = country_event
+	title = gj_mundo_ruinas.41.title
+	desc = gj_mundo_ruinas.41.desc
+	outcome = positive
+
+	option = {
+		name = gj_mundo_ruinas.41.a
+		ai_chance = { base = 50 }
+		add_country_modifier = { modifier = gj_veta_marea_flujo years = 10 }
+	}
+	option = {
+		name = gj_mundo_ruinas.41.b
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = 15 }
+	}
+}
+
+# .42 Raiz: la doble cosecha.
+gj_mundo_ruinas.42 = {
+	type = country_event
+	title = gj_mundo_ruinas.42.title
+	desc = gj_mundo_ruinas.42.desc
+	outcome = positive
+
+	option = {
+		name = gj_mundo_ruinas.42.a
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_veta_raiz_cosecha years = 5 }
+	}
+	option = {
+		name = gj_mundo_ruinas.42.b
+		ai_chance = { base = 40 }
+		add_stability = stability_mild_bonus
+	}
+}
+
+# .43 Estrella: la conjuncion.
+gj_mundo_ruinas.43 = {
+	type = country_event
+	title = gj_mundo_ruinas.43.title
+	desc = gj_mundo_ruinas.43.desc
+	outcome = positive
+
+	option = {
+		name = gj_mundo_ruinas.43.a
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_veta_estrella_conjuncion years = 5 }
+	}
+	option = {
+		name = gj_mundo_ruinas.43.b
+		ai_chance = { base = 40 }
+		add_prestige = prestige_severe_bonus
+	}
+}
+
+##############################################################################
+# A2. VETAS DE PODER: la veta del vecino
+# scope:gj_veta_vecino = el pais vecino que tiene la veta.
+##############################################################################
+
+# .50 Una veta cerca de la frontera da pie a una reclamacion.
+gj_mundo_ruinas.50 = {
+	type = country_event
+	title = gj_mundo_ruinas.50.title
+	desc = gj_mundo_ruinas.50.desc
+	outcome = neutral
+
+	option = {
+		name = gj_mundo_ruinas.50.a
+		ai_chance = { base = 40 }
+		scope:gj_veta_vecino = {
+			random_owned_location = {
+				limit = { gj_mundo_ruinas_es_veta = yes }
+				root = {
+					add_casus_belli = {
+						target = prev.owner
+						type = casus_belli:gj_cb_reclamar_veta
+						province = prev.province
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = gj_mundo_ruinas.50.b
+		ai_chance = { base = 60 }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+##############################################################################
+# A2. VETAS DE PODER: magia y bestias en la region de una veta activa
+##############################################################################
+
+# .60 Fuego: temblores calientes.
+gj_mundo_ruinas.60 = {
+	type = country_event
+	title = gj_mundo_ruinas.60.title
+	desc = gj_mundo_ruinas.60.desc
+	outcome = neutral
+
+	option = {
+		name = gj_mundo_ruinas.60.a
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = -2 }
+		add_stability = stability_weak_bonus
+	}
+	option = {
+		name = gj_mundo_ruinas.60.b
+		ai_chance = { base = 50 }
+		add_prestige = prestige_weak_penalty
+		change_gold_effect = { scale = 3 }
+	}
+}
+
+# .61 Marea: mareas que no tocan a la luna.
+gj_mundo_ruinas.61 = {
+	type = country_event
+	title = gj_mundo_ruinas.61.title
+	desc = gj_mundo_ruinas.61.desc
+	outcome = neutral
+
+	option = {
+		name = gj_mundo_ruinas.61.a
+		ai_chance = { base = 50 }
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_mundo_ruinas.61.b
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = 3 }
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+# .62 Raiz: el campo que brota fuera de estacion.
+gj_mundo_ruinas.62 = {
+	type = country_event
+	title = gj_mundo_ruinas.62.title
+	desc = gj_mundo_ruinas.62.desc
+	outcome = positive
+
+	option = {
+		name = gj_mundo_ruinas.62.a
+		ai_chance = { base = 60 }
+		add_stability = stability_weak_bonus
+	}
+	option = {
+		name = gj_mundo_ruinas.62.b
+		ai_chance = { base = 40 }
+		change_gold_effect = { scale = 4 }
+	}
+}
+
+# .63 Estrella: el cielo demasiado claro.
+gj_mundo_ruinas.63 = {
+	type = country_event
+	title = gj_mundo_ruinas.63.title
+	desc = gj_mundo_ruinas.63.desc
+	outcome = neutral
+
+	option = {
+		name = gj_mundo_ruinas.63.a
+		ai_chance = { base = 60 }
+		add_country_modifier = { modifier = gj_saber_perdido_impulso years = 5 }
+	}
+	option = {
+		name = gj_mundo_ruinas.63.b
+		ai_chance = { base = 40 }
+		add_stability = stability_weak_penalty
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+##############################################################################
+# A1. RUINAS RESTAURADAS: el eco (scope:gj_ruina_loc = la ruina)
+##############################################################################
+
+# .80 Peregrinos y estudiosos.
+gj_mundo_ruinas.80 = {
+	type = country_event
+	title = gj_mundo_ruinas.80.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { gj_ruina_es_atlante = yes } }
+				desc = gj_mundo_ruinas.80.desc.atlante
+			}
+			triggered_desc = {
+				trigger = { scope:gj_ruina_loc = { gj_ruina_es_enana = yes } }
+				desc = gj_mundo_ruinas.80.desc.enana
+			}
+			triggered_desc = {
+				desc = gj_mundo_ruinas.80.desc.antigua
+			}
+		}
+	}
+	outcome = positive
+
+	option = {
+		name = gj_mundo_ruinas.80.a
+		ai_chance = { base = 100 }
+		add_country_modifier = { modifier = gj_ruina_peregrinos years = 10 }
+	}
+}
+
+# .81 Contrabandistas de reliquias.
+gj_mundo_ruinas.81 = {
+	type = country_event
+	title = gj_mundo_ruinas.81.title
+	desc = gj_mundo_ruinas.81.desc
+	outcome = negative
+
+	option = {
+		name = gj_mundo_ruinas.81.a
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = -2 }
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_mundo_ruinas.81.b
+		ai_chance = { base = 50 }
+		change_gold_effect = { scale = 4 }
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}

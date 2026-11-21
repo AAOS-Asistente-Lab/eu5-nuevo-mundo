@@ -1,0 +1,181 @@
+﻿# mundo_ruinas: monumentos de las vetas de poder. Uno por tipo, 3 niveles caros y lentos.
+# Solo se pueden construir donde hay veta (gj_zona_veta_*). Nivel 1: bonificacion local.
+# Nivel 2 y 3: el pais gana gj_veta_<tipo>_n2 / _n3 (efecto de gj_ruinas_sincroniza_vetas).
+# Limite: uno por veta. Al conquistar la location, el monumento pierde un nivel.
+
+gj_monumento_fuego = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	pop_type = laborers
+	max_levels = 3
+	increase_per_level_cost = 1.0
+
+	employment_size = granary_employment
+	category = infrastructure_category
+	expensive = yes
+	build_time = government_build_time
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	location_potential = {
+		gj_zona_veta_fuego = yes
+	}
+	allow = {
+		local_control > 0.5
+	}
+	is_indestructible = yes
+
+	unique_production_methods = {
+		gj_monumento_fuego_mantenimiento = {
+			icon_type = building_type
+			icon = terraces
+			iron = 0.3
+			coal = 0.3
+			category = building_maintenance
+		}
+	}
+	construction_demand = guild_construction
+
+	modifier = {
+		local_production_efficiency = 0.05
+		local_iron_output_modifier = 0.1
+		local_coal_output_modifier = 0.1
+	}
+}
+
+gj_monumento_marea = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	pop_type = laborers
+	max_levels = 3
+	increase_per_level_cost = 1.0
+
+	employment_size = granary_employment
+	category = infrastructure_category
+	expensive = yes
+	build_time = government_build_time
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	location_potential = {
+		gj_zona_veta_marea = yes
+	}
+	allow = {
+		local_control > 0.5
+	}
+	is_indestructible = yes
+
+	unique_production_methods = {
+		gj_monumento_marea_mantenimiento = {
+			icon_type = building_type
+			icon = terraces
+			masonry = 0.3
+			salt = 0.2
+			category = building_maintenance
+		}
+	}
+	construction_demand = guild_construction
+
+	modifier = {
+		local_merchant_capacity_modifier = 0.1
+		local_fish_output_modifier = 0.1
+		local_pearls_output_modifier = 0.1
+		local_maritime_presence = 0.1
+	}
+}
+
+gj_monumento_raiz = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	pop_type = laborers
+	max_levels = 3
+	increase_per_level_cost = 1.0
+
+	employment_size = granary_employment
+	category = infrastructure_category
+	expensive = yes
+	build_time = government_build_time
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	location_potential = {
+		gj_zona_veta_raiz = yes
+	}
+	allow = {
+		local_control > 0.5
+	}
+	is_indestructible = yes
+
+	unique_production_methods = {
+		gj_monumento_raiz_mantenimiento = {
+			icon_type = building_type
+			icon = terraces
+			tools = 0.2
+			stone = 0.2
+			category = building_maintenance
+		}
+	}
+	construction_demand = guild_construction
+
+	modifier = {
+		local_monthly_food_modifier = 0.05
+		local_population_growth = 0.001
+		local_food_capacity_modifier = 0.1
+	}
+}
+
+gj_monumento_estrella = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	pop_type = nobles
+	max_levels = 3
+	increase_per_level_cost = 1.0
+
+	employment_size = normal_noble_employment
+	category = government_category
+	expensive = yes
+	build_time = government_build_time
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	location_potential = {
+		gj_zona_veta_estrella = yes
+	}
+	allow = {
+		local_control > 0.5
+	}
+	is_indestructible = yes
+
+	unique_production_methods = {
+		gj_monumento_estrella_mantenimiento = {
+			icon_type = building_type
+			icon = royal_society
+			paper = 0.3
+			glass = 0.2
+			category = building_maintenance
+		}
+	}
+	construction_demand = guild_construction
+
+	modifier = {
+		local_institution_growth_modifier = 0.1
+		local_monthly_literacy = 0.03
+		local_max_literacy = 2
+	}
+}

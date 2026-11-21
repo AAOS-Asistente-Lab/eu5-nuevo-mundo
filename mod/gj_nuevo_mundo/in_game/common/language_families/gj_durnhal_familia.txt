@@ -1,0 +1,3 @@
+﻿gj_enano_language_family = {
+	color = map_gj_enano_family
+}

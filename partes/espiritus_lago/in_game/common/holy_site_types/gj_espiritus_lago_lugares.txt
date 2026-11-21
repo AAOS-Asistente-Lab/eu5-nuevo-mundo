@@ -1,0 +1,23 @@
+# Tipos de lugar sagrado de los Espiritus del Lago (sin locations: las asigna la integracion).
+
+gj_espiritus_lago_sagrado = {
+	location_modifier = {
+		local_fish_output_modifier = 0.25
+		local_clergy_desired_pop = 0.02
+		local_monthly_prosperity = 0.001
+	}
+	country_modifier = {
+		omen_strength_modifier = 0.02
+	}
+}
+
+gj_espiritus_lago_isla_del_augurio = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.05
+		local_max_control = 0.01
+		local_defensive = 0.1
+	}
+	country_modifier = {
+		omen_time_modifier = 0.05
+	}
+}

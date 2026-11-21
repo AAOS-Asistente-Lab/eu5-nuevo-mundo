@@ -1,0 +1,160 @@
+﻿# Acciones religiosas de Los Dioses Hambrientos. scope:actor = pais, scope:recipient = religion.
+
+# Ofrecer cautivos en la Mesa: la devocion sube con los cautivos ofrecidos.
+gj_dioses_hambrientos_ofrenda_de_cautivos = {
+	type = religious
+
+	sound = UI_action_religion_generic
+
+	potential = {
+		scope:actor.religion = religion:gj_dioses_hambrientos
+	}
+
+	allow = {
+		scope:actor = {
+			pop_type_population_in_country = {
+				pop_type = pop_type:slaves
+				value > 0.1
+			}
+		}
+	}
+
+	price = price:gj_dioses_hambrientos_ofrenda_de_cautivos
+
+	cooldown = {
+		type = gj_dioses_hambrientos_ofrenda_de_cautivos
+		years = 1
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 3
+
+	automation_tick = monthly
+	automation_tick_frequency = 1
+	player_automated_category = religiousdoctrines
+
+	select_trigger = {
+		looking_for_a = religion
+		source = actor
+		target_flag = recipient
+		name = "choose_religion"
+		column = { data = name }
+	}
+
+	effect = {
+		scope:actor = {
+			gj_dioses_hambrientos_consume_cautivos = { FRACCION = -0.4 }
+			add_religious_influence = religious_influence_severe_bonus
+			add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_bonus }
+			set_variable = { name = gj_dioses_hambrientos_anos_de_paz value = 0 }
+		}
+	}
+
+	ai_will_do = {
+		add = "scope:actor.currency_utility(religious_influence|religious_influence_severe_bonus)"
+		subtract = {
+			desc = "bias against doing stuff"
+			value = 1
+		}
+	}
+}
+
+# El Gran Banquete: se gasta devocion y oro para un periodo de prosperidad y moral.
+gj_dioses_hambrientos_gran_banquete = {
+	type = religious
+
+	sound = UI_action_religion_generic
+
+	potential = {
+		scope:actor.religion = religion:gj_dioses_hambrientos
+	}
+
+	allow = {
+		scope:actor.religious_influence >= 30
+	}
+
+	price = price:gj_dioses_hambrientos_gran_banquete
+
+	cooldown = {
+		type = gj_dioses_hambrientos_gran_banquete
+		years = 8
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+
+	automation_tick = monthly
+	automation_tick_frequency = 1
+	player_automated_category = religiousdoctrines
+
+	select_trigger = {
+		looking_for_a = religion
+		source = actor
+		target_flag = recipient
+		name = "choose_religion"
+		column = { data = name }
+	}
+
+	effect = {
+		scope:actor = {
+			add_country_modifier = { modifier = gj_dioses_hambrientos_banquete_de_los_dioses years = 5 mode = replace }
+			add_prestige = prestige_weak_bonus
+		}
+	}
+
+	ai_will_do = {
+		value = 5
+	}
+}
+
+# El Ayuno Penitente: se acorta el hambre de los dioses en tiempo de paz, a costa de la moral.
+gj_dioses_hambrientos_ayuno_penitente = {
+	type = religious
+
+	sound = UI_action_religion_generic
+
+	potential = {
+		scope:actor.religion = religion:gj_dioses_hambrientos
+	}
+
+	allow = {
+		scope:actor = {
+			has_variable = gj_dioses_hambrientos_anos_de_paz
+			var:gj_dioses_hambrientos_anos_de_paz >= 2
+		}
+	}
+
+	price = price:gj_dioses_hambrientos_ayuno_penitente
+
+	cooldown = {
+		type = gj_dioses_hambrientos_ayuno_penitente
+		years = 5
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+
+	automation_tick = monthly
+	automation_tick_frequency = 1
+	player_automated_category = religiousdoctrines
+
+	select_trigger = {
+		looking_for_a = religion
+		source = actor
+		target_flag = recipient
+		name = "choose_religion"
+		column = { data = name }
+	}
+
+	effect = {
+		scope:actor = {
+			change_variable = { name = gj_dioses_hambrientos_anos_de_paz add = -2 }
+			clamp_variable = { name = gj_dioses_hambrientos_anos_de_paz min = 0 max = 100 }
+			add_country_modifier = { modifier = gj_dioses_hambrientos_ayuno_penitente_mod years = 3 mode = replace }
+		}
+	}
+
+	ai_will_do = {
+		value = 3
+	}
+}

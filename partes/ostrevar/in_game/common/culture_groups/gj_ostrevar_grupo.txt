@@ -1,0 +1,6 @@
+﻿# Grupo cultural ostrevari.
+gj_grupo_ostrevari = {
+	country_modifier = {
+		global_migration_speed_modifier = 0.05
+	}
+}

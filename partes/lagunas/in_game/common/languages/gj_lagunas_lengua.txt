@@ -1,0 +1,27 @@
+﻿gj_lagunas_language = {
+	color = map_gj_lagunero
+
+	male_names = {
+		Aldrec Berenvar Corvan Dalmer Eskarin Fendrel Garvo Halmer Isvaldo Jorvan
+		Kelmar Lorvic Merenvil Nordal Orvelin Pelmar Quervo Rendal Sovaren Tarmeo
+		Ulvaro Venrik Yelmar Zorvin Brannel Cadrevo Dorvel Ensaro Fermin Galdero
+	}
+	female_names = {
+		Aldrena Berevia Corlisa Dalmena Elvarra Fenlia Garvina Halmira Isovela Jorvana
+		Kelmira Lorvena Merelda Norvia Orlisa Pelmara Quenlia Renvira Selvana Tarmila
+		Ulvaria Venlora Yelmena Zorvela Brannia Cadrena Dorvia Ensela Ferlina Galvira
+	}
+	dynasty_names = {
+		Aguasclaras Remoalto Boyaverde Pesaldia Anclaplata Hielonegro Velasolas Cabodeniebla
+		Mercaduras Orillarga Cuerdafina Faroalbo Redesdoradas Juncoazul Sellodelago Barcazul
+	}
+	lowborn = {
+		Remero Pescador Calafate Cordelero Tejedor Estibador Balsero Portador
+		Sondeador Cantor Faroler Almacenero
+	}
+
+	dialects = {
+		gj_lagunero_dialect = {
+		}
+	}
+}

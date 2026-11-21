@@ -1,0 +1,155 @@
+﻿gj_marea_negra_bandera_izada = {
+	game_data = {
+		category = country
+	}
+
+	amount_looted_modifier = 0.25
+	ship_capture_chance = 0.15
+	diplomatic_reputation = diplomatic_reputation_mild_penalty
+}
+
+gj_marea_negra_conclave = {
+	game_data = {
+		category = country
+	}
+
+	monthly_legitimacy = 0.1
+	naval_morale = 0.05
+}
+
+gj_marea_negra_contrabando_abierto = {
+	game_data = {
+		category = country
+	}
+
+	trade_income = 0.1
+	monthly_legitimacy = -0.05
+}
+
+gj_marea_negra_patente_hostigado = {
+	game_data = {
+		category = country
+	}
+
+	trade_income = -0.15
+	export_efficiency = -0.1
+}
+
+gj_marea_negra_almirante_cauto = {
+	game_data = {
+		category = country
+	}
+
+	navy_maintenance_efficiency = 0.1
+	naval_damage_taken = -0.05
+}
+
+gj_marea_negra_almirante_audaz = {
+	game_data = {
+		category = country
+	}
+
+	naval_damage_done = 0.1
+	naval_damage_taken = 0.05
+}
+
+gj_marea_negra_almirante_tratante = {
+	game_data = {
+		category = country
+	}
+
+	trade_income = 0.08
+	tariff_income = 0.1
+}
+
+gj_marea_negra_mapa_robado = {
+	game_data = {
+		category = country
+	}
+
+	naval_range_modifier = 0.2
+	navy_movement_speed = 0.05
+}
+
+gj_marea_negra_tributo_del_faro = {
+	game_data = {
+		category = country
+	}
+
+	tariff_income = 0.15
+}
+
+gj_marea_negra_noche_de_luces_falsas = {
+	game_data = {
+		category = country
+	}
+
+	amount_looted_modifier = 0.2
+	naval_morale = 0.05
+}
+
+gj_marea_negra_omen_del_mar_dormido = {
+	game_data = {
+		category = country
+	}
+
+	naval_morale = 0.1
+	monthly_legitimacy = 0.05
+}
+
+gj_marea_negra_escuela_de_grumetes = {
+	game_data = {
+		category = country
+	}
+
+	global_sailors_modifier = 0.1
+	navy_tradition_from_battle = 0.1
+}
+
+gj_marea_negra_arsenal_flotante = {
+	game_data = {
+		category = country
+	}
+
+	ship_build_speed = 0.15
+	navy_light_ship_build_cost_modifier = -0.1
+}
+
+gj_marea_negra_amenaza_de_disolucion = {
+	game_data = {
+		category = country
+	}
+
+	monthly_legitimacy = -0.05
+	global_monthly_control = -0.001
+}
+
+gj_marea_negra_hermandad_rota = {
+	game_data = {
+		category = country
+	}
+
+	monthly_legitimacy = -0.2
+	navy_maintenance_efficiency = -0.25
+	global_monthly_control = -0.003
+	stability_cost_efficiency = -0.3
+}
+
+gj_marea_negra_rescate_pagado = {
+	game_data = {
+		category = country
+	}
+
+	monthly_prestige = 0.1
+	trade_income = 0.05
+}
+
+gj_marea_negra_marea_muerta = {
+	game_data = {
+		category = country
+	}
+
+	navy_movement_speed = -0.1
+	navy_maintenance_efficiency = 0.1
+}
+

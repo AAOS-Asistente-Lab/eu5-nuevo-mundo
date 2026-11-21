@@ -1,0 +1,633 @@
+# Eventos de Durnhal. Namespace gj_durnhal.
+namespace = gj_durnhal
+
+gj_durnhal.1 = {
+	type = country_event
+	title = gj_durnhal.1.title
+	desc = gj_durnhal.1.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+		any_owned_location = { gj_durnhal_es_minera = yes }
+	}
+
+	option = {
+		name = gj_durnhal.1.a
+		add_gold = 250
+		gj_durnhal_cambia_inquietud = { valor = 6 }
+		random_owned_location = { limit = { gj_durnhal_es_minera = yes } add_location_modifier = { modifier = gj_durnhal_veta_madre years = 15 mode = add_and_extend } }
+	}
+	option = {
+		name = gj_durnhal.1.b
+		add_prestige = prestige_mild_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+gj_durnhal.2 = {
+	type = country_event
+	title = gj_durnhal.2.title
+	desc = gj_durnhal.2.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.2.a
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_penalty }
+	}
+	option = {
+		name = gj_durnhal.2.b
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_penalty }
+		add_gold = 80
+	}
+	option = {
+		name = gj_durnhal.2.c
+		add_legitimacy = legitimacy_weak_penalty
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_durnhal.3 = {
+	type = country_event
+	title = gj_durnhal.3.title
+	desc = gj_durnhal.3.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.3.a
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = { modifier = gj_durnhal_cantar_de_fragua years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_durnhal.3.b
+		add_gold = 60
+	}
+}
+
+gj_durnhal.4 = {
+	type = country_event
+	title = gj_durnhal.4.title
+	desc = gj_durnhal.4.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+		current_age_or_later = { age = age_1_traditions }
+	}
+
+	option = {
+		name = gj_durnhal.4.a
+		add_country_modifier = { modifier = gj_durnhal_hongueras_enfermas years = 2 mode = add_and_extend }
+		gj_durnhal_cambia_inquietud = { valor = -2 }
+	}
+	option = {
+		name = gj_durnhal.4.b
+		add_gold = -150
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_durnhal.5 = {
+	type = country_event
+	title = gj_durnhal.5.title
+	desc = gj_durnhal.5.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.5.a
+		add_manpower = -2
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_durnhal.5.b
+		add_gold = -100
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_bonus }
+	}
+	option = {
+		name = gj_durnhal.5.c
+		add_gold = -40
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_durnhal.6 = {
+	type = country_event
+	title = gj_durnhal.6.title
+	desc = gj_durnhal.6.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.6.a
+		add_research_progress = research_progress_mild_bonus
+		add_country_modifier = { modifier = gj_durnhal_acero_nuevo years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_durnhal.6.b
+		add_prestige = prestige_weak_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+gj_durnhal.7 = {
+	type = country_event
+	title = gj_durnhal.7.title
+	desc = gj_durnhal.7.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+		has_global_variable = gj_inquietud_caldera
+		global_var:gj_inquietud_caldera >= 25
+		any_owned_location = { gj_durnhal_es_minera = yes }
+	}
+
+	option = {
+		name = gj_durnhal.7.a
+		add_gold = -120
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_bonus }
+		gj_durnhal_cambia_inquietud = { valor = -3 }
+	}
+	option = {
+		name = gj_durnhal.7.b
+		random_owned_location = { limit = { gj_durnhal_es_minera = yes } random_pop = { add_pop_size = { value = pop_size multiply = -0.05 } } add_location_modifier = { modifier = gj_durnhal_derrumbe years = 3 mode = add_and_extend } }
+		gj_durnhal_cambia_inquietud = { valor = -4 }
+	}
+}
+
+gj_durnhal.8 = {
+	type = country_event
+	title = gj_durnhal.8.title
+	desc = gj_durnhal.8.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+		has_global_variable = gj_inquietud_caldera
+		global_var:gj_inquietud_caldera >= 35
+	}
+
+	option = {
+		name = gj_durnhal.8.a
+		add_gold = 300
+		add_research_progress = research_progress_mild_bonus
+		gj_durnhal_cambia_inquietud = { valor = 5 }
+	}
+	option = {
+		name = gj_durnhal.8.b
+		add_prestige = prestige_mild_bonus
+		gj_durnhal_cambia_inquietud = { valor = -2 }
+	}
+}
+
+gj_durnhal.9 = {
+	type = country_event
+	title = gj_durnhal.9.title
+	desc = gj_durnhal.9.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+		has_global_variable = gj_inquietud_caldera
+		global_var:gj_inquietud_caldera >= 55
+	}
+
+	option = {
+		name = gj_durnhal.9.a
+		add_political_influence = political_influence_weak_penalty
+		gj_durnhal_cambia_inquietud = { valor = -8 }
+	}
+	option = {
+		name = gj_durnhal.9.b
+		add_gold = -80
+		add_country_modifier = { modifier = gj_durnhal_obra_en_curso years = 1 mode = add_and_extend }
+	}
+	option = {
+		name = gj_durnhal.9.c
+		gj_durnhal_cambia_inquietud = { valor = 3 }
+		add_gold = 100
+	}
+}
+
+gj_durnhal.10 = {
+	type = country_event
+	title = gj_durnhal.10.title
+	desc = gj_durnhal.10.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+		any_owned_location = { has_building = building_type:gj_durnhal_gran_forja }
+	}
+
+	option = {
+		name = gj_durnhal.10.a
+		add_prestige = prestige_mild_bonus
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_bonus }
+	}
+	option = {
+		name = gj_durnhal.10.b
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_penalty }
+	}
+}
+
+gj_durnhal.11 = {
+	type = country_event
+	title = gj_durnhal.11.title
+	desc = gj_durnhal.11.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.11.a
+		random_owned_location = { limit = { gj_durnhal_es_minera = yes } change_development = development_weak_bonus }
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_bonus }
+		add_gold = -50
+	}
+	option = {
+		name = gj_durnhal.11.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_durnhal.12 = {
+	type = country_event
+	title = gj_durnhal.12.title
+	desc = gj_durnhal.12.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.12.a
+		add_gold = 200
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_bonus }
+	}
+	option = {
+		name = gj_durnhal.12.b
+		add_gold = 120
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+gj_durnhal.13 = {
+	type = country_event
+	title = gj_durnhal.13.title
+	desc = gj_durnhal.13.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.13.a
+		add_gold = -300
+		add_prestige = prestige_severe_bonus
+		add_country_modifier = { modifier = gj_durnhal_catedral_invertida years = 20 mode = add_and_extend }
+	}
+	option = {
+		name = gj_durnhal.13.b
+		add_gold = -120
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_durnhal.13.c
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+gj_durnhal.14 = {
+	type = country_event
+	title = gj_durnhal.14.title
+	desc = gj_durnhal.14.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_durnhal.14.a
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_penalty }
+		add_political_influence = political_influence_weak_bonus
+	}
+	option = {
+		name = gj_durnhal.14.b
+		add_country_modifier = { modifier = gj_durnhal_huelga years = 1 mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+	}
+	option = {
+		name = gj_durnhal.14.c
+		add_gold = -150
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+gj_durnhal.15 = {
+	type = country_event
+	title = gj_durnhal.15.title
+	desc = gj_durnhal.15.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.15.a
+		add_gold = 150
+		add_country_modifier = { modifier = gj_durnhal_contrato_lagunas years = 10 mode = add_and_extend }
+	}
+	option = {
+		name = gj_durnhal.15.b
+		add_gold = 80
+	}
+	option = {
+		name = gj_durnhal.15.c
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+gj_durnhal.16 = {
+	type = country_event
+	title = gj_durnhal.16.title
+	desc = gj_durnhal.16.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_durnhal.16.a
+		add_gold = 250
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_durnhal.16.b
+		add_gold = 400
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_penalty }
+	}
+}
+
+gj_durnhal.17 = {
+	type = country_event
+	title = gj_durnhal.17.title
+	desc = gj_durnhal.17.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+		has_global_variable = gj_inquietud_caldera
+		global_var:gj_inquietud_caldera >= 20
+	}
+
+	option = {
+		name = gj_durnhal.17.a
+		add_legitimacy = legitimacy_mild_bonus
+		gj_durnhal_cambia_inquietud = { valor = -5 }
+		add_gold = -60
+	}
+	option = {
+		name = gj_durnhal.17.b
+		gj_durnhal_cambia_inquietud = { valor = -2 }
+	}
+}
+
+gj_durnhal.18 = {
+	type = country_event
+	title = gj_durnhal.18.title
+	desc = gj_durnhal.18.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.18.a
+		add_stability = stability_weak_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+	}
+	option = {
+		name = gj_durnhal.18.b
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+gj_durnhal.19 = {
+	type = country_event
+	title = gj_durnhal.19.title
+	desc = gj_durnhal.19.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.19.a
+		add_manpower = 3
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_penalty }
+	}
+	option = {
+		name = gj_durnhal.19.b
+		add_stability = stability_weak_penalty
+		add_gold = 40
+	}
+}
+
+gj_durnhal.20 = {
+	type = country_event
+	title = gj_durnhal.20.title
+	desc = gj_durnhal.20.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.20.a
+		add_gold = 150
+		add_prestige = prestige_weak_penalty
+	}
+	option = {
+		name = gj_durnhal.20.b
+		add_prestige = prestige_mild_bonus
+		add_manpower = -1
+	}
+}
+
+gj_durnhal.21 = {
+	type = country_event
+	title = gj_durnhal.21.title
+	desc = gj_durnhal.21.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.21.a
+		capital = { change_development = development_mild_bonus }
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_durnhal.21.b
+		add_research_progress = research_progress_weak_bonus
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+gj_durnhal.22 = {
+	type = country_event
+	title = gj_durnhal.22.title
+	desc = gj_durnhal.22.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.22.a
+		add_gold = -80
+		add_country_modifier = { modifier = gj_durnhal_despensa_llena years = 3 mode = add_and_extend }
+	}
+	option = {
+		name = gj_durnhal.22.b
+		add_gold = 100
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+gj_durnhal.30 = {
+	type = country_event
+	title = gj_durnhal.30.title
+	desc = gj_durnhal.30.desc
+	outcome = negative
+	category = disaster_event
+	orphan = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.30.a
+		gj_durnhal_cambia_inquietud = { valor = -10 }
+		add_gold = -200
+		add_country_modifier = { modifier = gj_durnhal_evacuacion years = 3 mode = add_and_extend }
+	}
+	option = {
+		name = gj_durnhal.30.b
+		add_political_influence = political_influence_mild_penalty
+		gj_durnhal_cambia_inquietud = { valor = -15 }
+	}
+	option = {
+		name = gj_durnhal.30.c
+		gj_durnhal_cambia_inquietud = { valor = 5 }
+		add_gold = 300
+	}
+}
+
+gj_durnhal.31 = {
+	type = country_event
+	title = gj_durnhal.31.title
+	desc = gj_durnhal.31.desc
+	outcome = negative
+	category = disaster_event
+	orphan = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.31.a
+		random_owned_location = { limit = { gj_durnhal_es_minera = yes } random_pop = { add_pop_size = { value = pop_size multiply = -0.08 } } add_location_modifier = { modifier = gj_durnhal_derrumbe years = 5 mode = add_and_extend } }
+		gj_durnhal_cambia_inquietud = { valor = -4 }
+		add_gold = -150
+	}
+}
+
+gj_durnhal.32 = {
+	type = country_event
+	title = gj_durnhal.32.title
+	desc = gj_durnhal.32.desc
+	outcome = negative
+	category = disaster_event
+	orphan = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.32.a
+		gj_durnhal_cambia_inquietud = { valor = -10 }
+		add_prestige = prestige_weak_penalty
+		add_country_modifier = { modifier = gj_durnhal_galerias_selladas years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_durnhal.32.b
+		add_manpower = -3
+		gj_durnhal_cambia_inquietud = { valor = -6 }
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+gj_durnhal.33 = {
+	type = country_event
+	title = gj_durnhal.33.title
+	desc = gj_durnhal.33.desc
+	outcome = negative
+	category = disaster_event
+	orphan = yes
+
+	trigger = {
+		gj_es_durnhal = yes
+	}
+
+	option = {
+		name = gj_durnhal.33.a
+		add_prestige = prestige_mild_bonus
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}
+

@@ -1,0 +1,42 @@
+# Estados del mar segun el Poder de Rito (rite_power).
+# [a probar] la escala del Poder de Rito en el motor: se asume de 0 a 100, como la pureza.
+
+# Poder de Rito por encima de 60: el mar duerme hondo. Escala hasta 100.
+gj_mar_calma_honda = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_mar_dormido
+	}
+	limit = {
+		rite_power > 60
+	}
+	scales_with = {
+		value = rite_power
+		subtract = 60
+		multiply = 0.025
+	}
+
+	naval_unit_attrition = -0.2
+	global_fish_output_modifier = 0.15
+	monthly_legitimacy = 0.05
+}
+
+# Poder de Rito por debajo de 25: el sueno se agita. Escala hasta 0.
+gj_mar_sueno_inquieto = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_mar_dormido
+	}
+	limit = {
+		rite_power < 25
+	}
+	scales_with = {
+		value = rite_power
+		multiply = -0.04
+		add = 1
+	}
+
+	naval_unit_attrition = 0.25
+	naval_morale_modifier = -0.1
+	global_fish_output_modifier = -0.1
+}

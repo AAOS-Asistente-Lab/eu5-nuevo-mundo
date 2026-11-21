@@ -1,0 +1,24 @@
+﻿gj_mareano = {
+	language = gj_marea_negra_dialecto
+	color = rgb { 24 52 78 }
+	tags = { mediterranean_gfx european_gfx }
+
+	country_modifier = {
+		global_sailors_modifier = 0.1
+		naval_morale = 0.03
+	}
+
+	location_modifier = {
+		local_sailors_modifier = 0.1
+		local_ship_build_speed = 0.1
+	}
+
+	character_modifier = {
+		dip = 1
+		character_cabinet_efficiency = 0.05
+	}
+
+	culture_groups = {
+		gj_grupo_sorava
+	}
+}

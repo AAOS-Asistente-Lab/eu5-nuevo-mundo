@@ -1,0 +1,27 @@
+﻿gj_lagunas_language = {
+	color = map_gj_lagunero
+
+	male_names = {
+		gj_n_aldrec gj_n_berenvar gj_n_corvan gj_n_dalmer gj_n_eskarin gj_n_fendrel gj_n_garvo gj_n_halmer gj_n_isvaldo gj_n_jorvan
+		gj_n_kelmar gj_n_lorvic gj_n_merenvil gj_n_nordal gj_n_orvelin gj_n_pelmar gj_n_quervo gj_n_rendal gj_n_sovaren gj_n_tarmeo
+		gj_n_ulvaro gj_n_venrik gj_n_yelmar gj_n_zorvin gj_n_brannel gj_n_cadrevo gj_n_dorvel gj_n_ensaro Fermin gj_n_galdero
+	}
+	female_names = {
+		gj_n_aldrena gj_n_berevia gj_n_corlisa gj_n_dalmena gj_n_elvarra gj_n_fenlia gj_n_garvina gj_n_halmira gj_n_isovela gj_n_jorvana
+		gj_n_kelmira gj_n_lorvena gj_n_merelda gj_n_norvia gj_n_orlisa gj_n_pelmara gj_n_quenlia gj_n_renvira gj_n_selvana gj_n_tarmila
+		gj_n_ulvaria gj_n_venlora gj_n_yelmena gj_n_zorvela gj_n_brannia gj_n_cadrena gj_n_dorvia gj_n_ensela gj_n_ferlina gj_n_galvira
+	}
+	dynasty_names = {
+		gj_n_aguasclaras gj_n_remoalto gj_n_boyaverde gj_n_pesaldia gj_n_anclaplata gj_n_hielonegro gj_n_velasolas gj_n_cabodeniebla
+		gj_n_mercaduras gj_n_orillarga gj_n_cuerdafina gj_n_faroalbo gj_n_redesdoradas gj_n_juncoazul gj_n_sellodelago gj_n_barcazul
+	}
+	lowborn = {
+		gj_n_remero gj_n_pescador gj_n_calafate gj_n_cordelero gj_n_tejedor gj_n_estibador gj_n_balsero gj_n_portador
+		gj_n_sondeador gj_n_cantor gj_n_faroler gj_n_almacenero
+	}
+
+	dialects = {
+		gj_lagunero_dialect = {
+		}
+	}
+}

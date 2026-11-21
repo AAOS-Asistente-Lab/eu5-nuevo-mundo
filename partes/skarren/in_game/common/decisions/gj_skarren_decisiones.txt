@@ -1,0 +1,141 @@
+﻿gj_skarren_incursion = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_skarren = yes
+	}
+
+	allow = {
+		any_neighbor_country = { is_subject = no }
+		NOT = { has_variable = gj_skarren_incursion_enfriamiento }
+	}
+
+	ai_will_do = { value = 60 }
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_skarren_incursion.a
+		ai_chance = { value = 100 }
+		effect = {
+			random_neighbor_country = {
+				limit = { is_subject = no }
+				save_scope_as = gj_victima
+				add_country_modifier = { modifier = gj_skarren_costa_saqueada years = 5 mode = add_and_extend }
+			}
+			change_gold_effect = { scale = 3 }
+			add_prestige = prestige_weak_bonus
+			set_variable = { name = gj_skarren_botin_reciente value = yes years = 6 }
+			set_variable = { name = gj_skarren_incursion_enfriamiento value = yes years = 2 }
+			gj_skarren_suma_gloria = { N = 3 }
+		}
+	}
+}
+
+gj_skarren_gran_incursion = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_skarren = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	allow = {
+		any_neighbor_country = { is_subject = no }
+		has_variable = gj_skarren_gloria
+		var:gj_skarren_gloria >= 25
+		NOT = { has_variable = gj_skarren_gran_enfriamiento }
+	}
+
+	ai_will_do = { value = 40 }
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_skarren_gran_incursion.a
+		ai_chance = { value = 100 }
+		effect = {
+			random_neighbor_country = {
+				limit = { is_subject = no }
+				save_scope_as = gj_victima
+				add_country_modifier = { modifier = gj_skarren_costa_saqueada years = 10 mode = add_and_extend }
+			}
+			change_gold_effect = { scale = 10 }
+			add_prestige = prestige_mild_bonus
+			add_navy_tradition = navy_tradition_mild_bonus
+			set_variable = { name = gj_skarren_botin_reciente value = yes years = 8 }
+			set_variable = { name = gj_skarren_gran_enfriamiento value = yes years = 8 }
+			gj_skarren_suma_gloria = { N = 8 }
+		}
+	}
+}
+
+gj_skarren_banquete = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_skarren = yes
+	}
+
+	allow = {
+		gold >= 20
+	}
+
+	ai_will_do = { value = 50 }
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_skarren_banquete.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -6 }
+			add_country_modifier = { modifier = gj_skarren_banquete_largo years = 6 mode = add_and_extend }
+			set_variable = { name = gj_skarren_botin_reciente value = yes years = 4 }
+			if = {
+				limit = { has_country_modifier = gj_skarren_senores_inquietos }
+				remove_country_modifier = gj_skarren_senores_inquietos
+			}
+		}
+	}
+}
+
+gj_skarren_encargar_saga = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_skarren = yes
+	}
+
+	allow = {
+		has_variable = gj_skarren_gloria
+		var:gj_skarren_gloria >= 10
+		NOT = { has_variable = gj_skarren_saga_encargada }
+	}
+
+	ai_will_do = { value = 30 }
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_skarren_encargar_saga.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			set_variable = { name = gj_skarren_saga_encargada value = yes years = 10 }
+			trigger_event_non_silently = { id = gj_skarren.10 }
+		}
+	}
+}

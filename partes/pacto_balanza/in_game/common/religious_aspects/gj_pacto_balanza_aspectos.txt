@@ -1,0 +1,52 @@
+﻿# Aspectos elegibles del Pacto de la Balanza (religious_aspects = 2 en la religion).
+
+gj_pacto_aspecto_escribanos_cuenta = {
+	icon = religious_aspect_folk_yellow
+	religion = gj_pacto_balanza
+
+	modifier = {
+		global_merchant_power = 0.1
+		merchant_maintenance_efficiency = 0.1
+		burghers_estate_max_tax = 0.05
+	}
+}
+
+gj_pacto_aspecto_peso_justo = {
+	icon = religious_aspect_folk_blue
+	religion = gj_pacto_balanza
+
+	modifier = {
+		global_estate_target_satisfaction = small_permanent_target_satisfaction
+		subject_loyalty = 0.1
+	}
+}
+
+gj_pacto_aspecto_juramento_sal = {
+	icon = religious_aspect_folk_red
+	religion = gj_pacto_balanza
+
+	enabled = {
+		NOT = { has_religious_aspect = religious_aspect:gj_pacto_aspecto_mano_abierta }
+	}
+
+	modifier = {
+		land_morale_modifier = 0.05
+		global_defensive = 0.1
+		prestige_from_land_battle = 0.1
+	}
+}
+
+gj_pacto_aspecto_mano_abierta = {
+	icon = religious_aspect_folk_green
+	religion = gj_pacto_balanza
+
+	enabled = {
+		NOT = { has_religious_aspect = religious_aspect:gj_pacto_aspecto_juramento_sal }
+	}
+
+	modifier = {
+		global_migration_attraction = 0.1
+		tolerance_heretic = 1
+		diplomatic_capacity_modifier = 0.1
+	}
+}

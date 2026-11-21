@@ -1,0 +1,45 @@
+﻿gj_velathi_language = {
+	color = gj_map_velathi_language
+
+	family = gj_velathi_language_family
+
+	male_names = {
+		gj_n_aurhen gj_n_tevilan gj_n_sorhai gj_n_ilvaren gj_n_maelith gj_n_orhavel gj_n_quevaren gj_n_halvethin gj_n_erudan gj_n_tirelan
+		gj_n_vaelor gj_n_nimvaren gj_n_bruhen gj_n_calithor gj_n_dovaren gj_n_faelun gj_n_gwelith gj_n_ithurel gj_n_jorhaven gj_n_kerelin
+		gj_n_lorvaen gj_n_marhelin gj_n_nurahel gj_n_othalen gj_n_pirohan gj_n_rhuvael gj_n_sarhindel gj_n_talvoren gj_n_urvelan gj_n_wyndorel
+	}
+	female_names = {
+		gj_n_aivandra gj_n_belheira gj_n_caelume gj_n_dorhiel gj_n_elvaine gj_n_fenhira gj_n_galhivane gj_n_hirvane gj_n_isolhe gj_n_jarunel
+		gj_n_kithiara gj_n_liravel gj_n_mirhaen gj_n_nuvelle gj_n_orlheia gj_n_peribel gj_n_quilhane gj_n_rhosanel gj_n_sylvara gj_n_thaleine
+		gj_n_ulvaine gj_n_verhuna gj_n_wenhiel gj_n_ysolvane gj_n_zarhelie
+	}
+	dynasty_names = {
+		gj_n_casadehojas gj_n_raizdeoro gj_n_altacopa gj_n_savianegra gj_n_tejoviejo gj_n_musgoclaro gj_n_brotenuevo gj_n_cortezaazul
+		gj_n_hondalumbre gj_n_lluviafina gj_n_sombrapaciente gj_n_vientodulce gj_n_cenizablanca gj_n_mielvieja gj_n_fresnoalto
+	}
+	lowborn = {
+		gj_n_hojarasca gj_n_brote gj_n_musgo gj_n_resina gj_n_corteza gj_n_raicilla Rocio gj_n_helecho gj_n_bellota gj_n_ortiga
+	}
+
+	dialects = {
+		gj_velathi_dialect = {
+			male_names = {
+				gj_n_aurhen gj_n_tevilan gj_n_sorhai gj_n_ilvaren gj_n_maelith gj_n_orhavel gj_n_quevaren gj_n_halvethin gj_n_erudan gj_n_tirelan
+				gj_n_vaelor gj_n_nimvaren gj_n_bruhen gj_n_calithor gj_n_dovaren gj_n_faelun gj_n_gwelith gj_n_ithurel gj_n_jorhaven gj_n_kerelin
+				gj_n_lorvaen gj_n_marhelin gj_n_nurahel gj_n_othalen gj_n_pirohan gj_n_rhuvael gj_n_sarhindel gj_n_talvoren gj_n_urvelan gj_n_wyndorel
+			}
+			female_names = {
+				gj_n_aivandra gj_n_belheira gj_n_caelume gj_n_dorhiel gj_n_elvaine gj_n_fenhira gj_n_galhivane gj_n_hirvane gj_n_isolhe gj_n_jarunel
+				gj_n_kithiara gj_n_liravel gj_n_mirhaen gj_n_nuvelle gj_n_orlheia gj_n_peribel gj_n_quilhane gj_n_rhosanel gj_n_sylvara gj_n_thaleine
+				gj_n_ulvaine gj_n_verhuna gj_n_wenhiel gj_n_ysolvane gj_n_zarhelie
+			}
+			dynasty_names = {
+				gj_n_casadehojas gj_n_raizdeoro gj_n_altacopa gj_n_savianegra gj_n_tejoviejo gj_n_musgoclaro gj_n_brotenuevo gj_n_cortezaazul
+				gj_n_hondalumbre gj_n_lluviafina gj_n_sombrapaciente gj_n_vientodulce gj_n_cenizablanca gj_n_mielvieja gj_n_fresnoalto
+			}
+			lowborn = {
+				gj_n_hojarasca gj_n_brote gj_n_musgo gj_n_resina gj_n_corteza gj_n_raicilla Rocio gj_n_helecho gj_n_bellota gj_n_ortiga
+			}
+		}
+	}
+}

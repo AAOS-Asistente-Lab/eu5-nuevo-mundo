@@ -1,0 +1,386 @@
+﻿namespace = gj_espiritus_lago
+
+# .1  La lectura del hielo (anual, se elige como leer el presagio del ano)
+# .2  El lago que no se hiela
+# .3  El pez de plata
+# .4  La voz bajo el hielo
+# .5  La procesion de las barcas
+# .6  Niebla en la orilla
+# .7  El canto del primer deshielo
+# .8  Cuervos en el mastil
+# .9  La disputa de los lectores
+# .10 El Gran Presagio (a la quinta lectura)
+# .11 El cielo sobre el lago (cometas y eclipses, via gj_espiritus_lago_lee_presagio)
+
+gj_espiritus_lago.1 = {
+	type = country_event
+	title = gj_espiritus_lago.1.title
+	desc = gj_espiritus_lago.1.desc
+	outcome = neutral
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		gj_espiritus_lago_tiene_lectura_activa = no
+	}
+
+	option = {
+		name = gj_espiritus_lago.1.a
+		if = {
+			limit = { gj_espiritus_lago_es_barquero = yes }
+			add_country_modifier = { modifier = gj_espiritus_lago_lectura_mercaderes years = 8 mode = add_and_extend }
+		}
+		else = {
+			add_country_modifier = { modifier = gj_espiritus_lago_lectura_mercaderes years = 4 mode = add_and_extend }
+		}
+		gj_espiritus_lago_registra_lectura = yes
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = 3
+				gj_espiritus_lago_es_barquero = yes
+			}
+		}
+	}
+
+	option = {
+		name = gj_espiritus_lago.1.b
+		if = {
+			limit = { gj_espiritus_lago_es_saga = yes }
+			add_country_modifier = { modifier = gj_espiritus_lago_lectura_incursion years = 8 mode = add_and_extend }
+		}
+		else = {
+			add_country_modifier = { modifier = gj_espiritus_lago_lectura_incursion years = 4 mode = add_and_extend }
+		}
+		gj_espiritus_lago_registra_lectura = yes
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = 3
+				gj_espiritus_lago_es_saga = yes
+			}
+		}
+	}
+
+	option = {
+		name = gj_espiritus_lago.1.c
+		add_country_modifier = { modifier = gj_espiritus_lago_lectura_prudencia years = 5 mode = add_and_extend }
+		gj_espiritus_lago_registra_lectura = yes
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+gj_espiritus_lago.2 = {
+	type = country_event
+	title = gj_espiritus_lago.2.title
+	desc = gj_espiritus_lago.2.desc
+	outcome = negative
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		NOT = { has_country_modifier = gj_espiritus_lago_aguas_sin_hielo }
+	}
+
+	option = {
+		name = gj_espiritus_lago.2.a
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_espiritus_lago_ofrenda_aceptada years = 10 mode = add_and_extend }
+		gj_espiritus_lago_registra_lectura = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.2.b
+		add_country_modifier = { modifier = gj_espiritus_lago_aguas_sin_hielo years = 5 mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = gj_espiritus_lago.2.c
+		trigger = {
+			gj_espiritus_lago_es_barquero = yes
+		}
+		change_gold_effect = { scale = 1 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_bonus }
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+gj_espiritus_lago.3 = {
+	type = country_event
+	title = gj_espiritus_lago.3.title
+	desc = gj_espiritus_lago.3.desc
+	outcome = positive
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		NOT = { has_country_modifier = gj_espiritus_lago_pez_de_plata }
+	}
+
+	option = {
+		name = gj_espiritus_lago.3.a
+		add_country_modifier = { modifier = gj_espiritus_lago_pez_de_plata years = 8 mode = add_and_extend }
+		add_legitimacy = legitimacy_mild_bonus
+		gj_espiritus_lago_registra_lectura = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.3.b
+		change_gold_effect = { scale = 3 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = gj_espiritus_lago.3.c
+		trigger = {
+			gj_espiritus_lago_es_saga = yes
+		}
+		add_prestige = prestige_mild_bonus
+		add_army_tradition = army_tradition_mild_bonus
+		gj_espiritus_lago_registra_lectura = yes
+	}
+}
+
+gj_espiritus_lago.4 = {
+	type = country_event
+	title = gj_espiritus_lago.4.title
+	desc = gj_espiritus_lago.4.desc
+	outcome = neutral
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		NOT = { has_country_modifier = gj_espiritus_lago_voz_oida }
+	}
+
+	option = {
+		name = gj_espiritus_lago.4.a
+		add_country_modifier = { modifier = gj_espiritus_lago_voz_oida years = 10 mode = add_and_extend }
+		gj_espiritus_lago_registra_lectura = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.4.b
+		add_research_progress = research_progress_mild_bonus
+		add_legitimacy = legitimacy_weak_penalty
+	}
+
+	option = {
+		name = gj_espiritus_lago.4.c
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_espiritus_lago.5 = {
+	type = country_event
+	title = gj_espiritus_lago.5.title
+	desc = gj_espiritus_lago.5.desc
+	outcome = positive
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		NOT = { has_country_modifier = gj_espiritus_lago_procesion_de_barcas }
+	}
+
+	option = {
+		name = gj_espiritus_lago.5.a
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_espiritus_lago_procesion_de_barcas years = 4 mode = add_and_extend }
+		add_stability = stability_mild_bonus
+	}
+
+	option = {
+		name = gj_espiritus_lago.5.b
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_penalty }
+	}
+}
+
+gj_espiritus_lago.6 = {
+	type = country_event
+	title = gj_espiritus_lago.6.title
+	desc = gj_espiritus_lago.6.desc
+	outcome = neutral
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		NOT = { has_country_modifier = gj_espiritus_lago_niebla_propicia }
+	}
+
+	option = {
+		name = gj_espiritus_lago.6.a
+		random_list = {
+			60 = {
+				add_country_modifier = { modifier = gj_espiritus_lago_niebla_propicia years = 5 mode = add_and_extend }
+				change_gold_effect = { scale = 2 }
+			}
+			40 = {
+				change_gold_effect = { scale = -2 }
+				add_navy_tradition = navy_tradition_weak_penalty
+			}
+		}
+		gj_espiritus_lago_registra_lectura = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.6.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_espiritus_lago.7 = {
+	type = country_event
+	title = gj_espiritus_lago.7.title
+	desc = gj_espiritus_lago.7.desc
+	outcome = positive
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		NOT = { has_country_modifier = gj_espiritus_lago_primer_deshielo }
+	}
+
+	option = {
+		name = gj_espiritus_lago.7.a
+		add_country_modifier = { modifier = gj_espiritus_lago_primer_deshielo years = 5 mode = add_and_extend }
+		gj_espiritus_lago_registra_lectura = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.7.b
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+gj_espiritus_lago.8 = {
+	type = country_event
+	title = gj_espiritus_lago.8.title
+	desc = gj_espiritus_lago.8.desc
+	outcome = neutral
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		NOT = { has_country_modifier = gj_espiritus_lago_cuervos_prevenidos }
+	}
+
+	option = {
+		name = gj_espiritus_lago.8.a
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_espiritus_lago_cuervos_prevenidos years = 5 mode = add_and_extend }
+		add_navy_tradition = navy_tradition_mild_bonus
+		gj_espiritus_lago_registra_lectura = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.8.b
+		add_prestige = prestige_weak_penalty
+		add_stability = stability_weak_bonus
+	}
+
+	option = {
+		name = gj_espiritus_lago.8.c
+		trigger = {
+			gj_espiritus_lago_es_saga = yes
+		}
+		add_navy_tradition = navy_tradition_severe_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_penalty }
+		gj_espiritus_lago_registra_lectura = yes
+	}
+}
+
+gj_espiritus_lago.9 = {
+	type = country_event
+	title = gj_espiritus_lago.9.title
+	desc = gj_espiritus_lago.9.desc
+	outcome = negative
+	fire_only_once = yes
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+		NOT = { has_country_modifier = gj_espiritus_lago_cisma_de_lectores }
+	}
+
+	option = {
+		name = gj_espiritus_lago.9.a
+		set_religious_school = religious_school:gj_escuela_barqueros
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_penalty }
+	}
+
+	option = {
+		name = gj_espiritus_lago.9.b
+		set_religious_school = religious_school:gj_escuela_sagas
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_penalty }
+	}
+
+	option = {
+		name = gj_espiritus_lago.9.c
+		add_country_modifier = { modifier = gj_espiritus_lago_cisma_de_lectores years = 5 mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+gj_espiritus_lago.10 = {
+	type = country_event
+	title = gj_espiritus_lago.10.title
+	desc = gj_espiritus_lago.10.desc
+	outcome = positive
+	fire_only_once = yes
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.10.a
+		add_country_modifier = { modifier = gj_espiritus_lago_vidente_mayor years = 50 mode = add_and_extend }
+		add_prestige = prestige_severe_bonus
+	}
+
+	option = {
+		name = gj_espiritus_lago.10.b
+		add_legitimacy = legitimacy_severe_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+gj_espiritus_lago.11 = {
+	type = country_event
+	title = gj_espiritus_lago.11.title
+	desc = gj_espiritus_lago.11.desc
+	outcome = neutral
+
+	trigger = {
+		gj_espiritus_lago_es_creyente = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.11.a
+		add_country_modifier = { modifier = gj_espiritus_lago_presagio_propicio years = 5 mode = add_and_extend }
+		gj_espiritus_lago_registra_lectura = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.11.b
+		add_country_modifier = { modifier = gj_espiritus_lago_presagio_funesto years = 5 mode = add_and_extend }
+		add_stability = stability_mild_bonus
+		gj_espiritus_lago_registra_lectura = yes
+	}
+
+	option = {
+		name = gj_espiritus_lago.11.c
+		if = {
+			limit = { gj_espiritus_lago_es_barquero = yes }
+			add_country_modifier = { modifier = gj_espiritus_lago_lectura_mercaderes years = 6 mode = add_and_extend }
+		}
+		else_if = {
+			limit = { gj_espiritus_lago_es_saga = yes }
+			add_country_modifier = { modifier = gj_espiritus_lago_lectura_incursion years = 6 mode = add_and_extend }
+		}
+		else = {
+			add_country_modifier = { modifier = gj_espiritus_lago_lectura_prudencia years = 6 mode = add_and_extend }
+		}
+		gj_espiritus_lago_registra_lectura = yes
+	}
+}

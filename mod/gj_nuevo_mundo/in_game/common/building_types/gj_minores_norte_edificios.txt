@@ -1,0 +1,85 @@
+﻿# Edificios compartidos de los menores del norte.
+# Equilibrio: un solo nivel, solo en ciudades o mas, y solo en ubicaciones de su cultura dominante.
+
+# Lonja de Pesas: la casa donde se pesa, se sella y se firma el comercio de una ciudad-estado.
+gj_minores_norte_lonja_de_pesas = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = 1
+
+	employment_size = estate_burgher_employment
+
+	category = cultural_category
+
+	rural_settlement = no
+	town = no
+	city = yes
+	megalopolis = yes
+
+	estate = burghers_estate
+
+	location_potential = {
+		gj_minores_norte_ubicacion_ciudad_estado = yes
+	}
+	country_potential = {
+		gj_minores_norte_menor_ciudad_estado = yes
+	}
+	allow = {
+	}
+
+	build_time = guild_build_time
+
+	modifier = {
+		local_trades_per_burgher = 0.1
+		local_burghers_max_literacy = 5
+	}
+
+	possible_production_methods = {
+		estate_building_input
+	}
+	construction_demand = library_construction
+}
+
+# Atalaya de Marca: torre de fuego y de aviso en un paso o en un cerro.
+gj_minores_norte_atalaya_de_marca = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = nobles
+	max_levels = 1
+
+	employment_size = castle_employment
+
+	category = defense_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = no
+
+	estate = nobles_estate
+
+	location_potential = {
+		gj_minores_norte_ubicacion_marca = yes
+	}
+	country_potential = {
+		gj_minores_norte_menor_marca = yes
+	}
+	allow = {
+	}
+
+	build_time = guild_build_time
+
+	modifier = {
+		local_defensive = 0.1
+		local_garrison_size = 0.1
+		local_hostile_attrition = 0.25
+	}
+
+	possible_production_methods = {
+		estate_building_input
+	}
+	construction_demand = library_construction
+}

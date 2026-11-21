@@ -1,0 +1,86 @@
+﻿# La Liga de la Sal y la Llama: los paises del norte guardan juntos los pasos contra la Corte Insepulta.
+# Ninguna otra parte debe redefinirla: la usan escarcha_silente y mundo_bestias.
+gj_liga_sal_llama = {
+	has_target = no
+	unique = yes
+	expel_members_who_are_targets_of_other_members = yes
+	expel_members_who_are_attackers_at_war_with_other_members = yes
+	show_on_diplomatic_map = yes
+
+	create_visible_trigger = {
+		is_subject = no
+		gj_zona_norte = yes
+		NOT = { gj_es_hrimval = yes }
+	}
+
+	invite_visible_trigger = {
+		always = yes
+	}
+
+	laws = {
+		mutual_defense_law = possible_defense_policy
+	}
+
+	can_declare_war = {
+		trigger_if = {
+			limit = { scope:attacker ?= { is_member_of_international_organization = scope:recipient } }
+			scope:defender ?= { NOT = { is_member_of_international_organization = scope:recipient } }
+		}
+		trigger_else = {
+			always = yes
+		}
+	}
+
+	modifier = {
+		land_morale_modifier = 0.03
+		fort_maintenance_efficiency = 0.10
+		army_tradition_from_battle = 0.05
+	}
+
+	can_join_trigger = {
+		is_subject = no
+		is_rebel_country = no
+		gj_zona_norte = yes
+		NOT = { gj_es_hrimval = yes }
+		NOT = {
+			is_member_of_international_organization_of_type = {
+				type = gj_liga_sal_llama
+			}
+		}
+	}
+
+	can_leave_trigger = {
+	}
+
+	auto_leave_trigger = {
+		OR = {
+			is_subject = yes
+			is_rebel_country = yes
+			gj_es_hrimval = yes
+		}
+	}
+
+	auto_disband_trigger = {
+		total_members < 2
+	}
+
+	on_joined = {
+	}
+
+	on_left = {
+	}
+
+	ai_desire_to_join = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 20
+		}
+	}
+
+	ai_desire_to_allow_new_member = {
+		add = {
+			desc = "WE_WANT_THE_ORGANIZATION_TO_GROW"
+			value = 20
+		}
+	}
+}

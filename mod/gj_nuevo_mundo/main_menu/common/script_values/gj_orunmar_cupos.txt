@@ -1,0 +1,37 @@
+﻿# Cupos de las unidades propias de Orunmar (main_menu: se cargan con las unidades)
+gj_orunmar_limite_captura = {
+    value = {
+        value = 6
+        desc = "SUBUNIT_LIMIT_BASE"
+    }
+    add = {
+        desc = "EFFECTIVE_GJ_ORUNMAR_ESCALINATA"
+        add = total_effective_building_levels:gj_orunmar_escalinata_ofrendas
+    }
+    add = {
+        desc = "EFFECTIVE_GJ_ORUNMAR_CASA_CAUTIVOS"
+        add = total_effective_building_levels:gj_orunmar_casa_de_cautivos
+    }
+}
+
+gj_orunmar_limite_cazador = {
+    value = {
+        value = 6
+        desc = "SUBUNIT_LIMIT_BASE"
+    }
+    add = {
+        desc = "EFFECTIVE_GJ_ORUNMAR_ATALAYA"
+        add = total_effective_building_levels:gj_orunmar_atalaya_de_la_niebla
+    }
+}
+
+gj_orunmar_limite_porteador = {
+    value = {
+        value = 4
+        desc = "SUBUNIT_LIMIT_BASE"
+    }
+    add = {
+        desc = "EFFECTIVE_GJ_ORUNMAR_CASA_CAUTIVOS"
+        add = total_effective_building_levels:gj_orunmar_casa_de_cautivos
+    }
+}

@@ -1,0 +1,27 @@
+# Reformas de gobierno unicas de Durnhal
+
+gj_durnhal_mancomunidad_de_casas = {
+	unique = yes
+	age = age_2_renaissance
+	potential = { gj_es_durnhal = yes }
+	allow = { }
+	country_modifier = {
+		global_burghers_estate_power = 0.1
+		global_production_efficiency = 0.03
+		stability_cost_efficiency = 0.1
+	}
+	years = 1
+}
+
+gj_durnhal_concilio_de_capataces = {
+	unique = yes
+	age = age_4_reformation
+	potential = { gj_es_durnhal = yes }
+	allow = { }
+	country_modifier = {
+		global_laborers_desired_pop = 0.1
+		building_upkeep_efficiency = 0.1
+	}
+	years = 1
+}
+

@@ -1,0 +1,151 @@
+﻿##############################################################
+# THALASSAR: modificadores con nombre (eventos, decisiones y fases)
+##############################################################
+
+############ Fases de la Ciudad Hundida: pais (permanentes) ############
+gj_thal_fase_1_pais = {
+	game_data = { category = country }
+	monthly_prestige = 0.05
+}
+gj_thal_fase_2_pais = {
+	game_data = { category = country }
+	global_sailors_modifier = 0.05
+	global_pearls_output_modifier = 0.05
+}
+gj_thal_fase_3_pais = {
+	game_data = { category = country }
+	trade_income = 0.05
+	global_merchant_capacity_modifier = 0.05
+}
+gj_thal_fase_4_pais = {
+	game_data = { category = country }
+	research_speed_modifier = 0.05
+	monthly_legitimacy = 0.03
+}
+gj_thal_fase_5_pais = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.05
+	monthly_prestige = 0.1
+	diplomatic_reputation = diplomatic_reputation_mild_bonus
+}
+
+############ Fases de la Ciudad Hundida: location (capital) ############
+gj_thal_fase_1_barrio = {
+	game_data = { category = location }
+	local_max_literacy = 5
+	local_cultural_influence = 0.1
+	local_migration_attraction = 0.1
+}
+gj_thal_fase_2_barrio = {
+	game_data = { category = location }
+	local_pearls_output_modifier = 0.2
+	local_sailors = 0.03
+	harbor_suitability = 0.1
+}
+gj_thal_fase_3_barrio = {
+	game_data = { category = location }
+	local_trade_center_power = 0.15
+	local_migration_attraction = 0.1
+}
+gj_thal_fase_4_barrio = {
+	game_data = { category = location }
+	local_institution_growth_modifier = 0.3
+	local_monthly_literacy = 0.1
+}
+gj_thal_fase_5_barrio = {
+	game_data = { category = location }
+	local_max_literacy = 10
+	local_cultural_influence = 0.3
+	local_monthly_development = 0.01
+}
+
+############ Eventos ############
+gj_thal_festival_conchas = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.05
+	monthly_prestige = 0.05
+}
+gj_thal_perla_negra = {
+	game_data = { category = country }
+	global_pearls_output_modifier = 0.25
+}
+gj_thal_mareas_vivas = {
+	game_data = { category = country }
+	naval_range_modifier = -0.1
+	navy_maintenance_efficiency = -0.1
+}
+gj_thal_cartografos_abismo = {
+	game_data = { category = country }
+	exploration_mission_speed_modifier = 0.3
+}
+gj_thal_embajada_estrecho = {
+	game_data = { category = country }
+	trade_sea_efficiency = small_trade_sea_efficiency_bonus
+	global_merchant_capacity_modifier = 0.1
+}
+gj_thal_algas_rojas = {
+	game_data = { category = country }
+	global_fish_output_modifier = -0.2
+}
+gj_thal_cantores_favor = {
+	game_data = { category = country }
+	global_monthly_literacy = 0.01
+	monthly_prestige = 0.05
+}
+gj_thal_sirena_favor = {
+	game_data = { category = country }
+	naval_morale_modifier = 0.15
+}
+gj_thal_sirena_enojada = {
+	game_data = { category = country }
+	naval_morale_modifier = -0.1
+	global_sailors_modifier = -0.05
+}
+gj_thal_linaje_roto = {
+	game_data = { category = country }
+	monthly_legitimacy = -0.05
+}
+gj_thal_calafates = {
+	game_data = { category = country }
+	ship_build_speed = 0.3
+	navy_galley_build_cost_modifier = -0.1
+}
+gj_thal_marea_muerta = {
+	game_data = { category = country }
+	trade_sea_efficiency = -0.1
+	global_fish_output_modifier = -0.1
+}
+gj_thal_refugiados = {
+	game_data = { category = country }
+	global_population_growth = 0.001
+	global_migration_speed_modifier = 0.1
+}
+gj_thal_jubileo = {
+	game_data = { category = country }
+	monthly_prestige = 0.1
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+gj_thal_arsenal_despierto = {
+	game_data = { category = country }
+	navy_light_ship_power = 0.1
+	navy_galley_power = 0.1
+}
+gj_thal_mareas_de_oro = {
+	game_data = { category = country }
+	trade_income = 0.1
+	tax_income_efficiency = small_tax_income_efficiency_bonus
+}
+gj_thal_cosecha_cristal = {
+	game_data = { category = country }
+	global_gems_output_modifier = 0.1
+}
+gj_thal_corsarios_pagados = {
+	game_data = { category = country }
+	ship_capture_chance = 0.1
+	trade_income = -0.05
+}
+gj_thal_concilio_mareas = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.1
+	global_nobles_estate_power = -0.05
+}

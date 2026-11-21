@@ -1,0 +1,26 @@
+﻿gj_minores_sur_lonja_mantenimiento = {
+	icon_type = building_type
+	icon = funduq
+	paper = 0.1
+	masonry = 0.05
+
+	category = building_maintenance
+}
+
+gj_minores_sur_palafito_mantenimiento = {
+	icon_type = building_type
+	icon = fishing_village
+	lumber = 0.1
+	fish = 0.05
+
+	category = building_maintenance
+}
+
+gj_minores_sur_torre_mantenimiento = {
+	icon_type = building_type
+	icon = sofa_stockade
+	masonry = 0.1
+	weaponry = 0.03
+
+	category = building_maintenance
+}

@@ -1,0 +1,143 @@
+﻿gj_marea_negra_cuchilla = {
+	is_special = yes
+	buildable = yes
+	copy_from = a_age_1_traditions_light_infantry
+	upgrades_to_only = gj_marea_negra_abordador
+	family = gj_marea_negra_abordadores
+
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+
+	combat = {
+		coastal = 0.15
+		inland = -0.15
+	}
+
+	age = "age_1_traditions"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+
+	gfx_tags = { light_tag }
+}
+
+gj_marea_negra_abordador = {
+	is_special = yes
+	buildable = yes
+	copy_from = a_age_2_renaissance_light_infantry
+	upgrades_to_only = gj_marea_negra_arcabucero
+	family = gj_marea_negra_abordadores
+
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+
+	combat = {
+		coastal = 0.15
+		inland = -0.15
+	}
+
+	age = "age_2_renaissance"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+
+	gfx_tags = { light_tag }
+}
+
+gj_marea_negra_arcabucero = {
+	is_special = yes
+	buildable = yes
+	copy_from = a_age_3_discovery_light_infantry
+	upgrades_to_only = gj_marea_negra_fusilero
+	family = gj_marea_negra_abordadores
+
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+
+	combat = {
+		coastal = 0.15
+		inland = -0.15
+	}
+
+	age = "age_3_discovery"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_marea_negra_fusilero = {
+	is_special = yes
+	buildable = yes
+	copy_from = a_age_4_reformation_light_infantry
+	upgrades_to_only = gj_marea_negra_infante_cubierta
+	family = gj_marea_negra_abordadores
+
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+
+	combat = {
+		coastal = 0.15
+		inland = -0.15
+	}
+
+	age = "age_4_reformation"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_marea_negra_infante_cubierta = {
+	is_special = yes
+	buildable = yes
+	copy_from = a_age_5_absolutism_light_infantry
+	upgrades_to_only = gj_marea_negra_tirador_codigo
+	family = gj_marea_negra_abordadores
+
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+
+	combat = {
+		coastal = 0.15
+		inland = -0.15
+	}
+
+	age = "age_5_absolutism"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_marea_negra_tirador_codigo = {
+	is_special = yes
+	buildable = yes
+	copy_from = a_age_6_revolutions_light_infantry
+	family = gj_marea_negra_abordadores
+
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+
+	combat = {
+		coastal = 0.15
+		inland = -0.15
+	}
+
+	age = "age_6_revolutions"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+

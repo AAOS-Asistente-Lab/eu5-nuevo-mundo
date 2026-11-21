@@ -1,0 +1,91 @@
+﻿# Efectos de Los Dioses Hambrientos. root = pais salvo que se diga otra cosa.
+#
+# Variables de pais:
+#   gj_dioses_hambrientos_anos_de_paz        anos seguidos sin guerra (sube cada ano en paz; se pone a 0 con guerra o con una ofrenda)
+#   gj_dioses_hambrientos_guerra_en_plazo    marca: se ha tomado una location en guerra desde el ultimo presagio
+#   gj_dioses_hambrientos_presagio_abierto   marca: hay una Cuenta de cinco anos abierta
+
+# Inicializa las variables (no hace nada si ya existen).
+gj_dioses_hambrientos_inicia_variables = {
+	if = {
+		limit = { NOT = { has_variable = gj_dioses_hambrientos_anos_de_paz } }
+		set_variable = { name = gj_dioses_hambrientos_anos_de_paz value = 0 }
+	}
+}
+
+# Cada ano, desde el pulso anual (solo seguidores).
+gj_dioses_hambrientos_actualiza_paz = {
+	gj_dioses_hambrientos_inicia_variables = yes
+	if = {
+		limit = { at_war = yes }
+		set_variable = { name = gj_dioses_hambrientos_anos_de_paz value = 0 }
+	}
+	else = {
+		change_variable = { name = gj_dioses_hambrientos_anos_de_paz add = 1 }
+		if = {
+			limit = { var:gj_dioses_hambrientos_anos_de_paz >= 3 }
+			if = {
+				limit = { has_religious_aspect = religious_aspect:gj_dioses_hambrientos_aspecto_guardian_silos }
+				add_religious_influence = religious_influence_tiny_penalty
+			}
+			else_if = {
+				limit = { var:gj_dioses_hambrientos_anos_de_paz >= 6 }
+				add_religious_influence = religious_influence_mild_penalty
+			}
+			else = {
+				add_religious_influence = religious_influence_weak_penalty
+			}
+		}
+	}
+}
+
+# Cada location tomada en un tratado de paz: root = ganador (scope:loser y scope:location existen).
+gj_dioses_hambrientos_botin_de_cautivos = {
+	gj_dioses_hambrientos_inicia_variables = yes
+	set_variable = { name = gj_dioses_hambrientos_anos_de_paz value = 0 }
+	set_variable = { name = gj_dioses_hambrientos_guerra_en_plazo value = yes }
+	capital = {
+		add_pop = {
+			culture = scope:loser.culture
+			religion = scope:loser.religion
+			type = pop_type:slaves
+			size = 0.5
+		}
+	}
+	add_religious_influence = religious_influence_tiny_bonus
+	if = {
+		limit = { NOT = { has_variable = gj_dioses_hambrientos_filas_enfriamiento } }
+		set_variable = { name = gj_dioses_hambrientos_filas_enfriamiento value = yes days = 730 }
+		trigger_event_non_silently = { id = gj_dioses_hambrientos.3 }
+	}
+}
+
+# Como lee esta religion un cometa o un eclipse (lo llama mundo_bestias).
+# Los dioses tienen hambre: cinco anos para una guerra de cosecha o se pierde devocion.
+gj_dioses_hambrientos_lee_presagio = {
+	if = {
+		limit = {
+			religion = religion:gj_dioses_hambrientos
+			NOT = { has_variable = gj_dioses_hambrientos_presagio_abierto }
+		}
+		trigger_event_non_silently = { id = gj_dioses_hambrientos.4 }
+	}
+}
+
+# Quita parte de la poblacion esclava de mayor tamano de la capital (para las ofrendas).
+# root = pais. $FRACCION$ = fraccion que se pierde, como numero negativo (por ejemplo -0.4).
+gj_dioses_hambrientos_consume_cautivos = {
+	if = {
+		limit = { any_pop = { pop_type = pop_type:slaves } }
+		ordered_pop = {
+			limit = { pop_type = pop_type:slaves }
+			order_by = pop_size
+			max = 1
+			check_range_bounds = no
+			add_pop_size = {
+				value = pop_size
+				multiply = $FRACCION$
+			}
+		}
+	}
+}

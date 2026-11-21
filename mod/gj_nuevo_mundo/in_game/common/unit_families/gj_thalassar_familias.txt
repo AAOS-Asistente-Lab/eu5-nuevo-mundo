@@ -1,0 +1,11 @@
+﻿gj_nave_de_marea = {
+	limit = 12
+}
+
+gj_galera_de_cristal = {
+	limit = 4
+}
+
+gj_guardia_de_marea = {
+	limit = 10
+}

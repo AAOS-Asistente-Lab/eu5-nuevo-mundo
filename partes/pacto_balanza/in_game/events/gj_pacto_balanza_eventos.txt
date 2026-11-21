@@ -1,0 +1,439 @@
+﻿namespace = gj_pacto_balanza
+
+# Eventos del Pacto de la Balanza. Los lanza la pulsacion anual de gj_pacto_balanza_pulso, salvo:
+#   .9 (lo lanza la propia pulsacion cuando dura la Tregua Sagrada) y .10 (lo lanza gj_pacto_balanza_lee_presagio).
+
+gj_pacto_balanza.1 = { # Dos casas y una balanza
+	type = country_event
+	title = gj_pacto_balanza.1.title
+	desc = gj_pacto_balanza.1.desc
+	outcome = neutral
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		country_has_estate = estate_type:burghers_estate
+		country_has_estate = estate_type:nobles_estate
+		honor >= 30
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:nobles_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.1.a
+		add_honor = honor_weak_bonus
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_penalty }
+	}
+	option = {
+		name = gj_pacto_balanza.1.b
+		add_honor = honor_weak_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+	option = {
+		name = gj_pacto_balanza.1.c
+		change_gold_effect = { scale = -2 }
+		add_honor = honor_mild_bonus
+	}
+}
+
+gj_pacto_balanza.2 = { # La deuda del capitan
+	type = country_event
+	title = gj_pacto_balanza.2.title
+	desc = gj_pacto_balanza.2.desc
+	outcome = neutral
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		at_war = no
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.2.a
+		change_gold_effect = { scale = 2 }
+		add_honor = honor_weak_bonus
+	}
+	option = {
+		name = gj_pacto_balanza.2.b
+		add_honor = honor_weak_penalty
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_pacto_balanza.2.c
+		change_gold_effect = { scale = -1 }
+		add_honor = honor_mild_bonus
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+gj_pacto_balanza.3 = { # Sal en el umbral
+	type = country_event
+	title = gj_pacto_balanza.3.title
+	desc = gj_pacto_balanza.3.desc
+	outcome = positive
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		honor >= 40
+		NOT = { has_country_modifier = gj_pacto_huesped_honrado }
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.3.a
+		add_honor = honor_weak_bonus
+		add_country_modifier = { modifier = gj_pacto_huesped_honrado years = 10 mode = add_and_extend }
+	}
+	option = {
+		name = gj_pacto_balanza.3.b
+		change_gold_effect = { scale = 1 }
+		add_honor = honor_weak_penalty
+	}
+}
+
+gj_pacto_balanza.4 = { # Letra pequena
+	type = country_event
+	title = gj_pacto_balanza.4.title
+	desc = gj_pacto_balanza.4.desc
+	outcome = neutral
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		honor >= 20
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.4.a
+		change_gold_effect = { scale = -2 }
+		add_honor = honor_mild_bonus
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_pacto_balanza.4.b
+		change_gold_effect = { scale = 4 }
+		add_honor = honor_mild_penalty
+	}
+	option = {
+		name = gj_pacto_balanza.4.c
+		trigger = { honor >= 50 }
+		add_honor = honor_weak_bonus
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_pacto_balanza.5 = { # El perjurio
+	type = country_event
+	title = gj_pacto_balanza.5.title
+	desc = gj_pacto_balanza.5.desc
+	outcome = negative
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		country_has_estate = estate_type:clergy_estate
+		honor < 25
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:clergy_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.5.a
+		add_prestige = prestige_mild_penalty
+		add_honor = honor_mild_bonus
+		if = {
+			limit = { has_country_modifier = gj_pacto_perjurio }
+			remove_country_modifier = gj_pacto_perjurio
+		}
+	}
+	option = {
+		name = gj_pacto_balanza.5.b
+		add_stability = stability_mild_penalty
+		add_honor = honor_weak_penalty
+	}
+	option = {
+		name = gj_pacto_balanza.5.c
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+		add_honor = honor_weak_bonus
+	}
+}
+
+gj_pacto_balanza.6 = { # La fiesta de los pesos
+	type = country_event
+	title = gj_pacto_balanza.6.title
+	desc = gj_pacto_balanza.6.desc
+	outcome = positive
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		honor >= 55
+		at_war = no
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:peasants_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.6.a
+		change_gold_effect = { scale = -2 }
+		add_prestige = prestige_mild_bonus
+		add_stability = stability_weak_bonus
+	}
+	option = {
+		name = gj_pacto_balanza.6.b
+		gj_pacto_balanza_contrato_cumplido = yes
+	}
+	option = {
+		name = gj_pacto_balanza.6.c
+		change_gold_effect = { scale = 2 }
+	}
+}
+
+gj_pacto_balanza.7 = { # La balanza se inclina
+	type = country_event
+	title = gj_pacto_balanza.7.title
+	desc = gj_pacto_balanza.7.desc
+	outcome = positive
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		honor >= 80
+		NOT = { has_country_modifier = gj_pacto_arbitro_reconocido }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.7.a
+		add_prestige = prestige_mild_bonus
+		add_honor = honor_weak_bonus
+		add_country_modifier = { modifier = gj_pacto_arbitro_reconocido years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_pacto_balanza.7.b
+		change_gold_effect = { scale = 2 }
+		add_honor = honor_weak_penalty
+	}
+}
+
+gj_pacto_balanza.8 = { # Falsos pesos
+	type = country_event
+	title = gj_pacto_balanza.8.title
+	desc = gj_pacto_balanza.8.desc
+	outcome = neutral
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		country_has_estate = estate_type:burghers_estate
+		NOT = { has_country_modifier = gj_pacto_pesos_trucados }
+		NOT = { has_country_modifier = gj_pacto_mano_dura_pesos }
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.8.a
+		add_honor = honor_mild_bonus
+		add_country_modifier = { modifier = gj_pacto_mano_dura_pesos years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_pacto_balanza.8.b
+		add_honor = honor_mild_penalty
+		add_country_modifier = { modifier = gj_pacto_pesos_trucados years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_pacto_balanza.8.c
+		change_gold_effect = { scale = 3 }
+		add_honor = honor_weak_penalty
+	}
+}
+
+gj_pacto_balanza.9 = { # La tregua que se mantiene
+	type = country_event
+	title = gj_pacto_balanza.9.title
+	desc = gj_pacto_balanza.9.desc
+	outcome = positive
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		has_country_modifier = gj_pacto_tregua_sagrada
+		at_war = no
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.9.a
+		add_honor = honor_mild_bonus
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_pacto_balanza.9.b
+		change_gold_effect = { scale = 2 }
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_pacto_balanza.10 = { # El signo y la balanza (lo lanza gj_pacto_balanza_lee_presagio)
+	type = country_event
+	title = gj_pacto_balanza.10.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { honor >= 50 }
+				desc = gj_pacto_balanza.10.desc.a
+			}
+			triggered_desc = {
+				desc = gj_pacto_balanza.10.desc.b
+			}
+		}
+	}
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:clergy_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.10.a
+		trigger = { honor >= 50 }
+		add_honor = honor_weak_bonus
+		add_country_modifier = { modifier = gj_pacto_presagio_favorable years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_pacto_balanza.10.b
+		trigger = { honor < 50 }
+		add_country_modifier = { modifier = gj_pacto_presagio_adverso years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_pacto_balanza.10.c
+		add_honor = honor_weak_penalty
+	}
+}
+
+gj_pacto_balanza.11 = { # Credito roto
+	type = country_event
+	title = gj_pacto_balanza.11.title
+	desc = gj_pacto_balanza.11.desc
+	outcome = negative
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		honor < 20
+		NOT = { has_country_modifier = gj_pacto_crisis_credito }
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.11.a
+		change_gold_effect = { scale = -3 }
+		add_honor = honor_mild_bonus
+	}
+	option = {
+		name = gj_pacto_balanza.11.b
+		add_country_modifier = { modifier = gj_pacto_crisis_credito years = 5 mode = add_and_extend }
+		add_stability = stability_mild_penalty
+	}
+}
+
+gj_pacto_balanza.12 = { # La escuela de los fieles
+	type = country_event
+	title = gj_pacto_balanza.12.title
+	desc = gj_pacto_balanza.12.desc
+	outcome = positive
+	trigger = {
+		religion = religion:gj_pacto_balanza
+		country_has_estate = estate_type:clergy_estate
+		honor >= 45
+		NOT = { has_country_modifier = gj_pacto_escuela_de_fieles }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_pacto_balanza.12.a
+		change_gold_effect = { scale = -3 }
+		add_country_modifier = { modifier = gj_pacto_escuela_de_fieles years = 15 mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+	option = {
+		name = gj_pacto_balanza.12.b
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+		add_honor = honor_weak_bonus
+	}
+}

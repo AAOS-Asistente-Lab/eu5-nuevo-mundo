@@ -1,0 +1,26 @@
+﻿# Pulso anual de Ankarú. Se cuelga del pulso anual de los países del juego base.
+# yearly_country_pulse: lo engancha gj_integracion_on_actions.txt (gj_ank_pulso_anual).
+
+gj_ank_pulso_anual = {
+	trigger = {
+		gj_es_ankaru = yes
+	}
+	effect = {
+		gj_ank_avanza_calendario = yes
+	}
+	random_events = {
+		chance_to_happen = 30
+		100 = gj_ankaru.9
+		100 = gj_ankaru.10
+		80 = gj_ankaru.11
+		100 = gj_ankaru.12
+		80 = gj_ankaru.13
+		100 = gj_ankaru.14
+		60 = gj_ankaru.15
+		100 = gj_ankaru.16
+		100 = gj_ankaru.17
+		100 = gj_ankaru.18
+		80 = gj_ankaru.19
+		150 = 0
+	}
+}

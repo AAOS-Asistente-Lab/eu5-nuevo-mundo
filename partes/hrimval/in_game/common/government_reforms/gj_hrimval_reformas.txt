@@ -1,0 +1,43 @@
+﻿# Reformas de gobierno unicas de la Corte Insepulta de Hrimval
+
+gj_hrimval_rey_bajo_el_hielo_reforma = {
+	unique = yes
+	age = age_1_traditions
+	potential = {
+		gj_es_hrimval = yes
+	}
+	country_modifier = {
+		monthly_legitimacy = 0.10
+		country_cabinet_efficiency = 0.05
+		monthly_prestige = 0.05
+	}
+	years = 1
+}
+
+gj_hrimval_registro_de_caidos_reforma = {
+	unique = yes
+	age = age_2_renaissance
+	potential = {
+		gj_es_hrimval = yes
+	}
+	country_modifier = {
+		global_manpower_modifier = 0.10
+		army_tradition_from_battle = 0.10
+		tax_income_efficiency = -0.05
+	}
+	years = 2
+}
+
+gj_hrimval_corte_despierta_reforma = {
+	unique = yes
+	age = age_4_reformation
+	potential = {
+		gj_es_hrimval = yes
+	}
+	country_modifier = {
+		land_morale_modifier = 0.05
+		discipline = 0.02
+		research_speed_modifier = -0.05
+	}
+	years = 2
+}

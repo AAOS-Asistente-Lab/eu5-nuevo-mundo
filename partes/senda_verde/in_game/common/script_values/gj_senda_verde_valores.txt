@@ -1,0 +1,2 @@
+﻿gj_senda_verde_coste_claro = 30
+gj_senda_verde_coste_asamblea = 50

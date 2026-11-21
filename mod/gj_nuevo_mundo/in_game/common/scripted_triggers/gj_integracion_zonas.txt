@@ -1,0 +1,383 @@
+﻿# GJ Nuevo Mundo, integracion: zonas del mapa que piden las partes (scope: localizacion, salvo las que dicen pais).
+# GENERADO por funde-partes.mjs desde vinculo.json. Sin mundo vinculado, "always = no".
+
+gj_zona_caldera = {
+	OR = {
+		this = location:rnw_loc_01042
+		this = location:rnw_loc_01043
+		this = location:rnw_loc_01062
+		this = location:rnw_loc_01081
+		this = location:rnw_loc_01084
+		this = location:rnw_loc_01086
+		this = location:rnw_loc_01089
+		this = location:rnw_loc_01093
+		this = location:rnw_loc_01099
+		this = location:rnw_loc_01109
+		this = location:rnw_loc_01110
+		this = location:rnw_loc_01115
+		this = location:rnw_loc_01135
+		this = location:rnw_loc_01142
+		this = location:rnw_loc_01143
+		this = location:rnw_loc_01147
+		this = location:rnw_loc_01149
+		this = location:rnw_loc_01150
+		this = location:rnw_loc_01178
+		this = location:rnw_loc_01192
+		this = location:rnw_loc_01201
+		this = location:rnw_loc_01203
+		this = location:rnw_loc_01210
+		this = location:rnw_loc_01212
+		this = location:rnw_loc_01213
+		this = location:rnw_loc_01221
+		this = location:rnw_loc_01224
+		this = location:rnw_loc_01237
+		this = location:rnw_loc_01253
+		this = location:rnw_loc_01254
+		this = location:rnw_loc_01264
+		this = location:rnw_loc_01278
+		this = location:rnw_loc_01293
+		this = location:rnw_loc_01294
+		this = location:rnw_loc_01300
+		this = location:rnw_loc_01311
+		this = location:rnw_loc_01318
+		this = location:rnw_loc_01322
+		this = location:rnw_loc_01329
+		this = location:rnw_loc_01334
+		this = location:rnw_loc_01337
+		this = location:rnw_loc_01348
+		this = location:rnw_loc_01350
+		this = location:rnw_loc_01356
+		this = location:rnw_loc_01374
+		this = location:rnw_loc_01375
+		this = location:rnw_loc_01398
+		this = location:rnw_loc_01402
+	}
+}
+
+gj_zona_estepa = {
+	# scope: pais (tiene tierra en la zona o junto a ella)
+	any_owned_location = {
+		OR = {
+			area = area:alabama_area
+			area = area:cuba_area
+			area = area:culiacan_area
+			area = area:guachichil_area
+			area = area:haudenosaunee_area
+			area = area:hispaniola_area
+			area = area:hudson_area
+			area = area:lesser_antilles_area
+			area = area:maine_area
+			area = area:massachusetts_area
+			area = area:new_hampshire_area
+			area = area:ohio_area
+			area = area:red_river_area
+			area = area:rnw_area_0001
+			area = area:rnw_area_0003
+			area = area:rnw_area_0004
+			area = area:rnw_area_0023
+			area = area:rnw_area_0024
+			area = area:rnw_area_0025
+			area = area:rnw_area_0026
+			area = area:rnw_area_0027
+			area = area:rnw_area_0028
+			area = area:rnw_area_0029
+			area = area:rnw_area_0030
+			area = area:rnw_area_0031
+			area = area:rnw_area_0032
+			area = area:rnw_area_0033
+			area = area:saskatchewan_area
+			area = area:south_carolina_area
+			area = area:tahejoc_area
+			area = area:texas_area
+			area = area:west_virginia_area
+			any_neighbor_location = {
+				OR = {
+					area = area:alabama_area
+					area = area:cuba_area
+					area = area:culiacan_area
+					area = area:guachichil_area
+					area = area:haudenosaunee_area
+					area = area:hispaniola_area
+					area = area:hudson_area
+					area = area:lesser_antilles_area
+					area = area:maine_area
+					area = area:massachusetts_area
+					area = area:new_hampshire_area
+					area = area:ohio_area
+					area = area:red_river_area
+					area = area:rnw_area_0001
+					area = area:rnw_area_0003
+					area = area:rnw_area_0004
+					area = area:rnw_area_0023
+					area = area:rnw_area_0024
+					area = area:rnw_area_0025
+					area = area:rnw_area_0026
+					area = area:rnw_area_0027
+					area = area:rnw_area_0028
+					area = area:rnw_area_0029
+					area = area:rnw_area_0030
+					area = area:rnw_area_0031
+					area = area:rnw_area_0032
+					area = area:rnw_area_0033
+					area = area:saskatchewan_area
+					area = area:south_carolina_area
+					area = area:tahejoc_area
+					area = area:texas_area
+					area = area:west_virginia_area
+				}
+			}
+		}
+	}
+}
+
+gj_zona_estepa_alta = {
+	OR = {
+		area = area:haudenosaunee_area
+		area = area:hispaniola_area
+		area = area:maine_area
+		area = area:new_hampshire_area
+		area = area:rnw_area_0025
+		area = area:rnw_area_0027
+		area = area:rnw_area_0030
+		area = area:saskatchewan_area
+	}
+}
+
+gj_zona_estepa_baja = {
+	OR = {
+		area = area:cuba_area
+		area = area:lesser_antilles_area
+		area = area:red_river_area
+		area = area:rnw_area_0023
+		area = area:rnw_area_0026
+		area = area:rnw_area_0028
+		area = area:rnw_area_0029
+		area = area:rnw_area_0032
+	}
+}
+
+gj_zona_estrecho = {
+	OR = {
+		this = location:rnw_loc_03080
+		this = location:rnw_loc_03095
+		this = location:rnw_loc_03098
+		this = location:rnw_loc_03099
+		this = location:rnw_loc_03100
+		this = location:rnw_loc_03101
+		this = location:rnw_loc_03104
+		this = location:rnw_loc_03105
+		this = location:rnw_loc_03107
+		this = location:rnw_loc_03109
+		this = location:rnw_loc_03111
+		this = location:rnw_loc_03113
+		this = location:rnw_loc_03115
+		this = location:rnw_loc_03116
+		this = location:rnw_loc_03117
+		this = location:rnw_loc_03123
+		this = location:rnw_loc_03124
+		this = location:rnw_loc_03125
+		this = location:rnw_loc_03127
+		this = location:rnw_loc_03128
+		this = location:rnw_loc_03129
+		this = location:rnw_loc_03130
+		this = location:rnw_loc_03135
+		this = location:rnw_loc_03137
+		this = location:rnw_loc_03141
+		this = location:rnw_loc_03142
+		this = location:rnw_loc_03144
+		this = location:rnw_loc_03148
+		this = location:rnw_loc_03149
+		this = location:rnw_loc_03151
+		this = location:rnw_loc_03152
+		this = location:rnw_loc_03154
+		this = location:rnw_loc_03156
+		this = location:rnw_loc_03159
+		this = location:rnw_loc_03160
+		this = location:rnw_loc_03161
+		this = location:rnw_loc_03162
+		this = location:rnw_loc_03173
+		this = location:rnw_loc_03177
+		this = location:rnw_loc_03178
+		this = location:rnw_loc_03179
+		this = location:rnw_loc_03180
+		this = location:rnw_loc_03181
+		this = location:rnw_loc_03182
+		this = location:rnw_loc_03183
+		this = location:rnw_loc_03184
+		this = location:rnw_loc_03185
+		this = location:rnw_loc_03190
+		this = location:rnw_loc_03192
+		this = location:rnw_loc_03194
+		this = location:rnw_loc_03195
+		this = location:rnw_loc_03196
+		this = location:rnw_loc_03197
+		this = location:rnw_loc_03200
+		this = location:rnw_loc_03202
+		this = location:rnw_loc_03204
+		this = location:rnw_loc_03208
+		this = location:rnw_loc_03209
+		this = location:rnw_loc_03211
+		this = location:rnw_loc_03217
+	}
+}
+
+gj_zona_mar_interior = {
+	OR = {
+		this = location:rnw_loc_04607
+		this = location:rnw_loc_04608
+		this = location:rnw_loc_04617
+		this = location:rnw_loc_04641
+		this = location:rnw_loc_04648
+		this = location:rnw_loc_04657
+		this = location:rnw_loc_04714
+		this = location:rnw_loc_04720
+		this = location:rnw_loc_04721
+		this = location:rnw_loc_04723
+		this = location:rnw_loc_04729
+		this = location:rnw_loc_04753
+		this = location:rnw_loc_04793
+		this = location:rnw_loc_05237
+		this = location:rnw_loc_05342
+		this = location:rnw_loc_05360
+		this = location:rnw_loc_05392
+		this = location:rnw_loc_05422
+		this = location:rnw_loc_05463
+		this = location:rnw_loc_05466
+		this = location:rnw_loc_05508
+		this = location:rnw_loc_05509
+		this = location:rnw_loc_05516
+		this = location:rnw_loc_05531
+		this = location:rnw_loc_05532
+		this = location:rnw_loc_05533
+		this = location:rnw_loc_05537
+		this = location:rnw_loc_05541
+		this = location:rnw_loc_05545
+		this = location:rnw_loc_05546
+		this = location:rnw_loc_05550
+		this = location:rnw_loc_05551
+		this = location:rnw_loc_05554
+		this = location:rnw_loc_05564
+		this = location:rnw_loc_05565
+		this = location:rnw_loc_05574
+		this = location:rnw_loc_05576
+		this = location:rnw_loc_05578
+		this = location:rnw_loc_05579
+		this = location:rnw_loc_05582
+		this = location:rnw_loc_05589
+		this = location:rnw_loc_05602
+		this = location:rnw_loc_05607
+		this = location:rnw_loc_05640
+		this = location:rnw_loc_05649
+		this = location:rnw_loc_05699
+		this = location:rnw_loc_05709
+		this = location:rnw_loc_05719
+		this = location:rnw_loc_05752
+		this = location:rnw_loc_05757
+		this = location:rnw_loc_05758
+		this = location:rnw_loc_05766
+		this = location:rnw_loc_05811
+		this = location:rnw_loc_05816
+		this = location:rnw_loc_05830
+		this = location:rnw_loc_05842
+		this = location:rnw_loc_05845
+		this = location:rnw_loc_05861
+		this = location:rnw_loc_05863
+		this = location:rnw_loc_05864
+		this = location:rnw_loc_05865
+		this = location:rnw_loc_05868
+		this = location:rnw_loc_05874
+		this = location:rnw_loc_05878
+		this = location:rnw_loc_05883
+		this = location:rnw_loc_05896
+	}
+}
+
+gj_zona_marca_occidental = {
+	OR = {
+		area = area:culiacan_area
+		area = area:guachichil_area
+		area = area:rnw_area_0001
+		area = area:rnw_area_0003
+		area = area:rnw_area_0004
+		area = area:rnw_area_0033
+		area = area:tahejoc_area
+		area = area:texas_area
+	}
+}
+
+gj_zona_norte = {
+	# scope: pais (su capital)
+	capital = {
+		OR = {
+			sub_continent = sub_continent:north_america
+		}
+	}
+}
+
+gj_zona_ruina_antigua = {
+	OR = {
+		this = location:rnw_loc_03050
+		this = location:rnw_loc_03092
+		this = location:rnw_loc_03222
+		this = location:rnw_loc_03238
+		this = location:rnw_loc_03294
+	}
+}
+
+gj_zona_ruina_atlante = {
+	OR = {
+		this = location:rnw_loc_04526
+		this = location:rnw_loc_04590
+		this = location:rnw_loc_04702
+		this = location:rnw_loc_05525
+		this = location:rnw_loc_05606
+	}
+}
+
+gj_zona_ruina_enana = {
+	OR = {
+		this = location:rnw_loc_00790
+		this = location:rnw_loc_00810
+		this = location:rnw_loc_00899
+		this = location:rnw_loc_01495
+		this = location:rnw_loc_01565
+	}
+}
+
+gj_zona_valles_orientales = {
+	OR = {
+		area = area:alabama_area
+		area = area:hudson_area
+		area = area:massachusetts_area
+		area = area:ohio_area
+		area = area:rnw_area_0024
+		area = area:rnw_area_0031
+		area = area:south_carolina_area
+		area = area:west_virginia_area
+	}
+}
+
+gj_zona_veta_estrella = {
+	OR = {
+		this = location:rnw_loc_00103
+	}
+}
+
+gj_zona_veta_fuego = {
+	OR = {
+		this = location:rnw_loc_00233
+	}
+}
+
+gj_zona_veta_marea = {
+	OR = {
+		this = location:rnw_loc_05532
+	}
+}
+
+gj_zona_veta_raiz = {
+	OR = {
+		this = location:rnw_loc_03516
+		this = location:rnw_loc_03522
+	}
+}

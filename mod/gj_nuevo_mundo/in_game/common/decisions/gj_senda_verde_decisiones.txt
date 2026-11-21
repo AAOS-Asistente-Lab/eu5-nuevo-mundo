@@ -1,0 +1,96 @@
+﻿# Decisiones de la Senda Verde: plantar sube el karma, podar lo baja, la Asamblea lo premia en equilibrio.
+
+gj_senda_verde_plantar_claro = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_senda_verde
+	}
+
+	allow = {
+		political_influence >= gj_senda_verde_coste_claro
+		NOT = { has_variable = gj_senda_verde_cd_claro }
+		any_owned_location = {
+			NOT = { has_location_modifier = gj_senda_verde_claro_vivo }
+		}
+	}
+
+	ai_will_do = { value = 30 }
+
+	option = {
+		name = gj_senda_verde_plantar_claro.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_political_influence = {
+				value = gj_senda_verde_coste_claro
+				multiply = -1
+			}
+			add_karma = karma_mild_bonus
+			set_variable = { name = gj_senda_verde_cd_claro value = 1 years = 5 }
+			random_owned_location = {
+				limit = {
+					NOT = { has_location_modifier = gj_senda_verde_claro_vivo }
+				}
+				add_location_modifier = { modifier = gj_senda_verde_claro_vivo years = 20 mode = add_and_extend }
+			}
+		}
+	}
+}
+
+gj_senda_verde_poda_consentida = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_senda_verde
+	}
+
+	allow = {
+		karma > 10
+		NOT = { has_variable = gj_senda_verde_cd_poda }
+	}
+
+	ai_will_do = { value = 30 }
+
+	option = {
+		name = gj_senda_verde_poda_consentida.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_karma = karma_mild_penalty
+			set_variable = { name = gj_senda_verde_cd_poda value = 1 years = 3 }
+			add_country_modifier = { modifier = gj_senda_verde_poda_provechosa years = 5 mode = add_and_extend }
+		}
+	}
+}
+
+gj_senda_verde_asamblea_de_anillos = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_senda_verde
+	}
+
+	allow = {
+		has_ruler = yes
+		political_influence >= gj_senda_verde_coste_asamblea
+		karma >= -33
+		karma <= 33
+		NOT = { has_variable = gj_senda_verde_cd_asamblea }
+	}
+
+	ai_will_do = { value = 20 }
+
+	option = {
+		name = gj_senda_verde_asamblea_de_anillos.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_political_influence = {
+				value = gj_senda_verde_coste_asamblea
+				multiply = -1
+			}
+			set_variable = { name = gj_senda_verde_cd_asamblea value = 1 years = 15 }
+			add_legitimacy = legitimacy_mild_bonus
+			add_stability = stability_weak_bonus
+			add_country_modifier = { modifier = gj_senda_verde_asamblea_de_anillos years = 10 mode = add_and_extend }
+		}
+	}
+}

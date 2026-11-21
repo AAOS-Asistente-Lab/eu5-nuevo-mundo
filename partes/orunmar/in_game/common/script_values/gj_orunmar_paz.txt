@@ -1,0 +1,11 @@
+﻿# Anios sin guerra de la Hegemonia: alimenta el Gran Ayuno y la devocion
+gj_orunmar_anios_de_paz = {
+	value = 0
+	if = {
+		limit = {
+			has_variable = gj_orunmar_anio_guerra
+		}
+		add = current_year
+		subtract = var:gj_orunmar_anio_guerra
+	}
+}

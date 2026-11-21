@@ -1,0 +1,46 @@
+﻿# Efectos de la Escarcha Silente.
+
+# Como lee esta religion un cometa o un eclipse. La llama mundo_bestias con root = pais.
+#   gj_escarcha_silente_lee_presagio = { ECLIPSE = yes }   # eclipse
+#   gj_escarcha_silente_lee_presagio = { ECLIPSE = no }    # cometa
+# Solo hace algo si el pais sigue la Escarcha Silente.
+gj_escarcha_silente_lee_presagio = {
+	if = {
+		limit = {
+			exists = religion
+			religion = religion:gj_escarcha_silente
+			has_doom = yes
+		}
+		if = {
+			limit = {
+				always = $ECLIPSE$
+			}
+			# El eclipse adelanta la Noche Blanca.
+			add_doom = doom_extreme_penalty
+			add_prestige = prestige_weak_bonus
+			add_country_modifier = {
+				modifier = gj_escarcha_silente_eclipse_de_ceniza
+				years = 5
+				mode = extend
+			}
+		}
+		else = {
+			add_doom = doom_weak_penalty
+			add_prestige = prestige_weak_bonus
+		}
+	}
+}
+
+# Abre la Noche Blanca para quien la desencadena: modificadores propios, el reloj a cero
+# y el despertar de la Corte dentro de 4 anos. La parte global (la situacion) es de hrimval.
+gj_escarcha_silente_abre_noche = {
+	set_doom = 0
+	set_variable = { name = gj_escarcha_silente_noche_propia value = 1 }
+	add_country_modifier = {
+		modifier = gj_escarcha_silente_noche_blanca_fiel
+		years = 4
+		mode = extend
+	}
+	gj_noche_blanca_comienza = yes
+	trigger_event_silently = { id = gj_escarcha_silente.10 years = 4 }
+}

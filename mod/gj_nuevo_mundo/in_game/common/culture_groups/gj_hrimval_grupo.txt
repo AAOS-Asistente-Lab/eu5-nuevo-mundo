@@ -1,0 +1,12 @@
+﻿# Grupo cultural de los insepultos del norte helado
+gj_grupo_insepulto = {
+	country_modifier = {
+		global_pop_food_consumption = -0.10
+	}
+	location_modifier = {
+		local_food_decay = -0.001
+	}
+	character_modifier = {
+		character_life_expectancy = 15
+	}
+}

@@ -1,0 +1,120 @@
+﻿# Menores del sur: un edificio propio por estilo, compartido por todos los menores de ese estilo.
+# Cada uno tiene una fuerza, una debilidad y un limite de lugar. Tope de niveles: 3 al final de la partida.
+
+# 1. Lonja del Concejo (ciudades-estado): la mesa donde se fija el precio de la rada.
+# Fuerza: mas capacidad y fuerza de mercader. Debilidad y limite: solo en puertos, y pide papel y mamposteria de mantenimiento.
+gj_minores_sur_lonja_del_concejo = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_minores_sur_nivel_lonja
+
+	category = trade_category
+	employment_size = trade_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	increase_per_level_cost = 0.5
+	build_time = guild_build_time
+
+	country_potential = {
+		gj_minores_sur_estilo_ciudad = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+
+	possible_production_methods = {
+		gj_minores_sur_lonja_mantenimiento
+	}
+
+	modifier = {
+		local_merchant_capacity = 0.5
+		local_merchant_power = 0.15
+		local_unrest = 0.02
+	}
+}
+
+# 2. Palafito Mayor (jefaturas de selva): la casa larga sobre pilotes donde caben varios clanes.
+# Fuerza: mas comida y mas levas. Debilidad y limite: solo donde hay caza, fruta, madera o pesca, y es un asentamiento rural.
+gj_minores_sur_palafito_mayor = {
+	audio_tier = 1
+	is_special = yes
+	is_foreign = no
+	pop_type = peasants
+	max_levels = gj_minores_sur_nivel_palafito
+
+	category = village_category
+	employment_size = village_employment_size
+
+	rural_settlement = yes
+
+	increase_per_level_cost = 0.5
+	build_time = village_build_time
+
+	country_potential = {
+		gj_minores_sur_estilo_selva = yes
+	}
+	location_potential = {
+		OR = {
+			raw_material = goods:wild_game
+			raw_material = goods:fruit
+			raw_material = goods:lumber
+			raw_material = goods:fish
+		}
+	}
+
+	possible_production_methods = {
+		gj_minores_sur_palafito_mantenimiento
+	}
+
+	modifier = {
+		local_food_capacity = 75
+		local_levy_size_modifier = 0.10
+		local_max_literacy = -0.5
+	}
+}
+
+# 3. Torre de Frontera (marcas y protectorados): la atalaya con cuartel que ve venir al vecino.
+# Fuerza: defensa y guarnicion. Debilidad y limite: no produce nada, y solo se levanta en puertos, colinas o montaña.
+gj_minores_sur_torre_de_frontera = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = gj_minores_sur_nivel_torre
+
+	category = defense_category
+	employment_size = castle_employment
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+
+	increase_per_level_cost = 0.5
+	build_time = small_fort_building
+
+	country_potential = {
+		gj_minores_sur_estilo_marca = yes
+	}
+	location_potential = {
+		OR = {
+			is_port = yes
+			topography = hills
+			topography = mountains
+		}
+	}
+
+	possible_production_methods = {
+		gj_minores_sur_torre_mantenimiento
+	}
+
+	modifier = {
+		local_defensive = 0.15
+		local_garrison_size = 0.20
+		local_hostile_attrition = 0.5
+	}
+}

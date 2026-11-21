@@ -1,0 +1,23 @@
+﻿# Tipos de lugar sagrado. Las locations las asigna la integracion (holy_sites/).
+
+gj_sol_blanco_cumbre_sagrada = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_monthly_prosperity = 0.001
+		local_max_control = 0.02
+	}
+	country_modifier = {
+		monthly_prestige = 0.02
+	}
+}
+
+gj_sol_blanco_terraza_sagrada = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_monthly_food_modifier = monthly_food_productivity_weak_bonus
+		local_population_capacity_modifier = 0.1
+	}
+	country_modifier = {
+		global_food_capacity_modifier = 0.01
+	}
+}

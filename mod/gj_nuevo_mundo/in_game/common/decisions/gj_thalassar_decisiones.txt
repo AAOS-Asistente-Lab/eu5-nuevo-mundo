@@ -1,0 +1,335 @@
+﻿##############################################################
+# THALASSAR: decisiones. Alzar la Ciudad Hundida (5 fases) + 3 de apoyo.
+# Cada fase pide oro, cristales de marea y una condicion. La fase N+1 solo se ve al hecha la N.
+##############################################################
+
+gj_thalassar_alzar_fase_1 = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_es_thalassar = yes
+		NOT = { gj_thalassar_fase_al_menos = { N = 1 } }
+	}
+
+	allow = {
+		stability >= 0
+		gold >= 150
+		gj_thalassar_tiene_cristales = { N = 5 }
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_thalassar_alzar_fase_1.a
+		effect = {
+			add_gold = -150
+			gj_thalassar_gasta_cristales = { N = 5 }
+			gj_thalassar_sube_fase = yes
+			add_country_modifier = {
+				modifier = gj_thal_fase_1_pais
+				mode = add
+				years = -1
+			}
+			capital = {
+				add_location_modifier = {
+					modifier = gj_thal_fase_1_barrio
+					mode = add
+					years = -1
+				}
+				change_development = development_mild_bonus
+			}
+			add_prestige = prestige_mild_bonus
+			trigger_event_non_silently = gj_thalassar.21
+		}
+	}
+}
+
+gj_thalassar_alzar_fase_2 = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_es_thalassar = yes
+		NOT = { gj_thalassar_fase_al_menos = { N = 2 } }
+		gj_thalassar_fase_al_menos = { N = 1 }
+	}
+
+	allow = {
+		current_age_or_later = { age = age_2_renaissance }
+		at_war = no
+		gold >= 300
+		gj_thalassar_tiene_cristales = { N = 8 }
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_thalassar_alzar_fase_2.a
+		effect = {
+			add_gold = -300
+			gj_thalassar_gasta_cristales = { N = 8 }
+			gj_thalassar_sube_fase = yes
+			add_country_modifier = {
+				modifier = gj_thal_fase_2_pais
+				mode = add
+				years = -1
+			}
+			capital = {
+				add_location_modifier = {
+					modifier = gj_thal_fase_2_barrio
+					mode = add
+					years = -1
+				}
+				change_development = development_mild_bonus
+			}
+			unlock_government_reform_effect = { type = gj_thalassar_custodios_del_arrecife }
+			add_prestige = prestige_mild_bonus
+			trigger_event_non_silently = gj_thalassar.22
+		}
+	}
+}
+
+gj_thalassar_alzar_fase_3 = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_es_thalassar = yes
+		NOT = { gj_thalassar_fase_al_menos = { N = 3 } }
+		gj_thalassar_fase_al_menos = { N = 2 }
+	}
+
+	allow = {
+		current_age_or_later = { age = age_3_discovery }
+		gj_thalassar_domina_el_mar = yes
+		gold >= 500
+		gj_thalassar_tiene_cristales = { N = 12 }
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_thalassar_alzar_fase_3.a
+		effect = {
+			add_gold = -500
+			gj_thalassar_gasta_cristales = { N = 12 }
+			gj_thalassar_sube_fase = yes
+			add_country_modifier = {
+				modifier = gj_thal_fase_3_pais
+				mode = add
+				years = -1
+			}
+			capital = {
+				add_location_modifier = {
+					modifier = gj_thal_fase_3_barrio
+					mode = add
+					years = -1
+				}
+				change_development = development_mild_bonus
+			}
+			add_prestige = prestige_mild_bonus
+			trigger_event_non_silently = gj_thalassar.23
+		}
+	}
+}
+
+gj_thalassar_alzar_fase_4 = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_es_thalassar = yes
+		NOT = { gj_thalassar_fase_al_menos = { N = 4 } }
+		gj_thalassar_fase_al_menos = { N = 3 }
+	}
+
+	allow = {
+		current_age_or_later = { age = age_4_reformation }
+		stability >= 20
+		gold >= 800
+		gj_thalassar_tiene_cristales = { N = 16 }
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_thalassar_alzar_fase_4.a
+		effect = {
+			add_gold = -800
+			gj_thalassar_gasta_cristales = { N = 16 }
+			gj_thalassar_sube_fase = yes
+			add_country_modifier = {
+				modifier = gj_thal_fase_4_pais
+				mode = add
+				years = -1
+			}
+			capital = {
+				add_location_modifier = {
+					modifier = gj_thal_fase_4_barrio
+					mode = add
+					years = -1
+				}
+				change_development = development_mild_bonus
+			}
+			add_prestige = prestige_mild_bonus
+			trigger_event_non_silently = gj_thalassar.24
+		}
+	}
+}
+
+gj_thalassar_alzar_fase_5 = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_es_thalassar = yes
+		NOT = { gj_thalassar_fase_al_menos = { N = 5 } }
+		gj_thalassar_fase_al_menos = { N = 4 }
+	}
+
+	allow = {
+		current_age_or_later = { age = age_5_absolutism }
+		at_war = no
+		stability >= 20
+		gold >= 1200
+		gj_thalassar_tiene_cristales = { N = 22 }
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_thalassar_alzar_fase_5.a
+		effect = {
+			add_gold = -1200
+			gj_thalassar_gasta_cristales = { N = 22 }
+			gj_thalassar_sube_fase = yes
+			add_country_modifier = {
+				modifier = gj_thal_fase_5_pais
+				mode = add
+				years = -1
+			}
+			capital = {
+				add_location_modifier = {
+					modifier = gj_thal_fase_5_barrio
+					mode = add
+					years = -1
+				}
+				change_development = development_mild_bonus
+			}
+			unlock_government_reform_effect = { type = gj_thalassar_corona_emergida }
+			set_variable = { name = gj_ciudad_alzada value = 1 }
+			add_prestige = prestige_mild_bonus
+			trigger_event_non_silently = gj_thalassar.25
+		}
+	}
+}
+
+gj_thalassar_cosecha_de_cristales = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_thalassar = yes
+	}
+
+	allow = {
+		NOT = { has_variable = gj_cosecha_reciente }
+		gold >= 100
+	}
+
+	ai_will_do = {
+		value = 50
+	}
+
+	option = {
+		name = gj_thalassar_cosecha_de_cristales.a
+		effect = {
+			add_gold = -100
+			gj_thalassar_gana_cristales = { N = 4 }
+			set_variable = { name = gj_cosecha_reciente value = 1 years = 5 }
+			add_country_modifier = {
+				modifier = gj_thal_cosecha_cristal
+				mode = add
+				years = 5
+			}
+		}
+	}
+}
+
+gj_thalassar_concilio_de_las_mareas = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_thalassar = yes
+		has_variable = gj_decadencia
+		var:gj_decadencia >= 10
+	}
+
+	allow = {
+		NOT = { has_variable = gj_concilio_reciente }
+		gold >= 200
+		stability >= 0
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_thalassar_concilio_de_las_mareas.a
+		effect = {
+			add_gold = -200
+			gj_thalassar_baja_decadencia = { N = 15 }
+			set_variable = { name = gj_concilio_reciente value = 1 years = 10 }
+			add_country_modifier = {
+				modifier = gj_thal_concilio_mareas
+				mode = add
+				years = 5
+			}
+			add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		}
+	}
+}
+
+gj_thalassar_jubileo_de_las_mareas = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_es_thalassar = yes
+		gj_thalassar_fase_al_menos = { N = 3 }
+	}
+
+	allow = {
+		at_war = no
+		gold >= 400
+		stability >= 10
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	option = {
+		name = gj_thalassar_jubileo_de_las_mareas.a
+		effect = {
+			add_gold = -400
+			add_prestige = prestige_severe_bonus
+			add_country_modifier = {
+				modifier = gj_thal_jubileo
+				mode = add
+				years = 20
+			}
+		}
+	}
+}

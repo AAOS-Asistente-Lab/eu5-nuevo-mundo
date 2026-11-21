@@ -1,0 +1,71 @@
+﻿gj_marea_negra_almirante = {
+	use_election = yes
+	term_duration = 120	# 10 anyos
+	max_possible_candidates = 4
+
+	allowed_estates = { nobles_estate burghers_estate peasants_estate }
+	heir_is_allowed = {
+	}
+	potential = {
+		has_reform = government_reform:gj_marea_negra_codigo_reform
+	}
+	locked = {
+		has_reform = government_reform:gj_marea_negra_codigo_reform
+	}
+	calc = {
+		if = {
+			limit = {
+				exists = root
+			}
+			add = {
+				desc = "HEIR_SELECTION_DIP_DESC"
+				value = root.dip
+			}
+			add = {
+				desc = "HEIR_SELECTION_MIL_DESC"
+				value = root.mil
+			}
+			add = {
+				desc = "HEIR_SELECTION_OLDER_HEIR_DESC"
+				value = character_age
+			}
+			if = {
+				limit = {
+					is_admiral = yes
+				}
+				add = {
+					desc = "HEIR_SELECTION_ADMIRAL_DESC"
+					value = 100
+				}
+			}
+			if = {
+				limit = { modifier:blocked_from_being_ruler = yes }
+				add = {
+					desc = "HEIR_SELECTION_IS_UNSUITED_TO_RULE_DESC"
+					value = -1000
+				}
+			}
+		}
+		if = {
+			limit = {
+				not = { exists = root }
+			}
+			add = {
+				desc = "HEIR_SELECTION_DIP_DESC"
+				value = 1
+			}
+			add = {
+				desc = "HEIR_SELECTION_MIL_DESC"
+				value = 1
+			}
+			add = {
+				desc = "HEIR_SELECTION_OLDER_HEIR_DESC"
+				value = 1
+			}
+			add = {
+				desc = "HEIR_SELECTION_ADMIRAL_DESC"
+				value = 100
+			}
+		}
+	}
+}

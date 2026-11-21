@@ -1,0 +1,280 @@
+﻿############################
+# Avances de la Corte Insepulta de Hrimval
+# potential: gj_es_hrimval lo define la integracion
+############################
+
+############################
+# age_1_traditions
+############################
+
+gj_hrimval_guardia_del_umbral = {
+	potential = { gj_es_hrimval = yes }
+	age = age_1_traditions
+	unlock_unit = a_gj_hrimval_huestes_1
+
+	army_heavy_infantry_power = 0.10
+	land_unit_attrition = -0.15
+}
+
+gj_hrimval_voz_de_los_caidos = {
+	potential = { gj_es_hrimval = yes }
+	age = age_1_traditions
+	requires = gj_hrimval_guardia_del_umbral
+
+	monthly_prestige = 0.05
+	monthly_legitimacy = 0.05
+}
+
+gj_hrimval_ayuno_de_la_tierra = {
+	potential = { gj_es_hrimval = yes }
+	age = age_1_traditions
+	requires = gj_hrimval_guardia_del_umbral
+	unlock_unit = a_gj_hrimval_acechadores_1
+
+	global_pop_food_consumption = -0.10
+	global_food_capacity_modifier = 0.10
+}
+
+gj_hrimval_tumulos_antiguos = {
+	potential = { gj_es_hrimval = yes }
+	age = age_1_traditions
+	requires = gj_hrimval_voz_de_los_caidos
+	unlock_unit = a_gj_hrimval_gigantes_1
+
+	global_manpower_modifier = 0.10
+	fort_limit_modifier = 0.10
+}
+
+############################
+# age_2_renaissance
+############################
+
+gj_hrimval_vigilia_blanca = {
+	potential = { gj_es_hrimval = yes }
+	age = age_2_renaissance
+	requires = gj_hrimval_tumulos_antiguos
+
+	discipline = 0.03
+	land_morale_modifier = 0.05
+}
+
+gj_hrimval_muro_de_escarcha = {
+	potential = { gj_es_hrimval = yes }
+	age = age_2_renaissance
+	requires = gj_hrimval_vigilia_blanca
+
+	fort_limit_modifier = 0.25
+	fort_maintenance_efficiency = 0.15
+}
+
+gj_hrimval_cosecha_de_los_caidos = {
+	potential = { gj_es_hrimval = yes }
+	age = age_2_renaissance
+	requires = gj_hrimval_vigilia_blanca
+
+	army_tradition_from_battle = 0.15
+	global_manpower_modifier = 0.10
+}
+
+gj_hrimval_pan_de_ceniza = {
+	potential = { gj_es_hrimval = yes }
+	age = age_2_renaissance
+	requires = gj_hrimval_muro_de_escarcha
+
+	tax_income_efficiency = 0.05
+	global_population_capacity_modifier = 0.05
+}
+
+############################
+# age_3_discovery
+############################
+
+gj_hrimval_marchas_de_escarcha = {
+	potential = { gj_es_hrimval = yes }
+	age = age_3_discovery
+	requires = gj_hrimval_cosecha_de_los_caidos
+
+	army_light_infantry_power = 0.10
+	army_movement_speed = 0.05
+}
+
+gj_hrimval_vientos_del_osario = {
+	potential = { gj_es_hrimval = yes }
+	age = age_3_discovery
+	requires = gj_hrimval_marchas_de_escarcha
+
+	army_tradition_decay = -0.15
+	prestige_from_land_battle = 0.20
+}
+
+gj_hrimval_sellar_los_pasos = {
+	potential = { gj_es_hrimval = yes }
+	age = age_3_discovery
+	requires = gj_hrimval_pan_de_ceniza
+
+	siege_ability = 0.10
+	land_cost_on_frozen_water = -0.25
+}
+
+gj_hrimval_cronica_en_hueso = {
+	potential = { gj_es_hrimval = yes }
+	age = age_3_discovery
+	requires = gj_hrimval_sellar_los_pasos
+
+	research_speed_modifier = 0.05
+	cultural_tradition_modifier = 0.10
+}
+
+############################
+# age_4_reformation
+############################
+
+gj_hrimval_ejercito_sin_hambre = {
+	potential = { gj_es_hrimval = yes }
+	age = age_4_reformation
+	requires = gj_hrimval_vientos_del_osario
+
+	food_consumption_modifier = -0.15
+	army_maintenance_efficiency = 0.10
+}
+
+gj_hrimval_rey_inmortal = {
+	potential = { gj_es_hrimval = yes }
+	age = age_4_reformation
+	requires = gj_hrimval_cronica_en_hueso
+
+	monthly_legitimacy = 0.05
+	country_cabinet_efficiency = 0.05
+}
+
+gj_hrimval_guardias_de_nieve = {
+	potential = { gj_es_hrimval = yes }
+	age = age_4_reformation
+	requires = gj_hrimval_ejercito_sin_hambre
+
+	levy_combat_efficiency_modifier = 0.10
+	global_levy_size_modifier = 0.10
+}
+
+gj_hrimval_pacto_de_sal = {
+	potential = { gj_es_hrimval = yes }
+	age = age_4_reformation
+	requires = gj_hrimval_rey_inmortal
+
+	stability_cost_efficiency = 0.10
+	diplomatic_upkeep_efficiency = 0.10
+}
+
+############################
+# age_5_absolutism
+############################
+
+gj_hrimval_legion_de_hueso = {
+	potential = { gj_es_hrimval = yes }
+	age = age_5_absolutism
+	requires = gj_hrimval_guardias_de_nieve
+
+	army_heavy_infantry_power = 0.10
+	discipline = 0.02
+}
+
+gj_hrimval_acero_de_escarcha = {
+	potential = { gj_es_hrimval = yes }
+	age = age_5_absolutism
+	requires = gj_hrimval_legion_de_hueso
+
+	global_iron_output_modifier = 0.10
+	global_weaponry_output_modifier = 0.10
+}
+
+gj_hrimval_cartografia_del_hielo = {
+	potential = { gj_es_hrimval = yes }
+	age = age_5_absolutism
+	requires = gj_hrimval_pacto_de_sal
+
+	army_movement_speed = 0.05
+	supply_depot_capacity = 0.20
+}
+
+gj_hrimval_el_largo_invierno = {
+	potential = { gj_es_hrimval = yes }
+	age = age_5_absolutism
+	requires = gj_hrimval_cartografia_del_hielo
+
+	global_manpower_modifier = 0.10
+	fort_limit_modifier = 0.15
+}
+
+############################
+# age_6_revolutions
+############################
+
+gj_hrimval_doctrina_del_duelo = {
+	potential = { gj_es_hrimval = yes }
+	age = age_6_revolutions
+	requires = gj_hrimval_legion_de_hueso
+
+	land_morale_modifier = 0.05
+	discipline = 0.03
+}
+
+gj_hrimval_industria_de_los_osarios = {
+	potential = { gj_es_hrimval = yes }
+	age = age_6_revolutions
+	requires = gj_hrimval_acero_de_escarcha
+
+	global_stone_output_modifier = 0.10
+	global_coal_output_modifier = 0.10
+}
+
+gj_hrimval_estado_de_vigilia = {
+	potential = { gj_es_hrimval = yes }
+	age = age_6_revolutions
+	requires = gj_hrimval_el_largo_invierno
+
+	government_reform_slots = 1
+}
+
+gj_hrimval_la_ultima_marcha = {
+	potential = { gj_es_hrimval = yes }
+	age = age_6_revolutions
+	requires = gj_hrimval_doctrina_del_duelo
+
+	global_manpower_modifier = 0.05
+	army_tradition_from_battle = 0.10
+}
+
+############################
+# Avances de cultura y de grupo cultural
+############################
+
+gj_hrimval_cultura_insepulta_cantares = {
+	potential = {
+		culture ?= culture:gj_insepulto
+	}
+	age = age_1_traditions
+
+	cultural_tradition_modifier = 0.10
+	monthly_legitimacy = 0.03
+}
+
+gj_hrimval_cultura_insepulta_memoria = {
+	potential = {
+		culture ?= culture:gj_insepulto
+	}
+	age = age_4_reformation
+	requires = gj_hrimval_cultura_insepulta_cantares
+
+	research_speed_modifier = 0.05
+	global_population_growth = 0.001
+}
+
+gj_grupo_insepulto_vigilia = {
+	potential = {
+		culture ?= { has_culture_group = culture_group:gj_grupo_insepulto }
+	}
+	age = age_3_discovery
+
+	global_pop_food_consumption = -0.05
+	land_unit_attrition = -0.10
+}

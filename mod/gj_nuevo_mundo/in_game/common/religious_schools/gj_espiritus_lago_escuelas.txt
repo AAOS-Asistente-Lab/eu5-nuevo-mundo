@@ -1,0 +1,35 @@
+﻿# Escuelas de los Espiritus del Lago.
+# gj_escuela_barqueros: la usa la Liga de las Mil Lagunas (comercio).
+# gj_escuela_sagas: la usan los Skarren (incursion).
+
+gj_escuela_barqueros = {
+	color = rgb { 70 140 190 }
+
+	enabled_for_country = {
+		religion = religion:gj_espiritus_lago
+	}
+	enabled_for_character = {
+		religion = religion:gj_espiritus_lago
+	}
+
+	modifier = {
+		global_merchant_capacity_modifier = 0.1
+		select_omen_god_cost_modifier = -0.1
+	}
+}
+
+gj_escuela_sagas = {
+	color = rgb { 150 70 60 }
+
+	enabled_for_country = {
+		religion = religion:gj_espiritus_lago
+	}
+	enabled_for_character = {
+		religion = religion:gj_espiritus_lago
+	}
+
+	modifier = {
+		amount_looted_modifier = 0.1
+		monthly_army_tradition = 0.05
+	}
+}

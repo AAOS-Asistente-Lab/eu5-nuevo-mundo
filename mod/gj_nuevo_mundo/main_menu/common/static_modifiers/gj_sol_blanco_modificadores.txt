@@ -1,0 +1,117 @@
+﻿# Modificadores temporales del Sol Blanco (los aplican eventos y acciones).
+
+# --- Equilibrio y celebraciones ---
+gj_sol_blanco_equilibrio_bendecido = {
+	game_data = {
+		category = religion
+	}
+	stability_cost_efficiency = 0.1
+	global_monthly_prosperity = 0.001
+}
+
+gj_sol_blanco_festival_sol = {
+	game_data = {
+		category = religion
+	}
+	land_morale_modifier = 0.1
+	global_population_growth = 0.0002
+}
+
+gj_sol_blanco_festival_luna = {
+	game_data = {
+		category = religion
+	}
+	diplomatic_capacity_modifier = 0.1
+	global_monthly_prosperity = 0.001
+}
+
+gj_sol_blanco_festival_equilibrio = {
+	game_data = {
+		category = religion
+	}
+	monthly_prestige = 0.15
+	stability_cost_efficiency = 0.1
+}
+
+# --- Eclipses y cometas ---
+gj_sol_blanco_eclipse_celebrado = {
+	game_data = {
+		category = religion
+	}
+	monthly_legitimacy = 0.1
+	monthly_prestige = 0.1
+	global_monthly_control = 0.001
+}
+
+gj_sol_blanco_eclipse_ignorado = {
+	game_data = {
+		category = religion
+	}
+	monthly_legitimacy = -0.25
+	global_separatism = 0.1
+	stability_cost_efficiency = -0.1
+}
+
+gj_sol_blanco_cometa_buen_augurio = {
+	game_data = {
+		category = religion
+	}
+	land_morale_modifier = 0.05
+	monthly_prestige = 0.05
+}
+
+gj_sol_blanco_cometa_mal_augurio = {
+	game_data = {
+		category = religion
+	}
+	monthly_legitimacy = -0.1
+	global_separatism = 0.05
+}
+
+# --- Eventos de la fe ---
+gj_sol_blanco_peregrinos = {
+	game_data = {
+		category = religion
+	}
+	global_monthly_prosperity = 0.0005
+	tax_income_efficiency = 0.05
+}
+
+gj_sol_blanco_hermanos_enfrentados = {
+	game_data = {
+		category = religion
+	}
+	stability_cost_efficiency = -0.1
+}
+
+gj_sol_blanco_cosecha_de_plata = {
+	game_data = {
+		category = religion
+	}
+	global_food_capacity_modifier = 0.1
+}
+
+gj_sol_blanco_corona_de_rayos = {
+	game_data = {
+		category = religion
+	}
+	monthly_prestige = 0.2
+	monthly_legitimacy = 0.15
+	stability_cost_efficiency = 0.15
+}
+
+gj_sol_blanco_eclipse_eterno = {
+	game_data = {
+		category = religion
+	}
+	global_separatism = 0.1
+	monthly_prestige = -0.1
+}
+
+gj_sol_blanco_tapiz_plateado = {
+	game_data = {
+		category = religion
+	}
+	trade_range_modifier = 0.1
+	diplomatic_capacity_modifier = 0.05
+}

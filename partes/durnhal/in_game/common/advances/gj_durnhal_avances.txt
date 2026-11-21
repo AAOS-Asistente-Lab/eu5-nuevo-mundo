@@ -1,0 +1,331 @@
+# Avances propios de Durnhal: pais (25) y cultura (3). Cubren las seis eras.
+
+gj_durnhal_piedra_madre = {
+	potential = { gj_es_durnhal = yes }
+	age = age_1_traditions
+	icon = mining_advance
+	global_stone_output_modifier = 0.1
+	global_iron_output_modifier = 0.1
+	ai_weight = { add = 10 }
+
+	requires = mining_advance
+}
+
+gj_durnhal_ley_de_la_veta = {
+	potential = { gj_es_durnhal = yes }
+	age = age_1_traditions
+	icon = mining_law_advance
+	global_max_rgo_size_modifier = 0.05
+	building_upkeep_efficiency = 0.05
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_piedra_madre
+}
+
+gj_durnhal_yunque_comun = {
+	potential = { gj_es_durnhal = yes }
+	age = age_1_traditions
+	icon = iron_working
+	global_tools_output_modifier = 0.1
+	global_weaponry_output_modifier = 0.1
+	unlock_building = gj_durnhal_gran_forja
+	ai_weight = { add = 10 }
+
+	requires = iron_working
+}
+
+gj_durnhal_salones_de_los_ancestros = {
+	potential = { gj_es_durnhal = yes }
+	age = age_1_traditions
+	icon = organized_religion
+	monthly_legitimacy = 0.03
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+	unlock_building = gj_durnhal_salon_ancestros
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_ley_de_la_veta
+}
+
+gj_durnhal_escudo_y_martillo = {
+	potential = { gj_es_durnhal = yes }
+	age = age_1_traditions
+	icon = unlock_footmen_advance
+	army_heavy_infantry_power = 0.05
+	army_artillery_power = 0.05
+	unlock_unit = a_gj_durnhal_rompeescudos_1
+	unlock_unit = a_gj_durnhal_tirador_1
+	unlock_unit = a_gj_durnhal_bombarda_1
+	ai_weight = { add = 10 }
+
+	requires = unlock_footmen_advance
+}
+
+gj_durnhal_galerias_profundas = {
+	potential = { gj_es_durnhal = yes }
+	age = age_2_renaissance
+	icon = mining_advance
+	global_coal_output_modifier = 0.1
+	global_copper_output_modifier = 0.1
+	ai_weight = { add = 10 }
+
+	requires = mining_law_advance
+}
+
+gj_durnhal_cartas_de_gremio = {
+	potential = { gj_es_durnhal = yes }
+	age = age_2_renaissance
+	icon = guilds
+	global_production_efficiency = 0.03
+	global_burghers_city_desired_pop = 0.1
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_galerias_profundas
+}
+
+gj_durnhal_maestros_de_obra = {
+	potential = { gj_es_durnhal = yes }
+	age = age_2_renaissance
+	icon = construction_speed_renaissance
+	global_construction_speed = 0.1
+	fort_maintenance_efficiency = 0.1
+	ai_weight = { add = 10 }
+
+	requires = renaissance_urbanisation
+}
+
+gj_durnhal_prestamos_de_la_forja = {
+	potential = { gj_es_durnhal = yes }
+	age = age_2_renaissance
+	icon = banking_advance
+	global_silver_output_modifier = 0.1
+	tax_income_efficiency = 0.05
+	ai_weight = { add = 10 }
+
+	requires = banking_advance
+}
+
+gj_durnhal_martillo_y_pica = {
+	potential = { gj_es_durnhal = yes }
+	age = age_2_renaissance
+	icon = drill_army_advance
+	army_heavy_infantry_power = 0.05
+	discipline = 0.03
+	unlock_unit = a_gj_durnhal_rompeescudos_2
+	unlock_unit = a_gj_durnhal_tirador_2
+	unlock_unit = a_gj_durnhal_bombarda_2
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_escudo_y_martillo
+}
+
+gj_durnhal_fundicion_de_runa = {
+	potential = { gj_es_durnhal = yes }
+	age = age_3_discovery
+	icon = blast_furnace
+	global_iron_output_modifier = 0.1
+	global_steel_output_modifier = 0.1
+	ai_weight = { add = 10 }
+
+	requires = blast_furnace
+}
+
+gj_durnhal_escuela_de_capataces = {
+	potential = { gj_es_durnhal = yes }
+	age = age_3_discovery
+	icon = printing_press_advance
+	global_institution_growth_modifier = 0.15
+	global_burghers_max_literacy = 5
+	ai_weight = { add = 10 }
+
+	requires = printing_press_advance
+}
+
+gj_durnhal_pozos_ventilados = {
+	potential = { gj_es_durnhal = yes }
+	age = age_3_discovery
+	icon = surgery_advance
+	global_laborers_desired_pop = 0.1
+	ai_weight = { add = 10 }
+
+	requires = surgery_advance
+}
+
+gj_durnhal_bombardas_en_la_brecha = {
+	potential = { gj_es_durnhal = yes }
+	age = age_3_discovery
+	icon = pike_and_shot_advance
+	army_artillery_power = 0.08
+	siege_ability = 0.05
+	unlock_unit = a_gj_durnhal_rompeescudos_3
+	unlock_unit = a_gj_durnhal_tirador_3
+	unlock_unit = a_gj_durnhal_bombarda_3
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_martillo_y_pica
+}
+
+gj_durnhal_minas_hondas = {
+	potential = { gj_es_durnhal = yes }
+	age = age_4_reformation
+	icon = bole_smelting
+	global_gems_output_modifier = 0.15
+	global_max_rgo_size_modifier = 0.1
+	ai_weight = { add = 10 }
+
+	requires = bole_smelting
+}
+
+gj_durnhal_banco_de_las_casas = {
+	potential = { gj_es_durnhal = yes }
+	age = age_4_reformation
+	icon = central_bank_advance
+	stability_cost_efficiency = 0.1
+	tax_income_efficiency = 0.05
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_prestamos_de_la_forja
+}
+
+gj_durnhal_gremio_de_artilleros = {
+	potential = { gj_es_durnhal = yes }
+	age = age_4_reformation
+	icon = artillery_institution_advance
+	global_cannons_output_modifier = 0.15
+	global_firearms_output_modifier = 0.1
+	ai_weight = { add = 10 }
+
+	requires = artillery_institution_advance
+}
+
+gj_durnhal_frente_de_acero = {
+	potential = { gj_es_durnhal = yes }
+	age = age_4_reformation
+	icon = combined_arms_advance_reformation
+	army_heavy_infantry_power = 0.08
+	land_morale_modifier = 0.05
+	unlock_unit = a_gj_durnhal_rompeescudos_4
+	unlock_unit = a_gj_durnhal_tirador_4
+	unlock_unit = a_gj_durnhal_bombarda_4
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_bombardas_en_la_brecha
+}
+
+gj_durnhal_hornos_de_coque = {
+	potential = { gj_es_durnhal = yes }
+	age = age_5_absolutism
+	icon = coke_blast_furnace
+	global_coal_output_modifier = 0.15
+	global_steel_output_modifier = 0.1
+	ai_weight = { add = 10 }
+
+	requires = coke_blast_furnace
+}
+
+gj_durnhal_manufacturas_de_las_casas = {
+	potential = { gj_es_durnhal = yes }
+	age = age_5_absolutism
+	icon = manufactories_advance
+	global_production_efficiency = 0.05
+	building_upkeep_efficiency = 0.1
+	ai_weight = { add = 10 }
+
+	requires = manufactories_advance
+}
+
+gj_durnhal_trueno_de_las_casas = {
+	potential = { gj_es_durnhal = yes }
+	age = age_5_absolutism
+	icon = artillery_vs_fort_age_5_absolutism
+	army_artillery_power = 0.08
+	discipline = 0.03
+	unlock_unit = a_gj_durnhal_rompeescudos_5
+	unlock_unit = a_gj_durnhal_tirador_5
+	unlock_unit = a_gj_durnhal_bombarda_5
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_frente_de_acero
+}
+
+gj_durnhal_vapor_de_runa = {
+	potential = { gj_es_durnhal = yes }
+	age = age_6_revolutions
+	icon = industrialization_advance
+	global_production_efficiency = 0.05
+	global_construction_speed = 0.1
+	ai_weight = { add = 10 }
+
+	requires = industrialization_advance
+}
+
+gj_durnhal_ciudades_de_piedra = {
+	potential = { gj_es_durnhal = yes }
+	age = age_6_revolutions
+	icon = urbanization
+	global_burghers_city_desired_pop = 0.15
+	global_population_capacity_modifier = 0.05
+	ai_weight = { add = 10 }
+
+	requires = urbanization
+}
+
+gj_durnhal_pacto_de_las_casas = {
+	potential = { gj_es_durnhal = yes }
+	age = age_6_revolutions
+	icon = modern_bureaucracy
+	government_reform_slots = 1
+	ai_weight = { add = 10 }
+
+	requires = modern_bureaucracy
+}
+
+gj_durnhal_martillo_de_la_nueva_era = {
+	potential = { gj_es_durnhal = yes }
+	age = age_6_revolutions
+	icon = long_rifle
+	army_heavy_infantry_power = 0.08
+	land_morale_modifier = 0.05
+	unlock_unit = a_gj_durnhal_rompeescudos_6
+	unlock_unit = a_gj_durnhal_tirador_6
+	unlock_unit = a_gj_durnhal_bombarda_6
+	ai_weight = { add = 10 }
+
+	requires = gj_durnhal_trueno_de_las_casas
+}
+
+gj_durnhal_cultura_orfebres_de_veta = {
+	potential = {
+		culture = culture:gj_durnhali
+	}
+	age = age_1_traditions
+	icon = fine_metals_mining
+	global_jewelry_output_modifier = 0.1
+	global_masonry_output_modifier = 0.1
+
+	requires = fine_metals_mining
+}
+
+gj_durnhal_cultura_memoria_de_piedra = {
+	potential = {
+		culture = culture:gj_durnhali
+	}
+	age = age_3_discovery
+	icon = print_culture
+	global_peasants_max_literacy = 5
+	global_laborers_max_literacy = 5
+
+	requires = printing_press_advance
+}
+
+gj_durnhal_cultura_cantares_de_fragua = {
+	potential = {
+		culture = culture:gj_durnhali
+	}
+	age = age_5_absolutism
+	icon = absolutist_court
+	land_morale_modifier = 0.05
+	monthly_prestige = 0.1
+
+	requires = absolutist_court
+}
+

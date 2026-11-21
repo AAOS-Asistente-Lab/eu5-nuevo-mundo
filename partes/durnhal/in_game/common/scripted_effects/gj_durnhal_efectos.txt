@@ -1,0 +1,56 @@
+# Efectos de Durnhal
+
+# Cambia la inquietud global de la profundidad (0..100). Parametro: valor
+gj_durnhal_cambia_inquietud = {
+	if = {
+		limit = { NOT = { has_global_variable = gj_inquietud_caldera } }
+		set_global_variable = { name = gj_inquietud_caldera value = 0 }
+	}
+	set_global_variable = {
+		name = gj_inquietud_caldera
+		value = {
+			value = global_var:gj_inquietud_caldera
+			add = $valor$
+			min = 0
+			max = 100
+		}
+	}
+}
+
+# Ofrecido a las demas partes (llama_profunda, mundo_bestias): sube la inquietud global. Parametro: PUNTOS
+gj_durnhal_sube_inquietud = {
+	gj_durnhal_cambia_inquietud = { valor = $PUNTOS$ }
+}
+
+# Scope: location. Sube de nivel la mina y aplica el modificador del nivel.
+gj_durnhal_profundizar_efecto = {
+	if = {
+		limit = { NOT = { has_variable = gj_nivel_mina } }
+		set_variable = { name = gj_nivel_mina value = 0 }
+	}
+	gj_durnhal_quita_modificadores_mina = yes
+	change_variable = { name = gj_nivel_mina add = 1 }
+	if = { limit = { var:gj_nivel_mina = 1 } add_location_modifier = { modifier = gj_durnhal_mina_nivel_1 years = -1 mode = add_and_extend } }
+	else_if = { limit = { var:gj_nivel_mina = 2 } add_location_modifier = { modifier = gj_durnhal_mina_nivel_2 years = -1 mode = add_and_extend } }
+	else_if = { limit = { var:gj_nivel_mina = 3 } add_location_modifier = { modifier = gj_durnhal_mina_nivel_3 years = -1 mode = add_and_extend } }
+	else_if = { limit = { var:gj_nivel_mina = 4 } add_location_modifier = { modifier = gj_durnhal_mina_nivel_4 years = -1 mode = add_and_extend } }
+	else = { add_location_modifier = { modifier = gj_durnhal_mina_nivel_5 years = -1 mode = add_and_extend } }
+}
+
+# Scope: location. Baja dos niveles (se sella la galeria).
+gj_durnhal_sellar_efecto = {
+	gj_durnhal_quita_modificadores_mina = yes
+	change_variable = { name = gj_nivel_mina add = -2 }
+	clamp_variable = { name = gj_nivel_mina min = 0 max = 5 }
+	if = { limit = { var:gj_nivel_mina = 1 } add_location_modifier = { modifier = gj_durnhal_mina_nivel_1 years = -1 mode = add_and_extend } }
+	else_if = { limit = { var:gj_nivel_mina = 2 } add_location_modifier = { modifier = gj_durnhal_mina_nivel_2 years = -1 mode = add_and_extend } }
+	else_if = { limit = { var:gj_nivel_mina = 3 } add_location_modifier = { modifier = gj_durnhal_mina_nivel_3 years = -1 mode = add_and_extend } }
+}
+
+gj_durnhal_quita_modificadores_mina = {
+	if = { limit = { has_location_modifier = gj_durnhal_mina_nivel_1 } remove_location_modifier = gj_durnhal_mina_nivel_1 }
+	if = { limit = { has_location_modifier = gj_durnhal_mina_nivel_2 } remove_location_modifier = gj_durnhal_mina_nivel_2 }
+	if = { limit = { has_location_modifier = gj_durnhal_mina_nivel_3 } remove_location_modifier = gj_durnhal_mina_nivel_3 }
+	if = { limit = { has_location_modifier = gj_durnhal_mina_nivel_4 } remove_location_modifier = gj_durnhal_mina_nivel_4 }
+	if = { limit = { has_location_modifier = gj_durnhal_mina_nivel_5 } remove_location_modifier = gj_durnhal_mina_nivel_5 }
+}

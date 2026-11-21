@@ -1,0 +1,15 @@
+﻿# GJ Nuevo Mundo, integracion: los dos grupos de las fes propias (CONTRATO-PARTES §5).
+
+gj_fe_norte = {
+	color = gj_fe_norte
+	convert_slaves_at_start = no
+	modifier = {
+	}
+}
+
+gj_fe_sur = {
+	color = gj_fe_sur
+	convert_slaves_at_start = no
+	modifier = {
+	}
+}

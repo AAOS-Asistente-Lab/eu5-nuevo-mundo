@@ -1,0 +1,113 @@
+﻿# Modificadores con nombre de la Senda Verde (decisiones, eventos y presagios).
+
+gj_senda_verde_claro_vivo = {
+	game_data = {
+		category = location
+	}
+
+	local_food_capacity_modifier = 0.15
+	local_lumber_output_modifier = 0.15
+	local_unrest = -0.1
+}
+
+gj_senda_verde_brotes_de_fiesta = {
+	game_data = {
+		category = location
+	}
+
+	local_monthly_prosperity = 0.002
+	local_unrest = -0.05
+}
+
+gj_senda_verde_bosque_en_llamas = {
+	game_data = {
+		category = location
+	}
+
+	local_monthly_prosperity = -0.003
+	local_lumber_output_modifier = -0.3
+	local_defensive = 0.1
+}
+
+gj_senda_verde_poda_provechosa = {
+	game_data = {
+		category = country
+	}
+
+	global_lumber_output_modifier = 0.2
+	global_furniture_output_modifier = 0.2
+}
+
+gj_senda_verde_asamblea_de_anillos = {
+	game_data = {
+		category = country
+	}
+
+	monthly_legitimacy = 0.05
+	research_speed_modifier = 0.05
+	stability_cost_efficiency = 0.1
+}
+
+gj_senda_verde_tala_furtiva = {
+	game_data = {
+		category = country
+	}
+
+	global_lumber_output_modifier = 0.1
+	monthly_karma = -0.15
+}
+
+gj_senda_verde_penitencia_de_hojas = {
+	game_data = {
+		category = country
+	}
+
+	monthly_karma = 0.15
+	global_lumber_output_modifier = -0.1
+}
+
+gj_senda_verde_red_de_micelio = {
+	game_data = {
+		category = country
+	}
+
+	research_speed_modifier = 0.05
+	diplomatic_reputation = 1
+}
+
+gj_senda_verde_peregrino_del_muerdago = {
+	game_data = {
+		category = country
+	}
+
+	monthly_legitimacy = 0.03
+	tolerance_heathen = 1
+}
+
+gj_senda_verde_poda_celeste = {
+	game_data = {
+		category = country
+	}
+
+	global_defensive = 0.1
+	global_medicaments_output_modifier = 0.2
+}
+
+gj_senda_verde_silencio_del_bosque = {
+	game_data = {
+		category = country
+	}
+
+	stability_cost_efficiency = 0.1
+	research_speed_modifier = -0.03
+	global_monthly_prosperity = 0.0005
+}
+
+gj_senda_verde_cosecha_de_savia = {
+	game_data = {
+		category = country
+	}
+
+	global_food_capacity_modifier = 0.08
+	global_population_growth = 0.0001
+}

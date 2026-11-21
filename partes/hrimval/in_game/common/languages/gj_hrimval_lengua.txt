@@ -1,0 +1,27 @@
+﻿gj_lengua_insepulta = {
+	color = gj_hrimval_mapa_lengua_insepulta
+
+	family = gj_familia_insepulta
+
+	male_names = {
+		Veldrik Orsmund Kaldren Ysbrand Haldrek
+		Morvaen Ithrek Sorvald Brenmund Aldiric
+		Vyrmund Eskaldo Hrolvar Dunvek Calderic
+		Tarkesh Bruvald Isenmar Quellan Vorhelm
+	}
+	female_names = {
+		Ithra Velmora Kaelith Hrimna Sennara
+		Morenna Vespera Isbeth Orlena Dunmara
+		Sorvela Calypra Ysmeren Dorvela Brunhelda
+	}
+
+	dynasty_names = {
+		Valdrek Hrimmar Orsmark Daldrune Vyrnholt
+		Kelvarn Ithrane Morvik Caldereth Sorrenholt
+		Brezalmar Isenvar
+	}
+	lowborn = {
+		Hielero Osario Bruma Cairn Sepulto
+		Nevado Ventisca Tajo Gelido Cenizo
+	}
+}

@@ -1,0 +1,22 @@
+﻿gj_kaivani_language = {
+	color = rgb { 190 150 80 }
+
+	family = gj_estepa_language_family
+
+	male_names = {
+		Tolkhar Berukh Yarvad Sanduk Orlakh Khazur Daruk Meskhet Ilvar Borzak
+		Tamuun Urgash Vasken Zhoruk Atlakh Ghedrun Halmuk Irzan Jorvak Kuldash
+		Lemuk Narzak Ozhrun Pelkhar Quldar Rashvak Sorgun Tehrak Ulvash Yazhdar
+	}
+	female_names = {
+		Nurvel Saruna Tolvia Ekhra Ilmara Daruna Khelna Oruvi Zaylen Marguna
+		Sevhra Yelnai Anakha Tamril Uvessa Bashira Orenka Vulhai Zerinde Halvara
+	}
+	dynasty_names = {
+		Uzhar Tarkhen Ilbari Merghan Valzug Orokh Dashkai Belgur Hanzar Kerul
+		Sovhai Torvan
+	}
+	lowborn = {
+		Ghul Mardai Soruk Pekh Dunai Vorek
+	}
+}

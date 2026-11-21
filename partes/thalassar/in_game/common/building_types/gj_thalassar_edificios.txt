@@ -1,0 +1,909 @@
+﻿##############################################################
+# THALASSAR: 5 edificios propios, cada uno en 3 niveles de era (15 tipos).
+# Cada nivel hace obsoleto al anterior (como dock -> dry_dock -> shipyard).
+#  Nivel I: eras 1-2 | Nivel II: eras 3-4 | Nivel III: eras 5-6
+# El permiso de construir depende de la fase de la Ciudad Hundida y de los cristales de marea.
+# Limites: Faro (puerto), Barrio Emergido (puerto, fase), Jardin de Perlas (solo en perlas o pesca),
+#          Academia (solo en la capital), Arsenal (solo con Faro en el mismo puerto).
+##############################################################
+
+gj_thalassar_faro_de_marea_1 = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = naval_category
+	employment_size = dock_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = medium_port_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 2 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 2 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_faro_de_marea_1_maintenance = {
+			icon_type = building_type
+			icon = dock
+			lumber = 0.1
+			tools = 0.1
+			stone = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = port_building_construction
+
+	modifier = {
+		harbor_suitability = 0.1
+		local_sailors = 0.02
+		local_navy_attrition = -1
+		local_trade_protection_factor = 0.05
+	}
+}
+
+gj_thalassar_faro_de_marea_2 = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = naval_category
+	obsolete = gj_thalassar_faro_de_marea_1
+	employment_size = dock_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = medium_port_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 3 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 3 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_faro_de_marea_2_maintenance = {
+			icon_type = building_type
+			icon = dock
+			lumber = 0.2
+			tools = 0.2
+			stone = 0.2
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = port_building_construction
+
+	modifier = {
+		harbor_suitability = 0.15
+		local_sailors = 0.04
+		local_navy_attrition = -2
+		local_trade_protection_factor = 0.1
+		local_ship_build_speed = 0.1
+	}
+}
+
+gj_thalassar_faro_de_marea_3 = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = naval_category
+	obsolete = gj_thalassar_faro_de_marea_2
+	employment_size = dock_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = medium_port_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 4 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 4 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_faro_de_marea_3_maintenance = {
+			icon_type = building_type
+			icon = dock
+			lumber = 0.3
+			tools = 0.3
+			stone = 0.3
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = port_building_construction
+
+	modifier = {
+		harbor_suitability = 0.2
+		local_sailors = 0.06
+		local_navy_attrition = -3
+		local_trade_protection_factor = 0.15
+		local_ship_build_speed = 0.2
+		max_ships_built_at_same_time = 1
+	}
+}
+
+gj_thalassar_barrio_emergido_1 = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = burghers
+	forbidden_for_estates = yes
+	category = cultural_category
+	employment_size = cultural_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = large_cultural_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_fase_al_menos = { N = 1 }
+			gj_thalassar_tiene_cristales = { N = 3 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 3 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_barrio_emergido_1_maintenance = {
+			icon_type = building_type
+			icon = library
+			stone = 0.1
+			glass = 0.1
+			pearls = 0.05
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = library_construction
+
+	modifier = {
+		local_cultural_influence = 0.1
+		local_max_literacy = 5
+		local_migration_attraction = 0.05
+		local_institution_growth_modifier = 0.15
+	}
+}
+
+gj_thalassar_barrio_emergido_2 = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = burghers
+	forbidden_for_estates = yes
+	category = cultural_category
+	obsolete = gj_thalassar_barrio_emergido_1
+	employment_size = cultural_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = large_cultural_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_fase_al_menos = { N = 3 }
+			gj_thalassar_tiene_cristales = { N = 4 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 4 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_barrio_emergido_2_maintenance = {
+			icon_type = building_type
+			icon = library
+			stone = 0.2
+			glass = 0.2
+			pearls = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = library_construction
+
+	modifier = {
+		local_cultural_influence = 0.25
+		local_max_literacy = 8
+		local_migration_attraction = 0.1
+		local_institution_growth_modifier = 0.25
+	}
+}
+
+gj_thalassar_barrio_emergido_3 = {
+	audio_tier = 5
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = burghers
+	forbidden_for_estates = yes
+	category = cultural_category
+	obsolete = gj_thalassar_barrio_emergido_2
+	employment_size = cultural_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = large_cultural_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_fase_al_menos = { N = 5 }
+			gj_thalassar_tiene_cristales = { N = 6 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 6 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_barrio_emergido_3_maintenance = {
+			icon_type = building_type
+			icon = library
+			stone = 0.3
+			glass = 0.3
+			pearls = 0.15
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = library_construction
+
+	modifier = {
+		local_cultural_influence = 0.4
+		local_max_literacy = 12
+		local_migration_attraction = 0.15
+		local_institution_growth_modifier = 0.4
+	}
+}
+
+gj_thalassar_jardin_de_perlas_1 = {
+	audio_tier = 1
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = laborers
+	forbidden_for_estates = yes
+	category = rgo_enhancement_category
+	employment_size = guild_employment
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = rural_build_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_coastal = yes
+		OR = {
+			raw_material = goods:pearls
+			raw_material = goods:fish
+		}
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 1 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 1 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_jardin_de_perlas_1_maintenance = {
+			icon_type = building_type
+			icon = dock
+			tools = 0.1
+			lumber = 0.1
+			cloth = 0.05
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = guild_construction
+
+	modifier = {
+		local_pearls_output_modifier = 0.2
+		local_fish_output_modifier = 0.1
+		local_raw_material_output = 0.05
+	}
+}
+
+gj_thalassar_jardin_de_perlas_2 = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = laborers
+	forbidden_for_estates = yes
+	category = rgo_enhancement_category
+	obsolete = gj_thalassar_jardin_de_perlas_1
+	employment_size = guild_employment
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = rural_build_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_coastal = yes
+		OR = {
+			raw_material = goods:pearls
+			raw_material = goods:fish
+		}
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 2 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 2 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_jardin_de_perlas_2_maintenance = {
+			icon_type = building_type
+			icon = dock
+			tools = 0.2
+			lumber = 0.2
+			cloth = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = guild_construction
+
+	modifier = {
+		local_pearls_output_modifier = 0.3
+		local_fish_output_modifier = 0.125
+		local_raw_material_output = 0.1
+	}
+}
+
+gj_thalassar_jardin_de_perlas_3 = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = laborers
+	forbidden_for_estates = yes
+	category = rgo_enhancement_category
+	obsolete = gj_thalassar_jardin_de_perlas_2
+	employment_size = guild_employment
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = rural_build_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_coastal = yes
+		OR = {
+			raw_material = goods:pearls
+			raw_material = goods:fish
+		}
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 3 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 3 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_jardin_de_perlas_3_maintenance = {
+			icon_type = building_type
+			icon = dock
+			tools = 0.3
+			lumber = 0.3
+			cloth = 0.15
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = guild_construction
+
+	modifier = {
+		local_pearls_output_modifier = 0.4
+		local_fish_output_modifier = 0.15
+		local_raw_material_output = 0.15
+	}
+}
+
+gj_thalassar_academia_de_las_mareas_1 = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = burghers
+	forbidden_for_estates = yes
+	category = cultural_category
+	employment_size = cultural_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = cultural_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_capital = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 2 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 2 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_academia_de_las_mareas_1_maintenance = {
+			icon_type = building_type
+			icon = library
+			paper = 0.2
+			books = 0.1
+			glass = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = library_construction
+
+	modifier = {
+		local_max_literacy = 5
+		local_monthly_literacy = 0.1
+		local_institution_growth_modifier = 0.25
+		local_cultural_influence = 0.1
+	}
+}
+
+gj_thalassar_academia_de_las_mareas_2 = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = burghers
+	forbidden_for_estates = yes
+	category = cultural_category
+	obsolete = gj_thalassar_academia_de_las_mareas_1
+	employment_size = cultural_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = cultural_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_capital = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_fase_al_menos = { N = 2 }
+			gj_thalassar_tiene_cristales = { N = 3 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 3 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_academia_de_las_mareas_2_maintenance = {
+			icon_type = building_type
+			icon = library
+			paper = 0.4
+			books = 0.2
+			glass = 0.2
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = library_construction
+
+	modifier = {
+		local_max_literacy = 8
+		local_monthly_literacy = 0.15
+		local_institution_growth_modifier = 0.35
+		local_cultural_influence = 0.2
+	}
+}
+
+gj_thalassar_academia_de_las_mareas_3 = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = burghers
+	forbidden_for_estates = yes
+	category = cultural_category
+	obsolete = gj_thalassar_academia_de_las_mareas_2
+	employment_size = cultural_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = cultural_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_capital = yes
+	}
+	allow = {
+		scope:actor = {
+			gj_thalassar_fase_al_menos = { N = 4 }
+			gj_thalassar_tiene_cristales = { N = 5 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 5 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_academia_de_las_mareas_3_maintenance = {
+			icon_type = building_type
+			icon = library
+			paper = 0.6
+			books = 0.3
+			glass = 0.3
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = library_construction
+
+	modifier = {
+		local_max_literacy = 12
+		local_monthly_literacy = 0.2
+		local_institution_growth_modifier = 0.5
+		local_cultural_influence = 0.3
+	}
+}
+
+gj_thalassar_arsenal_sumergido_1 = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = naval_category
+	employment_size = shipyard_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = large_port_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		OR = {
+			has_building = building_type:gj_thalassar_faro_de_marea_1
+			has_building = building_type:gj_thalassar_faro_de_marea_2
+			has_building = building_type:gj_thalassar_faro_de_marea_3
+		}
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 3 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 3 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_arsenal_sumergido_1_maintenance = {
+			icon_type = building_type
+			icon = shipyard
+			naval_supplies = 0.2
+			tools = 0.2
+			lumber = 0.2
+			cloth = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = port_building_construction
+
+	modifier = {
+		max_ships_built_at_same_time = 2
+		local_ship_build_speed = 0.2
+		local_sailors = 0.03
+		harbor_suitability = 0.1
+		can_build_ships_in_this_location = yes
+	}
+}
+
+gj_thalassar_arsenal_sumergido_2 = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = naval_category
+	obsolete = gj_thalassar_arsenal_sumergido_1
+	employment_size = shipyard_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = large_port_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		OR = {
+			has_building = building_type:gj_thalassar_faro_de_marea_1
+			has_building = building_type:gj_thalassar_faro_de_marea_2
+			has_building = building_type:gj_thalassar_faro_de_marea_3
+		}
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 5 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 5 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_arsenal_sumergido_2_maintenance = {
+			icon_type = building_type
+			icon = shipyard
+			naval_supplies = 0.4
+			tools = 0.4
+			lumber = 0.4
+			cloth = 0.2
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = port_building_construction
+
+	modifier = {
+		max_ships_built_at_same_time = 4
+		local_ship_build_speed = 0.3
+		local_sailors = 0.06
+		harbor_suitability = 0.15
+		can_build_ships_in_this_location = yes
+	}
+}
+
+gj_thalassar_arsenal_sumergido_3 = {
+	audio_tier = 5
+	is_special = yes
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = naval_category
+	obsolete = gj_thalassar_arsenal_sumergido_2
+	employment_size = shipyard_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = large_port_building_time
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		OR = {
+			has_building = building_type:gj_thalassar_faro_de_marea_1
+			has_building = building_type:gj_thalassar_faro_de_marea_2
+			has_building = building_type:gj_thalassar_faro_de_marea_3
+		}
+		scope:actor = {
+			gj_thalassar_tiene_cristales = { N = 7 }
+		}
+	}
+	on_built = {
+		location = {
+			owner = {
+				gj_thalassar_gasta_cristales = { N = 7 }
+			}
+		}
+	}
+
+	unique_production_methods = {
+		gj_thalassar_arsenal_sumergido_3_maintenance = {
+			icon_type = building_type
+			icon = shipyard
+			naval_supplies = 0.6
+			tools = 0.6
+			lumber = 0.6
+			cloth = 0.3
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = port_building_construction
+
+	modifier = {
+		max_ships_built_at_same_time = 6
+		local_ship_build_speed = 0.33
+		local_sailors = 0.1
+		harbor_suitability = 0.2
+		can_build_ships_in_this_location = yes
+	}
+}
+

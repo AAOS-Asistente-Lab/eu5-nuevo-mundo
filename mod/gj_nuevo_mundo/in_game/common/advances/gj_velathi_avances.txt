@@ -1,0 +1,250 @@
+﻿# Avances propios de los velathi: el pueblo del bosque. Seis eras.
+
+gj_velathi_raices_hondas = {
+	potential = { gj_es_velathi = yes }
+	age = age_1_traditions
+	icon = agriculture_advance
+	requires = agriculture_advance
+	global_lumber_output_modifier = 0.20
+	global_wild_game_output_modifier = 0.20
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_memoria_de_savia = {
+	potential = { gj_es_velathi = yes }
+	age = age_1_traditions
+	icon = agriculture_advance
+	requires = written_alphabet
+	monthly_legitimacy = 0.05
+	global_life_expectancy = 4
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_paso_del_cazador = {
+	potential = { gj_es_velathi = yes }
+	age = age_1_traditions
+	icon = offensive_army
+	requires = faster_levy_recruitment
+	army_light_infantry_power = 0.10
+	global_hostile_attrition = 0.5
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_concilio_de_ancianos = {
+	potential = { gj_es_velathi = yes }
+	age = age_1_traditions
+	icon = scholasticism
+	requires = legalism_advance
+	cultural_tradition = 0.25
+	monthly_prestige = 0.05
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_hogar_en_las_copas = {
+	potential = { gj_es_velathi = yes }
+	age = age_1_traditions
+	icon = city_building_advance
+	requires = city_building_advance
+	global_population_capacity_modifier = 0.10
+	global_construction_speed = -0.10
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_arco_de_tejo = {
+	potential = { gj_es_velathi = yes }
+	age = age_2_renaissance
+	icon = offensive_army
+	requires = drill_army_advance
+	army_light_infantry_power = 0.10
+	land_morale_modifier = 0.05
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_silvicultura = {
+	potential = { gj_es_velathi = yes }
+	age = age_2_renaissance
+	icon = scholasticism
+	requires = rgo_size_advance_renaissance
+	global_max_rgo_size_modifier = 0.10
+	global_lumber_output_modifier = 0.15
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_ley_del_claro = {
+	potential = { gj_es_velathi = yes }
+	age = age_2_renaissance
+	icon = city_building_advance
+	requires = renaissance_city_rights
+	stability_cost_efficiency = 0.10
+	tolerance_own = 1
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_herbolarios_longevos = {
+	potential = { gj_es_velathi = yes }
+	age = age_2_renaissance
+	icon = administrative_leadership
+	requires = anatomy_advance
+	global_disease_resistance = 0.05
+	global_medicaments_output_modifier = 0.10
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_cronicas_de_los_siglos = {
+	potential = { gj_es_velathi = yes }
+	age = age_3_discovery
+	icon = scholasticism
+	requires = printing_press_advance
+	research_speed_modifier = 0.10
+	global_monthly_literacy = 0.01
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_navios_de_savia = {
+	potential = { gj_es_velathi = yes }
+	age = age_3_discovery
+	icon = naval_doctrines_advance
+	requires = ship_building_techniques_discovery
+	global_naval_supplies_output_modifier = 0.20
+	diplomatic_range_modifier = -0.10
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_fortines_de_corteza = {
+	potential = { gj_es_velathi = yes }
+	age = age_3_discovery
+	icon = defensive_mentality
+	requires = pike_and_shot_advance
+	global_garrison_size_modifier = 0.15
+	fort_maintenance_efficiency = 0.15
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_guardabosques = {
+	potential = { gj_es_velathi = yes }
+	age = age_4_reformation
+	icon = offensive_army
+	requires = maurician_infantry
+	army_movement_speed = 0.10
+	global_supply_limit_modifier = 0.15
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_cultivo_sin_hacha = {
+	potential = { gj_es_velathi = yes }
+	age = age_4_reformation
+	icon = agriculture_advance
+	requires = food_advance_reformation
+	global_food_capacity_modifier = 0.10
+	global_devastation_recovery = 0.0025
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_puertos_de_corteza = {
+	potential = { gj_es_velathi = yes }
+	age = age_4_reformation
+	icon = naval_doctrines_advance
+	requires = maritime_advance_age_4
+	global_maritime_presence_modifier = 0.10
+	global_sailors_modifier = 0.10
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_siglo_de_paz = {
+	potential = { gj_es_velathi = yes }
+	age = age_5_absolutism
+	icon = city_building_advance
+	requires = government_size_absolutism
+	stability_decay = -0.00025
+	global_monthly_prosperity = 0.001
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_ingenio_de_madera = {
+	potential = { gj_es_velathi = yes }
+	age = age_5_absolutism
+	icon = city_building_advance
+	requires = manufactories_advance
+	global_build_buildings_efficiency = 0.10
+	global_lumber_output_modifier = 0.10
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_fusileros_del_umbral = {
+	potential = { gj_es_velathi = yes }
+	age = age_5_absolutism
+	icon = offensive_army
+	requires = line_infantry
+	discipline = 0.05
+	army_light_infantry_power = 0.10
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_sabiduria_de_las_eras = {
+	potential = { gj_es_velathi = yes }
+	age = age_6_revolutions
+	icon = scholasticism
+	requires = enlightenment_advance
+	research_speed_modifier = 0.15
+	global_max_literacy = 5
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_bosque_industrial = {
+	potential = { gj_es_velathi = yes }
+	age = age_6_revolutions
+	icon = administrative_leadership
+	requires = industrialization_advance
+	global_lumber_output_modifier = 0.15
+	global_raw_material_output = 0.10
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_memoria_viva = {
+	potential = { gj_es_velathi = yes }
+	age = age_6_revolutions
+	icon = administrative_leadership
+	requires = rights_of_man
+	monthly_legitimacy = 0.05
+	subject_loyalty = 5
+	ai_weight = { add = 10 }
+}
+
+gj_velathi_ultimo_juramento = {
+	potential = { gj_es_velathi = yes }
+	age = age_6_revolutions
+	icon = offensive_army
+	requires = levee_en_masse_advance
+	global_manpower_modifier = 0.10
+	global_defensive = 0.10
+	ai_weight = { add = 10 }
+}
+
+# Avances de cultura: solo para quien tiene la cultura velathi.
+
+gj_velathi_cultura_lengua_de_hojas = {
+	potential = { culture = culture:gj_velathi }
+	age = age_1_traditions
+	icon = scholasticism
+	requires = written_alphabet
+	cultural_tradition_modifier = 0.20
+	monthly_prestige = 0.05
+}
+
+gj_velathi_cultura_canto_del_amanecer = {
+	potential = { culture = culture:gj_velathi }
+	age = age_2_renaissance
+	icon = scholasticism
+	requires = patron_of_art
+	global_monthly_literacy = 0.01
+	monthly_legitimacy = 0.03
+}
+
+gj_velathi_cultura_pacto_de_los_arboles = {
+	potential = { culture = culture:gj_velathi }
+	age = age_4_reformation
+	icon = scholasticism
+	requires = confessionalism_advance
+	cultures_capacity = 1
+	global_pop_assimilation_speed_modifier = -0.10
+}

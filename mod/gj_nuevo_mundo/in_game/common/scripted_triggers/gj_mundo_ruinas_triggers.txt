@@ -1,0 +1,84 @@
+﻿# mundo_ruinas: triggers propios.
+# Los gj_zona_* los define la integracion (ver NECESITA.md). Todos son de LOCATION.
+
+# Location: es una de las ruinas, o una de las vetas.
+gj_mundo_ruinas_es_ruina = {
+	OR = {
+		gj_zona_ruina_atlante = yes
+		gj_zona_ruina_enana = yes
+		gj_zona_ruina_antigua = yes
+	}
+}
+
+gj_mundo_ruinas_es_veta = {
+	OR = {
+		gj_zona_veta_fuego = yes
+		gj_zona_veta_marea = yes
+		gj_zona_veta_raiz = yes
+		gj_zona_veta_estrella = yes
+	}
+}
+
+# Location: ruina que aun no ha sido explorada.
+gj_ruina_intacta = {
+	gj_mundo_ruinas_es_ruina = yes
+	NOT = { has_variable = gj_ruina_explorada }
+}
+
+# Location: ruina que ya tiene el despertar encima (guardianes, bestias o maldicion).
+gj_ruina_con_despertar = {
+	OR = {
+		has_location_modifier = gj_ruina_guardianes
+		has_location_modifier = gj_ruina_plaga_bestias
+		has_location_modifier = gj_ruina_maldicion
+	}
+}
+
+# Location: ruina restaurada, de cualquier tipo.
+gj_ruina_es_restaurada = {
+	OR = {
+		has_location_modifier = gj_ruina_atlante_restaurada
+		has_location_modifier = gj_ruina_enana_restaurada
+		has_location_modifier = gj_ruina_antigua_restaurada
+	}
+}
+
+# Location: de que tipo es la ruina (vale antes y despues de explorarla).
+gj_ruina_es_atlante = {
+	OR = {
+		has_location_modifier = gj_ruina_atlante_intacta
+		has_location_modifier = gj_ruina_atlante_restaurada
+	}
+}
+gj_ruina_es_enana = {
+	OR = {
+		has_location_modifier = gj_ruina_enana_intacta
+		has_location_modifier = gj_ruina_enana_restaurada
+	}
+}
+gj_ruina_es_antigua = {
+	OR = {
+		has_location_modifier = gj_ruina_antigua_intacta
+		has_location_modifier = gj_ruina_antigua_restaurada
+	}
+}
+
+# Pais: afinidad fuerte (su grupo cultural es el de los constructores) o leve (vecino o heredero).
+gj_afin_atlante_fuerte = {
+	culture = { has_culture_group = culture_group:gj_grupo_talasio }
+}
+gj_afin_atlante_leve = {
+	culture = { has_culture_group = culture_group:gj_grupo_sorava }
+}
+gj_afin_enana_fuerte = {
+	culture = { has_culture_group = culture_group:gj_grupo_enano }
+}
+gj_afin_enana_leve = {
+	culture = { has_culture_group = culture_group:gj_grupo_ostrevari }
+}
+gj_afin_antigua_fuerte = {
+	culture = { has_culture_group = culture_group:gj_grupo_velathi }
+}
+gj_afin_antigua_leve = {
+	culture = { has_culture_group = culture_group:gj_grupo_solar }
+}

@@ -1,0 +1,684 @@
+﻿# Eventos de Ankarú. Los dispara el pulso anual (gj_ank_pulso_anual), el calendario y las decisiones. Hay 21, del .1 al .21.
+
+namespace = gj_ankaru
+
+gj_ankaru.1 = {
+	type = country_event
+	title = gj_ankaru.1.title
+	desc = gj_ankaru.1.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	immediate = {
+		gj_ank_aplica_fase = yes
+	}
+
+	option = {
+		name = gj_ankaru.1.a
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_ankaru.1.b
+		add_political_influence = political_influence_weak_bonus
+	}
+}
+
+gj_ankaru.2 = {
+	type = country_event
+	title = gj_ankaru.2.title
+	desc = gj_ankaru.2.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	immediate = {
+		gj_ank_aplica_fase = yes
+	}
+
+	option = {
+		name = gj_ankaru.2.a
+		add_stability = stability_weak_bonus
+	}
+	option = {
+		name = gj_ankaru.2.b
+		add_gold = 60
+	}
+}
+
+gj_ankaru.3 = {
+	type = country_event
+	title = gj_ankaru.3.title
+	desc = gj_ankaru.3.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	immediate = {
+		gj_ank_aplica_fase = yes
+	}
+
+	option = {
+		name = gj_ankaru.3.a
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_ankaru.3.b
+		add_gold = 80
+	}
+}
+
+gj_ankaru.4 = {
+	type = country_event
+	title = gj_ankaru.4.title
+	desc = gj_ankaru.4.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	immediate = {
+		gj_ank_aplica_fase = yes
+	}
+
+	option = {
+		name = gj_ankaru.4.a
+		add_stability = stability_mild_bonus
+		add_gold = { value = -40 }
+	}
+	option = {
+		name = gj_ankaru.4.b
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+gj_ankaru.5 = {
+	type = country_event
+	title = gj_ankaru.5.title
+	desc = gj_ankaru.5.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	immediate = {
+		gj_ank_aplica_fase = yes
+	}
+
+	option = {
+		name = gj_ankaru.5.a
+		add_religious_influence = religious_influence_mild_bonus
+	}
+	option = {
+		name = gj_ankaru.5.b
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+gj_ankaru.6 = {
+	type = country_event
+	title = gj_ankaru.6.title
+	desc = gj_ankaru.6.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	option = {
+		name = gj_ankaru.6.a
+		add_country_modifier = { modifier = gj_ank_eclipse_coronado years = 5 mode = replace }
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_ankaru.6.b
+		add_country_modifier = { modifier = gj_ank_cuentas_claras years = 10 mode = replace }
+		add_political_influence = political_influence_weak_bonus
+	}
+}
+
+gj_ankaru.7 = {
+	type = country_event
+	title = gj_ankaru.7.title
+	desc = gj_ankaru.7.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	option = {
+		name = gj_ankaru.7.a
+		add_country_modifier = { modifier = gj_ank_eclipse_noche years = 5 mode = replace }
+		add_religious_influence = religious_influence_mild_bonus
+	}
+	option = {
+		name = gj_ankaru.7.b
+		add_stability = stability_weak_penalty
+	}
+}
+
+gj_ankaru.8 = {
+	type = country_event
+	title = gj_ankaru.8.title
+	desc = gj_ankaru.8.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	option = {
+		name = gj_ankaru.8.a
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_ankaru.8.b
+		add_country_modifier = { modifier = gj_ank_cuentas_claras years = 5 mode = replace }
+		add_gold = { value = -30 }
+	}
+}
+
+gj_ankaru.9 = {
+	type = country_event
+	title = gj_ankaru.9.title
+	desc = gj_ankaru.9.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		any_owned_location = {
+			OR = {
+				has_building = building_type:gj_ank_terraza_1
+				has_building = building_type:gj_ank_terraza_2
+				has_building = building_type:gj_ank_terraza_3
+			}
+		}
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				OR = {
+					has_building = building_type:gj_ank_terraza_1
+					has_building = building_type:gj_ank_terraza_2
+					has_building = building_type:gj_ank_terraza_3
+				}
+			}
+			save_scope_as = target_location
+		}
+	}
+
+	option = {
+		name = gj_ankaru.9.a
+		add_gold = { value = -60 }
+	}
+	option = {
+		name = gj_ankaru.9.b
+		if = {
+			limit = { exists = scope:target_location }
+			scope:target_location = {
+				change_prosperity = prosperity_mild_penalty
+			}
+		}
+	}
+}
+
+gj_ankaru.10 = {
+	type = country_event
+	title = gj_ankaru.10.title
+	desc = gj_ankaru.10.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_ankaru.10.a
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_ankaru.10.b
+		add_country_modifier = { modifier = gj_ank_cuentas_claras years = 5 mode = replace }
+	}
+	option = {
+		name = gj_ankaru.10.c
+		add_gold = { value = -50 }
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_ankaru.11 = {
+	type = country_event
+	title = gj_ankaru.11.title
+	desc = gj_ankaru.11.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		NOT = { has_country_modifier = gj_ank_maestro_de_obras }
+	}
+
+	option = {
+		name = gj_ankaru.11.a
+		add_country_modifier = { modifier = gj_ank_maestro_de_obras years = 10 mode = replace }
+		add_gold = { value = -50 }
+	}
+	option = {
+		name = gj_ankaru.11.b
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+gj_ankaru.12 = {
+	type = country_event
+	title = gj_ankaru.12.title
+	desc = gj_ankaru.12.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		at_war = no
+	}
+
+	option = {
+		name = gj_ankaru.12.a
+		add_country_modifier = { modifier = gj_ank_peregrinos_alojados years = 5 mode = replace }
+	}
+	option = {
+		name = gj_ankaru.12.b
+		add_gold = 70
+		add_stability = stability_weak_penalty
+	}
+}
+
+gj_ankaru.13 = {
+	type = country_event
+	title = gj_ankaru.13.title
+	desc = gj_ankaru.13.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		gold >= 100
+	}
+
+	option = {
+		name = gj_ankaru.13.a
+		add_country_modifier = { modifier = gj_ank_pasos_cerrados years = 3 mode = replace }
+		add_stability = stability_weak_bonus
+	}
+	option = {
+		name = gj_ankaru.13.b
+		add_gold = 80
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+gj_ankaru.14 = {
+	type = country_event
+	title = gj_ankaru.14.title
+	desc = gj_ankaru.14.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		at_war = no
+		any_neighbor_country = {
+			gj_es_orunmar = yes
+		}
+	}
+
+	option = {
+		name = gj_ankaru.14.a
+		add_country_modifier = { modifier = gj_ank_vigilia_del_paso years = 5 mode = replace }
+		add_gold = { value = -40 }
+	}
+	option = {
+		name = gj_ankaru.14.b
+		add_gold = { value = -60 }
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_ankaru.15 = {
+	type = country_event
+	title = gj_ankaru.15.title
+	desc = gj_ankaru.15.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		at_war = no
+		any_neighbor_country = {
+			gj_es_orunmar = yes
+		}
+	}
+
+	option = {
+		name = gj_ankaru.15.a
+		capital = {
+			change_development = development_weak_bonus
+		}
+		add_stability = stability_weak_penalty
+	}
+	option = {
+		name = gj_ankaru.15.b
+		add_gold = 30
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+gj_ankaru.16 = {
+	type = country_event
+	title = gj_ankaru.16.title
+	desc = gj_ankaru.16.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		any_owned_location = {
+			OR = {
+				location_rank = location_rank:city
+				location_rank = location_rank:town
+			}
+		}
+		any_owned_location = {
+			location_rank = location_rank:rural_settlement
+		}
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				OR = {
+					location_rank = location_rank:city
+					location_rank = location_rank:town
+				}
+			}
+			province_definition = {
+				save_scope_as = origen_cuerda
+			}
+		}
+		random_owned_location = {
+			limit = {
+				location_rank = location_rank:rural_settlement
+			}
+			province_definition = {
+				save_scope_as = destino_cuerda
+			}
+		}
+	}
+
+	option = {
+		name = gj_ankaru.16.a
+		add_gold = { value = -40 }
+		if = {
+			limit = {
+				exists = scope:origen_cuerda
+				exists = scope:destino_cuerda
+			}
+			add_migration = {
+				owner ?= root
+				from = scope:origen_cuerda
+				to = scope:destino_cuerda
+				culture = culture:gj_ankaruno
+				amount = 0.05
+				months = 48
+			}
+		}
+	}
+	option = {
+		name = gj_ankaru.16.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+gj_ankaru.17 = {
+	type = country_event
+	title = gj_ankaru.17.title
+	desc = gj_ankaru.17.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		var:gj_ank_fase = 1
+	}
+
+	option = {
+		name = gj_ankaru.17.a
+		add_gold = { value = -50 }
+	}
+	option = {
+		name = gj_ankaru.17.b
+		add_country_modifier = { modifier = gj_ank_helada_temprana years = 3 mode = replace }
+	}
+}
+
+gj_ankaru.18 = {
+	type = country_event
+	title = gj_ankaru.18.title
+	desc = gj_ankaru.18.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		var:gj_ank_fase = 2
+	}
+
+	option = {
+		name = gj_ankaru.18.a
+		add_country_modifier = { modifier = gj_ank_cosecha_prodigiosa years = 5 mode = replace }
+	}
+	option = {
+		name = gj_ankaru.18.b
+		add_gold = 120
+	}
+}
+
+gj_ankaru.19 = {
+	type = country_event
+	title = gj_ankaru.19.title
+	desc = gj_ankaru.19.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+		current_age_or_later = { age = age_3_discovery }
+		NOT = { has_country_modifier = gj_ank_fueros_de_los_albaniles }
+	}
+
+	option = {
+		name = gj_ankaru.19.a
+		add_country_modifier = { modifier = gj_ank_fueros_de_los_albaniles years = 15 mode = replace }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+	option = {
+		name = gj_ankaru.19.b
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+		add_gold = 60
+	}
+}
+
+gj_ankaru.20 = {
+	type = country_event
+	title = gj_ankaru.20.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { current_age = age_2_renaissance }
+				desc = gj_ankaru.20.desc.a
+			}
+			triggered_desc = {
+				trigger = { current_age = age_3_discovery }
+				desc = gj_ankaru.20.desc.b
+			}
+			triggered_desc = {
+				trigger = { current_age = age_4_reformation }
+				desc = gj_ankaru.20.desc.c
+			}
+			triggered_desc = {
+				trigger = { current_age = age_5_absolutism }
+				desc = gj_ankaru.20.desc.d
+			}
+			triggered_desc = {
+				trigger = { current_age = age_6_revolutions }
+				desc = gj_ankaru.20.desc.e
+			}
+			triggered_desc = {
+				desc = gj_ankaru.20.desc.z
+			}
+		}
+	}
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	option = {
+		name = gj_ankaru.20.a
+		add_country_modifier = { modifier = gj_ank_nueva_era_del_computo years = 10 mode = replace }
+	}
+	option = {
+		name = gj_ankaru.20.b
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+gj_ankaru.21 = {
+	type = country_event
+	title = gj_ankaru.21.title
+	desc = gj_ankaru.21.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_ankaru = yes
+	}
+
+	option = {
+		name = gj_ankaru.21.a
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+	}
+	option = {
+		name = gj_ankaru.21.b
+		add_prestige = prestige_mild_bonus
+		add_gold = { value = -30 }
+	}
+}
+

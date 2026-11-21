@@ -1,0 +1,20 @@
+﻿# Escuelas del Mar Dormido.
+# gj_escuela_marea_negra: la usa la Hermandad de la Marea Negra (parte marea_negra).
+# Es la escuela de los que no cantan la nana al mar: lo sangran, y el mar paga en botin.
+
+gj_escuela_marea_negra = {
+	color = rgb { 120 30 50 }
+
+	enabled_for_country = {
+		religion = religion:gj_mar_dormido
+	}
+	enabled_for_character = {
+		religion = religion:gj_mar_dormido
+	}
+
+	modifier = {
+		amount_looted_modifier = 0.1
+		hire_privateer_cost_modifier = -0.2
+		monthly_rite_power = -0.05
+	}
+}

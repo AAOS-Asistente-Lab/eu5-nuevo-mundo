@@ -1,0 +1,24 @@
+﻿# Tipos de lugar sagrado de la Luz de los Fundadores. Sin locations: la integracion decide donde van.
+
+gj_fundadores_primer_hogar = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_monthly_prosperity = 0.001
+		local_population_capacity_modifier = 0.1
+	}
+	country_modifier = {
+		monthly_religious_influence = 0.02
+		canonize_cost_modifier = -0.05
+	}
+}
+
+gj_fundadores_atalaya_lumbre = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_max_control = 0.02
+		local_unrest = -0.05
+	}
+	country_modifier = {
+		global_defensive = 0.02
+	}
+}

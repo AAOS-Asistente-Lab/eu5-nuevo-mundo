@@ -1,0 +1,32 @@
+﻿# El Mar Dormido: religion de los ritos de marea.
+# Mecanica propia: has_rite_power (Poder de Rito). Se gana cantando al mar y se gasta en ritos (ver decisions/).
+# Con mucho Poder de Rito el mar duerme hondo (auto_modifiers); con muy poco, se agita.
+# Una escuela: gj_escuela_marea_negra (la usa la Hermandad de la Marea Negra). Thalassar sigue la fe sin escuela.
+# El grupo gj_fe_sur lo define la integracion.
+
+gj_mar_dormido = {
+	color = gj_color_mar_dormido
+	group = gj_fe_sur
+
+	religious_aspects = 2
+
+	has_rite_power = yes
+
+	religious_school = gj_escuela_marea_negra
+
+	definition_modifier = {
+		monthly_rite_power = 0.2
+		global_fish_output_modifier = 0.1
+		naval_unit_attrition = -0.1
+		global_sailors_modifier = 0.05
+		export_efficiency = 0.03
+		tolerance_heathen = 1
+	}
+
+	opinions = {
+	}
+
+	tags = {
+		folk_european_gfx pagan_gfx
+	}
+}

@@ -1,0 +1,19 @@
+﻿# Lengua ankaruna: sonora, de sílabas abiertas, con nombres que suenan a piedra y a sol.
+gj_lengua_ankaruna = {
+	color = gj_map_lengua_ankaruna
+
+	male_names = {
+		Ankar Ilmu Sothan Taquel Yuvar Ruvan Orrel Kuilan Maqui Isqar Helvu Ambar Veshu Naru Tarem Ilkaru Sumel
+		Tolvan Eshkar Urmai Cholu Anquir Rimel Dovan Pellu Quemar
+	}
+	female_names = {
+		Illa Maruya Aymel Soriel Tulana Nairu Chalve Iramel Ushanta Vellu Orvana Sielu Taimar Kelani Ruvella
+		Antuya Isolva Meraya Yuvela
+	}
+	dynasty_names = {
+		Ilmuqar Sothavel Yuvarin Antakel Orrenai Kuilamar Tenquelu Isqaran Veshumar Altasol Pedralum
+	}
+	lowborn = {
+		Tapi Runel Chalo Mikal Paru Sendo Oqui Lumbra Tarro Vesco
+	}
+}

@@ -1,0 +1,13 @@
+﻿gj_grupo_fiordo = {
+	goods_demand_modifier = {
+		fish = 1.25
+		beer = 1.25
+		fur = 1.2
+	}
+	country_modifier = {
+		amount_looted_modifier = 0.05
+	}
+	location_modifier = {
+		local_sailors_modifier = 0.05
+	}
+}

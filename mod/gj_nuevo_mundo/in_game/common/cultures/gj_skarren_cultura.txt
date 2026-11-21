@@ -1,0 +1,30 @@
+﻿gj_skarren = {
+	language = gj_dialecto_skarren
+
+	color = gj_color_skarren
+
+	tags = { swedish_gfx european_gfx }
+
+	country_modifier = {
+		global_sailors_modifier = 0.1
+		army_disembark_speed = 0.1
+	}
+	location_modifier = {
+		local_sailors_modifier = 0.1
+	}
+	character_modifier = {
+		mil = 1
+		character_life_expectancy = -2
+	}
+
+	opinions = {
+		gj_lagunero = enemy
+		gj_ostrevari = negative
+	}
+
+	culture_groups = {
+		gj_grupo_fiordo
+	}
+
+	use_patronym = yes
+}

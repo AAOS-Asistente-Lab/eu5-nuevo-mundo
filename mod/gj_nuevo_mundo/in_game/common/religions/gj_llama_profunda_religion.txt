@@ -1,0 +1,25 @@
+﻿# La Llama Profunda: la fe de los enanos de Durnhal.
+# Mecanica propia: la Pureza (has_purity), mas un panteon de dioses (gods/) y el pacto con el dragon.
+# El grupo gj_fe_norte lo define la integracion.
+
+gj_llama_profunda = {
+	color = gj_color_llama_profunda
+	group = gj_fe_norte
+
+	religious_aspects = 2
+	has_purity = yes
+
+	definition_modifier = {
+		monthly_purity = 0.1
+		army_heavy_infantry_power = 0.05
+		global_weaponry_output_modifier = 0.05
+		global_max_literacy = 3
+	}
+
+	opinions = {
+	}
+
+	tags = {
+		folk_european_gfx pagan_gfx
+	}
+}

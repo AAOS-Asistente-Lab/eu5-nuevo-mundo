@@ -1,0 +1,204 @@
+# Menores del sur: una lengua por cultura. Los dialectos van vacios y heredan los nombres de su lengua.
+
+gj_brazalmi_language = {
+	color = gj_map_brazalmi_language
+	family = gj_minores_sur_familia_puerto
+
+	male_names = {
+		Aldrovan Brenvaro Casmeno Delvaro Emerlo Fabrizo Gaspero Halvaro Ilmaro Jorvalo
+		Kasimbro Lorvano Mendaro Norvasio Orlanzo Pelvaro Quirvano Rostaldo Selmano Tavaro
+	}
+	female_names = {
+		Aldessa Brinella Cavoria Delmira Evandra Fiorenza Galbina Ilvenna Jovara Lisandre
+		Marvella Norvina Orsolia Pelvira Quenara Rosalbe Selvana Tamarisa Ulvenda Vasilde
+	}
+	dynasty_names = {
+		Veintecuerdas Anclaoro Mareagrande Plazalarga Velaluz Torrealta Cuatropuertas Salinera
+		Pesaoro Rampasiete Pregonera Balanzafina Cabodeplata Lonjaviva
+	}
+	lowborn = {
+		Cabestro Estibador Pescante Remiendo Gaviota Pregonero Sirga Bodegon
+	}
+	ship_names = {
+		rampa pregon balanza lonja garzamora cuerdafina siete cabestrante
+	}
+
+	dialects = {
+		gj_brazalmi_dialect = {
+		}
+	}
+}
+
+gj_ondani_language = {
+	color = gj_map_ondani_language
+	family = gj_minores_sur_familia_puerto
+
+	male_names = {
+		Ulmaren Oshandi Teluan Maruli Ondaro Selmu Tarunei Koruan Illanu Nemuri
+		Paluen Ruandi Sorelu Tumari Velumo Orunei Haluan Nimbaro Elumei Kaorin
+	}
+	female_names = {
+		Marinei Ondelia Suluma Tarenia Ilmune Corali Nerune Umaia Selune Peruli
+		Aluneia Brumari Danelu Esmuna Fanuri Halumei Isondi Kelmuna Lorenei Mirula
+	}
+	dynasty_names = {
+		Lucecoral Hondonacar Mareaalta Cantoazul Velamar Algaverde Conchagrande Sonoramar
+		Perlaquieta Bancodeluz Resaca Corrientefina Nacarada Espumaclara
+	}
+	lowborn = {
+		Almeja Berberecho Esponja Percebe Burbuja Alga Anemona Sargazo
+	}
+	ship_names = {
+		cantora nacar resaca coralina marejada perlita ondina caracola
+	}
+
+	dialects = {
+		gj_ondani_dialect = {
+		}
+	}
+}
+
+gj_halcori_language = {
+	color = gj_map_halcori_language
+	family = gj_minores_sur_familia_marca
+
+	male_names = {
+		Corvaldo Brasmen Orgaldo Tarvasio Mendrak Galboro Hurdan Escalvo Rosmero Bardalo
+		Cantrel Dorvasco Elmaro Fulgrim Gorvasio Hermaldo Irvasco Jorgaldo Kelbaro Lovasco
+	}
+	female_names = {
+		Galvarda Ormenia Tarasca Bruma Selvira Hordana Escarla Mirvaga Rocelia Tramunta
+		Alvarda Belmira Cordana Dunessa Erlinda Fornela Gilvana Helmira Irdana Jalvera
+	}
+	dynasty_names = {
+		Riscoalto Cantilado Vientodura Nidoderoca Atalayaviva Salmuera Cabofiel Espolonaspero
+		Faroviejo Brasaroja Cenizaprimera Marejadilla Peñaferrada Gaviotera
+	}
+	lowborn = {
+		Guano Cormoran Mellizo Rompiente Pizarra Atalayero Ceniza Rafaga
+	}
+	ship_names = {
+		aviso atalaya cenizal cormoran rompiente cadena vigia risco
+	}
+
+	dialects = {
+		gj_halcori_dialect = {
+		}
+	}
+}
+
+gj_tirnauki_language = {
+	color = gj_map_tirnauki_language
+	family = gj_minores_sur_familia_marca
+
+	male_names = {
+		Aucaro Umalan Tirnaro Quenuar Sarimu Chalmaru Viranu Hamuru Cusiel Ordamu
+		Pirunai Rumalo Sulquen Tarimu Urcalo Vilcaro Yamaru Zurquen Anduval Ilumaru
+	}
+	female_names = {
+		Ilamara Sumeni Tarisa Amulche Nuvaki Orquena Silumi Anaru Zumaila Quenita
+		Ayusi Cumarela Dilumai Elquena Fulumi Hamaila Irusi Jumela Kinuvai Lumara
+	}
+	dynasty_names = {
+		Escalonsol Terrazaviva Piedrabrisa Cantoalto Muroclaro Granoceleste Neblinaalta Lajadorada
+		Pasoestrecho Cuerdafirme Ladera Solsegundo Riegofino Pircaviva
+	}
+	lowborn = {
+		Porteador Cestero Cabra Pedrisco Surco Pastor Zanja Acequia
+	}
+	ship_names = {
+		balsa junco lago totora surco cesta
+	}
+
+	dialects = {
+		gj_tirnauki_dialect = {
+		}
+	}
+}
+
+gj_sotolari_language = {
+	color = gj_map_sotolari_language
+	family = gj_minores_sur_familia_marca
+
+	male_names = {
+		Eldoran Sotovan Mirhel Arvano Lethiel Corvino Halmer Ysmaro Brenhal Talvano
+		Dorvel Elbrand Faelmar Gorlan Hurvel Ilmeran Jarvon Kaldrin Lorhan Morvel
+	}
+	female_names = {
+		Sotelia Mirhana Elvenda Aranelle Hoyuela Linnara Corvella Ysbela Thalwen Mirelle
+		Berhana Carvelle Dolwen Evrane Farhelle Gaelwen Haldrie Ivrane Jorelle Kerwen
+	}
+	dynasty_names = {
+		Cuervoclaro Umbralnuevo Hayaalta Zarzaoscura Quejigar Robleda Sombralarga Fresnedo
+		Cortavientos Lindeverde Marcaviva Pasonocturno Tocondehierro Brezal
+	}
+	lowborn = {
+		Zarza Bellota Cardo Liquen Brezo Tocon Jara Carrasca
+	}
+	ship_names = {
+		cuervo umbral brezo hayal marca zarza
+	}
+
+	dialects = {
+		gj_sotolari_dialect = {
+		}
+	}
+}
+
+gj_yorumbi_language = {
+	color = gj_map_yorumbi_language
+	family = gj_minores_sur_familia_selva
+
+	male_names = {
+		Yorumbe Kasuda Ombuyo Tendali Mbarun Sakoro Dulemi Ganuba Rimbaro Olumbe
+		Bandulo Cheluba Domaku Embaru Fulandu Gombaro Hulembe Irumbo Jakuro Kelumbu
+	}
+	female_names = {
+		Amuyla Nkeli Sorumi Tadala Mbila Orunda Kesuye Luyami Dendoa Yarube
+		Abuyla Bemuru Cheduya Dolunda Ebuyi Fumaya Gelube Huramba Iluyo Jemuna
+	}
+	dynasty_names = {
+		Orillaancha Vadoalto Aguaturbia Balsagrande Canaverde Limoroja Remansoverde Caudaloso
+		Crecidaprimera Sirgaviva Tambordeagua Cienoclaro Meandro Vadodoble
+	}
+	lowborn = {
+		Balsero Pescador Canero Barro Junco Remanso Sirgador Vadeador
+	}
+	ship_names = {
+		balsa crecida meandro vado canoa remanso limo
+	}
+
+	dialects = {
+		gj_yorumbi_dialect = {
+		}
+	}
+}
+
+gj_pakhuni_language = {
+	color = gj_map_pakhuni_language
+	family = gj_minores_sur_familia_selva
+
+	male_names = {
+		Pakhun Orquel Duravan Hukuro Ishamun Kelvuro Motaru Nuruvan Sakhol Urvaku
+		Aldhuk Berkhun Chorvuk Dhurvan Ekhumo Forhuk Gharuk Hurkan Ikhoro Jorhuk
+	}
+	female_names = {
+		Ahuyra Dalmuka Ishuri Kumaya Mirhuka Nalsuri Orvuka Pakhira Shulmi Tuvaka
+		Alhuka Bhurmi Chelhuma Dorhuka Elmuri Forhumi Ghalmi Horuka Ilhumi Jolhuka
+	}
+	dynasty_names = {
+		Cenizaviva Humoalto Lanzaverde Dosellargo Tintaroja Brasaclara Nieblacerrada Colmilloviejo
+		Fuegoprimero Raizdelabuelo Tizonardiente Lianatrenzada Rastrodeceniza Plumanegra
+	}
+	lowborn = {
+		Ceniza Liana Tizon Raspa Plumon Humo Brasa Resina
+	}
+	ship_names = {
+		canoa liana brasa humo tizon ceniza
+	}
+
+	dialects = {
+		gj_pakhuni_dialect = {
+		}
+	}
+}

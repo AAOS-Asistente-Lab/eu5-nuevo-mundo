@@ -1,0 +1,613 @@
+﻿namespace = gj_velathi
+
+# ---------------------------------------------------------------------------
+# Eventos de los velathi: el pueblo del bosque, longevo, de pocas monedas y mucha madera.
+# Se disparan desde las on_actions gj_velathi_* (ver gj_velathi_on_actions.txt).
+# ---------------------------------------------------------------------------
+
+# .1 Se abre un reinado (nuevo rey)
+gj_velathi.1 = {
+	type = country_event
+	title = gj_velathi.1.title
+	desc = gj_velathi.1.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+	}
+	option = {
+		name = gj_velathi.1.a
+		add_country_modifier = { modifier = gj_velathi_reinado_de_raices years = 25 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.1.b
+		add_country_modifier = { modifier = gj_velathi_reinado_de_hojas years = 25 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.1.c
+		add_country_modifier = { modifier = gj_velathi_reinado_de_espinas years = 25 mode = add_and_extend }
+	}
+}
+
+# .2 Los anos del mismo rey (cada 25 anos sube el cansancio del trono)
+gj_velathi.2 = {
+	type = country_event
+	title = gj_velathi.2.title
+	desc = gj_velathi.2.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		has_variable = gj_velathi_anyos_reinado
+		OR = {
+			var:gj_velathi_anyos_reinado = 25
+			var:gj_velathi_anyos_reinado = 50
+			var:gj_velathi_anyos_reinado = 75
+			var:gj_velathi_anyos_reinado = 100
+			var:gj_velathi_anyos_reinado = 125
+			var:gj_velathi_anyos_reinado = 150
+			var:gj_velathi_anyos_reinado = 175
+			var:gj_velathi_anyos_reinado = 200
+			var:gj_velathi_anyos_reinado = 225
+			var:gj_velathi_anyos_reinado = 250
+		}
+	}
+	immediate = {
+		if = {
+			limit = { NOT = { has_variable = gj_velathi_cansancio } }
+			set_variable = { name = gj_velathi_cansancio value = 0 }
+		}
+		if = {
+			limit = { var:gj_velathi_cansancio < 3 }
+			change_variable = { name = gj_velathi_cansancio add = 1 }
+		}
+		if = {
+			limit = { has_country_modifier = gj_velathi_cansancio_1 }
+			remove_country_modifier = gj_velathi_cansancio_1
+		}
+		if = {
+			limit = { has_country_modifier = gj_velathi_cansancio_2 }
+			remove_country_modifier = gj_velathi_cansancio_2
+		}
+		if = {
+			limit = { has_country_modifier = gj_velathi_cansancio_3 }
+			remove_country_modifier = gj_velathi_cansancio_3
+		}
+		if = {
+			limit = { var:gj_velathi_cansancio = 1 }
+			add_country_modifier = { modifier = gj_velathi_cansancio_1 years = 40 mode = add_and_extend }
+		}
+		if = {
+			limit = { var:gj_velathi_cansancio = 2 }
+			add_country_modifier = { modifier = gj_velathi_cansancio_2 years = 40 mode = add_and_extend }
+		}
+		if = {
+			limit = { var:gj_velathi_cansancio >= 3 }
+			add_country_modifier = { modifier = gj_velathi_cansancio_3 years = 40 mode = add_and_extend }
+		}
+	}
+	option = {
+		name = gj_velathi.2.a
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_velathi.2.b
+		add_prestige = prestige_mild_penalty
+		gj_velathi_reinicia_cansancio_effect = yes
+	}
+}
+
+# .3 El Sueno Largo
+gj_velathi.3 = {
+	type = country_event
+	title = gj_velathi.3.title
+	desc = gj_velathi.3.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		has_variable = gj_velathi_anyos_reinado
+		var:gj_velathi_anyos_reinado >= 75
+		NOT = { has_country_modifier = gj_velathi_consejo_regente }
+	}
+	option = {
+		name = gj_velathi.3.a
+		add_country_modifier = { modifier = gj_velathi_consejo_regente years = 15 mode = add_and_extend }
+		ruler ?= {
+			add_character_modifier = { modifier = gj_velathi_rey_dormido years = 15 mode = add }
+		}
+		trigger_event_non_silently = { id = gj_velathi.4 days = 5475 }
+	}
+	option = {
+		name = gj_velathi.3.b
+		add_legitimacy = legitimacy_weak_penalty
+		add_prestige = prestige_weak_penalty
+		gj_velathi_karma_bonus_effect = yes
+	}
+	option = {
+		name = gj_velathi.3.c
+		add_country_modifier = { modifier = gj_velathi_heredera_en_el_consejo years = 10 mode = add_and_extend }
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .4 El rey despierta
+gj_velathi.4 = {
+	type = country_event
+	title = gj_velathi.4.title
+	desc = gj_velathi.4.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		has_country_modifier = gj_velathi_consejo_regente
+	}
+	option = {
+		name = gj_velathi.4.a
+		remove_country_modifier = gj_velathi_consejo_regente
+		ruler ?= {
+			if = {
+				limit = { has_character_modifier = gj_velathi_rey_dormido }
+				remove_character_modifier = gj_velathi_rey_dormido
+			}
+			add_character_modifier = { modifier = gj_velathi_rey_renovado years = 30 mode = add }
+		}
+		gj_velathi_reinicia_cansancio_effect = yes
+		set_variable = { name = gj_velathi_anyos_reinado value = 0 }
+		add_legitimacy = legitimacy_mild_bonus
+	}
+	option = {
+		name = gj_velathi.4.b
+		add_country_modifier = { modifier = gj_velathi_consejo_regente years = 10 mode = add_and_extend }
+	}
+}
+
+# .5 Un arbol muere en la frontera (tras varias conquistas)
+gj_velathi.5 = {
+	type = country_event
+	title = gj_velathi.5.title
+	desc = gj_velathi.5.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+	}
+	option = {
+		name = gj_velathi.5.a
+		add_gold = {
+			value = root.monthly_income_trade_and_tax
+			multiply = -1
+		}
+		random_owned_location = {
+			add_location_modifier = { modifier = gj_velathi_brote_reciente years = 15 mode = add_and_extend }
+		}
+		gj_velathi_karma_gran_bonus_effect = yes
+	}
+	option = {
+		name = gj_velathi.5.b
+		add_prestige = prestige_weak_bonus
+		add_country_modifier = { modifier = gj_velathi_tala_reciente years = 5 mode = add_and_extend }
+		gj_velathi_karma_penalty_effect = yes
+	}
+}
+
+# .6 El Otono Eterno
+gj_velathi.6 = {
+	type = country_event
+	title = gj_velathi.6.title
+	desc = gj_velathi.6.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		NOT = { has_country_modifier = gj_velathi_otono_eterno }
+	}
+	option = {
+		name = gj_velathi.6.a
+		add_country_modifier = { modifier = gj_velathi_otono_eterno years = 10 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.6.b
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .7 Los arqueros aprenden el bosque
+gj_velathi.7 = {
+	type = country_event
+	title = gj_velathi.7.title
+	desc = gj_velathi.7.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		at_war = yes
+	}
+	option = {
+		name = gj_velathi.7.a
+		add_country_modifier = { modifier = gj_velathi_estandarte_de_hojas years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.7.b
+		add_country_modifier = { modifier = gj_velathi_senda_del_dosel years = 5 mode = add_and_extend }
+	}
+}
+
+# .8 Forasteros en el claro
+gj_velathi.8 = {
+	type = country_event
+	title = gj_velathi.8.title
+	desc = gj_velathi.8.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		NOT = { has_country_modifier = gj_velathi_puertas_cerradas }
+		NOT = { has_country_modifier = gj_velathi_puertas_abiertas }
+	}
+	option = {
+		name = gj_velathi.8.a
+		add_country_modifier = { modifier = gj_velathi_puertas_abiertas years = 10 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.8.b
+		add_country_modifier = { modifier = gj_velathi_puertas_cerradas years = 10 mode = add_and_extend }
+	}
+}
+
+# .9 La savia que cura
+gj_velathi.9 = {
+	type = country_event
+	title = gj_velathi.9.title
+	desc = gj_velathi.9.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		any_owned_location = { development >= 10 }
+	}
+	immediate = {
+		random_owned_location = {
+			limit = { development >= 10 }
+			save_scope_as = target_location
+		}
+	}
+	option = {
+		name = gj_velathi.9.a
+		scope:target_location = {
+			add_location_modifier = { modifier = gj_velathi_savia_que_cura years = 10 mode = add_and_extend }
+		}
+	}
+	option = {
+		name = gj_velathi.9.b
+		add_country_modifier = { modifier = gj_velathi_savia_serena years = 8 mode = add_and_extend }
+	}
+}
+
+# .10 Mercaderes de pocas monedas
+gj_velathi.10 = {
+	type = country_event
+	title = gj_velathi.10.title
+	desc = gj_velathi.10.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		NOT = { has_country_modifier = gj_velathi_trueque_de_madera }
+		NOT = { has_country_modifier = gj_velathi_tala_reciente }
+	}
+	option = {
+		name = gj_velathi.10.a
+		add_country_modifier = { modifier = gj_velathi_trueque_de_madera years = 8 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.10.b
+		add_gold = {
+			value = root.monthly_income_trade_and_tax
+			multiply = 2
+		}
+		add_country_modifier = { modifier = gj_velathi_tala_reciente years = 3 mode = add_and_extend }
+		gj_velathi_karma_penalty_effect = yes
+	}
+	option = {
+		name = gj_velathi.10.c
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .11 El Arbol-Memoria
+gj_velathi.11 = {
+	type = country_event
+	title = gj_velathi.11.title
+	desc = gj_velathi.11.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+	option = {
+		name = gj_velathi.11.a
+		add_research_progress = research_progress_mild_bonus
+	}
+	option = {
+		name = gj_velathi.11.b
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}
+
+# .12 Incendio en la copa
+gj_velathi.12 = {
+	type = country_event
+	title = gj_velathi.12.title
+	desc = gj_velathi.12.desc
+	outcome = negative
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		any_owned_location = { development >= 8 }
+	}
+	immediate = {
+		random_owned_location = {
+			limit = { development >= 8 }
+			save_scope_as = target_location
+		}
+	}
+	option = {
+		name = gj_velathi.12.a
+		add_gold = {
+			value = root.monthly_income_trade_and_tax
+			multiply = -1
+		}
+		scope:target_location = {
+			add_location_modifier = { modifier = gj_velathi_incendio_en_la_copa years = 2 mode = add }
+		}
+		trigger_event_non_silently = { id = gj_velathi.14 days = 1825 }
+	}
+	option = {
+		name = gj_velathi.12.b
+		scope:target_location = {
+			add_location_modifier = { modifier = gj_velathi_incendio_en_la_copa years = 10 mode = add }
+		}
+		gj_velathi_karma_penalty_effect = yes
+	}
+}
+
+# .13 El Cantor de los Mil Anos
+gj_velathi.13 = {
+	type = country_event
+	title = gj_velathi.13.title
+	desc = gj_velathi.13.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		has_advance = gj_velathi_cultura_lengua_de_hojas
+	}
+	option = {
+		name = gj_velathi.13.a
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = { modifier = gj_velathi_savia_serena years = 10 mode = add_and_extend }
+	}
+}
+
+# .14 El retono que salvo el claro (continuacion del .12)
+gj_velathi.14 = {
+	type = country_event
+	title = gj_velathi.14.title
+	desc = gj_velathi.14.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+	}
+	option = {
+		name = gj_velathi.14.a
+		random_owned_location = {
+			add_location_modifier = { modifier = gj_velathi_brote_reciente years = 15 mode = add_and_extend }
+		}
+		gj_velathi_karma_bonus_effect = yes
+	}
+}
+
+# .15 La heredera impaciente
+gj_velathi.15 = {
+	type = country_event
+	title = gj_velathi.15.title
+	desc = gj_velathi.15.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		has_variable = gj_velathi_anyos_reinado
+		var:gj_velathi_anyos_reinado >= 40
+		NOT = { has_country_modifier = gj_velathi_heredera_en_el_consejo }
+	}
+	option = {
+		name = gj_velathi.15.a
+		add_country_modifier = { modifier = gj_velathi_heredera_en_el_consejo years = 10 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.15.b
+		add_stability = stability_weak_penalty
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}
+
+# .16 El bosque que plantamos (continuacion de la decision de plantar)
+gj_velathi.16 = {
+	type = country_event
+	title = gj_velathi.16.title
+	desc = gj_velathi.16.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+	}
+	immediate = {
+		random_owned_location = {
+			limit = { has_location_modifier = gj_velathi_bosque_antiguo }
+			save_scope_as = target_location
+		}
+	}
+	option = {
+		name = gj_velathi.16.a
+		scope:target_location ?= {
+			change_development = development_weak_bonus
+		}
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_velathi.16.b
+		add_country_modifier = { modifier = gj_velathi_savia_serena years = 10 mode = add_and_extend }
+	}
+}
+
+# .17 A traves del dosel
+gj_velathi.17 = {
+	type = country_event
+	title = gj_velathi.17.title
+	desc = gj_velathi.17.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+	}
+	option = {
+		name = gj_velathi.17.a
+		add_country_modifier = { modifier = gj_velathi_senda_del_dosel years = 8 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.17.b
+		add_research_progress = research_progress_weak_bonus
+	}
+}
+
+# .18 Tala en tiempos de guerra
+gj_velathi.18 = {
+	type = country_event
+	title = gj_velathi.18.title
+	desc = gj_velathi.18.desc
+	outcome = negative
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		at_war = yes
+		NOT = { has_country_modifier = gj_velathi_tala_reciente }
+	}
+	option = {
+		name = gj_velathi.18.a
+		add_manpower = { value = root.monthly_manpower multiply = 3 }
+		add_country_modifier = { modifier = gj_velathi_tala_reciente years = 5 mode = add_and_extend }
+		gj_velathi_karma_penalty_effect = yes
+	}
+	option = {
+		name = gj_velathi.18.b
+		add_country_modifier = { modifier = gj_velathi_estandarte_de_hojas years = 3 mode = add_and_extend }
+		gj_velathi_karma_bonus_effect = yes
+	}
+}
+
+# .19 Estandarte de las Mil Hojas
+gj_velathi.19 = {
+	type = country_event
+	title = gj_velathi.19.title
+	desc = gj_velathi.19.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		current_age_or_later = { age = age_4_reformation }
+	}
+	option = {
+		name = gj_velathi.19.a
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = { modifier = gj_velathi_estandarte_de_hojas years = 10 mode = add_and_extend }
+	}
+}
+
+# .20 El ultimo juramento
+gj_velathi.20 = {
+	type = country_event
+	title = gj_velathi.20.title
+	desc = gj_velathi.20.desc
+	outcome = neutral
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_es_velathi = yes
+		current_age_or_later = { age = age_6_revolutions }
+	}
+	option = {
+		name = gj_velathi.20.a
+		add_legitimacy = legitimacy_mild_bonus
+		add_country_modifier = { modifier = gj_velathi_savia_serena years = 15 mode = add_and_extend }
+	}
+	option = {
+		name = gj_velathi.20.b
+		add_stability = stability_mild_bonus
+	}
+}

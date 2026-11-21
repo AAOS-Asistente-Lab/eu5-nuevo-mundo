@@ -1,0 +1,17 @@
+﻿gj_grupo_carmesi = {
+	country_modifier = {
+		global_slaves_pop_growth = 0.05
+		global_dyes_output_modifier = 0.05
+	}
+	location_modifier = {
+		local_food_capacity_modifier = 0.05
+	}
+	character_modifier = {
+	}
+
+	goods_demand_modifier = {
+		cocoa = 1.5
+		liquor = 0.8
+		dyes = 1.5
+	}
+}

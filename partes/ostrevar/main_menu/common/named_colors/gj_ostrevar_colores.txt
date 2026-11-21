@@ -1,0 +1,4 @@
+﻿colors = {
+	map_gj_ostrevari = rgb { 74 120 168 }
+	map_gj_ostrevari_family = rgb { 96 140 186 }
+}

@@ -1,0 +1,231 @@
+﻿# mundo_ruinas: efectos de los pulsos anuales y del cambio de dueno.
+
+##############################################################################
+# PAIS: mover un artefacto de la ruina a la capital (requiere scope:gj_ruina_loc)
+##############################################################################
+gj_ruinas_mueve_art = {
+	if = {
+		limit = {
+			scope:gj_ruina_loc = { has_variable = gj_art_$id$ }
+		}
+		scope:gj_ruina_loc = { remove_variable = gj_art_$id$ }
+		capital = { set_variable = gj_art_$id$ }
+	}
+}
+
+gj_ruinas_mueve_artefactos = {
+	gj_ruinas_mueve_art = { id = astrolabio }
+	gj_ruinas_mueve_art = { id = cetro }
+	gj_ruinas_mueve_art = { id = martillo }
+	gj_ruinas_mueve_art = { id = cuerno }
+	gj_ruinas_mueve_art = { id = escudo }
+	gj_ruinas_mueve_art = { id = tablillas }
+	gj_ruinas_mueve_art = { id = corona }
+	gj_ruinas_mueve_art = { id = lampara }
+}
+
+##############################################################################
+# LOCATION: ruinas explorada cuyo despertar ya caduco: se calman y quedan restauradas
+##############################################################################
+gj_ruinas_calma_ruinas = {
+	every_owned_location = {
+		limit = {
+			has_variable = gj_ruina_explorada
+			OR = {
+				has_location_modifier = gj_ruina_atlante_intacta
+				has_location_modifier = gj_ruina_enana_intacta
+				has_location_modifier = gj_ruina_antigua_intacta
+			}
+			NOT = { gj_ruina_con_despertar = yes }
+		}
+		gj_ruinas_sella_ruina = yes
+	}
+}
+
+##############################################################################
+# PAIS: el efecto de cada decada del nivel 3 de una veta
+##############################################################################
+gj_ruinas_decada = {
+	if = {
+		limit = {
+			has_country_modifier = gj_veta_$tipo$_n3
+			NOT = { has_variable = gj_veta_$tipo$_cd }
+		}
+		set_variable = { name = gj_veta_$tipo$_cd days = 3650 }
+		trigger_event_non_silently = { id = $id$ }
+	}
+}
+
+##############################################################################
+# PAIS: eventos de magia y de bestias alrededor de una veta activa (nivel 2 o 3)
+##############################################################################
+gj_ruinas_flavor_veta = {
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = gj_veta_$tipo$_n2
+				has_country_modifier = gj_veta_$tipo$_n3
+			}
+			NOT = { has_variable = gj_veta_flavor_$tipo$_cd }
+		}
+		random_list = {
+			8 = {
+				set_variable = { name = gj_veta_flavor_$tipo$_cd days = 2190 }
+				trigger_event_non_silently = { id = $id$ }
+			}
+			92 = { }
+		}
+	}
+}
+
+##############################################################################
+# PAIS: una veta al otro lado de la frontera da una reclamacion (cada ~15 anos)
+##############################################################################
+gj_ruinas_veta_cerca = {
+	if = {
+		limit = {
+			NOT = { has_variable = gj_veta_cerca_cd }
+			NOT = { any_owned_location = { gj_mundo_ruinas_es_veta = yes } }
+			any_neighbor_country = {
+				any_owned_location = { gj_mundo_ruinas_es_veta = yes }
+			}
+		}
+		set_variable = { name = gj_veta_cerca_cd days = 5475 }
+		random_neighbor_country = {
+			limit = {
+				any_owned_location = { gj_mundo_ruinas_es_veta = yes }
+			}
+			save_scope_as = gj_veta_vecino
+		}
+		trigger_event_non_silently = { id = gj_mundo_ruinas.50 }
+	}
+}
+
+##############################################################################
+# PAIS: el eco de las ruinas restauradas (cada ~10 anos, poca probabilidad)
+##############################################################################
+gj_ruinas_eco_ruinas = {
+	if = {
+		limit = {
+			NOT = { has_variable = gj_eco_ruinas_cd }
+			any_owned_location = { gj_ruina_es_restaurada = yes }
+		}
+		random_list = {
+			6 = {
+				set_variable = { name = gj_eco_ruinas_cd days = 3650 }
+				random_owned_location = {
+					limit = { gj_ruina_es_restaurada = yes }
+					save_scope_as = gj_ruina_loc
+				}
+				random_list = {
+					60 = { trigger_event_non_silently = { id = gj_mundo_ruinas.80 } }
+					40 = { trigger_event_non_silently = { id = gj_mundo_ruinas.81 } }
+				}
+			}
+			94 = { }
+		}
+	}
+}
+
+##############################################################################
+# LOCATION: un monumento de veta conquistado pierde un nivel
+##############################################################################
+gj_ruinas_resiente_monumento = {
+	if = {
+		limit = { has_building = building_type:gj_monumento_fuego }
+		change_building_level_in_location = { building = building_type:gj_monumento_fuego value = -1 }
+	}
+	if = {
+		limit = { has_building = building_type:gj_monumento_marea }
+		change_building_level_in_location = { building = building_type:gj_monumento_marea value = -1 }
+	}
+	if = {
+		limit = { has_building = building_type:gj_monumento_raiz }
+		change_building_level_in_location = { building = building_type:gj_monumento_raiz value = -1 }
+	}
+	if = {
+		limit = { has_building = building_type:gj_monumento_estrella }
+		change_building_level_in_location = { building = building_type:gj_monumento_estrella value = -1 }
+	}
+}
+
+##############################################################################
+# LOCATION (root del on_action on_location_changed_owner): una location cambia de manos
+# scope:winner = nuevo dueno, scope:loser = anterior (pueden no existir)
+##############################################################################
+gj_ruinas_cambio_dueno = {
+	# 1. Artefactos: se recalculan los dos paises.
+	if = {
+		limit = {
+			OR = {
+				has_variable = gj_art_astrolabio
+				has_variable = gj_art_cetro
+				has_variable = gj_art_martillo
+				has_variable = gj_art_cuerno
+				has_variable = gj_art_escudo
+				has_variable = gj_art_tablillas
+				has_variable = gj_art_corona
+				has_variable = gj_art_lampara
+			}
+		}
+		save_scope_as = gj_art_loc
+		if = {
+			limit = { exists = scope:winner }
+			scope:winner = {
+				gj_ruinas_sincroniza_artefactos = yes
+				if = {
+					limit = { exists = scope:loser }
+					trigger_event_non_silently = { id = gj_mundo_ruinas.32 }
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:loser }
+			scope:loser = {
+				gj_ruinas_sincroniza_artefactos = yes
+				if = {
+					limit = { exists = scope:winner }
+					trigger_event_non_silently = { id = gj_mundo_ruinas.33 }
+				}
+			}
+		}
+	}
+	# 2. Vetas: el monumento se resiente y los dos paises se enteran.
+	if = {
+		limit = {
+			gj_mundo_ruinas_es_veta = yes
+			exists = scope:winner
+			exists = scope:loser
+		}
+		save_scope_as = gj_veta_loc
+		gj_ruinas_resiente_monumento = yes
+		scope:winner = {
+			gj_ruinas_sincroniza_vetas = yes
+			trigger_event_non_silently = { id = gj_mundo_ruinas.30 }
+		}
+		scope:loser = {
+			gj_ruinas_sincroniza_vetas = yes
+			trigger_event_non_silently = { id = gj_mundo_ruinas.31 }
+		}
+	}
+}
+
+##############################################################################
+# PAIS: todo el pulso anual
+##############################################################################
+gj_ruinas_pulso_pais = {
+	gj_ruinas_marca_localizaciones = yes
+	gj_ruinas_calma_ruinas = yes
+	gj_ruinas_sincroniza_artefactos = yes
+	gj_ruinas_sincroniza_vetas = yes
+	gj_ruinas_decada = { tipo = fuego id = gj_mundo_ruinas.40 }
+	gj_ruinas_decada = { tipo = marea id = gj_mundo_ruinas.41 }
+	gj_ruinas_decada = { tipo = raiz id = gj_mundo_ruinas.42 }
+	gj_ruinas_decada = { tipo = estrella id = gj_mundo_ruinas.43 }
+	gj_ruinas_flavor_veta = { tipo = fuego id = gj_mundo_ruinas.60 }
+	gj_ruinas_flavor_veta = { tipo = marea id = gj_mundo_ruinas.61 }
+	gj_ruinas_flavor_veta = { tipo = raiz id = gj_mundo_ruinas.62 }
+	gj_ruinas_flavor_veta = { tipo = estrella id = gj_mundo_ruinas.63 }
+	gj_ruinas_veta_cerca = yes
+	gj_ruinas_eco_ruinas = yes
+}

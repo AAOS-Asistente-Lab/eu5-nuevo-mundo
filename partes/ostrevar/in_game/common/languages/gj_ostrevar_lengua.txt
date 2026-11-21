@@ -1,0 +1,19 @@
+﻿# Lengua ostrevari.
+gj_ostrevari_language = {
+	color = map_gj_ostrevari
+	family = gj_ostrevari_language_family
+
+	male_names = {
+		Aldemar Ansgar Berenguer Bertrán Casimiro Dagoberto Eldric Edmar Fabián Gerardo Godomar Haldemar Hildebrando
+		Ingmar Isidro Leovigildo Lotario Maelgar Odón Osric Otmar Ramiro Renaldo Rodmar Sigfrido Teodric Ulmer Valdemar Wenceslao
+	}
+	female_names = {
+		Adalinda Aldana Brunilda Edelmira Elvira Gisela Hermesinda Ildara Irmina Isaura Leonor Maelis Matilde Nuria Odila Oriana Rosamunda Sancha Teodora Valdis
+	}
+	dynasty_names = {
+		Altamarca Casaviva Fuenteclara Marmoleda Pasoalto Piedrafirme Ribalta Sietepuentes Torrenueva Valdeaguas Vadoluz Cantalupo
+	}
+	lowborn = {
+		Albañil Cantero Carretero Herrero Hilandero Tejedor Pozo Puente Mesón Vado
+	}
+}

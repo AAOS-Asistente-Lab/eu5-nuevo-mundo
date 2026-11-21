@@ -1,0 +1,55 @@
+﻿# Sorava: La Quiebra de las Casas. Es el precio de romper la palabra: cuando la confianza cae por debajo de 20
+# (contratos rotos, deudas, puerto franco abusado), las Casas menores retiran su credito y el comercio se hunde.
+# Termina cuando la palabra se recupera (decision «Auditar las Casas», cerrar contratos, pagar a los acreedores).
+
+gj_sorava_quiebra_de_las_casas = {
+	image = "gfx/interface/illustrations/disaster/coup_attempt.dds"
+
+	monthly_spawn_chance = monthly_spawn_chance_low
+
+	can_start = {
+		gj_es_sorava = yes
+		has_any_active_disaster = no
+		current_age_or_later = { age = age_2_renaissance }
+		has_variable = gj_sorava_palabra
+		var:gj_sorava_palabra < 20
+	}
+
+	can_end = {
+		var:gj_sorava_palabra >= 45
+	}
+
+	modifier = {
+		global_merchant_power = -0.15
+		tariff_income = -0.15
+		total_loan_capacity_modifier = -0.25
+		monthly_legitimacy = -0.05
+	}
+
+	on_start = {
+		trigger_event_non_silently = gj_sorava.40
+	}
+
+	on_end = {
+		add_country_modifier = {
+			modifier = gj_sorava_deudas_heredadas
+			years = 10
+			mode = add_and_extend
+		}
+		trigger_event_non_silently = gj_sorava.41
+	}
+
+	on_monthly = {
+		random_list = {
+			15 = { custom_tooltip = an_event_occurs_tt }
+			85 = { custom_tooltip = no_event_occurs_tt }
+		}
+		hidden_effect = {
+			random_list = {
+				50 = { trigger_event_silently = gj_sorava.42 }
+				50 = { trigger_event_silently = gj_sorava.43 }
+				400 = { }
+			}
+		}
+	}
+}

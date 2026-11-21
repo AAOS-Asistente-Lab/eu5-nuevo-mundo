@@ -1,0 +1,25 @@
+﻿# Tipos de lugar sagrado de la Llama Profunda. Las locations las asigna la integracion (holy_sites/).
+
+# Una sima abierta hasta donde se ve el resplandor: se peregrina a mirar el fuego de abajo.
+gj_llama_pozo_de_la_llama = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.05
+		local_monthly_prosperity = 0.001
+		local_max_control = 0.02
+	}
+	country_modifier = {
+		monthly_purity = 0.05
+	}
+}
+
+# Una forja que lleva siglos sin apagarse: el hierro que sale de ella se vende como reliquia.
+gj_llama_forja_eterna = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_iron_output_modifier = 0.1
+		local_production_efficiency = tiny_production_efficiency_bonus
+	}
+	country_modifier = {
+		global_weaponry_output_modifier = 0.02
+	}
+}

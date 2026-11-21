@@ -1,0 +1,259 @@
+﻿gj_skarren_niveles_salon = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_2_renaissance }
+		}
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_3_discovery }
+		}
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_4_reformation }
+		}
+		add = {
+			desc = "age_4_reformation"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_5_absolutism }
+		}
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_6_revolutions }
+		}
+		add = {
+			desc = "age_6_revolutions"
+			value = 1
+		}
+	}
+}
+
+gj_skarren_niveles_astillero = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_2_renaissance }
+		}
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_3_discovery }
+		}
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_4_reformation }
+		}
+		add = {
+			desc = "age_4_reformation"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_5_absolutism }
+		}
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_6_revolutions }
+		}
+		add = {
+			desc = "age_6_revolutions"
+			value = 1
+		}
+	}
+}
+
+gj_skarren_niveles_lonja = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_2_renaissance }
+		}
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_3_discovery }
+		}
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_4_reformation }
+		}
+		add = {
+			desc = "age_4_reformation"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_5_absolutism }
+		}
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_6_revolutions }
+		}
+		add = {
+			desc = "age_6_revolutions"
+			value = 1
+		}
+	}
+}
+
+gj_skarren_niveles_atalaya = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_2_renaissance }
+		}
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_3_discovery }
+		}
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_4_reformation }
+		}
+		add = {
+			desc = "age_4_reformation"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_5_absolutism }
+		}
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_6_revolutions }
+		}
+		add = {
+			desc = "age_6_revolutions"
+			value = 1
+		}
+	}
+}
+
+gj_skarren_niveles_remeros = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_2_renaissance }
+		}
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_3_discovery }
+		}
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_4_reformation }
+		}
+		add = {
+			desc = "age_4_reformation"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_5_absolutism }
+		}
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			current_age_or_later = { age = age_6_revolutions }
+		}
+		add = {
+			desc = "age_6_revolutions"
+			value = 1
+		}
+	}
+}

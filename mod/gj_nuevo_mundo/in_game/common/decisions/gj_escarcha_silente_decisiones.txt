@@ -1,0 +1,103 @@
+﻿# Decisiones de la Escarcha Silente.
+
+gj_escarcha_silente_vigilia_decision = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		exists = religion
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+	}
+
+	allow = {
+		doom >= 15
+		prestige >= 10
+		NOT = { has_country_modifier = gj_escarcha_silente_vigilia_cantada }
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_escarcha_silente_vigilia_decision.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_doom = doom_mild_bonus
+			add_prestige = prestige_weak_penalty
+			add_country_modifier = {
+				modifier = gj_escarcha_silente_vigilia_cantada
+				years = 5
+				mode = extend
+			}
+		}
+	}
+}
+
+gj_escarcha_silente_convocar_noche_decision = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		exists = religion
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+		NOT = { has_variable = gj_escarcha_silente_noche_propia }
+	}
+
+	allow = {
+		doom >= 60
+		at_war = yes
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+
+	option = {
+		name = gj_escarcha_silente_convocar_noche_decision.a
+		ai_chance = { value = 0 }
+		effect = {
+			trigger_event_non_silently = gj_escarcha_silente.9
+		}
+	}
+}
+
+gj_escarcha_silente_erguir_cumbre_decision = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		exists = religion
+		religion = religion:gj_escarcha_silente
+		has_doom = yes
+	}
+
+	allow = {
+		prestige >= 20
+	}
+
+	only_once = yes
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_escarcha_silente_erguir_cumbre_decision.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_prestige = prestige_mild_penalty
+			capital = {
+				add_location_modifier = {
+					modifier = gj_escarcha_silente_ceniza_bendita
+					months = -1
+					mode = add_and_extend
+				}
+			}
+			add_country_modifier = {
+				modifier = gj_escarcha_silente_pregon_del_hielo
+				years = 20
+				mode = extend
+			}
+		}
+	}
+}

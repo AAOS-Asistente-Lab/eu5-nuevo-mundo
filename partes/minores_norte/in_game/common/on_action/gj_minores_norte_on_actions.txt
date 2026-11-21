@@ -1,0 +1,136 @@
+﻿# Pulso anual de los menores del norte. Se cuelga de yearly_country_pulse (ver el fichero de enganche).
+# Cada sub-on-action tiene un disparador barato: los paises que no son de su estilo no pagan nada.
+
+gj_minores_norte_pulso_anual = {
+	trigger = {
+		gj_minores_norte_menor_norte = yes
+	}
+	on_actions = {
+		gj_minores_norte_pulso_ciudad_estado
+		gj_minores_norte_pulso_clan
+		gj_minores_norte_pulso_marca
+		gj_minores_norte_pulso_propios
+	}
+}
+
+gj_minores_norte_pulso_ciudad_estado = {
+	trigger = {
+		gj_minores_norte_menor_ciudad_estado = yes
+	}
+	random_events = {
+		chance_to_happen = 18
+		100 = gj_minores_norte.1
+		100 = gj_minores_norte.2
+		100 = gj_minores_norte.3
+		100 = gj_minores_norte.4
+		100 = gj_minores_norte.5
+		100 = gj_minores_norte.6
+	}
+}
+
+gj_minores_norte_pulso_clan = {
+	trigger = {
+		gj_minores_norte_menor_clan = yes
+	}
+	random_events = {
+		chance_to_happen = 18
+		100 = gj_minores_norte.7
+		100 = gj_minores_norte.8
+		100 = gj_minores_norte.9
+		100 = gj_minores_norte.10
+		100 = gj_minores_norte.11
+		100 = gj_minores_norte.12
+		100 = gj_minores_norte.13
+	}
+}
+
+gj_minores_norte_pulso_marca = {
+	trigger = {
+		gj_minores_norte_menor_marca = yes
+	}
+	random_events = {
+		chance_to_happen = 18
+		100 = gj_minores_norte.14
+		100 = gj_minores_norte.15
+		100 = gj_minores_norte.16
+		100 = gj_minores_norte.17
+		100 = gj_minores_norte.18
+	}
+}
+
+gj_minores_norte_pulso_propios = {
+	first_valid_on_action = {
+		gj_minores_norte_pulso_tarnavia
+		gj_minores_norte_pulso_nenvar
+		gj_minores_norte_pulso_isbrant
+		gj_minores_norte_pulso_hondarri
+		gj_minores_norte_pulso_aryuki
+		gj_minores_norte_pulso_marisma
+		gj_minores_norte_pulso_vigia
+		gj_minores_norte_pulso_ceniza
+	}
+}
+
+gj_minores_norte_pulso_tarnavia = {
+	trigger = { culture = culture:gj_tarnavi }
+	random_events = {
+		chance_to_happen = 15
+		100 = gj_minores_norte.19
+	}
+}
+
+gj_minores_norte_pulso_nenvar = {
+	trigger = { culture = culture:gj_nenvari }
+	random_events = {
+		chance_to_happen = 15
+		100 = gj_minores_norte.20
+	}
+}
+
+gj_minores_norte_pulso_isbrant = {
+	trigger = { culture = culture:gj_isbranti }
+	random_events = {
+		chance_to_happen = 15
+		100 = gj_minores_norte.21
+	}
+}
+
+gj_minores_norte_pulso_hondarri = {
+	trigger = { culture = culture:gj_hondarri }
+	random_events = {
+		chance_to_happen = 15
+		100 = gj_minores_norte.22
+	}
+}
+
+gj_minores_norte_pulso_aryuki = {
+	trigger = { culture = culture:gj_aryuki }
+	random_events = {
+		chance_to_happen = 15
+		100 = gj_minores_norte.23
+	}
+}
+
+gj_minores_norte_pulso_marisma = {
+	trigger = { culture = culture:gj_marismeno }
+	random_events = {
+		chance_to_happen = 15
+		100 = gj_minores_norte.24
+	}
+}
+
+gj_minores_norte_pulso_vigia = {
+	trigger = { culture = culture:gj_vigiano }
+	random_events = {
+		chance_to_happen = 15
+		100 = gj_minores_norte.25
+	}
+}
+
+gj_minores_norte_pulso_ceniza = {
+	trigger = { culture = culture:gj_cenizario }
+	random_events = {
+		chance_to_happen = 15
+		100 = gj_minores_norte.26
+	}
+}

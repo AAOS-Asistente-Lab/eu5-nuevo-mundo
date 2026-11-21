@@ -1,0 +1,83 @@
+﻿gj_cielo_clanes_alzar_pabellon = { # Mudar de dios a mitad de reinado
+	decision_category = country_specific_decisions
+
+	potential = {
+		religion = religion:gj_cielo_clanes
+		has_variable = gj_dios_reinado
+	}
+
+	allow = {
+		at_war = no
+		gold >= 150
+		NOT = { has_variable = gj_cd_mudanza }
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_cielo_clanes_alzar_pabellon.a
+		ai_chance = { value = 0 }
+		effect = {
+			add_gold = {
+				value = -150
+			}
+			set_variable = {
+				name = gj_cd_mudanza
+				value = 1
+				years = 15
+			}
+			add_country_modifier = {
+				modifier = gj_dios_cambiado
+				years = modifier_duration_years_short
+				mode = add_and_extend
+			}
+			trigger_event_non_silently = { id = gj_cielo_clanes.1 days = 3 }
+		}
+	}
+}
+
+gj_cielo_clanes_peregrinacion = { # Ir al Mastil del Cielo
+	decision_category = country_specific_decisions
+
+	potential = {
+		religion = religion:gj_cielo_clanes
+	}
+
+	allow = {
+		at_war = no
+		gold >= 200
+		NOT = { has_variable = gj_cd_peregrinacion }
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_cielo_clanes_peregrinacion.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = -200
+			}
+			set_variable = {
+				name = gj_cd_peregrinacion
+				value = 1
+				years = 20
+			}
+			trigger_event_non_silently = { id = gj_cielo_clanes.10 days = 5 }
+		}
+	}
+}

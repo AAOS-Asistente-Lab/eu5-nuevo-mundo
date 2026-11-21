@@ -1,0 +1,3 @@
+﻿colors = {
+	gj_color_dioses_hambrientos = rgb { 128 24 56 }
+}

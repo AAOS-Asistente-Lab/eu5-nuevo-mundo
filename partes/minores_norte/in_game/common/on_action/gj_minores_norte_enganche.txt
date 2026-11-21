@@ -1,0 +1,8 @@
+﻿# ENGANCHE (a probar). Cuelga el pulso de los menores del norte del pulso anual del juego base.
+# Si el motor no fusiona on_actions con el mismo nombre, la integracion debe anadir esta unica linea
+# a mano en su propia copia de yearly_country_pulse: on_actions = { gj_minores_norte_pulso_anual }
+yearly_country_pulse = {
+	on_actions = {
+		gj_minores_norte_pulso_anual
+	}
+}

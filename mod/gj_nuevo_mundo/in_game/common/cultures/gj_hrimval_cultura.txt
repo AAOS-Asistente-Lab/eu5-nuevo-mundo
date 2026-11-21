@@ -1,0 +1,23 @@
+﻿# Cultura de la Corte Insepulta de Hrimval
+gj_insepulto = {
+	language = gj_lengua_insepulta
+
+	color = gj_hrimval_mapa_insepulto
+
+	tags = { swedish_gfx western_european_gfx european_gfx }
+
+	country_modifier = {
+		land_morale_modifier = 0.05
+		monthly_peasants_estate_rebel_growth = -0.003
+	}
+	location_modifier = {
+		local_unrest = -0.05
+	}
+	character_modifier = {
+		character_life_expectancy = 20
+	}
+
+	culture_groups = {
+		gj_grupo_insepulto
+	}
+}

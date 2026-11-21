@@ -1,0 +1,324 @@
+# Los ritos de marea: siete decisiones que se pagan con Poder de Rito (rite_power).
+# Las variables gj_md_* son los enfriamientos de cada rito.
+
+gj_mar_dormido_nana = { # Cantar la nana al mar: la via barata de recuperar Poder de Rito
+	decision_category = country_specific_decisions
+
+	potential = {
+		religion = religion:gj_mar_dormido
+	}
+
+	allow = {
+		gold >= 80
+		NOT = { has_variable = gj_md_nana }
+	}
+
+	ai_will_do = {
+		value = 30
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_mar_dormido_nana.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = -80
+			}
+			add_rite_power = 15
+			set_variable = {
+				name = gj_md_nana
+				value = yes
+				years = 5
+			}
+			add_country_modifier = {
+				modifier = gj_mar_nana_cantada
+				years = 6
+				mode = add_and_extend
+			}
+		}
+	}
+}
+
+gj_mar_dormido_calmar_kraken = { # Rito: calmar a los krakens
+	decision_category = country_specific_decisions
+
+	potential = {
+		religion = religion:gj_mar_dormido
+	}
+
+	allow = {
+		rite_power >= 25
+		NOT = { has_variable = gj_md_kraken }
+	}
+
+	ai_will_do = {
+		value = 15
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_mar_dormido_calmar_kraken.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_rite_power = -25
+			set_variable = {
+				name = gj_md_kraken
+				value = yes
+				years = 15
+			}
+			gj_mar_calma_a_la_bestia = yes
+			add_prestige = 10
+		}
+	}
+}
+
+gj_mar_dormido_levantar_ciudad = { # Rito: levantar la ciudad (una costa del pais prospera de golpe)
+	decision_category = country_specific_decisions
+
+	potential = {
+		religion = religion:gj_mar_dormido
+	}
+
+	allow = {
+		rite_power >= 30
+		gold >= 150
+		NOT = { has_variable = gj_md_ciudad }
+		any_owned_location = {
+			is_coastal = yes
+		}
+	}
+
+	ai_will_do = {
+		value = 10
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_mar_dormido_levantar_ciudad.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_rite_power = -30
+			add_gold = {
+				value = -150
+			}
+			set_variable = {
+				name = gj_md_ciudad
+				value = yes
+				years = 25
+			}
+			random_owned_location = {
+				limit = {
+					is_coastal = yes
+				}
+				add_location_modifier = {
+					mode = add
+					modifier = gj_mar_ciudad_alzada
+					years = 30
+				}
+				change_prosperity = prosperity_mild_bonus
+			}
+			gj_mar_registra_rito = yes
+		}
+	}
+}
+
+gj_mar_dormido_bendecir_flota = { # Rito: bendecir la flota
+	decision_category = country_specific_decisions
+
+	potential = {
+		religion = religion:gj_mar_dormido
+	}
+
+	allow = {
+		rite_power >= 20
+		NOT = { has_variable = gj_md_flota }
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_mar_dormido_bendecir_flota.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_rite_power = -20
+			set_variable = {
+				name = gj_md_flota
+				value = yes
+				years = 10
+			}
+			add_country_modifier = {
+				modifier = gj_mar_flota_bendita
+				years = 8
+				mode = add_and_extend
+			}
+			add_navy_tradition = navy_tradition_mild_bonus
+			gj_mar_registra_rito = yes
+		}
+	}
+}
+
+gj_mar_dormido_ofrenda_corriente = { # Rito: la ofrenda a la corriente (comercio)
+	decision_category = country_specific_decisions
+
+	potential = {
+		religion = religion:gj_mar_dormido
+	}
+
+	allow = {
+		rite_power >= 15
+		gold >= 50
+		NOT = { has_variable = gj_md_corriente }
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_mar_dormido_ofrenda_corriente.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_rite_power = -15
+			add_gold = {
+				value = -50
+			}
+			set_variable = {
+				name = gj_md_corriente
+				value = yes
+				years = 10
+			}
+			add_country_modifier = {
+				modifier = gj_mar_corriente_ofrendada
+				years = 10
+				mode = add_and_extend
+			}
+			gj_mar_registra_rito = yes
+		}
+	}
+}
+
+gj_mar_dormido_gran_vigilia = { # El rito mayor: la Gran Vigilia de las Mareas Vivas
+	decision_category = country_specific_decisions
+
+	potential = {
+		religion = religion:gj_mar_dormido
+	}
+
+	allow = {
+		rite_power >= 70
+		at_war = no
+		gold >= 250
+		NOT = { has_variable = gj_md_vigilia }
+	}
+
+	ai_will_do = {
+		value = 5
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_mar_dormido_gran_vigilia.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_rite_power = -60
+			add_gold = {
+				value = -250
+			}
+			set_variable = {
+				name = gj_md_vigilia
+				value = yes
+				years = 40
+			}
+			add_country_modifier = {
+				modifier = gj_mar_gran_vigilia
+				years = 15
+				mode = add_and_extend
+			}
+			add_prestige = 25
+			add_legitimacy = legitimacy_mild_bonus
+			gj_mar_registra_rito = yes
+		}
+	}
+}
+
+gj_mar_dormido_sangrar_marea = { # Solo marea negra: pagar al mar con oro para despertar su pulso
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_mar_es_marea_negra = yes
+	}
+
+	allow = {
+		gold >= 100
+		NOT = { has_variable = gj_md_sangre }
+	}
+
+	ai_will_do = {
+		value = 25
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_mar_dormido_sangrar_marea.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = -100
+			}
+			add_rite_power = 20
+			set_variable = {
+				name = gj_md_sangre
+				value = yes
+				years = 6
+			}
+			add_country_modifier = {
+				modifier = gj_mar_sangre_en_la_marea
+				years = 8
+				mode = add_and_extend
+			}
+			if = {
+				limit = {
+					NOT = { has_variable = gj_mar_agitacion }
+				}
+				set_variable = { name = gj_mar_agitacion value = 0 }
+			}
+			change_variable = {
+				name = gj_mar_agitacion
+				add = 1
+			}
+		}
+	}
+}

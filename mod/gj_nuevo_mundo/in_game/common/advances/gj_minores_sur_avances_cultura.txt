@@ -1,0 +1,235 @@
+﻿##############################
+# Avances de cultura de los menores del sur: tres por cultura (eras 1, 3 y 5).
+# Los tiene cualquier pais cuya cultura sea esa, sea o no una facción.
+##############################
+
+##############################
+# Brazalmi: ciudad de pregones y cuentas
+##############################
+gj_brazalmi_pregon_de_la_rada = {
+	potential = { culture = culture:gj_brazalmi }
+	age = age_1_traditions
+	icon = banking_advance
+	requires = trade_caravans
+
+	global_trades_per_burgher = 0.05
+	tariff_income = 0.10
+}
+
+gj_brazalmi_libro_de_cuentas_abierto = {
+	potential = { culture = culture:gj_brazalmi }
+	age = age_3_discovery
+	icon = banking_advance
+	requires = banking_advance
+
+	total_loan_capacity_modifier = 0.15
+	global_burghers_max_literacy = 3
+}
+
+gj_brazalmi_pabellon_franco = {
+	potential = { culture = culture:gj_brazalmi }
+	age = age_5_absolutism
+	icon = maritime_advance_age_4
+	requires = global_trade_advance
+
+	global_trade_center_power = 0.10
+	import_efficiency = 0.05
+}
+
+##############################
+# Ondani: cantores de arrecife
+##############################
+gj_ondani_canto_de_la_concha = {
+	potential = { culture = culture:gj_ondani }
+	age = age_1_traditions
+	icon = maritime_advance_age_4
+	requires = mapmaking
+
+	global_pearls_output_modifier = 0.15
+	global_fish_output_modifier = 0.10
+}
+
+gj_ondani_jardines_de_coral = {
+	potential = { culture = culture:gj_ondani }
+	age = age_3_discovery
+	icon = maritime_advance_age_4
+	requires = ship_building_techniques_discovery
+
+	global_gems_output_modifier = 0.10
+	naval_range_modifier = 0.10
+}
+
+gj_ondani_mareas_regladas = {
+	potential = { culture = culture:gj_ondani }
+	age = age_5_absolutism
+	icon = maritime_advance_age_4
+	requires = maritime_advance_age_5
+
+	navy_repair_efficiency = 0.10
+	trade_sea_efficiency = 0.05
+}
+
+##############################
+# Halcori: cabo y atalaya
+##############################
+gj_halcori_faros_de_alarma = {
+	potential = { culture = culture:gj_halcori }
+	age = age_1_traditions
+	icon = defensive_mentality
+	requires = mapmaking
+
+	fort_limit_modifier = 0.10
+	global_garrison_size_modifier = 0.10
+}
+
+gj_halcori_cadenas_de_la_bahia = {
+	potential = { culture = culture:gj_halcori }
+	age = age_3_discovery
+	icon = defensive_mentality
+	requires = ship_building_techniques_discovery
+
+	blockade_efficiency = 0.10
+	navy_light_ship_power = 0.10
+}
+
+gj_halcori_ronda_del_cabo = {
+	potential = { culture = culture:gj_halcori }
+	age = age_5_absolutism
+	icon = defensive_mentality
+	requires = anti_piracy_warfare
+
+	own_coast_naval_combat_bonus = 0.10
+	naval_damage_taken = -0.05
+}
+
+##############################
+# Tirnauki: terrazas menores
+##############################
+gj_tirnauki_escalones_del_sol = {
+	potential = { culture = culture:gj_tirnauki }
+	age = age_1_traditions
+	icon = agriculture_advance
+	requires = agriculture_advance
+
+	global_population_capacity_modifier = 0.05
+	food_consumption_modifier = -0.05
+}
+
+gj_tirnauki_cantera_sagrada = {
+	potential = { culture = culture:gj_tirnauki }
+	age = age_3_discovery
+	icon = city_building_advance
+	requires = construction_speed_renaissance
+
+	global_stone_output_modifier = 0.10
+	global_marble_output_modifier = 0.10
+}
+
+gj_tirnauki_voz_del_santuario = {
+	potential = { culture = culture:gj_tirnauki }
+	age = age_5_absolutism
+	icon = scholasticism
+	requires = scientific_revolution_advance
+
+	monthly_devotion = 0.05
+	stability_cost_efficiency = 0.05
+}
+
+##############################
+# Sotolari: marca del bosque
+##############################
+gj_sotolari_sendas_del_umbral = {
+	potential = { culture = culture:gj_sotolari }
+	age = age_1_traditions
+	icon = defensive_mentality
+	requires = ranching
+
+	land_unit_attrition = -0.10
+	global_wild_game_output_modifier = 0.10
+}
+
+gj_sotolari_cercas_vivas = {
+	potential = { culture = culture:gj_sotolari }
+	age = age_3_discovery
+	icon = defensive_mentality
+	requires = lumber_improvements_discovery
+
+	global_lumber_output_modifier = 0.10
+	fort_maintenance_efficiency = 0.10
+}
+
+gj_sotolari_pacto_del_claro = {
+	potential = { culture = culture:gj_sotolari }
+	age = age_5_absolutism
+	icon = scholasticism
+	requires = national_sovereignty
+
+	global_separatism = -0.10
+	monthly_legitimacy = 0.05
+}
+
+##############################
+# Yorumbi: pueblos del gran rio
+##############################
+gj_yorumbi_balsas_del_gran_rio = {
+	potential = { culture = culture:gj_yorumbi }
+	age = age_1_traditions
+	icon = maritime_advance_age_4
+	requires = ship_building_advance
+
+	trade_land_efficiency = 0.05
+	global_fish_output_modifier = 0.10
+}
+
+gj_yorumbi_tambores_de_crecida = {
+	potential = { culture = culture:gj_yorumbi }
+	age = age_3_discovery
+	icon = agriculture_advance
+	requires = new_world_crops
+
+	global_maize_output_modifier = 0.10
+	global_population_growth = 0.001
+}
+
+gj_yorumbi_consejo_de_las_orillas = {
+	potential = { culture = culture:gj_yorumbi }
+	age = age_5_absolutism
+	icon = scholasticism
+	requires = absolutist_court
+
+	global_pop_conversion_speed_modifier = 0.10
+	diplomatic_capacity_modifier = 0.10
+}
+
+##############################
+# Pakhuni: clanes de la selva alta
+##############################
+gj_pakhuni_cazadores_del_dosel = {
+	potential = { culture = culture:gj_pakhuni }
+	age = age_1_traditions
+	icon = defensive_mentality
+	requires = ranching
+
+	global_wild_game_output_modifier = 0.15
+	global_hostile_attrition = 0.5
+}
+
+gj_pakhuni_tinte_de_ceniza = {
+	potential = { culture = culture:gj_pakhuni }
+	age = age_3_discovery
+	icon = agriculture_advance
+	requires = plantation_buildings_advance
+
+	global_dyes_output_modifier = 0.15
+	global_incense_output_modifier = 0.10
+}
+
+gj_pakhuni_voz_de_los_ancianos = {
+	potential = { culture = culture:gj_pakhuni }
+	age = age_5_absolutism
+	icon = scholasticism
+	requires = national_sovereignty
+
+	army_light_infantry_power = 0.10
+	monthly_prestige = 0.05
+}

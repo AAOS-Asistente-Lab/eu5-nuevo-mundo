@@ -1,0 +1,19 @@
+﻿colors = {
+	gj_map_brazalmi = rgb { 196 140 62 }
+	gj_map_ondani = rgb { 64 170 176 }
+	gj_map_halcori = rgb { 150 98 60 }
+	gj_map_tirnauki = rgb { 216 190 90 }
+	gj_map_sotolari = rgb { 110 140 72 }
+	gj_map_yorumbi = rgb { 156 60 44 }
+	gj_map_pakhuni = rgb { 74 112 60 }
+	gj_map_brazalmi_language = rgb { 214 164 88 }
+	gj_map_ondani_language = rgb { 92 192 198 }
+	gj_map_halcori_language = rgb { 172 120 80 }
+	gj_map_tirnauki_language = rgb { 230 206 118 }
+	gj_map_sotolari_language = rgb { 132 162 94 }
+	gj_map_yorumbi_language = rgb { 178 82 62 }
+	gj_map_pakhuni_language = rgb { 96 134 82 }
+	gj_map_minores_sur_familia_puerto = rgb { 226 184 112 }
+	gj_map_minores_sur_familia_marca = rgb { 190 150 100 }
+	gj_map_minores_sur_familia_selva = rgb { 140 100 70 }
+}

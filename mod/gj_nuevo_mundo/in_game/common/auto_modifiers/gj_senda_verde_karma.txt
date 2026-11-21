@@ -1,0 +1,48 @@
+﻿# Las tres franjas del karma de la Senda Verde, ademas de las del juego base.
+# Equilibrio (-33..33): el bosque respira. Arriba: el Sueno del Musgo (demasiada quietud).
+# Abajo: la Savia Herida (el bosque se defiende, pero el pueblo enferma).
+
+gj_senda_verde_savia_en_calma = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_senda_verde
+	}
+	limit = {
+		karma >= -33
+		karma <= 33
+	}
+
+	global_food_capacity_modifier = 0.05
+	global_population_growth = 0.0001
+	monthly_legitimacy = 0.02
+}
+
+gj_senda_verde_sueno_del_musgo = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_senda_verde
+	}
+	limit = {
+		karma > 33
+	}
+
+	global_monthly_prosperity = 0.0005
+	global_lumber_output_modifier = 0.1
+	land_morale_modifier = -0.05
+	siege_ability = -0.1
+}
+
+gj_senda_verde_savia_herida = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_senda_verde
+	}
+	limit = {
+		karma < -33
+	}
+
+	army_light_infantry_power = 0.1
+	global_food_capacity_modifier = -0.05
+	global_population_growth = -0.0001
+	monthly_legitimacy = -0.03
+}

@@ -1,0 +1,298 @@
+﻿# Unidades de Ankarú: 3 cadenas de 6 versiones, una por era. Fuertes en la montaña, flojas en el llano.
+
+gj_ank_guardianes_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_guardianes_2
+	buildable = yes
+	family = gj_ank_guardianes
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.05
+	combat = {
+		mountains = 0.15
+		hills = 0.10
+		plateau = 0.10
+		flatland = -0.15
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+gj_ank_guardianes_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_guardianes_3
+	buildable = yes
+	family = gj_ank_guardianes
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.05
+	combat = {
+		mountains = 0.15
+		hills = 0.10
+		plateau = 0.10
+		flatland = -0.15
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+gj_ank_guardianes_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_guardianes_4
+	buildable = yes
+	family = gj_ank_guardianes
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.05
+	combat = {
+		mountains = 0.15
+		hills = 0.10
+		plateau = 0.10
+		flatland = -0.15
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_ank_guardianes_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_guardianes_5
+	buildable = yes
+	family = gj_ank_guardianes
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.05
+	combat = {
+		mountains = 0.15
+		hills = 0.10
+		plateau = 0.10
+		flatland = -0.15
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_ank_guardianes_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_guardianes_6
+	buildable = yes
+	family = gj_ank_guardianes
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.05
+	combat = {
+		mountains = 0.15
+		hills = 0.10
+		plateau = 0.10
+		flatland = -0.15
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_ank_guardianes_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	family = gj_ank_guardianes
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.05
+	combat = {
+		mountains = 0.15
+		hills = 0.10
+		plateau = 0.10
+		flatland = -0.15
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_ank_honderos_1 = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_honderos_2
+	buildable = yes
+	family = gj_ank_honderos
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+
+	gfx_tags = { light_tag }
+}
+
+gj_ank_honderos_2 = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_honderos_3
+	buildable = yes
+	family = gj_ank_honderos
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+
+	gfx_tags = { light_tag }
+}
+
+gj_ank_honderos_3 = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_honderos_4
+	buildable = yes
+	family = gj_ank_honderos
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_ank_honderos_4 = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_honderos_5
+	buildable = yes
+	family = gj_ank_honderos
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_ank_honderos_5 = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_ank_honderos_6
+	buildable = yes
+	family = gj_ank_honderos
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_ank_honderos_6 = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+	buildable = yes
+	family = gj_ank_honderos
+
+	strength_damage_done = 0.10
+	strength_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_ank_porteadores_1 = {
+	copy_from = a_age_1_traditions_auxiliary
+	is_special = yes
+	upgrades_to_only = gj_ank_porteadores_2
+	buildable = yes
+	family = gj_ank_porteadores
+
+	attrition_loss = -0.20
+	supply_weight = -0.15
+	strength_damage_taken = 0.20
+}
+
+gj_ank_porteadores_2 = {
+	copy_from = a_age_2_renaissance_auxiliary
+	is_special = yes
+	upgrades_to_only = gj_ank_porteadores_3
+	buildable = yes
+	family = gj_ank_porteadores
+
+	attrition_loss = -0.20
+	supply_weight = -0.15
+	strength_damage_taken = 0.20
+}
+
+gj_ank_porteadores_3 = {
+	copy_from = a_age_3_discovery_auxiliary
+	is_special = yes
+	upgrades_to_only = gj_ank_porteadores_4
+	buildable = yes
+	family = gj_ank_porteadores
+
+	attrition_loss = -0.20
+	supply_weight = -0.15
+	strength_damage_taken = 0.20
+}
+
+gj_ank_porteadores_4 = {
+	copy_from = a_age_4_reformation_auxiliary
+	is_special = yes
+	upgrades_to_only = gj_ank_porteadores_5
+	buildable = yes
+	family = gj_ank_porteadores
+
+	attrition_loss = -0.20
+	supply_weight = -0.15
+	strength_damage_taken = 0.20
+}
+
+gj_ank_porteadores_5 = {
+	copy_from = a_age_5_absolutism_auxiliary
+	is_special = yes
+	upgrades_to_only = gj_ank_porteadores_6
+	buildable = yes
+	family = gj_ank_porteadores
+
+	attrition_loss = -0.20
+	supply_weight = -0.15
+	strength_damage_taken = 0.20
+}
+
+gj_ank_porteadores_6 = {
+	copy_from = a_age_6_revolutions_auxiliary
+	is_special = yes
+	buildable = yes
+	family = gj_ank_porteadores
+
+	attrition_loss = -0.20
+	supply_weight = -0.15
+	strength_damage_taken = 0.20
+}

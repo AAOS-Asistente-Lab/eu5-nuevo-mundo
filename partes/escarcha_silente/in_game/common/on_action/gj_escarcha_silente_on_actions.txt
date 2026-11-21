@@ -1,0 +1,49 @@
+﻿# Ganchos de la Escarcha Silente.
+
+# Cuando la perdicion llega al maximo, el juego base lanza doom.1 (sacrificar a la familia gobernante)
+# para cualquier pais. Aqui se reparte: si el pais sigue la Escarcha Silente, empieza la Noche Blanca;
+# en cualquier otro caso, el evento de siempre.
+on_max_doom_reached = {
+	first_valid_on_action = {
+		gj_escarcha_silente_max_doom
+		gj_escarcha_silente_max_doom_base
+	}
+}
+
+gj_escarcha_silente_max_doom = {
+	trigger = {
+		exists = religion
+		religion = religion:gj_escarcha_silente
+	}
+	events = {
+		gj_escarcha_silente.9
+	}
+}
+
+gj_escarcha_silente_max_doom_base = {
+	events = {
+		doom.1
+	}
+}
+
+# Pulso de la religion. La integracion debe anadir su nombre a first_valid_on_action
+# de religion_flavor_pulse (ver NECESITA.md).
+religion_flavor_pulse_gj_escarcha_silente = {
+	trigger = {
+		exists = religion
+		religion = religion:gj_escarcha_silente
+	}
+	random_events = {
+		10 = gj_escarcha_silente.1
+		10 = gj_escarcha_silente.2
+		10 = gj_escarcha_silente.3
+		10 = gj_escarcha_silente.4
+		10 = gj_escarcha_silente.5
+		10 = gj_escarcha_silente.6
+		10 = gj_escarcha_silente.7
+		10 = gj_escarcha_silente.8
+		10 = gj_escarcha_silente.11
+
+		chance_to_happen = 25
+	}
+}

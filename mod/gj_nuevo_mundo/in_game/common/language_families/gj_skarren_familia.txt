@@ -1,0 +1,3 @@
+﻿gj_familia_fiordo = {
+	color = gj_color_familia_fiordo
+}

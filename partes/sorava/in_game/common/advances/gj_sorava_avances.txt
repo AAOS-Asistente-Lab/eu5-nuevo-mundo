@@ -1,0 +1,309 @@
+﻿# Sorava: avances propios, cinco o seis por era. Los de cultura van al final.
+# Las cadenas `requires` cuelgan de avances del juego base de la misma era o anteriores.
+
+##############################
+# Era 1: Tradiciones
+##############################
+gj_sorava_lonja_de_las_casas = {
+	potential = { gj_es_sorava = yes }
+	age = age_1_traditions
+	icon = banking_advance
+	requires = trade_caravans
+
+	global_merchant_capacity_modifier = 0.1
+	global_trades_per_burgher = 0.05
+}
+
+gj_sorava_balanza_y_pesas = {
+	potential = { gj_es_sorava = yes }
+	age = age_1_traditions
+	icon = scholasticism
+	requires = gj_sorava_lonja_de_las_casas
+
+	tariff_income = 0.1
+	stability_cost_efficiency = 0.1
+}
+
+gj_sorava_pilotos_del_estrecho = {
+	potential = { gj_es_sorava = yes }
+	age = age_1_traditions
+	icon = maritime_advance_age_4
+	requires = mapmaking
+
+	trade_sea_efficiency = 0.1
+	navy_light_ship_power = 0.1
+}
+
+gj_sorava_buzos_de_perlas = {
+	potential = { gj_es_sorava = yes }
+	age = age_1_traditions
+	requires = gj_sorava_pilotos_del_estrecho
+
+	global_pearls_output_modifier = 0.2
+	global_fish_output_modifier = 0.1
+}
+
+gj_sorava_huertos_de_especias = {
+	potential = { gj_es_sorava = yes }
+	age = age_1_traditions
+	requires = agriculture_advance
+
+	global_pepper_output_modifier = 0.15
+	global_cloves_output_modifier = 0.15
+}
+
+gj_sorava_escoltas_de_caravana = {
+	potential = { gj_es_sorava = yes }
+	age = age_1_traditions
+	requires = gj_sorava_lonja_de_las_casas
+
+	unlock_unit = a_gj_sorava_escolta_1
+	unlock_unit = a_gj_sorava_tirador_1
+	global_trade_protection_factor = 0.1
+}
+
+##############################
+# Era 2: Renacimiento
+##############################
+gj_sorava_casas_de_cambio = {
+	potential = { gj_es_sorava = yes }
+	age = age_2_renaissance
+	icon = genoese_banking_traditions
+	requires = banking_advance
+
+	total_loan_capacity_modifier = 0.2
+}
+
+gj_sorava_sociedades_de_ruta = {
+	potential = { gj_es_sorava = yes }
+	age = age_2_renaissance
+	requires = merchants_and_trade
+
+	global_merchant_power = 0.15
+	merchant_maintenance_efficiency = 0.1
+}
+
+gj_sorava_astilleros_de_la_ensenada = {
+	potential = { gj_es_sorava = yes }
+	age = age_2_renaissance
+	requires = maritime_advance_age_2
+
+	ship_build_speed = 0.15
+	navy_maintenance_efficiency = 0.05
+}
+
+gj_sorava_contratos_notariados = {
+	potential = { gj_es_sorava = yes }
+	age = age_2_renaissance
+	requires = gj_sorava_balanza_y_pesas
+
+	monthly_legitimacy = 0.05
+	global_burghers_estate_power = 0.1
+}
+
+gj_sorava_escoltas_de_las_casas = {
+	potential = { gj_es_sorava = yes }
+	age = age_2_renaissance
+	requires = gj_sorava_escoltas_de_caravana
+
+	unlock_unit = a_gj_sorava_escolta_2
+	unlock_unit = a_gj_sorava_tirador_2
+	discipline = 0.025
+}
+
+##############################
+# Era 3: Descubrimiento
+##############################
+gj_sorava_rutas_de_ultramar = {
+	potential = { gj_es_sorava = yes }
+	age = age_3_discovery
+	requires = maritime_advance_age_3
+
+	trade_range_modifier = 0.15
+	global_merchant_capacity_modifier = 0.1
+}
+
+gj_sorava_lonjas_de_ultramar = {
+	potential = { gj_es_sorava = yes }
+	age = age_3_discovery
+	requires = coastal_trade_routes_advance
+
+	export_efficiency = 0.1
+}
+
+gj_sorava_cartas_de_corriente = {
+	potential = { gj_es_sorava = yes }
+	age = age_3_discovery
+	requires = gj_sorava_pilotos_del_estrecho
+
+	naval_morale_modifier = 0.1
+	ship_repair_at_sea = 0.1
+}
+
+gj_sorava_oficios_de_la_perla = {
+	potential = { gj_es_sorava = yes }
+	age = age_3_discovery
+	requires = gj_sorava_buzos_de_perlas
+
+	global_jewelry_output_modifier = 0.15
+	global_gems_output_modifier = 0.1
+}
+
+gj_sorava_guardia_de_ruta = {
+	potential = { gj_es_sorava = yes }
+	age = age_3_discovery
+	requires = gj_sorava_escoltas_de_las_casas
+
+	unlock_unit = a_gj_sorava_escolta_3
+	unlock_unit = a_gj_sorava_tirador_3
+	army_heavy_infantry_power = 0.05
+}
+
+##############################
+# Era 4: Reforma
+##############################
+gj_sorava_banco_de_las_casas = {
+	potential = { gj_es_sorava = yes }
+	age = age_4_reformation
+	icon = banking_advance
+	requires = global_trade_advance
+
+	total_loan_capacity_modifier = 0.25
+	bank_interest = -0.01
+}
+
+gj_sorava_patentes_de_navegacion = {
+	potential = { gj_es_sorava = yes }
+	age = age_4_reformation
+	requires = maritime_advance_age_4
+
+	blockade_efficiency = 0.15
+	anti_piracy_warfare_modifier = 0.15
+}
+
+gj_sorava_hermandad_de_pilotos = {
+	potential = { gj_es_sorava = yes }
+	age = age_4_reformation
+	requires = gj_sorava_cartas_de_corriente
+
+	global_sailors_modifier = 0.15
+}
+
+gj_sorava_escuela_de_cuentas = {
+	potential = { gj_es_sorava = yes }
+	age = age_4_reformation
+	requires = scientific_experimentation
+
+	research_speed_modifier = 0.05
+	global_max_literacy = 5
+}
+
+gj_sorava_escolta_de_mosquete = {
+	potential = { gj_es_sorava = yes }
+	age = age_4_reformation
+	requires = gj_sorava_guardia_de_ruta
+
+	unlock_unit = a_gj_sorava_escolta_4
+	unlock_unit = a_gj_sorava_tirador_4
+	army_light_infantry_power = 0.05
+}
+
+##############################
+# Era 5: Absolutismo
+##############################
+gj_sorava_compania_de_las_especias = {
+	potential = { gj_es_sorava = yes }
+	age = age_5_absolutism
+	requires = merchant_power_from_maritime_absolutism_advance
+
+	global_trade_center_power = 0.1
+	tariff_income = 0.1
+}
+
+gj_sorava_gran_astillero = {
+	potential = { gj_es_sorava = yes }
+	age = age_5_absolutism
+	requires = ship_building_techniques_absolutism
+
+	ship_build_speed = 0.1
+	navy_heavy_ship_power = 0.1
+}
+
+gj_sorava_cajas_de_seguro = {
+	potential = { gj_es_sorava = yes }
+	age = age_5_absolutism
+	requires = gj_sorava_banco_de_las_casas
+
+	stability_decay = -0.00025
+}
+
+gj_sorava_escolta_de_linea = {
+	potential = { gj_es_sorava = yes }
+	age = age_5_absolutism
+	requires = gj_sorava_escolta_de_mosquete
+
+	unlock_unit = a_gj_sorava_escolta_5
+	unlock_unit = a_gj_sorava_tirador_5
+	discipline = 0.025
+}
+
+##############################
+# Era 6: Revoluciones
+##############################
+gj_sorava_bolsa_del_estrecho = {
+	potential = { gj_es_sorava = yes }
+	age = age_6_revolutions
+	requires = joint_stock_companies
+
+	global_trade_center_power = 0.15
+	global_merchant_power = 0.15
+}
+
+gj_sorava_vapor_de_las_casas = {
+	potential = { gj_es_sorava = yes }
+	age = age_6_revolutions
+	requires = industrialization_advance
+
+	global_build_buildings_efficiency = 0.1
+	global_construction_speed = 0.1
+}
+
+gj_sorava_escolta_de_fusil = {
+	potential = { gj_es_sorava = yes }
+	age = age_6_revolutions
+	requires = gj_sorava_escolta_de_linea
+
+	unlock_unit = a_gj_sorava_escolta_6
+	unlock_unit = a_gj_sorava_tirador_6
+	army_maintenance_efficiency = 0.05
+}
+
+##############################
+# Avances de cultura (soravi)
+##############################
+gj_sorava_cultura_balanza_honrada = {
+	potential = { culture = culture:gj_soravi }
+	age = age_1_traditions
+	requires = gj_sorava_balanza_y_pesas
+
+	diplomatic_reputation = 1
+	improve_relation_impact = 0.1
+}
+
+gj_sorava_cultura_mesa_de_pregones = {
+	potential = { culture = culture:gj_soravi }
+	age = age_2_renaissance
+	requires = gj_sorava_cultura_balanza_honrada
+
+	global_migration_attraction = 0.1
+	global_monthly_literacy = 0.01
+}
+
+gj_sorava_cultura_ligas_del_mar = {
+	potential = { culture = culture:gj_soravi }
+	age = age_3_discovery
+	requires = gj_sorava_cultura_mesa_de_pregones
+
+	cultures_capacity_modifier = 0.25
+	non_rural_migration_attraction = 0.1
+}

@@ -1,0 +1,6 @@
+﻿# Concepto propio para los santos de la Luz de los Fundadores (saints_concept = gj_fundadores).
+
+gj_fundadores = {
+	texture = "religious_doctrines/catholic/saints"
+	alias = { gj_fundador }
+}

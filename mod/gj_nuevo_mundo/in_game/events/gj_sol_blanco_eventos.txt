@@ -1,0 +1,476 @@
+﻿namespace = gj_sol_blanco
+
+# ------------------------------------------------------------
+# Eventos del Sol Blanco. Todos son de pais y exigen la religion.
+# .1 a .7, .11 y .12: pulso anual (gj_sol_blanco_pulse). .10: pulso, una sola vez.
+# .8 (eclipse) y .9 (cometa): los lanza gj_sol_blanco_lee_presagio.
+# ------------------------------------------------------------
+
+# El Sol demasiado alto: el yanantin se ha inclinado hacia lo solar.
+gj_sol_blanco.1 = {
+	type = country_event
+	title = gj_sol_blanco.1.title
+	desc = gj_sol_blanco.1.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		yanantin < -35
+	}
+
+	option = {
+		name = gj_sol_blanco.1.a
+		trigger = {
+			gold >= { value = monthly_income_trade_and_tax multiply = 1 }
+		}
+		add_gold = { value = monthly_income_trade_and_tax multiply = -1 }
+		add_yanantin = 20
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_sol_blanco.1.b
+		high_risk_option = yes
+		add_legitimacy = legitimacy_weak_bonus
+		add_yanantin = -5
+		add_stability = stability_weak_penalty
+	}
+}
+
+# La Luna se hace sombra: el yanantin se ha inclinado hacia lo lunar.
+gj_sol_blanco.2 = {
+	type = country_event
+	title = gj_sol_blanco.2.title
+	desc = gj_sol_blanco.2.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		yanantin > 35
+	}
+
+	option = {
+		name = gj_sol_blanco.2.a
+		trigger = {
+			gold >= { value = monthly_income_trade_and_tax multiply = 1 }
+		}
+		add_gold = { value = monthly_income_trade_and_tax multiply = -1 }
+		add_yanantin = -20
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_sol_blanco.2.b
+		high_risk_option = yes
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+		add_yanantin = 5
+		add_stability = stability_weak_penalty
+	}
+}
+
+# La Piedra de las Dos Sombras: el equilibrio se premia.
+gj_sol_blanco.3 = {
+	type = country_event
+	title = gj_sol_blanco.3.title
+	desc = gj_sol_blanco.3.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		yanantin > -10
+		yanantin < 10
+	}
+
+	option = {
+		name = gj_sol_blanco.3.a
+		add_country_modifier = {
+			modifier = gj_sol_blanco_equilibrio_bendecido
+			years = 10
+			mode = add
+		}
+	}
+	option = {
+		name = gj_sol_blanco.3.b
+		trigger = {
+			gold >= { value = monthly_income_trade_and_tax multiply = 2 }
+		}
+		add_gold = { value = monthly_income_trade_and_tax multiply = -2 }
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = {
+			modifier = gj_sol_blanco_equilibrio_bendecido
+			years = 20
+			mode = add
+		}
+	}
+}
+
+# Peregrinos de las terrazas.
+gj_sol_blanco.4 = {
+	type = country_event
+	title = gj_sol_blanco.4.title
+	desc = gj_sol_blanco.4.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		at_war = no
+	}
+
+	option = {
+		name = gj_sol_blanco.4.a
+		trigger = {
+			gold >= { value = monthly_income_trade_and_tax multiply = 1 }
+		}
+		add_gold = { value = monthly_income_trade_and_tax multiply = -1 }
+		add_prestige = prestige_weak_bonus
+		add_country_modifier = {
+			modifier = gj_sol_blanco_peregrinos
+			years = 10
+			mode = add
+		}
+	}
+	option = {
+		name = gj_sol_blanco.4.b
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# Dos hermanos, un altar: el clero se parte entre el culto solar y el lunar.
+gj_sol_blanco.5 = {
+	type = country_event
+	title = gj_sol_blanco.5.title
+	desc = gj_sol_blanco.5.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = angry
+		10 = regular
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+	}
+
+	option = {
+		name = gj_sol_blanco.5.a
+		add_yanantin = -15
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+	option = {
+		name = gj_sol_blanco.5.b
+		add_yanantin = 15
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+	option = {
+		name = gj_sol_blanco.5.c
+		add_legitimacy = legitimacy_weak_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+		add_country_modifier = {
+			modifier = gj_sol_blanco_hermanos_enfrentados
+			years = 5
+			mode = add
+		}
+	}
+}
+
+# El hilado de la Dama de Plata: los telares ofrecen un tapiz al templo.
+gj_sol_blanco.6 = {
+	type = country_event
+	title = gj_sol_blanco.6.title
+	desc = gj_sol_blanco.6.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = regular
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		at_war = no
+	}
+
+	option = {
+		name = gj_sol_blanco.6.a
+		add_gold = { value = monthly_income_trade_and_tax multiply = 2 }
+		add_yanantin = -5
+	}
+	option = {
+		name = gj_sol_blanco.6.b
+		add_yanantin = 10
+		add_prestige = prestige_weak_bonus
+		add_country_modifier = {
+			modifier = gj_sol_blanco_tapiz_plateado
+			years = 5
+			mode = add
+		}
+	}
+}
+
+# El primer rayo del zenit: el templo mayor se abre al mediodia del solsticio.
+gj_sol_blanco.7 = {
+	type = country_event
+	title = gj_sol_blanco.7.title
+	desc = gj_sol_blanco.7.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		at_war = no
+	}
+
+	option = {
+		name = gj_sol_blanco.7.a
+		add_stability = stability_weak_bonus
+		add_yanantin = -5
+		add_country_modifier = {
+			modifier = gj_sol_blanco_festival_sol
+			years = 2
+			mode = add
+		}
+	}
+	option = {
+		name = gj_sol_blanco.7.b
+		add_stability = stability_weak_bonus
+		add_yanantin = 5
+		add_country_modifier = {
+			modifier = gj_sol_blanco_festival_luna
+			years = 2
+			mode = add
+		}
+	}
+}
+
+# El Sol se apaga: lectura de un eclipse (lo lanza gj_sol_blanco_lee_presagio).
+# Sin rito, es una crisis de legitimidad; con rito, una gran bonificacion.
+gj_sol_blanco.8 = {
+	type = country_event
+	title = gj_sol_blanco.8.title
+	desc = gj_sol_blanco.8.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_sol_blanco
+	}
+
+	option = {
+		name = gj_sol_blanco.8.a
+		trigger = {
+			gold >= { value = monthly_income_trade_and_tax multiply = 2 }
+		}
+		add_gold = { value = monthly_income_trade_and_tax multiply = -2 }
+		add_country_modifier = {
+			modifier = gj_sol_blanco_eclipse_celebrado
+			years = 10
+			mode = add
+		}
+		if = {
+			limit = { yanantin > 0 }
+			add_yanantin = -20
+		}
+		else_if = {
+			limit = { yanantin < 0 }
+			add_yanantin = 20
+		}
+	}
+	option = {
+		name = gj_sol_blanco.8.b
+		trigger = {
+			has_variable = gj_sol_blanco_vigilia_eclipse
+		}
+		add_country_modifier = {
+			modifier = gj_sol_blanco_eclipse_celebrado
+			years = 10
+			mode = add
+		}
+	}
+	option = {
+		name = gj_sol_blanco.8.c
+		fallback = yes
+		add_country_modifier = {
+			modifier = gj_sol_blanco_eclipse_ignorado
+			years = 10
+			mode = add
+		}
+		add_legitimacy = legitimacy_mild_penalty
+	}
+}
+
+# La estrella con cola: lectura de un cometa.
+gj_sol_blanco.9 = {
+	type = country_event
+	title = gj_sol_blanco.9.title
+	desc = gj_sol_blanco.9.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		religion = religion:gj_sol_blanco
+	}
+
+	option = {
+		name = gj_sol_blanco.9.a
+		add_country_modifier = {
+			modifier = gj_sol_blanco_cometa_buen_augurio
+			years = 5
+			mode = add
+		}
+		add_yanantin = -5
+	}
+	option = {
+		name = gj_sol_blanco.9.b
+		add_country_modifier = {
+			modifier = gj_sol_blanco_cometa_mal_augurio
+			years = 5
+			mode = add
+		}
+		add_army_tradition = army_tradition_weak_bonus
+		add_yanantin = 5
+	}
+}
+
+# La Corona de Rayos: se completa la Concordia de las Dos Luces (una vez).
+gj_sol_blanco.10 = {
+	type = country_event
+	title = gj_sol_blanco.10.title
+	desc = gj_sol_blanco.10.desc
+	outcome = positive
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		has_completed_religious_focus = gj_sol_blanco_foco_concordia
+	}
+
+	option = {
+		name = gj_sol_blanco.10.a
+		add_country_modifier = {
+			modifier = gj_sol_blanco_corona_de_rayos
+			years = 30
+			mode = add
+		}
+		add_prestige = prestige_extreme_bonus
+	}
+}
+
+# El Eclipse que no termina: una secta niega a la Luna.
+gj_sol_blanco.11 = {
+	type = country_event
+	title = gj_sol_blanco.11.title
+	desc = gj_sol_blanco.11.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = angry
+		10 = regular
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		yanantin < -20
+	}
+
+	option = {
+		name = gj_sol_blanco.11.a
+		add_stability = stability_weak_penalty
+		add_yanantin = 10
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_sol_blanco.11.b
+		add_country_modifier = {
+			modifier = gj_sol_blanco_eclipse_eterno
+			years = 5
+			mode = add
+		}
+		add_yanantin = -5
+	}
+	option = {
+		name = gj_sol_blanco.11.c
+		trigger = {
+			gold >= { value = monthly_income_trade_and_tax multiply = 1 }
+		}
+		add_gold = { value = monthly_income_trade_and_tax multiply = -1 }
+		add_yanantin = 15
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+# Cosecha de plata y oro: terrazas colmadas, grano de dos colores.
+gj_sol_blanco.12 = {
+	type = country_event
+	title = gj_sol_blanco.12.title
+	desc = gj_sol_blanco.12.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		is_subject = no
+		religion = religion:gj_sol_blanco
+		at_war = no
+	}
+
+	option = {
+		name = gj_sol_blanco.12.a
+		add_country_modifier = {
+			modifier = gj_sol_blanco_cosecha_de_plata
+			years = 3
+			mode = add
+		}
+	}
+	option = {
+		name = gj_sol_blanco.12.b
+		add_gold = { value = monthly_income_trade_and_tax multiply = 3 }
+		add_yanantin = 5
+	}
+}

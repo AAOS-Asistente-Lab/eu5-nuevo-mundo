@@ -1,0 +1,317 @@
+﻿##############################################################################
+# mundo_ruinas: modificadores estaticos (ruinas de los Antiguos y vetas de poder)
+# Localizacion: STATIC_MODIFIER_NAME_<clave> y STATIC_MODIFIER_DESC_<clave>
+##############################################################################
+
+############################ RUINAS: SIN EXPLORAR ############################
+# Marcas permanentes de localizacion. Las pone gj_ruinas_marca_localizaciones.
+
+gj_ruina_atlante_intacta = {
+	game_data = { category = location }
+	local_cultural_tradition = 0.5
+	local_maritime_presence = 0.1
+	local_unrest = 0.05
+}
+
+gj_ruina_enana_intacta = {
+	game_data = { category = location }
+	local_defensive = 0.15
+	local_max_control = 0.05
+	local_migration_attraction = -0.02
+}
+
+gj_ruina_antigua_intacta = {
+	game_data = { category = location }
+	local_cultural_influence = 0.02
+	local_monthly_food_modifier = -0.03
+	local_unrest = 0.05
+}
+
+############################ RUINAS: RESTAURADAS ############################
+# Premio permanente de la expedicion: la ruina sirve a quien la ha limpiado.
+
+gj_ruina_atlante_restaurada = {
+	game_data = { category = location }
+	local_monthly_development = 0.002
+	local_maritime_presence = 0.2
+	local_cultural_tradition = 1
+	local_trade_protection_factor = 0.05
+}
+
+gj_ruina_enana_restaurada = {
+	game_data = { category = location }
+	local_monthly_development = 0.002
+	local_defensive = 0.25
+	local_production_efficiency = 0.05
+	local_max_control = 0.1
+}
+
+gj_ruina_antigua_restaurada = {
+	game_data = { category = location }
+	local_monthly_development = 0.002
+	local_monthly_literacy = 0.05
+	local_cultural_influence = 0.05
+	local_population_growth = 0.001
+}
+
+############################ RUINAS: DESPERTAR ############################
+# Temporales: se quitan solos o con la decision de sellar la ruina.
+
+gj_ruina_guardianes = {
+	game_data = { category = location decaying = no }
+	local_unrest = 0.3
+	local_max_control = -0.25
+	local_monthly_prosperity = -0.01
+	local_defensive = 0.25
+}
+
+gj_ruina_plaga_bestias = {
+	game_data = { category = location decaying = no }
+	local_monthly_food_modifier = -0.15
+	local_raw_material_output = -0.15
+	local_max_control = -0.15
+	local_supply_limit_modifier = -0.1
+}
+
+gj_ruina_maldicion = {
+	game_data = { category = location decaying = no }
+	local_unrest = 0.2
+	local_population_growth = -0.002
+	local_monthly_prosperity = -0.02
+	local_life_expectancy = -2
+}
+
+############################ VETAS: MARCAS DE LOCALIZACION ############################
+# Permanentes. Un poco de bien local solo por tener la veta, aunque no se construya.
+
+gj_veta_fuego_marca = {
+	game_data = { category = location }
+	local_iron_output_modifier = 0.1
+	local_coal_output_modifier = 0.1
+	local_hostile_attrition = 0.1
+}
+
+gj_veta_marea_marca = {
+	game_data = { category = location }
+	local_fish_output_modifier = 0.1
+	local_pearls_output_modifier = 0.1
+	local_maritime_presence = 0.1
+}
+
+gj_veta_raiz_marca = {
+	game_data = { category = location }
+	local_monthly_food_modifier = 0.05
+	local_population_growth = 0.001
+	local_disease_resistance = 0.05
+}
+
+gj_veta_estrella_marca = {
+	game_data = { category = location }
+	local_institution_growth_modifier = 0.1
+	local_monthly_literacy = 0.03
+	local_unrest = 0.05
+}
+
+############################ VETAS: NIVELES DEL PAIS ############################
+# Los pone gj_ruinas_veta_tier segun los niveles efectivos del monumento.
+# Nivel 2: mejora de pais, modesta. Nivel 3: bonificacion de pais y rasgo del tipo.
+
+gj_veta_fuego_n2 = {
+	game_data = { category = country }
+	global_production_efficiency = 0.03
+	global_build_buildings_efficiency = 0.05
+}
+
+gj_veta_fuego_n3 = {
+	game_data = { category = country }
+	global_production_efficiency = 0.05
+	discipline = 0.03
+	global_build_buildings_efficiency = 0.1
+	diplomatic_reputation = -1
+}
+
+gj_veta_marea_n2 = {
+	game_data = { category = country }
+	trade_sea_efficiency = 0.05
+	ship_build_speed = 0.05
+}
+
+gj_veta_marea_n3 = {
+	game_data = { category = country }
+	trade_sea_efficiency = 0.1
+	naval_morale_modifier = 0.1
+	global_merchant_power = 0.1
+	global_monthly_food_modifier = -0.02
+}
+
+gj_veta_raiz_n2 = {
+	game_data = { category = country }
+	global_monthly_food_modifier = 0.03
+	global_population_growth = 0.001
+}
+
+gj_veta_raiz_n3 = {
+	game_data = { category = country }
+	global_monthly_food_modifier = 0.06
+	global_population_growth = 0.002
+	global_manpower_modifier = 0.1
+	global_production_efficiency = -0.02
+}
+
+gj_veta_estrella_n2 = {
+	game_data = { category = country }
+	research_speed_modifier = 0.03
+	global_monthly_literacy = 0.01
+}
+
+gj_veta_estrella_n3 = {
+	game_data = { category = country }
+	research_speed_modifier = 0.06
+	global_institution_growth_modifier = 0.05
+	global_monthly_literacy = 0.02
+	monthly_legitimacy = -0.05
+}
+
+gj_veta_guarnicion = {
+	game_data = { category = location }
+	local_max_control = 0.2
+	local_unrest = -0.1
+	local_defensive = 0.15
+	local_monthly_prosperity = -0.005
+}
+
+gj_veta_reconquista = {
+	game_data = { category = location }
+	local_unrest = 0.15
+	local_max_control = -0.1
+	local_monthly_prosperity = -0.005
+}
+
+############################ VETAS: RITO Y EFECTOS DE DECADA ############################
+
+gj_veta_rito = {
+	game_data = { category = country }
+	monthly_prestige = 0.05
+	monthly_legitimacy = 0.05
+	global_monthly_literacy = 0.01
+}
+
+gj_veta_fuego_colada = {
+	game_data = { category = country }
+	global_production_efficiency = 0.05
+	army_maintenance_efficiency = 0.05
+}
+
+gj_veta_marea_flujo = {
+	game_data = { category = country }
+	trade_sea_efficiency = 0.1
+	global_merchant_power = 0.1
+}
+
+gj_veta_raiz_cosecha = {
+	game_data = { category = country }
+	global_monthly_food_modifier = 0.15
+	global_population_growth = 0.003
+}
+
+gj_veta_estrella_conjuncion = {
+	game_data = { category = country }
+	research_speed_modifier = 0.2
+	global_institution_growth_modifier = 0.1
+}
+
+############################ EXPEDICIONES ############################
+
+gj_expedicion_fervor = {
+	game_data = { category = country }
+	monthly_prestige = 0.05
+	exploration_mission_speed = 0.1
+}
+
+gj_expedicion_agotada = {
+	game_data = { category = country }
+	monthly_prestige = -0.05
+	monthly_legitimacy = -0.05
+}
+
+gj_saber_perdido_impulso = {
+	game_data = { category = country }
+	research_speed_modifier = 0.15
+	global_monthly_literacy = 0.01
+}
+
+gj_hallazgo_botin = {
+	game_data = { category = country }
+	monthly_prestige = 0.03
+	monthly_gold_income = 2
+}
+
+gj_ruina_peregrinos = {
+	game_data = { category = country }
+	monthly_prestige = 0.03
+	cultural_tradition_modifier = 0.05
+}
+
+############################ ARTEFACTOS (country, se pierden con la ruina) ############################
+# Cada artefacto: dos ventajas y un precio. Ligados a una localizacion: quien la conquista, lo hereda.
+
+gj_art_astrolabio_mod = {
+	game_data = { category = country }
+	trade_sea_efficiency = 0.08
+	naval_morale_modifier = 0.08
+	exploration_mission_speed = 0.2
+	land_morale_modifier = -0.05
+}
+
+gj_art_cetro_mod = {
+	game_data = { category = country }
+	global_merchant_power = 0.1
+	ship_build_speed = 0.1
+	monthly_prestige = 0.02
+	global_defensive = -0.05
+}
+
+gj_art_martillo_mod = {
+	game_data = { category = country }
+	global_production_efficiency = 0.05
+	global_build_buildings_efficiency = 0.1
+	global_monthly_literacy = -0.005
+}
+
+gj_art_cuerno_mod = {
+	game_data = { category = country }
+	global_iron_output_modifier = 0.1
+	global_coal_output_modifier = 0.1
+	global_monthly_food_modifier = -0.03
+}
+
+gj_art_escudo_mod = {
+	game_data = { category = country }
+	global_defensive = 0.15
+	land_morale_modifier = 0.05
+	monthly_army_tradition = 0.03
+	declaring_war_cost_modifier = 0.1
+}
+
+gj_art_tablillas_mod = {
+	game_data = { category = country }
+	global_monthly_food_modifier = 0.06
+	global_population_growth = 0.002
+	tax_income_efficiency = -0.03
+}
+
+gj_art_corona_mod = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.1
+	diplomatic_reputation = 1
+	monthly_prestige = 0.02
+	global_estate_target_satisfaction = -0.02
+}
+
+gj_art_lampara_mod = {
+	game_data = { category = country }
+	research_speed_modifier = 0.08
+	global_institution_growth_modifier = 0.05
+	global_monthly_literacy = 0.01
+	stability_cost_efficiency = -0.05
+}

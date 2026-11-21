@@ -1,0 +1,165 @@
+﻿# Sorava: topes de edificios (por era) y cupos de unidades.
+# Cada edificio gana un nivel de tope al llegar a ciertas eras: mejoran con el tiempo, sin romperse.
+
+gj_sorava_nivel_casa_especias = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_3_discovery } }
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_5_absolutism } }
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	if = {
+		limit = { market_access < 0.75 }
+		multiply = {
+			desc = "BUILDING_LEVEL_LOW_MARKET_ACCESS_PENALTY"
+			value = market_access
+			add = 0.25
+		}
+	}
+	min = 1
+}
+
+gj_sorava_nivel_banco_de_perlas = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_4_reformation } }
+		add = {
+			desc = "age_4_reformation"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_6_revolutions } }
+		add = {
+			desc = "age_6_revolutions"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+gj_sorava_nivel_atalaya = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_3_discovery } }
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_5_absolutism } }
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+gj_sorava_nivel_sala_de_balanzas = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_4_reformation } }
+		add = {
+			desc = "age_4_reformation"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_6_revolutions } }
+		add = {
+			desc = "age_6_revolutions"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+gj_sorava_nivel_posta_de_caravanas = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_2_renaissance } }
+		add = {
+			desc = "age_2_renaissance"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_3_discovery } }
+		add = {
+			desc = "age_3_discovery"
+			value = 1
+		}
+	}
+	if = {
+		limit = { current_age_or_later = { age = age_5_absolutism } }
+		add = {
+			desc = "age_5_absolutism"
+			value = 1
+		}
+	}
+	min = 1
+}
+
+# Cupos de unidades: las Escoltas son un cuerpo pequeño y caro; los Tiradores de Rada, algo mayor.
+gj_sorava_cupo_escoltas = {
+	value = 2
+	add = {
+		value = num_provinces
+		multiply = 0.15
+	}
+}
+
+gj_sorava_cupo_tiradores = {
+	value = 2
+	add = {
+		value = num_provinces
+		multiply = 0.25
+	}
+}

@@ -1,0 +1,53 @@
+﻿# on_actions propios de la Luz de los Fundadores. Todos con root = pais.
+# La integracion los engancha (ver NECESITA.md):
+#   gj_luz_fundadores_pulso               -> desde un pulso anual de pais (p. ej. country_yearly) o religion_flavor_pulse
+#   gj_luz_fundadores_al_canonizar        -> desde on_made_saint (scope:recipient = el personaje canonizado)
+#   gj_luz_fundadores_al_morir_el_soberano -> desde on_ruler_death_delayed (scope:old_ruler)
+
+gj_luz_fundadores_pulso = {
+	trigger = {
+		religion = religion:gj_luz_fundadores
+	}
+	effect = {
+		gj_luz_fundadores_registra_hogares = yes
+	}
+	random_events = {
+		chance_to_happen = 35
+
+		100 = gj_luz_fundadores.1
+		80 = gj_luz_fundadores.4
+		60 = gj_luz_fundadores.5
+		60 = gj_luz_fundadores.6
+		50 = gj_luz_fundadores.7
+		50 = gj_luz_fundadores.8
+		40 = gj_luz_fundadores.10
+		30 = gj_luz_fundadores.12
+	}
+}
+
+gj_luz_fundadores_al_canonizar = {
+	trigger = {
+		religion = religion:gj_luz_fundadores
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = gj_santos_fundadores }
+			}
+			set_variable = { name = gj_santos_fundadores value = 0 }
+		}
+		change_variable = { name = gj_santos_fundadores add = 1 }
+	}
+	events = {
+		gj_luz_fundadores.3
+	}
+}
+
+gj_luz_fundadores_al_morir_el_soberano = {
+	trigger = {
+		religion = religion:gj_luz_fundadores
+	}
+	events = {
+		gj_luz_fundadores.2
+	}
+}

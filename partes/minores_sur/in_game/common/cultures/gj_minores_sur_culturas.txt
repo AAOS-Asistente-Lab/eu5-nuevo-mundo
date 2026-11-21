@@ -1,0 +1,198 @@
+# Menores del sur: siete culturas con rasgos propios. Cada una cuelga de un grupo cultural de una facción mayor.
+# Estilo «ciudad»: brazalmi y ondani. Estilo «marca»: halcori, tirnauki y sotolari. Estilo «selva»: yorumbi y pakhuni.
+
+# Brazalmí: la gente de las Siete Rampas, ciudad de comercio y de pregones. Cuentan antes de rezar.
+gj_brazalmi = {
+	language = gj_brazalmi_dialect
+
+	color = gj_map_brazalmi
+
+	tags = { north_italian_gfx mediterranean_gfx european_gfx }
+
+	country_modifier = {
+		global_merchant_capacity_modifier = 0.10
+		merchant_maintenance_efficiency = 0.10
+		export_efficiency = 0.05
+	}
+	location_modifier = {
+		local_merchant_power = 0.05
+		local_trades_per_burgher = 0.05
+		local_defensive = 0.05
+	}
+	character_modifier = {
+		character_cabinet_efficiency = 0.05
+		marriage_desirability = 5
+	}
+
+	culture_groups = {
+		gj_grupo_sorava
+	}
+}
+
+# Ondaní: los cantores de arrecife. Sus ciudades flotan sobre bancos de coral y se fían de las mareas.
+gj_ondani = {
+	language = gj_ondani_dialect
+
+	color = gj_map_ondani
+
+	tags = { polynesian_gfx austronesian_gfx }
+
+	country_modifier = {
+		global_sailors_modifier = 0.10
+		naval_morale_modifier = 0.05
+		global_fish_output_modifier = 0.05
+	}
+	location_modifier = {
+		local_sailors_modifier = 0.10
+		local_fish_output_modifier = 0.10
+		local_disease_resistance = 0.05
+	}
+	character_modifier = {
+		dip = 1
+		character_life_expectancy = 3
+	}
+
+	culture_groups = {
+		gj_grupo_talasio
+	}
+}
+
+# Halcorí: pueblo de cabo y de acantilado. Cada risco tiene su atalaya y cada atalaya su ceniza de aviso.
+gj_halcori = {
+	language = gj_halcori_dialect
+
+	color = gj_map_halcori
+
+	tags = { mediterranean_gfx west_mediterranean_gfx european_gfx }
+
+	country_modifier = {
+		global_defensive = 0.05
+		fort_maintenance_efficiency = 0.10
+		navy_light_ship_power = 0.05
+	}
+	location_modifier = {
+		local_defensive = 0.10
+		local_hostile_attrition = 0.5
+		local_garrison_size = 0.10
+	}
+	character_modifier = {
+		mil = 1
+		character_cabinet_efficiency = 0.03
+	}
+
+	culture_groups = {
+		gj_grupo_sorava
+	}
+}
+
+# Tirnauki: pueblo de las terrazas menores. Cuelgan sus huertos de la ladera y rezan al sol por turnos.
+gj_tirnauki = {
+	language = gj_tirnauki_dialect
+
+	color = gj_map_tirnauki
+
+	tags = { south_american_gfx american_gfx }
+
+	country_modifier = {
+		global_population_capacity_modifier = 0.05
+		food_consumption_modifier = -0.05
+		monthly_devotion = 0.03
+	}
+	location_modifier = {
+		local_food_capacity = 50
+		local_population_capacity = 0.25
+		local_defensive = 0.05
+	}
+	character_modifier = {
+		adm = 1
+		character_child_education = 0.05
+	}
+
+	culture_groups = {
+		gj_grupo_solar
+	}
+}
+
+# Sotolarí: gente de la marca del bosque, parientes pobres y tercos de los longevos. Viven poco, pero se acuerdan.
+gj_sotolari = {
+	language = gj_sotolari_dialect
+
+	color = gj_map_sotolari
+
+	tags = { western_european_gfx european_gfx }
+
+	country_modifier = {
+		global_lumber_output_modifier = 0.10
+		land_unit_attrition = -0.10
+		global_separatism = -0.05
+	}
+	location_modifier = {
+		local_hostile_attrition = 0.5
+		local_levy_size_modifier = 0.10
+		local_max_control = 0.025
+	}
+	character_modifier = {
+		mil = 1
+		character_fertility = 0.1
+	}
+
+	culture_groups = {
+		gj_grupo_velathi
+	}
+}
+
+# Yorumbí: pueblos del gran río. Se cuentan por orillas y por vados, no por tierras.
+gj_yorumbi = {
+	language = gj_yorumbi_dialect
+
+	color = gj_map_yorumbi
+
+	tags = { african_gfx bantu_gfx }
+
+	country_modifier = {
+		global_fish_output_modifier = 0.10
+		trade_land_efficiency = 0.05
+		global_population_growth = 0.001
+	}
+	location_modifier = {
+		local_population_growth = 0.0005
+		local_food_capacity = 50
+		local_trade_protection_factor = 0.05
+	}
+	character_modifier = {
+		dip = 1
+		marriage_desirability = 3
+	}
+
+	culture_groups = {
+		gj_grupo_carmesi
+	}
+}
+
+# Pakhuní: clanes de la selva alta, de ceniza y de tinte. Cada abuelo es un fuego que no se apaga.
+gj_pakhuni = {
+	language = gj_pakhuni_dialect
+
+	color = gj_map_pakhuni
+
+	tags = { amazonian_gfx south_american_gfx }
+
+	country_modifier = {
+		global_wild_game_output_modifier = 0.10
+		global_dyes_output_modifier = 0.10
+		army_light_infantry_power = 0.05
+	}
+	location_modifier = {
+		local_hostile_attrition = 1
+		local_levy_size_modifier = 0.10
+		local_manpower = 0.005
+	}
+	character_modifier = {
+		mil = 1
+		character_cabinet_efficiency = 0.03
+	}
+
+	culture_groups = {
+		gj_grupo_carmesi
+	}
+}

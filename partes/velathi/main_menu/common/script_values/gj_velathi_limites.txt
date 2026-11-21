@@ -1,0 +1,24 @@
+﻿# Cupos de unidades velathi: dependen de los niveles de sus edificios.
+gj_velathi_umbral_unit_limit = {
+	add = {
+		desc = "gj_velathi_umbral_cupo_arboledas"
+		add = total_effective_building_levels:gj_velathi_arboleda_antigua
+		multiply = 2
+	}
+	add = {
+		desc = "gj_velathi_umbral_cupo_base"
+		value = 2
+	}
+}
+
+gj_velathi_raiz_unit_limit = {
+	add = {
+		desc = "gj_velathi_raiz_cupo_torres"
+		add = total_effective_building_levels:gj_velathi_torre_de_copas
+		multiply = 1
+	}
+	add = {
+		desc = "gj_velathi_raiz_cupo_base"
+		value = 1
+	}
+}

@@ -1,0 +1,390 @@
+namespace = gj_mar_dormido
+
+# .1  La respiracion de la marea (anual: como se trata al mar este ano)
+# .2  El kraken sube a mirar
+# .3  Marea sin luna
+# .4  La cantora de la rada
+# .5  Los pescadores de lo hondo
+# .6  El naufragio de los durmientes
+# .7  La cuna rota
+# .8  La procesion de los faroleros
+# .9  Marea roja (solo escuela marea negra)
+# .10 El sueno se rompe (Poder de Rito casi a cero)
+# .11 La marea alta del alma (al quinto rito, una vez)
+# .12 El cielo sobre la rada (cometas y eclipses, via gj_mar_dormido_lee_presagio)
+
+gj_mar_dormido.1 = {
+	type = country_event
+	title = gj_mar_dormido.1.title
+	desc = gj_mar_dormido.1.desc
+	outcome = neutral
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		NOT = { has_country_modifier = gj_mar_cancion_cuna }
+		NOT = { has_country_modifier = gj_mar_silencio_respetuoso }
+		NOT = { has_country_modifier = gj_mar_decima_al_agua }
+	}
+
+	option = {
+		name = gj_mar_dormido.1.a
+		change_gold_effect = { scale = -1 }
+		add_rite_power = 8
+		add_country_modifier = { modifier = gj_mar_cancion_cuna years = 6 mode = add_and_extend }
+		ai_chance = {
+			base = 2
+		}
+	}
+
+	option = {
+		name = gj_mar_dormido.1.b
+		add_rite_power = 3
+		add_country_modifier = { modifier = gj_mar_silencio_respetuoso years = 4 mode = add_and_extend }
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	option = {
+		name = gj_mar_dormido.1.c
+		trigger = {
+			gj_mar_es_marea_negra = yes
+		}
+		change_gold_effect = { scale = -2 }
+		add_rite_power = 10
+		add_country_modifier = { modifier = gj_mar_decima_al_agua years = 6 mode = add_and_extend }
+		ai_chance = {
+			base = 4
+		}
+	}
+}
+
+gj_mar_dormido.2 = {
+	type = country_event
+	title = gj_mar_dormido.2.title
+	desc = gj_mar_dormido.2.desc
+	outcome = negative
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		NOT = { has_country_modifier = gj_mar_kraken_visto }
+		NOT = { has_country_modifier = gj_mar_kraken_calmado }
+	}
+
+	option = {
+		name = gj_mar_dormido.2.a
+		trigger = {
+			rite_power >= 20
+		}
+		add_rite_power = -20
+		add_country_modifier = { modifier = gj_mar_kraken_calmado years = 8 mode = add_and_extend }
+		add_prestige = 8
+		ai_chance = {
+			base = 3
+		}
+	}
+
+	option = {
+		name = gj_mar_dormido.2.b
+		add_country_modifier = { modifier = gj_mar_kraken_visto years = 4 mode = add_and_extend }
+		add_rite_power = -5
+	}
+
+	option = {
+		name = gj_mar_dormido.2.c
+		trigger = {
+			gj_mar_es_marea_negra = yes
+		}
+		change_gold_effect = { scale = 2 }
+		add_country_modifier = { modifier = gj_mar_kraken_visto years = 4 mode = add_and_extend }
+		add_rite_power = -10
+	}
+}
+
+gj_mar_dormido.3 = {
+	type = country_event
+	title = gj_mar_dormido.3.title
+	desc = gj_mar_dormido.3.desc
+	outcome = negative
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		NOT = { has_country_modifier = gj_mar_luna_ausente }
+	}
+
+	option = {
+		name = gj_mar_dormido.3.a
+		change_gold_effect = { scale = -2 }
+		add_rite_power = 4
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_bonus }
+	}
+
+	option = {
+		name = gj_mar_dormido.3.b
+		add_country_modifier = { modifier = gj_mar_luna_ausente years = 3 mode = add_and_extend }
+		add_rite_power = -6
+	}
+}
+
+gj_mar_dormido.4 = {
+	type = country_event
+	title = gj_mar_dormido.4.title
+	desc = gj_mar_dormido.4.desc
+	outcome = positive
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		NOT = { has_country_modifier = gj_mar_cantora_de_la_rada }
+	}
+
+	option = {
+		name = gj_mar_dormido.4.a
+		add_country_modifier = { modifier = gj_mar_cantora_de_la_rada years = 15 mode = add_and_extend }
+		add_rite_power = 6
+		ai_chance = {
+			base = 2
+		}
+	}
+
+	option = {
+		name = gj_mar_dormido.4.b
+		change_gold_effect = { scale = 2 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+gj_mar_dormido.5 = {
+	type = country_event
+	title = gj_mar_dormido.5.title
+	desc = gj_mar_dormido.5.desc
+	outcome = neutral
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		NOT = { has_country_modifier = gj_mar_pesca_de_lo_hondo }
+	}
+
+	option = {
+		name = gj_mar_dormido.5.a
+		add_country_modifier = { modifier = gj_mar_pesca_de_lo_hondo years = 6 mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_bonus }
+	}
+
+	option = {
+		name = gj_mar_dormido.5.b
+		add_rite_power = 8
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_penalty }
+	}
+}
+
+gj_mar_dormido.6 = {
+	type = country_event
+	title = gj_mar_dormido.6.title
+	desc = gj_mar_dormido.6.desc
+	outcome = neutral
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		NOT = { has_country_modifier = gj_mar_naufragio_honrado }
+	}
+
+	option = {
+		name = gj_mar_dormido.6.a
+		add_country_modifier = { modifier = gj_mar_naufragio_honrado years = 8 mode = add_and_extend }
+		add_rite_power = 6
+		add_legitimacy = legitimacy_weak_bonus
+	}
+
+	option = {
+		name = gj_mar_dormido.6.b
+		change_gold_effect = { scale = 4 }
+		add_rite_power = -12
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = 3
+				gj_mar_es_marea_negra = yes
+			}
+		}
+	}
+}
+
+gj_mar_dormido.7 = {
+	type = country_event
+	title = gj_mar_dormido.7.title
+	desc = gj_mar_dormido.7.desc
+	outcome = negative
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		NOT = { has_country_modifier = gj_mar_cuna_rota }
+		any_owned_location = {
+			is_coastal = yes
+		}
+	}
+
+	option = {
+		name = gj_mar_dormido.7.a
+		change_gold_effect = { scale = -3 }
+		add_rite_power = 5
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = gj_mar_dormido.7.b
+		add_country_modifier = { modifier = gj_mar_cuna_rota years = 8 mode = add_and_extend }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+gj_mar_dormido.8 = {
+	type = country_event
+	title = gj_mar_dormido.8.title
+	desc = gj_mar_dormido.8.desc
+	outcome = positive
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		NOT = { has_country_modifier = gj_mar_faroleros_en_marcha }
+	}
+
+	option = {
+		name = gj_mar_dormido.8.a
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_mar_faroleros_en_marcha years = 5 mode = add_and_extend }
+		add_rite_power = 4
+	}
+
+	option = {
+		name = gj_mar_dormido.8.b
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+gj_mar_dormido.9 = {
+	type = country_event
+	title = gj_mar_dormido.9.title
+	desc = gj_mar_dormido.9.desc
+	outcome = negative
+
+	trigger = {
+		gj_mar_es_marea_negra = yes
+		NOT = { has_country_modifier = gj_mar_marea_roja }
+	}
+
+	option = {
+		name = gj_mar_dormido.9.a
+		add_country_modifier = { modifier = gj_mar_marea_roja years = 7 mode = add_and_extend }
+		add_rite_power = -8
+		if = {
+			limit = {
+				NOT = { has_variable = gj_mar_agitacion }
+			}
+			set_variable = { name = gj_mar_agitacion value = 0 }
+		}
+		change_variable = {
+			name = gj_mar_agitacion
+			add = 1
+		}
+		ai_chance = {
+			base = 3
+		}
+	}
+
+	option = {
+		name = gj_mar_dormido.9.b
+		change_gold_effect = { scale = -3 }
+		add_rite_power = 12
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+gj_mar_dormido.10 = {
+	type = country_event
+	title = gj_mar_dormido.10.title
+	desc = gj_mar_dormido.10.desc
+	outcome = negative
+
+	trigger = {
+		gj_mar_es_creyente = yes
+		rite_power < 10
+		NOT = { has_country_modifier = gj_mar_sueno_roto }
+	}
+
+	option = {
+		name = gj_mar_dormido.10.a
+		change_gold_effect = { scale = -4 }
+		add_rite_power = 20
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+		ai_chance = {
+			base = 3
+		}
+	}
+
+	option = {
+		name = gj_mar_dormido.10.b
+		add_country_modifier = { modifier = gj_mar_sueno_roto years = 5 mode = add_and_extend }
+		add_rite_power = 8
+	}
+}
+
+gj_mar_dormido.11 = {
+	type = country_event
+	title = gj_mar_dormido.11.title
+	desc = gj_mar_dormido.11.desc
+	outcome = positive
+
+	trigger = {
+		gj_mar_es_creyente = yes
+	}
+
+	option = {
+		name = gj_mar_dormido.11.a
+		add_country_modifier = { modifier = gj_mar_marea_alta_del_alma years = 20 mode = add_and_extend }
+		add_rite_power = 15
+		add_prestige = 20
+	}
+
+	option = {
+		name = gj_mar_dormido.11.b
+		add_rite_power = 25
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+gj_mar_dormido.12 = {
+	type = country_event
+	title = gj_mar_dormido.12.title
+	desc = gj_mar_dormido.12.desc
+	outcome = neutral
+
+	trigger = {
+		gj_mar_es_creyente = yes
+	}
+
+	option = {
+		name = gj_mar_dormido.12.a
+		add_country_modifier = { modifier = gj_mar_presagio_calma years = 5 mode = add_and_extend }
+		add_rite_power = 5
+	}
+
+	option = {
+		name = gj_mar_dormido.12.b
+		add_country_modifier = { modifier = gj_mar_presagio_tormenta years = 5 mode = add_and_extend }
+		add_rite_power = -5
+	}
+
+	option = {
+		name = gj_mar_dormido.12.c
+		trigger = {
+			gj_mar_es_marea_negra = yes
+		}
+		add_country_modifier = { modifier = gj_mar_presagio_tormenta years = 6 mode = add_and_extend }
+		add_prestige = 8
+	}
+}

@@ -1,0 +1,27 @@
+﻿gj_orunmari = {
+	language = gj_orunmar_lengua
+
+	color = gj_orunmar_color
+
+	tags = { aztec_gfx native_american_tag south_american_gfx american_gfx aztec_coa_gfx }
+
+	country_modifier = {
+		monthly_religious_influence = 0.05
+		land_morale_modifier = 0.05
+	}
+	location_modifier = {
+		local_manpower_modifier = 0.05
+		local_monthly_food_modifier = 0.05
+	}
+	character_modifier = {
+		prestige_from_land_battle = 0.05
+		discipline = 0.01
+	}
+
+	opinions = {
+	}
+
+	culture_groups = {
+		gj_grupo_carmesi
+	}
+}

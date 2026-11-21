@@ -1,0 +1,289 @@
+﻿############################
+# ESTILO: CIUDAD-ESTADO (Tarnavia, Nenvar, Isbrant)
+############################
+
+gj_minores_norte_ce_puentes_y_gremios = {
+	age = age_1_traditions
+	potential = { gj_minores_norte_menor_ciudad_estado = yes }
+
+	global_build_buildings_efficiency = 0.05
+	global_burghers_max_literacy = 5
+
+	requires = guilds
+}
+
+gj_minores_norte_ce_carta_de_franquicias = {
+	age = age_2_renaissance
+	potential = { gj_minores_norte_menor_ciudad_estado = yes }
+
+	unlock_building = gj_minores_norte_lonja_de_pesas
+	global_merchant_power = 0.1
+	tax_income_efficiency = 0.05
+
+	requires = banking_advance
+}
+
+gj_minores_norte_ce_milicia_de_barrio = {
+	age = age_4_reformation
+	potential = { gj_minores_norte_menor_ciudad_estado = yes }
+
+	global_garrison_size_modifier = 0.1
+	global_defensive = 0.05
+	global_merchant_capacity_modifier = 0.1
+
+	requires = global_trade_advance
+}
+
+############################
+# ESTILO: CLAN (Hondarri, Aryuki, Marisma)
+############################
+
+gj_minores_norte_cl_juramento_de_hogar = {
+	age = age_1_traditions
+	potential = { gj_minores_norte_menor_clan = yes }
+
+	levy_combat_efficiency_modifier = 0.1
+	global_levy_size_modifier = 0.1
+
+	requires = cultural_traditions_law_advance
+}
+
+gj_minores_norte_cl_fuego_comun = {
+	age = age_3_discovery
+	potential = { gj_minores_norte_menor_clan = yes }
+
+	global_monthly_food_modifier = 0.05
+	global_manpower_modifier = 0.1
+
+	requires = rural_rgo_disc_advance
+}
+
+gj_minores_norte_cl_hijos_del_clan = {
+	age = age_5_absolutism
+	potential = { gj_minores_norte_menor_clan = yes }
+
+	global_integration_speed_modifier = 0.1
+	monthly_army_tradition = 0.02
+	global_pop_assimilation_speed_modifier = 0.1
+
+	requires = food_advance_absolutism
+}
+
+############################
+# ESTILO: MARCA (Vigia Alto, Capitulo de Ceniza). Lleva la cadena de la Guardia de Marca.
+############################
+
+gj_minores_norte_ma_atalaya = {
+	age = age_1_traditions
+	potential = { gj_minores_norte_menor_marca = yes }
+
+	unlock_building = gj_minores_norte_atalaya_de_marca
+	global_garrison_growth = 0.1
+	fort_maintenance_efficiency = 0.1
+
+	requires = feudalism_advance
+}
+
+gj_minores_norte_ma_guardia_de_marca_1 = {
+	age = age_2_renaissance
+	potential = { gj_minores_norte_menor_marca = yes }
+
+	unlock_unit = gj_minores_norte_guardia_de_marca_1
+	land_morale_modifier = 0.03
+
+	requires = medieval_military
+}
+
+gj_minores_norte_ma_guardia_de_marca_2 = {
+	age = age_3_discovery
+	potential = { gj_minores_norte_menor_marca = yes }
+
+	unlock_unit = gj_minores_norte_guardia_de_marca_2
+	global_defensive = 0.03
+
+	requires = pike_and_shot_advance
+}
+
+gj_minores_norte_ma_guardia_de_marca_3 = {
+	age = age_4_reformation
+	potential = { gj_minores_norte_menor_marca = yes }
+
+	unlock_unit = gj_minores_norte_guardia_de_marca_3
+	global_garrison_size_modifier = 0.05
+
+	requires = flintlock_gun
+}
+
+gj_minores_norte_ma_guardia_de_marca_4 = {
+	age = age_5_absolutism
+	potential = { gj_minores_norte_menor_marca = yes }
+
+	unlock_unit = gj_minores_norte_guardia_de_marca_4
+	land_morale_recovery = 0.05
+
+	requires = line_infantry
+}
+
+############################
+# CULTURAS: dos avances por cultura, edades 2 y 4
+############################
+
+gj_minores_norte_tarnavi_cien_puentes = {
+	age = age_2_renaissance
+	potential = { culture = culture:gj_tarnavi }
+
+	global_urban_build_buildings_efficiency = 0.1
+	global_burghers_city_desired_pop = 0.1
+
+	requires = renaissance_urbanisation
+}
+
+gj_minores_norte_tarnavi_notarios_del_vado = {
+	age = age_4_reformation
+	potential = { culture = culture:gj_tarnavi }
+
+	legislative_efficiency = 0.1
+	court_spending_efficiency = 0.1
+
+	requires = early_modern_administation
+}
+
+gj_minores_norte_nenvari_linternas = {
+	age = age_2_renaissance
+	potential = { culture = culture:gj_nenvari }
+
+	naval_range_modifier = 0.1
+	ship_build_speed = 0.1
+
+	requires = maritime_advance_age_2
+}
+
+gj_minores_norte_nenvari_cartas_de_hielo = {
+	age = age_4_reformation
+	potential = { culture = culture:gj_nenvari }
+
+	global_maritime_presence_modifier = 0.1
+	exploration_mission_speed = 0.2
+
+	requires = safe_exploration_techniques_advance
+}
+
+gj_minores_norte_isbranti_salazon = {
+	age = age_2_renaissance
+	potential = { culture = culture:gj_isbranti }
+
+	global_salt_output_modifier = 0.1
+	global_monthly_food_modifier = 0.05
+
+	requires = food_advance_renaissance
+}
+
+gj_minores_norte_isbranti_hansa_sin_dueno = {
+	age = age_4_reformation
+	potential = { culture = culture:gj_isbranti }
+
+	global_trade_center_power = 0.1
+	merchant_power_from_maritime_modifier = 0.1
+
+	requires = global_trade_advance
+}
+
+gj_minores_norte_hondarri_vetas_cerradas = {
+	age = age_2_renaissance
+	potential = { culture = culture:gj_hondarri }
+
+	global_iron_output_modifier = 0.1
+	global_copper_output_modifier = 0.1
+
+	requires = rgo_size_advance_renaissance
+}
+
+gj_minores_norte_hondarri_galerias_de_defensa = {
+	age = age_4_reformation
+	potential = { culture = culture:gj_hondarri }
+
+	fort_limit_modifier = 0.1
+	global_coal_output_modifier = 0.1
+
+	requires = foreign_mining_techniques
+}
+
+gj_minores_norte_aryuki_pozos_y_rebanos = {
+	age = age_2_renaissance
+	potential = { culture = culture:gj_aryuki }
+
+	global_livestock_output_modifier = 0.15
+	global_wool_output_modifier = 0.1
+
+	requires = rgo_size_advance_renaissance
+}
+
+gj_minores_norte_aryuki_levas_de_pozo = {
+	age = age_4_reformation
+	potential = { culture = culture:gj_aryuki }
+
+	global_levy_size_modifier = 0.1
+	army_light_cavalry_maintenance_cost_modifier = -0.1
+
+	requires = recruitment_improvements_reformation
+}
+
+gj_minores_norte_marismeno_pasos_de_turba = {
+	age = age_2_renaissance
+	potential = { culture = culture:gj_marismeno }
+
+	global_hostile_attrition = 0.1
+	global_devastation_recovery = 0.1
+
+	requires = recovery_efforts
+}
+
+gj_minores_norte_marismeno_ganso_y_niebla = {
+	age = age_4_reformation
+	potential = { culture = culture:gj_marismeno }
+
+	global_wild_game_output_modifier = 0.1
+	global_fur_output_modifier = 0.1
+
+	requires = food_advance_reformation
+}
+
+gj_minores_norte_vigiano_fuegos_de_aviso = {
+	age = age_2_renaissance
+	potential = { culture = culture:gj_vigiano }
+
+	global_garrison_growth = 0.1
+	land_morale_recovery = 0.05
+
+	requires = medieval_military
+}
+
+gj_minores_norte_vigiano_pasos_cerrados = {
+	age = age_4_reformation
+	potential = { culture = culture:gj_vigiano }
+
+	fort_limit_modifier = 0.1
+	global_hostile_attrition = 0.15
+
+	requires = military_administration
+}
+
+gj_minores_norte_cenizario_oficio_de_difuntos = {
+	age = age_2_renaissance
+	potential = { culture = culture:gj_cenizario }
+
+	global_disease_resistance = 0.1
+	global_life_expectancy = 1
+
+	requires = anatomy_advance
+}
+
+gj_minores_norte_cenizario_fuego_lento = {
+	age = age_4_reformation
+	potential = { culture = culture:gj_cenizario }
+
+	global_clergy_max_literacy = 5
+	monthly_legitimacy = 0.02
+
+	requires = pharmacology_advance
+}

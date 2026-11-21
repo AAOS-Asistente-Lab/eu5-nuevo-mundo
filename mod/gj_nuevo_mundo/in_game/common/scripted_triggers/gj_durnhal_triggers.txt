@@ -1,0 +1,39 @@
+﻿# Triggers de Durnhal
+gj_durnhal_es_minera = {
+	OR = {
+		raw_material = goods:iron
+		raw_material = goods:copper
+		raw_material = goods:tin
+		raw_material = goods:coal
+		raw_material = goods:stone
+		raw_material = goods:gems
+		raw_material = goods:silver
+		raw_material = goods:lead
+	}
+}
+
+# Location: se puede profundizar un nivel mas segun la era (tope 2 / 3 / 4 / 5)
+gj_durnhal_puede_profundizar = {
+	gj_durnhal_es_minera = yes
+	OR = {
+		NOT = { has_variable = gj_nivel_mina }
+		var:gj_nivel_mina < 2
+		AND = {
+			var:gj_nivel_mina < 3
+			owner ?= { current_age_or_later = { age = age_3_discovery } }
+		}
+		AND = {
+			var:gj_nivel_mina < 4
+			owner ?= { current_age_or_later = { age = age_4_reformation } }
+		}
+		AND = {
+			var:gj_nivel_mina < 5
+			owner ?= { current_age_or_later = { age = age_5_absolutism } }
+		}
+	}
+}
+
+gj_durnhal_inquietud_alta = {
+	has_global_variable = gj_inquietud_caldera
+	global_var:gj_inquietud_caldera >= 85
+}

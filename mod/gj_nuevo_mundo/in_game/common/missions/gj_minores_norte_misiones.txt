@@ -1,0 +1,171 @@
+﻿# Una mision por estilo de menor del norte. Se avanza con los avances propios del estilo.
+
+gj_minores_norte_mision_ce_ciudad_de_pesas = {
+	icon = generic_traditional_economy
+	player_playstyle = administrative
+
+	visible = {
+		game_has_missions_enabled = yes
+		gj_minores_norte_menor_ciudad_estado = yes
+		NOT = { has_variable = gj_minores_norte_hecho_mision_ce }
+	}
+	chance = 3600
+	abort = {
+	}
+	on_completion = {
+		set_variable = gj_minores_norte_hecho_mision_ce
+	}
+
+	gj_minores_norte_ce_tarea_gremios = {
+		icon = glorious_arms
+
+		enabled = {
+			has_advance = gj_minores_norte_ce_puentes_y_gremios
+		}
+		duration = 0
+		on_completion = {
+			add_prestige = prestige_weak_bonus
+		}
+	}
+
+	gj_minores_norte_ce_tarea_franquicias = {
+		icon = glorious_arms
+		requires = { gj_minores_norte_ce_tarea_gremios }
+
+		enabled = {
+			has_advance = gj_minores_norte_ce_carta_de_franquicias
+		}
+		duration = 0
+		on_completion = {
+			add_gold = 150
+			add_prestige = prestige_mild_bonus
+		}
+	}
+
+	gj_minores_norte_ce_tarea_milicia = {
+		icon = glorious_arms
+		requires = { gj_minores_norte_ce_tarea_franquicias }
+		final = yes
+
+		enabled = {
+			has_advance = gj_minores_norte_ce_milicia_de_barrio
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = gj_minores_norte_sello_de_la_ciudad years = 20 mode = add_and_extend }
+		}
+	}
+}
+
+gj_minores_norte_mision_cl_fuegos_del_clan = {
+	icon = generic_traditional_economy
+	player_playstyle = military
+
+	visible = {
+		game_has_missions_enabled = yes
+		gj_minores_norte_menor_clan = yes
+		NOT = { has_variable = gj_minores_norte_hecho_mision_cl }
+	}
+	chance = 3600
+	abort = {
+	}
+	on_completion = {
+		set_variable = gj_minores_norte_hecho_mision_cl
+	}
+
+	gj_minores_norte_cl_tarea_juramento = {
+		icon = glorious_arms
+
+		enabled = {
+			has_advance = gj_minores_norte_cl_juramento_de_hogar
+		}
+		duration = 0
+		on_completion = {
+			add_prestige = prestige_weak_bonus
+		}
+	}
+
+	gj_minores_norte_cl_tarea_fuego = {
+		icon = glorious_arms
+		requires = { gj_minores_norte_cl_tarea_juramento }
+
+		enabled = {
+			has_advance = gj_minores_norte_cl_fuego_comun
+		}
+		duration = 0
+		on_completion = {
+			add_army_tradition = army_tradition_mild_bonus
+			add_prestige = prestige_mild_bonus
+		}
+	}
+
+	gj_minores_norte_cl_tarea_hijos = {
+		icon = glorious_arms
+		requires = { gj_minores_norte_cl_tarea_fuego }
+		final = yes
+
+		enabled = {
+			has_advance = gj_minores_norte_cl_hijos_del_clan
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = gj_minores_norte_clanes_reunidos years = 20 mode = add_and_extend }
+		}
+	}
+}
+
+gj_minores_norte_mision_ma_cadena_de_atalayas = {
+	icon = generic_traditional_economy
+	player_playstyle = military
+
+	visible = {
+		game_has_missions_enabled = yes
+		gj_minores_norte_menor_marca = yes
+		NOT = { has_variable = gj_minores_norte_hecho_mision_ma }
+	}
+	chance = 3600
+	abort = {
+	}
+	on_completion = {
+		set_variable = gj_minores_norte_hecho_mision_ma
+	}
+
+	gj_minores_norte_ma_tarea_atalaya = {
+		icon = glorious_arms
+
+		enabled = {
+			has_advance = gj_minores_norte_ma_atalaya
+		}
+		duration = 0
+		on_completion = {
+			add_prestige = prestige_weak_bonus
+		}
+	}
+
+	gj_minores_norte_ma_tarea_guardia = {
+		icon = glorious_arms
+		requires = { gj_minores_norte_ma_tarea_atalaya }
+
+		enabled = {
+			has_advance = gj_minores_norte_ma_guardia_de_marca_2
+		}
+		duration = 0
+		on_completion = {
+			add_army_tradition = army_tradition_mild_bonus
+		}
+	}
+
+	gj_minores_norte_ma_tarea_relevo = {
+		icon = glorious_arms
+		requires = { gj_minores_norte_ma_tarea_guardia }
+		final = yes
+
+		enabled = {
+			has_advance = gj_minores_norte_ma_guardia_de_marca_4
+		}
+		duration = 0
+		on_completion = {
+			add_country_modifier = { modifier = gj_minores_norte_atalayas_encadenadas years = 20 mode = add_and_extend }
+		}
+	}
+}

@@ -1,0 +1,12 @@
+﻿l_spanish:
+ # Sustituyen a las claves del juego base de la gran peste. Sirven para que en pantalla se lea «Fiebres de los barcos»
+ # y no una catástrofe continental. Si el juego no admite la carpeta replace, estas claves se integran en el fichero normal.
+ great_pestilence: "Fiebres de los barcos"
+ great_pestilence_desc: "Con las velas del otro lado del mar llegan fiebres que nuestros ancianos no conocen. No arrasan provincias enteras, pero se ceban en los muelles, en los barrios del puerto y en quien trata con los recién llegados. La gente con más contacto resiste mejor. Los puertos cerrados y la cuarentena frenan el contagio."
+ great_pestilence_disease_exhausted: "Las fiebres remiten"
+ great_pestilence_disease_exhausted_desc: "Las fiebres de los barcos se apagan en los puertos que tocaron, y los supervivientes llevan en la sangre una defensa que sus abuelos no tuvieron."
+ great_pestilence_monthly: "$BULLET$Estas fiebres se propagarán a [locations|el] cercanas y por rutas comerciales.\n$BULLET$Matarán a una parte de los [pops|el] de los barrios del puerto; menos que una peste de continente."
+ great_pestilence_spreads: "$BULLET$Estas fiebres se propagarán a [locations|el] cercanas."
+ great_pestilence_kills: "• Matarán a una parte de los [pops|el] de los barrios por los que pasen."
+ timeline_note_great_pestilence: "Las [GetSituationByKey('great_pestilence').GetName] llegan a los puertos del Nuevo Mundo."
+ timeline_note_great_pestilence_end: "Las [GetSituationByKey('great_pestilence').GetName] remiten por fin."

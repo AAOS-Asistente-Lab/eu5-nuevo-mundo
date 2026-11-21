@@ -1,0 +1,23 @@
+﻿gj_durnhali = {
+	language = gj_durnhal_lengua
+	color = map_gj_durnhali
+	tags = { german_gfx western_european_gfx european_gfx }
+
+	country_modifier = {
+		global_production_efficiency = 0.03
+		global_population_growth = -0.001
+		global_burghers_city_desired_pop = 0.1
+	}
+	location_modifier = {
+		local_production_efficiency = 0.03
+		local_garrison_size = 0.1
+	}
+	character_modifier = {
+		character_life_expectancy = 15
+		character_fertility = -0.1
+	}
+
+	culture_groups = {
+		gj_grupo_enano
+	}
+}

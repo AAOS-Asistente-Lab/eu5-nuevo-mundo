@@ -1,0 +1,200 @@
+﻿gj_marea_negra_izar_bandera_negra = {
+	decision_category = country_specific_decisions
+	potential = {
+		gj_es_marea_negra = yes
+	}
+	allow = {
+		NOT = { has_variable = gj_marea_negra_bandera_enfriamiento }
+	}
+	ai_will_do = {
+		value = 30
+	}
+	option = {
+		name = gj_marea_negra_izar_bandera_negra.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = {
+				modifier = gj_marea_negra_bandera_izada
+				years = 5
+				mode = add_and_extend
+			}
+			set_variable = { name = gj_marea_negra_bandera_enfriamiento value = yes years = 12 }
+			add_prestige = prestige_weak_penalty
+		}
+	}
+}
+
+gj_marea_negra_fundar_puerto_libre = {
+	decision_category = country_specific_decisions
+	potential = {
+		gj_es_marea_negra = yes
+	}
+	allow = {
+		any_owned_location = {
+			is_port = yes
+			NOT = { has_building = building_type:gj_marea_negra_puerto_libre }
+		}
+	}
+	ai_will_do = {
+		value = 50
+	}
+	option = {
+		name = gj_marea_negra_fundar_puerto_libre.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -2 }
+			random_owned_location = {
+				limit = {
+					is_port = yes
+					NOT = { has_building = building_type:gj_marea_negra_puerto_libre }
+				}
+				construct_building = {
+					building_type = building_type:gj_marea_negra_puerto_libre
+					cost_multiplier = 0
+					cost_multiplier_reason = "gj_marea_negra_fundar_puerto_libre"
+				}
+			}
+		}
+	}
+}
+
+gj_marea_negra_convocar_conclave = {
+	decision_category = government_decisions
+	potential = {
+		gj_es_marea_negra = yes
+	}
+	allow = {
+		NOT = { has_variable = gj_marea_negra_conclave_enfriamiento }
+	}
+	ai_will_do = {
+		value = 20
+	}
+	option = {
+		name = gj_marea_negra_convocar_conclave.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = {
+				modifier = gj_marea_negra_conclave
+				years = 5
+				mode = add_and_extend
+			}
+			add_legitimacy = legitimacy_mild_bonus
+			set_variable = { name = gj_marea_negra_conclave_enfriamiento value = yes years = 10 }
+		}
+	}
+}
+
+gj_marea_negra_abrir_el_contrabando = {
+	decision_category = economy_decisions
+	potential = {
+		gj_es_marea_negra = yes
+	}
+	allow = {
+		NOT = { has_variable = gj_marea_negra_contrabando_enfriamiento }
+	}
+	ai_will_do = {
+		value = 20
+	}
+	option = {
+		name = gj_marea_negra_abrir_el_contrabando.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = {
+				modifier = gj_marea_negra_contrabando_abierto
+				years = 10
+				mode = add_and_extend
+			}
+			change_gold_effect = { scale = 3 }
+			set_variable = { name = gj_marea_negra_contrabando_enfriamiento value = yes years = 15 }
+		}
+	}
+}
+
+gj_marea_negra_contratar_patente = {
+	decision_category = economy_decisions
+	potential = {
+		NOT = { gj_es_marea_negra = yes }
+		any_known_country = {
+			gj_es_marea_negra = yes
+		}
+	}
+	allow = {
+		NOT = { has_variable = gj_marea_negra_patente_pagada }
+		any_known_country = {
+			is_rival_of = root
+			NOT = { gj_es_marea_negra = yes }
+		}
+	}
+	ai_will_do = {
+		value = 10
+	}
+	option = {
+		name = gj_marea_negra_contratar_patente.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			set_variable = { name = gj_marea_negra_patente_pagada value = yes years = 5 }
+			random_known_country = {
+				limit = {
+					is_rival_of = root
+					NOT = { gj_es_marea_negra = yes }
+				}
+				add_country_modifier = {
+					modifier = gj_marea_negra_patente_hostigado
+					years = 5
+					mode = add_and_extend
+				}
+				set_variable = { name = gj_marea_negra_patente_victima value = yes years = 5 }
+				trigger_event_non_silently = { id = gj_marea_negra.24 }
+			}
+			every_known_country = {
+				limit = {
+					gj_es_marea_negra = yes
+				}
+				change_gold_effect = { scale = 2 }
+				trigger_event_non_silently = { id = gj_marea_negra.23 }
+			}
+		}
+	}
+}
+
+gj_marea_negra_pagar_contrapatente = {
+	decision_category = economy_decisions
+	potential = {
+		has_variable = gj_marea_negra_patente_victima
+	}
+	allow = {
+		has_country_modifier = gj_marea_negra_patente_hostigado
+	}
+	ai_will_do = {
+		value = 40
+	}
+	option = {
+		name = gj_marea_negra_pagar_contrapatente.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -6 }
+			remove_country_modifier = gj_marea_negra_patente_hostigado
+			remove_variable = gj_marea_negra_patente_victima
+			every_known_country = {
+				limit = {
+					has_variable = gj_marea_negra_patente_pagada
+					is_rival_of = root
+				}
+				add_country_modifier = {
+					modifier = gj_marea_negra_patente_hostigado
+					years = 5
+					mode = add_and_extend
+				}
+				remove_variable = gj_marea_negra_patente_pagada
+			}
+			every_known_country = {
+				limit = {
+					gj_es_marea_negra = yes
+				}
+				change_gold_effect = { scale = 4 }
+				trigger_event_non_silently = { id = gj_marea_negra.25 }
+			}
+		}
+	}
+}

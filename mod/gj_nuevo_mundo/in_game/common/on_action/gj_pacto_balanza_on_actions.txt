@@ -1,0 +1,55 @@
+﻿# Ganchos del Pacto de la Balanza: el honor sube al cumplir y baja al romper.
+# Los on_action del juego base que se repiten aqui (yearly_country_pulse y los demas) suman sus entradas a las del juego
+# (mismo mecanismo que religious_order_conquest.txt del juego base con on_winning_war).
+
+# yearly_country_pulse: lo engancha gj_integracion_on_actions.txt (gj_pacto_balanza_pulso).
+
+gj_pacto_balanza_pulso = {
+	trigger = {
+		religion = religion:gj_pacto_balanza
+	}
+	random_events = {
+		10 = gj_pacto_balanza.1
+		10 = gj_pacto_balanza.2
+		10 = gj_pacto_balanza.3
+		10 = gj_pacto_balanza.4
+		10 = gj_pacto_balanza.5
+		10 = gj_pacto_balanza.6
+		10 = gj_pacto_balanza.7
+		10 = gj_pacto_balanza.8
+		10 = gj_pacto_balanza.9
+		10 = gj_pacto_balanza.11
+		10 = gj_pacto_balanza.12
+
+		chance_to_happen = 25
+	}
+}
+
+# root = pais, scope:target = prestamo. Devolver un prestamo es cumplir un contrato.
+# Cuerpo del gancho on_loan_repaid, movido aqui por funde-partes.mjs (lo engancha gj_integracion_on_actions.txt).
+gj_pacto_balanza_on_loan_repaid = {
+	effect = {
+		gj_pacto_balanza_contrato_cumplido = yes
+	}
+}
+
+# root = el pais que rompe la tregua (el perjuro), scope:recipient = el otro.
+# Cuerpo del gancho on_truce_broken, movido aqui por funde-partes.mjs (lo engancha gj_integracion_on_actions.txt).
+gj_pacto_balanza_on_truce_broken = {
+	effect = {
+		gj_pacto_balanza_perjurio = yes
+	}
+}
+
+# scope:actor y scope:recipient son los paises de la boda: un pacto sellado entre casas.
+# Cuerpo del gancho on_royal_marriage, movido aqui por funde-partes.mjs (lo engancha gj_integracion_on_actions.txt).
+gj_pacto_balanza_on_royal_marriage = {
+	effect = {
+		scope:actor = {
+			gj_pacto_balanza_contrato_cumplido = yes
+		}
+		scope:recipient = {
+			gj_pacto_balanza_contrato_cumplido = yes
+		}
+	}
+}

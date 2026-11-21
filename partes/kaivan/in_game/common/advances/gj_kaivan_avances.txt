@@ -1,0 +1,318 @@
+﻿#######################################################################
+# Avances de Kaivan (parte "kaivan"): 22 de pais + 3 de cultura (25 en total).
+# Cubren las seis eras. El pais se reconoce con gj_es_kaivan (lo define la integracion).
+#######################################################################
+
+############################
+# Era 1 - Tradiciones
+############################
+
+gj_kaivan_nueve_fuegos = {
+	potential = { gj_es_kaivan = yes }
+	age = age_1_traditions
+	icon = steppe_riders
+	requires = horse_riding_advance
+
+	army_light_cavalry_power = 0.1
+	army_light_cavalry_maintenance_cost_modifier = -0.1
+
+	unlock_unit = a_gj_kaivan_arqueros_1
+	unlock_government_reform = gj_kaivan_circulo_de_clanes
+}
+
+gj_kaivan_camino_largo = {
+	potential = { gj_es_kaivan = yes }
+	age = age_1_traditions
+	icon = beyond_the_sun
+	requires = gj_kaivan_nueve_fuegos
+
+	global_distance_from_capital_speed_propagation = 0.15
+	army_movement_speed = 0.05
+
+	unlock_building = gj_kaivan_campamento_kan
+}
+
+gj_kaivan_tienda_abierta = {
+	potential = { gj_es_kaivan = yes }
+	age = age_1_traditions
+	icon = populating_the_steppes
+	requires = gj_kaivan_nueve_fuegos
+
+	diplomatic_capacity = 1
+	monthly_legitimacy = 0.03
+}
+
+gj_kaivan_hierbas_de_primavera = {
+	potential = { gj_es_kaivan = yes }
+	age = age_1_traditions
+	icon = trade_caravans
+	requires = gj_kaivan_camino_largo
+
+	global_horses_output_modifier = 0.15
+	global_livestock_output_modifier = 0.1
+
+	unlock_building = gj_kaivan_feria_yeguadas
+}
+
+############################
+# Era 2 - Renacimiento
+############################
+
+gj_kaivan_flechas_del_alba = {
+	potential = { gj_es_kaivan = yes }
+	age = age_2_renaissance
+	icon = steppe_riders
+	requires = gj_kaivan_tienda_abierta
+
+	army_initiative = 0.15
+	land_morale_modifier = 0.05
+
+	unlock_unit = a_gj_kaivan_arqueros_2
+}
+
+gj_kaivan_jinetes_de_lobo = {
+	potential = { gj_es_kaivan = yes }
+	age = age_2_renaissance
+	icon = steppe_slave_raiding
+	requires = gj_kaivan_hierbas_de_primavera
+
+	army_light_cavalry_power = 0.05
+	regiment_reinforcement_speed = 0.05
+
+	unlock_unit = a_gj_kaivan_lobos_2
+}
+
+gj_kaivan_forja_de_carros = {
+	potential = { gj_es_kaivan = yes }
+	age = age_2_renaissance
+	icon = populating_the_steppes
+	requires = gj_kaivan_camino_largo
+
+	global_weaponry_output_modifier = 0.1
+	army_reinforce_efficiency = 0.05
+
+	unlock_building = gj_kaivan_fragua_estepa
+}
+
+gj_kaivan_ley_del_circulo = {
+	potential = { gj_es_kaivan = yes }
+	age = age_2_renaissance
+	icon = beyond_the_sun
+	requires = gj_kaivan_tienda_abierta
+
+	tribes_estate_target_satisfaction = small_permanent_target_satisfaction
+	stability_cost_efficiency = 0.1
+
+	unlock_government_reform = gj_kaivan_ley_de_la_hierba
+}
+
+############################
+# Era 3 - Descubrimientos
+############################
+
+gj_kaivan_atalayas_de_fuego = {
+	potential = { gj_es_kaivan = yes }
+	age = age_3_discovery
+	icon = trade_caravans
+	requires = gj_kaivan_forja_de_carros
+
+	global_supply_limit_modifier = 0.1
+	discipline = 0.03
+
+	unlock_building = gj_kaivan_atalaya_hogueras
+}
+
+gj_kaivan_mercado_de_primavera = {
+	potential = { gj_es_kaivan = yes }
+	age = age_3_discovery
+	icon = trade_caravans
+	requires = gj_kaivan_hierbas_de_primavera
+
+	diplomatic_range_modifier = 0.1
+	monthly_prestige = 0.05
+
+	unlock_unit = a_gj_kaivan_arqueros_3
+	unlock_unit = a_gj_kaivan_lobos_3
+}
+
+gj_kaivan_heraldos_del_circulo = {
+	potential = { gj_es_kaivan = yes }
+	age = age_3_discovery
+	icon = beyond_the_sun
+	requires = gj_kaivan_ley_del_circulo
+
+	diplomatic_capacity = 1
+	monthly_prestige = 0.03
+}
+
+gj_kaivan_marca_armada = {
+	potential = { gj_es_kaivan = yes }
+	age = age_3_discovery
+	icon = beyond_the_sun
+	requires = gj_kaivan_atalayas_de_fuego
+
+	siege_ability = 0.1
+	global_fort_build_buildings_efficiency = 0.1
+}
+
+############################
+# Era 4 - Reforma
+############################
+
+gj_kaivan_carabinas_de_estepa = {
+	potential = { gj_es_kaivan = yes }
+	age = age_4_reformation
+	icon = steppe_riders
+	requires = gj_kaivan_marca_armada
+
+	army_light_cavalry_power = 0.05
+	army_initiative = 0.1
+
+	unlock_unit = a_gj_kaivan_arqueros_4
+	unlock_unit = a_gj_kaivan_lobos_4
+}
+
+gj_kaivan_nueva_ruta_de_caballos = {
+	potential = { gj_es_kaivan = yes }
+	age = age_4_reformation
+	icon = trade_caravans
+	requires = gj_kaivan_mercado_de_primavera
+
+	army_tradition_from_battle = 0.25
+	monthly_army_tradition = 0.03
+}
+
+gj_kaivan_campamentos_permanentes = {
+	potential = { gj_es_kaivan = yes }
+	age = age_4_reformation
+	icon = populating_the_steppes
+	requires = gj_kaivan_atalayas_de_fuego
+
+	global_max_control = 0.05
+	global_monthly_control = 0.001
+}
+
+############################
+# Era 5 - Absolutismo
+############################
+
+gj_kaivan_cuerno_de_las_nueve = {
+	potential = { gj_es_kaivan = yes }
+	age = age_5_absolutism
+	icon = steppe_riders
+	requires = gj_kaivan_carabinas_de_estepa
+
+	army_light_cavalry_power = 0.1
+	discipline = 0.03
+
+	unlock_unit = a_gj_kaivan_arqueros_5
+	unlock_unit = a_gj_kaivan_lobos_5
+}
+
+gj_kaivan_pastos_comunes = {
+	potential = { gj_es_kaivan = yes }
+	age = age_5_absolutism
+	icon = beyond_the_sun
+	requires = gj_kaivan_campamentos_permanentes
+
+	global_population_growth = 0.001
+	global_livestock_output_modifier = 0.1
+}
+
+gj_kaivan_hijos_del_circulo = {
+	potential = { gj_es_kaivan = yes }
+	age = age_5_absolutism
+	icon = populating_the_steppes
+	requires = gj_kaivan_nueva_ruta_de_caballos
+
+	diplomatic_capacity = 1
+	global_manpower_modifier = 0.1
+
+	unlock_government_reform = gj_kaivan_gran_hogar_de_los_nueve
+}
+
+gj_kaivan_jueces_de_la_hierba = {
+	potential = { gj_es_kaivan = yes }
+	age = age_5_absolutism
+	icon = populating_the_steppes
+	requires = gj_kaivan_hijos_del_circulo
+
+	monthly_legitimacy = 0.03
+	tribes_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+############################
+# Era 6 - Revoluciones
+############################
+
+gj_kaivan_rieles_de_la_estepa = {
+	potential = { gj_es_kaivan = yes }
+	age = age_6_revolutions
+	icon = trade_caravans
+	requires = gj_kaivan_pastos_comunes
+
+	global_distance_from_capital_speed_propagation = 0.15
+	global_supply_limit_modifier = 0.1
+	movement_speed_if_no_road = 0.1
+}
+
+gj_kaivan_ultimo_kurultai = {
+	potential = { gj_es_kaivan = yes }
+	age = age_6_revolutions
+	icon = populating_the_steppes
+	requires = gj_kaivan_hijos_del_circulo
+
+	government_reform_slots = 1
+	monthly_legitimacy = 0.05
+}
+
+gj_kaivan_caballeria_de_hierro = {
+	potential = { gj_es_kaivan = yes }
+	age = age_6_revolutions
+	icon = steppe_riders
+	requires = gj_kaivan_cuerno_de_las_nueve
+
+	army_light_cavalry_power = 0.05
+	land_morale_modifier = 0.1
+
+	unlock_unit = a_gj_kaivan_arqueros_6
+	unlock_unit = a_gj_kaivan_lobos_6
+}
+
+#######################################################################
+# Avances de cultura (kaivani) y de grupo cultural (estepa)
+#######################################################################
+
+gj_kaivan_cultura_memoria_de_las_ruedas = {
+	potential = { culture ?= culture:gj_kaivani }
+	age = age_1_traditions
+	icon = mge_ghostly_horses_of_the_plain
+	requires = horse_riding_advance
+
+	tribes_estate_target_satisfaction = small_permanent_target_satisfaction
+	global_population_growth = 0.001
+}
+
+gj_kaivan_cultura_hogueras_de_linaje = {
+	potential = { culture ?= culture:gj_kaivani }
+	age = age_3_discovery
+	icon = mge_ghostly_horses_of_the_plain
+	requires = gj_kaivan_cultura_memoria_de_las_ruedas
+
+	global_migration_attraction = 0.05
+	global_pop_assimilation_speed_modifier = 0.1
+}
+
+gj_kaivan_grupo_pastores_de_horizonte = {
+	potential = {
+		culture = {
+			has_culture_group = culture_group:gj_grupo_estepa
+		}
+	}
+	age = age_2_renaissance
+	icon = finest_of_horses
+	requires = horse_riding_advance
+
+	army_light_cavalry_reinforce_cost_modifier = -0.1
+	movement_speed_if_no_road = 0.1
+}

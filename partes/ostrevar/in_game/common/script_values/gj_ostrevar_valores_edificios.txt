@@ -1,0 +1,219 @@
+﻿# Topes de nivel de los edificios de Ostrevar (cada avance de era suma un nivel).
+
+gj_ostrevar_torre_gremio_max_level = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "BUILDING_LEVEL_POPULATION"
+		value = population
+		multiply = 0.04
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_fueros_de_los_valles } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_carta_de_las_ciudades } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_imprenta_de_los_gremios } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_la_ciudad_de_marmol } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_manufacturas_del_valle } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	max = 12
+	min = 1
+}
+
+gj_ostrevar_barrio_alto_max_level = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "BUILDING_LEVEL_POPULATION"
+		value = population
+		multiply = 0.03
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_el_barrio_alto } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_la_ciudad_de_marmol } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_urbanismo_ordenado } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_la_metropoli } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	max = 12
+	min = 1
+}
+
+gj_ostrevar_acueducto_piedra_max_level = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "BUILDING_LEVEL_POPULATION"
+		value = population
+		multiply = 0.03
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_acueductos_largos } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_lazaretos_de_valle } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_urbanismo_ordenado } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_la_fabrica_de_piedra } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	max = 12
+	min = 1
+}
+
+gj_ostrevar_casa_del_censo_max_level = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "BUILDING_LEVEL_POPULATION"
+		value = population
+		multiply = 0.02
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_archivos_del_censo } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_imprenta_de_los_gremios } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_el_tribunal_de_las_ciudades } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_la_administracion_del_reino } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	max = 12
+	min = 1
+}
+
+gj_ostrevar_canteria_real_max_level = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "BUILDING_LEVEL_POPULATION"
+		value = population
+		multiply = 0.03
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_la_cantera_del_reino } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_escuela_de_canteros } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_cuerpos_de_ingenieros } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	if = {
+		limit = { scope:owner = { has_advance = gj_ostrevar_la_fabrica_de_piedra } }
+		add = {
+			desc = "GJ_OSTREVAR_NIVEL_ERA"
+			value = 1
+		}
+	}
+	max = 12
+	min = 1
+}
+

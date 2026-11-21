@@ -1,0 +1,4 @@
+﻿
+colors = {
+	gj_orunmar_color = rgb { 168 28 52 }
+}

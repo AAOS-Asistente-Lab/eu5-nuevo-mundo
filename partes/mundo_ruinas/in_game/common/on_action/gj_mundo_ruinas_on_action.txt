@@ -1,0 +1,24 @@
+﻿# mundo_ruinas: engancha los pulsos en los on_action del juego base.
+# (Los on_action se suman a los del base: ya hay varios ficheros que definen on_game_start.)
+
+# Pulso anual de pais (root = pais).
+yearly_country_pulse = {
+	on_actions = { gj_ruinas_pulso_anual }
+}
+
+gj_ruinas_pulso_anual = {
+	effect = {
+		gj_ruinas_pulso_pais = yes
+	}
+}
+
+# Una location cambia de dueno (root = location, scope:winner y scope:loser).
+on_location_changed_owner = {
+	on_actions = { gj_ruinas_cambio_dueno_oa }
+}
+
+gj_ruinas_cambio_dueno_oa = {
+	effect = {
+		gj_ruinas_cambio_dueno = yes
+	}
+}

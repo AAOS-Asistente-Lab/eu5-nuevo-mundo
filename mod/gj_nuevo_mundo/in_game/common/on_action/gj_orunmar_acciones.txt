@@ -1,0 +1,124 @@
+﻿# Pulso anual propio de la Hegemonia Carmesi y enganches a las acciones del motor.
+# Las acciones de abajo (yearly_country_pulse, on_war_declared, on_winning_war, on_new_age) se suman a las del juego base.
+
+gj_orunmar_pulso_anual = {
+	trigger = {
+		gj_es_orunmar = yes
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = gj_orunmar_anio_guerra }
+			}
+			set_variable = { name = gj_orunmar_anio_guerra value = current_year }
+			# Primer pulso: la Mesa Roja se reune, una sola vez (el evento es fire_only_once)
+			trigger_event_non_silently = gj_orunmar.1
+		}
+		if = {
+			limit = {
+				NOT = { has_variable = gj_orunmar_cautivos }
+			}
+			set_variable = { name = gj_orunmar_cautivos value = 0 }
+		}
+		if = {
+			limit = {
+				at_war = yes
+			}
+			set_variable = { name = gj_orunmar_anio_guerra value = current_year }
+		}
+		# La devocion decae cada anio de paz: el dios hambriento no perdona
+		if = {
+			limit = {
+				at_war = no
+				gj_orunmar_anios_de_paz >= 3
+			}
+			add_religious_influence = religious_influence_tiny_penalty
+		}
+	}
+
+	random_events = {
+		chance_to_happen = 35
+		100 = gj_orunmar.2
+		100 = gj_orunmar.4
+		60 = gj_orunmar.5
+		60 = gj_orunmar.6
+		60 = gj_orunmar.7
+		50 = gj_orunmar.8
+		30 = gj_orunmar.9
+		50 = gj_orunmar.10
+		40 = gj_orunmar.11
+		60 = gj_orunmar.12
+		40 = gj_orunmar.16
+		40 = gj_orunmar.17
+		50 = gj_orunmar.18
+		200 = 0
+	}
+}
+
+gj_orunmar_guerra_declarada = {
+	effect = {
+		if = {
+			limit = {
+				exists = scope:actor
+			}
+			scope:actor = {
+				if = {
+					limit = {
+						gj_es_orunmar = yes
+					}
+					set_variable = { name = gj_orunmar_anio_guerra value = current_year }
+				}
+			}
+		}
+	}
+}
+
+gj_orunmar_guerra_ganada = {
+	effect = {
+		if = {
+			limit = {
+				exists = scope:winner
+			}
+			scope:winner = {
+				if = {
+					limit = {
+						gj_es_orunmar = yes
+					}
+					set_variable = { name = gj_orunmar_anio_guerra value = current_year }
+					if = {
+						limit = {
+							scope:war = {
+								casus_belli ?= casus_belli:cb_gj_orunmar_cosecha
+								is_an_attacker = scope:winner
+							}
+						}
+						change_variable = { name = gj_orunmar_cautivos add = 4 }
+						add_religious_influence = religious_influence_mild_bonus
+						trigger_event_non_silently = gj_orunmar.3
+					}
+					else = {
+						change_variable = { name = gj_orunmar_cautivos add = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+gj_orunmar_nueva_era = {
+	trigger = {
+		gj_es_orunmar = yes
+	}
+	events = {
+		gj_orunmar.19
+	}
+}
+
+# yearly_country_pulse: lo engancha gj_integracion_on_actions.txt (gj_orunmar_pulso_anual).
+
+# on_war_declared: lo engancha gj_integracion_on_actions.txt (gj_orunmar_guerra_declarada).
+
+# on_winning_war: lo engancha gj_integracion_on_actions.txt (gj_orunmar_guerra_ganada).
+
+# on_new_age: lo engancha gj_integracion_on_actions.txt (gj_orunmar_nueva_era).

@@ -1,0 +1,52 @@
+﻿# Reformas de gobierno propias de Ankarú: una por era de arranque, de la 1, la 2 y la 4.
+
+gj_ank_gobierno_del_cordel = {
+	age = age_1_traditions
+	potential = {
+		gj_es_ankaru = yes
+	}
+	allow = {
+	}
+
+	country_modifier = {
+		global_construction_speed = 0.1
+		town_upgrade_cost_modifier = -0.1
+		global_distance_from_capital_speed_propagation = 0.1
+	}
+
+	years = 2
+}
+
+gj_ank_regencia_del_gnomon = {
+	age = age_2_renaissance
+	potential = {
+		gj_es_ankaru = yes
+	}
+	allow = {
+	}
+
+	country_modifier = {
+		research_speed_modifier = 0.05
+		global_monthly_literacy = 0.01
+		stability_cost_efficiency = 0.1
+	}
+
+	years = 2
+}
+
+gj_ank_concordia_de_las_cumbres = {
+	age = age_4_reformation
+	potential = {
+		gj_es_ankaru = yes
+	}
+	allow = {
+	}
+
+	country_modifier = {
+		global_estate_target_satisfaction = small_permanent_target_satisfaction
+		global_integration_speed_modifier = 0.2
+		global_max_rgo_size_modifier_in_rural = 0.05
+	}
+
+	years = 2
+}

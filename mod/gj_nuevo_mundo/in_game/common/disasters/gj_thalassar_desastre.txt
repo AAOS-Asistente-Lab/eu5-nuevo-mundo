@@ -1,0 +1,61 @@
+﻿##############################################################
+# THALASSAR: «El peso de los siglos»
+# Si el proyecto de alzar la Ciudad Hundida se estanca (30 anos sin avanzar de fase
+# y la ciudad aun sin emerger), la nobleza antigua se alza contra la corona.
+# Termina al convocar el Concilio de las Mareas (decision) o al subir de fase.
+# La imagen es de otro desastre del juego base; la integracion puede darle una propia.
+##############################################################
+
+gj_thalassar_peso_de_los_siglos = {
+
+	image = "gfx/interface/illustrations/disaster/decline_of_mali_disaster.dds"
+
+	monthly_spawn_chance = monthly_spawn_chance_low
+
+	fire_only_once = no
+
+	can_start = {
+		gj_es_thalassar = yes
+		has_any_active_disaster = no
+		has_variable = gj_decadencia
+		var:gj_decadencia >= 30
+		NOT = { gj_thalassar_fase_al_menos = { N = 5 } }
+	}
+
+	can_end = {
+		OR = {
+			var:gj_decadencia <= 10
+			gj_thalassar_fase_al_menos = { N = 5 }
+		}
+	}
+
+	modifier = {
+		monthly_legitimacy = -0.15
+		global_nobles_estate_power = 0.15
+		global_estate_target_satisfaction = small_permanent_target_satisfaction_penalty
+		research_speed_modifier = -0.1
+		global_construction_speed = -0.2
+	}
+
+	on_start = {
+		trigger_event_non_silently = gj_thalassar.26
+	}
+
+	on_end = {
+		trigger_event_non_silently = gj_thalassar.27
+	}
+
+	on_monthly = {
+		random_list = {
+			15 = { custom_tooltip = an_event_occurs_tt }
+			85 = { custom_tooltip = no_event_occurs_tt }
+		}
+		hidden_effect = {
+			random_list = {
+				1000 = { }
+				60 = { trigger_event_silently = gj_thalassar.28 }
+				60 = { trigger_event_silently = gj_thalassar.29 }
+			}
+		}
+	}
+}

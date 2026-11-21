@@ -1,0 +1,19 @@
+﻿##############################
+# Avances de la cultura orunmari: los tienen todos los paises de esa cultura, sean o no la Hegemonia
+##############################
+gj_orunmar_cultura_costumbre_del_banquete = {
+	potential = { culture = culture:gj_orunmari }
+	age = age_1_traditions
+
+	global_estate_target_satisfaction = tiny_permanent_target_satisfaction
+	monthly_devotion = 0.05
+}
+
+gj_orunmar_cultura_ojo_del_tintorero = {
+	potential = { culture = culture:gj_orunmari }
+	age = age_3_discovery
+	requires = gj_orunmar_cultura_costumbre_del_banquete
+
+	global_dyes_output_modifier = 0.1
+	research_speed_modifier = 0.05
+}

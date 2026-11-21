@@ -1,0 +1,5 @@
+﻿colors = {
+	gj_color_skarren = rgb { 70 110 140 }
+	gj_color_familia_fiordo = rgb { 95 135 160 }
+	gj_color_lengua_skarren = rgb { 80 120 150 }
+}

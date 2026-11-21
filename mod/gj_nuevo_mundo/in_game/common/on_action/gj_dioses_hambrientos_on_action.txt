@@ -1,0 +1,42 @@
+﻿# Enganches de Los Dioses Hambrientos.
+# Se suman a los on_action del juego base. Si el motor no fusionara estos bloques con los del base,
+# la integracion tiene que copiar las lineas marcadas con (A) y (B) en el on_action del juego.
+
+# Pulso anual propio: solo los seguidores lo pagan.
+gj_dioses_hambrientos_pulso_anual = {
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+	}
+	effect = {
+		gj_dioses_hambrientos_actualiza_paz = yes
+	}
+	events = {
+		gj_dioses_hambrientos.1
+		gj_dioses_hambrientos.2
+		gj_dioses_hambrientos.8
+		gj_dioses_hambrientos.9
+		gj_dioses_hambrientos.11
+	}
+	random_events = {
+		sample_count = 1
+		10 = gj_dioses_hambrientos.6
+		10 = gj_dioses_hambrientos.7
+		10 = gj_dioses_hambrientos.10
+	}
+}
+
+# (A) cuelga del pulso anual de los paises.
+# yearly_country_pulse: lo engancha gj_integracion_on_actions.txt (gj_dioses_hambrientos_pulso_anual).
+
+# (B) cada location tomada en un tratado de paz da cautivos a los seguidores que ganan.
+# Cuerpo del gancho on_took_location_in_peace_treaty, movido aqui por funde-partes.mjs (lo engancha gj_integracion_on_actions.txt).
+gj_dioses_hambrientos_on_took_location_in_peace_treaty = {
+	effect = {
+		if = {
+			limit = {
+				scope:winner ?= { religion = religion:gj_dioses_hambrientos }
+			}
+			scope:winner = { gj_dioses_hambrientos_botin_de_cautivos = yes }
+		}
+	}
+}

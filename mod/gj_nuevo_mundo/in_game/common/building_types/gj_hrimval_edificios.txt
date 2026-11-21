@@ -1,0 +1,311 @@
+﻿# Edificios de la Corte Insepulta de Hrimval
+# Cada uno mejora con las eras: el tope de niveles sube con la edad y el modificador escala con el nivel.
+
+# El Relicario: guarda la vida del rey. Solo uno, solo en la capital. Si se pierde, llega el Deshielo.
+gj_hrimval_relicario = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	pop_type = nobles
+	max_levels = {
+		value = 1
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_3_discovery } } }
+			add = 1
+		}
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_5_absolutism } } }
+			add = 1
+		}
+	}
+
+	category = government_category
+
+	employment_size = large_noble_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = large_capital_build_time
+
+	location_potential = {
+		counts_as_capital = yes
+	}
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	allow = {
+		is_capital = yes
+		country_has_no_other_copy_of_building = { type = gj_hrimval_relicario }
+	}
+
+	remove_if = {
+		is_no_longer_capital = yes
+	}
+
+	capital_country_modifier = {
+		monthly_legitimacy = 0.03
+		global_manpower_modifier = 0.03
+		country_cabinet_efficiency = 0.02
+	}
+
+	unique_production_methods = {
+		gj_hrimval_relicario_mantenimiento = {
+			icon_type = building_type
+			icon = gj_hrimval_relicario
+			stone = 0.10
+			tools = 0.03
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = early_capital_building_construction
+}
+
+# Tumulos del Hielo: solo en tierra helada. Cada nivel es una veta de caidos que se alzan como levas.
+gj_hrimval_tumulo_hielo = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = peasants
+	max_levels = {
+		value = 1
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_2_renaissance } } }
+			add = 1
+		}
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_4_reformation } } }
+			add = 1
+		}
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_6_revolutions } } }
+			add = 1
+		}
+	}
+
+	category = military_category
+
+	employment_size = small_peasant_employment
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+
+	build_time = rural_build_time
+
+	location_potential = {
+		owner ?= { gj_es_hrimval = yes }
+	}
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	allow = {
+		OR = {
+			climate = arctic
+			climate = subpolar
+		}
+	}
+
+	modifier = {
+		local_levy_size_modifier = 0.10
+		manpower_to_building_owner = 0.004
+		local_unrest = -0.05
+	}
+
+	unique_production_methods = {
+		gj_hrimval_tumulo_hielo_mantenimiento = {
+			icon_type = building_type
+			icon = gj_hrimval_tumulo_hielo
+			stone = 0.05
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = early_soldier_building_construction
+}
+
+# Osario Mayor: recoge a los caidos de las guerras. Hace falta tener caidos guardados para levantarlo.
+gj_hrimval_osario_mayor = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = {
+		value = 1
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_3_discovery } } }
+			add = 1
+		}
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_5_absolutism } } }
+			add = 1
+		}
+	}
+
+	category = cultural_category
+
+	employment_size = guild_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = guild_build_time
+
+	location_potential = {
+		owner ?= { gj_es_hrimval = yes }
+	}
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	allow = {
+		owner ?= { var:gj_caidos >= 5 }
+	}
+
+	modifier = {
+		local_population_capacity_modifier = 0.025
+		manpower_to_building_owner = 0.005
+		local_garrison_growth = 0.005
+	}
+
+	unique_production_methods = {
+		gj_hrimval_osario_mayor_mantenimiento = {
+			icon_type = building_type
+			icon = gj_hrimval_osario_mayor
+			stone = 0.08
+			lumber = 0.04
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = guild_construction
+}
+
+# Atalaya Helada: cierra los pasos del norte. Solo en tierra helada.
+gj_hrimval_atalaya_helada = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = {
+		value = 1
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_2_renaissance } } }
+			add = 1
+		}
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_4_reformation } } }
+			add = 1
+		}
+	}
+
+	category = defense_category
+
+	employment_size = tiny_soldier_employment
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+
+	build_time = rural_build_time
+
+	location_potential = {
+		owner ?= { gj_es_hrimval = yes }
+	}
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	allow = {
+		OR = {
+			climate = arctic
+			climate = subpolar
+		}
+	}
+
+	modifier = {
+		local_defensive = 0.15
+		local_monthly_control = 0.001
+		local_garrison_growth = 0.005
+	}
+
+	unique_production_methods = {
+		gj_hrimval_atalaya_helada_mantenimiento = {
+			icon_type = building_type
+			icon = gj_hrimval_atalaya_helada
+			stone = 0.06
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = castle_construction
+}
+
+# Cripta de los Cronistas: guarda la memoria de la Corte. Poca ciencia, mucha tradicion.
+gj_hrimval_cripta_cronistas = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = clergy
+	max_levels = {
+		value = 1
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_3_discovery } } }
+			add = 1
+		}
+		if = {
+			limit = { owner ?= { current_age_or_later = { age = age_6_revolutions } } }
+			add = 1
+		}
+	}
+
+	category = cultural_category
+
+	employment_size = cultural_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = guild_build_time
+
+	location_potential = {
+		owner ?= { gj_es_hrimval = yes }
+	}
+
+	country_potential = {
+		gj_es_hrimval = yes
+	}
+
+	allow = {
+		country_has_no_other_copy_of_building = { type = gj_hrimval_cripta_cronistas }
+	}
+
+	modifier = {
+		local_cultural_tradition = 0.10
+		local_max_literacy = 5
+		local_monthly_literacy = 0.1
+	}
+
+	unique_production_methods = {
+		gj_hrimval_cripta_cronistas_mantenimiento = {
+			icon_type = building_type
+			icon = gj_hrimval_cripta_cronistas
+			paper = 0.02
+			stone = 0.04
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = library_construction
+}

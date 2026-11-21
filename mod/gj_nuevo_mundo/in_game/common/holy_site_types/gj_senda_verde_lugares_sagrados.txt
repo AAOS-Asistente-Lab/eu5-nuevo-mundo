@@ -1,0 +1,23 @@
+﻿# Tipos de lugar sagrado de la Senda Verde. Las locations las asigna la integracion en holy_sites/.
+
+gj_senda_verde_claro_sagrado = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_unrest = -0.05
+		local_lumber_output_modifier = 0.1
+	}
+	country_modifier = {
+		monthly_karma_decay = 0.005
+	}
+}
+
+gj_senda_verde_arbol_anillo = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.05
+		local_monthly_prosperity = 0.001
+		local_max_literacy = 2
+	}
+	country_modifier = {
+		research_speed_modifier = 0.01
+	}
+}

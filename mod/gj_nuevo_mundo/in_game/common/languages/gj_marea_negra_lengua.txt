@@ -1,0 +1,27 @@
+﻿gj_marea_negra_lengua = {
+	color = rgb { 24 52 78 }
+	family = gj_marea_negra_familia
+
+	male_names = {
+		Arvo gj_n_belan gj_n_cassio gj_n_dorlan gj_n_esteb gj_n_fenro gj_n_garil gj_n_hosco gj_n_imbar gj_n_jorun
+		gj_n_kaspar gj_n_lurcan Marek gj_n_nuvar gj_n_orlo gj_n_pelat gj_n_quenar gj_n_rovan gj_n_sabel gj_n_tebar
+		gj_n_ubert gj_n_valen gj_n_wulmar gj_n_yoren gj_n_zarco Aldan gj_n_brigo gj_n_corvan gj_n_dasil gj_n_emrik
+	}
+	female_names = {
+		gj_n_aveline gj_n_brisa gj_n_caldra gj_n_dunya Elisa gj_n_fenna gj_n_galdra gj_n_hilba gj_n_ismena gj_n_jessa
+		gj_n_kalena gj_n_lorna gj_n_marisel Nerea gj_n_oriana gj_n_pelagia gj_n_quilla gj_n_rosmar gj_n_selma
+		gj_n_tamsa gj_n_ulmara Velia gj_n_wenda gj_n_yarel gj_n_zafira Amara gj_n_brenna gj_n_coralia
+	}
+	dynasty_names = {
+		gj_n_cuerdanegra gj_n_salobre gj_n_mareaviva gj_n_quillaroja gj_n_fondeadero gj_n_bajamar gj_n_garfio gj_n_brumaza
+		gj_n_lastre gj_n_cabotaje gj_n_espuma gj_n_sentina gj_n_rompeolas gj_n_estachas gj_n_calafate gj_n_varadero
+	}
+	lowborn = {
+		gj_n_remero gj_n_grumete gj_n_estibador gj_n_calafate gj_n_faroles gj_n_carenero gj_n_cabrestante gj_n_tinaja gj_n_brea gj_n_sal
+	}
+
+	dialects = {
+		gj_marea_negra_dialecto = {
+		}
+	}
+}

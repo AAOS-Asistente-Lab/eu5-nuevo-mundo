@@ -1,0 +1,52 @@
+﻿# El Deshielo: si el relicario cae, el rey cae y la Corte se rompe.
+gj_hrimval_el_deshielo = {
+
+	image = "gfx/interface/illustrations/disaster/curse_of_stefan_uros_iii.dds"
+
+	monthly_spawn_chance = monthly_spawn_chance_unique
+
+	can_start = {
+		gj_es_hrimval = yes
+		has_variable = gj_hrimval_relicario_visto
+		NOT = { gj_hrimval_tiene_relicario = yes }
+	}
+
+	can_end = {
+		OR = {
+			gj_hrimval_tiene_relicario = yes
+			has_variable = gj_hrimval_deshielo_resuelto
+		}
+	}
+
+	modifier = {
+		monthly_legitimacy = -0.3
+		land_morale_modifier = -0.15
+		global_manpower_modifier = -0.25
+		discipline = -0.05
+		stability_cost_efficiency = -0.2
+	}
+
+	on_start = {
+		trigger_event_non_silently = gj_hrimval.40
+	}
+
+	on_end = {
+		remove_variable = gj_hrimval_deshielo_resuelto
+		trigger_event_non_silently = gj_hrimval.41
+	}
+
+	on_monthly = {
+		random_list = {
+			20 = { custom_tooltip = an_event_occurs_tt }
+			80 = { custom_tooltip = no_event_occurs_tt }
+		}
+		hidden_effect = {
+			random_list = {
+				1000 = { }
+				80 = { trigger_event_silently = gj_hrimval.42 }
+				80 = { trigger_event_silently = gj_hrimval.43 }
+				60 = { trigger_event_silently = gj_hrimval.44 }
+			}
+		}
+	}
+}

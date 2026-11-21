@@ -1,0 +1,208 @@
+﻿# Decisiones de las bestias (mundo_bestias): aplacar y cazar al dragon, patrullar y cazar a los krakens, la Batida.
+
+# ---------- El dragon de la caldera ----------
+
+gj_mundo_bestias_aplacar_durmiente = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_mundo_bestias_dragon_inquieto = yes
+		gj_mundo_bestias_pais_caldera = yes
+	}
+
+	allow = {
+		gold >= gj_mundo_bestias_coste_aplacar
+		NOT = { has_variable = gj_mundo_bestias_aplacar_cd }
+	}
+
+	ai_will_do = {
+		value = 40
+	}
+
+	option = {
+		name = gj_mundo_bestias_aplacar_durmiente.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = gj_mundo_bestias_coste_aplacar
+				multiply = -1
+			}
+			set_variable = { name = gj_mundo_bestias_aplacar_cd value = 1 years = 10 }
+			add_country_modifier = { modifier = gj_mundo_bestias_dragon_aplacado years = 5 mode = add_and_extend }
+			random_list = {
+				50 = { gj_mundo_bestias_dragon_pone_estado = { ESTADO = 0 } }
+				50 = { }
+			}
+		}
+	}
+}
+
+gj_mundo_bestias_gran_caceria = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_mundo_bestias_dragon_vivo = yes
+		global_var:gj_dragon_estado >= 1
+	}
+
+	allow = {
+		at_war = no
+		gold >= gj_mundo_bestias_coste_caceria
+		num_regiments >= gj_mundo_bestias_regimientos_caceria
+		any_army = { exists = leader }
+		NOT = { has_variable = gj_mundo_bestias_caceria_cd }
+	}
+
+	ai_will_do = {
+		value = 15
+	}
+
+	option = {
+		name = gj_mundo_bestias_gran_caceria.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = gj_mundo_bestias_coste_caceria
+				multiply = -1
+			}
+			set_variable = { name = gj_mundo_bestias_caceria_cd value = 1 years = 15 }
+			if = {
+				limit = { gj_mundo_bestias_dragon_inquieto = yes }
+				random_list = {
+					55 = { trigger_event_non_silently = { id = gj_mundo_bestias.11 days = 60 } }
+					45 = { trigger_event_non_silently = { id = gj_mundo_bestias.12 days = 60 } }
+				}
+			}
+			else = {
+				random_list = {
+					40 = { trigger_event_non_silently = { id = gj_mundo_bestias.11 days = 60 } }
+					60 = { trigger_event_non_silently = { id = gj_mundo_bestias.12 days = 60 } }
+				}
+			}
+		}
+	}
+}
+
+# ---------- Los krakens del estrecho ----------
+
+gj_mundo_bestias_patrullar_estrecho = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_mundo_bestias_kraken_vivo = yes
+		gj_mundo_bestias_pais_estrecho = yes
+	}
+
+	allow = {
+		gold >= gj_mundo_bestias_coste_patrulla
+		NOT = { has_country_modifier = gj_mundo_bestias_kraken_patrulla }
+	}
+
+	ai_will_do = {
+		value = 30
+	}
+
+	option = {
+		name = gj_mundo_bestias_patrullar_estrecho.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = gj_mundo_bestias_coste_patrulla
+				multiply = -1
+			}
+			add_country_modifier = { modifier = gj_mundo_bestias_kraken_patrulla years = 8 mode = add_and_extend }
+			add_navy_tradition = navy_tradition_weak_bonus
+		}
+	}
+}
+
+gj_mundo_bestias_cazar_coloso = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_mundo_bestias_kraken_vivo = yes
+		gj_mundo_bestias_pais_estrecho = yes
+	}
+
+	allow = {
+		at_war = no
+		has_country_modifier = gj_mundo_bestias_kraken_patrulla
+		gold >= gj_mundo_bestias_coste_cazar_coloso
+		any_navy = { exists = leader }
+		NOT = { has_variable = gj_mundo_bestias_coloso_cd }
+	}
+
+	ai_will_do = {
+		value = 10
+	}
+
+	option = {
+		name = gj_mundo_bestias_cazar_coloso.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = gj_mundo_bestias_coste_cazar_coloso
+				multiply = -1
+			}
+			set_variable = { name = gj_mundo_bestias_coloso_cd value = 1 years = 12 }
+			if = {
+				limit = { gj_mar_kraken_calmado_trigger = yes }
+				random_list = {
+					60 = { trigger_event_non_silently = { id = gj_mundo_bestias.25 days = 45 } }
+					40 = { trigger_event_non_silently = { id = gj_mundo_bestias.26 days = 45 } }
+				}
+			}
+			else = {
+				random_list = {
+					40 = { trigger_event_non_silently = { id = gj_mundo_bestias.25 days = 45 } }
+					60 = { trigger_event_non_silently = { id = gj_mundo_bestias.26 days = 45 } }
+				}
+			}
+		}
+	}
+}
+
+# ---------- Plagas de bestias ----------
+
+gj_mundo_bestias_batida = {
+	decision_category = government_decisions
+
+	potential = {
+		any_owned_location = { gj_mundo_bestias_location_con_plaga = yes }
+	}
+
+	allow = {
+		gold >= gj_mundo_bestias_coste_batida
+		gj_mundo_bestias_batida_posible = yes
+	}
+
+	ai_will_do = {
+		value = 60
+	}
+
+	option = {
+		name = gj_mundo_bestias_batida.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = {
+				value = gj_mundo_bestias_coste_batida
+				multiply = -1
+			}
+			random_owned_location = {
+				limit = {
+					gj_mundo_bestias_location_con_plaga = yes
+					any_unit_in_location = {
+						count >= 1
+						owner = root
+					}
+				}
+				if = { limit = { has_location_modifier = gj_mundo_bestias_plaga_lobos } remove_location_modifier = gj_mundo_bestias_plaga_lobos }
+				if = { limit = { has_location_modifier = gj_mundo_bestias_plaga_wyverns } remove_location_modifier = gj_mundo_bestias_plaga_wyverns }
+				if = { limit = { has_location_modifier = gj_mundo_bestias_plaga_enjambre } remove_location_modifier = gj_mundo_bestias_plaga_enjambre }
+				add_location_modifier = { modifier = gj_mundo_bestias_batida_hecha years = 8 mode = add_and_extend }
+			}
+			add_army_tradition = army_tradition_mild_bonus
+			trigger_event_non_silently = { id = gj_mundo_bestias.34 days = 10 }
+		}
+	}
+}

@@ -1,0 +1,67 @@
+# Aspectos del Mar Dormido (se eligen 2 de 4).
+# Costa Mansa y El Pulso Rojo se excluyen: el que canta para que el mar duerma no lo despierta a golpes de remo.
+
+gj_aspecto_voz_baja = {
+	religion = gj_mar_dormido
+
+	modifier = {
+		monthly_rite_power = 0.15
+		monthly_legitimacy = 0.04
+		tolerance_heathen = 1
+	}
+
+	opinions = {
+		gj_aspecto_voz_baja = 10
+	}
+}
+
+gj_aspecto_costa_mansa = {
+	religion = gj_mar_dormido
+
+	enabled = {
+		NOT = { has_religious_aspect = religious_aspect:gj_aspecto_pulso_rojo }
+	}
+
+	modifier = {
+		naval_unit_attrition = -0.2
+		naval_damage_taken = -0.1
+		global_sailors_modifier = 0.1
+	}
+
+	opinions = {
+		gj_aspecto_costa_mansa = 10
+	}
+}
+
+gj_aspecto_mareas_vivas = {
+	religion = gj_mar_dormido
+
+	modifier = {
+		export_efficiency = 0.05
+		import_efficiency = 0.05
+		global_port_build_buildings_efficiency = 0.1
+	}
+
+	opinions = {
+		gj_aspecto_mareas_vivas = 10
+	}
+}
+
+gj_aspecto_pulso_rojo = {
+	religion = gj_mar_dormido
+
+	enabled = {
+		NOT = { has_religious_aspect = religious_aspect:gj_aspecto_costa_mansa }
+	}
+
+	modifier = {
+		naval_damage_done = 0.1
+		amount_looted_modifier = 0.15
+		ship_capture_chance = 0.1
+		monthly_rite_power = -0.1
+	}
+
+	opinions = {
+		gj_aspecto_pulso_rojo = 10
+	}
+}

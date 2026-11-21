@@ -1,0 +1,272 @@
+﻿#######################################################################
+# Unidades de Kaivan (parte kaivan): una cadena por era, sobre la caballeria ligera de cada era.
+# Arqueros del Circulo (era 1 a 6): +15% de dano de moral. Debilidad: no asaltan fortalezas, caen en costa y sierra,
+#   reciben mas dano. Limite de lugar: solo se reclutan donde domina la cultura kaivani.
+# Jinetes Lobo (era 2 a 6): flanqueo y velocidad. Debilidad: se desmoralizan antes y sufren en sierra y selva.
+#   Limite de numero: 1 mas 1 por nivel de Campamento del Kan (familia gj_kaivan_lobos).
+#######################################################################
+
+a_gj_kaivan_arqueros_1 = {
+	copy_from = a_age_1_traditions_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_arqueros_2
+
+	assault = no
+	morale_damage_done = 0.15
+	initiative = 1
+	movement_speed = 0.5
+	strength_damage_taken = 0.1
+
+	location_potential = {
+		dominant_culture ?= culture:gj_kaivani
+	}
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		coastal = -0.15
+		mountains = -0.1
+	}
+
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_kaivan_arqueros_2 = {
+	copy_from = a_age_2_renaissance_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_arqueros_3
+
+	assault = no
+	morale_damage_done = 0.15
+	initiative = 1
+	movement_speed = 0.5
+	strength_damage_taken = 0.1
+
+	location_potential = {
+		dominant_culture ?= culture:gj_kaivani
+	}
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		coastal = -0.15
+		mountains = -0.1
+	}
+
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_kaivan_arqueros_3 = {
+	copy_from = a_age_3_discovery_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_arqueros_4
+
+	assault = no
+	morale_damage_done = 0.15
+	initiative = 1
+	movement_speed = 0.5
+	strength_damage_taken = 0.1
+
+	location_potential = {
+		dominant_culture ?= culture:gj_kaivani
+	}
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		coastal = -0.15
+		mountains = -0.1
+	}
+
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_kaivan_arqueros_4 = {
+	copy_from = a_age_4_reformation_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_arqueros_5
+
+	assault = no
+	morale_damage_done = 0.15
+	initiative = 1
+	movement_speed = 0.5
+	strength_damage_taken = 0.1
+
+	location_potential = {
+		dominant_culture ?= culture:gj_kaivani
+	}
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		coastal = -0.15
+		mountains = -0.1
+	}
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+a_gj_kaivan_arqueros_5 = {
+	copy_from = a_age_5_absolutism_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_arqueros_6
+
+	assault = no
+	morale_damage_done = 0.15
+	initiative = 1
+	movement_speed = 0.5
+	strength_damage_taken = 0.1
+
+	location_potential = {
+		dominant_culture ?= culture:gj_kaivani
+	}
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		coastal = -0.15
+		mountains = -0.1
+	}
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+a_gj_kaivan_arqueros_6 = {
+	copy_from = a_age_6_revolutions_light_cavalry
+	is_special = yes
+	buildable = yes
+
+	assault = no
+	morale_damage_done = 0.15
+	initiative = 1
+	movement_speed = 0.5
+	strength_damage_taken = 0.1
+
+	location_potential = {
+		dominant_culture ?= culture:gj_kaivani
+	}
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		coastal = -0.15
+		mountains = -0.1
+	}
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+a_gj_kaivan_lobos_2 = {
+	copy_from = a_age_2_renaissance_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_lobos_3
+	family = gj_kaivan_lobos
+
+	flanking_ability = 0.25
+	movement_speed = 0.5
+	initiative = 1
+	morale_damage_taken = 0.1
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		mountains = -0.15
+		jungle = -0.15
+	}
+
+	gfx_tags = { spear_tag light_tag }
+}
+
+a_gj_kaivan_lobos_3 = {
+	copy_from = a_age_3_discovery_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_lobos_4
+	family = gj_kaivan_lobos
+
+	flanking_ability = 0.25
+	movement_speed = 0.5
+	initiative = 1
+	morale_damage_taken = 0.1
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		mountains = -0.15
+		jungle = -0.15
+	}
+
+	gfx_tags = { spear_tag light_tag }
+}
+
+a_gj_kaivan_lobos_4 = {
+	copy_from = a_age_4_reformation_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_lobos_5
+	family = gj_kaivan_lobos
+
+	flanking_ability = 0.25
+	movement_speed = 0.5
+	initiative = 1
+	morale_damage_taken = 0.1
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		mountains = -0.15
+		jungle = -0.15
+	}
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+a_gj_kaivan_lobos_5 = {
+	copy_from = a_age_5_absolutism_light_cavalry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_kaivan_lobos_6
+	family = gj_kaivan_lobos
+
+	flanking_ability = 0.25
+	movement_speed = 0.5
+	initiative = 1
+	morale_damage_taken = 0.1
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		mountains = -0.15
+		jungle = -0.15
+	}
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+a_gj_kaivan_lobos_6 = {
+	copy_from = a_age_6_revolutions_light_cavalry
+	is_special = yes
+	buildable = yes
+	family = gj_kaivan_lobos
+
+	flanking_ability = 0.25
+	movement_speed = 0.5
+	initiative = 1
+	morale_damage_taken = 0.1
+
+	combat = {
+		grasslands = 0.1
+		sparse = 0.1
+		mountains = -0.15
+		jungle = -0.15
+	}
+
+	gfx_tags = { musket_tag light_tag }
+}
+

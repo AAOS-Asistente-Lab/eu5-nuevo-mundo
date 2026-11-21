@@ -1,0 +1,28 @@
+﻿##############################################################
+# Cultura de Thalassar: los talasios (supervivientes de Ahtessa)
+##############################################################
+
+gj_talasio = {
+	language = gj_talasio_dialect
+
+	color = map_gj_talasio
+
+	tags = { greek_gfx mediterranean_gfx european_gfx }
+
+	culture_groups = {
+		gj_grupo_talasio
+	}
+
+	country_modifier = {
+		naval_morale_modifier = 0.05
+		global_pearls_output_modifier = 0.1
+	}
+
+	location_modifier = {
+		local_fish_output_modifier = 0.1
+	}
+
+	character_modifier = {
+		naval_morale_modifier = 0.05
+	}
+}

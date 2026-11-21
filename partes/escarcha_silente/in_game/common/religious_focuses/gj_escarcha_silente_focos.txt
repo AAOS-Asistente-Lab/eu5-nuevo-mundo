@@ -1,0 +1,160 @@
+﻿# Focos religiosos de la Escarcha Silente.
+# Se investigan como avances. Cuanto mas alta la perdicion, mas deprisa avanzan: la cuenta aprieta.
+
+gj_escarcha_silente_foco_cantar_el_hielo = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		add = {
+			desc = "[doom|e]"
+			value = doom
+			multiply = 0.0005
+		}
+	}
+
+	modifier_while_progressing = {
+		clergy_estate_max_tax = -0.05
+	}
+
+	modifier_on_completion = {
+		monthly_doom = -0.04
+		stability_cost_efficiency = 0.05
+	}
+
+	ai_will_do = { add = 1 }
+}
+
+gj_escarcha_silente_foco_levas_de_ceniza = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		add = {
+			desc = "[doom|e]"
+			value = doom
+			multiply = 0.0005
+		}
+	}
+
+	modifier_while_progressing = {
+		clergy_estate_max_tax = -0.05
+	}
+
+	modifier_on_completion = {
+		levy_recovery_modifier = 0.1
+	}
+
+	ai_will_do = { add = 1 }
+}
+
+gj_escarcha_silente_foco_pan_de_invierno = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		add = {
+			desc = "[doom|e]"
+			value = doom
+			multiply = 0.0005
+		}
+	}
+
+	modifier_while_progressing = {
+		clergy_estate_max_tax = -0.05
+	}
+
+	modifier_on_completion = {
+		global_life_expectancy = 1
+	}
+
+	ai_will_do = { add = 1 }
+}
+
+gj_escarcha_silente_foco_la_cumbre_callada = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		add = {
+			desc = "[doom|e]"
+			value = doom
+			multiply = 0.0005
+		}
+	}
+
+	modifier_while_progressing = {
+		clergy_estate_max_tax = -0.05
+	}
+
+	modifier_on_completion = {
+		global_disease_resistance = 0.1
+	}
+
+	ai_will_do = { add = 1 }
+}
+
+gj_escarcha_silente_foco_el_ultimo_invierno = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		add = {
+			desc = "[doom|e]"
+			value = doom
+			multiply = 0.0005
+		}
+	}
+
+	allow = {
+		has_completed_religious_focus = gj_escarcha_silente_foco_cantar_el_hielo
+		has_completed_religious_focus = gj_escarcha_silente_foco_levas_de_ceniza
+		has_completed_religious_focus = gj_escarcha_silente_foco_pan_de_invierno
+		has_completed_religious_focus = gj_escarcha_silente_foco_la_cumbre_callada
+	}
+
+	modifier_while_progressing = {
+		clergy_estate_max_tax = -0.1
+	}
+
+	modifier_on_completion = {
+		monthly_doom = -0.04
+		prestige_from_land_battle = 0.1
+	}
+
+	effect_on_completion = {
+		trigger_event_non_silently = gj_escarcha_silente.12
+	}
+
+	ai_will_do = { add = 1 }
+}

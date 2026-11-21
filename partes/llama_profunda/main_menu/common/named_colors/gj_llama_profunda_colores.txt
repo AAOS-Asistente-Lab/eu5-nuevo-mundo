@@ -1,0 +1,3 @@
+﻿colors = {
+	gj_color_llama_profunda = rgb { 214 98 28 }
+}

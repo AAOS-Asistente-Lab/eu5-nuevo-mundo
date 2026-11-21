@@ -1,0 +1,26 @@
+﻿# Cultura soravi: pueblo de las Casas del golfo. Comerciantes de palabra: lo que se jura en la balanza se cumple.
+gj_soravi = {
+	language = gj_soravi_dialect
+
+	color = map_gj_soravi
+
+	tags = { north_italian_gfx west_mediterranean_gfx mediterranean_gfx western_european_gfx european_gfx }
+
+	country_modifier = {
+		tariff_income = 0.05
+		global_burghers_estate_power = 0.05
+		diplomatic_range_modifier = 0.1
+	}
+	location_modifier = {
+		local_merchant_power = 0.05
+		local_trades_per_burgher = 0.05
+	}
+	character_modifier = {
+		marriage_desirability = 5
+		character_cabinet_efficiency = 0.05
+	}
+
+	culture_groups = {
+		gj_grupo_sorava
+	}
+}

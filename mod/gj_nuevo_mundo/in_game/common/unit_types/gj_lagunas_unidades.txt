@@ -1,0 +1,281 @@
+﻿# Unidades de la Liga de las Mil Lagunas: tres cadenas con una version por era.
+#
+# 1. Patrulleros de Laguna (barcos ligeros): rapidos, pero de papel en mar abierto.
+#    Solo se botan junto a un lago y con tope de cantidad.
+# 2. Ballesteros del Dique (infanteria ligera): hacen mas dano, se quiebran antes y flojean
+#    en colinas y montanas. Defensivos: guardan el comercio, no conquistan.
+# 3. Barcazas de Asedio (artilleria, desde la era 2): mejor bombardeo, lentas, solo junto a un lago.
+
+################ 1. PATRULLEROS DE LAGUNA ################
+gj_lag_patrullero_1 = {
+	copy_from = n_age_1_traditions_light_ship
+	is_special = yes
+	upgrades_to_only = gj_lag_patrullero_2
+	buildable = yes
+	limit = gj_lag_patrulleros_limit
+
+	movement_speed = 1
+	hull_size = -1
+	cannons = -1
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_patrullero_2 = {
+	copy_from = n_age_2_renaissance_light_ship
+	is_special = yes
+	upgrades_to_only = gj_lag_patrullero_3
+	buildable = yes
+	limit = gj_lag_patrulleros_limit
+
+	movement_speed = 1
+	hull_size = -1
+	cannons = -2
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_patrullero_3 = {
+	copy_from = n_age_3_discovery_light_ship
+	is_special = yes
+	upgrades_to_only = gj_lag_patrullero_4
+	buildable = yes
+	limit = gj_lag_patrulleros_limit
+
+	movement_speed = 2
+	hull_size = -1
+	cannons = -2
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_patrullero_4 = {
+	copy_from = n_age_4_reformation_light_ship
+	is_special = yes
+	upgrades_to_only = gj_lag_patrullero_5
+	buildable = yes
+	limit = gj_lag_patrulleros_limit
+
+	movement_speed = 2
+	hull_size = -1
+	cannons = -3
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_patrullero_5 = {
+	copy_from = n_age_5_absolutism_light_ship
+	is_special = yes
+	upgrades_to_only = gj_lag_patrullero_6
+	buildable = yes
+	limit = gj_lag_patrulleros_limit
+
+	movement_speed = 2
+	hull_size = -1
+	cannons = -3
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_patrullero_6 = {
+	copy_from = n_age_6_revolutions_light_ship
+	is_special = yes
+	buildable = yes
+	limit = gj_lag_patrulleros_limit
+
+	movement_speed = 2
+	hull_size = -1
+	cannons = -4
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+################ 2. BALLESTEROS DEL DIQUE ################
+gj_lag_ballestero_1 = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_lag_ballestero_2
+	buildable = yes
+	limit = 24
+
+	strength_damage_done = 0.15
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = -0.10
+		mountains = -0.10
+	}
+
+	country_potential = { gj_es_lagunas = yes }
+	gfx_tags = { light_tag archer_tag }
+}
+
+gj_lag_ballestero_2 = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_lag_ballestero_3
+	buildable = yes
+	limit = 24
+
+	strength_damage_done = 0.15
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = -0.10
+		mountains = -0.10
+	}
+
+	country_potential = { gj_es_lagunas = yes }
+	gfx_tags = { light_tag archer_tag }
+}
+
+gj_lag_ballestero_3 = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_lag_ballestero_4
+	buildable = yes
+	limit = 24
+
+	strength_damage_done = 0.15
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = -0.10
+		mountains = -0.10
+	}
+
+	country_potential = { gj_es_lagunas = yes }
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_lag_ballestero_4 = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_lag_ballestero_5
+	buildable = yes
+	limit = 24
+
+	strength_damage_done = 0.15
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = -0.10
+		mountains = -0.10
+	}
+
+	country_potential = { gj_es_lagunas = yes }
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_lag_ballestero_5 = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_lag_ballestero_6
+	buildable = yes
+	limit = 24
+
+	strength_damage_done = 0.15
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = -0.10
+		mountains = -0.10
+	}
+
+	country_potential = { gj_es_lagunas = yes }
+	gfx_tags = { light_tag musket_tag }
+}
+
+gj_lag_ballestero_6 = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+	buildable = yes
+	limit = 24
+
+	strength_damage_done = 0.15
+	morale_damage_taken = 0.10
+
+	combat = {
+		hills = -0.10
+		mountains = -0.10
+	}
+
+	country_potential = { gj_es_lagunas = yes }
+	gfx_tags = { light_tag musket_tag }
+}
+
+################ 3. BARCAZAS DE ASEDIO ################
+gj_lag_barcaza_2 = {
+	copy_from = a_age_2_renaissance_artillery
+	is_special = yes
+	upgrades_to_only = gj_lag_barcaza_3
+	buildable = yes
+	limit = 8
+
+	bombard_efficiency = 0.02
+	movement_speed = -1
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_barcaza_3 = {
+	copy_from = a_age_3_discovery_artillery
+	is_special = yes
+	upgrades_to_only = gj_lag_barcaza_4
+	buildable = yes
+	limit = 8
+
+	bombard_efficiency = 0.02
+	movement_speed = -1
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_barcaza_4 = {
+	copy_from = a_age_4_reformation_artillery
+	is_special = yes
+	upgrades_to_only = gj_lag_barcaza_5
+	buildable = yes
+	limit = 8
+
+	bombard_efficiency = 0.03
+	movement_speed = -1
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_barcaza_5 = {
+	copy_from = a_age_5_absolutism_artillery
+	is_special = yes
+	upgrades_to_only = gj_lag_barcaza_6
+	buildable = yes
+	limit = 8
+
+	bombard_efficiency = 0.04
+	movement_speed = -1
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}
+
+gj_lag_barcaza_6 = {
+	copy_from = a_age_6_revolutions_artillery
+	is_special = yes
+	buildable = yes
+	limit = 8
+
+	bombard_efficiency = 0.045
+	movement_speed = -1
+
+	country_potential = { gj_es_lagunas = yes }
+	location_potential = { is_adjacent_to_lake = yes }
+}

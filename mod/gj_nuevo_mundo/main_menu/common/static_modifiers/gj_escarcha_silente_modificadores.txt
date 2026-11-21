@@ -1,0 +1,86 @@
+﻿gj_escarcha_silente_vigilia_cantada = {
+	game_data = {
+		category = country
+	}
+	monthly_doom = -0.1
+	stability_cost_efficiency = 0.05
+}
+
+gj_escarcha_silente_hielo_en_las_venas = {
+	game_data = {
+		category = country
+	}
+	land_morale_modifier = 0.1
+	global_hostile_attrition = 0.5
+}
+
+gj_escarcha_silente_ayuno_de_los_callados = {
+	game_data = {
+		category = country
+	}
+	monthly_doom = -0.15
+	global_monthly_prosperity = -0.0005
+}
+
+gj_escarcha_silente_pregon_del_hielo = {
+	game_data = {
+		category = country
+	}
+	monthly_prestige = 0.05
+	research_speed_modifier = 0.05
+}
+
+gj_escarcha_silente_eclipse_de_ceniza = {
+	game_data = {
+		category = country
+	}
+	land_morale_modifier = 0.05
+	monthly_legitimacy = -0.05
+}
+
+gj_escarcha_silente_noche_blanca_fiel = {
+	game_data = {
+		category = country
+	}
+	land_morale_modifier = 0.25
+	global_defensive = 0.2
+	global_hostile_attrition = 2
+	army_maintenance_efficiency = 0.2
+	stability_cost_efficiency = -0.3
+	global_monthly_prosperity = -0.001
+}
+
+gj_escarcha_silente_corte_dormida = {
+	game_data = {
+		category = country
+	}
+	land_morale_modifier = -0.1
+	monthly_legitimacy = -0.05
+	monthly_prestige = -0.05
+}
+
+gj_escarcha_silente_cuenta_rota = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = -0.1
+	global_defensive = -0.1
+}
+
+gj_escarcha_silente_ceniza_bendita = {
+	game_data = {
+		category = location
+	}
+	local_unrest = -0.05
+	local_defensive = 0.15
+	local_clergy_desired_pop = 0.02
+}
+
+gj_escarcha_silente_nieve_viva = {
+	game_data = {
+		category = location
+	}
+	local_hostile_attrition = 1
+	local_defensive = 0.1
+	local_monthly_prosperity = -0.001
+}

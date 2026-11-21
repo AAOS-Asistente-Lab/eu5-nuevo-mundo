@@ -1,0 +1,251 @@
+﻿# Sorava: 5 edificios propios. Cada uno crece con las eras (el tope de niveles sube al pasar de era)
+# y cada uno tiene un limite claro de lugar. Fuerza por nivel parecida a la del equivalente del juego base.
+
+# 1. Casa de las Especias: el almacen y la lonja de las especias. Solo en centros de mercado.
+gj_sorava_casa_especias = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_sorava_nivel_casa_especias
+
+	category = trade_category
+	employment_size = trade_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	increase_per_level_cost = 0.5
+	build_time = market_build_time
+
+	country_potential = {
+		gj_es_sorava = yes
+	}
+	location_potential = {
+		is_market_center = yes
+	}
+	remove_if = {
+		location = { is_market_center = no }
+	}
+
+	modifier = {
+		local_merchant_capacity = 0.75
+		local_merchant_power = 0.25
+		local_pepper_output_modifier = 0.05
+	}
+
+	market_center_modifier = {
+		maximum_stockpile_capacity = 10
+	}
+
+	unique_production_methods = {
+		gj_sorava_casa_especias_mantenimiento = {
+			icon_type = building_type
+			icon = funduq
+			paper = 0.1
+			masonry = 0.1
+			wine = 0.02
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = market_center_building_construction
+}
+
+# 2. Banco de Perlas: viveros y lonjas de buceo. Solo en puertos donde hay perlas o pesca.
+gj_sorava_banco_de_perlas = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_sorava_nivel_banco_de_perlas
+
+	category = trade_category
+	employment_size = trade_employment
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	increase_per_level_cost = 0.5
+	build_time = guild_build_time
+
+	country_potential = {
+		gj_es_sorava = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+	allow = {
+		OR = {
+			raw_material = goods:pearls
+			raw_material = goods:fish
+		}
+	}
+
+	modifier = {
+		local_pearls_output_modifier = 0.15
+		local_fish_output_modifier = 0.1
+		local_merchant_capacity = 0.25
+	}
+
+	unique_production_methods = {
+		gj_sorava_banco_de_perlas_mantenimiento = {
+			icon_type = building_type
+			icon = dock
+			lumber = 0.1
+			cloth = 0.05
+			tools = 0.05
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = guild_construction
+}
+
+# 3. Atalaya del Estrecho: faro, aduana y cuartel de pilotos. Solo en puertos; el tope de niveles es el mas bajo.
+gj_sorava_atalaya_del_estrecho = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = gj_sorava_nivel_atalaya
+
+	category = naval_category
+	employment_size = dock_employment
+
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	increase_per_level_cost = 0.75
+	build_time = medium_port_building_time
+
+	country_potential = {
+		gj_es_sorava = yes
+	}
+	location_potential = {
+		is_port = yes
+	}
+
+	modifier = {
+		local_trade_protection_factor = 0.1
+		local_defensive = 0.1
+		building_owner_maritime_presence = 0.05
+	}
+
+	unique_production_methods = {
+		gj_sorava_atalaya_mantenimiento = {
+			icon_type = building_type
+			icon = dock
+			masonry = 0.15
+			tar = 0.1
+			naval_supplies = 0.05
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = port_building_construction
+}
+
+# 4. Sala de las Balanzas: donde las Casas registran y juran sus contratos. Solo en ciudades;
+# en la capital, ademas, da un bono al pais.
+gj_sorava_sala_de_balanzas = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_sorava_nivel_sala_de_balanzas
+
+	category = cultural_category
+	employment_size = cultural_employment
+
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	increase_per_level_cost = 0.5
+	build_time = cultural_building_time
+	AI_ignore_available_worker_flag = yes
+
+	country_potential = {
+		gj_es_sorava = yes
+	}
+	allow = {
+		is_core_of = owner
+	}
+
+	modifier = {
+		local_burghers_estate_power = 0.05
+		local_institution_growth_modifier = 0.1
+		local_monthly_literacy = 0.02
+	}
+
+	capital_country_modifier = {
+		tariff_income = 0.02
+		improve_relation_impact = 0.03
+	}
+
+	unique_production_methods = {
+		gj_sorava_sala_de_balanzas_mantenimiento = {
+			icon_type = building_type
+			icon = library
+			paper = 0.15
+			books = 0.05
+			beeswax = 0.03
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = library_construction
+}
+
+# 5. Posta de Caravanas: el camino de las especias hacia el interior. Solo lejos de la costa,
+# y es lo que permite propagar el control por el interior.
+gj_sorava_posta_de_caravanas = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_sorava_nivel_posta_de_caravanas
+
+	category = trade_category
+	employment_size = trade_employment
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+
+	increase_per_level_cost = 0.5
+	build_time = guild_build_time
+
+	country_potential = {
+		gj_es_sorava = yes
+	}
+	location_potential = {
+		is_coastal = no
+	}
+
+	modifier = {
+		local_trades_per_burgher = 0.05
+		local_monthly_control = 0.001
+		local_supply_limit_modifier = 0.1
+	}
+
+	unique_production_methods = {
+		gj_sorava_posta_mantenimiento = {
+			icon_type = building_type
+			icon = entrepot
+			lumber = 0.1
+			leather = 0.05
+			livestock = 0.05
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = guild_construction
+}

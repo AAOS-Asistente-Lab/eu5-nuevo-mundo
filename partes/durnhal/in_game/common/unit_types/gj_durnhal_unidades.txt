@@ -1,0 +1,389 @@
+# Unidades propias de Durnhal: tres cadenas, una version por era (a_gj_durnhal_<tipo>_<era>).
+
+a_gj_durnhal_rompeescudos_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_rompeescudos_2
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	movement_speed = -0.15
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag heavy_tag }
+}
+
+a_gj_durnhal_rompeescudos_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_rompeescudos_3
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	movement_speed = -0.15
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag heavy_tag }
+}
+
+a_gj_durnhal_rompeescudos_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_rompeescudos_4
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	movement_speed = -0.15
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag heavy_tag }
+}
+
+a_gj_durnhal_rompeescudos_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_rompeescudos_5
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	movement_speed = -0.15
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag heavy_tag }
+}
+
+a_gj_durnhal_rompeescudos_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_rompeescudos_6
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	movement_speed = -0.15
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag heavy_tag }
+}
+
+a_gj_durnhal_rompeescudos_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	movement_speed = -0.15
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.10
+	}
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag heavy_tag }
+}
+
+a_gj_durnhal_tirador_1 = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_tirador_2
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.15
+	}
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_durnhal_tirador_2 = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_tirador_3
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.15
+	}
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_durnhal_tirador_3 = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_tirador_4
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.15
+	}
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_durnhal_tirador_4 = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_tirador_5
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.15
+	}
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_durnhal_tirador_5 = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_tirador_6
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.15
+	}
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_durnhal_tirador_6 = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+	buildable = yes
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = num_provinces
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.10
+	combat = {
+		mountains = 0.10
+		hills = 0.10
+		flatland = -0.15
+	}
+	gfx_tags = { archer_tag light_tag }
+}
+
+a_gj_durnhal_bombarda_1 = {
+	copy_from = a_age_1_traditions_artillery
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_bombarda_2
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = 4
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	movement_speed = -0.20
+	strength_damage_taken = 0.10
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag }
+}
+
+a_gj_durnhal_bombarda_2 = {
+	copy_from = a_age_2_renaissance_artillery
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_bombarda_3
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = 4
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	movement_speed = -0.20
+	strength_damage_taken = 0.10
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag }
+}
+
+a_gj_durnhal_bombarda_3 = {
+	copy_from = a_age_3_discovery_artillery
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_bombarda_4
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = 4
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	movement_speed = -0.20
+	strength_damage_taken = 0.10
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag }
+}
+
+a_gj_durnhal_bombarda_4 = {
+	copy_from = a_age_4_reformation_artillery
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_bombarda_5
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = 4
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	movement_speed = -0.20
+	strength_damage_taken = 0.10
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag }
+}
+
+a_gj_durnhal_bombarda_5 = {
+	copy_from = a_age_5_absolutism_artillery
+	is_special = yes
+	buildable = yes
+	upgrades_to_only = a_gj_durnhal_bombarda_6
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = 4
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	movement_speed = -0.20
+	strength_damage_taken = 0.10
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag }
+}
+
+a_gj_durnhal_bombarda_6 = {
+	copy_from = a_age_6_revolutions_artillery
+	is_special = yes
+	buildable = yes
+	country_potential = { gj_es_durnhal = yes }
+	limit = {
+		value = {
+			value = 4
+			desc = "SUBUNIT_LIMIT_BASE"
+		}
+	}
+	strength_damage_done = 0.10
+	movement_speed = -0.20
+	strength_damage_taken = 0.10
+	build_time_modifier = 0.25
+	gfx_tags = { medium_tag }
+}
+

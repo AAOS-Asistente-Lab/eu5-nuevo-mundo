@@ -1,0 +1,37 @@
+﻿# Ganchos de los Espiritus del Lago.
+# [a probar] que el motor FUNDA estas entradas con las del juego base (on_game_start ya esta repartida en dos ficheros del base).
+
+# Al empezar: la religion queda marcada para poder invocar presagios.
+# Cuerpo del gancho on_game_start, movido aqui por funde-partes.mjs (lo engancha gj_integracion_on_actions.txt).
+gj_espiritus_lago_on_game_start = {
+	effect = {
+		religion:gj_espiritus_lago = {
+			set_variable = { name = gj_espiritus_lago_has_omens value = 1 }
+		}
+	}
+}
+
+# Cada ano: la lectura del hielo, y de vez en cuando un suceso del lago.
+# yearly_country_pulse: lo engancha gj_integracion_on_actions.txt (gj_espiritus_lago_pulso_anual).
+
+gj_espiritus_lago_pulso_anual = {
+	trigger = {
+		religion = religion:gj_espiritus_lago
+	}
+
+	events = {
+		gj_espiritus_lago.1
+	}
+
+	random_events = {
+		chance_to_happen = 30
+		100 = gj_espiritus_lago.2
+		100 = gj_espiritus_lago.3
+		100 = gj_espiritus_lago.4
+		100 = gj_espiritus_lago.5
+		100 = gj_espiritus_lago.6
+		100 = gj_espiritus_lago.7
+		100 = gj_espiritus_lago.8
+		60 = gj_espiritus_lago.9
+	}
+}

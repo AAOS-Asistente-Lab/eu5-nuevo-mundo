@@ -1,0 +1,5 @@
+﻿colors = {
+	map_gj_lagunero = rgb { 70 160 190 }
+	gj_lagunas_color_pais = rgb { 52 138 176 }
+	gj_lagunas_color_pais2 = rgb { 225 205 130 }
+}

@@ -1,0 +1,373 @@
+﻿# Focos religiosos del Sol Blanco (como avances, pero de religion). 8 focos; el ultimo exige tres de los anteriores.
+# El avance mensual suma lo base, el poder de la corona, el gobernante y una deriva propia: estar cerca del equilibrio (yanantin entre -25 y 25) acelera todos los focos.
+
+gj_sol_blanco_foco_calendario = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "gj_sol_blanco_deriva_equilibrio"
+			value = 0
+			if = {
+				limit = {
+					yanantin > -25
+					yanantin < 25
+				}
+				add = 0.05
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		stability_cost_efficiency = -0.05
+	}
+
+	modifier_on_completion = {
+		monthly_prestige = 0.05
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+gj_sol_blanco_foco_terrazas = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "gj_sol_blanco_deriva_equilibrio"
+			value = 0
+			if = {
+				limit = {
+					yanantin > -25
+					yanantin < 25
+				}
+				add = 0.05
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		global_construction_speed = -0.05
+	}
+
+	modifier_on_completion = {
+		global_population_capacity_modifier = 0.03
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+gj_sol_blanco_foco_cuerdas = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "gj_sol_blanco_deriva_equilibrio"
+			value = 0
+			if = {
+				limit = {
+					yanantin > -25
+					yanantin < 25
+				}
+				add = 0.05
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		tax_income_efficiency = -0.05
+	}
+
+	modifier_on_completion = {
+		tax_income_efficiency = 0.05
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+gj_sol_blanco_foco_zenit = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "gj_sol_blanco_deriva_equilibrio"
+			value = 0
+			if = {
+				limit = {
+					yanantin > -25
+					yanantin < 25
+				}
+				add = 0.05
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		land_morale_modifier = -0.05
+	}
+
+	modifier_on_completion = {
+		army_movement_speed = 0.05
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+gj_sol_blanco_foco_hilanderia = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "gj_sol_blanco_deriva_equilibrio"
+			value = 0
+			if = {
+				limit = {
+					yanantin > -25
+					yanantin < 25
+				}
+				add = 0.05
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		diplomatic_capacity_modifier = -0.05
+	}
+
+	modifier_on_completion = {
+		trade_range_modifier = 0.1
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+gj_sol_blanco_foco_ayuno = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "gj_sol_blanco_deriva_equilibrio"
+			value = 0
+			if = {
+				limit = {
+					yanantin > -25
+					yanantin < 25
+				}
+				add = 0.05
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		global_food_capacity_modifier = -0.03
+	}
+
+	modifier_on_completion = {
+		global_separatism = -0.05
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+gj_sol_blanco_foco_vigilia = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "gj_sol_blanco_deriva_equilibrio"
+			value = 0
+			if = {
+				limit = {
+					yanantin > -25
+					yanantin < 25
+				}
+				add = 0.05
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		monthly_prestige = -0.05
+	}
+
+	modifier_on_completion = {
+		monthly_legitimacy = 0.1
+	}
+	effect_on_completion = {
+		set_variable = gj_sol_blanco_vigilia_eclipse
+		custom_tooltip = {
+			text = gj_sol_blanco_foco_vigilia_tt
+		}
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+gj_sol_blanco_foco_concordia = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "gj_sol_blanco_deriva_equilibrio"
+			value = 0
+			if = {
+				limit = {
+					yanantin > -25
+					yanantin < 25
+				}
+				add = 0.05
+			}
+		}
+	}
+
+	allow = {
+		has_completed_religious_focus = gj_sol_blanco_foco_calendario
+		has_completed_religious_focus = gj_sol_blanco_foco_terrazas
+		has_completed_religious_focus = gj_sol_blanco_foco_vigilia
+	}
+
+	modifier_while_progressing = {
+		stability_cost_efficiency = -0.05
+	}
+
+	modifier_on_completion = {
+		global_monthly_control = 0.0005
+	}
+	effect_on_completion = {
+		add_legitimacy = legitimacy_severe_bonus
+		custom_tooltip = {
+			text = gj_sol_blanco_foco_concordia_tt
+		}
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}

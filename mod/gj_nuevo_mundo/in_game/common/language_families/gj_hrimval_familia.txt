@@ -1,0 +1,3 @@
+﻿gj_familia_insepulta = {
+	color = gj_hrimval_mapa_familia_insepulta
+}

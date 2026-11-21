@@ -1,0 +1,947 @@
+﻿namespace = gj_minores_sur
+
+# ---------------------------------------------------------------------------
+# Eventos de los menores del sur. Diez por estilo (ciudad, selva, marca) y uno por cultura.
+#   Ciudad (brazalmi, ondani): .1 a .10, y los de cultura .31 y .32
+#   Selva (yorumbi, pakhuni): .11 a .19, .20 (lo lanza la decision de la crecida), y los de cultura .36 y .37
+#   Marca (halcori, tirnauki, sotolari): .21 a .30, y los de cultura .33, .34 y .35
+# Los lanza el pulso anual de gj_minores_sur_on_actions.txt. Ningun evento nombra etiquetas ni locations.
+# ---------------------------------------------------------------------------
+
+# =========================== CIUDAD ===========================
+
+# .1 La campana del concejo
+gj_minores_sur.1 = {
+	type = country_event
+	title = gj_minores_sur.1.title
+	desc = gj_minores_sur.1.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+	}
+	option = {
+		name = gj_minores_sur.1.a
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_legitimacy = legitimacy_weak_penalty
+	}
+	option = {
+		name = gj_minores_sur.1.b
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# .2 El pregon del puerto
+gj_minores_sur.2 = {
+	type = country_event
+	title = gj_minores_sur.2.title
+	desc = gj_minores_sur.2.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+		at_war = no
+	}
+	option = {
+		name = gj_minores_sur.2.a
+		change_gold_effect = { scale = 3 }
+	}
+	option = {
+		name = gj_minores_sur.2.b
+		add_country_modifier = { modifier = gj_minores_sur_pregon_fresco years = 8 mode = add_and_extend }
+	}
+}
+
+# .3 Se secan los aljibes
+gj_minores_sur.3 = {
+	type = country_event
+	title = gj_minores_sur.3.title
+	desc = gj_minores_sur.3.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+		any_owned_location = { is_port = yes }
+	}
+	option = {
+		name = gj_minores_sur.3.a
+		change_gold_effect = { scale = -2 }
+		random_owned_location = {
+			limit = { is_port = yes }
+			add_location_modifier = { modifier = gj_minores_sur_cisterna_nueva years = 30 mode = add_and_extend }
+		}
+	}
+	option = {
+		name = gj_minores_sur.3.b
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .4 Los capitanes sin patente
+gj_minores_sur.4 = {
+	type = country_event
+	title = gj_minores_sur.4.title
+	desc = gj_minores_sur.4.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+		any_owned_location = { is_port = yes }
+	}
+	option = {
+		name = gj_minores_sur.4.a
+		change_gold_effect = { scale = -2 }
+		add_navy_tradition = navy_tradition_mild_bonus
+	}
+	option = {
+		name = gj_minores_sur.4.b
+		change_gold_effect = { scale = 2 }
+		add_country_modifier = { modifier = gj_minores_sur_puerto_sin_patente years = 6 mode = add_and_extend }
+	}
+}
+
+# .5 El año de la Gran Lonja
+gj_minores_sur.5 = {
+	type = country_event
+	title = gj_minores_sur.5.title
+	desc = gj_minores_sur.5.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+		current_age_or_later = { age = age_2_renaissance }
+		at_war = no
+	}
+	option = {
+		name = gj_minores_sur.5.a
+		add_country_modifier = { modifier = gj_minores_sur_gran_lonja years = 10 mode = add }
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .6 El muro nuevo
+gj_minores_sur.6 = {
+	type = country_event
+	title = gj_minores_sur.6.title
+	desc = gj_minores_sur.6.desc
+	outcome = neutral
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+		current_age_or_later = { age = age_3_discovery }
+	}
+	option = {
+		name = gj_minores_sur.6.a
+		change_gold_effect = { scale = -3 }
+		random_owned_location = {
+			limit = { is_port = yes }
+			add_location_modifier = { modifier = gj_minores_sur_atalaya_encendida years = 40 mode = add }
+		}
+	}
+	option = {
+		name = gj_minores_sur.6.b
+		change_gold_effect = { scale = -2 }
+		add_navy_tradition = navy_tradition_weak_bonus
+	}
+}
+
+# .7 Sobornos en la aduana
+gj_minores_sur.7 = {
+	type = country_event
+	title = gj_minores_sur.7.title
+	desc = gj_minores_sur.7.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+	}
+	option = {
+		name = gj_minores_sur.7.a
+		change_gold_effect = { scale = -1 }
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_minores_sur.7.b
+		change_gold_effect = { scale = 2 }
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+# .8 Los gremios piden voz
+gj_minores_sur.8 = {
+	type = country_event
+	title = gj_minores_sur.8.title
+	desc = gj_minores_sur.8.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+	option = {
+		name = gj_minores_sur.8.a
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_country_modifier = { modifier = gj_minores_sur_gremios_contentos years = 10 mode = add_and_extend }
+		add_political_influence = political_influence_weak_penalty
+	}
+	option = {
+		name = gj_minores_sur.8.b
+		add_political_influence = political_influence_weak_bonus
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# .9 Fiebres del muelle
+gj_minores_sur.9 = {
+	type = country_event
+	title = gj_minores_sur.9.title
+	desc = gj_minores_sur.9.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+		any_owned_location = { is_port = yes }
+	}
+	option = {
+		name = gj_minores_sur.9.a
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_minores_sur_cuarentena years = 5 mode = add_and_extend }
+	}
+	option = {
+		name = gj_minores_sur.9.b
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .10 Un huesped de lejos
+gj_minores_sur.10 = {
+	type = country_event
+	title = gj_minores_sur.10.title
+	desc = gj_minores_sur.10.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_ciudad = yes
+		current_age_or_later = { age = age_3_discovery }
+	}
+	option = {
+		name = gj_minores_sur.10.a
+		add_research_progress = research_progress_mild_bonus
+	}
+	option = {
+		name = gj_minores_sur.10.b
+		add_prestige = prestige_mild_bonus
+		change_gold_effect = { scale = 1 }
+	}
+}
+
+# =========================== SELVA ===========================
+
+# .11 La crecida del gran rio
+gj_minores_sur.11 = {
+	type = country_event
+	title = gj_minores_sur.11.title
+	desc = gj_minores_sur.11.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+	}
+	option = {
+		name = gj_minores_sur.11.a
+		add_country_modifier = { modifier = gj_minores_sur_limo_fertil years = 5 mode = add_and_extend }
+		add_stability = stability_weak_penalty
+	}
+	option = {
+		name = gj_minores_sur.11.b
+		change_gold_effect = { scale = -2 }
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .12 El tambor de los vados
+gj_minores_sur.12 = {
+	type = country_event
+	title = gj_minores_sur.12.title
+	desc = gj_minores_sur.12.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+	}
+	option = {
+		name = gj_minores_sur.12.a
+		add_legitimacy = legitimacy_mild_bonus
+		change_gold_effect = { scale = -1 }
+	}
+	option = {
+		name = gj_minores_sur.12.b
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# .13 La caza de la pantera de ceniza
+gj_minores_sur.13 = {
+	type = country_event
+	title = gj_minores_sur.13.title
+	desc = gj_minores_sur.13.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+	}
+	option = {
+		name = gj_minores_sur.13.a
+		add_army_tradition = army_tradition_mild_bonus
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_minores_sur.13.b
+		change_gold_effect = { scale = 3 }
+	}
+}
+
+# .14 La curandera de las orillas
+gj_minores_sur.14 = {
+	type = country_event
+	title = gj_minores_sur.14.title
+	desc = gj_minores_sur.14.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+	}
+	option = {
+		name = gj_minores_sur.14.a
+		add_country_modifier = { modifier = gj_minores_sur_remedios_de_la_orilla years = 15 mode = add_and_extend }
+		change_gold_effect = { scale = -1 }
+	}
+	option = {
+		name = gj_minores_sur.14.b
+		add_research_progress = research_progress_weak_bonus
+	}
+}
+
+# .15 Fuego en el claro
+gj_minores_sur.15 = {
+	type = country_event
+	title = gj_minores_sur.15.title
+	desc = gj_minores_sur.15.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+		any_owned_location = { development >= 3 }
+	}
+	option = {
+		name = gj_minores_sur.15.a
+		random_owned_location = {
+			limit = { development >= 3 }
+			add_location_modifier = { modifier = gj_minores_sur_ceniza_fertil years = 15 mode = add_and_extend }
+		}
+	}
+	option = {
+		name = gj_minores_sur.15.b
+		add_stability = stability_weak_bonus
+		change_gold_effect = { scale = -1 }
+	}
+}
+
+# .16 Dos clanes y un vado
+gj_minores_sur.16 = {
+	type = country_event
+	title = gj_minores_sur.16.title
+	desc = gj_minores_sur.16.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+		at_war = no
+	}
+	option = {
+		name = gj_minores_sur.16.a
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_penalty }
+	}
+	option = {
+		name = gj_minores_sur.16.b
+		add_army_tradition = army_tradition_weak_bonus
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+# .17 La balsa de los mercaderes
+gj_minores_sur.17 = {
+	type = country_event
+	title = gj_minores_sur.17.title
+	desc = gj_minores_sur.17.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+	}
+	option = {
+		name = gj_minores_sur.17.a
+		change_gold_effect = { scale = 3 }
+	}
+	option = {
+		name = gj_minores_sur.17.b
+		add_country_modifier = { modifier = gj_minores_sur_vados_en_paz years = 8 mode = add_and_extend }
+	}
+}
+
+# .18 La fiesta de los clanes
+gj_minores_sur.18 = {
+	type = country_event
+	title = gj_minores_sur.18.title
+	desc = gj_minores_sur.18.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+		at_war = no
+	}
+	option = {
+		name = gj_minores_sur.18.a
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_minores_sur_festin_de_clanes years = 6 mode = add_and_extend }
+	}
+	option = {
+		name = gj_minores_sur.18.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+# .19 Los ancianos recuerdan
+gj_minores_sur.19 = {
+	type = country_event
+	title = gj_minores_sur.19.title
+	desc = gj_minores_sur.19.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+		current_age_or_later = { age = age_3_discovery }
+	}
+	option = {
+		name = gj_minores_sur.19.a
+		add_research_progress = research_progress_mild_bonus
+	}
+	option = {
+		name = gj_minores_sur.19.b
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .20 La crecida convocada (lo lanza la decision; no esta en el pulso anual)
+gj_minores_sur.20 = {
+	type = country_event
+	title = gj_minores_sur.20.title
+	desc = gj_minores_sur.20.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_selva = yes
+	}
+	option = {
+		name = gj_minores_sur.20.a
+		add_country_modifier = { modifier = gj_minores_sur_limo_fertil years = 6 mode = add_and_extend }
+	}
+	option = {
+		name = gj_minores_sur.20.b
+		change_gold_effect = { scale = 2 }
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+# =========================== MARCA ===========================
+
+# .21 El tributo de la cosecha
+gj_minores_sur.21 = {
+	type = country_event
+	title = gj_minores_sur.21.title
+	desc = gj_minores_sur.21.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+	}
+	option = {
+		name = gj_minores_sur.21.a
+		change_gold_effect = { scale = -2 }
+		add_legitimacy = legitimacy_mild_bonus
+	}
+	option = {
+		name = gj_minores_sur.21.b
+		change_gold_effect = { scale = 1 }
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .22 El mensajero del señor
+gj_minores_sur.22 = {
+	type = country_event
+	title = gj_minores_sur.22.title
+	desc = gj_minores_sur.22.desc
+	outcome = neutral
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+	}
+	option = {
+		name = gj_minores_sur.22.a
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_minores_sur_mensajero_bien_tratado years = 8 mode = add_and_extend }
+	}
+	option = {
+		name = gj_minores_sur.22.b
+		add_prestige = prestige_weak_penalty
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .23 La atalaya sin relevo
+gj_minores_sur.23 = {
+	type = country_event
+	title = gj_minores_sur.23.title
+	desc = gj_minores_sur.23.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+	}
+	option = {
+		name = gj_minores_sur.23.a
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_minores_sur_guarnicion_alerta years = 6 mode = add_and_extend }
+	}
+	option = {
+		name = gj_minores_sur.23.b
+		add_army_tradition = army_tradition_weak_penalty
+	}
+}
+
+# .24 Bodas de frontera
+gj_minores_sur.24 = {
+	type = country_event
+	title = gj_minores_sur.24.title
+	desc = gj_minores_sur.24.desc
+	outcome = positive
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+		at_war = no
+	}
+	option = {
+		name = gj_minores_sur.24.a
+		add_legitimacy = legitimacy_mild_bonus
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_minores_sur.24.b
+		change_gold_effect = { scale = 2 }
+	}
+}
+
+# .25 El paso en la niebla
+gj_minores_sur.25 = {
+	type = country_event
+	title = gj_minores_sur.25.title
+	desc = gj_minores_sur.25.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+	}
+	option = {
+		name = gj_minores_sur.25.a
+		change_gold_effect = { scale = -2 }
+		add_army_tradition = army_tradition_weak_bonus
+	}
+	option = {
+		name = gj_minores_sur.25.b
+		change_gold_effect = { scale = 1 }
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .26 Ladrones de ganado
+gj_minores_sur.26 = {
+	type = country_event
+	title = gj_minores_sur.26.title
+	desc = gj_minores_sur.26.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+	}
+	option = {
+		name = gj_minores_sur.26.a
+		add_army_tradition = army_tradition_mild_bonus
+		change_gold_effect = { scale = -1 }
+	}
+	option = {
+		name = gj_minores_sur.26.b
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_penalty }
+		change_gold_effect = { scale = 1 }
+	}
+}
+
+# .27 El juramento renovado
+gj_minores_sur.27 = {
+	type = country_event
+	title = gj_minores_sur.27.title
+	desc = gj_minores_sur.27.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+	option = {
+		name = gj_minores_sur.27.a
+		add_country_modifier = { modifier = gj_minores_sur_juramento_renovado years = 12 mode = add }
+	}
+}
+
+# .28 El cartografo del señor
+gj_minores_sur.28 = {
+	type = country_event
+	title = gj_minores_sur.28.title
+	desc = gj_minores_sur.28.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+		current_age_or_later = { age = age_3_discovery }
+	}
+	option = {
+		name = gj_minores_sur.28.a
+		add_research_progress = research_progress_mild_bonus
+	}
+	option = {
+		name = gj_minores_sur.28.b
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .29 Rebeldes en la ladera
+gj_minores_sur.29 = {
+	type = country_event
+	title = gj_minores_sur.29.title
+	desc = gj_minores_sur.29.desc
+	outcome = negative
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+		at_war = no
+	}
+	option = {
+		name = gj_minores_sur.29.a
+		add_country_modifier = { modifier = gj_minores_sur_ladera_amnistiada years = 6 mode = add_and_extend }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+	option = {
+		name = gj_minores_sur.29.b
+		add_army_tradition = army_tradition_weak_bonus
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .30 La hora de la independencia
+gj_minores_sur.30 = {
+	type = country_event
+	title = gj_minores_sur.30.title
+	desc = gj_minores_sur.30.desc
+	outcome = neutral
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+	trigger = {
+		gj_minores_sur_estilo_marca = yes
+		current_age_or_later = { age = age_4_reformation }
+	}
+	option = {
+		name = gj_minores_sur.30.a
+		add_legitimacy = legitimacy_mild_bonus
+		add_prestige = prestige_weak_penalty
+	}
+	option = {
+		name = gj_minores_sur.30.b
+		add_manpower = { value = root.monthly_manpower multiply = 3 }
+		add_stability = stability_weak_penalty
+	}
+}
+
+# =========================== CULTURA (uno por cultura) ===========================
+
+# .31 Brazalmi: las Siete Rampas
+gj_minores_sur.31 = {
+	type = country_event
+	title = gj_minores_sur.31.title
+	desc = gj_minores_sur.31.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		culture = culture:gj_brazalmi
+	}
+	option = {
+		name = gj_minores_sur.31.a
+		add_country_modifier = { modifier = gj_minores_sur_siete_rampas years = 15 mode = add }
+	}
+	option = {
+		name = gj_minores_sur.31.b
+		add_prestige = prestige_mild_bonus
+		change_gold_effect = { scale = 2 }
+	}
+}
+
+# .32 Ondani: el canto de la marea alta
+gj_minores_sur.32 = {
+	type = country_event
+	title = gj_minores_sur.32.title
+	desc = gj_minores_sur.32.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		culture = culture:gj_ondani
+	}
+	option = {
+		name = gj_minores_sur.32.a
+		add_country_modifier = { modifier = gj_minores_sur_marea_alta years = 12 mode = add }
+		add_navy_tradition = navy_tradition_weak_bonus
+	}
+	option = {
+		name = gj_minores_sur.32.b
+		change_gold_effect = { scale = 3 }
+	}
+}
+
+# .33 Halcori: la cadena del cabo
+gj_minores_sur.33 = {
+	type = country_event
+	title = gj_minores_sur.33.title
+	desc = gj_minores_sur.33.desc
+	outcome = neutral
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		culture = culture:gj_halcori
+	}
+	option = {
+		name = gj_minores_sur.33.a
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_minores_sur_cadena_del_cabo years = 20 mode = add }
+	}
+	option = {
+		name = gj_minores_sur.33.b
+		add_navy_tradition = navy_tradition_mild_bonus
+	}
+}
+
+# .34 Tirnauki: la procesion de las terrazas
+gj_minores_sur.34 = {
+	type = country_event
+	title = gj_minores_sur.34.title
+	desc = gj_minores_sur.34.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		culture = culture:gj_tirnauki
+	}
+	option = {
+		name = gj_minores_sur.34.a
+		add_country_modifier = { modifier = gj_minores_sur_procesion_de_terrazas years = 10 mode = add }
+	}
+	option = {
+		name = gj_minores_sur.34.b
+		add_stability = stability_mild_bonus
+		change_gold_effect = { scale = -1 }
+	}
+}
+
+# .35 Sotolari: el claro del cuervo
+gj_minores_sur.35 = {
+	type = country_event
+	title = gj_minores_sur.35.title
+	desc = gj_minores_sur.35.desc
+	outcome = neutral
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		culture = culture:gj_sotolari
+	}
+	option = {
+		name = gj_minores_sur.35.a
+		add_country_modifier = { modifier = gj_minores_sur_claro_del_cuervo years = 15 mode = add }
+	}
+	option = {
+		name = gj_minores_sur.35.b
+		add_army_tradition = army_tradition_mild_bonus
+	}
+}
+
+# .36 Yorumbi: el nombre del rio
+gj_minores_sur.36 = {
+	type = country_event
+	title = gj_minores_sur.36.title
+	desc = gj_minores_sur.36.desc
+	outcome = positive
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		culture = culture:gj_yorumbi
+	}
+	option = {
+		name = gj_minores_sur.36.a
+		add_country_modifier = { modifier = gj_minores_sur_nombre_del_rio years = 12 mode = add }
+	}
+	option = {
+		name = gj_minores_sur.36.b
+		add_prestige = prestige_mild_bonus
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .37 Pakhuni: la ceniza de los abuelos
+gj_minores_sur.37 = {
+	type = country_event
+	title = gj_minores_sur.37.title
+	desc = gj_minores_sur.37.desc
+	outcome = neutral
+	fire_only_once = yes
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+	trigger = {
+		culture = culture:gj_pakhuni
+	}
+	option = {
+		name = gj_minores_sur.37.a
+		add_country_modifier = { modifier = gj_minores_sur_ceniza_de_los_abuelos years = 15 mode = add }
+	}
+	option = {
+		name = gj_minores_sur.37.b
+		add_army_tradition = army_tradition_mild_bonus
+		add_stability = stability_weak_penalty
+	}
+}

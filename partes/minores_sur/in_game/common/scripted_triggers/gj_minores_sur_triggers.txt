@@ -1,0 +1,32 @@
+# Menores del sur: tres estilos, y cada estilo se reconoce por la cultura del pais (sin etiquetas).
+# Ciudad: brazalmi y ondani. Selva: yorumbi y pakhuni. Marca: halcori, tirnauki y sotolari.
+
+gj_minores_sur_estilo_ciudad = {
+	OR = {
+		culture = culture:gj_brazalmi
+		culture = culture:gj_ondani
+	}
+}
+
+gj_minores_sur_estilo_selva = {
+	OR = {
+		culture = culture:gj_yorumbi
+		culture = culture:gj_pakhuni
+	}
+}
+
+gj_minores_sur_estilo_marca = {
+	OR = {
+		culture = culture:gj_halcori
+		culture = culture:gj_tirnauki
+		culture = culture:gj_sotolari
+	}
+}
+
+gj_minores_sur_es_menor = {
+	OR = {
+		gj_minores_sur_estilo_ciudad = yes
+		gj_minores_sur_estilo_selva = yes
+		gj_minores_sur_estilo_marca = yes
+	}
+}

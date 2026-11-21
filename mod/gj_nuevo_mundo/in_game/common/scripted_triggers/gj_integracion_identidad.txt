@@ -1,0 +1,85 @@
+﻿# GJ Nuevo Mundo, integracion: quien es cada faccion (CONTRATO-PARTES §4). GENERADO por funde-partes.mjs.
+
+gj_es_ostrevar = {
+	OR = {
+		has_variable = gj_faccion_ostrevar
+		gj_ostrevar_tag_inicial = yes
+	}
+}
+
+gj_es_ankaru = {
+	OR = {
+		has_variable = gj_faccion_ankaru
+		gj_ankaru_tag_inicial = yes
+	}
+}
+
+gj_es_orunmar = {
+	OR = {
+		has_variable = gj_faccion_orunmar
+		gj_orunmar_tag_inicial = yes
+	}
+}
+
+gj_es_durnhal = {
+	OR = {
+		has_variable = gj_faccion_durnhal
+		gj_durnhal_tag_inicial = yes
+	}
+}
+
+gj_es_kaivan = {
+	OR = {
+		has_variable = gj_faccion_kaivan
+		gj_kaivan_tag_inicial = yes
+	}
+}
+
+gj_es_hrimval = {
+	OR = {
+		has_variable = gj_faccion_hrimval
+		gj_hrimval_tag_inicial = yes
+	}
+}
+
+gj_es_skarren = {
+	OR = {
+		has_variable = gj_faccion_skarren
+		gj_skarren_tag_inicial = yes
+	}
+}
+
+gj_es_lagunas = {
+	OR = {
+		has_variable = gj_faccion_lagunas
+		gj_lagunas_tag_inicial = yes
+	}
+}
+
+gj_es_sorava = {
+	OR = {
+		has_variable = gj_faccion_sorava
+		gj_sorava_tag_inicial = yes
+	}
+}
+
+gj_es_thalassar = {
+	OR = {
+		has_variable = gj_faccion_thalassar
+		gj_thalassar_tag_inicial = yes
+	}
+}
+
+gj_es_marea_negra = {
+	OR = {
+		has_variable = gj_faccion_marea_negra
+		gj_marea_negra_tag_inicial = yes
+	}
+}
+
+gj_es_velathi = {
+	OR = {
+		has_variable = gj_faccion_velathi
+		gj_velathi_tag_inicial = yes
+	}
+}

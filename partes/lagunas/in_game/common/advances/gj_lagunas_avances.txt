@@ -1,0 +1,298 @@
+﻿############################
+# Liga de las Mil Lagunas: avances propios (22), de la era 1 a la 6
+# El trigger gj_es_lagunas lo define la integracion.
+############################
+
+############################
+# age_1_traditions
+############################
+gj_lag_barqueros_de_la_orilla = {
+	age = age_1_traditions
+	icon = hol_sailors
+	potential = { gj_es_lagunas = yes }
+
+	global_sailors_modifier = 0.10
+	ship_build_speed = 0.10
+
+	unlock_unit = gj_lag_patrullero_1
+	unlock_building = gj_lag_astillero_barcazas
+
+	requires = ship_building_advance
+}
+
+gj_lag_pesas_y_sellos = {
+	age = age_1_traditions
+	icon = hai_expert_embassadors
+	potential = { gj_es_lagunas = yes }
+
+	global_merchant_capacity_modifier = 0.10
+	trade_income = 0.05
+
+	requires = trade_advance_age_of_trad
+}
+
+gj_lag_mercados_del_hielo = {
+	age = age_1_traditions
+	icon = fla_cloth
+	potential = { gj_es_lagunas = yes }
+
+	trade_land_efficiency = 0.10
+	global_monthly_food_modifier = monthly_food_productivity_mild_bonus
+	global_fish_output_modifier = 0.10
+
+	unlock_building = gj_lag_mercado_flotante
+
+	requires = trade_caravans
+}
+
+gj_lag_primera_asamblea = {
+	age = age_1_traditions
+	icon = utr_city_churches
+	potential = { gj_es_lagunas = yes }
+
+	monthly_republican_tradition = 0.05
+	global_burghers_estate_power = 0.05
+
+	unlock_building = gj_lag_salon_asamblea
+	unlock_unit = gj_lag_ballestero_1
+
+	requires = legalism_advance
+}
+
+############################
+# age_2_renaissance
+############################
+gj_lag_diques_y_esclusas = {
+	age = age_2_renaissance
+	icon = hai_bustling_towns
+	potential = { gj_es_lagunas = yes }
+
+	global_max_rgo_size_modifier = 0.05
+	global_monthly_food_modifier = monthly_food_productivity_mild_bonus
+
+	unlock_building = gj_lag_muelle_barqueros
+
+	requires = pound_lock_canals_advance
+}
+
+gj_lag_cuaderno_de_cuentas = {
+	age = age_2_renaissance
+	icon = gel_healthy_economy
+	potential = { gj_es_lagunas = yes }
+
+	bank_interest = -0.01
+	trade_income = 0.05
+
+	unlock_building = gj_lag_casa_de_pesas
+
+	requires = banking_advance
+}
+
+gj_lag_escoltas_de_caravana = {
+	age = age_2_renaissance
+	icon = lux_fortress_europe
+	potential = { gj_es_lagunas = yes }
+
+	merchant_maintenance_efficiency = 0.25
+	global_trade_protection_factor = 0.10
+
+	unlock_unit = gj_lag_patrullero_2
+	unlock_unit = gj_lag_ballestero_2
+	unlock_unit = gj_lag_barcaza_2
+
+	requires = maritime_advance_age_2
+}
+
+gj_lag_academia_de_tejedores = {
+	age = age_2_renaissance
+	icon = fla_flemish_renaissance
+	potential = { gj_es_lagunas = yes }
+
+	global_cloth_output_modifier = 0.15
+	global_fine_cloth_output_modifier = 0.10
+
+	requires = merchants_and_trade
+}
+
+############################
+# age_3_discovery
+############################
+gj_lag_flota_de_los_lagos = {
+	age = age_3_discovery
+	icon = hol_maritime_warfare
+	potential = { gj_es_lagunas = yes }
+
+	global_sailors_modifier = 0.10
+	naval_morale_modifier = 0.10
+
+	unlock_unit = gj_lag_patrullero_3
+	unlock_unit = gj_lag_ballestero_3
+	unlock_unit = gj_lag_barcaza_3
+
+	requires = ship_building_techniques_discovery
+}
+
+gj_lag_puertos_de_agua_dulce = {
+	age = age_3_discovery
+	icon = hai_bustling_towns
+	potential = { gj_es_lagunas = yes }
+
+	import_efficiency = small_trade_efficiency_bonus
+	export_efficiency = small_trade_efficiency_bonus
+
+	requires = trade_range_advance_age_3
+}
+
+gj_lag_tratado_del_hielo = {
+	age = age_3_discovery
+	icon = utr_skilled_diplomats
+	potential = { gj_es_lagunas = yes }
+
+	diplomatic_reputation = diplomatic_reputation_mild_bonus
+	max_trade_subventions = 0.10
+
+	requires = diplomatic_training
+}
+
+gj_lag_gremios_de_barcaza = {
+	age = age_3_discovery
+	icon = hol_trading_spirit
+	potential = { gj_es_lagunas = yes }
+
+	global_production_efficiency = medium_production_efficiency_bonus
+	global_foreign_build_buildings_efficiency = 0.25
+
+	requires = merchant_power_from_maritime_discovery_advance
+}
+
+############################
+# age_4_reformation
+############################
+gj_lag_la_gran_feria = {
+	age = age_4_reformation
+	icon = a_trading_hub
+	potential = { gj_es_lagunas = yes }
+
+	global_merchant_power = 0.10
+	trade_income = 0.05
+
+	requires = global_trade_advance
+}
+
+gj_lag_cartas_de_corso_lagunar = {
+	age = age_4_reformation
+	icon = frisian_legend_grutte_pier
+	potential = { gj_es_lagunas = yes }
+
+	can_hire_privateers = yes
+	privateer_maintenance_cost_modifier = -0.10
+	anti_piracy_warfare_modifier = 0.20
+
+	requires = letters_of_marque
+}
+
+gj_lag_astilleros_de_dique = {
+	age = age_4_reformation
+	icon = ned_shipbuilding_industry
+	potential = { gj_es_lagunas = yes }
+
+	ship_build_speed = 0.15
+	global_naval_supplies_output_modifier = 0.10
+
+	unlock_unit = gj_lag_patrullero_4
+	unlock_unit = gj_lag_ballestero_4
+	unlock_unit = gj_lag_barcaza_4
+
+	requires = maritime_advance_age_4
+}
+
+gj_lag_jueces_de_aguas = {
+	age = age_4_reformation
+	icon = lie_devoted_land
+	potential = { gj_es_lagunas = yes }
+
+	monthly_legitimacy = 0.05
+	diplomatic_capacity = 1
+
+	requires = crown_power_advance_reformation
+}
+
+############################
+# age_5_absolutism
+############################
+gj_lag_banco_de_la_asamblea = {
+	age = age_5_absolutism
+	icon = a_trading_hub
+	potential = { gj_es_lagunas = yes }
+
+	bank_interest = -0.01
+	global_burghers_estate_power = 0.10
+
+	requires = central_bank_advance
+}
+
+gj_lag_aduana_de_los_lagos = {
+	age = age_5_absolutism
+	icon = hol_trading_spirit
+	potential = { gj_es_lagunas = yes }
+
+	export_efficiency = small_trade_efficiency_bonus
+	trade_income = 0.05
+
+	unlock_unit = gj_lag_patrullero_5
+	unlock_unit = gj_lag_ballestero_5
+	unlock_unit = gj_lag_barcaza_5
+
+	requires = merchant_power_from_maritime_absolutism_advance
+}
+
+gj_lag_tejidos_de_canal = {
+	age = age_5_absolutism
+	icon = an_early_urbanization
+	potential = { gj_es_lagunas = yes }
+
+	global_monthly_development = 0.001
+	global_max_literacy = 3
+
+	requires = manufactories_advance
+}
+
+############################
+# age_6_revolutions
+############################
+gj_lag_la_liga_ilustrada = {
+	age = age_6_revolutions
+	icon = lie_athens_north
+	potential = { gj_es_lagunas = yes }
+
+	research_speed_modifier = 0.05
+	monthly_republican_tradition = 0.05
+
+	requires = enlightenment_advance
+}
+
+gj_lag_aseguradores_del_hielo = {
+	age = age_6_revolutions
+	icon = a_trading_hub
+	potential = { gj_es_lagunas = yes }
+
+	trade_income = 0.05
+	merchant_maintenance_efficiency = 0.25
+
+	unlock_unit = gj_lag_patrullero_6
+	unlock_unit = gj_lag_ballestero_6
+	unlock_unit = gj_lag_barcaza_6
+
+	requires = insurance_companies
+}
+
+gj_lag_el_canal_grande = {
+	age = age_6_revolutions
+	icon = concentration_power
+	potential = { gj_es_lagunas = yes }
+
+	global_pop_promotion_speed_modifier = 0.10
+	global_monthly_development = 0.001
+
+	requires = urbanization
+}

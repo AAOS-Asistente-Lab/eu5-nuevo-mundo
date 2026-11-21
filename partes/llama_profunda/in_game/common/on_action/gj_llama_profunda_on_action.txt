@@ -1,0 +1,36 @@
+﻿# Pulso de la Llama Profunda.
+# Se cuelga del pulso anual de pais del juego base. Se confia en que el motor SUME este bloque al del juego base
+# (como hacen otros motores de Paradox); si lo sustituyera, la integracion debe copiar la linea de on_actions
+# dentro del bloque original. Ver NECESITA.md.
+
+yearly_country_pulse = {
+	on_actions = {
+		gj_llama_profunda_pulso_anual
+	}
+}
+
+gj_llama_profunda_pulso_anual = {
+	# Barato para el resto de paises: solo pasa quien sigue la fe.
+	trigger = {
+		exists = religion
+		religion = religion:gj_llama_profunda
+	}
+
+	events = {
+		gj_llama_profunda.20
+	}
+
+	random_events = {
+		chance_to_happen = 35
+
+		100 = gj_llama_profunda.1
+		150 = gj_llama_profunda.2
+		100 = gj_llama_profunda.3
+		80 = gj_llama_profunda.5
+		70 = gj_llama_profunda.6
+		70 = gj_llama_profunda.7
+		70 = gj_llama_profunda.8
+		100 = gj_llama_profunda.9
+		70 = gj_llama_profunda.10
+	}
+}

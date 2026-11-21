@@ -1,0 +1,21 @@
+﻿gj_cielo_mastil = { # El Mástil del Cielo: un tronco enorme con colas de caballo
+	location_modifier = {
+		local_clergy_desired_pop = 0.03
+		local_monthly_prosperity = 0.001
+		local_max_control = 0.02
+	}
+	country_modifier = {
+		monthly_prestige = 0.03
+	}
+}
+
+gj_cielo_cairn = { # El Cairn de los Nombres: un montón de piedras, una por antepasado
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_max_literacy = 2
+		local_unrest = -0.05
+	}
+	country_modifier = {
+		global_max_literacy = 1
+	}
+}

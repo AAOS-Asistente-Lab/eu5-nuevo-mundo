@@ -1,0 +1,39 @@
+﻿# Efectos automaticos de la Pureza de la Llama Profunda (se suman a los de pureza alta y baja del juego base).
+
+# Pureza por encima de 70: la brasa arde limpia y el hierro sale mejor. Escala hasta pureza 100.
+gj_llama_brasa_limpia = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_llama_profunda
+	}
+	limit = {
+		purity > 70
+	}
+	scales_with = {
+		value = purity
+		subtract = 70
+		multiply = 0.0333
+	}
+
+	global_weaponry_output_modifier = 0.15
+	global_iron_output_modifier = 0.1
+}
+
+# Pureza por debajo de 30: la brasa tose y el fuego de las forjas se vuelve humo. Escala hasta pureza 0.
+gj_llama_brasa_apagada = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_llama_profunda
+	}
+	limit = {
+		purity < 30
+	}
+	scales_with = {
+		value = purity
+		multiply = -0.0333
+		add = 1
+	}
+
+	global_weaponry_output_modifier = -0.15
+	global_production_efficiency = -0.05
+}

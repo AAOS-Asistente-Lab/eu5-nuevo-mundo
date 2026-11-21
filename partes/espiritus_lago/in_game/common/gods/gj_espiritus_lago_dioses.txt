@@ -1,0 +1,149 @@
+# Los cuatro espiritus mayores del lago. Cada uno ofrece tres presagios.
+# Un presagio es un bonus temporal que se invoca con la accion gj_espiritus_lago_select_omen.
+
+# DIP
+gj_espiritus_lago_madre_ahogada_god = {
+	is_female = yes
+	ability = DIP
+
+	religion = {
+		religion = gj_espiritus_lago
+		name_key = gj_espiritus_lago_madre_ahogada_god
+	}
+
+	omens = {
+		gj_espiritus_lago_omen_red_colmada = {
+			god = gj_espiritus_lago_madre_ahogada_god
+
+			country_modifier = {
+				global_fish_output_modifier = 0.2
+				global_merchant_capacity_modifier = 0.1
+			}
+		}
+		gj_espiritus_lago_omen_aguas_hondas = {
+			god = gj_espiritus_lago_madre_ahogada_god
+
+			country_modifier = {
+				naval_morale_modifier = 0.1
+				naval_unit_attrition = -0.15
+			}
+		}
+		gj_espiritus_lago_omen_cuenta_saldada = {
+			god = gj_espiritus_lago_madre_ahogada_god
+
+			country_modifier = {
+				export_efficiency = 0.1
+				import_efficiency = 0.1
+			}
+		}
+	}
+}
+
+# MIL
+gj_espiritus_lago_anciano_hielo_god = {
+	ability = MIL
+
+	religion = {
+		religion = gj_espiritus_lago
+		name_key = gj_espiritus_lago_anciano_hielo_god
+	}
+
+	omens = {
+		gj_espiritus_lago_omen_hielo_firme = {
+			god = gj_espiritus_lago_anciano_hielo_god
+
+			country_modifier = {
+				land_cost_on_frozen_water = -0.5
+				land_unit_attrition = -0.15
+			}
+		}
+		gj_espiritus_lago_omen_escarcha_en_las_cuerdas = {
+			god = gj_espiritus_lago_anciano_hielo_god
+
+			country_modifier = {
+				global_defensive = 0.15
+			}
+		}
+		gj_espiritus_lago_omen_deshielo_tardio = {
+			god = gj_espiritus_lago_anciano_hielo_god
+
+			country_modifier = {
+				global_monthly_food_modifier = monthly_food_productivity_weak_bonus
+				stability_cost_efficiency = 0.1
+			}
+		}
+	}
+}
+
+# MIL
+gj_espiritus_lago_viento_orilla_god = {
+	ability = MIL
+
+	religion = {
+		religion = gj_espiritus_lago
+		name_key = gj_espiritus_lago_viento_orilla_god
+	}
+
+	omens = {
+		gj_espiritus_lago_omen_vela_hinchada = {
+			god = gj_espiritus_lago_viento_orilla_god
+
+			country_modifier = {
+				navy_movement_speed = 0.15
+				naval_range_modifier = 0.1
+			}
+		}
+		gj_espiritus_lago_omen_costa_sin_luz = {
+			god = gj_espiritus_lago_viento_orilla_god
+
+			country_modifier = {
+				amount_looted_modifier = 0.15
+				ship_capture_chance = 0.05
+			}
+		}
+		gj_espiritus_lago_omen_cuervos_de_proa = {
+			god = gj_espiritus_lago_viento_orilla_god
+
+			country_modifier = {
+				naval_damage_done = 0.1
+				monthly_navy_tradition = 0.05
+			}
+		}
+	}
+}
+
+# ADM
+gj_espiritus_lago_senora_niebla_god = {
+	is_female = yes
+	ability = ADM
+
+	religion = {
+		religion = gj_espiritus_lago
+		name_key = gj_espiritus_lago_senora_niebla_god
+	}
+
+	omens = {
+		gj_espiritus_lago_omen_velo_de_bruma = {
+			god = gj_espiritus_lago_senora_niebla_god
+
+			country_modifier = {
+				research_speed_modifier = 0.1
+			}
+		}
+		gj_espiritus_lago_omen_voz_bajo_el_hielo = {
+			god = gj_espiritus_lago_senora_niebla_god
+
+			country_modifier = {
+				monthly_legitimacy = 0.1
+			}
+		}
+		gj_espiritus_lago_omen_espejo_negro = {
+			god = gj_espiritus_lago_senora_niebla_god
+
+			country_modifier = {
+				monthly_prestige = 0.15
+				diplomatic_reputation = 1
+			}
+		}
+	}
+}

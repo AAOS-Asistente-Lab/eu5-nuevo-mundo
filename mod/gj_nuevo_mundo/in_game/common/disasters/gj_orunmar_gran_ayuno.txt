@@ -1,0 +1,42 @@
+﻿# El Gran Ayuno de los Dioses: si la Hegemonia pasa demasiados anios sin guerra, los dioses cobran su hambre.
+# Termina en cuanto estalla una guerra (la Marcha de la Cosecha sacia a los dioses).
+gj_orunmar_gran_ayuno = {
+
+	image = "gfx/interface/illustrations/disaster/decline_of_mali_disaster.dds"
+
+	monthly_spawn_chance = monthly_spawn_chance_low
+
+	can_start = {
+		gj_es_orunmar = yes
+		has_any_active_disaster = no
+		at_war = no
+		has_variable = gj_orunmar_anio_guerra
+		gj_orunmar_anios_de_paz >= 10
+	}
+
+	can_end = {
+		at_war = yes
+	}
+
+	modifier = {
+		monthly_religious_influence = -0.1
+		monthly_legitimacy = -0.1
+		global_food_capacity_modifier = -0.1
+		global_slaves_goods_output_modifier = -0.1
+	}
+
+	on_start = {
+		trigger_event_non_silently = gj_orunmar.13
+	}
+
+	on_monthly = {
+		random_list = {
+			6 = { trigger_event_non_silently = gj_orunmar.14 }
+			94 = { }
+		}
+	}
+
+	on_end = {
+		trigger_event_non_silently = gj_orunmar.15
+	}
+}

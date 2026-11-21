@@ -1,0 +1,22 @@
+﻿# Dos tipos de lugar sagrado del Pacto de la Balanza. Sin locations: las situa la integracion.
+
+gj_pacto_balanza_lonja_sagrada = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.03
+		local_monthly_prosperity = 0.001
+		local_institution_growth_modifier = 0.02
+	}
+	country_modifier = {
+		monthly_honor = 0.02
+	}
+}
+
+gj_pacto_balanza_casa_del_peso = {
+	location_modifier = {
+		local_max_control = 0.01
+		local_unrest = -0.05
+	}
+	country_modifier = {
+		monthly_prestige = 0.02
+	}
+}

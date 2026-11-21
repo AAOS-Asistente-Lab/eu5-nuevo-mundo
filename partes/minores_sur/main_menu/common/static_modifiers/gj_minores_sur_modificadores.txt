@@ -1,0 +1,160 @@
+# Menores del sur: modificadores temporales de decisiones y eventos. No cuentan como bonificaciones permanentes.
+
+# --- Decisiones: ciudad ---
+gj_minores_sur_lonja_abierta = {
+	game_data = { category = country }
+	global_merchant_capacity_modifier = 0.15
+	tariff_income = 0.10
+}
+gj_minores_sur_aranceles_bajos = {
+	game_data = { category = country }
+	tariff_income = -0.10
+	global_trades_per_burgher = 0.10
+}
+gj_minores_sur_aranceles_altos = {
+	game_data = { category = country }
+	tariff_income = 0.15
+	global_trades_per_burgher = -0.05
+}
+
+# --- Decisiones: selva ---
+gj_minores_sur_crecida_convocada = {
+	game_data = { category = country }
+	global_maize_output_modifier = 0.10
+	global_fish_output_modifier = 0.10
+}
+gj_minores_sur_pacto_de_los_vados = {
+	game_data = { category = country }
+	trade_land_efficiency = 0.10
+	global_hostile_attrition = 0.5
+}
+
+# --- Decisiones: marca ---
+gj_minores_sur_homenaje_renovado = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.05
+	monthly_prestige = -0.05
+}
+gj_minores_sur_atalaya_encendida = {
+	game_data = { category = location }
+	local_defensive = 0.15
+	local_hostile_attrition = 0.5
+}
+
+# --- Eventos: ciudad ---
+gj_minores_sur_pregon_fresco = {
+	game_data = { category = country }
+	trade_range_modifier = 0.10
+	global_trades_per_burgher = 0.05
+}
+gj_minores_sur_gran_lonja = {
+	game_data = { category = country }
+	global_merchant_capacity_modifier = 0.20
+	tariff_income = 0.10
+}
+gj_minores_sur_cuarentena = {
+	game_data = { category = country }
+	global_disease_resistance = 0.10
+	global_production_efficiency = -0.05
+}
+gj_minores_sur_cisterna_nueva = {
+	game_data = { category = location }
+	local_disease_resistance = 0.10
+	local_population_capacity = 0.5
+}
+gj_minores_sur_gremios_contentos = {
+	game_data = { category = country }
+	global_production_efficiency = 0.05
+	monthly_legitimacy = 0.03
+}
+gj_minores_sur_puerto_sin_patente = {
+	game_data = { category = country }
+	tariff_income = 0.05
+	monthly_legitimacy = -0.03
+}
+
+# --- Eventos: selva ---
+gj_minores_sur_limo_fertil = {
+	game_data = { category = country }
+	global_raw_material_output = 0.10
+	global_population_growth = 0.001
+}
+gj_minores_sur_remedios_de_la_orilla = {
+	game_data = { category = country }
+	global_disease_resistance = 0.10
+	global_life_expectancy = 2
+}
+gj_minores_sur_ceniza_fertil = {
+	game_data = { category = location }
+	local_raw_material_output = 0.25
+	local_population_growth = 0.0005
+}
+gj_minores_sur_vados_en_paz = {
+	game_data = { category = country }
+	trade_land_efficiency = 0.10
+	monthly_legitimacy = 0.05
+}
+gj_minores_sur_festin_de_clanes = {
+	game_data = { category = country }
+	monthly_prestige = 0.10
+	army_tradition_decay = -0.05
+}
+
+# --- Eventos: marca ---
+gj_minores_sur_juramento_renovado = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.10
+	global_separatism = -0.10
+}
+gj_minores_sur_mensajero_bien_tratado = {
+	game_data = { category = country }
+	diplomatic_reputation = 1
+	monthly_prestige = 0.05
+}
+gj_minores_sur_guarnicion_alerta = {
+	game_data = { category = country }
+	global_garrison_size_modifier = 0.15
+	global_hostile_attrition = 0.5
+}
+gj_minores_sur_ladera_amnistiada = {
+	game_data = { category = country }
+	global_separatism = -0.10
+	global_production_efficiency = -0.03
+}
+
+# --- Eventos de cultura (uno por cultura) ---
+gj_minores_sur_siete_rampas = {
+	game_data = { category = country }
+	monthly_prestige = 0.10
+	global_trades_per_burgher = 0.05
+}
+gj_minores_sur_marea_alta = {
+	game_data = { category = country }
+	global_pearls_output_modifier = 0.20
+	naval_morale_modifier = 0.05
+}
+gj_minores_sur_cadena_del_cabo = {
+	game_data = { category = country }
+	blockade_efficiency = 0.15
+	global_defensive = 0.05
+}
+gj_minores_sur_procesion_de_terrazas = {
+	game_data = { category = country }
+	monthly_devotion = 0.10
+	food_consumption_modifier = -0.05
+}
+gj_minores_sur_claro_del_cuervo = {
+	game_data = { category = country }
+	land_unit_attrition = -0.15
+	global_wild_game_output_modifier = 0.10
+}
+gj_minores_sur_nombre_del_rio = {
+	game_data = { category = country }
+	global_fish_output_modifier = 0.15
+	monthly_prestige = 0.05
+}
+gj_minores_sur_ceniza_de_los_abuelos = {
+	game_data = { category = country }
+	army_light_infantry_power = 0.10
+	monthly_legitimacy = 0.05
+}

@@ -1,0 +1,82 @@
+﻿# Sorava: efectos de la mecanica «La palabra de las Casas».
+# La variable de pais gj_sorava_palabra va de 0 a 100 (empieza en 50). Sube al cumplir contratos y baja al romperlos.
+# Segun su valor, el pais lleva un solo modificador de «palabra» (de oro, firme o manchada), o ninguno.
+
+# Cambia la palabra en $valor$ (puede ser negativo), la mantiene entre 0 y 100 y renueva el modificador.
+gj_sorava_cambiar_palabra = {
+	if = {
+		limit = { NOT = { has_variable = gj_sorava_palabra } }
+		set_variable = {
+			name = gj_sorava_palabra
+			value = 50
+		}
+	}
+	change_variable = {
+		name = gj_sorava_palabra
+		add = $valor$
+	}
+	if = {
+		limit = { var:gj_sorava_palabra > 100 }
+		set_variable = {
+			name = gj_sorava_palabra
+			value = 100
+		}
+	}
+	if = {
+		limit = { var:gj_sorava_palabra < 0 }
+		set_variable = {
+			name = gj_sorava_palabra
+			value = 0
+		}
+	}
+	gj_sorava_actualizar_palabra = yes
+}
+
+gj_sorava_actualizar_palabra = {
+	remove_country_modifier = gj_sorava_palabra_de_oro
+	remove_country_modifier = gj_sorava_palabra_firme
+	remove_country_modifier = gj_sorava_palabra_manchada
+	if = {
+		limit = { var:gj_sorava_palabra >= 80 }
+		add_country_modifier = {
+			modifier = gj_sorava_palabra_de_oro
+			years = -1
+			mode = add
+		}
+	}
+	else_if = {
+		limit = { var:gj_sorava_palabra >= 55 }
+		add_country_modifier = {
+			modifier = gj_sorava_palabra_firme
+			years = -1
+			mode = add
+		}
+	}
+	else_if = {
+		limit = { var:gj_sorava_palabra < 20 }
+		add_country_modifier = {
+			modifier = gj_sorava_palabra_manchada
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# Deriva anual: la paz mercante la sube poco a poco; las deudas y la guerra la desgastan.
+gj_sorava_deriva_palabra = {
+	if = {
+		limit = {
+			has_variable = gj_sorava_palabra
+			at_war = no
+			gold >= 0
+		}
+		gj_sorava_cambiar_palabra = { valor = 1 }
+	}
+	else_if = {
+		limit = {
+			has_variable = gj_sorava_palabra
+			gold < 0
+		}
+		gj_sorava_cambiar_palabra = { valor = -3 }
+	}
+}

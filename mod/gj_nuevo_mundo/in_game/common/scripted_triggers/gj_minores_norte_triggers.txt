@@ -1,0 +1,48 @@
+﻿# Estilos de los menores del norte. Se reconocen por la cultura del pais, no por etiqueta.
+
+gj_minores_norte_menor_ciudad_estado = {
+	OR = {
+		culture = culture:gj_tarnavi
+		culture = culture:gj_nenvari
+		culture = culture:gj_isbranti
+	}
+}
+
+gj_minores_norte_menor_clan = {
+	OR = {
+		culture = culture:gj_hondarri
+		culture = culture:gj_aryuki
+		culture = culture:gj_marismeno
+	}
+}
+
+gj_minores_norte_menor_marca = {
+	OR = {
+		culture = culture:gj_vigiano
+		culture = culture:gj_cenizario
+	}
+}
+
+gj_minores_norte_menor_norte = {
+	OR = {
+		gj_minores_norte_menor_ciudad_estado = yes
+		gj_minores_norte_menor_clan = yes
+		gj_minores_norte_menor_marca = yes
+	}
+}
+
+# Para ubicaciones: la cultura dominante es de un menor del norte.
+gj_minores_norte_ubicacion_ciudad_estado = {
+	OR = {
+		dominant_culture ?= culture:gj_tarnavi
+		dominant_culture ?= culture:gj_nenvari
+		dominant_culture ?= culture:gj_isbranti
+	}
+}
+
+gj_minores_norte_ubicacion_marca = {
+	OR = {
+		dominant_culture ?= culture:gj_vigiano
+		dominant_culture ?= culture:gj_cenizario
+	}
+}

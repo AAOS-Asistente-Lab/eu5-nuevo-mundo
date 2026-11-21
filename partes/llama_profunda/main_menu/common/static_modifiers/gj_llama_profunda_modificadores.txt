@@ -1,0 +1,79 @@
+﻿# Modificadores temporales de la Llama Profunda (los ponen decisiones y eventos).
+
+# El Rito de la Brasa deja un resplandor de cinco anos.
+gj_llama_rito_brasa = {
+	game_data = { category = country }
+	global_weaponry_output_modifier = 0.05
+	stability_cost_efficiency = 0.05
+}
+
+# La Vigilia del Fondo cierra galerias: se pierde produccion, se gana calma.
+gj_llama_vigilia_fondo = {
+	game_data = { category = country }
+	global_production_efficiency = -0.03
+	global_gems_output_modifier = -0.1
+	stability_cost_efficiency = 0.05
+}
+
+# Una forja bendecida por la Brasa: unos anos de hierro excepcional.
+gj_llama_forja_bendita = {
+	game_data = { category = country }
+	global_iron_output_modifier = 0.1
+	global_weaponry_output_modifier = 0.05
+}
+
+# La ceniza fria: los Guardabrasas dudan y la gente deja de ir a la forja comun.
+gj_llama_ceniza_fria = {
+	game_data = { category = country }
+	global_monthly_control = -0.002
+	stability_cost_efficiency = -0.1
+}
+
+# La voz de la Brasa: visiones claras en las Casas de Fuego.
+gj_llama_voz_brasa = {
+	game_data = { category = country }
+	monthly_legitimacy = 0.1
+	global_max_literacy = 2
+}
+
+# La chispa de un presagio leido por la Llama Profunda.
+gj_llama_chispa_de_abajo = {
+	game_data = { category = country }
+	global_weaponry_output_modifier = 0.05
+	stability_cost_efficiency = 0.05
+}
+
+# El rencor de la Brasa Mayor tras romper el pacto.
+gj_llama_dragon_rencor = {
+	game_data = { category = country }
+	stability_cost_efficiency = -0.15
+	land_morale_modifier = -0.05
+}
+
+# Ecos del pacto cumplido: los ejercitos marchan con el calor del ala a la espalda.
+gj_llama_dragon_pacto_cumplido = {
+	game_data = { category = country }
+	land_morale_modifier = 0.05
+	monthly_prestige = 0.1
+}
+
+# Las cenizas de los caidos, fundidas en las nuevas espadas.
+gj_llama_cenizas_fundidas = {
+	game_data = { category = country }
+	land_morale_modifier = 0.1
+	army_heavy_infantry_power = 0.05
+}
+
+# Peregrinos y limosnas: un santuario concurrido.
+gj_llama_santuario_concurrido = {
+	game_data = { category = location }
+	local_monthly_prosperity = 0.002
+	local_clergy_desired_pop = 0.05
+}
+
+# Una galeria sellada con ritos: pierde produccion y gana quietud.
+gj_llama_galeria_sellada = {
+	game_data = { category = location }
+	local_iron_output_modifier = -0.2
+	local_unrest = -0.05
+}

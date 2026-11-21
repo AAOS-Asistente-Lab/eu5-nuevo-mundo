@@ -1,0 +1,3 @@
+colors = {
+	gj_espiritus_lago_color = rgb { 72 148 196 }
+}

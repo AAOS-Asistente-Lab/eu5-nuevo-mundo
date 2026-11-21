@@ -87,3 +87,13 @@ Van a jugar los dos en multijugador, con el mod Random New World (RNW).
 - D5: a el jugador B se le pasa el `.rnworld` y el zip, sin Workshop.
 - El Viejo Mundo: sin gran plaga y con la tecnología a la par.
 - La fase 1 va en una sesión aparte.
+
+## Mapa: preferencia de los jugadores (21-11 01:04)
+- **Base:** el **candidato 2** (el enfoque «juego»), que es el que gusta a los jugadores. El juez parte de él y le injerta lo mejor de los otros dos sin cambiarle el carácter.
+- **Forma:** continentes **más finos** y **más masas de tierra**, en vez de dos masas muy grandes. Si un injerto engorda los continentes o junta las masas, no se hace.
+
+## Decisiones (21-11 01:21)
+- **La vara:** se queda en 60-70 bonificaciones en total entre país y cultura, «por ahora».
+- **Reyes Velathi:** se mantiene el +150 de esperanza de vida, con dos condiciones:
+  - el primer rey no puede ser malo;
+  - el jugador tiene que poder gestionar la herencia.

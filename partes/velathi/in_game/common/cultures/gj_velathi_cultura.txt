@@ -1,0 +1,28 @@
+﻿gj_velathi = {
+	language = gj_velathi_dialect
+
+	color = gj_map_velathi
+
+	tags = { western_european_gfx european_gfx }
+
+	culture_groups = {
+		gj_grupo_velathi
+	}
+
+	# Pueblo longevo del bosque: sus reyes viven siglos, pero pocos hijos nacen y el crecimiento es lento.
+	country_modifier = {
+		global_lumber_output_modifier = 0.10
+		global_disease_resistance = 0.05
+		global_population_growth = -0.001
+	}
+
+	location_modifier = {
+		local_defensive = 0.05
+		local_max_literacy = 2
+	}
+
+	character_modifier = {
+		character_life_expectancy = 150
+		character_fertility = -0.3
+	}
+}

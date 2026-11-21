@@ -1,0 +1,122 @@
+﻿# Decisiones de la Corte Insepulta de Hrimval y de sus vecinos del norte
+
+# Para los vecinos: pagar el Diezmo de Huesos para que las Marchas no pasen por su tierra
+gj_hrimval_pagar_diezmo = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_zona_norte = yes
+		NOT = { gj_es_hrimval = yes }
+		any_country = { gj_es_hrimval = yes }
+	}
+
+	allow = {
+		NOT = { has_country_modifier = gj_hrimval_diezmo_pagado }
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+
+	option = {
+		name = gj_hrimval_pagar_diezmo.a
+		ai_chance = { value = 0 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			add_country_modifier = { modifier = gj_hrimval_diezmo_pagado years = 10 mode = add_and_extend }
+			random_country = {
+				limit = { gj_es_hrimval = yes }
+				change_gold_effect = { scale = 3 }
+			}
+		}
+	}
+}
+
+# Para la Corte: levantar a los caidos guardados como leva de guerra
+gj_hrimval_alzar_caidos = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_hrimval = yes
+	}
+
+	allow = {
+		var:gj_caidos >= 20
+		NOT = { has_country_modifier = gj_hrimval_caidos_alzados }
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	option = {
+		name = gj_hrimval_alzar_caidos.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_variable = { name = gj_caidos add = -20 }
+			add_manpower = { value = monthly_manpower multiply = 12 }
+			add_country_modifier = { modifier = gj_hrimval_caidos_alzados years = 5 mode = add_and_extend }
+		}
+	}
+}
+
+# Para la Corte: devolver caidos al hielo, calma a los vivos y atrasa el reloj
+gj_hrimval_sepultar_caidos = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_hrimval = yes
+	}
+
+	allow = {
+		var:gj_caidos >= 10
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+
+	option = {
+		name = gj_hrimval_sepultar_caidos.a
+		ai_chance = { value = 0 }
+		effect = {
+			change_variable = { name = gj_caidos add = -10 }
+			add_stability = stability_mild_bonus
+			change_variable = { name = gj_noche_reloj add = -5 }
+			clamp_variable = { name = gj_noche_reloj min = 0 max = 100 }
+		}
+	}
+}
+
+# Para los vecinos: fundar la Liga de la Sal y la Llama
+gj_hrimval_fundar_liga = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_zona_norte = yes
+		NOT = { gj_es_hrimval = yes }
+		any_country = { gj_es_hrimval = yes }
+		NOT = { unique_international_organization_type_exists = international_organization_type:gj_liga_sal_llama }
+	}
+
+	allow = {
+		is_subject = no
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	option = {
+		name = gj_hrimval_fundar_liga.a
+		ai_chance = { value = 20 }
+		effect = {
+			create_international_organization = {
+				type = international_organization_type:gj_liga_sal_llama
+				hidden_effect = {
+					add_country_to_international_organization = prev
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+﻿# Cuatro caminos de la Senda Verde; la religion elige dos (religious_aspects = 2).
+
+gj_senda_verde_camino_raiz = {
+	icon = religious_aspect_folk_green
+	religion = gj_senda_verde
+
+	modifier = {
+		global_food_capacity_modifier = 0.05
+		global_population_growth = 0.0001
+		global_pop_food_consumption = -0.03
+	}
+}
+
+gj_senda_verde_camino_copa = {
+	icon = religious_aspect_folk_yellow
+	religion = gj_senda_verde
+
+	modifier = {
+		global_defensive = 0.1
+		global_hostile_attrition = 1
+		army_light_infantry_power = 0.05
+	}
+}
+
+gj_senda_verde_camino_savia = {
+	icon = religious_aspect_folk_blue
+	religion = gj_senda_verde
+
+	modifier = {
+		research_speed_modifier = 0.02
+		global_max_literacy = 3
+	}
+}
+
+gj_senda_verde_camino_musgo = {
+	icon = religious_aspect_folk_dark_blue
+	religion = gj_senda_verde
+
+	modifier = {
+		stability_cost_efficiency = 0.1
+		monthly_legitimacy = 0.02
+		tolerance_own = 1
+	}
+}

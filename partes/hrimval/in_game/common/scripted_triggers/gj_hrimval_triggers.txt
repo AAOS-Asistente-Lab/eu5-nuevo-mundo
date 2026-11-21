@@ -1,0 +1,13 @@
+﻿# Disparadores de la Corte Insepulta de Hrimval
+
+# root = pais. Verdadero si algun lugar propio guarda el relicario.
+gj_hrimval_tiene_relicario = {
+	any_owned_location = {
+		has_building = building_type:gj_hrimval_relicario
+	}
+}
+
+# root = pais. Verdadero mientras la Noche Blanca esta activa.
+gj_hrimval_noche_activa = {
+	is_situation_active = situation:gj_hrimval_noche_blanca
+}

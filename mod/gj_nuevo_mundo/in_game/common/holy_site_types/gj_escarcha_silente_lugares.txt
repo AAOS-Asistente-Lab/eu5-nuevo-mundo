@@ -1,0 +1,23 @@
+﻿# Tipos de lugar sagrado de la Escarcha Silente (sin locations: las asigna la integracion en holy_sites/).
+
+gj_escarcha_silente_cumbre_callada = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_defensive = 0.1
+		local_monthly_prosperity = 0.001
+	}
+	country_modifier = {
+		monthly_doom = -0.01
+	}
+}
+
+gj_escarcha_silente_tumba_del_primer_invierno = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.05
+		local_hostile_attrition = 1
+		local_max_control = 0.01
+	}
+	country_modifier = {
+		land_morale_modifier = 0.02
+	}
+}

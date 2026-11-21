@@ -1,0 +1,238 @@
+﻿gj_marea_negra_falua = {
+	is_special = yes
+	buildable = yes
+	category = navy_light_ship
+	copy_from = n_age_1_traditions_light_ship
+	upgrades_to_only = gj_marea_negra_balandra
+
+	movement_speed = 1.2
+	blockade_capacity = 0.075
+	cannons = -0.8
+	hull_size = -0.6
+	morale_damage_taken = 0.10
+
+	age = "age_1_traditions"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_balandra = {
+	is_special = yes
+	buildable = yes
+	category = navy_light_ship
+	copy_from = n_age_2_renaissance_light_ship
+	upgrades_to_only = gj_marea_negra_bergantin_presa
+
+	movement_speed = 1.5
+	blockade_capacity = 0.15
+	cannons = -1.6
+	hull_size = -0.9
+	morale_damage_taken = 0.10
+
+	age = "age_2_renaissance"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_bergantin_presa = {
+	is_special = yes
+	buildable = yes
+	category = navy_light_ship
+	copy_from = n_age_3_discovery_light_ship
+	upgrades_to_only = gj_marea_negra_bergantin_corsario
+
+	movement_speed = 1.65
+	blockade_capacity = 0.225
+	cannons = -2
+	hull_size = -1.2
+	morale_damage_taken = 0.10
+
+	age = "age_3_discovery"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_bergantin_corsario = {
+	is_special = yes
+	buildable = yes
+	category = navy_light_ship
+	copy_from = n_age_4_reformation_light_ship
+	upgrades_to_only = gj_marea_negra_goleta_corsaria
+
+	movement_speed = 1.8
+	blockade_capacity = 0.3
+	cannons = -2.4
+	hull_size = -1.5
+	morale_damage_taken = 0.10
+
+	age = "age_4_reformation"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_goleta_corsaria = {
+	is_special = yes
+	buildable = yes
+	category = navy_light_ship
+	copy_from = n_age_5_absolutism_light_ship
+	upgrades_to_only = gj_marea_negra_corbeta_codigo
+
+	movement_speed = 1.95
+	blockade_capacity = 0.375
+	cannons = -4
+	hull_size = -2.4
+	morale_damage_taken = 0.10
+
+	age = "age_5_absolutism"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_corbeta_codigo = {
+	is_special = yes
+	buildable = yes
+	category = navy_light_ship
+	copy_from = n_age_6_revolutions_light_ship
+
+	movement_speed = 2.1
+	blockade_capacity = 0.45
+	cannons = -5
+	hull_size = -3
+	morale_damage_taken = 0.10
+
+	age = "age_6_revolutions"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_chalupa = {
+	is_special = yes
+	buildable = yes
+	category = navy_transport
+	copy_from = n_age_1_traditions_transport
+	upgrades_to_only = gj_marea_negra_contrabandista
+
+	transport_capacity = 0.0375
+	movement_speed = 0.75
+	hull_size = -1.35
+	cannons = -0.9
+	morale_damage_taken = 0.10
+
+	age = "age_1_traditions"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_contrabandista = {
+	is_special = yes
+	buildable = yes
+	category = navy_transport
+	copy_from = n_age_2_renaissance_transport
+	upgrades_to_only = gj_marea_negra_balandra_doble
+
+	transport_capacity = 0.075
+	movement_speed = 0.9
+	hull_size = -1.8
+	cannons = -1.2
+	morale_damage_taken = 0.10
+
+	age = "age_2_renaissance"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_balandra_doble = {
+	is_special = yes
+	buildable = yes
+	category = navy_transport
+	copy_from = n_age_3_discovery_transport
+	upgrades_to_only = gj_marea_negra_flauta_de_contrabando
+
+	transport_capacity = 0.1125
+	movement_speed = 0.975
+	hull_size = -2.25
+	cannons = -1.5
+	morale_damage_taken = 0.10
+
+	age = "age_3_discovery"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_flauta_de_contrabando = {
+	is_special = yes
+	buildable = yes
+	category = navy_transport
+	copy_from = n_age_4_reformation_transport
+	upgrades_to_only = gj_marea_negra_goleta_de_sombra
+
+	transport_capacity = 0.15
+	movement_speed = 1.05
+	hull_size = -2.7
+	cannons = -1.8
+	morale_damage_taken = 0.10
+
+	age = "age_4_reformation"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_goleta_de_sombra = {
+	is_special = yes
+	buildable = yes
+	category = navy_transport
+	copy_from = n_age_5_absolutism_transport
+	upgrades_to_only = gj_marea_negra_clipper_de_sombra
+
+	transport_capacity = 0.1875
+	movement_speed = 1.125
+	hull_size = -4.5
+	cannons = -3
+	morale_damage_taken = 0.10
+
+	age = "age_5_absolutism"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+
+gj_marea_negra_clipper_de_sombra = {
+	is_special = yes
+	buildable = yes
+	category = navy_transport
+	copy_from = n_age_6_revolutions_transport
+
+	transport_capacity = 0.225
+	movement_speed = 1.35
+	hull_size = -5.4
+	cannons = -3.6
+	morale_damage_taken = 0.10
+
+	age = "age_6_revolutions"
+
+	country_potential = {
+		gj_es_marea_negra = yes
+	}
+}
+

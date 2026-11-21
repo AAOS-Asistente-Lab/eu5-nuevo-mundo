@@ -1,0 +1,107 @@
+# Triggers de las bestias y los presagios (mundo_bestias)
+
+# ---------- El dragon ----------
+# Estado global: 0 dormido, 1 inquieto, 2 despierto. Si muere, existe la variable global gj_dragon_muerto.
+gj_mundo_bestias_dragon_vivo = {
+	has_global_variable = gj_dragon_estado
+	NOT = { has_global_variable = gj_dragon_muerto }
+}
+
+gj_mundo_bestias_dragon_dormido = {
+	gj_mundo_bestias_dragon_vivo = yes
+	global_var:gj_dragon_estado = 0
+}
+
+gj_mundo_bestias_dragon_inquieto = {
+	gj_mundo_bestias_dragon_vivo = yes
+	global_var:gj_dragon_estado = 1
+}
+
+gj_mundo_bestias_dragon_despierto = {
+	gj_mundo_bestias_dragon_vivo = yes
+	global_var:gj_dragon_estado = 2
+}
+
+# Pais: tiene al menos una location en la caldera (gj_zona_caldera la define la integracion).
+gj_mundo_bestias_pais_caldera = {
+	any_owned_location = { gj_zona_caldera = yes }
+}
+
+# Pais: el que tiene un pacto con el dragon (variable de la Llama Profunda) se libra de su ira.
+gj_mundo_bestias_tiene_pacto_dragon = {
+	has_variable = gj_llama_pacto_dragon
+}
+
+# La profundidad de Durnhal ha pasado de cierto nivel (variable global de la parte durnhal; puede no existir).
+gj_mundo_bestias_inquietud_caldera_alta = {
+	has_global_variable = gj_inquietud_caldera
+	global_var:gj_inquietud_caldera >= 35
+}
+
+gj_mundo_bestias_inquietud_caldera_critica = {
+	has_global_variable = gj_inquietud_caldera
+	global_var:gj_inquietud_caldera >= 70
+}
+
+# ---------- Los krakens ----------
+gj_mundo_bestias_kraken_vivo = {
+	NOT = { has_global_variable = gj_mundo_bestias_kraken_muerto }
+}
+
+# Pais: tiene un puerto en el estrecho (gj_zona_estrecho la define la integracion).
+gj_mundo_bestias_pais_estrecho = {
+	any_owned_location = {
+		gj_zona_estrecho = yes
+		has_ports = yes
+	}
+}
+
+gj_mundo_bestias_kraken_enfurecido = {
+	has_global_variable = gj_mundo_bestias_kraken_furia
+	global_var:gj_mundo_bestias_kraken_furia >= 1
+}
+
+# ---------- Plagas de bestias (location) ----------
+gj_mundo_bestias_location_con_plaga = {
+	OR = {
+		has_location_modifier = gj_mundo_bestias_plaga_lobos
+		has_location_modifier = gj_mundo_bestias_plaga_wyverns
+		has_location_modifier = gj_mundo_bestias_plaga_enjambre
+	}
+}
+
+# Pais: tiene una plaga en una location suya y un ejercito propio encima (lo que pide la Batida).
+gj_mundo_bestias_batida_posible = {
+	any_owned_location = {
+		gj_mundo_bestias_location_con_plaga = yes
+		any_unit_in_location = {
+			count >= 1
+			owner = root
+		}
+	}
+}
+
+# Tierras de pasto: la estepa donde viven los lobos grandes.
+gj_mundo_bestias_location_de_estepa = {
+	OR = {
+		vegetation = grasslands
+		AND = {
+			topography = plateau
+			NOT = { vegetation = forest }
+		}
+	}
+}
+
+gj_mundo_bestias_location_de_cumbre = {
+	OR = {
+		topography = mountains
+		topography = hills
+	}
+}
+
+gj_mundo_bestias_location_de_enjambre = {
+	OR = {
+		vegetation = jungle
+		topography = wetlands
+	}
+}

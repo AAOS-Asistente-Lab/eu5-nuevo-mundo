@@ -1,0 +1,45 @@
+﻿gj_talasia_language = {
+	color = map_gj_talasio
+
+	family = gj_talasia_language_family
+
+	male_names = {
+		Maresso Kaloren Ithlaro Velamar Osrenth Nerevaan Thalmio Corvenal Ismaro Telmaro
+		Aurenko Dessaran Halvoreth Imbrel Lucaneth Orvasco Pelamir Quelvaro Rhosendi Sarvelo
+		Tiberenth Ulmaro Veshanor Yrdemar Zaloreth Anthelo Belmaro Cassenor Dorvemar Elthamir
+	}
+	female_names = {
+		Ahvela Marisel Orvenia Illaria Sevanthe Talmira Kaelisa Nymeth Ondrelle Esmerel
+		Aurelane Belisenne Corvalia Daveline Elsamar Fenthira Galenne Helvira Isaramel Jhoselle
+		Kaltheia Lorvenne Mireldis Naveline Orsalie Pelamarra Quillane Rhevanne Selmira Tessavel
+	}
+	dynasty_names = {
+		Orsellan Kaeldris Marenthil Talvaris Ismerai Duorenne Pelavane Sarcondel Nythara Oselvane
+		Ardemaris Belthoran Corvelline Duskamar Elvarensi Faltheris Gaumarel Hylvandor Ithavell Jorvemar
+	}
+	lowborn = {
+		Redero Buzo Salinero Nasero Faenero Perlero Calafate Corallero Marisquero Mareante
+	}
+
+	dialects = {
+		gj_talasio_dialect = {
+			male_names = {
+				Maresso Kaloren Ithlaro Velamar Osrenth Nerevaan Thalmio Corvenal Ismaro Telmaro
+				Aurenko Dessaran Halvoreth Imbrel Lucaneth Orvasco Pelamir Quelvaro Rhosendi Sarvelo
+				Tiberenth Ulmaro Veshanor Yrdemar Zaloreth Anthelo Belmaro Cassenor Dorvemar Elthamir
+			}
+			female_names = {
+				Ahvela Marisel Orvenia Illaria Sevanthe Talmira Kaelisa Nymeth Ondrelle Esmerel
+				Aurelane Belisenne Corvalia Daveline Elsamar Fenthira Galenne Helvira Isaramel Jhoselle
+				Kaltheia Lorvenne Mireldis Naveline Orsalie Pelamarra Quillane Rhevanne Selmira Tessavel
+			}
+			dynasty_names = {
+				Orsellan Kaeldris Marenthil Talvaris Ismerai Duorenne Pelavane Sarcondel Nythara Oselvane
+				Ardemaris Belthoran Corvelline Duskamar Elvarensi Faltheris Gaumarel Hylvandor Ithavell Jorvemar
+			}
+			lowborn = {
+				Redero Buzo Salinero Nasero Faenero Perlero Calafate Corallero Marisquero Mareante
+			}
+		}
+	}
+}

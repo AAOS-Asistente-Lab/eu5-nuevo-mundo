@@ -1,0 +1,52 @@
+﻿#######################################################################
+# La guerra de los hermanos (parte "kaivan").
+# Se abre cuando una votacion del Circulo sale renida y el clan perdedor se alza
+# (variable gj_kaivan_disputa_abierta, la pone el evento gj_kaivan.3).
+#######################################################################
+
+gj_kaivan_guerra_hermanos = {
+	image = "gfx/interface/illustrations/disaster/horde_civil_war.dds"
+
+	monthly_spawn_chance = monthly_spawn_chance_unique
+
+	can_start = {
+		gj_es_kaivan = yes
+		has_variable = gj_kaivan_disputa_abierta
+		has_any_active_disaster = no
+		is_subject = no
+	}
+
+	can_end = {
+		NOT = { has_variable = gj_kaivan_disputa_abierta }
+	}
+
+	modifier = {
+		discipline = -0.05
+		monthly_legitimacy = -0.03
+		global_monthly_control = -0.001
+		global_estate_target_satisfaction = small_permanent_target_satisfaction_penalty
+	}
+
+	on_start = {
+		set_variable = { name = gj_kaivan_meses_guerra value = 0 }
+		trigger_event_non_silently = gj_kaivan.20
+	}
+
+	on_monthly = {
+		change_variable = { name = gj_kaivan_meses_guerra add = 1 }
+		random_list = {
+			6 = { trigger_event_non_silently = gj_kaivan.21 }
+			94 = { }
+		}
+		# A los dos anos el Circulo exige la paz.
+		if = {
+			limit = { var:gj_kaivan_meses_guerra >= 24 }
+			trigger_event_non_silently = gj_kaivan.22
+		}
+	}
+
+	on_end = {
+		remove_variable = gj_kaivan_meses_guerra
+		trigger_event_non_silently = gj_kaivan.23
+	}
+}

@@ -1,0 +1,55 @@
+﻿# Pulso anual de la religion (root = pais). Lo cuelga yearly_country_pulse (ver NECESITA.md).
+gj_cielo_clanes_anual = {
+	trigger = {
+		religion = religion:gj_cielo_clanes
+	}
+
+	events = {
+		gj_cielo_clanes.12
+	}
+
+	on_actions = {
+		gj_cielo_clanes_sin_dios
+	}
+
+	first_valid = {
+		gj_cielo_clanes.11
+	}
+
+	random_events = {
+		chance_to_happen = 12
+		chance_of_no_event = 20
+		10 = gj_cielo_clanes.2
+		10 = gj_cielo_clanes.3
+		6 = gj_cielo_clanes.4
+		8 = gj_cielo_clanes.5
+		4 = gj_cielo_clanes.6
+		10 = gj_cielo_clanes.7
+		8 = gj_cielo_clanes.8
+		10 = gj_cielo_clanes.9
+	}
+}
+
+# Un pais de la fe que aun no tiene dios de reinado lo elige ya
+gj_cielo_clanes_sin_dios = {
+	trigger = {
+		religion = religion:gj_cielo_clanes
+		NOT = { has_variable = gj_dios_reinado }
+	}
+
+	events = {
+		gj_cielo_clanes.1
+	}
+}
+
+# Nuevo kan: elige dios (root = pais; scope:old_ruler y scope:new_ruler)
+gj_cielo_clanes_nuevo_kan = {
+	trigger = {
+		religion = religion:gj_cielo_clanes
+	}
+
+	events = {
+		delay = { days = { 20 60 } }
+		gj_cielo_clanes.1
+	}
+}

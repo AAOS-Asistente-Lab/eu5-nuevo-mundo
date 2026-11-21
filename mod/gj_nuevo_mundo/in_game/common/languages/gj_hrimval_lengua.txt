@@ -1,0 +1,27 @@
+﻿gj_lengua_insepulta = {
+	color = gj_hrimval_mapa_lengua_insepulta
+
+	family = gj_familia_insepulta
+
+	male_names = {
+		gj_n_veldrik gj_n_orsmund gj_n_kaldren gj_n_ysbrand gj_n_haldrek
+		gj_n_morvaen gj_n_ithrek gj_n_sorvald gj_n_brenmund gj_n_aldiric
+		gj_n_vyrmund gj_n_eskaldo gj_n_hrolvar gj_n_dunvek gj_n_calderic
+		gj_n_tarkesh gj_n_bruvald gj_n_isenmar gj_n_quellan gj_n_vorhelm
+	}
+	female_names = {
+		gj_n_ithra gj_n_velmora gj_n_kaelith gj_n_hrimna gj_n_sennara
+		gj_n_morenna gj_n_vespera gj_n_isbeth gj_n_orlena gj_n_dunmara
+		gj_n_sorvela gj_n_calypra gj_n_ysmeren gj_n_dorvela gj_n_brunhelda
+	}
+
+	dynasty_names = {
+		gj_n_valdrek gj_n_hrimmar gj_n_orsmark gj_n_daldrune gj_n_vyrnholt
+		gj_n_kelvarn gj_n_ithrane gj_n_morvik gj_n_caldereth gj_n_sorrenholt
+		gj_n_brezalmar gj_n_isenvar
+	}
+	lowborn = {
+		gj_n_hielero gj_n_osario gj_n_bruma gj_n_cairn gj_n_sepulto
+		gj_n_nevado gj_n_ventisca Tajo gj_n_gelido gj_n_cenizo
+	}
+}

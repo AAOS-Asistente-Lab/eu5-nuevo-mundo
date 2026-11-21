@@ -1,0 +1,471 @@
+﻿namespace = gj_dioses_hambrientos
+
+# .1 Los dioses murmuran: tres anos de paz, la devocion se resiente.
+gj_dioses_hambrientos.1 = {
+	type = country_event
+	title = gj_dioses_hambrientos.1.title
+	desc = gj_dioses_hambrientos.1.desc
+	outcome = neutral
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+		has_variable = gj_dioses_hambrientos_anos_de_paz
+		var:gj_dioses_hambrientos_anos_de_paz >= 3
+		at_war = no
+		NOT = { has_variable = gj_dioses_hambrientos_murmullo_enfriamiento }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		set_variable = { name = gj_dioses_hambrientos_murmullo_enfriamiento value = yes days = 1460 }
+		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:clergy_estate }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.1.a
+		change_gold_effect = { scale = -2 }
+		add_religious_influence = religious_influence_weak_bonus
+		change_variable = { name = gj_dioses_hambrientos_anos_de_paz add = -1 }
+		clamp_variable = { name = gj_dioses_hambrientos_anos_de_paz min = 0 max = 100 }
+	}
+	option = {
+		name = gj_dioses_hambrientos.1.b
+		add_religious_influence = religious_influence_weak_penalty
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_penalty }
+	}
+	option = {
+		name = gj_dioses_hambrientos.1.c
+		trigger = {
+			has_religious_aspect = religious_aspect:gj_dioses_hambrientos_aspecto_guardian_silos
+		}
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .2 El cantaro vacio: seis anos de paz, los sacerdotes exigen sangre.
+gj_dioses_hambrientos.2 = {
+	type = country_event
+	title = gj_dioses_hambrientos.2.title
+	desc = gj_dioses_hambrientos.2.desc
+	outcome = negative
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+		has_variable = gj_dioses_hambrientos_anos_de_paz
+		var:gj_dioses_hambrientos_anos_de_paz >= 6
+		at_war = no
+		NOT = { has_variable = gj_dioses_hambrientos_cantaro_enfriamiento }
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = interior
+	}
+
+	immediate = {
+		set_variable = { name = gj_dioses_hambrientos_cantaro_enfriamiento value = yes days = 2190 }
+		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:peasants_estate }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.2.a
+		add_religious_influence = religious_influence_mild_bonus
+		add_stability = stability_weak_penalty
+		add_prestige = prestige_weak_bonus
+		change_variable = { name = gj_dioses_hambrientos_anos_de_paz add = -3 }
+		clamp_variable = { name = gj_dioses_hambrientos_anos_de_paz min = 0 max = 100 }
+	}
+	option = {
+		name = gj_dioses_hambrientos.2.b
+		add_country_modifier = { modifier = gj_dioses_hambrientos_hambre_del_cielo years = 3 mode = replace }
+		custom_tooltip = gj_dioses_hambrientos.2.b.tt
+	}
+	option = {
+		name = gj_dioses_hambrientos.2.c
+		add_country_modifier = { modifier = gj_dioses_hambrientos_dioses_airados years = 5 mode = replace }
+		add_religious_influence = religious_influence_mild_penalty
+	}
+}
+
+# .3 Las filas de cautivos: se ha tomado una location y llegan los prisioneros. root = ganador.
+gj_dioses_hambrientos.3 = {
+	type = country_event
+	title = gj_dioses_hambrientos.3.title
+	desc = gj_dioses_hambrientos.3.desc
+	outcome = neutral
+	hide_portraits = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_poptype_effect = { foreground = pop_type:slaves background = pop_type:peasants }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.3.a
+		gj_dioses_hambrientos_consume_cautivos = { FRACCION = -0.6 }
+		add_religious_influence = religious_influence_mild_bonus
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_dioses_hambrientos.3.b
+		add_country_modifier = { modifier = gj_dioses_hambrientos_manos_nuevas years = 10 mode = replace }
+	}
+	option = {
+		name = gj_dioses_hambrientos.3.c
+		gj_dioses_hambrientos_consume_cautivos = { FRACCION = -0.5 }
+		add_country_modifier = { modifier = gj_dioses_hambrientos_hijos_de_la_casa years = 10 mode = replace }
+		add_legitimacy = legitimacy_weak_bonus
+		add_religious_influence = religious_influence_weak_penalty
+	}
+}
+
+# .4 El cielo tiene hambre: un cometa o un eclipse (lo llama gj_dioses_hambrientos_lee_presagio).
+gj_dioses_hambrientos.4 = {
+	type = country_event
+	title = gj_dioses_hambrientos.4.title
+	desc = gj_dioses_hambrientos.4.desc
+	outcome = neutral
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:clergy_estate }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.4.a
+		set_variable = { name = gj_dioses_hambrientos_presagio_abierto value = yes days = 1900 }
+		if = {
+			limit = { has_variable = gj_dioses_hambrientos_guerra_en_plazo }
+			remove_variable = gj_dioses_hambrientos_guerra_en_plazo
+		}
+		add_country_modifier = { modifier = gj_dioses_hambrientos_hambre_del_cielo years = 5 mode = replace }
+		trigger_event_silently = { id = gj_dioses_hambrientos.5 years = 5 }
+		custom_tooltip = gj_dioses_hambrientos.4.a.tt
+	}
+	option = {
+		name = gj_dioses_hambrientos.4.b
+		add_religious_influence = religious_influence_weak_penalty
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_penalty }
+	}
+}
+
+# .5 La Cuenta se cierra: cinco anos despues del presagio.
+gj_dioses_hambrientos.5 = {
+	type = country_event
+	title = gj_dioses_hambrientos.5.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_variable = gj_dioses_hambrientos_guerra_en_plazo }
+				desc = gj_dioses_hambrientos.5.desc.a
+			}
+			triggered_desc = {
+				desc = gj_dioses_hambrientos.5.desc.b
+			}
+		}
+	}
+	outcome = neutral
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = gj_dioses_hambrientos_presagio_abierto }
+			remove_variable = gj_dioses_hambrientos_presagio_abierto
+		}
+		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:nobles_estate }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.5.a
+		trigger = {
+			has_variable = gj_dioses_hambrientos_guerra_en_plazo
+		}
+		add_religious_influence = religious_influence_severe_bonus
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = { modifier = gj_dioses_hambrientos_cuenta_cumplida years = 10 mode = replace }
+		remove_variable = gj_dioses_hambrientos_guerra_en_plazo
+	}
+	option = {
+		name = gj_dioses_hambrientos.5.b
+		trigger = {
+			NOT = { has_variable = gj_dioses_hambrientos_guerra_en_plazo }
+		}
+		add_religious_influence = religious_influence_severe_penalty
+		add_stability = stability_weak_penalty
+		add_country_modifier = { modifier = gj_dioses_hambrientos_dioses_airados years = 5 mode = replace }
+	}
+}
+
+# .6 El pozo que habla: un cautivo al pozo, y el pozo responde (o calla).
+gj_dioses_hambrientos.6 = {
+	type = country_event
+	title = gj_dioses_hambrientos.6.title
+	desc = gj_dioses_hambrientos.6.desc
+	outcome = neutral
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+		pop_type_population_in_country = {
+			pop_type = pop_type:slaves
+			value > 0.1
+		}
+		NOT = { has_variable = gj_dioses_hambrientos_pozo_enfriamiento }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		set_variable = { name = gj_dioses_hambrientos_pozo_enfriamiento value = yes days = 1825 }
+		event_illustration_poptype_effect = { foreground = pop_type:slaves background = pop_type:peasants }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.6.a
+		gj_dioses_hambrientos_consume_cautivos = { FRACCION = -0.2 }
+		random_list = {
+			50 = {
+				add_religious_influence = religious_influence_mild_bonus
+				add_prestige = prestige_weak_bonus
+			}
+			30 = {
+				add_religious_influence = religious_influence_severe_bonus
+				capital = {
+					add_location_modifier = {
+						modifier = gj_dioses_hambrientos_pozo_bendecido
+						years = 20
+						mode = add_and_extend
+					}
+				}
+			}
+			20 = {
+				add_religious_influence = religious_influence_weak_penalty
+				add_stability = stability_weak_penalty
+			}
+		}
+	}
+	option = {
+		name = gj_dioses_hambrientos.6.b
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_penalty }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .7 Hijos de cautivos: una generacion nace en las casas de sus amos.
+gj_dioses_hambrientos.7 = {
+	type = country_event
+	title = gj_dioses_hambrientos.7.title
+	desc = gj_dioses_hambrientos.7.desc
+	outcome = positive
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+		pop_type_population_in_country = {
+			pop_type = pop_type:slaves
+			value > 0.5
+		}
+		NOT = { has_variable = gj_dioses_hambrientos_hijos_enfriamiento }
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		set_variable = { name = gj_dioses_hambrientos_hijos_enfriamiento value = yes days = 3650 }
+		event_illustration_poptype_effect = { foreground = pop_type:slaves background = pop_type:peasants }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.7.a
+		gj_dioses_hambrientos_consume_cautivos = { FRACCION = -0.5 }
+		add_country_modifier = { modifier = gj_dioses_hambrientos_hijos_de_la_casa years = 10 mode = replace }
+	}
+	option = {
+		name = gj_dioses_hambrientos.7.b
+		add_country_modifier = { modifier = gj_dioses_hambrientos_manos_nuevas years = 10 mode = replace }
+	}
+}
+
+# .8 Los Cribadores piden la Cuenta: la devocion esta casi a cero.
+gj_dioses_hambrientos.8 = {
+	type = country_event
+	title = gj_dioses_hambrientos.8.title
+	desc = gj_dioses_hambrientos.8.desc
+	outcome = negative
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+		religious_influence < 10
+		NOT = { has_variable = gj_dioses_hambrientos_cribadores_enfriamiento }
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = interior
+	}
+
+	immediate = {
+		set_variable = { name = gj_dioses_hambrientos_cribadores_enfriamiento value = yes days = 1095 }
+		event_illustration_estate_effect = { foreground = estate_type:clergy_estate background = estate_type:clergy_estate }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.8.a
+		change_gold_effect = { scale = -3 }
+		add_religious_influence = religious_influence_mild_bonus
+	}
+	option = {
+		name = gj_dioses_hambrientos.8.b
+		add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_penalty }
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .9 La Mesa desborda: devocion alta y guerra abierta.
+gj_dioses_hambrientos.9 = {
+	type = country_event
+	title = gj_dioses_hambrientos.9.title
+	desc = gj_dioses_hambrientos.9.desc
+	outcome = positive
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+		religious_influence > 80
+		at_war = yes
+		NOT = { has_variable = gj_dioses_hambrientos_desborda_enfriamiento }
+	}
+
+	illustration_tags = {
+		10 = armed
+		10 = exterior
+	}
+
+	immediate = {
+		set_variable = { name = gj_dioses_hambrientos_desborda_enfriamiento value = yes days = 3650 }
+		event_illustration_poptype_effect = { foreground = pop_type:soldiers background = pop_type:peasants }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.9.a
+		add_country_modifier = { modifier = gj_dioses_hambrientos_banquete_de_los_dioses years = 3 mode = replace }
+		add_religious_influence = religious_influence_weak_penalty
+	}
+	option = {
+		name = gj_dioses_hambrientos.9.b
+		add_country_modifier = { modifier = gj_dioses_hambrientos_silos_bendecidos years = 10 mode = replace }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# .10 El silo de Daroh: los guardianes de los silos son recompensados en la paz.
+gj_dioses_hambrientos.10 = {
+	type = country_event
+	title = gj_dioses_hambrientos.10.title
+	desc = gj_dioses_hambrientos.10.desc
+	outcome = positive
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+		has_religious_aspect = religious_aspect:gj_dioses_hambrientos_aspecto_guardian_silos
+		has_variable = gj_dioses_hambrientos_anos_de_paz
+		var:gj_dioses_hambrientos_anos_de_paz >= 4
+		NOT = { has_variable = gj_dioses_hambrientos_silo_enfriamiento }
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = interior
+	}
+
+	immediate = {
+		set_variable = { name = gj_dioses_hambrientos_silo_enfriamiento value = yes days = 3650 }
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:clergy_estate }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.10.a
+		add_country_modifier = { modifier = gj_dioses_hambrientos_silos_bendecidos years = 10 mode = replace }
+		add_religious_influence = religious_influence_weak_bonus
+	}
+	option = {
+		name = gj_dioses_hambrientos.10.b
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}
+
+# .11 La Gran Paz del Plato: la devocion llena y los dioses duermen.
+gj_dioses_hambrientos.11 = {
+	type = country_event
+	title = gj_dioses_hambrientos.11.title
+	desc = gj_dioses_hambrientos.11.desc
+	outcome = positive
+	hide_portraits = yes
+
+	trigger = {
+		religion = religion:gj_dioses_hambrientos
+		religious_influence > 90
+		at_war = no
+		has_variable = gj_dioses_hambrientos_anos_de_paz
+		var:gj_dioses_hambrientos_anos_de_paz >= 3
+		NOT = { has_variable = gj_dioses_hambrientos_plato_enfriamiento }
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	immediate = {
+		set_variable = { name = gj_dioses_hambrientos_plato_enfriamiento value = yes days = 7300 }
+		event_illustration_estate_effect = { foreground = estate_type:peasants_estate background = estate_type:peasants_estate }
+	}
+
+	option = {
+		name = gj_dioses_hambrientos.11.a
+		add_country_modifier = { modifier = gj_dioses_hambrientos_paz_del_plato years = 10 mode = replace }
+		add_prestige = prestige_mild_bonus
+		add_religious_influence = religious_influence_mild_penalty
+		set_variable = { name = gj_dioses_hambrientos_anos_de_paz value = 0 }
+	}
+	option = {
+		name = gj_dioses_hambrientos.11.b
+		add_stability = stability_weak_bonus
+	}
+}

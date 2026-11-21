@@ -1,0 +1,4 @@
+﻿# Precio de elegir un espiritu al que pedir presagio (la religion no usa influencia religiosa: se paga en oro).
+gj_espiritus_lago_precio_presagio = {
+	gold = 40
+}

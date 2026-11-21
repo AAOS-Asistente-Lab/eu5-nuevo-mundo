@@ -1,0 +1,49 @@
+﻿# Sorava: tres reformas de gobierno unicas, una cada dos eras. Formato como ven_monte_nuovo del juego base.
+
+gj_sorava_concejo_de_balanzas = {
+	unique = yes
+	age = age_1_traditions
+
+	potential = {
+		gj_es_sorava = yes
+	}
+
+	country_modifier = {
+		monthly_legitimacy = 0.05
+		global_burghers_estate_power = 0.1
+	}
+
+	years = 2
+}
+
+gj_sorava_libro_mayor_de_las_casas = {
+	unique = yes
+	age = age_3_discovery
+
+	potential = {
+		gj_es_sorava = yes
+	}
+
+	country_modifier = {
+		global_merchant_power = 0.1
+		minting_income_factor = 0.1
+	}
+
+	years = 2
+}
+
+gj_sorava_concordato_del_estrecho = {
+	unique = yes
+	age = age_5_absolutism
+
+	potential = {
+		gj_es_sorava = yes
+	}
+
+	country_modifier = {
+		trade_range_modifier = 0.1
+		global_trade_protection_factor = 0.15
+	}
+
+	years = 2
+}

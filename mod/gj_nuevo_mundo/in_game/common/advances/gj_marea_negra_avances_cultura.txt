@@ -1,0 +1,30 @@
+﻿gj_marea_negra_cultura_lengua_de_cubierta = {
+	age = age_1_traditions
+	potential = {
+		culture = culture:gj_mareano
+	}
+	requires = cultural_traditions_law_advance
+	global_monthly_literacy = 0.002
+	diplomatic_range_modifier = 0.1
+}
+
+gj_marea_negra_cultura_tradicion_del_nudo = {
+	age = age_3_discovery
+	potential = {
+		culture = culture:gj_mareano
+	}
+	requires = cultural_acceptance_advance
+	monthly_prestige = 0.05
+	global_population_growth = 0.0005
+}
+
+gj_marea_negra_cultura_memoria_de_las_deudas = {
+	age = age_5_absolutism
+	potential = {
+		culture = culture:gj_mareano
+	}
+	requires = cultural_acceptance_advance
+	stability_cost_efficiency = 0.1
+	monthly_legitimacy = 0.05
+}
+

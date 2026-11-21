@@ -1,0 +1,45 @@
+﻿gj_velathi_language = {
+	color = gj_map_velathi_language
+
+	family = gj_velathi_language_family
+
+	male_names = {
+		Aurhen Tevilan Sorhai Ilvaren Maelith Orhavel Quevaren Halvethin Erudan Tirelan
+		Vaelor Nimvaren Bruhen Calithor Dovaren Faelun Gwelith Ithurel Jorhaven Kerelin
+		Lorvaen Marhelin Nurahel Othalen Pirohan Rhuvael Sarhindel Talvoren Urvelan Wyndorel
+	}
+	female_names = {
+		Aivandra Belheira Caelume Dorhiel Elvaine Fenhira Galhivane Hirvane Isolhe Jarunel
+		Kithiara Liravel Mirhaen Nuvelle Orlheia Peribel Quilhane Rhosanel Sylvara Thaleine
+		Ulvaine Verhuna Wenhiel Ysolvane Zarhelie
+	}
+	dynasty_names = {
+		Casadehojas Raizdeoro Altacopa Savianegra Tejoviejo Musgoclaro Brotenuevo Cortezaazul
+		Hondalumbre Lluviafina Sombrapaciente Vientodulce Cenizablanca Mielvieja Fresnoalto
+	}
+	lowborn = {
+		Hojarasca Brote Musgo Resina Corteza Raicilla Rocio Helecho Bellota Ortiga
+	}
+
+	dialects = {
+		gj_velathi_dialect = {
+			male_names = {
+				Aurhen Tevilan Sorhai Ilvaren Maelith Orhavel Quevaren Halvethin Erudan Tirelan
+				Vaelor Nimvaren Bruhen Calithor Dovaren Faelun Gwelith Ithurel Jorhaven Kerelin
+				Lorvaen Marhelin Nurahel Othalen Pirohan Rhuvael Sarhindel Talvoren Urvelan Wyndorel
+			}
+			female_names = {
+				Aivandra Belheira Caelume Dorhiel Elvaine Fenhira Galhivane Hirvane Isolhe Jarunel
+				Kithiara Liravel Mirhaen Nuvelle Orlheia Peribel Quilhane Rhosanel Sylvara Thaleine
+				Ulvaine Verhuna Wenhiel Ysolvane Zarhelie
+			}
+			dynasty_names = {
+				Casadehojas Raizdeoro Altacopa Savianegra Tejoviejo Musgoclaro Brotenuevo Cortezaazul
+				Hondalumbre Lluviafina Sombrapaciente Vientodulce Cenizablanca Mielvieja Fresnoalto
+			}
+			lowborn = {
+				Hojarasca Brote Musgo Resina Corteza Raicilla Rocio Helecho Bellota Ortiga
+			}
+		}
+	}
+}

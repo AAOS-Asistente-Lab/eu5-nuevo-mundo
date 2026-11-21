@@ -1,0 +1,355 @@
+﻿##############################
+# Unidades propias de la Hegemonia Carmesi: tres cadenas de 6 versiones (una por era)
+# Cada una: fuerza clara, debilidad clara y limite (ver MECANICAS H)
+##############################
+
+a_gj_orunmar_captura_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_captura_2
+
+	buildable = yes
+	limit = gj_orunmar_limite_captura
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	morale_damage_done = 0.15
+	strength_damage_taken = -0.10
+	strength_damage_done = -0.15
+
+	construction_demand = a_warriors_construction
+	maintenance_demand = a_warriors_maintenance
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_captura_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_captura_3
+
+	buildable = yes
+	limit = gj_orunmar_limite_captura
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	morale_damage_done = 0.15
+	strength_damage_taken = -0.10
+	strength_damage_done = -0.15
+
+	construction_demand = a_warriors_construction
+	maintenance_demand = a_warriors_maintenance
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_captura_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_captura_4
+
+	buildable = yes
+	limit = gj_orunmar_limite_captura
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	morale_damage_done = 0.15
+	strength_damage_taken = -0.10
+	strength_damage_done = -0.15
+
+	construction_demand = a_warriors_construction
+	maintenance_demand = a_warriors_maintenance
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_captura_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_captura_5
+
+	buildable = yes
+	limit = gj_orunmar_limite_captura
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	morale_damage_done = 0.15
+	strength_damage_taken = -0.10
+	strength_damage_done = -0.15
+
+	construction_demand = a_warriors_construction
+	maintenance_demand = a_warriors_maintenance
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_captura_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_captura_6
+
+	buildable = yes
+	limit = gj_orunmar_limite_captura
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	morale_damage_done = 0.15
+	strength_damage_taken = -0.10
+	strength_damage_done = -0.15
+
+	construction_demand = a_warriors_construction
+	maintenance_demand = a_warriors_maintenance
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_captura_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+
+	buildable = yes
+	limit = gj_orunmar_limite_captura
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	morale_damage_done = 0.15
+	strength_damage_taken = -0.10
+	strength_damage_done = -0.15
+
+	construction_demand = a_warriors_construction
+	maintenance_demand = a_warriors_maintenance
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_cazador_1 = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_cazador_2
+
+	buildable = yes
+	limit = gj_orunmar_limite_cazador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	initiative = 2
+	combat = {
+		jungle = 0.20
+	}
+	strength_damage_taken = 0.10
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_cazador_2 = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_cazador_3
+
+	buildable = yes
+	limit = gj_orunmar_limite_cazador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	initiative = 2
+	combat = {
+		jungle = 0.20
+	}
+	strength_damage_taken = 0.10
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_cazador_3 = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_cazador_4
+
+	buildable = yes
+	limit = gj_orunmar_limite_cazador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	initiative = 2
+	combat = {
+		jungle = 0.20
+	}
+	strength_damage_taken = 0.10
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_cazador_4 = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_cazador_5
+
+	buildable = yes
+	limit = gj_orunmar_limite_cazador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	initiative = 2
+	combat = {
+		jungle = 0.20
+	}
+	strength_damage_taken = 0.10
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_cazador_5 = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_cazador_6
+
+	buildable = yes
+	limit = gj_orunmar_limite_cazador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	initiative = 2
+	combat = {
+		jungle = 0.20
+	}
+	strength_damage_taken = 0.10
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_cazador_6 = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+
+	buildable = yes
+	limit = gj_orunmar_limite_cazador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	initiative = 2
+	combat = {
+		jungle = 0.20
+	}
+	strength_damage_taken = 0.10
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_orunmar_porteador_1 = {
+	copy_from = a_age_1_traditions_auxiliary
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_porteador_2
+
+	buildable = yes
+	limit = gj_orunmar_limite_porteador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	attrition_loss = -0.15
+	movement_speed = 0.05
+	strength_damage_taken = 0.15
+
+	gfx_tags = { medium_tag auxiliary_tag }
+}
+
+a_gj_orunmar_porteador_2 = {
+	copy_from = a_age_2_renaissance_auxiliary
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_porteador_3
+
+	buildable = yes
+	limit = gj_orunmar_limite_porteador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	attrition_loss = -0.15
+	movement_speed = 0.05
+	strength_damage_taken = 0.15
+
+	gfx_tags = { medium_tag auxiliary_tag }
+}
+
+a_gj_orunmar_porteador_3 = {
+	copy_from = a_age_3_discovery_auxiliary
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_porteador_4
+
+	buildable = yes
+	limit = gj_orunmar_limite_porteador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	attrition_loss = -0.15
+	movement_speed = 0.05
+	strength_damage_taken = 0.15
+
+	gfx_tags = { medium_tag auxiliary_tag }
+}
+
+a_gj_orunmar_porteador_4 = {
+	copy_from = a_age_4_reformation_auxiliary
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_porteador_5
+
+	buildable = yes
+	limit = gj_orunmar_limite_porteador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	attrition_loss = -0.15
+	movement_speed = 0.05
+	strength_damage_taken = 0.15
+
+	gfx_tags = { medium_tag auxiliary_tag }
+}
+
+a_gj_orunmar_porteador_5 = {
+	copy_from = a_age_5_absolutism_auxiliary
+	is_special = yes
+	upgrades_to_only = a_gj_orunmar_porteador_6
+
+	buildable = yes
+	limit = gj_orunmar_limite_porteador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	attrition_loss = -0.15
+	movement_speed = 0.05
+	strength_damage_taken = 0.15
+
+	gfx_tags = { medium_tag auxiliary_tag }
+}
+
+a_gj_orunmar_porteador_6 = {
+	copy_from = a_age_6_revolutions_auxiliary
+	is_special = yes
+
+	buildable = yes
+	limit = gj_orunmar_limite_porteador
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	attrition_loss = -0.15
+	movement_speed = 0.05
+	strength_damage_taken = 0.15
+
+	gfx_tags = { medium_tag auxiliary_tag }
+}

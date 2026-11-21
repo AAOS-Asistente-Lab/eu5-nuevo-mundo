@@ -1,0 +1,40 @@
+# Pulso anual de mundo_contacto: solo para paises del Nuevo Mundo.
+# - Los que aun no han tenido contacto lo reciben cuando el Viejo Mundo llega a America (con un retraso al azar).
+# - Los que ya lo han tenido cuentan el ano, suben su inmunidad y ajustan la difusion del saber.
+# - De vez en cuando, un evento de intercambio (caballos, cultivos, interpretes, imprenta, maestros...).
+
+INJECT:yearly_country_pulse = {
+	on_actions = {
+		gj_contacto_pulso_anual
+	}
+}
+
+gj_contacto_pulso_anual = {
+	trigger = {
+		gj_pais_nuevo_mundo = yes
+	}
+	effect = {
+		if = {
+			limit = {
+				has_variable = gj_contacto_hecho
+			}
+			gj_contacto_paso_anual = yes
+		}
+	}
+	events = {
+		delay = { months = { 1 24 } }
+		gj_mundo_contacto.1
+	}
+	random_events = {
+		chance_to_happen = 14
+		100 = gj_mundo_contacto.13
+		100 = gj_mundo_contacto.14
+		100 = gj_mundo_contacto.15
+		100 = gj_mundo_contacto.16
+		100 = gj_mundo_contacto.17
+		100 = gj_mundo_contacto.18
+		100 = gj_mundo_contacto.20
+		100 = gj_mundo_contacto.21
+		100 = 0
+	}
+}

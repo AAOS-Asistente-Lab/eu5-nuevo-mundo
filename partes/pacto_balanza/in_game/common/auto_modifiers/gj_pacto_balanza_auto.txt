@@ -1,0 +1,55 @@
+﻿# Modificadores automaticos del Pacto de la Balanza, segun el honor y los contratos en vigor.
+# (Los genericos de alto y bajo honor del juego base se aplican ademas.)
+
+gj_pacto_palabra_de_oro = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_pacto_balanza
+	}
+	limit = {
+		honor > 70
+	}
+	scales_with = {
+		value = honor
+		subtract = 70
+		multiply = 0.0333
+	}
+
+	global_merchant_power = 0.1
+	improve_relation_impact = 0.15
+	total_loan_capacity_modifier = 0.2
+}
+
+gj_pacto_credito_roto = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_pacto_balanza
+	}
+	limit = {
+		honor < 30
+	}
+	scales_with = {
+		value = honor
+		multiply = -0.0333
+		add = 1
+	}
+
+	total_loan_capacity_modifier = -0.25
+	global_merchant_power = -0.1
+	subject_loyalty = -0.1
+}
+
+gj_pacto_contratos_en_vigor = {
+	potential_trigger = {
+		exists = religion
+		religion = religion:gj_pacto_balanza
+		has_variable = gj_pacto_contratos
+	}
+	scales_with = {
+		value = var:gj_pacto_contratos
+		multiply = 0.1
+	}
+
+	global_merchant_capacity_modifier = 0.1
+	monthly_prestige = 0.1
+}

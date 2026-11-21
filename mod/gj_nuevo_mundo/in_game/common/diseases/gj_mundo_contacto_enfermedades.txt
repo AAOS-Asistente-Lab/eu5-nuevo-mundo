@@ -1,0 +1,506 @@
+﻿# Enfermedades de mundo_contacto.
+# Sustituyen a las del juego base (REPLACE): la clave sigue siendo la misma para que el resto del juego
+# (situacion, acciones genericas, eventos) siga enganchado. Se nombra «Fiebres de los barcos» en la localizacion.
+#
+# great_pestilence: antes mataba del 75 al 90 por ciento y arrasaba un continente. Ahora es un brote local
+#   en los puertos de contacto, de mortalidad parecida a la de la viruela del Viejo Mundo.
+# smallpox: R0 de poblacion con defensas, no de poblacion virgen. La inmunidad parcial de los paises con
+#   contacto (modificadores gj_inmunidad_*) la frena mas.
+
+REPLACE:great_pestilence = {
+	monthly_spawn_chance = {
+		if = {
+			limit = {
+				continent:america = {
+					any_location_in_continent = {
+						population > 0
+						owner_from_old_world = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					situation:great_pestilence = {
+						situation_is_active = no
+						situation_has_ended = yes
+					}
+				}
+				value = 0
+			}
+			else = {
+				value = 0.1
+			}
+		}
+		else = {
+			value = 0
+		}
+	}
+
+	spawn = {
+		if = {
+			limit = {
+				situation:great_pestilence = {
+					situation_is_active = no
+					situation_has_ended = yes
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				situation:great_pestilence = {
+					situation_is_active = yes
+					situation_has_ended = no
+				}
+			}
+			continent:america = {
+				random_location_in_continent = {
+					limit = {
+						population > 0
+						owner_from_old_world = yes
+						"disease_resistance(scope:disease)" < 0.5
+					}
+					spawn_disease = {
+						disease = scope:disease
+						value = 0.5
+						save_scope_as = outbreak
+					}
+				}
+			}
+		}
+		else = {
+			continent:america = {
+				random_location_in_continent = {
+					limit = {
+						population > 0
+						owner_from_old_world = yes
+						"disease_resistance(scope:disease)" < 0.5
+					}
+					spawn_disease = {
+						disease = scope:disease
+						value = 0.5
+						save_scope_as = outbreak
+					}
+
+					if = {
+						limit = {
+							situation:great_pestilence = {
+								situation_is_active = no
+								situation_has_ended = no
+							}
+						}
+						activate_situation = situation:great_pestilence
+						situation:great_pestilence = {
+							set_variable = {
+								name = original_outbreak
+								value = scope:outbreak
+							}
+						}
+						add_timeline_note = {
+							key = timeline_note_great_pestilence
+							location = this
+							show_in_pop_graph = yes
+							unique = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# R0 mas bajo que en el juego base: son fiebres de puerto, no una plaga de continente.
+	r0 = {
+		if = {
+			limit = {
+				location_rank ?= location_rank:rural_settlement
+			}
+			value = { 0 2 }
+		}
+		else_if = {
+			limit = {
+				location_rank ?= location_rank:town
+			}
+			value = { 1 3 }
+		}
+		else = {
+			value = { 3 6 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building_with_at_least_one_level = market_village
+					has_building_with_at_least_one_level = marketplace
+					has_building_with_at_least_one_level = slave_market
+					has_building_with_at_least_one_level = entrepot
+					has_building_with_at_least_one_level = trading_hub
+					has_building_with_at_least_one_level = stock_exchange
+				}
+			}
+			multiply = 1.2
+		}
+
+		# La inmunidad parcial de los anos de contacto.
+		if = {
+			limit = {
+				owner ?= { has_country_modifier = gj_inmunidad_3 }
+			}
+			multiply = 0.3
+		}
+		else_if = {
+			limit = {
+				owner ?= { has_country_modifier = gj_inmunidad_2 }
+			}
+			multiply = 0.5
+		}
+		else_if = {
+			limit = {
+				owner ?= { has_country_modifier = gj_inmunidad_1 }
+			}
+			multiply = 0.7
+		}
+
+		if = {
+			limit = {
+				OR = {
+					disease_has_stagnated = scope:disease
+					"disease_resistance(scope:disease)" > 0.5
+				}
+			}
+			subtract = { 0.2 0.7 }
+			if = {
+				limit = {
+					disease_presence = {
+						disease = scope:disease
+						value <= 0.2
+					}
+				}
+				subtract = 0.3
+			}
+		}
+
+		if = {
+			limit = {
+				num_roads = 0
+				OR = {
+					topography = mountains
+					vegetation = desert
+					vegetation = jungle
+				}
+			}
+			multiply = 0.25
+		}
+		if = {
+			limit = {
+				NOT = { continent = continent:america }
+			}
+			multiply = 0.0
+		}
+	}
+
+	location_spread_threshold = {
+		if = {
+			limit = {
+				num_roads = 0
+				OR = {
+					topography = mountains
+					vegetation = desert
+					vegetation = jungle
+				}
+			}
+			value = 0.9
+		}
+		else = {
+			value = 0.75
+		}
+	}
+
+	calc_interval_days = { 6 20 }
+
+	location_stagnation_chance = {
+		if = {
+			limit = { location_rank ?= location_rank:rural_settlement }
+			value = 0.15
+		}
+		else_if = {
+			limit = {
+				location_rank ?= location_rank:town
+			}
+			value = 0.12
+		}
+		else = {
+			value = 0.05
+		}
+
+		if = {
+			limit = {
+				num_roads = 0
+				OR = {
+					topography = mountains
+					vegetation = desert
+					vegetation = jungle
+				}
+			}
+			multiply = 3
+		}
+		if = {
+			limit = {
+				"disease_resistance(scope:disease)" > 0.5
+			}
+			add = {
+				value = "disease_resistance(scope:disease)"
+				subtract = 0.4
+			}
+		}
+		if = {
+			limit = {
+				"disease_resistance(scope:disease)" > 0.95
+			}
+			add = 0.1
+		}
+		if = {
+			limit = {
+				"disease_resistance(scope:disease)" > 0.98
+			}
+			add = 0.2
+		}
+		# Quien cierra sus puertos o pone cuarentena en el muelle frena el contagio.
+		if = {
+			limit = {
+				is_ownable = yes
+				has_owner = yes
+				owner ?= {
+					OR = {
+						has_country_modifier = no_contact_with_outsiders
+						has_country_modifier = gj_contacto_via_cerrado
+					}
+				}
+			}
+			add = 0.5
+		}
+		if = {
+			limit = {
+				has_location_modifier = gj_loc_cuarentena
+			}
+			add = 0.3
+		}
+		if = {
+			limit = {
+				NOT = { continent = continent:america }
+			}
+			value = 1.0
+		}
+	}
+
+	percentage_to_meet_their_fate_on_calc = {
+		value = 0.10
+	}
+
+	# Efectos en la location: la mitad de duros que los del juego base.
+	location_modifier = {
+		local_population_growth = -0.05
+		local_forced_attrition = 3
+		max_attrition = 5
+
+		local_pop_promotion_speed_modifier = -1.0
+		local_pop_demotion_speed_modifier = 1.0
+
+		local_prosperity_decay = 0.05
+		local_monthly_control = -0.0025
+
+		local_monthly_development = -0.01
+	}
+
+	# Mortalidad de un brote del Viejo Mundo (la viruela mata del 5 al 30 por ciento).
+	mortality_rate = { 0.12 0.30 }
+
+	character_mortality_chance = {
+		value = 0.02
+		multiply = "disease_presence(scope:disease)"
+	}
+
+	on_spread_to_country = {
+		trigger_event_non_silently = gj_mundo_contacto.6
+	}
+
+	map_color = {
+		lerp = {
+			min_color = rgb { 248  180  194 }
+			max_color = rgb { 120 20 40 }
+			factor = "disease_presence(scope:disease)"
+		}
+	}
+
+	secondary_map_color = {
+		if = {
+			limit = {
+				disease_affects_pops_here = scope:disease
+			}
+			value = rgb { 100  120  188 }
+		}
+	}
+}
+
+REPLACE:smallpox = {
+	monthly_spawn_chance = {
+		value = 0.08
+	}
+
+	spawn = {
+		random_ownable_location = {
+			limit = {
+				population > 1
+				OR = {
+					climate = mediterranean
+					climate = continental
+					climate = oceanic
+					climate = cold_arid
+					climate = tropical
+					climate = subtropical
+				}
+				trigger_if = {
+					limit = {
+						situation:great_pestilence = {
+							situation_is_active = no
+							situation_has_ended = no
+						}
+					}
+					OR = {
+						continent = continent:asia
+						continent = continent:europe
+						continent = continent:africa
+						continent = continent:oceania
+					}
+				}
+			}
+			spawn_disease = {
+				disease = scope:disease
+				value = 0.5
+				save_scope_as = outbreak
+			}
+		}
+	}
+
+	# R0 de una poblacion con defensas (la del juego base es la de una poblacion virgen).
+	r0 = {
+		if = {
+			limit = {
+				location_rank ?= location_rank:rural_settlement
+			}
+			value = { 2 4 }
+		}
+		else_if = {
+			limit = {
+				location_rank ?= location_rank:town
+			}
+			value = { 3 7 }
+		}
+		else = {
+			value = { 6 10 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building_with_at_least_one_level = market_village
+					has_building_with_at_least_one_level = marketplace
+					has_building_with_at_least_one_level = slave_market
+					has_building_with_at_least_one_level = entrepot
+					has_building_with_at_least_one_level = trading_hub
+					has_building_with_at_least_one_level = stock_exchange
+				}
+			}
+			multiply = 1.2
+		}
+		# La inmunidad parcial de los paises con contacto.
+		if = {
+			limit = {
+				owner ?= { has_country_modifier = gj_inmunidad_3 }
+			}
+			multiply = 0.4
+		}
+		else_if = {
+			limit = {
+				owner ?= { has_country_modifier = gj_inmunidad_2 }
+			}
+			multiply = 0.6
+		}
+		else_if = {
+			limit = {
+				owner ?= { has_country_modifier = gj_inmunidad_1 }
+			}
+			multiply = 0.8
+		}
+		multiply = {
+			value = "disease_presence(scope:disease)"
+			multiply = 2
+			add = 1
+		}
+	}
+
+	calc_interval_days = { 4 12 }
+
+	location_stagnation_chance = {
+		if = {
+			limit = {
+				"disease_presence(scope:disease)" > 0.05
+			}
+			value = "distance_to_squared(scope:disease.origin)"
+			multiply = 0.0006
+			multiply = 0.0035
+		}
+		else = {
+			value = "distance_to_squared(scope:disease.origin)"
+			multiply = 0.00004
+		}
+		if = {
+			limit = {
+				has_location_modifier = gj_loc_cuarentena
+			}
+			add = 0.3
+		}
+	}
+
+	percentage_to_meet_their_fate_on_calc = {
+		value = 0.25
+	}
+
+	location_spread_threshold = {
+		value = 0.15
+	}
+
+	location_modifier = {
+	}
+
+	monthly_resistance_reduction = 0.0007
+
+	# Un poco menos letal que en el juego base: la gente de los puertos ya conoce la enfermedad.
+	mortality_rate = {
+		0.04 0.22
+	}
+
+	character_trait = smallpox_trait
+
+	character_mortality_chance = {
+		value = 0.03
+		multiply = "disease_presence(scope:disease)"
+	}
+
+	on_spread_to_country = {
+		trigger_event_non_silently = diseases.1
+	}
+
+	map_color = {
+		lerp = {
+			min_color = rgb { 133  195  136 }
+			max_color = rgb { 2 120 9 }
+			factor = "disease_presence(scope:disease)"
+		}
+	}
+
+	secondary_map_color = {
+		if = {
+			limit = {
+				disease_affects_pops_here = scope:disease
+			}
+			value = rgb { 100  120  188 }
+		}
+	}
+}

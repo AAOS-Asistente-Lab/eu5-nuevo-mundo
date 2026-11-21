@@ -1,0 +1,17 @@
+﻿# GJ Nuevo Mundo, integracion: colores de los paises y de los grupos de religion.
+colors = {
+	gj_pais_ostrevar = rgb { 74 120 168 }
+	gj_pais_ankaru = hsv360 { 44 70 86 }
+	gj_pais_orunmar = hsv360 { 354 72 58 }
+	gj_pais_durnhal = hsv360 { 20 60 45 }
+	gj_pais_kaivan = hsv360 { 48 55 70 }
+	gj_pais_hrimval = hsv360 { 196 18 88 }
+	gj_pais_skarren = hsv360 { 222 45 40 }
+	gj_pais_lagunas = rgb { 52 138 176 }
+	gj_pais_sorava = hsv360 { 30 75 80 }
+	gj_pais_thalassar = hsv360 { 190 70 75 }
+	gj_pais_marea_negra = hsv360 { 260 30 25 }
+	gj_pais_velathi = hsv360 { 120 55 45 }
+	gj_fe_norte = hsv360 { 210 25 80 }
+	gj_fe_sur = hsv360 { 40 45 85 }
+}

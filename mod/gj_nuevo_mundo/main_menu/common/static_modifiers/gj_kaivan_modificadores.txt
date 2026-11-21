@@ -1,0 +1,115 @@
+﻿#######################################################################
+# Modificadores con nombre de Kaivan (parte "kaivan").
+# Los usan las decisiones, los eventos y el desastre. No cuentan como bonificaciones fijas.
+#######################################################################
+
+# --- Decision: La Gran Cabalgada (10 anos)
+gj_kaivan_gran_cabalgada = {
+	game_data = { category = country }
+	army_movement_speed = 0.15
+	army_light_cavalry_power = 0.1
+	cabalgada_raids_price_cost_modifier = -0.25
+	land_morale_modifier = 0.05
+	army_light_cavalry_maintenance_cost_modifier = 0.2
+}
+
+# --- Despues de la Cabalgada: la hierba tarda en volver
+gj_kaivan_pastos_agotados = {
+	game_data = { category = country }
+	global_livestock_output_modifier = -0.15
+	global_horses_output_modifier = -0.1
+}
+
+# --- Capital nueva: el campamento del kan crece deprisa
+gj_kaivan_sede_del_kan = {
+	game_data = { category = location }
+	local_max_control = 0.05
+	local_monthly_development = 0.01
+	local_manpower_modifier = 0.1
+	local_construction_speed = 0.25
+}
+
+# --- Un reinado por clan (se pone al elegir kan y se quita en el siguiente Circulo)
+gj_kaivan_reinado_uzhar = {
+	game_data = { category = country }
+	army_light_cavalry_power = 0.05
+	army_movement_speed = 0.05
+}
+
+gj_kaivan_reinado_tarkhen = {
+	game_data = { category = country }
+	siege_ability = 0.15
+	discipline = 0.03
+}
+
+gj_kaivan_reinado_ilbari = {
+	game_data = { category = country }
+	diplomatic_range_modifier = 0.1
+	global_horses_output_modifier = 0.1
+}
+
+gj_kaivan_reinado_merghan = {
+	game_data = { category = country }
+	global_livestock_output_modifier = 0.15
+	global_population_growth = 0.001
+}
+
+# --- Reinados y sus consecuencias
+gj_kaivan_cicatriz_de_hermanos = {
+	game_data = { category = country }
+	global_estate_target_satisfaction = small_permanent_target_satisfaction_penalty
+	global_monthly_control = -0.001
+}
+
+gj_kaivan_juramento_renovado = {
+	game_data = { category = country }
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+	global_levy_size_modifier = 0.05
+}
+
+# --- Eventos de clima y estepa
+gj_kaivan_invierno_negro = {
+	game_data = { category = country }
+	global_horses_output_modifier = -0.25
+	global_livestock_output_modifier = -0.25
+	global_population_growth = -0.001
+}
+
+gj_kaivan_primavera_de_yeguadas = {
+	game_data = { category = country }
+	global_horses_output_modifier = 0.25
+	global_livestock_output_modifier = 0.15
+	army_reinforce_efficiency = 0.1
+}
+
+gj_kaivan_ruta_abierta = {
+	game_data = { category = country }
+	diplomatic_range_modifier = 0.15
+	monthly_prestige = 0.05
+}
+
+gj_kaivan_botin_de_marca = {
+	game_data = { category = country }
+	army_tradition_from_battle = 0.25
+	prestige_from_land_battle = 0.25
+}
+
+gj_kaivan_fiebre_de_los_campamentos = {
+	game_data = { category = country }
+	global_population_growth = -0.001
+	land_morale_modifier = -0.05
+}
+
+gj_kaivan_cometa_de_los_nueve = {
+	game_data = { category = country }
+	land_morale_modifier = 0.1
+	monthly_legitimacy = 0.02
+}
+
+# --- Locations
+gj_kaivan_feria_de_verano = {
+	game_data = { category = location }
+	local_migration_attraction = 0.1
+	local_horses_output_modifier = 0.25
+}
+

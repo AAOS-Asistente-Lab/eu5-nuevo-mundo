@@ -1,0 +1,69 @@
+﻿# Efectos de la Corte Insepulta de Hrimval
+# Variables del pais de la Corte:
+#   gj_caidos        de 0 a 100: los caidos recogidos y guardados
+#   gj_noche_reloj   de 0 a 100: el reloj de la Noche Blanca (al llegar a 100 empieza la situacion)
+
+# Llamado desde cualquier pais. Solo actua sobre la Corte.
+# Uso: gj_hrimval_recoge_caidos = { N = 5 }
+gj_hrimval_recoge_caidos = {
+	if = {
+		limit = { gj_es_hrimval = yes }
+		change_variable = { name = gj_caidos add = $N$ }
+		clamp_variable = { name = gj_caidos min = 0 max = 100 }
+		capital ?= {
+			add_pop = {
+				culture = culture:gj_insepulto
+				religion = religion:gj_escarcha_silente
+				type = pop_type:laborers
+				size = { value = 0.05 }
+			}
+		}
+	}
+}
+
+# Cualquier parte (eclipses, plagas, grandes batallas) adelanta el reloj de la Noche Blanca.
+# Uso: gj_noche_blanca_adelanta = { VALOR = 5 }
+gj_noche_blanca_adelanta = {
+	every_country = {
+		limit = { gj_es_hrimval = yes }
+		change_variable = { name = gj_noche_reloj add = $VALOR$ }
+		clamp_variable = { name = gj_noche_reloj min = 0 max = 100 }
+	}
+}
+
+# La Noche Blanca comienza ya. La llama la parte escarcha_silente cuando un rito la desencadena.
+# Lleva el reloj de la Corte al maximo: la situacion gj_hrimval_noche_blanca arranca sola
+# (can_start exige gj_noche_reloj >= 100). Actua en cualquier pais; solo afecta a la Corte.
+# Uso: gj_noche_blanca_comienza = yes
+gj_noche_blanca_comienza = {
+	every_country = {
+		limit = { gj_es_hrimval = yes }
+		set_variable = { name = gj_noche_reloj value = 100 }
+	}
+}
+# El frio como frontera: fuera del hielo la tierra de la Corte se deshace; dentro, se asienta.
+# root = pais de la Corte
+gj_hrimval_pulso_frontera = {
+	every_owned_location = {
+		limit = {
+			NOR = {
+				climate = arctic
+				climate = subpolar
+			}
+		}
+		add_location_modifier = { modifier = gj_hrimval_deshielo years = 2 mode = add_and_extend }
+	}
+	every_owned_location = {
+		limit = {
+			OR = {
+				climate = arctic
+				climate = subpolar
+			}
+		}
+		add_location_modifier = { modifier = gj_hrimval_frio_propio years = 2 mode = add_and_extend }
+		if = {
+			limit = { has_location_modifier = gj_hrimval_deshielo }
+			remove_location_modifier = gj_hrimval_deshielo
+		}
+	}
+}

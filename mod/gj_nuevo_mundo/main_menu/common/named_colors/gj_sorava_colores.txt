@@ -1,0 +1,4 @@
+﻿colors = {
+	map_gj_soravi = rgb { 28 150 160 }
+	map_gj_sorava_lengua = rgb { 214 160 48 }
+}

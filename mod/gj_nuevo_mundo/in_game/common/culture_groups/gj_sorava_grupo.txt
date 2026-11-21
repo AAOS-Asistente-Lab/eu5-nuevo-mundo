@@ -1,0 +1,20 @@
+﻿# Grupo cultural de Sorava. Lo comparte la Marea Negra: aqui solo va lo que vale para gente de mar y de lonja.
+gj_grupo_sorava = {
+	country_modifier = {
+		trade_sea_efficiency = 0.05
+		ship_build_speed = 0.05
+	}
+	character_modifier = {
+	}
+	location_modifier = {
+		local_ship_build_speed = 0.1
+	}
+	goods_demand_modifier = {
+		wine = 1.2
+		fish = 1.5
+		pepper = 1.3
+		jewelry = 1.3
+		wheat = 0.9
+		livestock = 0.8
+	}
+}

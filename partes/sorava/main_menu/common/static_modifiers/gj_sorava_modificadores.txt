@@ -1,0 +1,188 @@
+﻿# Sorava: modificadores nombrados que usan los eventos, las decisiones y el desastre.
+# Los de «palabra» los reparte gj_sorava_actualizar_palabra segun la variable gj_sorava_palabra (0-100).
+
+### La palabra de Sorava (reputacion de las Casas)
+gj_sorava_palabra_de_oro = {
+	game_data = {
+		category = country
+	}
+	global_merchant_power = 0.1
+	improve_relation_impact = 0.2
+	tariff_income = 0.05
+}
+
+gj_sorava_palabra_firme = {
+	game_data = {
+		category = country
+	}
+	global_merchant_power = 0.05
+	improve_relation_impact = 0.1
+}
+
+gj_sorava_palabra_manchada = {
+	game_data = {
+		category = country
+	}
+	global_merchant_power = -0.1
+	improve_relation_impact = -0.2
+	tariff_income = -0.1
+}
+
+### Contratos de las Casas (5 anos): una ventaja y una obligacion
+gj_sorava_contrato_especias = {
+	game_data = {
+		category = country
+	}
+	global_pepper_output_modifier = 0.2
+	global_cloves_output_modifier = 0.2
+	tariff_income = -0.05
+}
+
+gj_sorava_contrato_perlas = {
+	game_data = {
+		category = country
+	}
+	global_pearls_output_modifier = 0.25
+	global_jewelry_output_modifier = 0.1
+	global_fish_output_modifier = -0.05
+}
+
+gj_sorava_contrato_escolta = {
+	game_data = {
+		category = country
+	}
+	global_trade_protection_factor = 0.2
+	army_maintenance_efficiency = -0.05
+}
+
+### Disputa del estrecho (decision, 5 anos)
+gj_sorava_pulso_estrecho = {
+	game_data = {
+		category = country
+	}
+	blockade_efficiency = 0.2
+	trade_sea_efficiency = 0.1
+	navy_maintenance_efficiency = -0.1
+}
+
+### Lonja Mayor (decision unica, permanente)
+gj_sorava_lonja_mayor = {
+	game_data = {
+		category = country
+	}
+	global_merchant_capacity_modifier = 0.05
+	global_trades_per_burgher = 0.03
+}
+
+### Eventos
+gj_sorava_vientos_de_cola = {
+	game_data = {
+		category = country
+	}
+	trade_sea_efficiency = 0.1
+	ship_repair_at_sea = 0.1
+}
+
+gj_sorava_temporada_de_perlas = {
+	game_data = {
+		category = country
+	}
+	global_pearls_output_modifier = 0.3
+}
+
+gj_sorava_almacenes_quemados = {
+	game_data = {
+		category = country
+	}
+	global_merchant_power = -0.05
+	maximum_stockpile_capacity = -10
+}
+
+gj_sorava_guerra_de_precios = {
+	game_data = {
+		category = country
+	}
+	tariff_income = -0.1
+	global_merchant_capacity_modifier = -0.05
+}
+
+gj_sorava_moneda_falsa = {
+	game_data = {
+		category = country
+	}
+	minting_income_factor = -0.1
+	stability_cost_efficiency = -0.1
+}
+
+gj_sorava_tinta_sin_secar = {
+	game_data = {
+		category = country
+	}
+	global_dyes_output_modifier = 0.2
+}
+
+gj_sorava_cofradia_de_pilotos = {
+	game_data = {
+		category = country
+	}
+	navy_light_ship_power = 0.1
+	ship_build_speed = 0.1
+}
+
+gj_sorava_cuentas_claras = {
+	game_data = {
+		category = country
+	}
+	stability_cost_efficiency = 0.1
+	monthly_legitimacy = 0.05
+}
+
+gj_sorava_mesa_de_enviados = {
+	game_data = {
+		category = country
+	}
+	diplomatic_capacity = 1
+	improve_relation_impact = 0.15
+}
+
+gj_sorava_escolta_del_gremio = {
+	game_data = {
+		category = country
+	}
+	global_trade_protection_factor = 0.1
+	anti_piracy_warfare_modifier = 0.1
+}
+
+gj_sorava_tormenta_de_otono = {
+	game_data = {
+		category = country
+	}
+	trade_sea_efficiency = -0.1
+	naval_morale_modifier = -0.1
+}
+
+gj_sorava_apuesta_de_casa = {
+	game_data = {
+		category = country
+	}
+	global_merchant_power = 0.1
+	tariff_income = -0.05
+}
+
+### Quiebra de las Casas (efecto en el pais mientras dura el desastre, ver disasters)
+gj_sorava_deudas_heredadas = {
+	game_data = {
+		category = country
+	}
+	total_loan_capacity_modifier = -0.25
+	minting_income_factor = -0.05
+}
+
+### Lugares (modificadores de location)
+gj_sorava_puerto_franco = {
+	game_data = {
+		category = location
+	}
+	local_trade_center_power = 0.1
+	local_merchant_capacity = 1
+}

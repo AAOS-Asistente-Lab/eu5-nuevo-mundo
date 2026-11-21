@@ -1,0 +1,72 @@
+﻿gj_skarren_saga_mar = {
+	game_data = {
+		category = country
+	}
+	navy_movement_speed = 0.1
+	naval_morale_modifier = 0.1
+}
+
+gj_skarren_saga_hierro = {
+	game_data = {
+		category = country
+	}
+	land_morale_modifier = 0.1
+	discipline = 0.05
+}
+
+gj_skarren_saga_sangre = {
+	game_data = {
+		category = country
+	}
+	amount_looted_modifier = 0.2
+	monthly_prestige = 0.1
+}
+
+gj_skarren_saga_fama = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.1
+	diplomatic_reputation = 1
+}
+
+gj_skarren_senores_inquietos = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = -0.1
+	global_manpower_modifier = -0.1
+}
+
+gj_skarren_senores_en_armas = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = -0.2
+	global_levy_size_modifier = -0.2
+	fort_maintenance_efficiency = -0.1
+}
+
+gj_skarren_banquete_largo = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.1
+	monthly_prestige = 0.05
+}
+
+gj_skarren_costa_saqueada = {
+	game_data = {
+		category = country
+	}
+	tax_income_efficiency = -0.05
+	monthly_legitimacy = -0.05
+}
+
+gj_skarren_tregua_del_hielo = {
+	game_data = {
+		category = country
+	}
+	amount_looted_modifier = -0.2
+	monthly_prestige = 0.05
+}

@@ -1,0 +1,166 @@
+﻿# Efectos del Cielo de los Clanes. Root = país.
+
+# Quita el reinado y el dios actuales (si los hay).
+gj_cielo_clanes_quita_reinado = {
+	if = { limit = { has_country_modifier = gj_reino_aurak } remove_country_modifier = gj_reino_aurak }
+	if = { limit = { has_country_modifier = gj_reino_ilsa } remove_country_modifier = gj_reino_ilsa }
+	if = { limit = { has_country_modifier = gj_reino_korvun } remove_country_modifier = gj_reino_korvun }
+	if = { limit = { has_country_modifier = gj_reino_halet } remove_country_modifier = gj_reino_halet }
+	if = { limit = { has_country_modifier = gj_reino_mura } remove_country_modifier = gj_reino_mura }
+	if = { limit = { has_country_modifier = gj_reino_dzerek } remove_country_modifier = gj_reino_dzerek }
+	if = {
+		limit = { has_variable = gj_dios_reinado }
+		if = { limit = { var:gj_dios_reinado = 1 } remove_god = god:gj_aurak_god }
+		if = { limit = { var:gj_dios_reinado = 2 } remove_god = god:gj_ilsa_god }
+		if = { limit = { var:gj_dios_reinado = 3 } remove_god = god:gj_korvun_god }
+		if = { limit = { var:gj_dios_reinado = 4 } remove_god = god:gj_halet_god }
+		if = { limit = { var:gj_dios_reinado = 5 } remove_god = god:gj_mura_god }
+		if = { limit = { var:gj_dios_reinado = 6 } remove_god = god:gj_dzerek_god }
+	}
+}
+
+# Fija el dios del reinado. Uso: gj_cielo_clanes_fija_dios = { dios = aurak num = 1 }
+gj_cielo_clanes_fija_dios = {
+	gj_cielo_clanes_quita_reinado = yes
+	add_country_modifier = {
+		modifier = gj_reino_$dios$
+		years = -1
+		mode = add
+	}
+	add_god = god:gj_$dios$_god
+	set_variable = {
+		name = gj_dios_reinado
+		value = $num$
+	}
+	if = {
+		limit = { has_variable = gj_reinados_cielo }
+		change_variable = {
+			name = gj_reinados_cielo
+			add = 1
+		}
+		else = {
+			set_variable = {
+				name = gj_reinados_cielo
+				value = 1
+			}
+		}
+	}
+}
+
+# Sube o baja el favor del Cielo. Uso: gj_cielo_clanes_favor = { n = 1 }
+gj_cielo_clanes_favor = {
+	if = {
+		limit = { NOT = { has_variable = gj_favor_cielo } }
+		set_variable = {
+			name = gj_favor_cielo
+			value = 0
+		}
+	}
+	change_variable = {
+		name = gj_favor_cielo
+		add = $n$
+	}
+	clamp_variable = {
+		name = gj_favor_cielo
+		min = -6
+		max = 6
+	}
+}
+
+# Pone o quita los modificadores de favor, segun la variable.
+gj_cielo_clanes_recalcula_favor = {
+	if = { limit = { has_country_modifier = gj_favor_del_cielo } remove_country_modifier = gj_favor_del_cielo }
+	if = { limit = { has_country_modifier = gj_ceno_del_cielo } remove_country_modifier = gj_ceno_del_cielo }
+	if = {
+		limit = {
+			has_variable = gj_favor_cielo
+			var:gj_favor_cielo >= 3
+		}
+		add_country_modifier = {
+			modifier = gj_favor_del_cielo
+			years = -1
+			mode = add
+		}
+	}
+	if = {
+		limit = {
+			has_variable = gj_favor_cielo
+			var:gj_favor_cielo <= -3
+		}
+		add_country_modifier = {
+			modifier = gj_ceno_del_cielo
+			years = -1
+			mode = add
+		}
+	}
+}
+
+# Como lee esta fe un presagio. Lo llama mundo_bestias.
+# Uso: gj_cielo_clanes_lee_presagio = { tipo = cometa }   o   { tipo = eclipse }
+gj_cielo_clanes_lee_presagio = {
+	if = {
+		limit = { religion = religion:gj_cielo_clanes }
+		gj_cielo_clanes_presagio_$tipo$ = yes
+		gj_cielo_clanes_recalcula_favor = yes
+	}
+}
+
+# Un cometa: bueno para los dioses de la guerra y el viento, inquietante para el Cielo Abierto.
+gj_cielo_clanes_presagio_cometa = {
+	if = {
+		limit = {
+			has_variable = gj_dios_reinado
+			OR = {
+				var:gj_dios_reinado = 3
+				var:gj_dios_reinado = 4
+				var:gj_dios_reinado = 6
+			}
+		}
+		add_country_modifier = {
+			modifier = gj_presagio_cometa
+			years = modifier_duration_years_short
+			mode = add_and_extend
+		}
+		add_prestige = prestige_weak_bonus
+		gj_cielo_clanes_favor = { n = 1 }
+		else = {
+			add_prestige = prestige_weak_bonus
+			if = {
+				limit = {
+					has_variable = gj_dios_reinado
+					var:gj_dios_reinado = 1
+				}
+				add_legitimacy = legitimacy_weak_penalty
+				gj_cielo_clanes_favor = { n = -1 }
+			}
+		}
+	}
+}
+
+# Un eclipse: el Cielo se cierra. Bueno para el Lobo, el Jinete y la Voz; malo para el resto.
+gj_cielo_clanes_presagio_eclipse = {
+	if = {
+		limit = {
+			has_variable = gj_dios_reinado
+			OR = {
+				var:gj_dios_reinado = 3
+				var:gj_dios_reinado = 4
+				var:gj_dios_reinado = 6
+			}
+		}
+		add_country_modifier = {
+			modifier = gj_presagio_eclipse_bueno
+			years = modifier_duration_years_short
+			mode = add_and_extend
+		}
+		gj_cielo_clanes_favor = { n = 1 }
+		else = {
+			add_country_modifier = {
+				modifier = gj_presagio_eclipse_malo
+				years = modifier_duration_years_short
+				mode = add_and_extend
+			}
+			gj_cielo_clanes_favor = { n = -1 }
+		}
+	}
+}

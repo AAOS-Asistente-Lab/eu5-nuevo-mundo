@@ -1,0 +1,216 @@
+﻿# GJ Nuevo Mundo, integracion: los UNICOS ganchos del juego del mod. Cada uno, una vez, con la
+# lista de todas las partes; el juego la suma a la suya (junta on_actions del mismo nombre).
+# GENERADO por funde-partes.mjs.
+
+on_game_start = {
+	on_actions = {
+		gj_integracion_inicio
+		gj_espiritus_lago_on_game_start
+		gj_mundo_bestias_on_game_start
+	}
+}
+
+biyearly_country_pulse = {
+	on_actions = {
+		gj_thalassar_pulso_bienal
+	}
+}
+
+on_battle_won = {
+	on_actions = {
+		gj_hrimval_batalla_ganada
+		gj_skarren_on_battle_won
+	}
+}
+
+on_great_battle_won = {
+	on_actions = {
+		gj_hrimval_gran_batalla
+	}
+}
+
+on_loan_repaid = {
+	on_actions = {
+		gj_pacto_balanza_on_loan_repaid
+	}
+}
+
+on_location_changed_owner = {
+	on_actions = {
+		gj_ruinas_cambio_dueno_oa
+	}
+}
+
+on_location_occupied = {
+	on_actions = {
+		gj_skarren_on_location_occupied
+	}
+}
+
+on_made_saint = {
+	on_actions = {
+		gj_luz_fundadores_al_canonizar
+	}
+}
+
+on_max_doom_reached = {
+	on_actions = {
+		gj_escarcha_silente_on_max_doom_reached
+	}
+}
+
+on_new_age = {
+	on_actions = {
+		gj_orunmar_nueva_era
+		gj_ostrevar_on_new_age
+	}
+}
+
+on_new_ruler = {
+	on_actions = {
+		gj_cielo_clanes_nuevo_kan
+		gj_skarren_on_new_ruler
+		gj_velathi_nuevo_rey
+	}
+}
+
+on_royal_marriage = {
+	on_actions = {
+		gj_pacto_balanza_on_royal_marriage
+	}
+}
+
+on_ruler_death_delayed = {
+	on_actions = {
+		gj_kaivan_on_ruler_death_delayed
+		gj_luz_fundadores_al_morir_el_soberano
+	}
+}
+
+on_took_location_in_peace_treaty = {
+	on_actions = {
+		gj_dioses_hambrientos_on_took_location_in_peace_treaty
+		gj_velathi_conquista
+	}
+}
+
+on_truce_broken = {
+	on_actions = {
+		gj_pacto_balanza_on_truce_broken
+	}
+}
+
+on_war_declared = {
+	on_actions = {
+		gj_orunmar_guerra_declarada
+	}
+}
+
+on_winning_war = {
+	on_actions = {
+		gj_orunmar_guerra_ganada
+	}
+}
+
+religion_flavor_pulse = {
+	on_actions = {
+		gj_escarcha_silente_religion_flavor_pulse
+	}
+}
+
+yearly_country_pulse = {
+	on_actions = {
+		gj_ank_pulso_anual
+		gj_cielo_clanes_anual
+		gj_dioses_hambrientos_pulso_anual
+		gj_durnhal_pulso_anual
+		gj_espiritus_lago_pulso_anual
+		gj_hrimval_yearly_pulse
+		gj_kaivan_pulso_anual
+		gj_llama_profunda_pulso_anual
+		gj_mar_pulso_anual
+		gj_marea_negra_pulso_anual
+		gj_minores_norte_pulso_anual
+		gj_mundo_bestias_pulso_pacto
+		gj_mundo_bestias_pulso_dragon
+		gj_mundo_bestias_pulso_kraken
+		gj_mundo_bestias_pulso_plagas
+		gj_mundo_bestias_pulso_presagio
+		gj_contacto_pulso_anual
+		gj_ruinas_pulso_anual
+		gj_orunmar_pulso_anual
+		gj_ostrevar_pulso_anual
+		gj_pacto_balanza_pulso
+		gj_skarren_pulso_anual
+		gj_sol_blanco_pulse
+		gj_thalassar_pulso_anual
+		gj_lagunas_pulso_anual
+		gj_luz_fundadores_pulso
+		gj_minores_sur_pulso_anual
+		gj_senda_verde_pulse
+		gj_sorava_pulso_anual
+		gj_velathi_yearly_pulse
+	}
+}
+
+# Cada faccion entra en su pais de partida. Las que no tienen todas sus piezas no se crean.
+gj_integracion_inicio = {
+	effect = {
+		gj_asigna_recursos = yes
+		every_country = {
+			limit = { gj_ostrevar_tag_inicial = yes }
+			gj_fundar_faccion = { clave = ostrevar cultura = gj_ostrevari religion = gj_luz_fundadores nombre = GJ_OSTREVAR color = gj_pais_ostrevar }
+		}
+		every_country = {
+			limit = { gj_ankaru_tag_inicial = yes }
+			gj_fundar_faccion = { clave = ankaru cultura = gj_ankaruno religion = gj_sol_blanco nombre = GJ_ANKARU color = gj_pais_ankaru }
+		}
+		every_country = {
+			limit = { gj_orunmar_tag_inicial = yes }
+			gj_fundar_faccion = { clave = orunmar cultura = gj_orunmari religion = gj_dioses_hambrientos nombre = GJ_ORUNMAR color = gj_pais_orunmar }
+		}
+		every_country = {
+			limit = { gj_durnhal_tag_inicial = yes }
+			gj_fundar_faccion = { clave = durnhal cultura = gj_durnhali religion = gj_llama_profunda nombre = GJ_DURNHAL color = gj_pais_durnhal }
+		}
+		every_country = {
+			limit = { gj_kaivan_tag_inicial = yes }
+			gj_fundar_faccion = { clave = kaivan cultura = gj_kaivani religion = gj_cielo_clanes nombre = GJ_KAIVAN color = gj_pais_kaivan }
+		}
+		every_country = {
+			limit = { gj_hrimval_tag_inicial = yes }
+			gj_fundar_faccion = { clave = hrimval cultura = gj_insepulto religion = gj_escarcha_silente nombre = GJ_HRIMVAL color = gj_pais_hrimval }
+		}
+		every_country = {
+			limit = { gj_skarren_tag_inicial = yes }
+			gj_fundar_faccion = { clave = skarren cultura = gj_skarren religion = gj_espiritus_lago nombre = GJ_SKARREN color = gj_pais_skarren }
+			set_religious_school = religious_school:gj_escuela_sagas
+		}
+		every_country = {
+			limit = { gj_lagunas_tag_inicial = yes }
+			gj_fundar_faccion = { clave = lagunas cultura = gj_lagunero religion = gj_espiritus_lago nombre = GJ_LAGUNAS color = gj_pais_lagunas }
+			set_religious_school = religious_school:gj_escuela_barqueros
+			if = {
+				limit = { NOT = { government_type = government_type:republic } }
+				change_government_type = government_type:republic
+			}
+		}
+		every_country = {
+			limit = { gj_sorava_tag_inicial = yes }
+			gj_fundar_faccion = { clave = sorava cultura = gj_soravi religion = gj_pacto_balanza nombre = GJ_SORAVA color = gj_pais_sorava }
+		}
+		every_country = {
+			limit = { gj_thalassar_tag_inicial = yes }
+			gj_fundar_faccion = { clave = thalassar cultura = gj_talasio religion = gj_mar_dormido nombre = GJ_THALASSAR color = gj_pais_thalassar }
+		}
+		every_country = {
+			limit = { gj_marea_negra_tag_inicial = yes }
+			gj_fundar_faccion = { clave = marea_negra cultura = gj_mareano religion = gj_mar_dormido nombre = GJ_MAREA_NEGRA color = gj_pais_marea_negra }
+			set_religious_school = religious_school:gj_escuela_marea_negra
+		}
+		every_country = {
+			limit = { gj_velathi_tag_inicial = yes }
+			gj_fundar_faccion = { clave = velathi cultura = gj_velathi religion = gj_senda_verde nombre = GJ_VELATHI color = gj_pais_velathi }
+		}
+	}
+}

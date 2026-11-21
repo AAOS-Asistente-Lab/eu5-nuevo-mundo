@@ -1,0 +1,51 @@
+﻿# GJ Nuevo Mundo, integracion: el pais de partida de cada faccion. GENERADO por funde-partes.mjs
+# desde vinculo.json (lo escribe asigna-facciones.mjs). Sin mundo, ninguna faccion se crea.
+# mundo: RNW: Custom world ZANQ (rnw_exp_world_zanqre3hye)
+
+gj_ostrevar_tag_inicial = {
+	tag = VOX
+}
+
+gj_ankaru_tag_inicial = {
+	tag = TWT
+}
+
+gj_orunmar_tag_inicial = {
+	tag = QMN
+}
+
+gj_durnhal_tag_inicial = {
+	tag = NQB
+}
+
+gj_kaivan_tag_inicial = {
+	tag = IPF
+}
+
+gj_hrimval_tag_inicial = {
+	tag = MSS
+}
+
+gj_skarren_tag_inicial = {
+	tag = XMP
+}
+
+gj_lagunas_tag_inicial = {
+	tag = LBQ
+}
+
+gj_sorava_tag_inicial = {
+	tag = VZR
+}
+
+gj_thalassar_tag_inicial = {
+	tag = RWX
+}
+
+gj_marea_negra_tag_inicial = {
+	tag = DGS
+}
+
+gj_velathi_tag_inicial = {
+	tag = XED
+}

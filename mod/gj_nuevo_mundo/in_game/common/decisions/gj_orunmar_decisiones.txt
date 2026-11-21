@@ -1,0 +1,165 @@
+﻿##############################
+# Decisiones de la Hegemonia Carmesi (4)
+##############################
+
+# Convoca la Marcha de la Cosecha: da un casus belli de cosecha contra un vecino y levanta al ejercito.
+gj_orunmar_convocar_marcha = {
+	decision_category = country_specific_decisions
+
+	potential = {
+		gj_es_orunmar = yes
+	}
+
+	allow = {
+		at_war = no
+		NOT = { has_country_modifier = gj_orunmar_marcha_de_cosecha }
+		any_neighbor_country = {
+			NOT = { is_subject_of = root }
+			NOT = { is_allied_with = { target = root } }
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+
+	option = {
+		name = gj_orunmar_convocar_marcha.a
+		ai_chance = { value = 100 }
+		effect = {
+			random_neighbor_country = {
+				limit = {
+					NOT = { is_subject_of = root }
+					NOT = { is_allied_with = { target = root } }
+				}
+				root = {
+					add_casus_belli = { target = prev type = casus_belli:cb_gj_orunmar_cosecha }
+				}
+			}
+			add_country_modifier = {
+				modifier = gj_orunmar_marcha_de_cosecha
+				years = 5
+				mode = add_and_extend
+			}
+			add_stability = stability_weak_penalty
+		}
+	}
+}
+
+# Ofrece los cautivos a los dioses: devocion a cambio de manos de trabajo.
+gj_orunmar_ofrecer_cautivos = {
+	decision_category = religious_decisions
+
+	potential = {
+		gj_es_orunmar = yes
+	}
+
+	allow = {
+		has_variable = gj_orunmar_cautivos
+		var:gj_orunmar_cautivos >= 2
+		NOT = { has_country_modifier = gj_orunmar_banquete_de_victoria }
+	}
+
+	ai_will_do = {
+		value = 30
+	}
+
+	option = {
+		name = gj_orunmar_ofrecer_cautivos.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_variable = { name = gj_orunmar_cautivos add = -2 }
+			add_religious_influence = religious_influence_mild_bonus
+			add_country_modifier = {
+				modifier = gj_orunmar_banquete_de_victoria
+				years = 3
+				mode = add_and_extend
+			}
+		}
+	}
+}
+
+# Manda cautivos a las vetas y los campos: convierte poblacion extranjera en poblacion esclava.
+gj_orunmar_llenar_las_vetas = {
+	decision_category = economy_decisions
+
+	potential = {
+		gj_es_orunmar = yes
+	}
+
+	allow = {
+		has_variable = gj_orunmar_cautivos
+		var:gj_orunmar_cautivos >= 1
+		any_owned_location = {
+			any_pop = {
+				NOT = { pop_type = pop_type:slaves }
+				NOT = { culture = culture:gj_orunmari }
+			}
+		}
+	}
+
+	ai_will_do = {
+		value = 25
+	}
+
+	option = {
+		name = gj_orunmar_llenar_las_vetas.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_variable = { name = gj_orunmar_cautivos add = -1 }
+			random_owned_location = {
+				limit = {
+					any_pop = {
+						NOT = { pop_type = pop_type:slaves }
+						NOT = { culture = culture:gj_orunmari }
+					}
+				}
+				random_pop = {
+					limit = {
+						NOT = { pop_type = pop_type:slaves }
+						NOT = { culture = culture:gj_orunmari }
+					}
+					change_pop_type = pop_type:slaves
+				}
+				add_location_modifier = {
+					modifier = gj_orunmar_campos_de_cautivos
+					years = 10
+					mode = add_and_extend
+				}
+			}
+		}
+	}
+}
+
+# Ayuno voluntario: se aplaza el Gran Ayuno a costa de un periodo de recogimiento.
+gj_orunmar_ayuno_voluntario = {
+	decision_category = religious_decisions
+
+	potential = {
+		gj_es_orunmar = yes
+	}
+
+	allow = {
+		at_war = no
+		gj_orunmar_anios_de_paz >= 3
+		NOT = { has_country_modifier = gj_orunmar_ayuno_cumplido }
+	}
+
+	ai_will_do = {
+		value = 10
+	}
+
+	option = {
+		name = gj_orunmar_ayuno_voluntario.a
+		ai_chance = { value = 100 }
+		effect = {
+			set_variable = { name = gj_orunmar_anio_guerra value = current_year }
+			add_stability = stability_mild_penalty
+			add_country_modifier = {
+				modifier = gj_orunmar_ayuno_cumplido
+				years = 10
+				mode = add_and_extend
+			}
+		}
+	}
+}

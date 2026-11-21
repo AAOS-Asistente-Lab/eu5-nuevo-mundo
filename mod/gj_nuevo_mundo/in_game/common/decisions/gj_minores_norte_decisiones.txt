@@ -1,0 +1,272 @@
+﻿# Decisiones de los estilos de los menores del norte: dos por estilo.
+
+############################################################
+# CIUDAD-ESTADO
+############################################################
+
+gj_minores_norte_decision_sellar_las_pesas = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_minores_norte_menor_ciudad_estado = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	allow = {
+		has_advance = gj_minores_norte_ce_carta_de_franquicias
+		gold >= 200
+	}
+
+	ai_will_do = { value = 100 }
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	illustration_scope = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_minores_norte_decision_sellar_las_pesas.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = -200
+			add_country_modifier = { modifier = gj_minores_norte_sello_de_la_ciudad years = 25 mode = add_and_extend }
+			add_prestige = prestige_mild_bonus
+		}
+	}
+
+	option = {
+		name = gj_minores_norte_decision_sellar_las_pesas.b
+		ai_chance = { value = 0 }
+		effect = {
+			add_stability = stability_weak_bonus
+		}
+	}
+}
+
+gj_minores_norte_decision_feria_de_los_puentes = {
+	decision_category = economy_decisions
+
+	potential = {
+		gj_minores_norte_menor_ciudad_estado = yes
+	}
+
+	allow = {
+		gold >= 150
+		at_war = no
+		NOT = { has_variable = gj_minores_norte_cooldown_feria }
+	}
+
+	ai_will_do = { value = 50 }
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	illustration_scope = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_minores_norte_decision_feria_de_los_puentes.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = -150
+			add_country_modifier = { modifier = gj_minores_norte_feria_abierta years = 8 mode = add_and_extend }
+			set_variable = { name = gj_minores_norte_cooldown_feria years = 15 }
+		}
+	}
+
+	option = {
+		name = gj_minores_norte_decision_feria_de_los_puentes.b
+		ai_chance = { value = 0 }
+		effect = {
+			add_prestige = prestige_weak_bonus
+			set_variable = { name = gj_minores_norte_cooldown_feria years = 5 }
+		}
+	}
+}
+
+############################################################
+# CLAN
+############################################################
+
+gj_minores_norte_decision_consejo_de_clanes = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_minores_norte_menor_clan = yes
+	}
+
+	allow = {
+		at_war = no
+		NOT = { has_variable = gj_minores_norte_cooldown_consejo }
+	}
+
+	ai_will_do = { value = 60 }
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	illustration_scope = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:nobles_estate }
+	}
+
+	option = {
+		name = gj_minores_norte_decision_consejo_de_clanes.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = { modifier = gj_minores_norte_clanes_reunidos years = 6 mode = add_and_extend }
+			add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+			set_variable = { name = gj_minores_norte_cooldown_consejo years = 12 }
+		}
+	}
+
+	option = {
+		name = gj_minores_norte_decision_consejo_de_clanes.b
+		ai_chance = { value = 0 }
+		effect = {
+			add_legitimacy = legitimacy_weak_bonus
+			set_variable = { name = gj_minores_norte_cooldown_consejo years = 4 }
+		}
+	}
+}
+
+gj_minores_norte_decision_fuego_mayor = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_minores_norte_menor_clan = yes
+		current_age_or_later = { age = age_3_discovery }
+	}
+
+	allow = {
+		has_advance = gj_minores_norte_cl_fuego_comun
+		gold >= 250
+	}
+
+	ai_will_do = { value = 100 }
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	illustration_scope = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:peasants_estate }
+	}
+
+	option = {
+		name = gj_minores_norte_decision_fuego_mayor.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = -250
+			add_country_modifier = { modifier = gj_minores_norte_fuego_mayor years = 30 mode = add_and_extend }
+			add_prestige = prestige_mild_bonus
+		}
+	}
+
+	option = {
+		name = gj_minores_norte_decision_fuego_mayor.b
+		ai_chance = { value = 0 }
+		effect = {
+			add_stability = stability_weak_bonus
+		}
+	}
+}
+
+############################################################
+# MARCA
+############################################################
+
+gj_minores_norte_decision_encadenar_atalayas = {
+	decision_category = country_specific_decisions
+	only_once = yes
+
+	potential = {
+		gj_minores_norte_menor_marca = yes
+	}
+
+	allow = {
+		has_advance = gj_minores_norte_ma_atalaya
+		gold >= 150
+	}
+
+	ai_will_do = { value = 100 }
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	illustration_scope = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:nobles_estate }
+	}
+
+	option = {
+		name = gj_minores_norte_decision_encadenar_atalayas.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = -150
+			add_country_modifier = { modifier = gj_minores_norte_atalayas_encadenadas years = 30 mode = add_and_extend }
+			add_army_tradition = army_tradition_mild_bonus
+		}
+	}
+
+	option = {
+		name = gj_minores_norte_decision_encadenar_atalayas.b
+		ai_chance = { value = 0 }
+		effect = {
+			add_stability = stability_weak_bonus
+		}
+	}
+}
+
+gj_minores_norte_decision_cerrar_el_paso = {
+	decision_category = government_decisions
+
+	potential = {
+		gj_minores_norte_menor_marca = yes
+	}
+
+	allow = {
+		NOT = { has_variable = gj_minores_norte_cooldown_paso }
+	}
+
+	ai_will_do = { value = 20 }
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	illustration_scope = {
+		event_illustration_estate_effect = { foreground = estate_type:nobles_estate background = estate_type:nobles_estate }
+	}
+
+	option = {
+		name = gj_minores_norte_decision_cerrar_el_paso.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = { modifier = gj_minores_norte_paso_cerrado years = 8 mode = replace }
+			set_variable = { name = gj_minores_norte_cooldown_paso years = 16 }
+		}
+	}
+
+	option = {
+		name = gj_minores_norte_decision_cerrar_el_paso.b
+		ai_chance = { value = 0 }
+		effect = {
+			add_prestige = prestige_weak_bonus
+			set_variable = { name = gj_minores_norte_cooldown_paso years = 3 }
+		}
+	}
+}

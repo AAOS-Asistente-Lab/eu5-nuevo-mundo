@@ -1,0 +1,36 @@
+﻿yearly_country_pulse = {
+	on_actions = {
+		gj_marea_negra_pulso_anual
+	}
+}
+
+gj_marea_negra_pulso_anual = {
+	trigger = {
+		gj_es_marea_negra = yes
+	}
+	events = {
+		gj_marea_negra.20
+		gj_marea_negra.21
+		gj_marea_negra.22
+	}
+	random_events = {
+		chance_to_happen = 45
+		100 = gj_marea_negra.1
+		100 = gj_marea_negra.2
+		100 = gj_marea_negra.3
+		100 = gj_marea_negra.4
+		100 = gj_marea_negra.5
+		100 = gj_marea_negra.6
+		100 = gj_marea_negra.7
+		100 = gj_marea_negra.8
+		100 = gj_marea_negra.9
+		100 = gj_marea_negra.10
+		100 = gj_marea_negra.11
+		100 = gj_marea_negra.12
+		100 = gj_marea_negra.13
+		100 = gj_marea_negra.14
+		100 = gj_marea_negra.15
+		100 = gj_marea_negra.16
+		100 = 0
+	}
+}

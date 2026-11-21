@@ -1,0 +1,97 @@
+﻿# Guardia de Marca: infanteria pesada que aguanta. Fuerte donde hay colinas y monte; lenta y cara de formar.
+# Equilibrio: -10 % de daño recibido en fuerza y moral (menos que el +15-20 % permitido), a cambio de
+# -10 % de velocidad, +25 % de tiempo de formacion y -10 % de daño causado. Solo se recluta en tierras de marca.
+
+gj_minores_norte_guardia_de_marca_1 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+
+	upgrades_to_only = gj_minores_norte_guardia_de_marca_2
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.10
+	movement_speed = -0.10
+	build_time_modifier = 0.25
+
+	combat = {
+		hills = 0.10
+		mountains = 0.10
+	}
+
+	location_potential = {
+		gj_minores_norte_ubicacion_marca = yes
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+gj_minores_norte_guardia_de_marca_2 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+
+	upgrades_to_only = gj_minores_norte_guardia_de_marca_3
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.10
+	movement_speed = -0.10
+	build_time_modifier = 0.25
+
+	combat = {
+		hills = 0.10
+		mountains = 0.10
+	}
+
+	location_potential = {
+		gj_minores_norte_ubicacion_marca = yes
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_minores_norte_guardia_de_marca_3 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+
+	upgrades_to_only = gj_minores_norte_guardia_de_marca_4
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.10
+	movement_speed = -0.10
+	build_time_modifier = 0.25
+
+	combat = {
+		hills = 0.10
+		mountains = 0.10
+	}
+
+	location_potential = {
+		gj_minores_norte_ubicacion_marca = yes
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_minores_norte_guardia_de_marca_4 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.10
+	movement_speed = -0.10
+	build_time_modifier = 0.25
+
+	combat = {
+		hills = 0.10
+		mountains = 0.10
+	}
+
+	location_potential = {
+		gj_minores_norte_ubicacion_marca = yes
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}

@@ -1,0 +1,61 @@
+﻿##############################################################
+# THALASSAR: reformas de gobierno unicas (3)
+##############################################################
+
+# Disponible desde el principio.
+gj_thalassar_consejo_de_las_mareas = {
+	unique = yes
+	age = age_1_traditions
+	content_priority = 500
+	potential = {
+		gj_es_thalassar = yes
+	}
+	country_modifier = {
+		global_burghers_estate_power = 0.1
+		trade_sea_efficiency = small_trade_sea_efficiency_bonus
+		monthly_towards_naval = societal_value_monthly_move
+		global_nobles_estate_power = -0.05
+	}
+	country_modifier = {
+		potential_trigger = {
+			capital ?= { is_coastal = yes }
+		}
+		global_sailors_modifier = 0.1
+	}
+	years = 2
+}
+
+# Se desbloquea al levantar el segundo barrio de la Ciudad Hundida (decision, fase 2).
+gj_thalassar_custodios_del_arrecife = {
+	unique = yes
+	age = age_2_renaissance
+	content_priority = 500
+	potential = {
+		gj_es_thalassar = yes
+		has_unlocked_government_reform_trigger = { type = gj_thalassar_custodios_del_arrecife }
+	}
+	country_modifier = {
+		naval_damage_taken = -0.1
+		blockade_efficiency = 0.2
+		navy_maintenance_efficiency = 0.1
+		global_manpower_modifier = -0.1
+	}
+	years = 2
+}
+
+# Se desbloquea al completar la quinta fase: la Ciudad Hundida ha emergido.
+gj_thalassar_corona_emergida = {
+	unique = yes
+	age = age_3_discovery
+	content_priority = 700
+	potential = {
+		gj_es_thalassar = yes
+		has_unlocked_government_reform_trigger = { type = gj_thalassar_corona_emergida }
+	}
+	country_modifier = {
+		government_reform_slots = 1
+		monthly_legitimacy = 0.1
+		monthly_prestige = 0.1
+	}
+	years = 3
+}

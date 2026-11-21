@@ -1,0 +1,933 @@
+﻿#######################################################################
+# Eventos de Kaivan (parte "kaivan"). Namespace gj_kaivan.
+#   1-3    El Circulo de los Clanes (eleccion del kan y mudanza de la capital)
+#   20-23  La guerra de los hermanos (desastre)
+#   30-47  Flavor tematico (guerreros de la estepa), por el pulso anual
+#   48     Despues de la Gran Cabalgada
+#######################################################################
+
+namespace = gj_kaivan
+
+#######################################################################
+# 1. El Circulo se reune
+#######################################################################
+gj_kaivan.1 = {
+	type = country_event
+	title = gj_kaivan.1.title
+	desc = gj_kaivan.1.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		is_subject = no
+		NOT = { has_variable = gj_kaivan_disputa_abierta }
+	}
+
+	immediate = {
+		gj_kaivan_prepara_circulo = yes
+	}
+
+	option = {
+		name = gj_kaivan.1.a
+		trigger = {
+			any_owned_location = { gj_zona_estepa_alta = yes }
+		}
+		ai_chance = { base = 25 }
+		gj_kaivan_apoya_clan = { C = uzhar }
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -1 }
+		gj_kaivan_resuelve_circulo = yes
+		trigger_event_non_silently = gj_kaivan.2
+	}
+	option = {
+		name = gj_kaivan.1.b
+		trigger = {
+			any_owned_location = { gj_zona_marca_occidental = yes }
+		}
+		ai_chance = { base = 25 }
+		gj_kaivan_apoya_clan = { C = tarkhen }
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -1 }
+		gj_kaivan_resuelve_circulo = yes
+		trigger_event_non_silently = gj_kaivan.2
+	}
+	option = {
+		name = gj_kaivan.1.c
+		trigger = {
+			any_owned_location = { gj_zona_valles_orientales = yes }
+		}
+		ai_chance = { base = 25 }
+		gj_kaivan_apoya_clan = { C = ilbari }
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -1 }
+		gj_kaivan_resuelve_circulo = yes
+		trigger_event_non_silently = gj_kaivan.2
+	}
+	option = {
+		name = gj_kaivan.1.d
+		trigger = {
+			any_owned_location = { gj_zona_estepa_baja = yes }
+		}
+		ai_chance = { base = 25 }
+		gj_kaivan_apoya_clan = { C = merghan }
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -1 }
+		gj_kaivan_resuelve_circulo = yes
+		trigger_event_non_silently = gj_kaivan.2
+	}
+	option = {
+		name = gj_kaivan.1.e
+		fallback = yes
+		ai_chance = { base = 5 }
+		gj_kaivan_resuelve_circulo = yes
+		trigger_event_non_silently = gj_kaivan.2
+	}
+}
+
+#######################################################################
+# 2. La tienda del nuevo kan (resultado de la votacion)
+#######################################################################
+gj_kaivan.2 = {
+	type = country_event
+	title = gj_kaivan.2.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:gj_kaivan_ganador = 1 }
+				desc = gj_kaivan.2.desc.uzhar
+			}
+			triggered_desc = {
+				trigger = { var:gj_kaivan_ganador = 2 }
+				desc = gj_kaivan.2.desc.tarkhen
+			}
+			triggered_desc = {
+				trigger = { var:gj_kaivan_ganador = 3 }
+				desc = gj_kaivan.2.desc.ilbari
+			}
+			triggered_desc = {
+				trigger = { var:gj_kaivan_ganador = 4 }
+				desc = gj_kaivan.2.desc.merghan
+			}
+			triggered_desc = {
+				desc = gj_kaivan.2.desc.nadie
+			}
+		}
+	}
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		gj_kaivan_aplica_reinado_del_ganador = yes
+	}
+
+	option = {
+		name = gj_kaivan.2.a
+		add_prestige = prestige_mild_bonus
+		add_legitimacy = legitimacy_weak_bonus
+		if = {
+			limit = { var:gj_kaivan_rebelde > 0 }
+			trigger_event_non_silently = { id = gj_kaivan.3 days = 20 }
+		}
+	}
+}
+
+#######################################################################
+# 3. Los clanes agraviados (votacion renida)
+#######################################################################
+gj_kaivan.3 = {
+	type = country_event
+	title = gj_kaivan.3.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:gj_kaivan_rebelde = 1 }
+				desc = gj_kaivan.3.desc.uzhar
+			}
+			triggered_desc = {
+				trigger = { var:gj_kaivan_rebelde = 2 }
+				desc = gj_kaivan.3.desc.tarkhen
+			}
+			triggered_desc = {
+				trigger = { var:gj_kaivan_rebelde = 3 }
+				desc = gj_kaivan.3.desc.ilbari
+			}
+			triggered_desc = {
+				desc = gj_kaivan.3.desc.merghan
+			}
+		}
+	}
+	outcome = negative
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		var:gj_kaivan_rebelde > 0
+		NOT = { has_variable = gj_kaivan_disputa_abierta }
+	}
+
+	option = {
+		name = gj_kaivan.3.a
+		ai_chance = { base = 50 }
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -4 }
+		add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_mild_bonus }
+		add_legitimacy = legitimacy_weak_penalty
+		set_variable = { name = gj_kaivan_rebelde value = 0 }
+	}
+	option = {
+		name = gj_kaivan.3.b
+		ai_chance = { base = 15 }
+		gj_kaivan_secesion_de_clan = yes
+		add_prestige = prestige_mild_penalty
+		set_variable = { name = gj_kaivan_rebelde value = 0 }
+	}
+	option = {
+		name = gj_kaivan.3.c
+		ai_chance = { base = 35 }
+		set_variable = { name = gj_kaivan_disputa_abierta value = 1 }
+	}
+}
+
+#######################################################################
+# 20-23. La guerra de los hermanos (desastre)
+#######################################################################
+gj_kaivan.20 = {
+	type = country_event
+	title = gj_kaivan.20.title
+	desc = gj_kaivan.20.desc
+	outcome = negative
+	category = disaster_event
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_kaivan.20.a
+		add_country_modifier = {
+			modifier = gj_kaivan_cicatriz_de_hermanos
+			years = 10
+			mode = add_and_extend
+		}
+	}
+}
+
+gj_kaivan.21 = {
+	type = country_event
+	title = gj_kaivan.21.title
+	desc = gj_kaivan.21.desc
+	outcome = negative
+	category = disaster_event
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		has_variable = gj_kaivan_disputa_abierta
+	}
+
+	option = {
+		name = gj_kaivan.21.a
+		ai_chance = { base = 60 }
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -3 }
+		change_variable = { name = gj_kaivan_meses_guerra subtract = 6 }
+	}
+	option = {
+		name = gj_kaivan.21.b
+		ai_chance = { base = 40 }
+		add_war_exhaustion = war_exhaustion_weak_bonus
+		add_country_modifier = {
+			modifier = gj_kaivan_pastos_agotados
+			years = 3
+			mode = add_and_extend
+		}
+	}
+}
+
+gj_kaivan.22 = {
+	type = country_event
+	title = gj_kaivan.22.title
+	desc = gj_kaivan.22.desc
+	outcome = neutral
+	category = disaster_event
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		has_variable = gj_kaivan_disputa_abierta
+	}
+
+	immediate = {
+		set_variable = { name = gj_kaivan_meses_guerra value = 0 }
+	}
+
+	option = {
+		name = gj_kaivan.22.a
+		ai_chance = { base = 70 }
+		add_legitimacy = legitimacy_mild_bonus
+		remove_variable = gj_kaivan_disputa_abierta
+		set_variable = { name = gj_kaivan_rebelde value = 0 }
+	}
+	option = {
+		name = gj_kaivan.22.b
+		ai_chance = { base = 30 }
+		add_prestige = prestige_mild_penalty
+		add_army_tradition = army_tradition_mild_bonus
+		remove_variable = gj_kaivan_disputa_abierta
+		set_variable = { name = gj_kaivan_rebelde value = 0 }
+	}
+}
+
+gj_kaivan.23 = {
+	type = country_event
+	title = gj_kaivan.23.title
+	desc = gj_kaivan.23.desc
+	outcome = positive
+	category = disaster_event
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	immediate = {
+		gj_kaivan_iguala_favor = yes
+	}
+
+	option = {
+		name = gj_kaivan.23.a
+		add_country_modifier = {
+			modifier = gj_kaivan_juramento_renovado
+			years = 15
+			mode = add_and_extend
+		}
+	}
+}
+
+#######################################################################
+# 30-47. Flavor tematico
+#######################################################################
+
+# 30. Invierno negro
+gj_kaivan.30 = {
+	type = country_event
+	title = gj_kaivan.30.title
+	desc = gj_kaivan.30.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		NOT = { has_country_modifier = gj_kaivan_invierno_negro }
+	}
+
+	option = {
+		name = gj_kaivan.30.a
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -3 }
+		add_country_modifier = {
+			modifier = gj_kaivan_invierno_negro
+			years = 2
+			mode = add
+		}
+	}
+	option = {
+		name = gj_kaivan.30.b
+		add_prestige = prestige_weak_bonus
+		add_country_modifier = {
+			modifier = gj_kaivan_invierno_negro
+			years = 4
+			mode = add
+		}
+	}
+}
+
+# 31. Primavera de yeguadas
+gj_kaivan.31 = {
+	type = country_event
+	title = gj_kaivan.31.title
+	desc = gj_kaivan.31.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		NOT = { has_country_modifier = gj_kaivan_invierno_negro }
+		NOT = { has_country_modifier = gj_kaivan_primavera_de_yeguadas }
+	}
+
+	option = {
+		name = gj_kaivan.31.a
+		add_prestige = prestige_weak_bonus
+		add_country_modifier = {
+			modifier = gj_kaivan_primavera_de_yeguadas
+			years = 5
+			mode = add
+		}
+	}
+	option = {
+		name = gj_kaivan.31.b
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = 3 }
+	}
+}
+
+# 32. Mercaderes de las rutas del oeste
+gj_kaivan.32 = {
+	type = country_event
+	title = gj_kaivan.32.title
+	desc = gj_kaivan.32.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		NOT = { has_country_modifier = gj_kaivan_ruta_abierta }
+	}
+
+	option = {
+		name = gj_kaivan.32.a
+		add_country_modifier = {
+			modifier = gj_kaivan_ruta_abierta
+			years = 10
+			mode = add
+		}
+	}
+	option = {
+		name = gj_kaivan.32.b
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = 4 }
+		add_legitimacy = legitimacy_weak_penalty
+	}
+	option = {
+		name = gj_kaivan.32.c
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# 33. El cometa de los Nueve
+gj_kaivan.33 = {
+	type = country_event
+	title = gj_kaivan.33.title
+	desc = gj_kaivan.33.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+	}
+
+	option = {
+		name = gj_kaivan.33.a
+		add_country_modifier = {
+			modifier = gj_kaivan_cometa_de_los_nueve
+			years = 5
+			mode = add
+		}
+	}
+	option = {
+		name = gj_kaivan.33.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+# 34. El herrero errante
+gj_kaivan.34 = {
+	type = country_event
+	title = gj_kaivan.34.title
+	desc = gj_kaivan.34.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+	}
+
+	option = {
+		name = gj_kaivan.34.a
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -2 }
+		add_army_tradition = army_tradition_weak_bonus
+	}
+	option = {
+		name = gj_kaivan.34.b
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# 35. La hija del kan
+gj_kaivan.35 = {
+	type = country_event
+	title = gj_kaivan.35.title
+	desc = gj_kaivan.35.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		has_ruler = yes
+	}
+
+	immediate = {
+		gj_kaivan_prepara_circulo = yes
+	}
+
+	option = {
+		name = gj_kaivan.35.a
+		change_variable = { name = gj_kaivan_favor_ilbari add = 15 }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+	option = {
+		name = gj_kaivan.35.b
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_kaivan.35.c
+		change_variable = { name = gj_kaivan_favor_uzhar add = 10 }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+# 36. El corral de piedra
+gj_kaivan.36 = {
+	type = country_event
+	title = gj_kaivan.36.title
+	desc = gj_kaivan.36.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_kaivan.36.a
+		capital = {
+			change_development = development_weak_bonus
+		}
+		add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_penalty }
+	}
+	option = {
+		name = gj_kaivan.36.b
+		add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+# 37. Un lobo blanco en el campamento
+gj_kaivan.37 = {
+	type = country_event
+	title = gj_kaivan.37.title
+	desc = gj_kaivan.37.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		has_advance = gj_kaivan_jinetes_de_lobo
+	}
+
+	option = {
+		name = gj_kaivan.37.a
+		add_army_tradition = army_tradition_mild_bonus
+		add_manpower = { value = root.monthly_manpower multiply = 1 }
+	}
+	option = {
+		name = gj_kaivan.37.b
+		add_prestige = prestige_weak_bonus
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+# 38. La marca arde
+gj_kaivan.38 = {
+	type = country_event
+	title = gj_kaivan.38.title
+	desc = gj_kaivan.38.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		at_war = no
+		any_owned_location = { gj_zona_marca_occidental = yes }
+	}
+
+	option = {
+		name = gj_kaivan.38.a
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -2 }
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = {
+			modifier = gj_kaivan_botin_de_marca
+			years = 5
+			mode = add
+		}
+	}
+	option = {
+		name = gj_kaivan.38.b
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+# 39. El cantor de las rutas
+gj_kaivan.39 = {
+	type = country_event
+	title = gj_kaivan.39.title
+	desc = gj_kaivan.39.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+	}
+
+	option = {
+		name = gj_kaivan.39.a
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -1 }
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_kaivan.39.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+# 40. Los Nueve Fuegos (fiesta de la union)
+gj_kaivan.40 = {
+	type = country_event
+	title = gj_kaivan.40.title
+	desc = gj_kaivan.40.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		at_war = no
+	}
+
+	immediate = {
+		gj_kaivan_prepara_circulo = yes
+	}
+
+	option = {
+		name = gj_kaivan.40.a
+		gj_kaivan_iguala_favor = yes
+		add_legitimacy = legitimacy_mild_bonus
+	}
+	option = {
+		name = gj_kaivan.40.b
+		add_prestige = prestige_mild_bonus
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -2 }
+	}
+}
+
+# 41. El huesped del oeste
+gj_kaivan.41 = {
+	type = country_event
+	title = gj_kaivan.41.title
+	desc = gj_kaivan.41.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+	}
+
+	option = {
+		name = gj_kaivan.41.a
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_kaivan.41.b
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = 4 }
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+# 42. Mala hierba
+gj_kaivan.42 = {
+	type = country_event
+	title = gj_kaivan.42.title
+	desc = gj_kaivan.42.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		NOT = { has_country_modifier = gj_kaivan_pastos_agotados }
+	}
+
+	option = {
+		name = gj_kaivan.42.a
+		add_country_modifier = {
+			modifier = gj_kaivan_pastos_agotados
+			years = 3
+			mode = add
+		}
+	}
+	option = {
+		name = gj_kaivan.42.b
+		add_country_modifier = {
+			modifier = gj_kaivan_fiebre_de_los_campamentos
+			years = 3
+			mode = add
+		}
+	}
+}
+
+# 43. La carrera de los jovenes
+gj_kaivan.43 = {
+	type = country_event
+	title = gj_kaivan.43.title
+	desc = gj_kaivan.43.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		at_war = no
+	}
+
+	option = {
+		name = gj_kaivan.43.a
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -1 }
+		add_army_tradition = army_tradition_mild_bonus
+	}
+	option = {
+		name = gj_kaivan.43.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+# 44. Los exploradores del norte blanco
+gj_kaivan.44 = {
+	type = country_event
+	title = gj_kaivan.44.title
+	desc = gj_kaivan.44.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_kaivan.44.a
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -1 }
+		add_prestige = prestige_weak_bonus
+	}
+	option = {
+		name = gj_kaivan.44.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+# 45. La batalla de la hierba (disputa entre clanes)
+gj_kaivan.45 = {
+	type = country_event
+	title = gj_kaivan.45.title
+	desc = gj_kaivan.45.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		NOT = { has_variable = gj_kaivan_disputa_abierta }
+	}
+
+	immediate = {
+		gj_kaivan_prepara_circulo = yes
+	}
+
+	option = {
+		name = gj_kaivan.45.a
+		change_variable = { name = gj_kaivan_favor_uzhar add = 12 }
+		change_variable = { name = gj_kaivan_favor_merghan subtract = 6 }
+	}
+	option = {
+		name = gj_kaivan.45.b
+		change_variable = { name = gj_kaivan_favor_merghan add = 12 }
+		change_variable = { name = gj_kaivan_favor_uzhar subtract = 6 }
+	}
+	option = {
+		name = gj_kaivan.45.c
+		add_prestige = prestige_weak_penalty
+		add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+# 46. Fiebre en los campamentos
+gj_kaivan.46 = {
+	type = country_event
+	title = gj_kaivan.46.title
+	desc = gj_kaivan.46.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		NOT = { has_country_modifier = gj_kaivan_fiebre_de_los_campamentos }
+	}
+
+	option = {
+		name = gj_kaivan.46.a
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -2 }
+		add_country_modifier = {
+			modifier = gj_kaivan_fiebre_de_los_campamentos
+			years = 2
+			mode = add
+		}
+	}
+	option = {
+		name = gj_kaivan.46.b
+		add_country_modifier = {
+			modifier = gj_kaivan_fiebre_de_los_campamentos
+			years = 5
+			mode = add
+		}
+		add_stability = stability_weak_penalty
+	}
+}
+
+# 47. La promesa en la tumba del primer kan
+gj_kaivan.47 = {
+	type = country_event
+	title = gj_kaivan.47.title
+	desc = gj_kaivan.47.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+		has_ruler = yes
+		NOT = { has_country_modifier = gj_kaivan_juramento_renovado }
+	}
+
+	option = {
+		name = gj_kaivan.47.a
+		add_gold = { value = root.monthly_income_trade_and_tax multiply = -1 }
+		add_legitimacy = legitimacy_mild_bonus
+		add_country_modifier = {
+			modifier = gj_kaivan_juramento_renovado
+			years = 10
+			mode = add
+		}
+	}
+	option = {
+		name = gj_kaivan.47.b
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+#######################################################################
+# 48. Despues de la Gran Cabalgada
+#######################################################################
+gj_kaivan.48 = {
+	type = country_event
+	title = gj_kaivan.48.title
+	desc = gj_kaivan.48.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_es_kaivan = yes
+	}
+
+	option = {
+		name = gj_kaivan.48.a
+		add_country_modifier = {
+			modifier = gj_kaivan_pastos_agotados
+			years = 8
+			mode = add
+		}
+	}
+}

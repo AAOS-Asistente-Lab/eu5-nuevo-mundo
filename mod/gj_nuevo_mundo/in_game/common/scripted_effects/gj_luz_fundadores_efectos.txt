@@ -1,0 +1,80 @@
+﻿# Efectos de la Luz de los Fundadores.
+
+# Contabilidad de las lumbres (pais seguidor). Cada villa o ciudad nueva suma un punto de fundador al
+# soberano de turno (variable gj_fundador_puntos en el personaje). Con 15 puntos al morir, el pueblo
+# pide canonizarlo (evento gj_luz_fundadores.2). Se llama desde gj_luz_fundadores_pulso.
+gj_luz_fundadores_registra_hogares = {
+	set_variable = {
+		name = gj_hogares_ahora
+		value = {
+			value = num_location_rank:city
+			add = num_location_rank:town
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = gj_hogares_registrados }
+		}
+		set_variable = { name = gj_hogares_registrados value = var:gj_hogares_ahora }
+	}
+	if = {
+		limit = {
+			has_ruler = yes
+			var:gj_hogares_ahora > var:gj_hogares_registrados
+		}
+		ruler = {
+			if = {
+				limit = {
+					NOT = { has_variable = gj_fundador_puntos }
+				}
+				set_variable = { name = gj_fundador_puntos value = 0 }
+			}
+			change_variable = {
+				name = gj_fundador_puntos
+				add = {
+					value = root.var:gj_hogares_ahora
+					subtract = root.var:gj_hogares_registrados
+				}
+			}
+		}
+		random_list = {
+			1 = { trigger_event_non_silently = { id = gj_luz_fundadores.9 } }
+			2 = { }
+		}
+	}
+	set_variable = { name = gj_hogares_registrados value = var:gj_hogares_ahora }
+}
+
+# Como lee esta religion un cometa o un eclipse (contrato, tabla 5). Lo llama mundo_bestias con root = pais.
+# Sin argumentos elige al azar; las variantes _cometa y _eclipse fijan el tipo de presagio.
+gj_luz_fundadores_lee_presagio = {
+	if = {
+		limit = {
+			religion = religion:gj_luz_fundadores
+		}
+		random_list = {
+			1 = { gj_luz_fundadores_lee_presagio_cometa = yes }
+			1 = { gj_luz_fundadores_lee_presagio_eclipse = yes }
+		}
+	}
+}
+
+gj_luz_fundadores_lee_presagio_cometa = {
+	if = {
+		limit = {
+			religion = religion:gj_luz_fundadores
+		}
+		set_variable = { name = gj_presagio_tipo value = 1 }
+		trigger_event_non_silently = { id = gj_luz_fundadores.11 }
+	}
+}
+
+gj_luz_fundadores_lee_presagio_eclipse = {
+	if = {
+		limit = {
+			religion = religion:gj_luz_fundadores
+		}
+		set_variable = { name = gj_presagio_tipo value = 2 }
+		trigger_event_non_silently = { id = gj_luz_fundadores.11 }
+	}
+}

@@ -1,0 +1,11 @@
+﻿colors = {
+	# Menores del norte: colores de cultura en el mapa
+	gj_minores_norte_map_tarnavi = rgb { 70 125 170 }
+	gj_minores_norte_map_nenvari = rgb { 45 150 150 }
+	gj_minores_norte_map_isbranti = rgb { 160 170 185 }
+	gj_minores_norte_map_hondarri = rgb { 150 105 55 }
+	gj_minores_norte_map_aryuki = rgb { 195 150 55 }
+	gj_minores_norte_map_marismeno = rgb { 95 125 70 }
+	gj_minores_norte_map_vigiano = rgb { 125 70 80 }
+	gj_minores_norte_map_cenizario = rgb { 105 105 120 }
+}

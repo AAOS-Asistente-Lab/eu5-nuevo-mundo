@@ -1,0 +1,17 @@
+﻿gj_durnhal_lengua = {
+	color = map_gj_durnhali
+	family = gj_enano_language_family
+
+	male_names = {
+		gj_n_aldrek gj_n_brannok gj_n_dorvun gj_n_eskald gj_n_falgrim gj_n_garrund gj_n_halvek gj_n_irmund gj_n_jorgrim gj_n_korvald gj_n_ludrek gj_n_morgund gj_n_norvik gj_n_orbrand gj_n_pelgrim gj_n_quendor gj_n_rotgar gj_n_skeldor gj_n_torvald gj_n_ulbrek gj_n_varrund gj_n_wolgrim gj_n_yskar gj_n_zorbrek gj_n_harkund gj_n_belgrund gj_n_tarvok gj_n_dunmark gj_n_osvald
+	}
+	female_names = {
+		gj_n_brunna gj_n_dagmara gj_n_eldris gj_n_falka gj_n_gerhild gj_n_hertha gj_n_ilsegund gj_n_jorna gj_n_kelda gj_n_lirunn gj_n_magda gj_n_norhild gj_n_orla gj_n_presa gj_n_runhild gj_n_sigrund gj_n_torva gj_n_ulfhild gj_n_vendra gj_n_wilda
+	}
+	dynasty_names = {
+		gj_n_hondomartillo gj_n_carbonfrio gj_n_yunqueviejo gj_n_piconegro gj_n_salderroca gj_n_lamparalarga gj_n_cobrefino gj_n_puntalfirme gj_n_vetaclara gj_n_brasaquieta gj_n_canteralta gj_n_ecohondo
+	}
+	lowborn = {
+		gj_n_pedrero gj_n_carretero gj_n_faroler gj_n_pozoseco gj_n_cuerdacorta gj_n_barrenero gj_n_acarreo gj_n_mechero gj_n_aserrin gj_n_cernidor gj_n_hollin gj_n_lastre
+	}
+}

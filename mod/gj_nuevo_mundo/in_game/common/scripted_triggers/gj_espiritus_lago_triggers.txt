@@ -1,0 +1,24 @@
+﻿# Triggers de pais (root = country) de los Espiritus del Lago.
+
+gj_espiritus_lago_es_creyente = {
+	religion = religion:gj_espiritus_lago
+}
+
+gj_espiritus_lago_es_barquero = {
+	religion = religion:gj_espiritus_lago
+	religious_school ?= religious_school:gj_escuela_barqueros
+}
+
+gj_espiritus_lago_es_saga = {
+	religion = religion:gj_espiritus_lago
+	religious_school ?= religious_school:gj_escuela_sagas
+}
+
+# Hay una lectura anual en vigor: no se pide otra hasta que se acabe.
+gj_espiritus_lago_tiene_lectura_activa = {
+	OR = {
+		has_country_modifier = gj_espiritus_lago_lectura_mercaderes
+		has_country_modifier = gj_espiritus_lago_lectura_incursion
+		has_country_modifier = gj_espiritus_lago_lectura_prudencia
+	}
+}

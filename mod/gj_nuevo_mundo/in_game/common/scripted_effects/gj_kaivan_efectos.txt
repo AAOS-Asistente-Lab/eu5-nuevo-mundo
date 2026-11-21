@@ -1,0 +1,273 @@
+﻿#######################################################################
+# Efectos del Circulo de los Clanes (parte "kaivan").
+# Cuatro clanes, cada uno atado a una zona (triggers gj_zona_*, los define la integracion):
+#   1 Uzhar    - gj_zona_estepa_alta
+#   2 Tarkhen  - gj_zona_marca_occidental
+#   3 Ilbari   - gj_zona_valles_orientales
+#   4 Merghan  - gj_zona_estepa_baja
+# Variables del pais: gj_kaivan_favor_<clan>, gj_kaivan_total_<clan>, gj_kaivan_ganador,
+#   gj_kaivan_rebelde, gj_kaivan_clan_reinante, gj_kaivan_disputa_abierta.
+#######################################################################
+
+# Pone el favor inicial de los cuatro clanes si todavia no existe.
+gj_kaivan_prepara_circulo = {
+	if = {
+		limit = { NOT = { has_variable = gj_kaivan_favor_uzhar } }
+		set_variable = { name = gj_kaivan_favor_uzhar value = 20 }
+	}
+	if = {
+		limit = { NOT = { has_variable = gj_kaivan_favor_tarkhen } }
+		set_variable = { name = gj_kaivan_favor_tarkhen value = 20 }
+	}
+	if = {
+		limit = { NOT = { has_variable = gj_kaivan_favor_ilbari } }
+		set_variable = { name = gj_kaivan_favor_ilbari value = 20 }
+	}
+	if = {
+		limit = { NOT = { has_variable = gj_kaivan_favor_merghan } }
+		set_variable = { name = gj_kaivan_favor_merghan value = 20 }
+	}
+	if = {
+		limit = { NOT = { has_variable = gj_kaivan_clan_reinante } }
+		set_variable = { name = gj_kaivan_clan_reinante value = 0 }
+	}
+	if = {
+		limit = { NOT = { has_variable = gj_kaivan_ganador } }
+		set_variable = { name = gj_kaivan_ganador value = 0 }
+	}
+	if = {
+		limit = { NOT = { has_variable = gj_kaivan_rebelde } }
+		set_variable = { name = gj_kaivan_rebelde value = 0 }
+	}
+}
+
+# Suma favor a un clan (promesas, oro, caballos). Uso: gj_kaivan_apoya_clan = { C = uzhar }
+gj_kaivan_apoya_clan = {
+	change_variable = { name = gj_kaivan_favor_$C$ add = 25 }
+	clamp_variable = { name = gj_kaivan_favor_$C$ min = 0 max = 100 }
+}
+
+# Calcula el total de un clan: favor mas un empujon al azar. Sin tierra en su zona no puede ganar.
+# Uso: gj_kaivan_calcula_total = { C = uzhar Z = estepa_alta }
+gj_kaivan_calcula_total = {
+	set_variable = { name = gj_kaivan_total_$C$ value = var:gj_kaivan_favor_$C$ }
+	random_list = {
+		1 = { change_variable = { name = gj_kaivan_total_$C$ add = 0 } }
+		1 = { change_variable = { name = gj_kaivan_total_$C$ add = 8 } }
+		1 = { change_variable = { name = gj_kaivan_total_$C$ add = 16 } }
+	}
+	if = {
+		limit = {
+			NOT = { any_owned_location = { gj_zona_$Z$ = yes } }
+		}
+		set_variable = { name = gj_kaivan_total_$C$ value = -1 }
+	}
+}
+
+# Busca clanes rivales cuyo total queda cerca del ganador (disputa abierta).
+# Uso: gj_kaivan_busca_rival = { C = uzhar N = 1 }
+gj_kaivan_busca_rival = {
+	if = {
+		limit = {
+			NOT = { var:gj_kaivan_ganador = $N$ }
+			var:gj_kaivan_total_$C$ >= var:gj_kaivan_umbral
+			var:gj_kaivan_total_$C$ >= 0
+		}
+		set_variable = { name = gj_kaivan_rebelde value = $N$ }
+	}
+}
+
+# El Circulo vota: deja en gj_kaivan_ganador (1-4, 0 si ninguno) y en gj_kaivan_rebelde (1-4, 0 si no hay disputa).
+gj_kaivan_resuelve_circulo = {
+	gj_kaivan_prepara_circulo = yes
+	gj_kaivan_calcula_total = { C = uzhar Z = estepa_alta }
+	gj_kaivan_calcula_total = { C = tarkhen Z = marca_occidental }
+	gj_kaivan_calcula_total = { C = ilbari Z = valles_orientales }
+	gj_kaivan_calcula_total = { C = merghan Z = estepa_baja }
+
+	set_variable = { name = gj_kaivan_ganador value = 0 }
+	set_variable = { name = gj_kaivan_umbral value = 0 }
+	set_variable = { name = gj_kaivan_rebelde value = 0 }
+
+	if = {
+		limit = {
+			var:gj_kaivan_total_uzhar >= var:gj_kaivan_total_tarkhen
+			var:gj_kaivan_total_uzhar >= var:gj_kaivan_total_ilbari
+			var:gj_kaivan_total_uzhar >= var:gj_kaivan_total_merghan
+			var:gj_kaivan_total_uzhar >= 0
+		}
+		set_variable = { name = gj_kaivan_ganador value = 1 }
+		set_variable = { name = gj_kaivan_umbral value = var:gj_kaivan_total_uzhar }
+	}
+	else_if = {
+		limit = {
+			var:gj_kaivan_total_tarkhen >= var:gj_kaivan_total_ilbari
+			var:gj_kaivan_total_tarkhen >= var:gj_kaivan_total_merghan
+			var:gj_kaivan_total_tarkhen >= 0
+		}
+		set_variable = { name = gj_kaivan_ganador value = 2 }
+		set_variable = { name = gj_kaivan_umbral value = var:gj_kaivan_total_tarkhen }
+	}
+	else_if = {
+		limit = {
+			var:gj_kaivan_total_ilbari >= var:gj_kaivan_total_merghan
+			var:gj_kaivan_total_ilbari >= 0
+		}
+		set_variable = { name = gj_kaivan_ganador value = 3 }
+		set_variable = { name = gj_kaivan_umbral value = var:gj_kaivan_total_ilbari }
+	}
+	else_if = {
+		limit = {
+			var:gj_kaivan_total_merghan >= 0
+		}
+		set_variable = { name = gj_kaivan_ganador value = 4 }
+		set_variable = { name = gj_kaivan_umbral value = var:gj_kaivan_total_merghan }
+	}
+
+	# Votacion renida: otro clan queda a menos de 8 puntos del ganador.
+	change_variable = { name = gj_kaivan_umbral subtract = 8 }
+	gj_kaivan_busca_rival = { C = uzhar N = 1 }
+	gj_kaivan_busca_rival = { C = tarkhen N = 2 }
+	gj_kaivan_busca_rival = { C = ilbari N = 3 }
+	gj_kaivan_busca_rival = { C = merghan N = 4 }
+}
+
+# Quita el modificador del reinado anterior, si lo hay.
+gj_kaivan_limpia_reinado = {
+	if = {
+		limit = { has_country_modifier = gj_kaivan_reinado_uzhar }
+		remove_country_modifier = gj_kaivan_reinado_uzhar
+	}
+	if = {
+		limit = { has_country_modifier = gj_kaivan_reinado_tarkhen }
+		remove_country_modifier = gj_kaivan_reinado_tarkhen
+	}
+	if = {
+		limit = { has_country_modifier = gj_kaivan_reinado_ilbari }
+		remove_country_modifier = gj_kaivan_reinado_ilbari
+	}
+	if = {
+		limit = { has_country_modifier = gj_kaivan_reinado_merghan }
+		remove_country_modifier = gj_kaivan_reinado_merghan
+	}
+}
+
+# Aplica el reinado del clan ganador: muda la capital a su tierra, deja un Campamento en la vieja,
+# levanta la Tienda del Circulo en la nueva y reparte el favor para la proxima vez.
+# Uso: gj_kaivan_aplica_reinado = { C = uzhar Z = estepa_alta N = 1 }
+gj_kaivan_aplica_reinado = {
+	if = {
+		limit = { var:gj_kaivan_ganador = $N$ }
+		capital = { save_scope_as = gj_vieja_capital }
+		ordered_owned_location = {
+			limit = {
+				gj_zona_$Z$ = yes
+				NOT = { this = scope:gj_vieja_capital }
+			}
+			order_by = population
+			max = 1
+			save_scope_as = gj_nueva_capital
+		}
+		gj_kaivan_limpia_reinado = yes
+		if = {
+			limit = { exists = scope:gj_nueva_capital }
+			scope:gj_vieja_capital = {
+				construct_building = {
+					building_type = building_type:gj_kaivan_campamento_kan
+					cost_multiplier = 0
+					cost_multiplier_reason = "game_concept_event"
+				}
+			}
+			set_capital = scope:gj_nueva_capital
+			scope:gj_nueva_capital = {
+				add_location_modifier = {
+					modifier = gj_kaivan_sede_del_kan
+					years = 25
+					mode = add_and_extend
+				}
+				construct_building = {
+					building_type = building_type:gj_kaivan_tienda_del_circulo
+					cost_multiplier = 0
+					cost_multiplier_reason = "game_concept_event"
+				}
+			}
+		}
+		add_country_modifier = {
+			modifier = gj_kaivan_reinado_$C$
+			years = 80
+			mode = add
+		}
+		set_variable = { name = gj_kaivan_clan_reinante value = $N$ }
+		# El poder rota: el clan que reina parte con menos favor la proxima vez.
+		set_variable = { name = gj_kaivan_favor_uzhar value = 20 }
+		set_variable = { name = gj_kaivan_favor_tarkhen value = 20 }
+		set_variable = { name = gj_kaivan_favor_ilbari value = 20 }
+		set_variable = { name = gj_kaivan_favor_merghan value = 20 }
+		set_variable = { name = gj_kaivan_favor_$C$ value = 5 }
+	}
+}
+
+# Aplica el reinado del ganador sea quien sea.
+gj_kaivan_aplica_reinado_del_ganador = {
+	gj_kaivan_aplica_reinado = { C = uzhar Z = estepa_alta N = 1 }
+	gj_kaivan_aplica_reinado = { C = tarkhen Z = marca_occidental N = 2 }
+	gj_kaivan_aplica_reinado = { C = ilbari Z = valles_orientales N = 3 }
+	gj_kaivan_aplica_reinado = { C = merghan Z = estepa_baja N = 4 }
+}
+
+# Llevar el favor de un clan al maximo y quitar el de los demas (lo usan eventos de crisis).
+gj_kaivan_iguala_favor = {
+	set_variable = { name = gj_kaivan_favor_uzhar value = 20 }
+	set_variable = { name = gj_kaivan_favor_tarkhen value = 20 }
+	set_variable = { name = gj_kaivan_favor_ilbari value = 20 }
+	set_variable = { name = gj_kaivan_favor_merghan value = 20 }
+}
+
+# El clan agraviado (gj_kaivan_rebelde) se lleva su zona: nace un pais con su capital en ella.
+# Escribe en scope:gj_pais_clan el nuevo pais. Sin tierra en la zona no hace nada.
+gj_kaivan_secesion_de_clan = {
+	if = {
+		limit = { var:gj_kaivan_rebelde = 1 }
+		gj_kaivan_secesion_zona = { Z = estepa_alta }
+	}
+	else_if = {
+		limit = { var:gj_kaivan_rebelde = 2 }
+		gj_kaivan_secesion_zona = { Z = marca_occidental }
+	}
+	else_if = {
+		limit = { var:gj_kaivan_rebelde = 3 }
+		gj_kaivan_secesion_zona = { Z = valles_orientales }
+	}
+	else_if = {
+		limit = { var:gj_kaivan_rebelde = 4 }
+		gj_kaivan_secesion_zona = { Z = estepa_baja }
+	}
+}
+
+gj_kaivan_secesion_zona = {
+	ordered_owned_location = {
+		limit = {
+			gj_zona_$Z$ = yes
+			NOT = { is_capital = yes }
+		}
+		order_by = population
+		max = 1
+		save_scope_as = gj_loc_secesion
+	}
+	if = {
+		limit = { exists = scope:gj_loc_secesion }
+		scope:gj_loc_secesion = {
+			create_country_from_location = {
+				save_scope_as = gj_pais_clan
+				set_capital = scope:gj_loc_secesion
+			}
+		}
+		every_owned_location = {
+			limit = {
+				gj_zona_$Z$ = yes
+				NOT = { is_capital = yes }
+			}
+			change_location_owner = scope:gj_pais_clan
+		}
+	}
+}

@@ -1,0 +1,12 @@
+﻿# Cada familia comparte un cupo entre sus 6 versiones.
+gj_ank_guardianes = {
+	limit = gj_ank_limite_guardianes
+}
+
+gj_ank_honderos = {
+	limit = gj_ank_limite_honderos
+}
+
+gj_ank_porteadores = {
+	limit = gj_ank_limite_porteadores
+}

@@ -1,0 +1,24 @@
+﻿# Tipos de lugar sagrado de Los Dioses Hambrientos (sin locations: las asigna la integracion).
+
+gj_dioses_hambrientos_mesa_de_piedra = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.05
+		local_unrest = -0.05
+		local_slaves_goods_output_modifier = 0.1
+	}
+	country_modifier = {
+		monthly_religious_influence = 0.03
+	}
+}
+
+gj_dioses_hambrientos_pozo_de_la_cuenta = {
+	location_modifier = {
+		local_clergy_desired_pop = 0.02
+		local_monthly_prosperity = 0.001
+		local_max_control = 0.01
+	}
+	country_modifier = {
+		slave_raid_efficiency = 0.05
+		maximum_religious_influence = 5
+	}
+}

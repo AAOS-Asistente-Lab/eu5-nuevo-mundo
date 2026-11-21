@@ -1,0 +1,51 @@
+﻿# Pulsos anuales de Ostrevar.
+INJECT:yearly_country_pulse = {
+	on_actions = {
+		gj_ostrevar_pulso_anual
+	}
+}
+
+gj_ostrevar_pulso_anual = {
+	trigger = {
+		gj_es_ostrevar = yes
+	}
+	events = {
+		gj_ostrevar.40
+		gj_ostrevar.41
+		gj_ostrevar.1
+		delay = { months = { 6 18 } }
+		gj_ostrevar.2
+		gj_ostrevar.3
+	}
+	random_events = {
+		chance_to_happen = 18
+		100 = gj_ostrevar.4
+		100 = gj_ostrevar.5
+		100 = gj_ostrevar.6
+		100 = gj_ostrevar.7
+		100 = gj_ostrevar.8
+		100 = gj_ostrevar.9
+		100 = gj_ostrevar.10
+		100 = gj_ostrevar.11
+		100 = gj_ostrevar.12
+		100 = gj_ostrevar.13
+		100 = gj_ostrevar.14
+		100 = gj_ostrevar.15
+		100 = gj_ostrevar.16
+		100 = gj_ostrevar.17
+		100 = gj_ostrevar.18
+		100 = gj_ostrevar.19
+		100 = gj_ostrevar.20
+		100 = 0
+	}
+}
+
+INJECT:on_new_age = {
+	events = {
+		gj_ostrevar.30
+		gj_ostrevar.31
+		gj_ostrevar.32
+		gj_ostrevar.33
+		gj_ostrevar.34
+	}
+}

@@ -1,0 +1,30 @@
+﻿# Efectos reutilizables de la mecanica de los velathi.
+
+gj_velathi_reinicia_cansancio_effect = {
+	if = { limit = { has_country_modifier = gj_velathi_cansancio_1 } remove_country_modifier = gj_velathi_cansancio_1 }
+	if = { limit = { has_country_modifier = gj_velathi_cansancio_2 } remove_country_modifier = gj_velathi_cansancio_2 }
+	if = { limit = { has_country_modifier = gj_velathi_cansancio_3 } remove_country_modifier = gj_velathi_cansancio_3 }
+	set_variable = { name = gj_velathi_cansancio value = 0 }
+}
+
+# Cambia el karma solo si el pais sigue la Senda Verde (la religion es de otra parte).
+gj_velathi_karma_bonus_effect = {
+	if = {
+		limit = { religion = religion:gj_senda_verde }
+		add_karma = karma_weak_bonus
+	}
+}
+
+gj_velathi_karma_penalty_effect = {
+	if = {
+		limit = { religion = religion:gj_senda_verde }
+		add_karma = karma_weak_penalty
+	}
+}
+
+gj_velathi_karma_gran_bonus_effect = {
+	if = {
+		limit = { religion = religion:gj_senda_verde }
+		add_karma = karma_mild_bonus
+	}
+}

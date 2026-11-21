@@ -1,0 +1,221 @@
+﻿# Edificios propios de los velathi. Cada uno sube de nivel con las eras (script_values gj_velathi_*_max_level).
+# Regla de equilibrio: como mucho un nivel mejor que su equivalente del juego base, y siempre con un limite.
+
+gj_velathi_arboleda_antigua = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = peasants
+	max_levels = gj_velathi_arboleda_antigua_max_level
+	employment_size = estate_peasants_employment
+	category = defense_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = no
+
+	build_time = guild_build_time
+	expensive = yes
+
+	location_potential = {
+		OR = {
+			vegetation = forest
+			vegetation = woods
+		}
+	}
+	country_potential = {
+		gj_es_velathi = yes
+	}
+	allow = {
+	}
+
+	# Fuerza: defensa y desgaste al enemigo. Limite: solo en bosque, y el nivel depende de la era y de la poblacion.
+	modifier = {
+		local_defensive = 0.08
+		local_hostile_attrition = 0.25
+		local_monthly_control = 0.001
+	}
+
+	unique_production_methods = {
+		gj_velathi_arboleda_antigua_mantenimiento = {
+			icon_type = building_type
+			icon = gj_velathi_arboleda_antigua
+			lumber = 0.01
+			category = building_maintenance
+		}
+	}
+	construction_demand = castle_construction
+}
+
+gj_velathi_salon_de_raices = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = peasants
+	max_levels = gj_velathi_salon_de_raices_max_level
+	employment_size = estate_peasants_employment
+	category = cultural_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = guild_build_time
+
+	location_potential = {
+		dominant_culture ?= culture:gj_velathi
+	}
+	country_potential = {
+		gj_es_velathi = yes
+	}
+	allow = {
+	}
+
+	# Fuerza: cultura y saber. Limite: solo en localidades de dominante velathi.
+	modifier = {
+		local_cultural_tradition = 0.05
+		local_monthly_literacy = 0.005
+		local_peasants_max_literacy = 3
+	}
+
+	unique_production_methods = {
+		gj_velathi_salon_de_raices_mantenimiento = {
+			icon_type = building_type
+			icon = gj_velathi_salon_de_raices
+			paper = 0.01
+			category = building_maintenance
+		}
+	}
+	construction_demand = library_construction
+}
+
+gj_velathi_aserradero_vivo = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = laborers
+	max_levels = gj_velathi_aserradero_vivo_max_level
+	employment_size = guild_employment
+	category = consumer_goods_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = rural_build_time
+
+	location_potential = {
+		dominant_culture ?= culture:gj_velathi
+	}
+	country_potential = {
+		gj_es_velathi = yes
+	}
+	allow = {
+		market = { is_produced_in_market = goods:lumber }
+	}
+
+	# Fuerza: madera abundante. Limite: la madera es barata; da poca moneda y consume savia del bosque (prosperidad).
+	modifier = {
+		local_lumber_output_modifier = 0.10
+		local_production_efficiency = 0.02
+		local_monthly_prosperity = -0.0005
+	}
+
+	unique_production_methods = {
+		gj_velathi_aserradero_vivo_mantenimiento = {
+			icon_type = building_type
+			icon = gj_velathi_aserradero_vivo
+			lumber = 0.02
+			produced = furniture
+			output = 0.1
+			debug_max_profit = rural_profit_margin
+			category = guild_input
+		}
+	}
+	construction_demand = guild_construction
+}
+
+gj_velathi_jardin_de_sanacion = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = clergy
+	max_levels = gj_velathi_jardin_de_sanacion_max_level
+	employment_size = estate_peasants_employment
+	category = religious_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = no
+
+	build_time = guild_build_time
+
+	location_potential = {
+		dominant_culture ?= culture:gj_velathi
+	}
+	country_potential = {
+		gj_es_velathi = yes
+	}
+	allow = {
+	}
+
+	# Fuerza: salud y crecimiento. Limite: no sube en megalopolis y consume medicamentos locales.
+	modifier = {
+		local_disease_resistance = 0.05
+		local_life_expectancy = 1
+		local_population_growth = 0.0005
+	}
+
+	unique_production_methods = {
+		gj_velathi_jardin_de_sanacion_mantenimiento = {
+			icon_type = building_type
+			icon = gj_velathi_jardin_de_sanacion
+			medicaments = 0.01
+			category = building_maintenance
+		}
+	}
+	construction_demand = guild_construction
+}
+
+gj_velathi_torre_de_copas = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = gj_velathi_torre_de_copas_max_level
+	employment_size = castle_employment
+	category = defense_category
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	expensive = yes
+	build_time = generic_town_build_time
+
+	location_potential = {
+		dominant_culture ?= culture:gj_velathi
+	}
+	country_potential = {
+		gj_es_velathi = yes
+	}
+	allow = {
+	}
+
+	# Fuerza: control y vigias en el dosel. Limite: cara, y solo en pueblos y ciudades.
+	modifier = {
+		local_max_control = 0.10
+		local_monthly_control = 0.001
+		local_supply_limit_modifier = 0.10
+	}
+
+	possible_production_methods = {
+		basic_castle_maintenance
+	}
+	construction_demand = castle_construction
+}

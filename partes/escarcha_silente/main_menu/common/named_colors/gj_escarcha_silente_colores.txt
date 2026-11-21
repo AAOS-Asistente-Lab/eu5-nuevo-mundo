@@ -1,0 +1,3 @@
+﻿colors = {
+	gj_escarcha_silente_color = rgb { 176 214 232 }
+}

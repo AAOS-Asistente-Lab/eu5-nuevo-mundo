@@ -1,0 +1,20 @@
+﻿# mundo_ruinas: reclamacion sobre una veta de poder. Se concede por evento
+# (gj_mundo_ruinas.31 y .50), no se crea a mano.
+
+gj_cb_reclamar_veta = {
+	years = 20
+	create_visible = {
+		always = no
+	}
+	create_enabled = {
+		always = no
+	}
+
+	province = {
+		any_location_in_province = {
+			gj_mundo_ruinas_es_veta = yes
+		}
+	}
+
+	war_goal_type = conquer_province
+}

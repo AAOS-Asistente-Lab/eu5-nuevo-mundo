@@ -1,0 +1,76 @@
+﻿# Los seis dioses del Cielo de los Clanes.
+# El modificador del dios es modesto. El peso del reinado lo lleva el modificador
+# gj_reino_<dios>, que se pone al elegir dios (evento gj_cielo_clanes.1).
+
+gj_aurak_god = { # El Cielo Abierto: justicia y juramento
+	religion = {
+		religion = gj_cielo_clanes
+		name_key = gj_aurak_god
+	}
+
+	country_modifier = {
+		stability_cost_efficiency = 0.1
+	}
+}
+
+gj_ilsa_god = { # La Madre de las Yeguadas: cría y manadas
+	is_female = yes
+	religion = {
+		religion = gj_cielo_clanes
+		name_key = gj_ilsa_god
+	}
+
+	country_modifier = {
+		global_population_growth = 0.0001
+		global_horses_output_modifier = 0.1
+	}
+}
+
+gj_korvun_god = { # El Jinete sin Rostro: la guerra
+	religion = {
+		religion = gj_cielo_clanes
+		name_key = gj_korvun_god
+	}
+
+	country_modifier = {
+		army_light_cavalry_power = 0.05
+		discipline = 0.01
+	}
+}
+
+gj_halet_god = { # La Voz del Viento: caminos y alcance
+	is_female = yes
+	religion = {
+		religion = gj_cielo_clanes
+		name_key = gj_halet_god
+	}
+
+	country_modifier = {
+		army_movement_speed = 0.05
+		trade_range_modifier = 0.1
+	}
+}
+
+gj_mura_god = { # La Señora de las Aguas Quietas: lagos, pozos y vados
+	is_female = yes
+	religion = {
+		religion = gj_cielo_clanes
+		name_key = gj_mura_god
+	}
+
+	country_modifier = {
+		global_monthly_food_modifier = monthly_food_productivity_weak_bonus
+		naval_morale_modifier = 0.05
+	}
+}
+
+gj_dzerek_god = { # El Lobo Gris de la Noche: la muerte y el rastro
+	religion = {
+		religion = gj_cielo_clanes
+		name_key = gj_dzerek_god
+	}
+
+	country_modifier = {
+		global_hostile_attrition = 1
+	}
+}

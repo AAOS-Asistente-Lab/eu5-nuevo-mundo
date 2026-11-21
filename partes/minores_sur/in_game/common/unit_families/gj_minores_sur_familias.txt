@@ -1,0 +1,13 @@
+# Menores del sur: el cupo va por familia (como los jenizaros del juego base) y crece con el edificio de su estilo.
+
+gj_minores_sur_guardias = {
+	limit = gj_minores_sur_limite_guardias
+}
+
+gj_minores_sur_lanceros = {
+	limit = gj_minores_sur_limite_lanceros
+}
+
+gj_minores_sur_jinetes = {
+	limit = gj_minores_sur_limite_jinetes
+}

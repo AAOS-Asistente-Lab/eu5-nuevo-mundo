@@ -1,0 +1,137 @@
+﻿# Decisiones de la Llama Profunda. Se ven en la categoria de decisiones religiosas, solo para quien sigue esta fe.
+
+# El Rito de la Brasa: la manera barata y repetible de subir la Pureza.
+gj_llama_profunda_rito_brasa = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_llama_profunda
+	}
+
+	allow = {
+		gold >= 60
+		at_war = no
+		NOT = { has_variable = gj_llama_rito_enfriamiento }
+	}
+
+	ai_will_do = {
+		value = {
+			value = 0
+			if = {
+				limit = { purity < 60 }
+				add = 100
+			}
+		}
+	}
+
+	option = {
+		name = gj_llama_profunda_rito_brasa.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = -60
+			add_purity = purity_severe_bonus
+			add_country_modifier = { modifier = gj_llama_rito_brasa years = 5 mode = add_and_extend }
+			gj_llama_profunda_baja_inquietud = { PUNTOS = 3 }
+			set_variable = { name = gj_llama_rito_enfriamiento value = 1 years = 5 }
+		}
+	}
+}
+
+# La Vigilia del Fondo: se sellan galerias a cambio de calma y de pureza. Cuesta produccion.
+gj_llama_profunda_vigilia_fondo = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_llama_profunda
+	}
+
+	allow = {
+		gold >= 40
+		NOT = { has_variable = gj_llama_vigilia_enfriamiento }
+	}
+
+	ai_will_do = {
+		value = {
+			value = 0
+			if = {
+				limit = { purity < 40 }
+				add = 60
+			}
+		}
+	}
+
+	option = {
+		name = gj_llama_profunda_vigilia_fondo.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = -40
+			add_purity = purity_mild_bonus
+			add_country_modifier = { modifier = gj_llama_vigilia_fondo years = 10 mode = add_and_extend }
+			gj_llama_profunda_baja_inquietud = { PUNTOS = 10 }
+			random_owned_location = {
+				add_location_modifier = { modifier = gj_llama_galeria_sellada years = 10 mode = add_and_extend }
+			}
+			set_variable = { name = gj_llama_vigilia_enfriamiento value = 1 years = 10 }
+		}
+	}
+}
+
+# El Pacto del Ala: el dragon de la caldera se sienta en el panteon por una decada cada vez.
+# Da artilleria, forja y moral, y cobra: pureza cada mes y un diezmo cada diez anos (evento gj_llama_profunda.4).
+gj_llama_profunda_pactar_dragon = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_llama_profunda
+		NOT = { has_variable = gj_llama_pacto_dragon }
+	}
+
+	allow = {
+		purity >= 40
+		at_war = no
+		has_global_variable = gj_dragon_estado
+		global_var:gj_dragon_estado >= 1
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+
+	option = {
+		name = gj_llama_profunda_pactar_dragon.a
+		ai_chance = { value = 100 }
+		effect = {
+			set_variable = { name = gj_llama_pacto_dragon value = 1 }
+			add_god = god:gj_llama_zhurgan_god
+			add_purity = purity_severe_penalty
+			add_prestige = prestige_mild_bonus
+			trigger_event_silently = { id = gj_llama_profunda.4 days = 3650 }
+		}
+	}
+}
+
+# Romper el Pacto: la fe vuelve a la llama limpia, y el dragon lo recuerda.
+gj_llama_profunda_romper_pacto = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_llama_profunda
+		has_variable = gj_llama_pacto_dragon
+	}
+
+	allow = {
+		at_war = no
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+
+	option = {
+		name = gj_llama_profunda_romper_pacto.a
+		ai_chance = { value = 100 }
+		effect = {
+			gj_llama_profunda_rompe_pacto = yes
+		}
+	}
+}

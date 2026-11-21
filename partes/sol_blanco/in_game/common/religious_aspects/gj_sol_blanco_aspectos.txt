@@ -1,0 +1,38 @@
+﻿# Aspectos elegibles (religious_aspects = 2). Mismo modificador que el dios:
+# elegir el aspecto duplica el efecto, como en los demas cultos con dioses.
+
+worship_gj_sol_blanco_iscarel = {
+	religion = gj_sol_blanco
+
+	modifier = {
+		land_morale_modifier = 0.1
+		monthly_yanantin = -0.5
+	}
+}
+
+worship_gj_sol_blanco_tauhuel = {
+	religion = gj_sol_blanco
+
+	modifier = {
+		global_population_growth = 0.0001
+		monthly_yanantin = -0.5
+	}
+}
+
+worship_gj_sol_blanco_nauquil = {
+	religion = gj_sol_blanco
+
+	modifier = {
+		diplomatic_capacity_modifier = 0.05
+		monthly_yanantin = 0.5
+	}
+}
+
+worship_gj_sol_blanco_oseyra = {
+	religion = gj_sol_blanco
+
+	modifier = {
+		global_monthly_prosperity = 0.001
+		monthly_yanantin = 0.5
+	}
+}

@@ -1,0 +1,220 @@
+﻿# Edificios propios del Alto Reino de Ostrevar. Mejoran en cada era: cada avance de era suma un nivel de tope.
+
+gj_ostrevar_torre_gremio = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_ostrevar_torre_gremio_max_level
+	employment_size = guild_employment
+	category = government_category
+	forbidden_for_estates = yes
+
+	town = yes
+	city = yes
+	megalopolis = yes
+	increase_per_level_cost = 0.5
+
+	country_potential = {
+		gj_es_ostrevar = yes
+		has_advance = gj_ostrevar_fueros_de_los_valles
+	}
+	allow = {
+		population >= 6
+	}
+
+	build_time = government_build_time
+
+	modifier = {
+		local_construction_speed = 0.05
+		local_merchant_capacity_modifier = 0.10
+		local_burghers_max_literacy = 1
+	}
+
+	unique_production_methods = {
+		gj_ostrevar_torre_gremio_mantenimiento = {
+			icon_type = building_type
+			icon = gj_ostrevar_torre_gremio
+			masonry = 0.2
+			tools = 0.1
+			paper = 0.05
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = town_building_construction
+}
+
+gj_ostrevar_barrio_alto = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_ostrevar_barrio_alto_max_level
+	employment_size = guild_employment
+	category = infrastructure_category
+	forbidden_for_estates = yes
+
+	town = yes
+	city = yes
+	megalopolis = yes
+	increase_per_level_cost = 0.5
+
+	country_potential = {
+		gj_es_ostrevar = yes
+		has_advance = gj_ostrevar_el_barrio_alto
+	}
+	allow = {
+		population >= 6
+	}
+
+	build_time = government_build_time
+
+	modifier = {
+		local_population_capacity_modifier = 0.10
+		local_migration_attraction = 0.05
+	}
+
+	unique_production_methods = {
+		gj_ostrevar_barrio_alto_mantenimiento = {
+			icon_type = building_type
+			icon = gj_ostrevar_barrio_alto
+			masonry = 0.3
+			lumber = 0.2
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = town_building_construction
+}
+
+gj_ostrevar_acueducto_piedra = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = laborers
+	max_levels = gj_ostrevar_acueducto_piedra_max_level
+	employment_size = guild_employment
+	category = infrastructure_category
+	forbidden_for_estates = yes
+
+	town = yes
+	city = yes
+	megalopolis = yes
+	increase_per_level_cost = 0.5
+
+	country_potential = {
+		gj_es_ostrevar = yes
+		has_advance = gj_ostrevar_acueductos_largos
+	}
+	allow = {
+		population >= 6
+	}
+
+	build_time = government_build_time
+
+	modifier = {
+		local_food_capacity_modifier = 0.10
+		local_population_capacity_modifier = 0.05
+	}
+
+	unique_production_methods = {
+		gj_ostrevar_acueducto_piedra_mantenimiento = {
+			icon_type = building_type
+			icon = gj_ostrevar_acueducto_piedra
+			masonry = 0.4
+			tools = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = town_building_construction
+}
+
+gj_ostrevar_casa_del_censo = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_ostrevar_casa_del_censo_max_level
+	employment_size = generic_burgher_employment
+	category = government_category
+	forbidden_for_estates = yes
+
+	town = yes
+	city = yes
+	megalopolis = yes
+	increase_per_level_cost = 0.5
+
+	country_potential = {
+		gj_es_ostrevar = yes
+		has_advance = gj_ostrevar_archivos_del_censo
+	}
+	allow = {
+		population >= 6
+	}
+
+	build_time = government_build_time
+
+	modifier = {
+		local_monthly_literacy = 0.01
+		local_monthly_development = 0.005
+	}
+
+	unique_production_methods = {
+		gj_ostrevar_casa_del_censo_mantenimiento = {
+			icon_type = building_type
+			icon = gj_ostrevar_casa_del_censo
+			paper = 0.2
+			books = 0.05
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = town_building_construction
+}
+
+gj_ostrevar_canteria_real = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = laborers
+	max_levels = gj_ostrevar_canteria_real_max_level
+	employment_size = guild_employment
+	category = basic_industry_category
+	forbidden_for_estates = yes
+
+	town = yes
+	city = yes
+	megalopolis = yes
+	increase_per_level_cost = 0.5
+
+	country_potential = {
+		gj_es_ostrevar = yes
+		has_advance = gj_ostrevar_la_cantera_del_reino
+	}
+	allow = {
+		population >= 6
+	}
+
+	build_time = government_build_time
+
+	modifier = {
+		local_masonry_output_modifier = 0.20
+		local_construction_speed = 0.10
+	}
+
+	unique_production_methods = {
+		gj_ostrevar_canteria_real_mantenimiento = {
+			icon_type = building_type
+			icon = gj_ostrevar_canteria_real
+			masonry = 0.2
+			tools = 0.3
+			lumber = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = town_building_construction
+}
+

@@ -1,0 +1,266 @@
+﻿# Avances propios del Alto Reino de Ostrevar. Cubren las seis eras.
+
+gj_ostrevar_piedra_sobre_piedra = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_1_traditions
+	global_urban_build_buildings_efficiency = 0.10
+	global_construction_speed = 0.05
+	ai_weight = { add = 10 }
+	requires = city_building_advance
+}
+
+gj_ostrevar_fueros_de_los_valles = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_1_traditions
+	non_rural_migration_attraction = 0.10
+	global_burghers_max_literacy = 3
+	ai_weight = { add = 10 }
+	requires = guilds
+}
+
+gj_ostrevar_graneros_de_ladera = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_1_traditions
+	global_food_capacity_modifier = 0.05
+	global_peasants_pop_growth = 0.05
+	ai_weight = { add = 10 }
+	requires = agriculture_advance
+}
+
+gj_ostrevar_guardia_de_calle = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_1_traditions
+	global_garrison_size_modifier = 0.10
+	unlock_unit = a_gj_ostrevar_guardia_1
+	ai_weight = { add = 10 }
+	requires = feudalism_advance
+}
+
+gj_ostrevar_ballestas_del_gremio = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_1_traditions
+	army_light_infantry_power = 0.05
+	unlock_unit = a_gj_ostrevar_ballesteros_1
+	ai_weight = { add = 10 }
+	requires = feudalism_advance
+}
+
+gj_ostrevar_bombardas_de_muralla = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_1_traditions
+	army_artillery_power = 0.05
+	unlock_unit = a_gj_ostrevar_artilleros_1
+	ai_weight = { add = 10 }
+	requires = iron_working
+}
+
+gj_ostrevar_la_cantera_del_reino = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_1_traditions
+	global_masonry_output_modifier = 0.15
+	global_population_capacity_modifier = 0.03
+	ai_weight = { add = 10 }
+	requires = aqueduct_system
+}
+
+gj_ostrevar_carta_de_las_ciudades = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_2_renaissance
+	global_burghers_estate_power = 0.10
+	burghers_estate_target_satisfaction = small_permanent_target_satisfaction
+	ai_weight = { add = 10 }
+	requires = renaissance_city_rights
+}
+
+gj_ostrevar_escuela_de_canteros = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_2_renaissance
+	global_build_buildings_efficiency = 0.10
+	global_masonry_output_modifier = 0.10
+	ai_weight = { add = 10 }
+	requires = construction_speed_renaissance
+}
+
+gj_ostrevar_arcos_del_mercado = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_2_renaissance
+	tax_income_efficiency = 0.05
+	global_merchant_capacity_modifier = 0.10
+	ai_weight = { add = 10 }
+	requires = banking_advance
+}
+
+gj_ostrevar_archivos_del_censo = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_2_renaissance
+	global_monthly_literacy = 0.02
+	diplomatic_capacity = 0.5
+	ai_weight = { add = 10 }
+	requires = chancery_records
+}
+
+gj_ostrevar_calles_empedradas = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_2_renaissance
+	global_migration_speed_modifier = 0.15
+	global_road_building_time = -0.15
+	ai_weight = { add = 10 }
+	requires = renaissance_urbanisation
+}
+
+gj_ostrevar_el_barrio_alto = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_3_discovery
+	global_population_capacity_modifier = 0.05
+	global_migration_attraction = 0.05
+	ai_weight = { add = 10 }
+	requires = construction_speed_discovery
+}
+
+gj_ostrevar_acueductos_largos = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_3_discovery
+	global_food_capacity_modifier = 0.05
+	rural_disease_resistance = 0.10
+	ai_weight = { add = 10 }
+	requires = town_rights_aod_advance
+}
+
+gj_ostrevar_imprenta_de_los_gremios = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_3_discovery
+	global_max_literacy = 3
+	global_burghers_estate_power = 0.05
+	ai_weight = { add = 10 }
+	requires = printing_press_advance
+}
+
+gj_ostrevar_mercado_de_los_siete_puentes = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_3_discovery
+	global_merchant_capacity_modifier = 0.10
+	tax_income_efficiency = 0.03
+	ai_weight = { add = 10 }
+	requires = trade_through_owned_disc_advance
+}
+
+gj_ostrevar_la_ciudad_de_marmol = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_4_reformation
+	global_urban_build_buildings_efficiency = 0.10
+	global_non_rural_monthly_prosperity = 0.02
+	ai_weight = { add = 10 }
+	requires = town_rights_ref_advance
+}
+
+gj_ostrevar_las_leyes_del_rio = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_4_reformation
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+	monthly_legitimacy = 0.05
+	ai_weight = { add = 10 }
+	requires = confessionalism_advance
+}
+
+gj_ostrevar_cuerpos_de_ingenieros = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_4_reformation
+	fort_limit_modifier = 0.10
+	global_defensive = 0.05
+	ai_weight = { add = 10 }
+	requires = scientific_experimentation
+}
+
+gj_ostrevar_lazaretos_de_valle = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_4_reformation
+	global_burghers_pop_growth = 0.05
+	global_prosperity_decay = -0.05
+	ai_weight = { add = 10 }
+	requires = pharmacology_advance
+}
+
+gj_ostrevar_manufacturas_del_valle = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_5_absolutism
+	building_upkeep_efficiency = 0.10
+	global_monthly_development = 0.01
+	ai_weight = { add = 10 }
+	requires = manufactories_advance
+}
+
+gj_ostrevar_urbanismo_ordenado = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_5_absolutism
+	global_population_capacity_modifier = 0.05
+	global_prosperity_decay = -0.05
+	ai_weight = { add = 10 }
+	requires = sanitation_advance
+}
+
+gj_ostrevar_el_tribunal_de_las_ciudades = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_5_absolutism
+	global_max_urban_control = 0.05
+	global_monthly_urban_control = 0.10
+	ai_weight = { add = 10 }
+	requires = absolutist_court
+}
+
+gj_ostrevar_la_metropoli = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_6_revolutions
+	global_population_capacity_modifier = 0.08
+	global_non_rural_monthly_development = 0.02
+	ai_weight = { add = 10 }
+	requires = urbanization
+}
+
+gj_ostrevar_la_fabrica_de_piedra = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_6_revolutions
+	global_build_buildings_efficiency = 0.10
+	building_upkeep_efficiency = 0.05
+	ai_weight = { add = 10 }
+	requires = industrialization_advance
+}
+
+gj_ostrevar_la_administracion_del_reino = {
+	potential = { gj_es_ostrevar = yes }
+	age = age_6_revolutions
+	tax_income_efficiency = 0.05
+	global_monthly_literacy = 0.02
+	ai_weight = { add = 10 }
+	requires = modern_bureaucracy
+}
+
+gj_ostrevari_hijos_de_la_piedra = {
+	potential = {
+		culture = culture:gj_ostrevari
+	}
+	age = age_1_traditions
+	global_masonry_output_modifier = 0.10
+	global_construction_speed = 0.05
+	requires = city_building_advance
+}
+
+gj_ostrevari_la_hospitalidad_del_vado = {
+	potential = {
+		culture = culture:gj_ostrevari
+	}
+	age = age_3_discovery
+	global_migration_speed_modifier = 0.10
+	diplomatic_reputation = 1
+	requires = town_rights_aod_advance
+}
+
+gj_ostrevari_la_virtud_del_trabajo = {
+	potential = {
+		culture = culture:gj_ostrevari
+	}
+	age = age_5_absolutism
+	global_peasants_pop_growth = 0.05
+	global_burghers_max_literacy = 3
+	requires = manufactories_advance
+}
+

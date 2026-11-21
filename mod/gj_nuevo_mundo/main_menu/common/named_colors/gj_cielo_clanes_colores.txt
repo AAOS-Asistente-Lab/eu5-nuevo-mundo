@@ -1,0 +1,3 @@
+﻿colors = {
+	gj_cielo_clanes_color = rgb { 74 142 214 }
+}

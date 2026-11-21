@@ -1,0 +1,268 @@
+# Efectos de mundo_contacto. Todos se llaman con el pais del Nuevo Mundo como root.
+
+# Marca el primer contacto y busca al visitante del Viejo Mundo (guarda scope:gj_visitante) y,
+# si el visitante tiene alguna institucion que a nosotros nos falta, la guarda en scope:gj_institucion_visita.
+gj_contacto_marca = {
+	set_variable = gj_contacto_hecho
+	set_variable = { name = gj_contacto_anos value = 0 }
+	save_scope_as = gj_contactado
+	if = {
+		limit = {
+			any_known_country = {
+				gj_pais_viejo_mundo = yes
+				any_owned_location = { continent = continent:america }
+			}
+		}
+		random_known_country = {
+			limit = {
+				gj_pais_viejo_mundo = yes
+				any_owned_location = { continent = continent:america }
+			}
+			save_scope_as = gj_visitante
+		}
+	}
+	else_if = {
+		limit = {
+			any_known_country = { gj_pais_viejo_mundo = yes }
+		}
+		random_known_country = {
+			limit = { gj_pais_viejo_mundo = yes }
+			save_scope_as = gj_visitante
+		}
+	}
+	gj_contacto_busca_institucion = yes
+}
+
+gj_contacto_busca_institucion = {
+	if = {
+		limit = {
+			any_known_country = {
+				gj_pais_viejo_mundo = yes
+				any_institutions_embraced = {
+					NOT = { root = { has_embraced_institution = prev } }
+				}
+			}
+		}
+		random_known_country = {
+			limit = {
+				gj_pais_viejo_mundo = yes
+				any_institutions_embraced = {
+					NOT = { root = { has_embraced_institution = prev } }
+				}
+			}
+			random_institutions_embraced = {
+				limit = {
+					NOT = { root = { has_embraced_institution = prev } }
+				}
+				save_scope_as = gj_institucion_visita
+			}
+		}
+	}
+}
+
+# Empuja la institucion del visitante en las ciudades del pais (tamano segun la via).
+gj_contacto_empuja_institucion_grande = {
+	if = {
+		limit = { exists = scope:gj_institucion_visita }
+		capital ?= {
+			change_institution_progress = { type = scope:gj_institucion_visita value = institution_progress_extreme_bonus }
+		}
+		every_owned_location = {
+			limit = {
+				OR = {
+					location_rank = location_rank:town
+					location_rank = location_rank:city
+					location_rank = location_rank:megalopolis
+				}
+			}
+			change_institution_progress = { type = scope:gj_institucion_visita value = institution_progress_mild_bonus }
+		}
+	}
+}
+
+gj_contacto_empuja_institucion_pequena = {
+	if = {
+		limit = { exists = scope:gj_institucion_visita }
+		capital ?= {
+			change_institution_progress = { type = scope:gj_institucion_visita value = institution_progress_severe_bonus }
+		}
+	}
+}
+
+# Via del comercio.
+gj_contacto_elige_comerciar = {
+	set_variable = { name = gj_contacto_via value = 1 }
+	add_country_modifier = { modifier = gj_contacto_via_comercio years = modifier_duration_years_long mode = add_and_extend }
+	capital ?= {
+		add_location_modifier = { modifier = gj_loc_puerto_de_saberes years = modifier_duration_years_long mode = add_and_extend }
+	}
+	gj_contacto_empuja_institucion_grande = yes
+}
+
+# Via del aprendizaje.
+gj_contacto_elige_aprender = {
+	set_variable = { name = gj_contacto_via value = 2 }
+	add_country_modifier = { modifier = gj_contacto_via_aprender years = modifier_duration_years_extended mode = add_and_extend }
+	add_research_progress = research_progress_severe_bonus
+	capital ?= {
+		add_location_modifier = { modifier = gj_loc_puerto_de_saberes years = modifier_duration_years_extended mode = add_and_extend }
+	}
+	gj_contacto_empuja_institucion_pequena = yes
+}
+
+# Via del cierre.
+gj_contacto_elige_cerrarse = {
+	set_variable = { name = gj_contacto_via value = 3 }
+	add_country_modifier = { modifier = gj_contacto_via_cerrado mode = add }
+	add_stability = stability_mild_bonus
+	add_legitimacy = legitimacy_weak_bonus
+}
+
+# Lo que se lleva el visitante del Viejo Mundo: un saber propio de la cultura contactada.
+# Cada uno es pequeno y dura 20 anos: nadie se adelanta a Europa por esta via.
+gj_contacto_ensena_al_visitante = {
+	if = {
+		limit = { exists = scope:gj_visitante }
+		scope:gj_visitante = {
+			if = {
+				limit = { scope:gj_contactado = { gj_es_durnhal = yes } }
+				add_country_modifier = { modifier = gj_saber_ultramar_forja years = modifier_duration_years_long mode = add_and_extend }
+			}
+			else_if = {
+				limit = { scope:gj_contactado = { gj_es_ankaru = yes } }
+				add_country_modifier = { modifier = gj_saber_ultramar_terrazas years = modifier_duration_years_long mode = add_and_extend }
+			}
+			else_if = {
+				limit = {
+					scope:gj_contactado = {
+						OR = {
+							gj_es_thalassar = yes
+							gj_es_lagunas = yes
+							gj_es_sorava = yes
+							gj_es_skarren = yes
+							gj_es_marea_negra = yes
+						}
+					}
+				}
+				add_country_modifier = { modifier = gj_saber_ultramar_navegacion years = modifier_duration_years_long mode = add_and_extend }
+			}
+			else_if = {
+				limit = { scope:gj_contactado = { gj_es_velathi = yes } }
+				add_country_modifier = { modifier = gj_saber_ultramar_bosque years = modifier_duration_years_long mode = add_and_extend }
+			}
+			else_if = {
+				limit = { scope:gj_contactado = { gj_es_kaivan = yes } }
+				add_country_modifier = { modifier = gj_saber_ultramar_estepa years = modifier_duration_years_long mode = add_and_extend }
+			}
+			else = {
+				add_country_modifier = { modifier = gj_saber_ultramar_generico years = modifier_duration_years_long mode = add_and_extend }
+			}
+		}
+	}
+}
+
+# Inmunidad parcial: sube con los anos de contacto (10, 25 y 50). Se llama cada ano desde el pulso.
+gj_contacto_ajusta_inmunidad = {
+	if = {
+		limit = {
+			var:gj_contacto_anos >= 50
+			NOT = { has_country_modifier = gj_inmunidad_3 }
+		}
+		remove_country_modifier = gj_inmunidad_1
+		remove_country_modifier = gj_inmunidad_2
+		add_country_modifier = { modifier = gj_inmunidad_3 mode = add }
+		trigger_event_non_silently = gj_mundo_contacto.12
+	}
+	else_if = {
+		limit = {
+			var:gj_contacto_anos >= 25
+			NOT = { has_country_modifier = gj_inmunidad_2 }
+			NOT = { has_country_modifier = gj_inmunidad_3 }
+		}
+		remove_country_modifier = gj_inmunidad_1
+		add_country_modifier = { modifier = gj_inmunidad_2 mode = add }
+		trigger_event_non_silently = gj_mundo_contacto.12
+	}
+	else_if = {
+		limit = {
+			var:gj_contacto_anos >= 10
+			NOT = { has_country_modifier = gj_inmunidad_1 }
+			NOT = { has_country_modifier = gj_inmunidad_2 }
+			NOT = { has_country_modifier = gj_inmunidad_3 }
+		}
+		add_country_modifier = { modifier = gj_inmunidad_1 mode = add }
+		trigger_event_non_silently = gj_mundo_contacto.12
+	}
+}
+
+# Difusion del saber: mientras vayas por detras de un pais del Viejo Mundo que conoces, tus avances
+# te cuestan menos (tres escalones, 1, 6 y 12 avances por detras). Al alcanzarlo, el modificador se va solo:
+# no te da ventaja, solo te pone al dia. Quien tiene los puertos cerrados no recibe nada.
+gj_difusion_ajusta = {
+	set_variable = { name = gj_umbral_1 value = num_of_advances_researched }
+	set_variable = { name = gj_umbral_2 value = num_of_advances_researched }
+	change_variable = { name = gj_umbral_2 add = 5 }
+	set_variable = { name = gj_umbral_3 value = num_of_advances_researched }
+	change_variable = { name = gj_umbral_3 add = 11 }
+	if = {
+		limit = {
+			NOT = { gj_puertos_cerrados = yes }
+			gj_rezagado_3 = yes
+		}
+		gj_difusion_pon_escalon_3 = yes
+	}
+	else_if = {
+		limit = {
+			NOT = { gj_puertos_cerrados = yes }
+			gj_rezagado_2 = yes
+		}
+		gj_difusion_pon_escalon_2 = yes
+	}
+	else_if = {
+		limit = {
+			NOT = { gj_puertos_cerrados = yes }
+			gj_rezagado_1 = yes
+		}
+		gj_difusion_pon_escalon_1 = yes
+	}
+	else = {
+		remove_country_modifier = gj_difusion_1
+		remove_country_modifier = gj_difusion_2
+		remove_country_modifier = gj_difusion_3
+	}
+}
+
+gj_difusion_pon_escalon_1 = {
+	remove_country_modifier = gj_difusion_2
+	remove_country_modifier = gj_difusion_3
+	add_country_modifier = { modifier = gj_difusion_1 years = 3 mode = add_and_extend }
+}
+
+gj_difusion_pon_escalon_2 = {
+	remove_country_modifier = gj_difusion_1
+	remove_country_modifier = gj_difusion_3
+	add_country_modifier = { modifier = gj_difusion_2 years = 3 mode = add_and_extend }
+}
+
+gj_difusion_pon_escalon_3 = {
+	remove_country_modifier = gj_difusion_1
+	remove_country_modifier = gj_difusion_2
+	add_country_modifier = { modifier = gj_difusion_3 years = 3 mode = add_and_extend }
+}
+
+# Paso anual del pais con contacto: cuenta el ano, sube la inmunidad y ajusta la difusion.
+gj_contacto_paso_anual = {
+	change_variable = { name = gj_contacto_anos add = 1 }
+	gj_contacto_ajusta_inmunidad = yes
+	gj_difusion_ajusta = yes
+}
+
+# Fiebres de los barcos en un puerto: el pais pone cuarentena en una location infectada.
+gj_fiebres_pon_cuarentena = {
+	random_owned_location = {
+		limit = {
+			disease_presence = { disease = disease:great_pestilence value > 0 }
+		}
+		add_location_modifier = { modifier = gj_loc_cuarentena years = 2 mode = add_and_extend }
+	}
+}

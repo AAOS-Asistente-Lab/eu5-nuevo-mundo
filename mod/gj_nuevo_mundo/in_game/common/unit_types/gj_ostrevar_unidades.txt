@@ -1,0 +1,479 @@
+﻿# Unidades propias de Ostrevar: tres cadenas, una version por era (copy_from sobre la plantilla de su era).
+
+a_gj_ostrevar_guardia_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_guardia_2
+	buildable = yes
+	limit = gj_ostrevar_guardia_cupo
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.15
+	initiative = -1
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_ostrevar_guardia_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_guardia_3
+	buildable = yes
+	limit = gj_ostrevar_guardia_cupo
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.15
+	initiative = -1
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_ostrevar_guardia_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_guardia_4
+	buildable = yes
+	limit = gj_ostrevar_guardia_cupo
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.15
+	initiative = -1
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+a_gj_ostrevar_guardia_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_guardia_5
+	buildable = yes
+	limit = gj_ostrevar_guardia_cupo
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.15
+	initiative = -1
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+a_gj_ostrevar_guardia_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_guardia_6
+	buildable = yes
+	limit = gj_ostrevar_guardia_cupo
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.15
+	initiative = -1
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+a_gj_ostrevar_guardia_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+	buildable = yes
+	limit = gj_ostrevar_guardia_cupo
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.15
+	initiative = -1
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+a_gj_ostrevar_ballesteros_1 = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_ballesteros_2
+	buildable = yes
+	limit = gj_ostrevar_ballesteros_cupo
+
+	strength_damage_done = 0.10
+	morale_damage_done = 0.05
+	strength_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { crossbow_tag light_tag }
+}
+
+a_gj_ostrevar_ballesteros_2 = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_ballesteros_3
+	buildable = yes
+	limit = gj_ostrevar_ballesteros_cupo
+
+	strength_damage_done = 0.10
+	morale_damage_done = 0.05
+	strength_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { crossbow_tag light_tag }
+}
+
+a_gj_ostrevar_ballesteros_3 = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_ballesteros_4
+	buildable = yes
+	limit = gj_ostrevar_ballesteros_cupo
+
+	strength_damage_done = 0.10
+	morale_damage_done = 0.05
+	strength_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { crossbow_tag light_tag }
+}
+
+a_gj_ostrevar_ballesteros_4 = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_ballesteros_5
+	buildable = yes
+	limit = gj_ostrevar_ballesteros_cupo
+
+	strength_damage_done = 0.10
+	morale_damage_done = 0.05
+	strength_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { crossbow_tag light_tag musket_tag }
+}
+
+a_gj_ostrevar_ballesteros_5 = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_ballesteros_6
+	buildable = yes
+	limit = gj_ostrevar_ballesteros_cupo
+
+	strength_damage_done = 0.10
+	morale_damage_done = 0.05
+	strength_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { crossbow_tag light_tag musket_tag }
+}
+
+a_gj_ostrevar_ballesteros_6 = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+	buildable = yes
+	limit = gj_ostrevar_ballesteros_cupo
+
+	strength_damage_done = 0.10
+	morale_damage_done = 0.05
+	strength_damage_taken = 0.10
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+
+	gfx_tags = { crossbow_tag light_tag musket_tag }
+}
+
+a_gj_ostrevar_artilleros_1 = {
+	copy_from = a_age_1_traditions_artillery
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_artilleros_2
+	buildable = yes
+	limit = gj_ostrevar_artilleros_cupo
+
+	strength_damage_done = 0.10
+	movement_speed = -0.25
+	supply_weight = 0.20
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+}
+
+a_gj_ostrevar_artilleros_2 = {
+	copy_from = a_age_2_renaissance_artillery
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_artilleros_3
+	buildable = yes
+	limit = gj_ostrevar_artilleros_cupo
+
+	strength_damage_done = 0.10
+	movement_speed = -0.25
+	supply_weight = 0.20
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+}
+
+a_gj_ostrevar_artilleros_3 = {
+	copy_from = a_age_3_discovery_artillery
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_artilleros_4
+	buildable = yes
+	limit = gj_ostrevar_artilleros_cupo
+
+	strength_damage_done = 0.10
+	movement_speed = -0.25
+	supply_weight = 0.20
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+}
+
+a_gj_ostrevar_artilleros_4 = {
+	copy_from = a_age_4_reformation_artillery
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_artilleros_5
+	buildable = yes
+	limit = gj_ostrevar_artilleros_cupo
+
+	strength_damage_done = 0.10
+	movement_speed = -0.25
+	supply_weight = 0.20
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+}
+
+a_gj_ostrevar_artilleros_5 = {
+	copy_from = a_age_5_absolutism_artillery
+	is_special = yes
+	upgrades_to_only = a_gj_ostrevar_artilleros_6
+	buildable = yes
+	limit = gj_ostrevar_artilleros_cupo
+
+	strength_damage_done = 0.10
+	movement_speed = -0.25
+	supply_weight = 0.20
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+}
+
+a_gj_ostrevar_artilleros_6 = {
+	copy_from = a_age_6_revolutions_artillery
+	is_special = yes
+	buildable = yes
+	limit = gj_ostrevar_artilleros_cupo
+
+	strength_damage_done = 0.10
+	movement_speed = -0.25
+	supply_weight = 0.20
+
+	country_potential = {
+		gj_es_ostrevar = yes
+	}
+	location_potential = {
+		dominant_culture ?= culture:gj_ostrevari
+	}
+	location_trigger = {
+		OR = {
+			location_rank ?= location_rank:city
+			location_rank ?= location_rank:megalopolis
+		}
+	}
+}
+

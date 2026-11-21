@@ -1,0 +1,3 @@
+﻿gj_marea_negra_abordadores = {
+	limit = gj_marea_negra_limite_abordadores
+}

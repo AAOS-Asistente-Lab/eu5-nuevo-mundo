@@ -1,0 +1,165 @@
+﻿gj_minores_norte_lengua_del_vado = {
+	color = gj_minores_norte_map_tarnavi
+
+	male_names = {
+		gj_n_aldrec gj_n_barun gj_n_corvan gj_n_dessel gj_n_evrad gj_n_falken gj_n_gorren gj_n_halvic gj_n_isembar gj_n_joren
+		gj_n_kestrel gj_n_lorvan gj_n_medric gj_n_norvan gj_n_orsel gj_n_pervan gj_n_rodrec gj_n_selvar gj_n_tamsen gj_n_verren gj_n_wendrel
+	}
+	female_names = {
+		gj_n_alvira gj_n_brisa gj_n_corlen gj_n_dessa gj_n_elvane gj_n_fenra gj_n_gorsa gj_n_halena gj_n_jessel gj_n_kerrin
+		gj_n_linnet gj_n_maelis gj_n_norvia gj_n_orlen gj_n_perrine gj_n_rowena gj_n_selma gj_n_tavia gj_n_ysolt
+	}
+	dynasty_names = {
+		gj_n_pontarel gj_n_ballanor gj_n_corvasco gj_n_dunmera gj_n_esteval gj_n_foralda
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_tarnavi_dialect = {
+			male_names = {
+				gj_n_ambrel gj_n_belcor gj_n_dunmar gj_n_hesper gj_n_ilbert gj_n_moravec
+			}
+			female_names = {
+				gj_n_amerel gj_n_belisa gj_n_corvina gj_n_dunessa gj_n_hespera
+			}
+		}
+		gj_minores_norte_marismeno_dialect = {
+			male_names = {
+				gj_n_agrel gj_n_brumo gj_n_cenegar gj_n_dovo gj_n_fenwar gj_n_gorrin
+			}
+			female_names = {
+				gj_n_anguila gj_n_brenna gj_n_cienaga gj_n_dorna gj_n_fenda
+			}
+		}
+		gj_minores_norte_vigiano_dialect = {
+			male_names = {
+				gj_n_alderan gj_n_barbeck gj_n_corvalt gj_n_dunstan gj_n_haldrec gj_n_ravenor
+			}
+			female_names = {
+				gj_n_aldera gj_n_bartha gj_n_corvia gj_n_dunhilda gj_n_haldra
+			}
+		}
+	}
+}
+
+gj_minores_norte_lengua_del_agua = {
+	color = gj_minores_norte_map_nenvari
+
+	male_names = {
+		gj_n_brannel gj_n_caldor gj_n_dovrin gj_n_eskar gj_n_fenlo gj_n_gavrel gj_n_harrun gj_n_illar gj_n_kelvor gj_n_lonnar
+		gj_n_marrek gj_n_nevrin gj_n_orrel gj_n_pellin gj_n_rennar gj_n_sorvel gj_n_tarrin gj_n_ulvar gj_n_verrin gj_n_wellar
+	}
+	female_names = {
+		gj_n_aldis gj_n_brelin gj_n_carrow gj_n_dunna Elmira gj_n_fenna gj_n_gunra gj_n_halsa gj_n_ilsen gj_n_jarla
+		gj_n_kelda gj_n_lunna gj_n_mirren gj_n_nessa gj_n_orla gj_n_pelle gj_n_runa gj_n_sella gj_n_tove gj_n_ulla gj_n_vessa gj_n_wenna
+	}
+	dynasty_names = {
+		gj_n_farolan gj_n_lagomar gj_n_nebrin gj_n_orilla gj_n_pescanor gj_n_tramonte
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_nenvari_dialect = {
+			male_names = {
+				gj_n_anselar gj_n_candil gj_n_lumenar gj_n_naviel Tiller
+			}
+			female_names = {
+				Candela gj_n_lumina Navia gj_n_luzmira gj_n_tilda
+			}
+		}
+		gj_minores_norte_isbranti_dialect = {
+			male_names = {
+				gj_n_brunnal gj_n_halvard gj_n_kelmor gj_n_salmer gj_n_tuskar
+			}
+			female_names = {
+				gj_n_brunna gj_n_halsta gj_n_kelma Salma gj_n_tuska
+			}
+		}
+	}
+}
+
+gj_minores_norte_lengua_de_la_piedra = {
+	color = gj_minores_norte_map_hondarri
+
+	male_names = {
+		gj_n_dorrak gj_n_gundrek gj_n_harmund gj_n_kazrin gj_n_murgad gj_n_norbek gj_n_ragdur gj_n_stonric gj_n_targun gj_n_uldrek
+		gj_n_vorgan gj_n_brunmar gj_n_kelgrim gj_n_orsund gj_n_zarbek
+	}
+	female_names = {
+		gj_n_brynla gj_n_dorra gj_n_gerda gj_n_gundra gj_n_halka gj_n_ingra gj_n_kelva gj_n_morna gj_n_sulka gj_n_targa gj_n_urda gj_n_vilda
+	}
+	dynasty_names = {
+		gj_n_hondarr gj_n_piedrasorda gj_n_yunquehondo gj_n_vetalarga gj_n_cantoalto gj_n_pozonegro
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_hondarri_dialect = {
+			male_names = {
+				gj_n_hondrek gj_n_piedrik gj_n_yunkar gj_n_cantor gj_n_pozund
+			}
+			female_names = {
+				gj_n_hondra gj_n_piedra gj_n_yunka gj_n_canta gj_n_pozna
+			}
+		}
+	}
+}
+
+gj_minores_norte_lengua_del_viento = {
+	color = gj_minores_norte_map_aryuki
+
+	male_names = {
+		gj_n_arqai gj_n_bolur gj_n_chagor gj_n_dorzan gj_n_erkul gj_n_gantu gj_n_jebar gj_n_kuyal gj_n_merget gj_n_orlug
+		gj_n_sarkan gj_n_tolgun gj_n_ugedar gj_n_yesur gj_n_zorgal
+	}
+	female_names = {
+		Altan gj_n_bayra gj_n_chenga Dolun gj_n_erden gj_n_gurla gj_n_kuyla gj_n_menga Narin gj_n_orgun Saran gj_n_tuyan gj_n_yelun
+	}
+	dynasty_names = {
+		gj_n_trespozos gj_n_aguaseca gj_n_lomaviento gj_n_yeguada gj_n_cuernoalto gj_n_sendalarga
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_aryuki_dialect = {
+			male_names = {
+				gj_n_aryuk gj_n_baidar gj_n_cherek Dogan gj_n_hulagur
+			}
+			female_names = {
+				gj_n_aryla gj_n_baida Cheren gj_n_dogla gj_n_hulana
+			}
+		}
+	}
+}
+
+gj_minores_norte_lengua_de_la_ceniza = {
+	color = gj_minores_norte_map_cenizario
+
+	male_names = {
+		gj_n_absel gj_n_corvin gj_n_denholm gj_n_emmerek gj_n_hollen Ismael gj_n_ormund gj_n_pellam gj_n_quillon gj_n_radmer
+		gj_n_sabel gj_n_thessel gj_n_umbrec
+	}
+	female_names = {
+		gj_n_aveline gj_n_brisel gj_n_ceda Esmer gj_n_ilda gj_n_marrena gj_n_nolwen gj_n_orsa gj_n_pelagia gj_n_sorrel gj_n_vesper
+	}
+	dynasty_names = {
+		gj_n_brasaviva gj_n_cenizal gj_n_dolmenar gj_n_lutoalto gj_n_sepulcro gj_n_velorio
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_cenizario_dialect = {
+			male_names = {
+				gj_n_cenizo gj_n_dolmo gj_n_lutan gj_n_sepel gj_n_velan
+			}
+			female_names = {
+				gj_n_cenisa gj_n_dolma gj_n_lutia gj_n_sepla Vela
+			}
+		}
+	}
+}

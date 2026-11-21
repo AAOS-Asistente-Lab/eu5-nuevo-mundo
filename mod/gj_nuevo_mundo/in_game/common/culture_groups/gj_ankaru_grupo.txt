@@ -1,0 +1,16 @@
+﻿# Grupo cultural solar: los pueblos de la cordillera que cuentan el tiempo por el sol.
+gj_grupo_solar = {
+	country_modifier = {
+		town_upgrade_cost_modifier = -0.05
+	}
+
+	location_modifier = {
+		local_population_capacity_modifier = 0.02
+	}
+
+	goods_demand_modifier = {
+		beer = 1.5
+		maize = 0.25
+		pottery = 0.25
+	}
+}

@@ -1,0 +1,25 @@
+﻿# Pulso de eventos de la Senda Verde. La integracion lo engancha a un pulso anual de pais
+# (ver NECESITA.md): yearly_country_pulse = { on_actions = { gj_senda_verde_pulse } }
+
+gj_senda_verde_pulse = {
+	trigger = {
+		exists = religion
+		religion = religion:gj_senda_verde
+	}
+
+	random_events = {
+		chance_to_happen = 14
+
+		100 = gj_senda_verde.1
+		100 = gj_senda_verde.2
+		100 = gj_senda_verde.3
+		80 = gj_senda_verde.4
+		80 = gj_senda_verde.5
+		60 = gj_senda_verde.6
+		80 = gj_senda_verde.7
+		80 = gj_senda_verde.8
+		80 = gj_senda_verde.9
+		60 = gj_senda_verde.10
+		60 = gj_senda_verde.11
+	}
+}

@@ -1,0 +1,624 @@
+﻿##############################################################
+# THALASSAR: eventos (namespace gj_thalassar)
+# .1-.20 tematicos (los reparte on_action/gj_thalassar_on_action.txt)
+# .21-.25 fases de la Ciudad Hundida (las lanzan las decisiones)
+# .26-.29 desastre «El peso de los siglos» | .30 aviso de estancamiento
+##############################################################
+
+namespace = gj_thalassar
+
+gj_thalassar.1 = {
+	type = country_event
+	title = gj_thalassar.1.title
+	desc = gj_thalassar.1.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.1.a
+		add_gold = -60
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = { modifier = gj_thal_festival_conchas mode = add years = 5 }
+	}
+	option = {
+		name = gj_thalassar.1.b
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_penalty }
+	}
+}
+
+gj_thalassar.2 = {
+	type = country_event
+	title = gj_thalassar.2.title
+	desc = gj_thalassar.2.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.2.a
+		gj_thalassar_gana_cristales = { N = 3 }
+	}
+	option = {
+		name = gj_thalassar.2.b
+		add_gold = 150
+	}
+}
+
+gj_thalassar.3 = {
+	type = country_event
+	title = gj_thalassar.3.title
+	desc = gj_thalassar.3.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.3.a
+		set_variable = { name = gj_ruina_atlante_explorada value = 1 }
+		add_research_progress = research_progress_mild_bonus
+	}
+	option = {
+		name = gj_thalassar.3.b
+		add_gold = 200
+	}
+	option = {
+		name = gj_thalassar.3.c
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}
+
+gj_thalassar.4 = {
+	type = country_event
+	title = gj_thalassar.4.title
+	desc = gj_thalassar.4.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.4.a
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_penalty }
+	}
+	option = {
+		name = gj_thalassar.4.b
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_penalty }
+	}
+	option = {
+		name = gj_thalassar.4.c
+		add_gold = -100
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+gj_thalassar.5 = {
+	type = country_event
+	title = gj_thalassar.5.title
+	desc = gj_thalassar.5.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		any_owned_location = { raw_material = goods:pearls }
+	}
+
+	option = {
+		name = gj_thalassar.5.a
+		add_prestige = prestige_mild_bonus
+		add_country_modifier = { modifier = gj_thal_perla_negra mode = add years = 5 }
+	}
+	option = {
+		name = gj_thalassar.5.b
+		add_gold = 300
+	}
+}
+
+gj_thalassar.6 = {
+	type = country_event
+	title = gj_thalassar.6.title
+	desc = gj_thalassar.6.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.6.a
+		add_gold = -80
+		capital = { change_development = development_weak_bonus }
+	}
+	option = {
+		name = gj_thalassar.6.b
+		add_country_modifier = { modifier = gj_thal_mareas_vivas mode = add years = 3 }
+	}
+}
+
+gj_thalassar.7 = {
+	type = country_event
+	title = gj_thalassar.7.title
+	desc = gj_thalassar.7.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_thalassar.7.a
+		add_gold = -100
+		add_country_modifier = { modifier = gj_thal_cartografos_abismo mode = add years = 8 }
+	}
+	option = {
+		name = gj_thalassar.7.b
+		add_research_progress = research_progress_weak_bonus
+	}
+}
+
+gj_thalassar.8 = {
+	type = country_event
+	title = gj_thalassar.8.title
+	desc = gj_thalassar.8.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_thalassar.8.a
+		add_gold = -50
+		add_country_modifier = { modifier = gj_thal_embajada_estrecho mode = add years = 10 }
+	}
+	option = {
+		name = gj_thalassar.8.b
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+gj_thalassar.9 = {
+	type = country_event
+	title = gj_thalassar.9.title
+	desc = gj_thalassar.9.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.9.a
+		add_gold = -80
+	}
+	option = {
+		name = gj_thalassar.9.b
+		add_country_modifier = { modifier = gj_thal_algas_rojas mode = add years = 3 }
+	}
+}
+
+gj_thalassar.10 = {
+	type = country_event
+	title = gj_thalassar.10.title
+	desc = gj_thalassar.10.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_thalassar.10.a
+		add_gold = -100
+		add_country_modifier = { modifier = gj_thal_cantores_favor mode = add years = 15 }
+	}
+	option = {
+		name = gj_thalassar.10.b
+		add_legitimacy = legitimacy_weak_bonus
+	}
+}
+
+gj_thalassar.11 = {
+	type = country_event
+	title = gj_thalassar.11.title
+	desc = gj_thalassar.11.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.11.a
+		add_gold = 100
+		add_country_modifier = { modifier = gj_thal_corsarios_pagados mode = add years = 5 }
+	}
+	option = {
+		name = gj_thalassar.11.b
+		random_list = {
+			50 = { add_prestige = prestige_mild_bonus }
+			50 = { add_gold = -100 }
+		}
+	}
+}
+
+gj_thalassar.12 = {
+	type = country_event
+	title = gj_thalassar.12.title
+	desc = gj_thalassar.12.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.12.a
+		add_gold = -30
+		add_country_modifier = { modifier = gj_thal_sirena_favor mode = add years = 5 }
+	}
+	option = {
+		name = gj_thalassar.12.b
+		random_list = {
+			30 = { add_country_modifier = { modifier = gj_thal_sirena_enojada mode = add years = 5 } }
+			70 = { }
+		}
+	}
+}
+
+gj_thalassar.13 = {
+	type = country_event
+	title = gj_thalassar.13.title
+	desc = gj_thalassar.13.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.13.a
+		add_legitimacy = legitimacy_mild_penalty
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+	}
+	option = {
+		name = gj_thalassar.13.b
+		add_country_modifier = { modifier = gj_thal_linaje_roto mode = add years = 8 }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+gj_thalassar.14 = {
+	type = country_event
+	title = gj_thalassar.14.title
+	desc = gj_thalassar.14.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.14.a
+		add_gold = -120
+		add_country_modifier = { modifier = gj_thal_calafates mode = add years = 10 }
+	}
+	option = {
+		name = gj_thalassar.14.b
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_weak_bonus }
+	}
+}
+
+gj_thalassar.15 = {
+	type = country_event
+	title = gj_thalassar.15.title
+	desc = gj_thalassar.15.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_thalassar = yes
+		current_age_or_later = { age = age_2_renaissance }
+	}
+
+	option = {
+		name = gj_thalassar.15.a
+		trigger = { religion = religion:gj_mar_dormido }
+		add_legitimacy = legitimacy_mild_bonus
+	}
+	option = {
+		name = gj_thalassar.15.b
+		add_country_modifier = { modifier = gj_thal_marea_muerta mode = add years = 2 }
+	}
+}
+
+gj_thalassar.16 = {
+	type = country_event
+	title = gj_thalassar.16.title
+	desc = gj_thalassar.16.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.16.a
+		add_gold = -90
+		capital = { change_development = development_mild_bonus }
+	}
+	option = {
+		name = gj_thalassar.16.b
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+gj_thalassar.17 = {
+	type = country_event
+	title = gj_thalassar.17.title
+	desc = gj_thalassar.17.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		is_subject = no
+	}
+
+	option = {
+		name = gj_thalassar.17.a
+		add_gold = -60
+		add_country_modifier = { modifier = gj_thal_refugiados mode = add years = 10 }
+	}
+	option = {
+		name = gj_thalassar.17.b
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_weak_bonus }
+		add_prestige = prestige_weak_penalty
+	}
+}
+
+gj_thalassar.18 = {
+	type = country_event
+	title = gj_thalassar.18.title
+	desc = gj_thalassar.18.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_thalassar = yes
+		current_age_or_later = { age = age_4_reformation }
+	}
+
+	option = {
+		name = gj_thalassar.18.a
+		add_gold = -150
+		add_country_modifier = { modifier = gj_thal_jubileo mode = add years = 10 }
+	}
+	option = {
+		name = gj_thalassar.18.b
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+gj_thalassar.19 = {
+	type = country_event
+	title = gj_thalassar.19.title
+	desc = gj_thalassar.19.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_thalassar = yes
+		current_age_or_later = { age = age_5_absolutism }
+	}
+
+	option = {
+		name = gj_thalassar.19.a
+		add_gold = -200
+		add_country_modifier = { modifier = gj_thal_arsenal_despierto mode = add years = 10 }
+	}
+	option = {
+		name = gj_thalassar.19.b
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+gj_thalassar.20 = {
+	type = country_event
+	title = gj_thalassar.20.title
+	desc = gj_thalassar.20.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_thalassar = yes
+		current_age_or_later = { age = age_6_revolutions }
+	}
+
+	option = {
+		name = gj_thalassar.20.a
+		add_country_modifier = { modifier = gj_thal_mareas_de_oro mode = add years = 10 }
+	}
+	option = {
+		name = gj_thalassar.20.b
+		add_gold = 400
+	}
+}
+
+gj_thalassar.21 = {
+	type = country_event
+	title = gj_thalassar.21.title
+	desc = gj_thalassar.21.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.21.a
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}
+
+gj_thalassar.22 = {
+	type = country_event
+	title = gj_thalassar.22.title
+	desc = gj_thalassar.22.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.22.a
+		add_prestige = prestige_mild_bonus
+	}
+	option = {
+		name = gj_thalassar.22.b
+		add_gold = 100
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+gj_thalassar.23 = {
+	type = country_event
+	title = gj_thalassar.23.title
+	desc = gj_thalassar.23.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.23.a
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+gj_thalassar.24 = {
+	type = country_event
+	title = gj_thalassar.24.title
+	desc = gj_thalassar.24.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.24.a
+		add_legitimacy = legitimacy_mild_bonus
+		add_stability = stability_mild_bonus
+	}
+}
+
+gj_thalassar.25 = {
+	type = country_event
+	title = gj_thalassar.25.title
+	desc = gj_thalassar.25.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.25.a
+		add_prestige = prestige_extreme_bonus
+		add_legitimacy = legitimacy_severe_bonus
+		gj_thalassar_gana_cristales = { N = 10 }
+	}
+}
+
+gj_thalassar.26 = {
+	type = country_event
+	title = gj_thalassar.26.title
+	desc = gj_thalassar.26.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.26.a
+		add_gold = -200
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+		gj_thalassar_baja_decadencia = { N = 5 }
+	}
+	option = {
+		name = gj_thalassar.26.b
+		add_stability = stability_mild_penalty
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_severe_penalty }
+	}
+}
+
+gj_thalassar.27 = {
+	type = country_event
+	title = gj_thalassar.27.title
+	desc = gj_thalassar.27.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.27.a
+		add_legitimacy = legitimacy_mild_bonus
+	}
+}
+
+gj_thalassar.28 = {
+	type = country_event
+	title = gj_thalassar.28.title
+	desc = gj_thalassar.28.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.28.a
+		add_gold = -150
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_bonus }
+	}
+	option = {
+		name = gj_thalassar.28.b
+		add_legitimacy = legitimacy_mild_penalty
+	}
+}
+
+gj_thalassar.29 = {
+	type = country_event
+	title = gj_thalassar.29.title
+	desc = gj_thalassar.29.desc
+	outcome = neutral
+
+	option = {
+		name = gj_thalassar.29.a
+		add_legitimacy = legitimacy_weak_bonus
+		add_gold = -50
+	}
+	option = {
+		name = gj_thalassar.29.b
+		add_legitimacy = legitimacy_weak_penalty
+	}
+}
+
+gj_thalassar.30 = {
+	type = country_event
+	title = gj_thalassar.30.title
+	desc = gj_thalassar.30.desc
+	outcome = neutral
+	fire_only_once = yes
+
+	trigger = {
+		gj_es_thalassar = yes
+		has_variable = gj_decadencia
+		var:gj_decadencia >= 20
+		var:gj_decadencia < 30
+	}
+
+	option = {
+		name = gj_thalassar.30.a
+		add_prestige = prestige_weak_penalty
+	}
+}
+

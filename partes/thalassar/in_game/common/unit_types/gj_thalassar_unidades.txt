@@ -1,0 +1,364 @@
+﻿##############################################################
+# THALASSAR: 3 unidades propias, una version por era (18 tipos).
+# Nave de Marea (barco ligero): +15% velocidad; casco y artilleria menores; mas tripulacion.
+# Galera de Cristal (galera): +~15% artilleria; mas lenta y con mas tripulacion; cupo de familia 4.
+# Guardia de Marea (infanteria pesada defensiva): -10% bajas y moral perdida; +10% en costa, -10% tierra adentro; no ataca mejor.
+##############################################################
+
+n_gj_thalassar_nave_de_marea_1 = {
+	is_special = yes
+	category = navy_light_ship
+	copy_from = n_age_1_traditions_light_ship
+	upgrades_to = n_gj_thalassar_nave_de_marea_2
+
+	family = gj_nave_de_marea
+	buildable = yes
+	movement_speed = 1.2
+	hull_size = -1
+	cannons = -1
+	crew_size = 0.006
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+}
+
+n_gj_thalassar_galera_de_cristal_1 = {
+	is_special = yes
+	category = navy_galley
+	copy_from = n_age_1_traditions_galley
+	upgrades_to = n_gj_thalassar_galera_de_cristal_2
+
+	family = gj_galera_de_cristal
+	buildable = yes
+	cannons = 1
+	movement_speed = -0.25
+	crew_size = 0.009
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+
+	gfx_tags = { mediterranean_galley_tag }
+}
+
+a_gj_thalassar_guardia_de_marea_1 = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_thalassar_guardia_de_marea_2
+
+	family = gj_guardia_de_marea
+	buildable = yes
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.05
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+
+	combat = {
+		coastal = 0.10
+		inland = -0.10
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+n_gj_thalassar_nave_de_marea_2 = {
+	is_special = yes
+	category = navy_light_ship
+	copy_from = n_age_2_renaissance_light_ship
+	upgrades_to = n_gj_thalassar_nave_de_marea_3
+
+	family = gj_nave_de_marea
+	buildable = yes
+	movement_speed = 1.5
+	hull_size = -1
+	cannons = -1
+	crew_size = 0.01
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+}
+
+n_gj_thalassar_galera_de_cristal_2 = {
+	is_special = yes
+	category = navy_galley
+	copy_from = n_age_2_renaissance_galley
+	upgrades_to = n_gj_thalassar_galera_de_cristal_3
+
+	family = gj_galera_de_cristal
+	buildable = yes
+	cannons = 1
+	movement_speed = -0.25
+	crew_size = 0.018
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+
+	gfx_tags = { mediterranean_galley_tag }
+}
+
+a_gj_thalassar_guardia_de_marea_2 = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_thalassar_guardia_de_marea_3
+
+	family = gj_guardia_de_marea
+	buildable = yes
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.05
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+
+	combat = {
+		coastal = 0.10
+		inland = -0.10
+	}
+
+	gfx_tags = { medium_tag }
+}
+
+n_gj_thalassar_nave_de_marea_3 = {
+	is_special = yes
+	category = navy_light_ship
+	copy_from = n_age_3_discovery_light_ship
+	upgrades_to = n_gj_thalassar_nave_de_marea_4
+
+	family = gj_nave_de_marea
+	buildable = yes
+	movement_speed = 1.65
+	hull_size = -1
+	cannons = -2
+	crew_size = 0.015
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+}
+
+n_gj_thalassar_galera_de_cristal_3 = {
+	is_special = yes
+	category = navy_galley
+	copy_from = n_age_3_discovery_galley
+	upgrades_to = n_gj_thalassar_galera_de_cristal_4
+
+	family = gj_galera_de_cristal
+	buildable = yes
+	cannons = 2
+	movement_speed = -0.25
+	crew_size = 0.0225
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+
+	gfx_tags = { mediterranean_galley_tag }
+}
+
+a_gj_thalassar_guardia_de_marea_3 = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_thalassar_guardia_de_marea_4
+
+	family = gj_guardia_de_marea
+	buildable = yes
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.05
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+
+	combat = {
+		coastal = 0.10
+		inland = -0.10
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+n_gj_thalassar_nave_de_marea_4 = {
+	is_special = yes
+	category = navy_light_ship
+	copy_from = n_age_4_reformation_light_ship
+	upgrades_to = n_gj_thalassar_nave_de_marea_5
+
+	family = gj_nave_de_marea
+	buildable = yes
+	movement_speed = 1.8
+	hull_size = -2
+	cannons = -2
+	crew_size = 0.02
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+}
+
+n_gj_thalassar_galera_de_cristal_4 = {
+	is_special = yes
+	category = navy_galley
+	copy_from = n_age_4_reformation_galley
+	upgrades_to = n_gj_thalassar_galera_de_cristal_5
+
+	family = gj_galera_de_cristal
+	buildable = yes
+	cannons = 2
+	movement_speed = -0.25
+	crew_size = 0.027
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+
+	gfx_tags = { mediterranean_galley_tag }
+}
+
+a_gj_thalassar_guardia_de_marea_4 = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_thalassar_guardia_de_marea_5
+
+	family = gj_guardia_de_marea
+	buildable = yes
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.05
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+
+	combat = {
+		coastal = 0.10
+		inland = -0.10
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+n_gj_thalassar_nave_de_marea_5 = {
+	is_special = yes
+	category = navy_light_ship
+	copy_from = n_age_5_absolutism_light_ship
+	upgrades_to = n_gj_thalassar_nave_de_marea_6
+
+	family = gj_nave_de_marea
+	buildable = yes
+	movement_speed = 1.95
+	hull_size = -2
+	cannons = -3
+	crew_size = 0.025
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+}
+
+n_gj_thalassar_galera_de_cristal_5 = {
+	is_special = yes
+	category = navy_galley
+	copy_from = n_age_5_absolutism_galley
+	upgrades_to = n_gj_thalassar_galera_de_cristal_6
+
+	family = gj_galera_de_cristal
+	buildable = yes
+	cannons = 4
+	movement_speed = -0.25
+	crew_size = 0.045
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+
+	gfx_tags = { mediterranean_galley_tag }
+}
+
+a_gj_thalassar_guardia_de_marea_5 = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	upgrades_to_only = a_gj_thalassar_guardia_de_marea_6
+
+	family = gj_guardia_de_marea
+	buildable = yes
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.05
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+
+	combat = {
+		coastal = 0.10
+		inland = -0.10
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+n_gj_thalassar_nave_de_marea_6 = {
+	is_special = yes
+	category = navy_light_ship
+	copy_from = n_age_6_revolutions_light_ship
+
+	family = gj_nave_de_marea
+	buildable = yes
+	movement_speed = 2.1
+	hull_size = -3
+	cannons = -4
+	crew_size = 0.025
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+}
+
+n_gj_thalassar_galera_de_cristal_6 = {
+	is_special = yes
+	category = navy_galley
+	copy_from = n_age_6_revolutions_galley
+
+	family = gj_galera_de_cristal
+	buildable = yes
+	cannons = 4
+	movement_speed = -0.25
+	crew_size = 0.06
+
+	location_potential = {
+		owner ?= { gj_es_thalassar = yes }
+	}
+
+	gfx_tags = { mediterranean_galley_tag }
+}
+
+a_gj_thalassar_guardia_de_marea_6 = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+
+	family = gj_guardia_de_marea
+	buildable = yes
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.10
+	strength_damage_done = -0.05
+
+	country_potential = {
+		gj_es_thalassar = yes
+	}
+
+	combat = {
+		coastal = 0.10
+		inland = -0.10
+	}
+
+	gfx_tags = { medium_tag musket_tag }
+}
+

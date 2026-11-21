@@ -1,0 +1,19 @@
+﻿gj_grupo_lagunas = {
+	# Grupo cultural de los pueblos de los lagos: comparten oficio de barquero
+	country_modifier = {
+		global_foreign_build_buildings_efficiency = 0.10
+		diplomatic_reputation = diplomatic_reputation_mild_bonus
+	}
+	location_modifier = {
+		local_sailors_modifier = 0.05
+	}
+	character_modifier = {
+	}
+
+	goods_demand_modifier = {
+		fish = 1.4
+		beer = 1.2
+		cloth = 1.1
+		wine = 0.8
+	}
+}

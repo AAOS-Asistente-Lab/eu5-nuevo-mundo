@@ -1,0 +1,36 @@
+﻿# Pulso anual de la Liga de las Mil Lagunas.
+# La integracion lo engancha al pulso anual de pais (on_actions de yearly_country_pulse).
+gj_lagunas_pulso_anual = {
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	# Si se acaba el mandato del Barquero Mayor, la Asamblea lo reclama
+	events = {
+		gj_lagunas.2
+	}
+
+	random_events = {
+		chance_to_happen = 40
+
+		100 = gj_lagunas.4
+		60 = gj_lagunas.5
+		60 = gj_lagunas.6
+		50 = gj_lagunas.7
+		50 = gj_lagunas.8
+		40 = gj_lagunas.9
+		40 = gj_lagunas.10
+		50 = gj_lagunas.11
+		40 = gj_lagunas.12
+		30 = gj_lagunas.13
+		50 = gj_lagunas.14
+		50 = gj_lagunas.15
+		50 = gj_lagunas.16
+		50 = gj_lagunas.17
+		40 = gj_lagunas.18
+		40 = gj_lagunas.19
+		80 = gj_lagunas.20
+		80 = gj_lagunas.21
+		100 = 0
+	}
+}

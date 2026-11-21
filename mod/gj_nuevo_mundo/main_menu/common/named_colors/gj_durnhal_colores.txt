@@ -1,0 +1,4 @@
+﻿colors = {
+	map_gj_durnhali = rgb { 176 98 40 }
+	map_gj_enano_family = rgb { 140 80 40 }
+}

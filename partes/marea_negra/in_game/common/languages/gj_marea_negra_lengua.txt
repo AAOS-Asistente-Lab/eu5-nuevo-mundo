@@ -1,0 +1,27 @@
+﻿gj_marea_negra_lengua = {
+	color = rgb { 24 52 78 }
+	family = gj_marea_negra_familia
+
+	male_names = {
+		Arvo Belan Cassio Dorlan Esteb Fenro Garil Hosco Imbar Jorun
+		Kaspar Lurcan Marek Nuvar Orlo Pelat Quenar Rovan Sabel Tebar
+		Ubert Valen Wulmar Yoren Zarco Aldan Brigo Corvan Dasil Emrik
+	}
+	female_names = {
+		Aveline Brisa Caldra Dunya Elisa Fenna Galdra Hilba Ismena Jessa
+		Kalena Lorna Marisel Nerea Oriana Pelagia Quilla Rosmar Selma
+		Tamsa Ulmara Velia Wenda Yarel Zafira Amara Brenna Coralia
+	}
+	dynasty_names = {
+		Cuerdanegra Salobre Mareaviva Quillaroja Fondeadero Bajamar Garfio Brumaza
+		Lastre Cabotaje Espuma Sentina Rompeolas Estachas Calafate Varadero
+	}
+	lowborn = {
+		Remero Grumete Estibador Calafate Faroles Carenero Cabrestante Tinaja Brea Sal
+	}
+
+	dialects = {
+		gj_marea_negra_dialecto = {
+		}
+	}
+}

@@ -1,0 +1,169 @@
+﻿# Invocar presagios de los Espiritus del Lago.
+# Copia de la estructura de select_omen / select_omen_god del juego base, con la marca propia
+# gj_espiritus_lago_has_omens (la pone on_game_start) y el precio en oro. scope:actor = country, scope:recipient = religion
+# [a probar] que el motor acepte estas acciones en la lista general de acciones.
+
+gj_espiritus_lago_select_omen = {
+	type = religious
+	show_in_gui_list = yes
+
+	ai_tick = monthly
+	ai_tick_frequency = 24
+	automation_tick = monthly
+	automation_tick_frequency = 12
+	player_automated_category = religiousdoctrines
+
+	potential = {
+		scope:recipient ?= {
+			has_omens = yes
+			has_variable = gj_espiritus_lago_has_omens
+			any_god_in_religion = {
+				any_omen_in_god = { always = yes }
+			}
+		}
+		scope:actor ?= {
+			religion = religion:gj_espiritus_lago
+			modifier:omens_offered > 0
+		}
+	}
+
+	allow = {
+		scope:actor ?= {
+			has_ruler = yes
+		}
+	}
+
+	select_trigger = {
+		looking_for_a = religion
+		source = actor
+		target_flag = recipient
+		name = "choose_religion"
+		column = {
+			data = name
+		}
+	}
+
+	select_trigger = {
+		looking_for_a = god
+		source = actor
+		target_flag = target
+		name = "choose_god"
+		column = {
+			data = name
+		}
+		enabled = {
+			custom_tooltip = {
+				text = select_omen_god_is_active_tt
+				scope:actor = {
+					NOT = { any_omen_in_country = { god = scope:target } }
+				}
+			}
+			is_selected_omen_god = scope:actor
+		}
+	}
+
+	select_trigger = {
+		looking_for_a = omen
+		source = target
+		target_flag = target_2
+		name = "choose_omen"
+		column = {
+			data = name
+		}
+		interaction_source_list = {
+			scope:target = {
+				every_omen_in_god = {
+					add_to_list = source
+				}
+			}
+		}
+	}
+
+	effect = {
+		scope:actor = {
+			add_omen = scope:target_2
+		}
+	}
+
+	ai_will_do = {
+		add = 100
+	}
+}
+
+gj_espiritus_lago_select_omen_god = {
+	icon = select_omen
+	type = religious
+	show_in_gui_list = yes
+
+	show_message = no
+	play_sound = yes
+
+	ai_tick = monthly
+	ai_tick_frequency = 24
+	automation_tick = monthly
+	automation_tick_frequency = 12
+	player_automated_category = religiousdoctrines
+
+	potential = {
+		scope:recipient ?= {
+			has_omens = yes
+			has_variable = gj_espiritus_lago_has_omens
+			any_god_in_religion = {
+				any_omen_in_god = { always = yes }
+			}
+		}
+		scope:actor ?= {
+			religion = religion:gj_espiritus_lago
+			modifier:omens_offered > 0
+		}
+	}
+
+	allow = {
+		scope:actor ?= {
+			has_ruler = yes
+			ruler = { religion = religion:gj_espiritus_lago }
+			is_invoking_omen = no
+		}
+	}
+
+	price = price:gj_espiritus_lago_precio_presagio
+
+	select_trigger = {
+		looking_for_a = religion
+		source = actor
+		target_flag = recipient
+		name = "choose_religion"
+		column = {
+			data = name
+		}
+	}
+
+	select_trigger = {
+		looking_for_a = god
+		source = actor
+		target_flag = target
+		name = "choose_god"
+		column = {
+			data = name
+		}
+		enabled = {
+			custom_tooltip = {
+				text = select_omen_god_is_active_tt
+				scope:actor = {
+					NOT = { any_omen_in_country = { god = scope:target } }
+				}
+			}
+		}
+	}
+
+	effect = {
+		scope:actor = {
+			add_omen_god = scope:target
+			add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_mild_bonus }
+		}
+	}
+
+	ai_will_do = {
+		add = 100
+	}
+}

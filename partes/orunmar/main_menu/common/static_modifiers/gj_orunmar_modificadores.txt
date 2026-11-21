@@ -1,0 +1,121 @@
+﻿#######################################
+# Modificadores temporales de Orunmar, puestos por decisiones, eventos y desastre
+#######################################
+
+# --- De pais ---
+gj_orunmar_marcha_de_cosecha = {
+	game_data = {
+		category = country
+	}
+	land_morale_modifier = 0.1
+	amount_looted_modifier = 0.2
+	global_food_capacity_modifier = -0.05
+}
+
+gj_orunmar_banquete_de_victoria = {
+	game_data = {
+		category = country
+	}
+	monthly_religious_influence = 0.15
+	monthly_prestige = 0.1
+}
+
+gj_orunmar_botin_de_nobles = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.1
+	monthly_prestige = 0.05
+}
+
+gj_orunmar_cosecha_de_esclavos = {
+	game_data = {
+		category = country
+	}
+	global_slaves_goods_output_modifier = 0.15
+	global_slaves_food_consumption = 0.1
+	monthly_slave_rebel_growth = 0.05
+}
+
+gj_orunmar_levas_de_ayuno = {
+	game_data = {
+		category = country
+	}
+	global_manpower_modifier = -0.1
+	land_morale_modifier = -0.05
+}
+
+gj_orunmar_niebla_bendita = {
+	game_data = {
+		category = country
+	}
+	global_food_capacity_modifier = 0.1
+	monthly_religious_influence = 0.05
+}
+
+gj_orunmar_bonanza_de_tinte = {
+	game_data = {
+		category = country
+	}
+	global_dyes_output_modifier = 0.25
+	global_cocoa_output_modifier = 0.1
+}
+
+gj_orunmar_mecenas_de_la_niebla = {
+	game_data = {
+		category = country
+	}
+	monthly_prestige = 0.1
+	research_speed_modifier = 0.05
+}
+
+gj_orunmar_paz_con_el_sol = {
+	game_data = {
+		category = country
+	}
+	global_trade_center_power = 0.1
+	monthly_religious_influence = -0.05
+}
+
+gj_orunmar_paz_cobardia = {
+	game_data = {
+		category = country
+	}
+	monthly_religious_influence = -0.1
+	monthly_legitimacy = -0.05
+}
+
+gj_orunmar_rebelion_de_cautivos = {
+	game_data = {
+		category = country
+	}
+	global_slaves_goods_output_modifier = -0.2
+	monthly_slave_rebel_growth = 0.1
+}
+
+gj_orunmar_ayuno_cumplido = {
+	game_data = {
+		category = country
+	}
+	monthly_religious_influence = 0.1
+	global_estate_target_satisfaction = tiny_permanent_target_satisfaction
+}
+
+# --- De location ---
+gj_orunmar_orugas_rojas = {
+	game_data = {
+		category = location
+	}
+	local_food_capacity_modifier = -0.25
+	local_monthly_food_modifier = -0.1
+}
+
+gj_orunmar_campos_de_cautivos = {
+	game_data = {
+		category = location
+	}
+	local_slaves_goods_output_modifier = 0.2
+	local_monthly_control = -0.05
+}
+
+# --- De personaje ---

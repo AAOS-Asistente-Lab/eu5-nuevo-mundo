@@ -1,0 +1,37 @@
+﻿# Aspectos del Cielo de los Clanes (se eligen 2 de 4).
+
+gj_aspecto_pabellon_alto = { # La ley baja del cielo: un solo mástil, un solo kan
+	religion = gj_cielo_clanes
+
+	modifier = {
+		monthly_legitimacy = 0.05
+		stability_cost_efficiency = 0.1
+	}
+}
+
+gj_aspecto_tienda_abierta = { # Nadie pregunta el nombre de quien llega con sed
+	religion = gj_cielo_clanes
+
+	modifier = {
+		tolerance_heathen = 1
+		trade_range_modifier = 0.15
+	}
+}
+
+gj_aspecto_yeguada_sagrada = { # Cada potro nace con un nombre y una deuda
+	religion = gj_cielo_clanes
+
+	modifier = {
+		global_horses_output_modifier = 0.15
+		army_light_cavalry_power = 0.05
+	}
+}
+
+gj_aspecto_fuego_de_los_nombres = { # Los muertos hablan por la boca de los vivos
+	religion = gj_cielo_clanes
+
+	modifier = {
+		prestige_from_land_battle = 0.15
+		capital_movement_cost_modifier = -0.25
+	}
+}

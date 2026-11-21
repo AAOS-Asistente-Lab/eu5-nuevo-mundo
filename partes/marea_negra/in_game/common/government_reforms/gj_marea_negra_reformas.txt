@@ -1,0 +1,43 @@
+﻿gj_marea_negra_codigo_reform = {
+	major = yes
+	government = republic
+	potential = {
+		gj_es_marea_negra = yes
+	}
+	country_modifier = {
+		can_hire_privateers = yes
+		navy_maintenance_efficiency = 0.25
+	}
+	on_activate = {
+		change_heir_selection = heir_selection:gj_marea_negra_almirante
+	}
+	years = 2
+}
+
+gj_marea_negra_capitanias_de_puerto_reform = {
+	major = yes
+	government = republic
+	potential = {
+		gj_es_marea_negra = yes
+	}
+	country_modifier = {
+		global_monthly_control = 0.002
+		global_port_build_buildings_efficiency = 0.1
+	}
+	years = 2
+}
+
+gj_marea_negra_flota_en_la_sombra_reform = {
+	major = yes
+	government = republic
+	age = age_3_discovery
+	potential = {
+		gj_es_marea_negra = yes
+	}
+	country_modifier = {
+		ship_capture_chance = 0.15
+		amount_looted_modifier = 0.15
+	}
+	years = 2
+}
+

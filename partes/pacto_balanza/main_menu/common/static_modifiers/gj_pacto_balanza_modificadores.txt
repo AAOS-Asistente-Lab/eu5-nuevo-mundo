@@ -1,0 +1,100 @@
+﻿# Modificadores de pais del Pacto de la Balanza: los dan las decisiones y los eventos.
+# Los que duran anos hacen tambien de enfriamiento de la decision que los concede.
+
+gj_pacto_contrato_firmado = {
+	game_data = {
+		category = country
+	}
+	global_merchant_power = 0.1
+	total_loan_capacity_modifier = 0.1
+}
+
+gj_pacto_balanza_pesada = {
+	game_data = {
+		category = country
+	}
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+	stability_investment = tiny_stability_investment
+}
+
+gj_pacto_tregua_sagrada = {
+	game_data = {
+		category = country
+	}
+	monthly_war_exhaustion = -0.05
+	global_monthly_prosperity = 0.0005
+	casus_belli_creation_speed_modifier = -0.5
+}
+
+gj_pacto_arbitro_reconocido = {
+	game_data = {
+		category = country
+	}
+	diplomatic_capacity_modifier = 0.15
+	monthly_prestige = 0.05
+}
+
+gj_pacto_perjurio = {
+	game_data = {
+		category = country
+	}
+	improve_relation_impact = -0.25
+	total_loan_capacity_modifier = -0.2
+	global_merchant_power = -0.1
+}
+
+gj_pacto_presagio_favorable = {
+	game_data = {
+		category = country
+	}
+	global_merchant_power = 0.05
+	monthly_prestige = 0.05
+}
+
+gj_pacto_presagio_adverso = {
+	game_data = {
+		category = country
+	}
+	total_loan_capacity_modifier = -0.1
+	monthly_prestige = -0.03
+}
+
+gj_pacto_huesped_honrado = {
+	game_data = {
+		category = country
+	}
+	improve_relation_impact = 0.1
+	global_migration_attraction = 0.1
+}
+
+gj_pacto_pesos_trucados = {
+	game_data = {
+		category = country
+	}
+	global_merchant_power = 0.1
+	improve_relation_impact = -0.1
+}
+
+gj_pacto_mano_dura_pesos = {
+	game_data = {
+		category = country
+	}
+	global_merchant_capacity_modifier = 0.05
+	burghers_estate_target_satisfaction = medium_permanent_target_satisfaction_penalty
+}
+
+gj_pacto_crisis_credito = {
+	game_data = {
+		category = country
+	}
+	total_loan_capacity_modifier = -0.3
+	global_merchant_power = -0.1
+}
+
+gj_pacto_escuela_de_fieles = {
+	game_data = {
+		category = country
+	}
+	global_max_literacy = 5
+	research_speed_modifier = 0.025
+}

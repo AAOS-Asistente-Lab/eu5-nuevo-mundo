@@ -1,0 +1,24 @@
+﻿# Tipos de lugar sagrado del Mar Dormido (sin locations: las asigna la integracion).
+
+gj_arrecife_cuna = {
+	location_modifier = {
+		local_fish_output_modifier = 0.25
+		local_sailors_modifier = 0.2
+		local_clergy_desired_pop = 0.02
+	}
+	country_modifier = {
+		monthly_rite_power = 0.05
+	}
+}
+
+gj_faro_vigilia = {
+	location_modifier = {
+		local_port_build_buildings_efficiency = 0.15
+		local_defensive = 0.1
+		local_clergy_desired_pop = 0.03
+	}
+	country_modifier = {
+		naval_morale_modifier = 0.02
+		monthly_rite_power = 0.03
+	}
+}

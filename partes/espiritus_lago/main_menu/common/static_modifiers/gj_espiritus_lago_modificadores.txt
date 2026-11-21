@@ -1,0 +1,131 @@
+# Modificadores de pais que dan los eventos de los Espiritus del Lago.
+
+# Lectura anual del hielo (evento .1): se elige una.
+gj_espiritus_lago_lectura_mercaderes = {
+	game_data = {
+		category = country
+	}
+	global_merchant_capacity_modifier = 0.1
+	trade_sea_efficiency = 0.1
+}
+
+gj_espiritus_lago_lectura_incursion = {
+	game_data = {
+		category = country
+	}
+	amount_looted_modifier = 0.2
+	naval_damage_done = 0.05
+}
+
+gj_espiritus_lago_lectura_prudencia = {
+	game_data = {
+		category = country
+	}
+	stability_cost_efficiency = 0.1
+	monthly_legitimacy = 0.05
+}
+
+# Evento .2
+gj_espiritus_lago_aguas_sin_hielo = {
+	game_data = {
+		category = country
+	}
+	global_fish_output_modifier = -0.1
+	monthly_legitimacy = -0.05
+}
+
+gj_espiritus_lago_ofrenda_aceptada = {
+	game_data = {
+		category = country
+	}
+	omen_strength_modifier = 0.1
+	global_fish_output_modifier = 0.1
+}
+
+# Evento .3
+gj_espiritus_lago_pez_de_plata = {
+	game_data = {
+		category = country
+	}
+	monthly_prestige = 0.1
+	global_fish_output_modifier = 0.05
+}
+
+# Evento .4
+gj_espiritus_lago_voz_oida = {
+	game_data = {
+		category = country
+	}
+	research_speed_modifier = 0.1
+}
+
+# Evento .5
+gj_espiritus_lago_procesion_de_barcas = {
+	game_data = {
+		category = country
+	}
+	monthly_legitimacy = 0.1
+	global_fish_output_modifier = 0.05
+}
+
+# Evento .6
+gj_espiritus_lago_niebla_propicia = {
+	game_data = {
+		category = country
+	}
+	naval_unit_attrition = -0.2
+	trade_sea_efficiency = 0.05
+}
+
+# Evento .7
+gj_espiritus_lago_primer_deshielo = {
+	game_data = {
+		category = country
+	}
+	global_monthly_food_modifier = monthly_food_productivity_mild_bonus
+}
+
+# Evento .8
+gj_espiritus_lago_cuervos_prevenidos = {
+	game_data = {
+		category = country
+	}
+	naval_morale_modifier = 0.1
+	navy_movement_speed = 0.1
+}
+
+# Evento .9
+gj_espiritus_lago_cisma_de_lectores = {
+	game_data = {
+		category = country
+	}
+	stability_cost_efficiency = -0.1
+	omen_strength_modifier = -0.1
+}
+
+# Evento .10 (Gran Presagio, 50 anos)
+gj_espiritus_lago_vidente_mayor = {
+	game_data = {
+		category = country
+	}
+	omen_strength_modifier = 0.15
+	omens_offered = 1
+	monthly_legitimacy = 0.05
+}
+
+# Evento .11 (cometas y eclipses)
+gj_espiritus_lago_presagio_propicio = {
+	game_data = {
+		category = country
+	}
+	land_morale_modifier = 0.1
+	naval_morale_modifier = 0.1
+}
+
+gj_espiritus_lago_presagio_funesto = {
+	game_data = {
+		category = country
+	}
+	global_defensive = 0.1
+	monthly_legitimacy = -0.05
+}

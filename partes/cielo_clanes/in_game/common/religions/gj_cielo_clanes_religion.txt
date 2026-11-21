@@ -1,0 +1,20 @@
+﻿gj_cielo_clanes = { # El Cielo de los Clanes: seis dioses, uno por reinado
+	color = gj_cielo_clanes_color
+	group = gj_fe_norte
+
+	religious_aspects = 2
+
+	definition_modifier = {
+		monthly_legitimacy = 0.05
+		army_light_cavalry_power = 0.05
+		land_unit_attrition = -0.1
+		movement_speed_if_no_road = 0.05
+	}
+
+	opinions = {
+	}
+
+	tags = {
+		pagan_gfx
+	}
+}

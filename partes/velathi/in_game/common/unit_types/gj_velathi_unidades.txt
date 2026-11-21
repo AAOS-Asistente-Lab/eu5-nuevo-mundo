@@ -1,0 +1,279 @@
+﻿# Unidades propias de los velathi. Dos cadenas de seis eras, con copy_from y upgrades_to_only.
+# Arqueros del Umbral: fuertes en bosque, debiles en campo abierto, cupo por Arboledas Antiguas.
+# Guardia de la Raiz: aguantan, pero lentos y con cupo por Torres de Copas.
+
+gj_velathi_umbral_arqueros = {
+	copy_from = a_age_1_traditions_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_umbral_arqueros_de_tejo
+	buildable = yes
+	family = gj_velathi_umbral
+
+	initiative = 2
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.05
+
+	combat = {
+		forest = 0.15
+		woods = 0.10
+		hills = 0.05
+		flatland = -0.10
+		grasslands = -0.10
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { longbow_tag archer_tag light_tag }
+}
+
+gj_velathi_umbral_arqueros_de_tejo = {
+	copy_from = a_age_2_renaissance_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_umbral_arcabuceros
+	buildable = yes
+	family = gj_velathi_umbral
+
+	initiative = 2
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.05
+
+	combat = {
+		forest = 0.15
+		woods = 0.10
+		hills = 0.05
+		flatland = -0.10
+		grasslands = -0.10
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { longbow_tag archer_tag light_tag }
+}
+
+gj_velathi_umbral_arcabuceros = {
+	copy_from = a_age_3_discovery_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_umbral_mosqueteros
+	buildable = yes
+	family = gj_velathi_umbral
+
+	initiative = 1
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.05
+
+	combat = {
+		forest = 0.15
+		woods = 0.10
+		hills = 0.05
+		flatland = -0.10
+		grasslands = -0.10
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+gj_velathi_umbral_mosqueteros = {
+	copy_from = a_age_4_reformation_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_umbral_linea
+	buildable = yes
+	family = gj_velathi_umbral
+
+	initiative = 1
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.05
+
+	combat = {
+		forest = 0.15
+		woods = 0.10
+		hills = 0.05
+		flatland = -0.10
+		grasslands = -0.10
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+gj_velathi_umbral_linea = {
+	copy_from = a_age_5_absolutism_light_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_umbral_fusileros
+	buildable = yes
+	family = gj_velathi_umbral
+
+	initiative = 1
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.05
+
+	combat = {
+		forest = 0.15
+		woods = 0.10
+		hills = 0.05
+		flatland = -0.10
+		grasslands = -0.10
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+gj_velathi_umbral_fusileros = {
+	copy_from = a_age_6_revolutions_light_infantry
+	is_special = yes
+	
+	buildable = yes
+	family = gj_velathi_umbral
+
+	initiative = 1
+	strength_damage_done = 0.10
+	morale_damage_taken = 0.05
+
+	combat = {
+		forest = 0.15
+		woods = 0.10
+		hills = 0.05
+		flatland = -0.10
+		grasslands = -0.10
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { musket_tag light_tag }
+}
+
+gj_velathi_raiz_guardia = {
+	copy_from = a_age_1_traditions_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_raiz_alabarderos
+	buildable = yes
+	family = gj_velathi_raiz
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.10
+
+	combat = {
+		forest = 0.10
+		woods = 0.05
+		flatland = -0.05
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { heavy_tag }
+}
+
+gj_velathi_raiz_alabarderos = {
+	copy_from = a_age_2_renaissance_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_raiz_piqueros
+	buildable = yes
+	family = gj_velathi_raiz
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.10
+
+	combat = {
+		forest = 0.10
+		woods = 0.05
+		flatland = -0.05
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { heavy_tag }
+}
+
+gj_velathi_raiz_piqueros = {
+	copy_from = a_age_3_discovery_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_raiz_escopeteros_de_raiz
+	buildable = yes
+	family = gj_velathi_raiz
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.10
+
+	combat = {
+		forest = 0.10
+		woods = 0.05
+		flatland = -0.05
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { heavy_tag }
+}
+
+gj_velathi_raiz_escopeteros_de_raiz = {
+	copy_from = a_age_4_reformation_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_raiz_linea_de_raiz
+	buildable = yes
+	family = gj_velathi_raiz
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.10
+
+	combat = {
+		forest = 0.10
+		woods = 0.05
+		flatland = -0.05
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_velathi_raiz_linea_de_raiz = {
+	copy_from = a_age_5_absolutism_heavy_infantry
+	is_special = yes
+	upgrades_to_only = gj_velathi_raiz_centinelas
+	buildable = yes
+	family = gj_velathi_raiz
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.10
+
+	combat = {
+		forest = 0.10
+		woods = 0.05
+		flatland = -0.05
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}
+
+gj_velathi_raiz_centinelas = {
+	copy_from = a_age_6_revolutions_heavy_infantry
+	is_special = yes
+	
+	buildable = yes
+	family = gj_velathi_raiz
+
+	strength_damage_taken = -0.10
+	morale_damage_taken = -0.05
+	movement_speed = -0.10
+
+	combat = {
+		forest = 0.10
+		woods = 0.05
+		flatland = -0.05
+	}
+
+	country_potential = { gj_es_velathi = yes }
+
+	gfx_tags = { medium_tag musket_tag }
+}

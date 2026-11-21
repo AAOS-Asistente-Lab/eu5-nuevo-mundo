@@ -1,0 +1,26 @@
+﻿# Pulso anual de eventos del Sol Blanco.
+# Se cuelga del pulso anual de pais del juego base (se espera que las on_actions
+# del mismo nombre se sumen; si la integracion comprueba que no, ver NECESITA.md).
+
+gj_sol_blanco_pulse = {
+	trigger = {
+		exists = religion
+		religion = religion:gj_sol_blanco
+	}
+	random_events = {
+		chance_to_happen = 35
+
+		10 = gj_sol_blanco.1
+		10 = gj_sol_blanco.2
+		10 = gj_sol_blanco.3
+		10 = gj_sol_blanco.4
+		10 = gj_sol_blanco.5
+		10 = gj_sol_blanco.6
+		10 = gj_sol_blanco.7
+		10 = gj_sol_blanco.11
+		10 = gj_sol_blanco.12
+		100 = gj_sol_blanco.10
+	}
+}
+
+# yearly_country_pulse: lo engancha gj_integracion_on_actions.txt (gj_sol_blanco_pulse).

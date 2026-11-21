@@ -1,0 +1,135 @@
+﻿# Decisiones de mundo_contacto: las puertas del mar. Solo para paises del Nuevo Mundo con contacto.
+
+# Cerrar los puertos a los barcos de ultramar.
+gj_contacto_cerrar_puertos = {
+	decision_category = other_decisions
+	potential = {
+		gj_pais_nuevo_mundo = yes
+		has_variable = gj_contacto_hecho
+		NOT = { gj_puertos_cerrados = yes }
+	}
+	allow = {
+		stability >= 0
+	}
+	ai_will_do = { value = 0 }
+	option = {
+		name = gj_contacto_cerrar_puertos.a
+		ai_chance = { value = 0 }
+		effect = {
+			remove_country_modifier = gj_contacto_via_comercio
+			remove_country_modifier = gj_contacto_via_aprender
+			remove_country_modifier = gj_difusion_1
+			remove_country_modifier = gj_difusion_2
+			remove_country_modifier = gj_difusion_3
+			gj_contacto_elige_cerrarse = yes
+		}
+	}
+}
+
+# Reabrir los puertos tras al menos cinco anos de cierre.
+gj_contacto_reabrir_puertos = {
+	decision_category = other_decisions
+	potential = {
+		gj_pais_nuevo_mundo = yes
+		gj_puertos_cerrados = yes
+	}
+	allow = {
+		var:gj_contacto_anos >= 5
+		stability >= 0
+	}
+	ai_will_do = { value = 5 }
+	option = {
+		name = gj_contacto_reabrir_puertos.a
+		ai_chance = { value = 50 }
+		effect = {
+			remove_country_modifier = gj_contacto_via_cerrado
+			set_variable = { name = gj_contacto_via value = 1 }
+			add_country_modifier = { modifier = gj_contacto_via_comercio years = modifier_duration_years_normal mode = add_and_extend }
+			add_stability = stability_weak_penalty
+			add_estate_satisfaction = { type = estate_type:clergy_estate value = estate_satisfaction_weak_penalty }
+		}
+	}
+}
+
+# Mandar una embajada al otro lado del mar (cada 10 anos).
+gj_contacto_embajada = {
+	decision_category = other_decisions
+	potential = {
+		gj_pais_nuevo_mundo = yes
+		has_variable = gj_contacto_hecho
+		NOT = { gj_puertos_cerrados = yes }
+	}
+	allow = {
+		OR = {
+			NOT = { has_variable = gj_embajada_proxima }
+			var:gj_contacto_anos >= var:gj_embajada_proxima
+		}
+		any_known_country = {
+			gj_pais_viejo_mundo = yes
+		}
+	}
+	ai_will_do = { value = 10 }
+	option = {
+		name = gj_contacto_embajada.a
+		ai_chance = { value = 50 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			set_variable = { name = gj_embajada_proxima value = var:gj_contacto_anos }
+			change_variable = { name = gj_embajada_proxima add = 10 }
+			add_research_progress = research_progress_severe_bonus
+			add_prestige = prestige_weak_bonus
+			add_country_modifier = { modifier = gj_ev_lengua_del_puerto years = modifier_duration_years_normal mode = add_and_extend }
+		}
+	}
+}
+
+# Fundar una casa de los saberes en el puerto (una vez).
+gj_contacto_casa_de_saberes = {
+	decision_category = other_decisions
+	potential = {
+		gj_pais_nuevo_mundo = yes
+		has_variable = gj_contacto_hecho
+		NOT = { gj_puertos_cerrados = yes }
+	}
+	allow = {
+		NOT = { has_variable = gj_casa_de_saberes }
+		current_age_or_later = { age = age_2_renaissance }
+	}
+	only_once = yes
+	ai_will_do = { value = 20 }
+	option = {
+		name = gj_contacto_casa_de_saberes.a
+		ai_chance = { value = 60 }
+		effect = {
+			change_gold_effect = { scale = -4 }
+			set_variable = gj_casa_de_saberes
+			capital ?= {
+				add_location_modifier = { modifier = gj_loc_puerto_de_saberes years = modifier_duration_years_century mode = add_and_extend }
+			}
+			add_country_modifier = { modifier = gj_ev_ola_de_maestros years = modifier_duration_years_long mode = add_and_extend }
+		}
+	}
+}
+
+# Cuarentena general en los puertos mientras duren las fiebres.
+gj_contacto_cuarentena_general = {
+	decision_category = other_decisions
+	potential = {
+		gj_pais_nuevo_mundo = yes
+		country_has_disease = disease:great_pestilence
+		NOT = { has_country_modifier = gj_ev_cuarentena_muelles }
+	}
+	allow = {
+		always = yes
+	}
+	ai_will_do = { value = 40 }
+	option = {
+		name = gj_contacto_cuarentena_general.a
+		ai_chance = { value = 70 }
+		effect = {
+			change_gold_effect = { scale = -1 }
+			add_country_modifier = { modifier = gj_ev_cuarentena_muelles years = 3 mode = add_and_extend }
+			gj_fiebres_pon_cuarentena = yes
+		}
+	}
+}

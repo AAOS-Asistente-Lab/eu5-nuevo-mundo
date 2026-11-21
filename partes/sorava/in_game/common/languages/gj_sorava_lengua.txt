@@ -1,0 +1,29 @@
+﻿# Lengua soravi: nombres propios, ninguno calcado de personas historicas.
+gj_sorava_language = {
+	color = map_gj_sorava_lengua
+
+	male_names = {
+		Aurelmo Baldaq Casimbro Dorvel Eldran Fabrel Garson Hanquil Iselmo Jorvan Kelmar Lucain
+		Marzel Nadrel Orvaz Pelmiro Quirvo Rasel Savriel Tomaz Ulmaro Valdres Yaquel Zeldor
+	}
+	female_names = {
+		Aldaria Berenza Cirvela Dalmira Eslavina Fiorela Garnelia Halquira Isome Jaspelina Kerinda Lorvena
+		Marisel Nerelda Orsala Pervinca Quenara Rosmelda Sevaria Talvena Urdelia Velisa Zarina
+	}
+	dynasty_names = {
+		Valtoro Mirquel Anselmar Quirasa Dovrenti Salveri Torrigal Belmari Cadrenza Orquesta Vendimar Tarsolo
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_soravi_dialect = {
+			male_names = {
+				Aurelmo Baldaq Dorvel Marzel Savriel
+			}
+			female_names = {
+				Aldaria Dalmira Marisel Velisa Zarina
+			}
+		}
+	}
+}

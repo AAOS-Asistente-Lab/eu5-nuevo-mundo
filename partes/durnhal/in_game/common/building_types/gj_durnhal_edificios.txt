@@ -1,0 +1,246 @@
+# Cinco edificios propios de Durnhal. Mejoran con las eras: por niveles (Gran Forja, Salones, Baluarte) o por recetas que se desbloquean con avances (Fundicion, Hongueras).
+
+gj_durnhal_gran_forja = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_durnhal_niveles_por_era
+	employment_size = guild_employment
+	category = weapons_industry_category
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = guild_build_time
+
+	country_potential = {
+		gj_es_durnhal = yes
+	}
+	allow = {
+		country_has_no_other_copy_of_building = { type = gj_durnhal_gran_forja }
+	}
+
+	modifier = {
+		local_weaponry_output_modifier = 0.10
+		local_cannons_output_modifier = 0.10
+		local_tools_output_modifier = 0.05
+		local_manpower_modifier = 0.03
+	}
+	raw_modifier = {
+		can_recruit_regiment_in_this_location = yes
+	}
+
+	unique_production_methods = {
+		gj_durnhal_gran_forja_mantenimiento = {
+			icon_type = building_type
+			icon = gj_durnhal_gran_forja
+			coal = 0.06
+			iron = 0.06
+			category = building_maintenance
+		}
+	}
+	construction_demand = guild_construction
+}
+
+gj_durnhal_salon_ancestros = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_durnhal_niveles_salon
+	employment_size = guild_employment
+	category = cultural_category
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = guild_build_time
+
+	country_potential = {
+		gj_es_durnhal = yes
+	}
+	allow = {
+		is_capital = yes
+		country_has_no_other_copy_of_building = { type = gj_durnhal_salon_ancestros }
+	}
+	remove_if = {
+		is_no_longer_capital = yes
+	}
+
+	capital_country_modifier = {
+		monthly_legitimacy = 0.02
+		stability_cost_efficiency = 0.03
+	}
+	capital_modifier = {
+		local_unrest = -0.05
+	}
+
+	unique_production_methods = {
+		gj_durnhal_salon_ancestros_mantenimiento = {
+			icon_type = building_type
+			icon = gj_durnhal_salon_ancestros
+			stone = 0.05
+			tools = 0.03
+			category = building_maintenance
+		}
+	}
+	construction_demand = library_construction
+}
+
+gj_durnhal_fundicion_de_veta = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = guild_max_level
+	startup_ramp_target = guild_startup_ramp_target
+	employment_size = guild_employment
+	category = weapons_industry_category
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = guild_build_time
+
+	country_potential = {
+		gj_es_durnhal = yes
+	}
+	allow = {
+		market = { is_produced_in_market = goods:iron }
+	}
+
+	unique_production_methods = {
+		gj_durnhal_fundicion_horno_bajo = {
+			icon_type = goods
+			icon = steel
+			iron = 0.55
+			coal = 0.20
+			produced = steel
+			output = 0.90
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+		}
+		gj_durnhal_fundicion_horno_de_runa = {
+			icon_type = goods
+			icon = steel
+			iron = 0.55
+			coal = 0.25
+			produced = steel
+			output = 1.10
+			allow = { has_advance = gj_durnhal_fundicion_de_runa }
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+		}
+		gj_durnhal_fundicion_horno_de_coque = {
+			icon_type = goods
+			icon = steel
+			iron = 0.50
+			coal = 0.30
+			produced = steel
+			output = 1.30
+			allow = { has_advance = gj_durnhal_hornos_de_coque }
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+		}
+	}
+	construction_demand = guild_construction
+}
+
+gj_durnhal_hongueras_hondas = {
+	audio_tier = 1
+	is_special = yes
+	is_foreign = no
+	pop_type = laborers
+	max_levels = guild_max_level
+	startup_ramp_target = guild_startup_ramp_target
+	employment_size = guild_employment
+	category = consumer_goods_category
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = guild_build_time
+
+	country_potential = {
+		gj_es_durnhal = yes
+	}
+
+	unique_production_methods = {
+		gj_durnhal_hongueras_cama_simple = {
+			icon_type = goods
+			icon = legumes
+			tools = 0.02
+			produced = legumes
+			output = 0.40
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+		}
+		gj_durnhal_hongueras_cama_alta = {
+			icon_type = goods
+			icon = legumes
+			tools = 0.03
+			produced = legumes
+			output = 0.60
+			allow = { has_advance = gj_durnhal_galerias_profundas }
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+		}
+		gj_durnhal_hongueras_cama_ventilada = {
+			icon_type = goods
+			icon = legumes
+			tools = 0.04
+			produced = legumes
+			output = 0.80
+			allow = { has_advance = gj_durnhal_pozos_ventilados }
+			category = guild_input
+			debug_max_profit = guild_profit_margin
+		}
+	}
+	construction_demand = guild_construction
+}
+
+gj_durnhal_baluarte_de_roca = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = gj_durnhal_niveles_baluarte
+	employment_size = castle_employment
+	category = defense_category
+	forbidden_for_estates = yes
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = medium_fort_building
+	expensive = yes
+	increase_per_level_cost = 0.5
+
+	country_potential = {
+		gj_es_durnhal = yes
+	}
+	location_potential = {
+		OR = {
+			topography = mountains
+			topography = hills
+		}
+	}
+
+	modifier = {
+		local_garrison_size = 0.15
+		local_unrest = -0.02
+	}
+	raw_modifier = {
+		fort_level = 1
+	}
+
+	unique_production_methods = {
+		gj_durnhal_baluarte_de_roca_mantenimiento = {
+			icon_type = building_type
+			icon = gj_durnhal_baluarte_de_roca
+			stone = 0.1
+			tools = 0.05
+			weaponry = 0.05
+			category = building_maintenance
+		}
+	}
+	construction_demand = castle_construction
+}

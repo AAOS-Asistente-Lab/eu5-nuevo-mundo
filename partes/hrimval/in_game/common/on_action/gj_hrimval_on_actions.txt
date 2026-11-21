@@ -1,0 +1,99 @@
+﻿# On_actions de la Corte Insepulta de Hrimval
+# Los tres bloques del final extienden on_actions del juego base. Si la integracion prefiere no tocarlas,
+# basta con llamar a estas on_actions propias desde donde corresponda (ver NECESITA.md).
+
+# Pulso anual de la Corte (se cuelga de yearly_country_pulse)
+yearly_gj_hrimval_pulse = {
+	trigger = {
+		gj_es_hrimval = yes
+	}
+	effect = {
+		# El relicario cuida al rey
+		if = {
+			limit = { gj_hrimval_tiene_relicario = yes }
+			set_variable = gj_hrimval_relicario_visto
+			ruler ?= {
+				add_character_modifier = { modifier = gj_hrimval_rey_bajo_el_hielo years = 3 mode = add_and_extend }
+			}
+		}
+		# El frio como frontera
+		gj_hrimval_pulso_frontera = yes
+		# El reloj de la Noche Blanca avanza con los anos
+		change_variable = { name = gj_noche_reloj add = 3 }
+		clamp_variable = { name = gj_noche_reloj min = 0 max = 100 }
+		# Los caidos se guardan solos un poco cada ano
+		gj_hrimval_recoge_caidos = { N = 1 }
+	}
+	random_events = {
+		chance_to_happen = 35
+		chance_of_no_event = 0
+
+		50 = gj_hrimval.1
+		60 = gj_hrimval.2
+		50 = gj_hrimval.3
+		50 = gj_hrimval.4
+		40 = gj_hrimval.5
+		40 = gj_hrimval.6
+		60 = gj_hrimval.7
+		50 = gj_hrimval.8
+		60 = gj_hrimval.9
+		70 = gj_hrimval.10
+		50 = gj_hrimval.11
+		40 = gj_hrimval.12
+		40 = gj_hrimval.13
+		50 = gj_hrimval.14
+		30 = gj_hrimval.15
+		40 = gj_hrimval.16
+		20 = gj_hrimval.17
+		30 = gj_hrimval.18
+		50 = gj_hrimval.19
+	}
+}
+
+# Cuelga el pulso anual del pulso de pais del juego base
+yearly_country_pulse = {
+	on_actions = {
+		yearly_gj_hrimval_pulse
+	}
+}
+
+# Cada batalla ganada por la Corte le deja caidos
+gj_hrimval_batalla_ganada = {
+	effect = {
+		if = {
+			limit = {
+				scope:actor.owner ?= { gj_es_hrimval = yes }
+			}
+			scope:actor.owner = {
+				gj_hrimval_recoge_caidos = { N = 2 }
+			}
+		}
+	}
+}
+
+# Cada gran batalla le deja muchos y adelanta la Noche Blanca
+gj_hrimval_gran_batalla = {
+	effect = {
+		if = {
+			limit = {
+				scope:actor.owner ?= { gj_es_hrimval = yes }
+			}
+			scope:actor.owner = {
+				gj_hrimval_recoge_caidos = { N = 6 }
+			}
+		}
+		gj_noche_blanca_adelanta = { VALOR = 1 }
+	}
+}
+
+on_battle_won = {
+	on_actions = {
+		gj_hrimval_batalla_ganada
+	}
+}
+
+on_great_battle_won = {
+	on_actions = {
+		gj_hrimval_gran_batalla
+	}
+}

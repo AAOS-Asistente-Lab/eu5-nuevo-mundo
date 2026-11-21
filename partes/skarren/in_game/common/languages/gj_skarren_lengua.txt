@@ -1,0 +1,30 @@
+﻿gj_lengua_skarren = {
+	color = gj_color_lengua_skarren
+
+	family = gj_familia_fiordo
+
+	male_names = {
+		Ormak Vessik Torren Halgrim Brannok Eskarn Tyrvar Havrek Orvald Ulvran
+		Kerrik Aldrek Brosk Hallmar Dregan Torsk Ysmund Vorrek Skeld Rannulf
+		Gudrek Haldor Brenn Orlek Svarrik Tolvar Yrmak Dunnar Kolbek Harnuk
+	}
+	female_names = {
+		Asveig Brynja Eldra Gunnveig Hallra Ingvarra Jorunn Kelda Marrit Orrunn
+		Ranveig Sigdis Thorveig Ulvhild Ysra Vendra Aldis Bergdis Dagrun Eyja
+	}
+	dynasty_names = {
+		Skarrholm Ormvik Selkholm Brannhavn Vrakfjord Dunnvik Korvik Hallgard Tyrnes Valdfjord
+		Ysmeres Tolvik Ormskjer Gudmark Brosknes Haldorsen Vessiksson Kerrikeld
+	}
+	lowborn = {
+		Remero Pescador Calafate Ahumador Arponero Faroles Cordelero Salinero
+		Gaviota Foca Bruma Escarcha Marejada Orilla Quilla Varadero
+	}
+	patronym_suffix_son = "gj_patronimico_skarren_hijo"
+	patronym_suffix_daughter = "gj_patronimico_skarren_hija"
+	location_prefix = "gj_prefijo_skarren"
+	dialects = {
+		gj_dialecto_skarren = {
+		}
+	}
+}

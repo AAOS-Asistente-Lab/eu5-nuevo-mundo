@@ -1,0 +1,42 @@
+﻿############################
+# Avances de la cultura laguneña y de su grupo cultural.
+# Los reciben tambien los menores del grupo gj_grupo_lagunas.
+############################
+gj_lag_cultura_tradicion_del_remo = {
+	age = age_1_traditions
+	icon = hol_sailors
+	potential = {
+		culture = { has_culture_group = culture_group:gj_grupo_lagunas }
+	}
+
+	ship_build_speed = 0.05
+	monthly_prestige = 0.05
+
+	requires = ship_building_advance
+}
+
+gj_lag_cultura_hospitalidad_de_muelle = {
+	age = age_2_renaissance
+	icon = hai_expert_embassadors
+	potential = {
+		culture = { has_culture_group = culture_group:gj_grupo_lagunas }
+	}
+
+	global_pop_assimilation_speed_modifier = 0.10
+	global_burghers_pop_growth = 0.05
+
+	requires = renaissance_urbanisation
+}
+
+gj_lag_cultura_lengua_de_los_mercaderes = {
+	age = age_3_discovery
+	icon = frisian_trading_traditions
+	potential = {
+		culture = { has_culture_group = culture_group:gj_grupo_lagunas }
+	}
+
+	trade_range_modifier = 0.10
+	court_language_is_market_language_importance_modifier = 15
+
+	requires = trade_range_advance_age_3
+}

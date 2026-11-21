@@ -1,0 +1,165 @@
+﻿gj_minores_norte_lengua_del_vado = {
+	color = gj_minores_norte_map_tarnavi
+
+	male_names = {
+		Aldrec Barun Corvan Dessel Evrad Falken Gorren Halvic Isembar Joren
+		Kestrel Lorvan Medric Norvan Orsel Pervan Rodrec Selvar Tamsen Verren Wendrel
+	}
+	female_names = {
+		Alvira Brisa Corlen Dessa Elvane Fenra Gorsa Halena Jessel Kerrin
+		Linnet Maelis Norvia Orlen Perrine Rowena Selma Tavia Ysolt
+	}
+	dynasty_names = {
+		Pontarel Ballanor Corvasco Dunmera Esteval Foralda
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_tarnavi_dialect = {
+			male_names = {
+				Ambrel Belcor Dunmar Hesper Ilbert Moravec
+			}
+			female_names = {
+				Amerel Belisa Corvina Dunessa Hespera
+			}
+		}
+		gj_minores_norte_marismeno_dialect = {
+			male_names = {
+				Agrel Brumo Cenegar Dovo Fenwar Gorrin
+			}
+			female_names = {
+				Anguila Brenna Cienaga Dorna Fenda
+			}
+		}
+		gj_minores_norte_vigiano_dialect = {
+			male_names = {
+				Alderan Barbeck Corvalt Dunstan Haldrec Ravenor
+			}
+			female_names = {
+				Aldera Bartha Corvia Dunhilda Haldra
+			}
+		}
+	}
+}
+
+gj_minores_norte_lengua_del_agua = {
+	color = gj_minores_norte_map_nenvari
+
+	male_names = {
+		Brannel Caldor Dovrin Eskar Fenlo Gavrel Harrun Illar Kelvor Lonnar
+		Marrek Nevrin Orrel Pellin Rennar Sorvel Tarrin Ulvar Verrin Wellar
+	}
+	female_names = {
+		Aldis Brelin Carrow Dunna Elmira Fenna Gunra Halsa Ilsen Jarla
+		Kelda Lunna Mirren Nessa Orla Pelle Runa Sella Tove Ulla Vessa Wenna
+	}
+	dynasty_names = {
+		Farolan Lagomar Nebrin Orilla Pescanor Tramonte
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_nenvari_dialect = {
+			male_names = {
+				Anselar Candil Lumenar Naviel Tiller
+			}
+			female_names = {
+				Candela Lumina Navia Luzmira Tilda
+			}
+		}
+		gj_minores_norte_isbranti_dialect = {
+			male_names = {
+				Brunnal Halvard Kelmor Salmer Tuskar
+			}
+			female_names = {
+				Brunna Halsta Kelma Salma Tuska
+			}
+		}
+	}
+}
+
+gj_minores_norte_lengua_de_la_piedra = {
+	color = gj_minores_norte_map_hondarri
+
+	male_names = {
+		Dorrak Gundrek Harmund Kazrin Murgad Norbek Ragdur Stonric Targun Uldrek
+		Vorgan Brunmar Kelgrim Orsund Zarbek
+	}
+	female_names = {
+		Brynla Dorra Gerda Gundra Halka Ingra Kelva Morna Sulka Targa Urda Vilda
+	}
+	dynasty_names = {
+		Hondarr Piedrasorda Yunquehondo Vetalarga Cantoalto Pozonegro
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_hondarri_dialect = {
+			male_names = {
+				Hondrek Piedrik Yunkar Cantor Pozund
+			}
+			female_names = {
+				Hondra Piedra Yunka Canta Pozna
+			}
+		}
+	}
+}
+
+gj_minores_norte_lengua_del_viento = {
+	color = gj_minores_norte_map_aryuki
+
+	male_names = {
+		Arqai Bolur Chagor Dorzan Erkul Gantu Jebar Kuyal Merget Orlug
+		Sarkan Tolgun Ugedar Yesur Zorgal
+	}
+	female_names = {
+		Altan Bayra Chenga Dolun Erden Gurla Kuyla Menga Narin Orgun Saran Tuyan Yelun
+	}
+	dynasty_names = {
+		Trespozos Aguaseca Lomaviento Yeguada Cuernoalto Sendalarga
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_aryuki_dialect = {
+			male_names = {
+				Aryuk Baidar Cherek Dogan Hulagur
+			}
+			female_names = {
+				Aryla Baida Cheren Dogla Hulana
+			}
+		}
+	}
+}
+
+gj_minores_norte_lengua_de_la_ceniza = {
+	color = gj_minores_norte_map_cenizario
+
+	male_names = {
+		Absel Corvin Denholm Emmerek Hollen Ismael Ormund Pellam Quillon Radmer
+		Sabel Thessel Umbrec
+	}
+	female_names = {
+		Aveline Brisel Ceda Esmer Ilda Marrena Nolwen Orsa Pelagia Sorrel Vesper
+	}
+	dynasty_names = {
+		Brasaviva Cenizal Dolmenar Lutoalto Sepulcro Velorio
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_minores_norte_cenizario_dialect = {
+			male_names = {
+				Cenizo Dolmo Lutan Sepel Velan
+			}
+			female_names = {
+				Cenisa Dolma Lutia Sepla Vela
+			}
+		}
+	}
+}

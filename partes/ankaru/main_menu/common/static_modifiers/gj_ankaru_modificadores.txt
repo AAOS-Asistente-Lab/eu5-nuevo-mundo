@@ -1,0 +1,195 @@
+﻿# Modificadores con nombre de Ankarú: las cuatro fases del Calendario Solar, los eclipses y los de decisiones y eventos.
+
+####################################################
+# El Calendario Solar: una fase cada 5 años
+####################################################
+gj_ank_fase_siembra = {
+	game_data = {
+		category = country
+	}
+
+	global_monthly_food_modifier = monthly_food_productivity_mild_bonus
+	global_population_growth = 0.0005
+}
+
+gj_ank_fase_cosecha = {
+	game_data = {
+		category = country
+	}
+
+	tax_income_efficiency = small_tax_income_efficiency_bonus
+	selling_efficiency = small_selling_efficiency_bonus
+}
+
+gj_ank_fase_festival = {
+	game_data = {
+		category = country
+	}
+
+	monthly_legitimacy = 0.05
+	global_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+gj_ank_fase_ayuno = {
+	game_data = {
+		category = country
+	}
+
+	monthly_religious_influence = 0.1
+	global_construction_speed = 0.15
+	tax_income_efficiency = tiny_tax_income_efficiency_penalty
+}
+
+####################################################
+# Eclipses
+####################################################
+gj_ank_eclipse_coronado = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	monthly_prestige = 0.15
+	global_estate_target_satisfaction = medium_permanent_target_satisfaction
+	global_monthly_food_modifier = monthly_food_productivity_mild_bonus
+}
+
+gj_ank_eclipse_noche = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	monthly_legitimacy = -0.1
+	global_estate_target_satisfaction = small_permanent_target_satisfaction_penalty
+	global_construction_speed = -0.1
+}
+
+####################################################
+# Decisiones
+####################################################
+gj_ank_cuerda_del_trabajo = {
+	game_data = {
+		category = country
+	}
+
+	global_construction_speed = 0.25
+	town_upgrade_cost_modifier = -0.15
+	city_upgrade_cost_modifier = -0.15
+	global_max_rgo_size_modifier_in_rural = -0.1
+	peasants_estate_target_satisfaction = small_permanent_target_satisfaction_penalty
+}
+
+gj_ank_cuerda_descanso = {
+	game_data = {
+		category = country
+	}
+
+	global_monthly_food_modifier = monthly_food_productivity_weak_bonus
+}
+
+gj_ank_colonos_del_sol = {
+	game_data = {
+		category = country
+	}
+
+	global_integration_speed_modifier = 0.1
+	non_rural_migration_attraction = -0.1
+	global_population_growth = 0.0005
+}
+
+gj_ank_concilio_de_computos = {
+	game_data = {
+		category = country
+	}
+
+	research_speed_modifier = 0.1
+	global_institution_growth_modifier = 0.1
+	global_construction_speed = -0.05
+}
+
+####################################################
+# Eventos
+####################################################
+gj_ank_helada_temprana = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	global_monthly_food_modifier = monthly_food_productivity_mild_penalty
+}
+
+gj_ank_cosecha_prodigiosa = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	global_monthly_food_modifier = monthly_food_productivity_extreme_bonus
+	global_population_growth = 0.001
+}
+
+gj_ank_maestro_de_obras = {
+	game_data = {
+		category = country
+	}
+
+	global_construction_speed = 0.1
+}
+
+gj_ank_cuentas_claras = {
+	game_data = {
+		category = country
+	}
+
+	research_speed_modifier = 0.05
+}
+
+gj_ank_vigilia_del_paso = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	levy_combat_efficiency_modifier = 0.1
+	global_manpower_modifier = 0.05
+}
+
+gj_ank_fueros_de_los_albaniles = {
+	game_data = {
+		category = country
+	}
+
+	global_construction_speed = 0.05
+	burghers_estate_target_satisfaction = small_permanent_target_satisfaction
+}
+
+gj_ank_pasos_cerrados = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	tax_income_efficiency = tiny_tax_income_efficiency_penalty
+}
+
+gj_ank_peregrinos_alojados = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	monthly_religious_influence = 0.05
+	global_monthly_food_modifier = monthly_food_productivity_weak_penalty
+}
+
+gj_ank_nueva_era_del_computo = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	research_speed_modifier = 0.05
+	monthly_prestige = 0.05
+}

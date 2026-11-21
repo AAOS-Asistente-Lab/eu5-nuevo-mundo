@@ -1,0 +1,141 @@
+﻿# Decisiones del Pacto de la Balanza. Todas son de la categoria religiosa y solo las ven los fieles.
+# El modificador que conceden dura lo mismo que el enfriamiento: no se puede repetir mientras siga puesto.
+
+gj_pacto_sellar_contrato = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_pacto_balanza
+	}
+
+	allow = {
+		honor < 95
+		NOT = { has_country_modifier = gj_pacto_contrato_firmado }
+		gold > {
+			value = monthly_income_trade_and_tax
+			multiply = 3
+		}
+	}
+
+	ai_will_do = { value = 20 }
+
+	illustration_tags = {
+		10 = interior
+		10 = regular
+	}
+
+	option = {
+		name = gj_pacto_sellar_contrato.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -3 }
+			gj_pacto_balanza_contrato_cumplido = yes
+			add_honor = honor_mild_bonus
+			add_country_modifier = { modifier = gj_pacto_contrato_firmado years = 8 mode = add_and_extend }
+		}
+	}
+}
+
+gj_pacto_pesar_la_balanza = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_pacto_balanza
+	}
+
+	allow = {
+		honor < 50
+		NOT = { has_country_modifier = gj_pacto_balanza_pesada }
+		has_ruler = yes
+	}
+
+	ai_will_do = { value = 60 }
+
+	illustration_tags = {
+		10 = interior
+		10 = regular
+	}
+
+	option = {
+		name = gj_pacto_pesar_la_balanza.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_prestige = prestige_mild_penalty
+			add_honor = honor_extreme_bonus
+			add_estate_satisfaction = { type = estate_type:nobles_estate value = estate_satisfaction_mild_penalty }
+			if = {
+				limit = { has_country_modifier = gj_pacto_perjurio }
+				remove_country_modifier = gj_pacto_perjurio
+			}
+			add_country_modifier = { modifier = gj_pacto_balanza_pesada years = 15 mode = add_and_extend }
+		}
+	}
+}
+
+gj_pacto_proclamar_tregua_sagrada = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_pacto_balanza
+	}
+
+	allow = {
+		honor >= 75
+		at_war = no
+		months_since_war > 60
+		NOT = { has_country_modifier = gj_pacto_tregua_sagrada }
+	}
+
+	ai_will_do = { value = 10 }
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_pacto_proclamar_tregua_sagrada.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_honor = honor_mild_bonus
+			add_prestige = prestige_mild_bonus
+			add_country_modifier = { modifier = gj_pacto_tregua_sagrada years = 10 mode = add_and_extend }
+		}
+	}
+}
+
+gj_pacto_nombrar_fiel_arbitro = {
+	decision_category = religious_decisions
+
+	potential = {
+		religion = religion:gj_pacto_balanza
+	}
+
+	allow = {
+		honor >= 70
+		has_ruler = yes
+		NOT = { has_country_modifier = gj_pacto_arbitro_reconocido }
+		gold > {
+			value = monthly_income_trade_and_tax
+			multiply = 4
+		}
+	}
+
+	ai_will_do = { value = 15 }
+
+	illustration_tags = {
+		10 = interior
+		10 = regular
+	}
+
+	option = {
+		name = gj_pacto_nombrar_fiel_arbitro.a
+		ai_chance = { value = 100 }
+		effect = {
+			change_gold_effect = { scale = -4 }
+			add_prestige = prestige_mild_bonus
+			add_stability = stability_weak_bonus
+			add_country_modifier = { modifier = gj_pacto_arbitro_reconocido years = 10 mode = add_and_extend }
+		}
+	}
+}

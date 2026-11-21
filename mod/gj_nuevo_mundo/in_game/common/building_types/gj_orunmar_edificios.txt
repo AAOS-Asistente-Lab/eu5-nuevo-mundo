@@ -1,0 +1,214 @@
+﻿##############################
+# Edificios propios de la Hegemonia Carmesi (5)
+# Mejoran con las eras: el tope de niveles sube en gj_orunmar_*_niveles (script_values).
+# Limite de cada uno: solo para gj_es_orunmar y, segun el caso, solo en la capital, en altura o en ciudades.
+##############################
+
+# Escalinata de las Ofrendas: solo una, en la capital. Da devocion y prestigio; los niveles suben con la era.
+gj_orunmar_escalinata_ofrendas = {
+	audio_tier = 3
+	is_special = yes
+	is_foreign = no
+	pop_type = clergy
+	max_levels = gj_orunmar_escalinata_niveles
+	employment_size = large_religious_building_employment
+
+	category = religious_category
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = government_build_time
+
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+	location_potential = {
+		counts_as_capital = yes
+	}
+	allow = {
+		is_capital = yes
+		country_has_no_other_copy_of_building = { type = gj_orunmar_escalinata_ofrendas }
+	}
+
+	modifier = {
+		local_clergy_estate_power = 0.25
+	}
+	capital_country_modifier = {
+		monthly_religious_influence = 0.05
+		monthly_prestige = 0.03
+	}
+
+	unique_production_methods = {
+		gj_orunmar_escalinata_ofrendas_maintenance = {
+			icon_type = building_type
+			icon = calmecac
+			cloth = 0.02
+			category = building_maintenance
+		}
+	}
+	construction_demand = early_capital_building_construction
+}
+
+# Casa de los Cautivos: trabaja con poblacion esclava. Rinde mas, pero la poblacion esclava come mas y se inquieta.
+gj_orunmar_casa_de_cautivos = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = slaves
+	max_levels = gj_orunmar_casa_cautivos_niveles
+	employment_size = slave_soldier_barracks
+
+	category = infrastructure_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = infrastructure_build_time
+
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	modifier = {
+		local_slaves_goods_output_modifier = 0.1
+		local_slaves_pop_growth = 0.05
+		local_slaves_food_consumption = 0.1
+	}
+
+	unique_production_methods = {
+		gj_orunmar_casa_de_cautivos_maintenance = {
+			icon_type = building_type
+			icon = tambo
+			lumber = 0.05
+			category = building_maintenance
+		}
+	}
+	construction_demand = town_building_construction
+}
+
+# Huerto de Niebla: cultivo en escalones sobre colinas y montanas. Mas comida y mas gente, solo en altura.
+gj_orunmar_huerto_de_niebla = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = laborers
+	max_levels = gj_orunmar_huerto_niveles
+	employment_size = granary_employment
+
+	category = infrastructure_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	location_potential = {
+		OR = {
+			topography = mountains
+			topography = plateau
+			topography = hills
+		}
+	}
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	build_time = infrastructure_build_time
+
+	modifier = {
+		local_food_capacity = 50
+		local_population_capacity_modifier = 0.05
+	}
+
+	unique_production_methods = {
+		gj_orunmar_huerto_de_niebla_maintenance = {
+			icon_type = building_type
+			icon = terraces
+			category = building_maintenance
+			no_upkeep = yes
+		}
+	}
+	construction_demand = terraces_construction
+}
+
+# Taller del Tinte Rojo: obradores de tinte y vidrio rojo en las ciudades. Mas comercio, solo en ciudades.
+gj_orunmar_taller_del_tinte = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = burghers
+	max_levels = gj_orunmar_taller_niveles
+	employment_size = guild_employment
+
+	category = consumer_goods_category
+
+	rural_settlement = no
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = infrastructure_build_time
+
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	modifier = {
+		local_merchant_capacity = 0.25
+		local_production_efficiency = 0.05
+	}
+
+	unique_production_methods = {
+		gj_orunmar_taller_del_tinte_maintenance = {
+			icon_type = building_type
+			icon = pounamou_carver
+			lumber = 0.05
+			category = building_maintenance
+		}
+	}
+	construction_demand = guild_construction
+}
+
+# Atalaya de la Niebla: torres de vigia en la selva. Defensa y reclutas; no sirve fuera de la tierra propia.
+gj_orunmar_atalaya_de_la_niebla = {
+	audio_tier = 2
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = gj_orunmar_atalaya_niveles
+	employment_size = generic_tribesmen_employment
+
+	category = military_category
+
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+
+	build_time = medium_soldier_building
+
+	country_potential = {
+		gj_es_orunmar = yes
+	}
+
+	modifier = {
+		local_defensive = 0.1
+		local_manpower = 0.01
+		can_recruit_regiment_in_this_location = yes
+	}
+
+	unique_production_methods = {
+		gj_orunmar_atalaya_de_la_niebla_maintenance = {
+			icon_type = building_type
+			icon = telpochcalli
+			cloth = 0.01
+			category = building_maintenance
+		}
+	}
+	construction_demand = early_soldier_building_construction
+}

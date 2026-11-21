@@ -1,0 +1,22 @@
+﻿{
+    "name": "GJ Nuevo Mundo",
+    "id": "gj_nuevo_mundo",
+    "version": "0.1.0",
+    "game_id": "eu5",
+    "supported_game_version": "1.4.*",
+    "short_description": "Facciones propias para un Nuevo Mundo de Random New World. Doce facciones con cultura, religion y eventos propios.",
+    "tags": [
+        "Events",
+        "Gameplay"
+    ],
+    "relationships": [
+        {
+            "rel_type": "dependency",
+            "id": "rnw_exp_world_zanqre3hye",
+            "display_name": "RNW: Custom world ZANQ",
+            "resource_type": "mod",
+            "version": "1.2.2"
+        }
+    ],
+    "game_custom_data": {}
+}

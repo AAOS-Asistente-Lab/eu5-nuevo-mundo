@@ -1,0 +1,37 @@
+﻿# Efectos del Pacto de la Balanza. Ambito: pais.
+
+# Un pacto o contrato cumplido: honor y un contrato mas en vigor (tope 10).
+gj_pacto_balanza_contrato_cumplido = {
+	if = {
+		limit = { religion = religion:gj_pacto_balanza }
+		add_honor = honor_weak_bonus
+		if = {
+			limit = { NOT = { has_variable = gj_pacto_contratos } }
+			set_variable = { name = gj_pacto_contratos value = 0 }
+		}
+		change_variable = { name = gj_pacto_contratos add = 1 }
+		if = {
+			limit = { var:gj_pacto_contratos > 10 }
+			set_variable = { name = gj_pacto_contratos value = 10 }
+		}
+	}
+}
+
+# Un pacto roto o una tregua quebrada: el perjurio. Honor por los suelos, los contratos se pierden.
+gj_pacto_balanza_perjurio = {
+	if = {
+		limit = { religion = religion:gj_pacto_balanza }
+		add_honor = honor_severe_penalty
+		set_variable = { name = gj_pacto_contratos value = 0 }
+		add_country_modifier = { modifier = gj_pacto_perjurio years = 10 mode = add_and_extend }
+	}
+}
+
+# Como lee el Pacto de la Balanza un cometa o un eclipse. Lo llama mundo_bestias, con el pais como ambito.
+# Con honor alto, el signo es una promesa; con honor bajo, es una cuenta pendiente. El evento .10 deja elegir.
+gj_pacto_balanza_lee_presagio = {
+	if = {
+		limit = { religion = religion:gj_pacto_balanza }
+		trigger_event_non_silently = { id = gj_pacto_balanza.10 }
+	}
+}

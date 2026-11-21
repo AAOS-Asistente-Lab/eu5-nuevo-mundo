@@ -1,0 +1,53 @@
+﻿# Los cuatro Hermanos del Sol Blanco: dos solares (empujan el yanantin hacia abajo)
+# y dos lunares (hacia arriba). Con dos aspectos elegidos, el jugador decide
+# si busca el equilibrio (uno de cada) o se inclina hacia un lado.
+
+gj_sol_blanco_iscarel = { # Sol de la Cumbre: guerra y vigilancia
+	religion = {
+		religion = gj_sol_blanco
+		name_key = gj_sol_blanco_iscarel
+	}
+
+	country_modifier = {
+		land_morale_modifier = 0.1
+		monthly_yanantin = -0.5
+	}
+}
+
+gj_sol_blanco_tauhuel = { # Sol de la Cosecha: pan y gente
+	religion = {
+		religion = gj_sol_blanco
+		name_key = gj_sol_blanco_tauhuel
+	}
+
+	country_modifier = {
+		global_population_growth = 0.0001
+		monthly_yanantin = -0.5
+	}
+}
+
+gj_sol_blanco_nauquil = { # Luna Hilandera: trato, tejido y tributo
+	is_female = yes
+	religion = {
+		religion = gj_sol_blanco
+		name_key = gj_sol_blanco_nauquil
+	}
+
+	country_modifier = {
+		diplomatic_capacity_modifier = 0.05
+		monthly_yanantin = 0.5
+	}
+}
+
+gj_sol_blanco_oseyra = { # Luna Sembradora: terrazas y semilla
+	is_female = yes
+	religion = {
+		religion = gj_sol_blanco
+		name_key = gj_sol_blanco_oseyra
+	}
+
+	country_modifier = {
+		global_monthly_prosperity = 0.001
+		monthly_yanantin = 0.5
+	}
+}

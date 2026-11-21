@@ -1,0 +1,204 @@
+﻿# Menores del sur: una lengua por cultura. Los dialectos van vacios y heredan los nombres de su lengua.
+
+gj_brazalmi_language = {
+	color = gj_map_brazalmi_language
+	family = gj_minores_sur_familia_puerto
+
+	male_names = {
+		gj_n_aldrovan gj_n_brenvaro gj_n_casmeno gj_n_delvaro gj_n_emerlo gj_n_fabrizo gj_n_gaspero gj_n_halvaro gj_n_ilmaro gj_n_jorvalo
+		gj_n_kasimbro gj_n_lorvano gj_n_mendaro gj_n_norvasio gj_n_orlanzo gj_n_pelvaro gj_n_quirvano gj_n_rostaldo gj_n_selmano gj_n_tavaro
+	}
+	female_names = {
+		gj_n_aldessa gj_n_brinella gj_n_cavoria Delmira gj_n_evandra gj_n_fiorenza gj_n_galbina gj_n_ilvenna gj_n_jovara gj_n_lisandre
+		gj_n_marvella gj_n_norvina gj_n_orsolia gj_n_pelvira gj_n_quenara gj_n_rosalbe gj_n_selvana gj_n_tamarisa gj_n_ulvenda gj_n_vasilde
+	}
+	dynasty_names = {
+		gj_n_veintecuerdas gj_n_anclaoro gj_n_mareagrande gj_n_plazalarga gj_n_velaluz gj_n_torrealta gj_n_cuatropuertas gj_n_salinera
+		gj_n_pesaoro gj_n_rampasiete gj_n_pregonera gj_n_balanzafina gj_n_cabodeplata gj_n_lonjaviva
+	}
+	lowborn = {
+		gj_n_cabestro gj_n_estibador gj_n_pescante gj_n_remiendo gj_n_gaviota gj_n_pregonero gj_n_sirga gj_n_bodegon
+	}
+	ship_names = {
+		gj_n_rampa gj_n_pregon gj_n_balanza gj_n_lonja gj_n_garzamora gj_n_cuerdafina_2 gj_n_siete gj_n_cabestrante
+	}
+
+	dialects = {
+		gj_brazalmi_dialect = {
+		}
+	}
+}
+
+gj_ondani_language = {
+	color = gj_map_ondani_language
+	family = gj_minores_sur_familia_puerto
+
+	male_names = {
+		gj_n_ulmaren gj_n_oshandi gj_n_teluan gj_n_maruli gj_n_ondaro gj_n_selmu gj_n_tarunei gj_n_koruan gj_n_illanu gj_n_nemuri
+		gj_n_paluen gj_n_ruandi gj_n_sorelu gj_n_tumari gj_n_velumo gj_n_orunei gj_n_haluan gj_n_nimbaro gj_n_elumei gj_n_kaorin
+	}
+	female_names = {
+		gj_n_marinei gj_n_ondelia gj_n_suluma gj_n_tarenia gj_n_ilmune gj_n_corali gj_n_nerune gj_n_umaia gj_n_selune gj_n_peruli
+		gj_n_aluneia gj_n_brumari gj_n_danelu gj_n_esmuna gj_n_fanuri gj_n_halumei gj_n_isondi gj_n_kelmuna gj_n_lorenei gj_n_mirula
+	}
+	dynasty_names = {
+		gj_n_lucecoral gj_n_hondonacar gj_n_mareaalta gj_n_cantoazul gj_n_velamar gj_n_algaverde gj_n_conchagrande gj_n_sonoramar
+		gj_n_perlaquieta gj_n_bancodeluz gj_n_resaca gj_n_corrientefina gj_n_nacarada gj_n_espumaclara
+	}
+	lowborn = {
+		gj_n_almeja gj_n_berberecho gj_n_esponja gj_n_percebe gj_n_burbuja gj_n_alga gj_n_anemona gj_n_sargazo
+	}
+	ship_names = {
+		gj_n_cantora gj_n_nacar gj_n_resaca_2 gj_n_coralina gj_n_marejada gj_n_perlita gj_n_ondina gj_n_caracola
+	}
+
+	dialects = {
+		gj_ondani_dialect = {
+		}
+	}
+}
+
+gj_halcori_language = {
+	color = gj_map_halcori_language
+	family = gj_minores_sur_familia_marca
+
+	male_names = {
+		gj_n_corvaldo gj_n_brasmen gj_n_orgaldo gj_n_tarvasio gj_n_mendrak gj_n_galboro gj_n_hurdan gj_n_escalvo gj_n_rosmero gj_n_bardalo
+		gj_n_cantrel gj_n_dorvasco gj_n_elmaro gj_n_fulgrim gj_n_gorvasio gj_n_hermaldo gj_n_irvasco gj_n_jorgaldo gj_n_kelbaro gj_n_lovasco
+	}
+	female_names = {
+		gj_n_galvarda gj_n_ormenia gj_n_tarasca gj_n_bruma gj_n_selvira gj_n_hordana gj_n_escarla gj_n_mirvaga gj_n_rocelia gj_n_tramunta
+		gj_n_alvarda gj_n_belmira gj_n_cordana gj_n_dunessa gj_n_erlinda gj_n_fornela gj_n_gilvana gj_n_helmira gj_n_irdana gj_n_jalvera
+	}
+	dynasty_names = {
+		gj_n_riscoalto gj_n_cantilado gj_n_vientodura gj_n_nidoderoca gj_n_atalayaviva gj_n_salmuera gj_n_cabofiel gj_n_espolonaspero
+		gj_n_faroviejo gj_n_brasaroja gj_n_cenizaprimera gj_n_marejadilla gj_n_penaferrada gj_n_gaviotera
+	}
+	lowborn = {
+		gj_n_guano gj_n_cormoran gj_n_mellizo gj_n_rompiente gj_n_pizarra gj_n_atalayero gj_n_ceniza gj_n_rafaga
+	}
+	ship_names = {
+		gj_n_aviso gj_n_atalaya gj_n_cenizal_2 gj_n_cormoran_2 gj_n_rompiente_2 gj_n_cadena gj_n_vigia gj_n_risco
+	}
+
+	dialects = {
+		gj_halcori_dialect = {
+		}
+	}
+}
+
+gj_tirnauki_language = {
+	color = gj_map_tirnauki_language
+	family = gj_minores_sur_familia_marca
+
+	male_names = {
+		gj_n_aucaro gj_n_umalan gj_n_tirnaro gj_n_quenuar gj_n_sarimu gj_n_chalmaru gj_n_viranu gj_n_hamuru gj_n_cusiel gj_n_ordamu
+		gj_n_pirunai gj_n_rumalo gj_n_sulquen gj_n_tarimu gj_n_urcalo gj_n_vilcaro gj_n_yamaru gj_n_zurquen gj_n_anduval gj_n_ilumaru
+	}
+	female_names = {
+		gj_n_ilamara gj_n_sumeni gj_n_tarisa gj_n_amulche gj_n_nuvaki gj_n_orquena gj_n_silumi gj_n_anaru gj_n_zumaila gj_n_quenita
+		gj_n_ayusi gj_n_cumarela gj_n_dilumai gj_n_elquena gj_n_fulumi gj_n_hamaila gj_n_irusi gj_n_jumela gj_n_kinuvai gj_n_lumara
+	}
+	dynasty_names = {
+		gj_n_escalonsol gj_n_terrazaviva gj_n_piedrabrisa gj_n_cantoalto gj_n_muroclaro gj_n_granoceleste gj_n_neblinaalta gj_n_lajadorada
+		gj_n_pasoestrecho gj_n_cuerdafirme gj_n_ladera gj_n_solsegundo gj_n_riegofino gj_n_pircaviva
+	}
+	lowborn = {
+		gj_n_porteador gj_n_cestero gj_n_cabra gj_n_pedrisco gj_n_surco Pastor gj_n_zanja gj_n_acequia
+	}
+	ship_names = {
+		gj_n_balsa gj_n_junco gj_n_lago gj_n_totora gj_n_surco_2 gj_n_cesta
+	}
+
+	dialects = {
+		gj_tirnauki_dialect = {
+		}
+	}
+}
+
+gj_sotolari_language = {
+	color = gj_map_sotolari_language
+	family = gj_minores_sur_familia_marca
+
+	male_names = {
+		gj_n_eldoran gj_n_sotovan gj_n_mirhel gj_n_arvano gj_n_lethiel gj_n_corvino gj_n_halmer gj_n_ysmaro gj_n_brenhal gj_n_talvano
+		gj_n_dorvel gj_n_elbrand gj_n_faelmar gj_n_gorlan gj_n_hurvel gj_n_ilmeran gj_n_jarvon gj_n_kaldrin gj_n_lorhan gj_n_morvel
+	}
+	female_names = {
+		gj_n_sotelia gj_n_mirhana gj_n_elvenda gj_n_aranelle gj_n_hoyuela gj_n_linnara gj_n_corvella gj_n_ysbela gj_n_thalwen gj_n_mirelle
+		gj_n_berhana gj_n_carvelle gj_n_dolwen gj_n_evrane gj_n_farhelle gj_n_gaelwen gj_n_haldrie gj_n_ivrane gj_n_jorelle gj_n_kerwen
+	}
+	dynasty_names = {
+		gj_n_cuervoclaro gj_n_umbralnuevo gj_n_hayaalta gj_n_zarzaoscura gj_n_quejigar gj_n_robleda gj_n_sombralarga gj_n_fresnedo
+		gj_n_cortavientos gj_n_lindeverde gj_n_marcaviva gj_n_pasonocturno gj_n_tocondehierro gj_n_brezal
+	}
+	lowborn = {
+		gj_n_zarza gj_n_bellota gj_n_cardo gj_n_liquen gj_n_brezo gj_n_tocon Jara gj_n_carrasca
+	}
+	ship_names = {
+		gj_n_cuervo gj_n_umbral gj_n_brezo_2 gj_n_hayal gj_n_marca gj_n_zarza_2
+	}
+
+	dialects = {
+		gj_sotolari_dialect = {
+		}
+	}
+}
+
+gj_yorumbi_language = {
+	color = gj_map_yorumbi_language
+	family = gj_minores_sur_familia_selva
+
+	male_names = {
+		gj_n_yorumbe gj_n_kasuda gj_n_ombuyo gj_n_tendali gj_n_mbarun gj_n_sakoro gj_n_dulemi gj_n_ganuba gj_n_rimbaro gj_n_olumbe
+		gj_n_bandulo gj_n_cheluba gj_n_domaku gj_n_embaru gj_n_fulandu gj_n_gombaro gj_n_hulembe gj_n_irumbo gj_n_jakuro gj_n_kelumbu
+	}
+	female_names = {
+		gj_n_amuyla gj_n_nkeli gj_n_sorumi gj_n_tadala gj_n_mbila gj_n_orunda gj_n_kesuye gj_n_luyami gj_n_dendoa gj_n_yarube
+		gj_n_abuyla gj_n_bemuru gj_n_cheduya gj_n_dolunda gj_n_ebuyi gj_n_fumaya gj_n_gelube gj_n_huramba gj_n_iluyo gj_n_jemuna
+	}
+	dynasty_names = {
+		gj_n_orillaancha gj_n_vadoalto gj_n_aguaturbia gj_n_balsagrande gj_n_canaverde gj_n_limoroja gj_n_remansoverde gj_n_caudaloso
+		gj_n_crecidaprimera gj_n_sirgaviva gj_n_tambordeagua gj_n_cienoclaro gj_n_meandro gj_n_vadodoble
+	}
+	lowborn = {
+		gj_n_balsero gj_n_pescador gj_n_canero gj_n_barro gj_n_junco_2 gj_n_remanso gj_n_sirgador gj_n_vadeador
+	}
+	ship_names = {
+		gj_n_balsa gj_n_crecida gj_n_meandro_2 gj_n_vado gj_n_canoa gj_n_remanso_2 gj_n_limo
+	}
+
+	dialects = {
+		gj_yorumbi_dialect = {
+		}
+	}
+}
+
+gj_pakhuni_language = {
+	color = gj_map_pakhuni_language
+	family = gj_minores_sur_familia_selva
+
+	male_names = {
+		gj_n_pakhun gj_n_orquel gj_n_duravan gj_n_hukuro gj_n_ishamun gj_n_kelvuro gj_n_motaru gj_n_nuruvan gj_n_sakhol gj_n_urvaku
+		gj_n_aldhuk gj_n_berkhun gj_n_chorvuk gj_n_dhurvan gj_n_ekhumo gj_n_forhuk gj_n_gharuk gj_n_hurkan gj_n_ikhoro gj_n_jorhuk
+	}
+	female_names = {
+		gj_n_ahuyra gj_n_dalmuka gj_n_ishuri gj_n_kumaya gj_n_mirhuka gj_n_nalsuri gj_n_orvuka gj_n_pakhira gj_n_shulmi gj_n_tuvaka
+		gj_n_alhuka gj_n_bhurmi gj_n_chelhuma gj_n_dorhuka gj_n_elmuri gj_n_forhumi gj_n_ghalmi gj_n_horuka gj_n_ilhumi gj_n_jolhuka
+	}
+	dynasty_names = {
+		gj_n_cenizaviva gj_n_humoalto gj_n_lanzaverde gj_n_dosellargo gj_n_tintaroja gj_n_brasaclara gj_n_nieblacerrada gj_n_colmilloviejo
+		gj_n_fuegoprimero gj_n_raizdelabuelo gj_n_tizonardiente gj_n_lianatrenzada gj_n_rastrodeceniza gj_n_plumanegra
+	}
+	lowborn = {
+		gj_n_ceniza Liana gj_n_tizon gj_n_raspa gj_n_plumon gj_n_humo gj_n_brasa gj_n_resina
+	}
+	ship_names = {
+		gj_n_canoa gj_n_liana gj_n_brasa_2 gj_n_humo_2 gj_n_tizon_2 gj_n_ceniza_2
+	}
+
+	dialects = {
+		gj_pakhuni_dialect = {
+		}
+	}
+}

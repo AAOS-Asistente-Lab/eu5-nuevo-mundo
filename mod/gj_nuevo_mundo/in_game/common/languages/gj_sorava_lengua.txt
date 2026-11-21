@@ -1,0 +1,29 @@
+﻿# Lengua soravi: nombres propios, ninguno calcado de personas historicas.
+gj_sorava_language = {
+	color = map_gj_sorava_lengua
+
+	male_names = {
+		gj_n_aurelmo gj_n_baldaq gj_n_casimbro gj_n_dorvel gj_n_eldran gj_n_fabrel gj_n_garson gj_n_hanquil gj_n_iselmo gj_n_jorvan gj_n_kelmar gj_n_lucain
+		gj_n_marzel gj_n_nadrel gj_n_orvaz gj_n_pelmiro gj_n_quirvo gj_n_rasel gj_n_savriel gj_n_tomaz gj_n_ulmaro gj_n_valdres gj_n_yaquel gj_n_zeldor
+	}
+	female_names = {
+		gj_n_aldaria gj_n_berenza gj_n_cirvela gj_n_dalmira gj_n_eslavina gj_n_fiorela gj_n_garnelia gj_n_halquira gj_n_isome gj_n_jaspelina gj_n_kerinda gj_n_lorvena
+		gj_n_marisel gj_n_nerelda gj_n_orsala gj_n_pervinca gj_n_quenara gj_n_rosmelda gj_n_sevaria gj_n_talvena gj_n_urdelia gj_n_velisa Zarina
+	}
+	dynasty_names = {
+		gj_n_valtoro gj_n_mirquel gj_n_anselmar gj_n_quirasa gj_n_dovrenti gj_n_salveri gj_n_torrigal gj_n_belmari gj_n_cadrenza gj_n_orquesta gj_n_vendimar gj_n_tarsolo
+	}
+	lowborn = {
+	}
+
+	dialects = {
+		gj_soravi_dialect = {
+			male_names = {
+				gj_n_aurelmo gj_n_baldaq gj_n_dorvel gj_n_marzel gj_n_savriel
+			}
+			female_names = {
+				gj_n_aldaria gj_n_dalmira gj_n_marisel gj_n_velisa Zarina
+			}
+		}
+	}
+}

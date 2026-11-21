@@ -1,0 +1,57 @@
+﻿#######################################################################
+# Reformas de gobierno unicas de Kaivan (parte "kaivan").
+#######################################################################
+
+# El Circulo de los Clanes: la capital viaja con cada kan.
+gj_kaivan_circulo_de_clanes = {
+	unique = yes
+	age = age_1_traditions
+
+	potential = {
+		gj_es_kaivan = yes
+	}
+
+	country_modifier = {
+		capital_movement_cost_modifier = -0.75
+		global_distance_from_capital_speed_propagation = 0.1
+		global_monthly_control = 0.001
+	}
+
+	years = 2
+}
+
+# La Ley de la Hierba: el pasto es de todos y la lanza es de cada clan.
+gj_kaivan_ley_de_la_hierba = {
+	unique = yes
+	age = age_3_discovery
+
+	potential = {
+		gj_es_kaivan = yes
+	}
+
+	country_modifier = {
+		army_light_cavalry_maintenance_cost_modifier = -0.1
+		global_levy_size_modifier = 0.1
+		levy_maintenance_modifier = -0.1
+	}
+
+	years = 2
+}
+
+# El Gran Hogar de los Nueve: la corte deja de ser un campamento y no deja de moverse.
+gj_kaivan_gran_hogar_de_los_nueve = {
+	unique = yes
+	age = age_5_absolutism
+
+	potential = {
+		gj_es_kaivan = yes
+	}
+
+	country_modifier = {
+		monthly_prestige = 0.1
+		army_tradition_from_battle = 0.5
+		global_manpower_modifier = 0.1
+	}
+
+	years = 3
+}

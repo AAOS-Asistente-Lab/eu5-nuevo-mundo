@@ -1,0 +1,536 @@
+﻿namespace = gj_luz_fundadores
+
+# ------------------------------------------------------------
+# La Luz de los Fundadores: 12 eventos. root = pais seguidor.
+# Se disparan desde gj_luz_fundadores_pulso (1, 4-8, 10, 12), desde la muerte del soberano (2),
+# al canonizar (3), al ascender una villa (9, desde el efecto de contabilidad) y al leer un presagio (11).
+# ------------------------------------------------------------
+
+# .1 La primera lumbre de la ciudad
+gj_luz_fundadores.1 = {
+	type = country_event
+	title = gj_luz_fundadores.1.title
+	desc = gj_luz_fundadores.1.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		at_war = no
+		any_owned_location = {
+			is_city = yes
+		}
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				is_city = yes
+			}
+			save_scope_as = gj_ciudad
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.1.a
+		scope:gj_ciudad = {
+			add_location_modifier = {
+				modifier = gj_hogar_consagrado_modifier
+				years = modifier_duration_years_short
+				mode = add
+			}
+		}
+		add_religious_influence = religious_influence_weak_bonus
+	}
+
+	option = {
+		name = gj_luz_fundadores.1.b
+		add_stability = stability_weak_bonus
+	}
+}
+
+# .2 Los altares piden un Fundador (muere un soberano con 15 puntos de fundador)
+gj_luz_fundadores.2 = {
+	type = country_event
+	title = gj_luz_fundadores.2.title
+	desc = gj_luz_fundadores.2.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		scope:old_ruler = {
+			has_variable = gj_fundador_puntos
+			var:gj_fundador_puntos >= 15
+		}
+	}
+
+	immediate = {
+		scope:old_ruler = { save_scope_as = gj_difunto }
+	}
+
+	option = {
+		name = gj_luz_fundadores.2.a
+		add_religious_influence = religious_influence_severe_bonus
+		add_legitimacy = legitimacy_weak_bonus
+		scope:gj_difunto = { set_variable = gj_fundador_aclamado }
+		custom_tooltip = gj_luz_fundadores_canonizar_tt
+	}
+
+	option = {
+		name = gj_luz_fundadores.2.b
+		add_prestige = prestige_weak_bonus
+		add_stability = stability_weak_bonus
+	}
+}
+
+# .3 La ciudad del Fundador (se canoniza a un santo de la Luz)
+gj_luz_fundadores.3 = {
+	type = country_event
+	title = gj_luz_fundadores.3.title
+	desc = gj_luz_fundadores.3.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		any_owned_location = {
+			is_city = yes
+		}
+	}
+
+	immediate = {
+		scope:recipient = { save_scope_as = gj_santo }
+		ordered_owned_location = {
+			limit = {
+				is_city = yes
+				NOT = { has_variable = gj_ciudad_del_fundador }
+			}
+			order_by = population
+			max = 1
+			check_range_bounds = no
+			save_scope_as = gj_ciudad
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.3.a
+		if = {
+			limit = {
+				exists = scope:gj_ciudad
+			}
+			scope:gj_ciudad = {
+				add_location_modifier = {
+					modifier = gj_ciudad_del_fundador_modifier
+					years = modifier_duration_years_century
+					mode = add
+				}
+				set_variable = gj_ciudad_del_fundador
+			}
+		}
+		add_legitimacy = legitimacy_mild_bonus
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_bonus
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.3.b
+		every_owned_location = {
+			limit = {
+				location_rank = location_rank:town
+			}
+			add_location_modifier = {
+				modifier = gj_hogar_consagrado_modifier
+				years = modifier_duration_years_short
+				mode = add
+			}
+		}
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .4 El cantero que no quiso marmol
+gj_luz_fundadores.4 = {
+	type = country_event
+	title = gj_luz_fundadores.4.title
+	desc = gj_luz_fundadores.4.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		at_war = no
+		NOT = { has_country_modifier = gj_obra_humilde_modifier }
+	}
+
+	option = {
+		name = gj_luz_fundadores.4.a
+		add_country_modifier = {
+			modifier = gj_obra_humilde_modifier
+			years = modifier_duration_years_normal
+			mode = add
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.4.b
+		change_gold_effect = { scale = -1 }
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .5 Una lumbre que se apaga
+gj_luz_fundadores.5 = {
+	type = country_event
+	title = gj_luz_fundadores.5.title
+	desc = gj_luz_fundadores.5.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		NOT = { has_country_modifier = gj_lumbres_flacas_modifier }
+		any_owned_location = {
+			is_city = yes
+		}
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				is_city = yes
+			}
+			save_scope_as = gj_ciudad
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.5.a
+		change_gold_effect = { scale = -1 }
+		scope:gj_ciudad = {
+			change_prosperity = prosperity_weak_bonus
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.5.b
+		add_country_modifier = {
+			modifier = gj_lumbres_flacas_modifier
+			years = modifier_duration_years_short
+			mode = add
+		}
+		scope:gj_ciudad = {
+			add_location_modifier = {
+				modifier = gj_lumbre_apagada_modifier
+				years = modifier_duration_years_short
+				mode = add
+			}
+		}
+	}
+}
+
+# .6 Piedras de peregrinos (ya hay un santo Fundador)
+gj_luz_fundadores.6 = {
+	type = country_event
+	title = gj_luz_fundadores.6.title
+	desc = gj_luz_fundadores.6.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		at_war = no
+		has_variable = gj_santos_fundadores
+		var:gj_santos_fundadores >= 1
+		NOT = { has_country_modifier = gj_peregrinos_de_piedra_modifier }
+	}
+
+	option = {
+		name = gj_luz_fundadores.6.a
+		add_country_modifier = {
+			modifier = gj_peregrinos_de_piedra_modifier
+			years = modifier_duration_years_normal
+			mode = add
+		}
+		add_religious_influence = religious_influence_mild_bonus
+	}
+
+	option = {
+		name = gj_luz_fundadores.6.b
+		change_gold_effect = { scale = 1 }
+		add_stability = stability_weak_penalty
+	}
+}
+
+# .7 El cisma de los hogares
+gj_luz_fundadores.7 = {
+	type = country_event
+	title = gj_luz_fundadores.7.title
+	desc = gj_luz_fundadores.7.desc
+	outcome = negative
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		religious_unity < 0.9
+		NOT = { has_country_modifier = gj_cisma_hogares_modifier }
+	}
+
+	option = {
+		name = gj_luz_fundadores.7.a
+		add_religious_influence = religious_influence_weak_penalty
+		add_country_modifier = {
+			modifier = gj_hogar_unico_modifier
+			years = modifier_duration_years_short
+			mode = add
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.7.b
+		add_stability = stability_weak_bonus
+		add_country_modifier = {
+			modifier = gj_cisma_hogares_modifier
+			years = modifier_duration_years_short
+			mode = add
+		}
+	}
+}
+
+# .8 El fuego errante
+gj_luz_fundadores.8 = {
+	type = country_event
+	title = gj_luz_fundadores.8.title
+	desc = gj_luz_fundadores.8.desc
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		at_war = no
+		NOT = { has_country_modifier = gj_lumbre_errante_modifier }
+	}
+
+	option = {
+		name = gj_luz_fundadores.8.a
+		add_country_modifier = {
+			modifier = gj_lumbre_errante_modifier
+			years = modifier_duration_years_normal
+			mode = add
+		}
+		add_stability = stability_weak_penalty
+	}
+
+	option = {
+		name = gj_luz_fundadores.8.b
+		add_stability = stability_weak_bonus
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_weak_penalty
+		}
+	}
+}
+
+# .9 Una villa se alza a ciudad (lo lanza el efecto de contabilidad)
+gj_luz_fundadores.9 = {
+	type = country_event
+	title = gj_luz_fundadores.9.title
+	desc = gj_luz_fundadores.9.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		any_owned_location = {
+			is_city = yes
+		}
+	}
+
+	immediate = {
+		random_owned_location = {
+			limit = {
+				is_city = yes
+			}
+			save_scope_as = gj_ciudad
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.9.a
+		scope:gj_ciudad = {
+			add_location_modifier = {
+				modifier = gj_hogar_consagrado_modifier
+				years = modifier_duration_years_normal
+				mode = add
+			}
+		}
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_luz_fundadores.9.b
+		change_gold_effect = { scale = 1 }
+	}
+}
+
+# .10 El Libro de Cimientos
+gj_luz_fundadores.10 = {
+	type = country_event
+	title = gj_luz_fundadores.10.title
+	desc = gj_luz_fundadores.10.desc
+	outcome = positive
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		at_war = no
+		current_age_or_later = { age = age_2_renaissance }
+		NOT = { has_country_modifier = gj_libro_de_cimientos_modifier }
+	}
+
+	option = {
+		name = gj_luz_fundadores.10.a
+		add_country_modifier = {
+			modifier = gj_libro_de_cimientos_modifier
+			years = modifier_duration_years_long
+			mode = add
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.10.b
+		add_estate_satisfaction = {
+			type = estate_type:clergy_estate
+			value = estate_satisfaction_mild_bonus
+		}
+		add_religious_influence = religious_influence_weak_bonus
+	}
+}
+
+# .11 Cuando el cielo enciende otra lumbre (cometa o eclipse; gj_presagio_tipo 1 = cometa, 2 = eclipse)
+gj_luz_fundadores.11 = {
+	type = country_event
+	title = gj_luz_fundadores.11.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_variable = gj_presagio_tipo
+					var:gj_presagio_tipo = 2
+				}
+				desc = gj_luz_fundadores.11.desc.eclipse
+			}
+			triggered_desc = {
+				desc = gj_luz_fundadores.11.desc.cometa
+			}
+		}
+	}
+	outcome = neutral
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+	}
+
+	option = {
+		name = gj_luz_fundadores.11.a
+		add_country_modifier = {
+			modifier = gj_presagio_lumbre_modifier
+			years = modifier_duration_years_short
+			mode = add
+		}
+	}
+
+	option = {
+		name = gj_luz_fundadores.11.b
+		add_country_modifier = {
+			modifier = gj_presagio_sombra_modifier
+			years = modifier_duration_years_short
+			mode = add
+		}
+		add_religious_influence = religious_influence_weak_bonus
+	}
+}
+
+# .12 La Aclamacion de los Fundadores (tres santos de la Luz)
+gj_luz_fundadores.12 = {
+	type = country_event
+	title = gj_luz_fundadores.12.title
+	desc = gj_luz_fundadores.12.desc
+	outcome = positive
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	trigger = {
+		gj_luz_fundadores_sigue = yes
+		at_war = no
+		has_variable = gj_santos_fundadores
+		var:gj_santos_fundadores >= 3
+	}
+
+	option = {
+		name = gj_luz_fundadores.12.a
+		add_country_modifier = {
+			modifier = gj_aclamacion_fundadores_modifier
+			years = modifier_duration_years_century
+			mode = add
+		}
+		add_legitimacy = legitimacy_mild_bonus
+	}
+
+	option = {
+		name = gj_luz_fundadores.12.b
+		add_religious_influence = religious_influence_severe_bonus
+		add_prestige = prestige_mild_bonus
+	}
+}

@@ -1,0 +1,24 @@
+﻿gj_orunmar_lengua = {
+
+	color = gj_orunmar_color
+
+	male_names = {
+		gj_n_aruvan gj_n_barumel gj_n_cozhan gj_n_duremar gj_n_erukhan gj_n_hamurak gj_n_ithuvar gj_n_kemoruth gj_n_lazurem gj_n_mokhaval
+		gj_n_nuvarek gj_n_orvenak gj_n_pazhuun gj_n_qemural gj_n_ruvakhel gj_n_sorumeth gj_n_tavorun gj_n_umbrakel gj_n_vorukhan gj_n_zemuruth
+		gj_n_yarumbel gj_n_kharuvem gj_n_otheruun gj_n_mavorekh gj_n_dhurumen gj_n_gavorash gj_n_hethuran gj_n_imorekh gj_n_jhovarum gj_n_korvanuth
+		gj_n_mhurazel gj_n_nhorakel gj_n_oruvath gj_n_pheruman gj_n_rhazumel gj_n_shavorek gj_n_tuhurem gj_n_uvakhorn gj_n_velumash gj_n_zhorunel
+	}
+	female_names = {
+		gj_n_alurem gj_n_bavuruna gj_n_cemhira gj_n_dunaveth gj_n_elmuuna gj_n_havarune gj_n_ilumaru gj_n_kemuvra gj_n_lhorane gj_n_maruvel
+		gj_n_nhaveru gj_n_ormuthe gj_n_pavhiru gj_n_rhumenna gj_n_savuleth gj_n_thamuri gj_n_uvarenne gj_n_vheluna gj_n_zumarith gj_n_ayhumel
+		gj_n_berunah gj_n_chavorra gj_n_dhimure gj_n_eshuvala gj_n_ghoranne gj_n_hiruvel gj_n_imbrune gj_n_jhaluma gj_n_khemuri gj_n_luvarat
+		gj_n_mhirana gj_n_nuruvel gj_n_othavra gj_n_pheluma gj_n_ruhanne gj_n_shumeth gj_n_tharovel gj_n_yluvana gj_n_zhemura gj_n_uthrane
+	}
+	dynasty_names = {
+		gj_n_vhorum gj_n_kemurath gj_n_tharuvel gj_n_ombrakh gj_n_zhalumen gj_n_dhuravek gj_n_mornuth gj_n_savakhel gj_n_uruvane gj_n_lhazumar
+		gj_n_hothemar gj_n_ghurunel gj_n_naruvath gj_n_pheremun gj_n_ishuvak gj_n_rhokamel gj_n_yumbarel gj_n_teshuvran gj_n_brumekh gj_n_cavonel
+	}
+	lowborn = {
+		Ruda gj_n_tohar gj_n_melu gj_n_vanu gj_n_kesh gj_n_orum Hela Dru gj_n_nabu gj_n_zefa gj_n_ilu gj_n_pohan Sere gj_n_lutu gj_n_gora gj_n_wemu
+	}
+}

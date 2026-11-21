@@ -1,0 +1,129 @@
+﻿# Enfoques religiosos de Los Dioses Hambrientos.
+# El tercero (gj_dioses_hambrientos_foco_hierro_del_alba) es el que abre la guerra ritual: la parte de Orunmar
+# puede pedirlo con has_completed_religious_focus = gj_dioses_hambrientos_foco_hierro_del_alba.
+
+gj_dioses_hambrientos_foco_cuenta_larga = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "[religious_unity|e]"
+			value = {
+				add = religious_unity
+				multiply = 0.25
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		monthly_religious_influence = -0.03
+	}
+
+	modifier_on_completion = {
+		maximum_religious_influence = 25
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+
+gj_dioses_hambrientos_foco_mesa_larga = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "[religious_unity|e]"
+			value = {
+				add = religious_unity
+				multiply = 0.25
+			}
+		}
+	}
+
+	modifier_while_progressing = {
+		global_pop_food_consumption = 0.03
+	}
+
+	modifier_on_completion = {
+		global_monthly_food_modifier = monthly_food_productivity_weak_bonus
+	}
+
+	ai_will_do = {
+		add = 1
+	}
+}
+
+gj_dioses_hambrientos_foco_hierro_del_alba = {
+	monthly_progress = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 0.05
+		}
+		add = {
+			desc = "[crown_power|e]"
+			value = "estate_power(estate_type:crown_estate)"
+			multiply = 0.1
+		}
+		if = {
+			limit = { exists = ruler_or_regent }
+			add = {
+				desc = "ruler_or_regent_total_abilities"
+				value = ruler_or_regent.total_abilities
+				multiply = 0.0015
+			}
+		}
+		add = {
+			desc = "[ShowModifierTypeName('monthly_towards_belligerent')]"
+			value = modifier:monthly_towards_belligerent
+		}
+	}
+
+	modifier_while_progressing = {
+		army_maintenance_efficiency = -0.1
+	}
+
+	modifier_on_completion = {
+		slave_raid_efficiency = 0.25
+	}
+
+	effect_on_completion = {
+		custom_tooltip = {
+			text = gj_dioses_hambrientos_foco_hierro_del_alba_tt
+		}
+	}
+
+	ai_will_do = {
+		add = 20
+	}
+}

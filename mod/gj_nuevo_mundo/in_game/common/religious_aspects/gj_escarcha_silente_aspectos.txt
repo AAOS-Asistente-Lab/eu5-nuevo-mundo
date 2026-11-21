@@ -1,0 +1,42 @@
+﻿# Aspectos elegibles de la Escarcha Silente (se eligen 2 de 4).
+# Como en el juego base, elegir un aspecto suma su modificador.
+
+gj_escarcha_silente_aspecto_vigilia_blanca = {
+	icon = religious_aspect_folk_white
+	religion = gj_escarcha_silente
+
+	modifier = {
+		global_defensive = 0.1
+		land_morale_modifier = 0.05
+	}
+}
+
+gj_escarcha_silente_aspecto_aliento_quieto = {
+	icon = religious_aspect_folk_blue
+	religion = gj_escarcha_silente
+
+	modifier = {
+		monthly_doom = -0.06
+		stability_cost_efficiency = 0.1
+	}
+}
+
+gj_escarcha_silente_aspecto_hueso_y_sal = {
+	icon = religious_aspect_folk_brown
+	religion = gj_escarcha_silente
+
+	modifier = {
+		global_levy_size_modifier = 0.1
+		army_maintenance_efficiency = 0.1
+	}
+}
+
+gj_escarcha_silente_aspecto_memoria_helada = {
+	icon = religious_aspect_folk_dark_blue
+	religion = gj_escarcha_silente
+
+	modifier = {
+		research_speed_modifier = 0.05
+		global_max_literacy = 3
+	}
+}

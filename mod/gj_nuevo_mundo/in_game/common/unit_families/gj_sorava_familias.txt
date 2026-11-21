@@ -1,0 +1,9 @@
+﻿# Sorava: los cupos van por familia (como los jenizaros del juego base).
+
+gj_sorava_escoltas = {
+	limit = gj_sorava_cupo_escoltas
+}
+
+gj_sorava_tiradores = {
+	limit = gj_sorava_cupo_tiradores
+}

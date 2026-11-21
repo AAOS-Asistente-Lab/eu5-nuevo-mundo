@@ -1,0 +1,45 @@
+﻿# Aspectos de la Luz de los Fundadores (se eligen 2 de 4).
+
+gj_aspecto_hogar_comun = {
+	icon = religious_aspect_folk_green
+	religion = gj_luz_fundadores
+
+	modifier = {
+		global_monthly_food_modifier = monthly_food_productivity_weak_bonus
+		global_population_growth = 0.001
+		global_migration_attraction = 0.1
+	}
+}
+
+gj_aspecto_primera_piedra = {
+	icon = religious_aspect_folk_yellow
+	religion = gj_luz_fundadores
+
+	modifier = {
+		global_build_buildings_efficiency = 0.1
+		global_urban_build_buildings_efficiency = 0.1
+		global_burghers_max_literacy = 5
+	}
+}
+
+gj_aspecto_lumbre_vigilante = {
+	icon = religious_aspect_folk_red
+	religion = gj_luz_fundadores
+
+	modifier = {
+		global_defensive = 0.1
+		global_garrison_size_modifier = 0.1
+		global_monthly_control = 0.001
+	}
+}
+
+gj_aspecto_caminos_de_luz = {
+	icon = religious_aspect_folk_blue
+	religion = gj_luz_fundadores
+
+	modifier = {
+		global_merchant_capacity_modifier = 0.1
+		research_speed_modifier = 0.05
+		global_pop_conversion_speed_modifier = 0.1
+	}
+}

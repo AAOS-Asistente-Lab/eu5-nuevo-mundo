@@ -1,0 +1,87 @@
+﻿#######################################################################
+# Valores de Kaivan (parte kaivan)
+#######################################################################
+
+# Cupo de Jinetes Lobo: 1 mas 1 por cada nivel de Campamento del Kan.
+gj_kaivan_limite_lobos = {
+	add = {
+		value = 1
+		desc = "SUBUNIT_LIMIT_BASE"
+	}
+	add = {
+		desc = "GJ_KAIVAN_CAMPAMENTOS"
+		value = total_effective_building_levels:gj_kaivan_campamento_kan
+	}
+}
+
+# Niveles que sube un edificio de Kaivan por cada era superada (se suma al nivel base de cada uno).
+gj_kaivan_niveles_por_era = {
+	value = 0
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_2_renaissance } } }
+		add = 1
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_4_reformation } } }
+		add = 1
+	}
+	if = {
+		limit = { owner ?= { current_age_or_later = { age = age_6_revolutions } } }
+		add = 1
+	}
+}
+
+gj_kaivan_campamento_max_nivel = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "BUILDING_LEVEL_POPULATION"
+		value = population
+		multiply = 0.03
+	}
+	add = {
+		desc = "GJ_KAIVAN_POR_ERA"
+		value = gj_kaivan_niveles_por_era
+	}
+}
+
+gj_kaivan_feria_max_nivel = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "BUILDING_LEVEL_POPULATION"
+		value = population
+		multiply = 0.04
+	}
+	add = {
+		desc = "GJ_KAIVAN_POR_ERA"
+		value = gj_kaivan_niveles_por_era
+	}
+}
+
+
+gj_kaivan_atalaya_max_nivel = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "GJ_KAIVAN_POR_ERA"
+		value = gj_kaivan_niveles_por_era
+	}
+}
+
+gj_kaivan_tienda_max_nivel = {
+	add = {
+		desc = "BUILDING_LEVEL_BASE"
+		value = 1
+	}
+	add = {
+		desc = "GJ_KAIVAN_POR_ERA"
+		value = gj_kaivan_niveles_por_era
+	}
+}

@@ -1,0 +1,16 @@
+﻿# Grupo cultural talasio. Pide mucho pescado, perlas y vino; poco ganado.
+gj_grupo_talasio = {
+	country_modifier = {
+		trade_sea_efficiency = small_trade_sea_efficiency_bonus
+	}
+	location_modifier = {
+		harbor_suitability = 0.05
+	}
+	goods_demand_modifier = {
+		fish = 0.5
+		pearls = 1
+		wine = 0.5
+		olives = 0.25
+		livestock = -0.25
+	}
+}

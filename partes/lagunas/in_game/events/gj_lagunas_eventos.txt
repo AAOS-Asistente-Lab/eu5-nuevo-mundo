@@ -1,0 +1,727 @@
+﻿namespace = gj_lagunas
+
+# =============================================================
+# MECANICA: LA ASAMBLEA DE LAGUNAS Y EL BARQUERO MAYOR
+# =============================================================
+
+# .1 La Asamblea elige al Barquero Mayor
+gj_lagunas.1 = {
+	type = country_event
+	title = gj_lagunas.1.title
+	desc = gj_lagunas.1.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	immediate = {
+		event_illustration_estate_effect = { foreground = estate_type:burghers_estate background = estate_type:burghers_estate }
+	}
+
+	option = {
+		name = gj_lagunas.1.a
+		ai_chance = { factor = 4 }
+		add_country_modifier = { modifier = gj_lag_barquero_mercader years = 8 mode = add }
+		set_variable = { name = gj_lag_mandato_barquero years = 8 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = gj_lagunas.1.b
+		ai_chance = { factor = 3 }
+		add_country_modifier = { modifier = gj_lag_barquero_armador years = 8 mode = add }
+		set_variable = { name = gj_lag_mandato_barquero years = 8 }
+	}
+
+	option = {
+		name = gj_lagunas.1.c
+		ai_chance = { factor = 2 }
+		add_country_modifier = { modifier = gj_lag_barquero_tejedor years = 8 mode = add }
+		set_variable = { name = gj_lag_mandato_barquero years = 8 }
+	}
+
+	option = {
+		name = gj_lagunas.1.d
+		ai_chance = { factor = 1 }
+		add_country_modifier = { modifier = gj_lag_barquero_juez years = 8 mode = add }
+		set_variable = { name = gj_lag_mandato_barquero years = 8 }
+		add_stability = stability_weak_bonus
+	}
+}
+
+# .2 Se acaba el mandato: la Asamblea pide que se la convoque
+gj_lagunas.2 = {
+	type = country_event
+	title = gj_lagunas.2.title
+	desc = gj_lagunas.2.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_variable = gj_lag_mandato_barquero }
+		NOT = { has_variable = gj_lag_asamblea_convocada }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_lagunas.2.a
+		ai_chance = { factor = 10 }
+		set_variable = { name = gj_lag_asamblea_convocada months = 6 }
+		trigger_event_non_silently = { id = gj_lagunas.1 }
+	}
+
+	option = {
+		name = gj_lagunas.2.b
+		ai_chance = { factor = 1 }
+		set_variable = { name = gj_lag_asamblea_convocada years = 2 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# =============================================================
+# MECANICA: CAMINOS DE HIELO
+# =============================================================
+
+# .3 El deshielo traicionero (llega al cabo de cinco meses de abrir los caminos de hielo)
+gj_lagunas.3 = {
+	type = country_event
+	title = gj_lagunas.3.title
+	desc = gj_lagunas.3.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.3.a
+		ai_chance = { factor = 5 }
+		change_gold_effect = { scale = -1 }
+		remove_country_modifier = gj_lag_caminos_de_hielo
+	}
+
+	option = {
+		name = gj_lagunas.3.b
+		ai_chance = { factor = 1 }
+		remove_country_modifier = gj_lag_caminos_de_hielo
+		random_list = {
+			50 = {
+				add_prestige = prestige_weak_bonus
+			}
+			50 = {
+				add_manpower = -2
+				add_country_modifier = { modifier = gj_lag_hielo_roto years = 2 mode = add }
+				add_prestige = prestige_mild_penalty
+			}
+		}
+	}
+}
+
+# =============================================================
+# RIVAL: LOS SKARREN
+# =============================================================
+
+# .4 Las velas de los Skarren en las lagunas
+gj_lagunas.4 = {
+	type = country_event
+	title = gj_lagunas.4.title
+	desc = gj_lagunas.4.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_country_modifier = gj_lag_escoltas_contratadas }
+		NOT = { has_country_modifier = gj_lag_tributo_pagado }
+		NOT = { has_country_modifier = gj_lag_diques_armados }
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.4.a
+		ai_chance = { factor = 4 }
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_lag_escoltas_contratadas years = 6 mode = add }
+	}
+
+	option = {
+		name = gj_lagunas.4.b
+		ai_chance = { factor = 2 }
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_lag_tributo_pagado years = 4 mode = add }
+	}
+
+	option = {
+		name = gj_lagunas.4.c
+		ai_chance = { factor = 1 }
+		add_country_modifier = { modifier = gj_lag_diques_armados years = 5 mode = add }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# .5 La Casa de las Especias de Sorava ofrece un contrato
+gj_lagunas.5 = {
+	type = country_event
+	title = gj_lagunas.5.title
+	desc = gj_lagunas.5.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_lagunas = yes
+		current_age_or_later = { age = age_2_renaissance }
+		NOT = { has_country_modifier = gj_lag_contrato_de_especias }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_lagunas.5.a
+		ai_chance = { factor = 3 }
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_lag_contrato_de_especias years = 8 mode = add }
+	}
+
+	option = {
+		name = gj_lagunas.5.b
+		ai_chance = { factor = 1 }
+		add_prestige = prestige_weak_bonus
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# =============================================================
+# EVENTOS TEMATICOS DE COMERCIANTES
+# =============================================================
+
+# .6 Querella entre barqueros y tejedores
+gj_lagunas.6 = {
+	type = country_event
+	title = gj_lagunas.6.title
+	desc = gj_lagunas.6.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_country_modifier = gj_lag_gremios_enfrentados }
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = interior
+	}
+
+	option = {
+		name = gj_lagunas.6.a
+		ai_chance = { factor = 2 }
+		add_country_modifier = { modifier = gj_lag_gremios_enfrentados years = 3 mode = add }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+
+	option = {
+		name = gj_lagunas.6.b
+		ai_chance = { factor = 2 }
+		change_gold_effect = { scale = -1 }
+		add_stability = stability_weak_bonus
+	}
+
+	option = {
+		name = gj_lagunas.6.c
+		ai_chance = { factor = 1 }
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# .7 La Noche de las Lamparas
+gj_lagunas.7 = {
+	type = country_event
+	title = gj_lagunas.7.title
+	desc = gj_lagunas.7.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_country_modifier = gj_lag_festival_de_las_lamparas }
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.7.a
+		ai_chance = { factor = 3 }
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_lag_festival_de_las_lamparas years = 5 mode = add }
+	}
+
+	option = {
+		name = gj_lagunas.7.b
+		ai_chance = { factor = 1 }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .8 El cartografo de las mil orillas
+gj_lagunas.8 = {
+	type = country_event
+	title = gj_lagunas.8.title
+	desc = gj_lagunas.8.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_country_modifier = gj_lag_cartografia_laguna }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_lagunas.8.a
+		ai_chance = { factor = 3 }
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_lag_cartografia_laguna years = 10 mode = add }
+	}
+
+	option = {
+		name = gj_lagunas.8.b
+		ai_chance = { factor = 1 }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .9 El puente de barcas
+gj_lagunas.9 = {
+	type = country_event
+	title = gj_lagunas.9.title
+	desc = gj_lagunas.9.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_country_modifier = gj_lag_puente_de_barcas }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.9.a
+		ai_chance = { factor = 3 }
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_lag_puente_de_barcas years = 12 mode = add }
+	}
+
+	option = {
+		name = gj_lagunas.9.b
+		ai_chance = { factor = 1 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# .10 La fiebre de las orillas (un brote local, nunca una gran plaga)
+gj_lagunas.10 = {
+	type = country_event
+	title = gj_lagunas.10.title
+	desc = gj_lagunas.10.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_country_modifier = gj_lag_fiebre_de_orillas }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.10.a
+		ai_chance = { factor = 3 }
+		change_gold_effect = { scale = -1 }
+		add_stability = stability_weak_bonus
+	}
+
+	option = {
+		name = gj_lagunas.10.b
+		ai_chance = { factor = 1 }
+		add_country_modifier = { modifier = gj_lag_fiebre_de_orillas years = 3 mode = add }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .11 La hermandad de faroleros
+gj_lagunas.11 = {
+	type = country_event
+	title = gj_lagunas.11.title
+	desc = gj_lagunas.11.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_country_modifier = gj_lag_hermandad_de_faroleros }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.11.a
+		ai_chance = { factor = 3 }
+		change_gold_effect = { scale = -1 }
+		add_country_modifier = { modifier = gj_lag_hermandad_de_faroleros years = 10 mode = add }
+	}
+
+	option = {
+		name = gj_lagunas.11.b
+		ai_chance = { factor = 1 }
+		add_stability = stability_weak_bonus
+	}
+}
+
+# .12 El arancel del hielo
+gj_lagunas.12 = {
+	type = country_event
+	title = gj_lagunas.12.title
+	desc = gj_lagunas.12.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_lagunas = yes
+		NOT = { has_country_modifier = gj_lag_aduana_del_hielo }
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.12.a
+		ai_chance = { factor = 2 }
+		add_country_modifier = { modifier = gj_lag_aduana_del_hielo years = 6 mode = add }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = gj_lagunas.12.b
+		ai_chance = { factor = 2 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .13 El Archivo de las Aguas
+gj_lagunas.13 = {
+	type = country_event
+	title = gj_lagunas.13.title
+	desc = gj_lagunas.13.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+		current_age_or_later = { age = age_3_discovery }
+		NOT = { has_country_modifier = gj_lag_archivo_de_las_aguas }
+	}
+
+	fire_only_once = yes
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_lagunas.13.a
+		ai_chance = { factor = 3 }
+		change_gold_effect = { scale = -2 }
+		add_country_modifier = { modifier = gj_lag_archivo_de_las_aguas years = 20 mode = add }
+	}
+
+	option = {
+		name = gj_lagunas.13.b
+		ai_chance = { factor = 1 }
+		add_prestige = prestige_weak_bonus
+	}
+}
+
+# .14 El pozo de ambar
+gj_lagunas.14 = {
+	type = country_event
+	title = gj_lagunas.14.title
+	desc = gj_lagunas.14.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.14.a
+		ai_chance = { factor = 3 }
+		change_gold_effect = { scale = 2 }
+	}
+
+	option = {
+		name = gj_lagunas.14.b
+		ai_chance = { factor = 1 }
+		change_gold_effect = { scale = 1 }
+		add_prestige = prestige_mild_bonus
+	}
+}
+
+# .15 La viuda del armador
+gj_lagunas.15 = {
+	type = country_event
+	title = gj_lagunas.15.title
+	desc = gj_lagunas.15.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_lagunas.15.a
+		ai_chance = { factor = 2 }
+		change_gold_effect = { scale = -1 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_lagunas.15.b
+		ai_chance = { factor = 1 }
+		change_gold_effect = { scale = 1 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# .16 La regata de balsas
+gj_lagunas.16 = {
+	type = country_event
+	title = gj_lagunas.16.title
+	desc = gj_lagunas.16.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.16.a
+		ai_chance = { factor = 2 }
+		add_prestige = prestige_mild_bonus
+		change_gold_effect = { scale = -1 }
+	}
+
+	option = {
+		name = gj_lagunas.16.b
+		ai_chance = { factor = 1 }
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+	}
+}
+
+# .17 Pescadores contra mercaderes
+gj_lagunas.17 = {
+	type = country_event
+	title = gj_lagunas.17.title
+	desc = gj_lagunas.17.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	illustration_tags = {
+		10 = angry
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.17.a
+		ai_chance = { factor = 2 }
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = gj_lagunas.17.b
+		ai_chance = { factor = 2 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_bonus }
+		add_estate_satisfaction = { type = estate_type:peasants_estate value = estate_satisfaction_mild_penalty }
+	}
+
+	option = {
+		name = gj_lagunas.17.c
+		ai_chance = { factor = 1 }
+		change_gold_effect = { scale = -1 }
+		add_stability = stability_weak_bonus
+	}
+}
+
+# .18 El barquero ciego (presagio de las aguas)
+gj_lagunas.18 = {
+	type = country_event
+	title = gj_lagunas.18.title
+	desc = gj_lagunas.18.desc
+	outcome = neutral
+
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = interior
+	}
+
+	option = {
+		name = gj_lagunas.18.a
+		ai_chance = { factor = 2 }
+		add_legitimacy = legitimacy_weak_bonus
+	}
+
+	option = {
+		name = gj_lagunas.18.b
+		ai_chance = { factor = 1 }
+		add_prestige = prestige_weak_bonus
+		change_gold_effect = { scale = -1 }
+	}
+}
+
+# .19 Las ciudades ribereñas piden entrar en la Liga
+gj_lagunas.19 = {
+	type = country_event
+	title = gj_lagunas.19.title
+	desc = gj_lagunas.19.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.19.a
+		ai_chance = { factor = 3 }
+		add_political_influence = political_influence_mild_bonus
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_lagunas.19.b
+		ai_chance = { factor = 1 }
+		change_gold_effect = { scale = 1 }
+	}
+}
+
+# .20 La caravana perdida en el hielo
+gj_lagunas.20 = {
+	type = country_event
+	title = gj_lagunas.20.title
+	desc = gj_lagunas.20.desc
+	outcome = negative
+
+	trigger = {
+		gj_es_lagunas = yes
+		has_country_modifier = gj_lag_caminos_de_hielo
+	}
+
+	illustration_tags = {
+		10 = regular
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.20.a
+		ai_chance = { factor = 2 }
+		change_gold_effect = { scale = -1 }
+		add_prestige = prestige_weak_bonus
+	}
+
+	option = {
+		name = gj_lagunas.20.b
+		ai_chance = { factor = 1 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = estate_satisfaction_mild_penalty }
+	}
+}
+
+# .21 La ventisca del mercado: el hielo trae a los extranjeros
+gj_lagunas.21 = {
+	type = country_event
+	title = gj_lagunas.21.title
+	desc = gj_lagunas.21.desc
+	outcome = positive
+
+	trigger = {
+		gj_es_lagunas = yes
+		has_country_modifier = gj_lag_caminos_de_hielo
+	}
+
+	illustration_tags = {
+		10 = happy
+		10 = exterior
+	}
+
+	option = {
+		name = gj_lagunas.21.a
+		ai_chance = { factor = 2 }
+		change_gold_effect = { scale = 2 }
+	}
+
+	option = {
+		name = gj_lagunas.21.b
+		ai_chance = { factor = 1 }
+		add_prestige = prestige_mild_bonus
+	}
+}

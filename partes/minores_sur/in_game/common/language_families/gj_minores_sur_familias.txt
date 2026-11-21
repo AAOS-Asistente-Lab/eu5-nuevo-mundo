@@ -1,0 +1,11 @@
+gj_minores_sur_familia_puerto = {
+	color = gj_map_minores_sur_familia_puerto
+}
+
+gj_minores_sur_familia_marca = {
+	color = gj_map_minores_sur_familia_marca
+}
+
+gj_minores_sur_familia_selva = {
+	color = gj_map_minores_sur_familia_selva
+}

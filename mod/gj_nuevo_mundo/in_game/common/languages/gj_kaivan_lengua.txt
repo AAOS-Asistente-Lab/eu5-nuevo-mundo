@@ -1,0 +1,22 @@
+﻿gj_kaivani_language = {
+	color = rgb { 190 150 80 }
+
+	family = gj_estepa_language_family
+
+	male_names = {
+		gj_n_tolkhar gj_n_berukh gj_n_yarvad gj_n_sanduk gj_n_orlakh gj_n_khazur gj_n_daruk gj_n_meskhet gj_n_ilvar gj_n_borzak
+		gj_n_tamuun gj_n_urgash gj_n_vasken gj_n_zhoruk gj_n_atlakh gj_n_ghedrun gj_n_halmuk gj_n_irzan gj_n_jorvak gj_n_kuldash
+		gj_n_lemuk gj_n_narzak gj_n_ozhrun gj_n_pelkhar gj_n_quldar gj_n_rashvak gj_n_sorgun gj_n_tehrak gj_n_ulvash gj_n_yazhdar
+	}
+	female_names = {
+		gj_n_nurvel gj_n_saruna gj_n_tolvia gj_n_ekhra gj_n_ilmara gj_n_daruna gj_n_khelna gj_n_oruvi gj_n_zaylen gj_n_marguna
+		gj_n_sevhra gj_n_yelnai gj_n_anakha gj_n_tamril gj_n_uvessa gj_n_bashira gj_n_orenka gj_n_vulhai gj_n_zerinde gj_n_halvara
+	}
+	dynasty_names = {
+		gj_n_uzhar gj_n_tarkhen gj_n_ilbari gj_n_merghan gj_n_valzug gj_n_orokh gj_n_dashkai gj_n_belgur gj_n_hanzar gj_n_kerul
+		gj_n_sovhai gj_n_torvan
+	}
+	lowborn = {
+		gj_n_ghul gj_n_mardai gj_n_soruk gj_n_pekh gj_n_dunai gj_n_vorek
+	}
+}
