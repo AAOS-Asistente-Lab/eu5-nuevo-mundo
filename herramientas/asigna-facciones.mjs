@@ -499,9 +499,12 @@ if (rangosR && Object.keys(rangosR.setup).length && fu.status === 0) {
 // edificios, la seleccion de pais ensena el reparto y los pops nacen con su dueno. Despues del
 // lobby solo cambian la cultura y la fe (gj_reparte_tierra). Los paises nuevos (reparte-tierra.mjs,
 // paso 4c) entran en la misma copia: su definicion (la cultura y la fe de la mayoria de sus pops),
-// su nombre (el de su capital, como los paises de RNW) y el include, la tecnologia y el gobierno
-// del pais de RNW mas cercano.
+// su nombre (el de su capital, como los paises de RNW), la tecnologia del pais de RNW mas cercano
+// y un gobierno valido para cualquier cultura (setup-paises.mjs). Despues, setup-paises.mjs retira
+// los estados sin tierra y las tribus vacias (--retirados quitar|vacio), saca de las tribus la tierra
+// con dueno, quita las lineas de 07/12/18/20/26 que nombran a los retirados y completa discovered_areas.
 let nuevosR = null;
+const SP = await import('./setup-paises.mjs');
 if (tierraR && fu.status === 0) {
   const f10 = enMundo('main_menu', 'setup', '1337', '10_countries.txt') || muere('no encuentro 10_countries.txt');
   const t10 = fs.readFileSync(f10, 'utf8');
@@ -526,7 +529,7 @@ if (tierraR && fu.status === 0) {
   const t10b = t10.replace(/^\t([A-Z][A-Z0-9]{2}) = \{\r?\n([\s\S]*?)^\t\}/gm, (todo, tag, cuerpo) => {
     vistos.add(tag);
     const hs = hijos(cuerpo), cap = hs.find((h) => h.clave === 'capital')?.lineas[0].match(/= (\S+)/)?.[1];
-    if (cap && !hs.some((h) => h.clave === 'type') && hs.some((h) => h.clave === 'government') && jer.get(cap)?.continente === 'america' && xy(cap)) plantillas.push({ tag, capital: cap, hijos: hs.filter((h) => ['include', 'starting_technology_level', 'government'].includes(h.clave)) });
+    if (cap && !hs.some((h) => h.clave === 'type') && hs.some((h) => h.clave === 'government') && jer.get(cap)?.continente === 'america' && xy(cap)) plantillas.push({ tag, capital: cap, hijos: hs.filter((h) => h.clave === 'starting_technology_level') });
     // fuera de sus listas own_* la tierra del Nuevo Mundo que ya no es suya; la que gana, a own_control_core
     const tenia = new Set();
     let c2 = cuerpo.replace(/^(\t\town_[a-z_]+ = \{)([^}]*)(\})/gm, (m, a, lista, z) => {
@@ -561,7 +564,7 @@ if (tierraR && fu.status === 0) {
     if (!cultura || !fe) { sinCultura.push(nv.tag); continue; }
     const p = cercana(nv.capital);
     defs.push(`${nv.tag} = {\n\tcolor = ${color(nv.tag, 1)}\n\tcolor2 = ${color(nv.tag, 2)}\n\n\tculture_definition = ${cultura}\n\treligion_definition = ${fe}\n}\n`);
-    entradas.push(`\t${nv.tag} = {\n\t\town_control_core = {\n\t\t\t${suyas.join(' ')}\n\t\t}\n\t\tcapital = ${nv.capital}\n${p.hijos.map((h) => h.lineas.join('\n')).join('\n')}\n\t\tdiscovered_areas = {\n\t\t\t${areasDe(suyas).join(' ')}\n\t\t}\n\t}`);
+    entradas.push(`\t${nv.tag} = {\n\t\town_control_core = {\n\t\t\t${suyas.join(' ')}\n\t\t}\n\t\tcapital = ${nv.capital}\n${p.hijos.map((h) => h.lineas.join('\n')).join('\n') || `\t\tstarting_technology_level = ${SP.TECNOLOGIA_NUEVOS}`}\n${SP.GOBIERNO_NUEVOS}\n\t\tdiscovered_areas = {\n\t\t\t${areasDe(suyas).join(' ')}\n\t\t}\n\t}`);
     nv.cultura = cultura; nv.fe = fe; nv.plantilla = p.tag; nv.nombre = nomEn.get(nv.capital) || nv.capital;
   }
   if (sinCultura.length) muere(`paises nuevos sin pops con cultura y fe: ${sinCultura.join(' ')}`);
@@ -579,6 +582,16 @@ if (tierraR && fu.status === 0) {
   const dest10 = path.join(obraMod, 'main_menu', 'setup', '1337', '10_countries.txt');
   fs.mkdirSync(path.dirname(dest10), { recursive: true });
   fs.writeFileSync(dest10, t10b.slice(0, cierre.index) + (entradas.length ? `\n\t# GJ Nuevo Mundo (asigna-facciones.mjs): ${entradas.length} paises nuevos\n${entradas.join('\n')}` : '') + t10b.slice(cierre.index), 'utf8');
+  // retirados, tribus, referencias y descubrimiento (setup-paises.mjs). 07 es la copia ya escrita
+  // en el montaje (rangos); los demas, los del mundo. Solo se copian los que cambian.
+  const modoRet = arg('--retirados', SP.RETIRADOS);
+  if (!['quitar', 'vacio'].includes(modoRet)) muere(`--retirados ${modoRet}: tiene que ser quitar o vacio`);
+  const enSetup = (f) => { const o = path.join(obraMod, 'main_menu', 'setup', '1337', f); return fs.existsSync(o) ? o : enMundo('main_menu', 'setup', '1337', f); };
+  const refs = Object.fromEntries(SP.REFERENCIAS.filter(enSetup).map((f) => [f, fs.readFileSync(enSetup(f), 'utf8')]));
+  const sp = SP.arreglaSetup({ t10: fs.readFileSync(dest10, 'utf8'), otros: refs, nativos: nativos || new Set(), retirados: tierraR.retirados, modo: modoRet, area: (l) => jer.get(l)?.area, vec: vecM, nm });
+  fs.writeFileSync(dest10, sp.t10, 'utf8');
+  for (const [f, t] of Object.entries(sp.otros)) if (t !== refs[f]) fs.writeFileSync(path.join(obraMod, 'main_menu', 'setup', '1337', f), t, 'utf8');
+  console.log(SP.textoSetup(sp.informe));
   // la copia tiene que dar, en el Nuevo Mundo, exactamente el reparto
   const leido = new Map(); for (const [t, ls] of paisesDelMundo(obraMod, JUEGO)) for (const l of ls) if (nm.has(l)) leido.set(l, t);
   const malas = [...nm].filter((l) => leido.get(l) !== duenoFin.get(l));
