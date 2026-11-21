@@ -125,6 +125,19 @@ export function tierraDe(t10) {
   return r;
 }
 
+// Paises formables de RNW (in_game/common/formable_countries/rnw_formations.txt: uniones, federaciones,
+// restauraciones...): la IA los forma en cuanto junta su tierra y el pais cambia de tag, con lo que pierde el
+// nombre y todo lo de su faccion. Medido en partida (21/11): Thalassar, Tabedavand y Volvesk desaparecen en
+// dos meses y aparecen «Metapa Federation», «Restored Karaguachaca» y «Zeiciak Federation». Se les cierra a
+// `tags` (los paises del mod) en el potential de cada uno; el resto del mundo los sigue pudiendo formar.
+// Es la copia del fichero del mundo, en su misma ruta (lo sustituye entero). Con INJECT: en un fichero nuestro
+// no vale: el juego da «Trigger section already read earlier: potential» y no hace caso (probado, 21/11).
+export function cierraFormables(texto, tags) {
+  let n = 0;
+  const s = texto.replace(/^\tpotential = \{/gm, (x) => { n++; return `${x}\n\t\tNOR = { ${tags.map((t) => `tag = ${t}`).join(' ')} } # GJ Nuevo Mundo: no para los paises del mod`; });
+  return { texto: s, n };
+}
+
 // Quita las lineas que nombran un tag de `fuera`; cada una tiene que ser una sentencia entera.
 export function filtraLineas(texto, fuera, nombre = '') {
   let quitadas = 0;
@@ -249,6 +262,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const d = tierraDe(r.t10);
   assert.deepEqual([...d.keys()], ['AAA', 'TTT', 'CCC']); // BBB retirado, UUU y WWW vacias; CCC aun tiene tierra
   assert.deepEqual([...r.fuera].sort(), ['BBB', 'UUU', 'WWW']);
+  const cf = cierraFormables('a_f = {\n\tlevel = 3\n\tpotential = {\n\t}\n\tallow = {\n\t}\n}\nb_f = {\n\tpotential = {\n\t\thas_or_had_tag = FDE\n\t}\n}\n', ['AAA', 'BBB']);
+  const nor = '\t\tNOR = { tag = AAA tag = BBB } # GJ Nuevo Mundo: no para los paises del mod\n';
+  assert.deepEqual(cf, { n: 2, texto: `a_f = {\n\tlevel = 3\n\tpotential = {\n${nor}\t}\n\tallow = {\n\t}\n}\nb_f = {\n\tpotential = {\n${nor}\t\thas_or_had_tag = FDE\n\t}\n}\n` }, 'formables: cada potential sin nuestros paises');
   assert.deepEqual(d.get('TTT').pops, ['l9']); // pierde l2 (con dueno); la tierra suelta no se le da
   assert.deepEqual(marcaHistoricos('AAA = {\n\tcolor = x\n}\nBBB = { # b\n\tcolor = y\n}\n', new Set(['BBB', 'ZZZ'])), { texto: 'AAA = {\n\tcolor = x\n}\nBBB = { # b\n\tis_historic = yes\n\tcolor = y\n}\n', faltan: ['ZZZ'] });
   assert.equal(r.otros[EDIFICIOS], 'locations = {\n\tl3 = { rank = town }\n}\n'); // fuera el rango y el edificio de l4, sin dueno

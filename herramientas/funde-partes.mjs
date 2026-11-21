@@ -8,6 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BOM, escribeConBom, leeTexto, listaFicheros, analizaFichero, esBloque, juegoPorDefecto } from './pdx.mjs';
 import { cargaEstilos, ficherosCulturas, lugares, tablaGrupos } from './nombres.mjs';
+import { RGO_EFECTOS, textoRgo } from './economia.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const RAIZ = path.join(AQUI, '..');
@@ -469,6 +470,7 @@ gj_integracion_inicio = {
 \t\t\tset_global_variable = gj_integracion_hecha
 \t\t\tgj_reparte_tierra = yes
 \t\t\tgj_rangos_iniciales = yes
+\t\t\tgj_rgo_iniciales = yes
 ${[...FUND, ...MEN.filter((m) => m.tag)].map(llamada).join('\n').replace(/^/gm, '\t')}
 ${RELL.length ? `\t\t\t# paises de relleno: cultura de su grupo (nombres.mjs)\n${RELL.map(llamadaRelleno).join('\n').replace(/^/gm, '\t')}` : ''}
 \t\t}
@@ -498,6 +500,7 @@ const enSetup = !!TIERRA.enSetup;
 const daLinea = ([l, dueno]) => (enSetup ? `\tlocation:${l} = { ${popsDe(dueno)} }` : `\tlocation:${l} = { change_location_owner = c:${dueno} change_location_controller = c:${dueno} add_core = c:${dueno} ${popsDe(dueno)} }`);
 const capOrden = [...capitales].sort(([a], [b]) => (tagsFaccion.has(a) - tagsFaccion.has(b)) || a.localeCompare(b));
 const capLocs = new Set(capOrden.map(([, c]) => c.a));
+escribeConBom(I(`in_game/common/scripted_effects/${RGO_EFECTOS}`), textoRgo()); // vacio; lo rellena aplicaEconomia
 escribeConBom(I('in_game/common/scripted_effects/gj_integracion_tierra.txt'),
 `# GJ Nuevo Mundo, integracion: tierra con dueno al empezar. GENERADO por funde-partes.mjs desde
 # vinculo.json (lo calcula reparte-tierra.mjs). ${dadas.length ? `${dadas.length} localizaciones repartidas, ${capitales.length} capitales llevadas a su zona y ${sueltas.length} localizaciones de trozos sueltos abandonadas.` : 'Sin mundo vinculado: no cambia nada.'}

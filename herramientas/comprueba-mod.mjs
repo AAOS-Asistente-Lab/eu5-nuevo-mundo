@@ -30,7 +30,8 @@ function buildDelJuego() {
 // lector completo es demasiado lento en los E-cores con prioridad Idle.
 const sinComentarios = (t) => t.replace(/#[^\n]*/g, '');
 const textoDe = (f) => sinComentarios(leeTexto(f).texto);
-const reDef = /^(?:(?:REPLACE|INJECT|TRY_INJECT|TRY_REPLACE|REPLACE_OR_CREATE|INJECT_OR_CREATE):)?([A-Za-z0-9_\-.]+)\s*=\s*\{/gm;
+// hasta dos espacios delante: el juego define asi cunco_culture, yaros_culture y manekenk_culture (argentinian.txt)
+const reDef = /^ {0,2}(?:(?:REPLACE|INJECT|TRY_INJECT|TRY_REPLACE|REPLACE_OR_CREATE|INJECT_OR_CREATE):)?([A-Za-z0-9_\-.]+)\s*=\s*\{/gm;
 const reDefEscalar = /^([A-Za-z0-9_\-.]+)\s*=/gm;
 function clavesRapidas(dir) {
   const s = new Set();
@@ -138,9 +139,9 @@ const RESERVADAS_AVANCE = S(C.clavesAvanceNoModificador);
 // ---------------------------------------------------------------- ficheros del mod
 // Ficheros del mundo que la copia vinculada reescribe a proposito (asigna-facciones.mjs: la
 // vegetacion mezclada, los rangos y los paises nuevos; setup-paises.mjs: las lineas de los paises
-// retirados; economia.mjs: gente, desarrollo, caminos y mercados). No son scripts nuestros: solo se
-// mira que el mundo traiga el mismo fichero.
-const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'in_game/setup/countries/rnw_natives.txt',
+// retirados y los formables de RNW cerrados a nuestros paises; economia.mjs: gente, desarrollo, caminos y
+// mercados). No son scripts nuestros: solo se mira que el mundo traiga el mismo fichero.
+const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'in_game/setup/countries/rnw_natives.txt', 'in_game/common/formable_countries/rnw_formations.txt',
   ...['03_markets', '06_pops', '07_cities_and_buildings', '09_roads', '10_countries', '12_diplomacy', '14_development', '18_opinions', '20_rivals', '26_ai_personalities'].map((f) => `main_menu/setup/1337/${f}.txt`)];
 const todos = listaFicheros(MOD).filter((f) => {
   const r = rel(f);

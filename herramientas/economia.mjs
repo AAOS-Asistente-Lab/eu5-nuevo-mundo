@@ -21,10 +21,19 @@ import { fileURLToPath } from 'node:url';
 import { leeTexto, analizaFichero, esBloque, hijo, valoresSueltos, escribeConBom } from './pdx.mjs';
 
 // ---------------------------------------------------------------- mandos (se calibran en partida)
+export const F_RGO_PAIS = fileURLToPath(new URL('./rgo-pais.json', import.meta.url));
 export const MANDOS = {
   POB_FACTOR: 2.0,           // gente de cada localizacion = media europea de su rango x esto
   POB_VARIA: [0.6, 1.5],     // cuanto conserva de la variacion de RNW: raiz(gente de RNW / mediana), entre estos topes
-  TRIBUS_QUEDAN: { kaivan: 0.2 }, // parte de los tribesmen que sigue tribal, por faccion (Kaivan tiene estamento de tribus); el resto, 0
+  // Nivel del recurso (RGO) de cada localizacion al empezar, como parte de su tope. El juego carga al 33 %
+  // (00_defines.txt:1951); lo que falta lo sube gj_rgo_iniciales tras el lobby, y sus obreros van en 06_pops.
+  // Javier (21/11): ni un tribesmen en los paises del Nuevo Mundo, y la riqueza se sube con el recurso.
+  // Medido en partida (21/11, mide-riqueza.mjs): a 0,33 la mediana de los 55 paises ya es la europea (2,19
+  // de riqueza por localizacion frente a 2,27) y a 0,67 se dispara a 4,99. Por eso el mando general se queda
+  // en la carga del juego y solo suben, cada uno con su parte (RGO_PAIS), los paises que quedan por debajo.
+  RGO_PARTE: 0.33,
+  // tag -> parte, para el pais que no vale con RGO_PARTE (lo escribe mide-riqueza.mjs --calibra)
+  RGO_PAIS: fs.existsSync(F_RGO_PAIS) ? JSON.parse(fs.readFileSync(F_RGO_PAIS, 'utf8')) : {},
   TIPOS: ['nobles', 'clergy', 'burghers', 'peasants'], // clases que se copian de Europa (ni esclavos ni tribus)
   DEV: { rural: 16, town: 24, city: 30, megalopolis: 34 }, // desarrollo objetivo por rango
   DEV_CAPITAL: 4, DEV_COSTA: 2, DEV_CAMINO: 1, // y lo que suma ser capital, tener puerto o camino
@@ -208,24 +217,40 @@ export function perfilEuropa(juego, jer, m = MANDOS) {
 }
 
 // ---------------------------------------------------------------- la gente nueva de una localizacion
-// Misma cultura y fe: los campesinos (y los tribesmen que quedan) se reparten como la gente de RNW;
-// nobles, clero y burgueses van con la pareja cultura-fe mayoritaria.
-export function gentNueva(viejos, { total, cuota, tribus }) {
+// Misma cultura y fe: los campesinos se reparten como la gente de RNW; nobles, clero y burgueses van con
+// la pareja cultura-fe mayoritaria. Sin tribesmen. Sin obreros: el juego los crea al cargar (el 10 % de
+// los campesinos) y devuelve a campesinos los que se pongan aqui de mas (medido en partida, 21/11).
+// `obreros` (miles): campesinos que no se ponen porque llegan como obreros tras el lobby (textoRgo).
+export function gentNueva(viejos, { total, cuota, obreros = 0 }) {
   const vt = viejos.reduce((s, p) => s + p.size, 0);
   if (!vt) return [];
-  const pareja = new Map(), parejaT = new Map();
-  for (const p of viejos) { const k = `${p.cultura} ${p.fe}`; pareja.set(k, (pareja.get(k) || 0) + p.size); if (p.tipo === 'tribesmen') parejaT.set(k, (parejaT.get(k) || 0) + p.size); }
+  const pareja = new Map();
+  for (const p of viejos) { const k = `${p.cultura} ${p.fe}`; pareja.set(k, (pareja.get(k) || 0) + p.size); }
   const orden = [...pareja].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1));
-  const mayor = orden[0][0];
-  const tT = tribus * [...parejaT.values()].reduce((s, x) => s + x, 0) / vt * total; // tribesmen que quedan
-  const resto = total - tT, out = [];
+  const mayor = orden[0][0], out = [];
   const pon = (tipo, size, k) => { const [cultura, fe] = k.split(' '); if (size >= 0.0005) out.push({ tipo, size, cultura, fe }); };
   for (const [tipo, c] of Object.entries(cuota)) {
-    if (tipo === 'peasants') for (const [k, n] of orden) pon(tipo, resto * c * n / vt, k);
-    else pon(tipo, resto * c, mayor);
+    if (tipo === 'peasants') for (const [k, n] of orden) pon(tipo, (total * c - obreros) * n / vt, k);
+    else pon(tipo, total * c, mayor);
   }
-  if (tT) for (const [k, n] of [...parejaT].sort((a, b) => (a[0] < b[0] ? -1 : 1))) pon('tribesmen', tT * n / [...parejaT.values()].reduce((s, x) => s + x, 0), k);
   return out;
+}
+
+// Tope de niveles del RGO de una localizacion (main_menu/common/static_modifiers/location.txt: 2 de base,
+// 0,1 por punto de desarrollo y 0,025 por mil habitantes; location_ranks: rural +100 %, megalopolis -50 %;
+// vegetation: farmland +10 %). Con Salvik (desarrollo 16, 36,9 mil, rural) da 9,05, y el juego dice 9.
+export const topeRgo = ({ dev, gente, rango, veg }) => (2 + 0.1 * dev + 0.025 * gente) * (1 + (rango === 'rural' ? 1 : rango === 'megalopolis' ? -0.5 : 0) + (veg === 'farmland' ? 0.1 : 0));
+// El fichero del efecto: funde-partes.mjs lo escribe vacio (sin mundo no sube nada) y aplicaEconomia lo rellena.
+export const RGO_EFECTOS = 'gj_economia_rgo.txt';
+// suben: [loc, niveles, cultura, fe]. Cada nivel pide mil obreros y llegan aqui mismo con add_pop (como
+// events/DHE/flavor_BOH.txt:1480): el ascenso del juego es de decenas al mes y split_pop no los crea.
+// Medido en partida (21/11): Salvik, de 3.000/6.000 empleados el dia 1 a 6.000/6.000 a los tres meses.
+export const textoRgo = (suben = []) => `# GJ Nuevo Mundo (economia.mjs): niveles de recurso que se suman tras el lobby, con sus obreros. GENERADO.\ngj_rgo_iniciales = {\n${suben.map(([l, n, c, f]) => `\tlocation:${l} = { if = { limit = { is_full_expanded_rgo = no } change_max_raw_material_workers = ${n} add_pop = { culture = culture:${c} religion = religion:${f} type = pop_type:laborers size = ${n} } } }`).join('\n')}\n}\n`;
+// niveles con que carga el juego (33 % del tope) y los que hay que sumar para llegar a `parte` del tope, con
+// decimales: aplicaEconomia los redondea arrastrando el resto de una localizacion a la siguiente del pais
+export function nivelRgo(tope, parte) {
+  const carga = Math.round(0.33 * tope);
+  return { carga, extra: Math.max(0, Math.min(Math.floor(tope) - carga, (parte - 0.33) * tope)) };
 }
 
 // ---------------------------------------------------------------- caminos de un pais
@@ -259,8 +284,8 @@ export function caminosPais({ locs, capital, vec, destinos, parte, yaTienen = ne
 
 // ---------------------------------------------------------------- todo junto, en la carpeta del montaje
 // dueno: Map(loc -> tag) de la tierra con dueno del Nuevo Mundo; capitales: Map(tag -> loc);
-// rangos: Map(loc -> rango) final del Nuevo Mundo; tribus: Map(tag -> parte que sigue tribal).
-export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rangos, vec, tribus = new Map(), m = MANDOS }) {
+// rangos: Map(loc -> rango) final del Nuevo Mundo.
+export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rangos, vec, m = MANDOS }) {
   const dirs = [obra, mundo, juego];
   // la copia del montaje manda si ya existe (setup-paises.mjs ya ha movido los mercados de 03)
   const leeW = (f) => fs.readFileSync(primero([obra, mundo, juego], ...SET, f), 'utf8');
@@ -290,10 +315,18 @@ export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rang
   const vivos = [...dueno.keys()].filter((l) => viejos.get(l)?.length).map((l) => viejos.get(l).reduce((s, p) => s + p.size, 0)).sort((a, b) => a - b);
   const mediana = vivos[Math.floor(vivos.length / 2)] || 1;
   const nivelesDe = (l) => { const s = TOWN_SETUPS[m.SETUP[rangos.get(l)]]; return s ? Object.values(s).reduce((a, b) => a + b, 0) : 0; };
+  const rgo = new Map(), resto = new Map(); // loc -> [niveles, cultura, fe] del ultimo calculo (el de 06_pops); tag -> decimales pendientes
   const nueva = (l, k) => {
-    const vs = viejos.get(l) || [], vt = vs.reduce((s, p) => s + p.size, 0), pf = perfil[rangos.get(l) || 'rural'];
+    const vs = viejos.get(l) || [], vt = vs.reduce((s, p) => s + p.size, 0), r = rangos.get(l) || 'rural', pf = perfil[r];
     const total = pf.gente * m.POB_FACTOR * k * Math.min(m.POB_VARIA[1], Math.max(m.POB_VARIA[0], Math.sqrt(vt / mediana)));
-    return gentNueva(vs, { total, cuota: pf.cuota, tribus: tribus.get(dueno.get(l)) || 0 });
+    const n = nivelRgo(topeRgo({ dev: Math.max(0, devFin.get(l)), gente: total, rango: r, veg: plant.get(l)?.veg }), m.RGO_PAIS[dueno.get(l)] ?? m.RGO_PARTE);
+    // los obreros de los niveles nuevos salen de los campesinos (como mucho la mitad): la gente total no cambia
+    const t = dueno.get(l), ac = (resto.get(t) || 0) + (vt ? n.extra : 0), ent = Math.floor(ac + 1e-9);
+    resto.set(t, ac - ent);
+    const ob = Math.min(ent, Math.floor(total * pf.cuota.peasants / 2));
+    const ps = gentNueva(vs, { total, cuota: pf.cuota, obreros: ob }), may = ps.find((p) => p.tipo === 'peasants');
+    if (ob && may) rgo.set(l, [ob, may.cultura, may.fe]);
+    return ps;
   };
   const rec = (k) => (l) => { const ps = nueva(l, k), t = ps.filter((p) => p.tipo === 'tribesmen').reduce((a, p) => a + p.size, 0); return { trib: t, noTrib: ps.reduce((a, p) => a + p.size, 0) - t, dev: Math.max(0, devFin.get(l)), niveles: nivelesDe(l) }; };
   const factor = new Map(), cifras = new Map();
@@ -305,6 +338,7 @@ export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rang
   }
   // 06_pops
   let cambian = 0, sinGente = 0;
+  rgo.clear(); resto.clear(); // fuera lo del calculo de cifras (factor 1)
   const f3 = (x) => x.toFixed(3);
   const n06 = t06.replace(/^([A-Za-z0-9_\-.]+) = \{\r?\n([\s\S]*?)^\}/gm, (todo, l) => {
     if (!dueno.has(l)) return todo;
@@ -314,6 +348,10 @@ export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rang
     return `${l} = {\n${ps.map((p) => `\tdefine_pop = {\ttype = ${p.tipo}\tsize = ${f3(p.size)}\tculture = ${p.cultura}\treligion = ${p.fe} }`).join('\n')}\n}`;
   });
   escribe('06_pops.txt', n06);
+  // RGO: lo que falta hasta el objetivo, tras el lobby (funde-partes.mjs llama a gj_rgo_iniciales). Sintaxis
+  // del juego: events/DHE/flavor_BOH.txt:1689 (change_max_raw_material_workers con is_full_expanded_rgo = no).
+  const suben = [...rgo].sort(([a], [b]) => (a < b ? -1 : 1)).map(([l, v]) => [l, ...v]);
+  escribeConBom(path.join(obra, 'in_game', 'common', 'scripted_effects', RGO_EFECTOS), textoRgo(suben));
   // 14_development: fuera las lineas de RNW de la tierra con dueno; las nuestras, antes del cierre
   const cierre = (t) => t.search(/\}\s*$/);
   const s14 = t14.replace(/^[ \t]*([A-Za-z0-9_\-.]+)[ \t]*=[ \t]*-?[\d.]+[^\n]*\r?\n/gm, (x, l) => (devLoc.has(l) ? '' : x)), c14 = cierre(s14);
@@ -341,13 +379,20 @@ export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rang
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const assert = (await import('node:assert')).strict;
   const g = gentNueva([{ tipo: 'tribesmen', size: 3, cultura: 'a', fe: 'x' }, { tipo: 'peasants', size: 1, cultura: 'b', fe: 'y' }],
-    { total: 20, cuota: { nobles: 0.01, clergy: 0.02, burghers: 0.07, peasants: 0.9 }, tribus: 0 });
+    { total: 20, cuota: { nobles: 0.01, clergy: 0.02, burghers: 0.07, peasants: 0.9 } });
   assert.ok(Math.abs(g.reduce((s, p) => s + p.size, 0) - 20) < 1e-9, 'gente total');
   assert.ok(!g.some((p) => p.tipo === 'tribesmen'), 'sin tribus');
   assert.equal(g.filter((p) => p.tipo === 'peasants' && p.cultura === 'a').reduce((s, p) => s + p.size, 0), 20 * 0.9 * 0.75, 'campesinos de la cultura a: 3/4');
   assert.ok(g.filter((p) => p.tipo !== 'peasants').every((p) => p.cultura === 'a' && p.fe === 'x'), 'clases altas con la pareja mayor');
-  const gt = gentNueva([{ tipo: 'tribesmen', size: 2, cultura: 'a', fe: 'x' }], { total: 10, cuota: { peasants: 1 }, tribus: 0.2 });
-  assert.equal(gt.find((p) => p.tipo === 'tribesmen').size, 2, 'quedan tribus');
+  const tp = topeRgo({ dev: 16, gente: 36.861, rango: 'rural', veg: 'forest' });
+  assert.ok(Math.abs(tp - 9.04) < 0.01, 'tope de Salvik');
+  assert.equal(nivelRgo(tp, 0.67).carga, 3);
+  assert.ok(Math.abs(nivelRgo(tp, 0.67).extra - 0.34 * tp) < 1e-9, 'de 3 a unos 6 niveles');
+  assert.equal(nivelRgo(tp, 0.2).extra, 0, 'nunca por debajo de la carga');
+  assert.equal(nivelRgo(tp, 2).extra, 6, 'ni por encima del tope');
+  assert.ok(textoRgo([['l1', 3, 'a', 'x']]).includes('location:l1 = { if = { limit = { is_full_expanded_rgo = no } change_max_raw_material_workers = 3 add_pop = { culture = culture:a religion = religion:x type = pop_type:laborers size = 3 } } }'), 'linea del efecto');
+  const go = gentNueva([{ tipo: 'peasants', size: 1, cultura: 'b', fe: 'y' }], { total: 20, cuota: { nobles: 0.1, peasants: 0.9 }, obreros: 3 });
+  assert.equal(go.reduce((s, p) => s + p.size, 0), 17, 'los obreros salen de los campesinos');
   const vec = new Map([['c', new Set(['a', 'b'])], ['a', new Set(['c', 'd'])], ['b', new Set(['c'])], ['d', new Set(['a'])]]);
   assert.deepEqual(caminosPais({ locs: ['a', 'b', 'c', 'd'], capital: 'c', vec, destinos: ['d'], parte: 0.75 }), [['c', 'a'], ['a', 'd']], 'camino capital -> pueblo');
   assert.deepEqual(caminosPais({ locs: ['a', 'b', 'c', 'd'], capital: 'c', vec, destinos: ['d'], parte: 0.5 }), [['c', 'a'], ['a', 'd']], 'el pueblo antes que el relleno');

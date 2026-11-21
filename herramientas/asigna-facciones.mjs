@@ -620,11 +620,18 @@ if (tierraR && fu.status === 0) {
 // change_raw_material del arranque la dejaba invalida (error.log de c83f781: las 90 "invalid
 // building" son todas de localizaciones que cambian de bien). El efecto se queda (ya no cambia nada).
 if (rangosR && fu.status === 0) {
-  const tribus = new Map(Object.entries(ECO.TRIBUS_QUEDAN).filter(([k]) => asignados[k]).map(([k, v]) => [asignados[k].tag, v]));
   const capEco = new Map([...rangosR.capitales].filter(([t, l]) => duenoFin.get(l) === t));
   const sinCap = [...new Set(duenoFin.values())].filter((t) => !capEco.has(t));
   if (sinCap.length) muere(`economia: paises con tierra y sin capital propia: ${sinCap.join(' ')}`);
-  const eco = aplicaEconomia({ obra: obraMod, mundo: MUNDO, juego: JUEGO, jer, dueno: duenoFin, capitales: capEco, rangos: rangosR.fin, vec: vecM, tribus });
+  const eco = aplicaEconomia({ obra: obraMod, mundo: MUNDO, juego: JUEGO, jer, dueno: duenoFin, capitales: capEco, rangos: rangosR.fin, vec: vecM });
+  // los formables de RNW, cerrados a nuestros paises (setup-paises.mjs, cierraFormables)
+  const relF = ['in_game', 'common', 'formable_countries', 'rnw_formations.txt'];
+  if (fs.existsSync(enMundo(...relF))) {
+    const cf = SP.cierraFormables(fs.readFileSync(enMundo(...relF), 'utf8'), [...new Set(duenoFin.values())].sort());
+    fs.mkdirSync(path.dirname(path.join(obraMod, ...relF)), { recursive: true });
+    fs.writeFileSync(path.join(obraMod, ...relF), cf.texto, 'utf8');
+    console.log(`Formables de RNW: ${cf.n} cerrados a los ${new Set(duenoFin.values()).size} paises del mod (copia del del mundo).`);
+  }
   const rT = path.join(obraMod, 'in_game', 'map_data', 'location_templates.txt');
   const tT = fs.readFileSync(fs.existsSync(rT) ? rT : enMundo('in_game', 'map_data', 'location_templates.txt'), 'utf8');
   let nBien = 0;
