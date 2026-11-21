@@ -4,7 +4,9 @@
 //   (b) alguno pasa de TALLA_MAXIMA localizaciones, salvo los de SIN_TOPE (Kaivan),
 //   (d) algun tag del setup nombra un pais que no tiene bloque en 10_countries,
 //   (e) la capital de algun pais con tierra en el Nuevo Mundo no es suya,
-//   (f) alguna localizacion de America con dueno sigue en un add_pops_from_locations.
+//   (f) alguna localizacion de America con dueno sigue en un add_pops_from_locations,
+//   (g) alguna localizacion del Nuevo Mundo no es de nadie ni de ninguna tribu, o 07 (rango,
+//       town_setup, edificio) o 03 (add_market) ponen algo en una sin dueno.
 // (c) Si la talla media (sin Kaivan) sale de MEDIA, avisa con la cifra. Imprime la tabla de tamanos.
 // Uso: node comprueba-paises.mjs --mundo <carpeta> --mod <mod> [--juego <carpeta>] [--vinculo <json>]
 import fs from 'node:fs';
@@ -12,7 +14,7 @@ import path from 'node:path';
 import { juegoPorDefecto, leeTexto } from './pdx.mjs';
 import { cargaMundo, centros, vecinos } from './mundo.mjs';
 import { enclaves, TALLA_MAXIMA, SIN_TOPE } from './reparte-paises.mjs';
-import { tierraDe, tagsDeLinea } from './setup-paises.mjs';
+import { tierraDe, tagsDeLinea, locDeLinea, EDIFICIOS, MERCADOS } from './setup-paises.mjs';
 
 export const MEDIA = [100, 120];
 
@@ -62,6 +64,15 @@ const conDueno = new Set([...paises.values()].flatMap((p) => p.own));
 let enPops = 0, ejemplo = null;
 for (const [t, p] of paises) for (const l of p.pops) if (conDueno.has(l) && mw.jer.get(l)?.continente === 'america') { enPops++; ejemplo ??= `${l} en ${t}`; }
 if (enPops) errores.push(`(f) ${enPops} localizaciones de America con dueno siguen en un add_pops_from_locations (p. ej. ${ejemplo})`);
+// (g) tierra sin dueno: toda localizacion del Nuevo Mundo es de un pais o de una tribu, y ni 07 ni 03 ponen nada en una sin dueno
+const enTribu = new Set([...paises.values()].flatMap((p) => p.pops));
+const sueltas = [...nm].filter((l) => !conDueno.has(l) && !enTribu.has(l)).sort();
+if (sueltas.length) errores.push(`(g) ${sueltas.length} localizaciones del Nuevo Mundo sin dueno ni tribu (p. ej. ${sueltas.slice(0, 3).join(' ')})`);
+for (const f of [EDIFICIOS, MERCADOS]) {
+  const malas = [];
+  leeTexto(deSetup(f)).texto.split('\n').forEach((linea, i) => { const l = locDeLinea(linea); if (nm.has(l) && !conDueno.has(l)) malas.push(`${f}:${i + 1} ${l}`); });
+  if (malas.length) errores.push(`(g) ${malas.length} lineas de ${f} en tierra sin dueno (p. ej. ${malas.slice(0, 3).join(', ')})`);
+}
 
 // tabla
 const filas = [...suyas].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1));

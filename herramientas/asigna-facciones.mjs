@@ -502,7 +502,8 @@ if (rangosR && Object.keys(rangosR.setup).length && fu.status === 0) {
 // su nombre (el de su capital, como los paises de RNW), la tecnologia del pais de RNW mas cercano
 // y un gobierno valido para cualquier cultura (setup-paises.mjs). Despues, setup-paises.mjs retira
 // los estados sin tierra y las tribus vacias (--retirados quitar|vacio), saca de las tribus la tierra
-// con dueno, quita las lineas de 07/12/18/20/26 que nombran a los retirados y completa discovered_areas.
+// con dueno, da a las tribus la tierra suelta, quita las lineas de 07/12/18/20/26 que nombran a los
+// retirados, completa discovered_areas, quita de 07 lo que cae en tierra sin dueno y mueve los mercados de 03.
 let nuevosR = null;
 const SP = await import('./setup-paises.mjs');
 if (tierraR && fu.status === 0) {

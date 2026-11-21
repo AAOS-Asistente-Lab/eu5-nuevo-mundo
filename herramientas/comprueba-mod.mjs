@@ -140,7 +140,7 @@ const RESERVADAS_AVANCE = S(C.clavesAvanceNoModificador);
 // vegetacion mezclada, los rangos y los paises nuevos; setup-paises.mjs: las lineas de los paises
 // retirados). No son scripts nuestros: solo se mira que el mundo traiga el mismo fichero.
 const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'main_menu/setup/1337/07_cities_and_buildings.txt', 'main_menu/setup/1337/10_countries.txt',
-  ...['12_diplomacy', '18_opinions', '20_rivals', '26_ai_personalities'].map((f) => `main_menu/setup/1337/${f}.txt`)];
+  ...['03_markets', '12_diplomacy', '18_opinions', '20_rivals', '26_ai_personalities'].map((f) => `main_menu/setup/1337/${f}.txt`)];
 const todos = listaFicheros(MOD).filter((f) => {
   const r = rel(f);
   if (!COPIAS_MUNDO.includes(r)) return true;
