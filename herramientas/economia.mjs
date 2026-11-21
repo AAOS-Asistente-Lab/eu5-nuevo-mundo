@@ -39,8 +39,9 @@ export const MANDOS = {
   K: [0.35, 4],              // topes de ese factor (hasta 2,5 es la densidad de NAP o BOH; de ahi a 4 solo una ciudad-estado como LPX)
   CIFRA: { PESO_POP: 1, PESO_EDIF: 2, DEV_ESCALA: 10, PASO: 0.04, PASO_CAMINO: 0.02, CTRL_MIN: 0.15, TRIBU_CTRL: 0.5 },
   SETUP: { town: 'gj_pueblo', city: 'gj_ciudad', megalopolis: 'gj_ciudad' }, // town_setup por rango
-  // Probado y descartado en partida (21/11): un local_governor en las ciudades con camino a la capital no
-  // cambia la base fiscal de salida (Isbrant 56,67 -> 57,54) y cuesta 18 de oro al mes en mantenimiento.
+  // Probado y descartado en partida (21/11): un local_governor en el town_setup de las ciudades con camino
+  // a la capital. El juego lo da por invalido ("invalid building local_governor"), la base fiscal de salida
+  // no cambia (Isbrant 56,67 -> 57,54) y el gasto en edificios sube 18 de oro al mes.
   // Mercados (medido en partida, 21/11): la riqueza de una localizacion va con su acceso a mercado. Sin
   // mercado propio, solo los 29 de RNW, la base fiscal se hunde (Isbrant 0,72; Hrimval 0,83; Durnhal 49).
   MERCADO_EN_CIUDADES: false, // ademas de en la capital, un mercado en cada ciudad
