@@ -275,7 +275,13 @@ for (const z of [...zonasUsadas].sort()) {
 
 // ---------------------------------------------------------------- tierra de cada faccion al empezar
 const vecM = conMapa ? await vecinos(MUNDO, JUEGO) : null;
-const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones }) : null;
+// sub-zonas de localizacion que piden las partes: cada faccion llega con un brazo a las de su zona
+const locsDeArea = new Map();
+for (const [l, j] of jer) { if (!locsDeArea.has(j.area)) locsDeArea.set(j.area, []); locsDeArea.get(j.area).push(l); }
+const subzonas = Object.entries(zonas).filter(([, d]) => d.ambito === 'localizacion')
+  .map(([nombre, d]) => ({ nombre, locs: d.lista.flatMap((x) => (x.tipo === 'location' ? [x.clave] : x.tipo === 'area' ? locsDeArea.get(x.clave) || [] : [])).sort() }))
+  .filter((s) => s.locs.length >= 20); // las ruinas y las vetas (1-5 localizaciones) no cuentan
+const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas }) : null;
 
 // ---------------------------------------------------------------- vegetacion mezclada
 // Ciudades de las facciones: sus capitales.

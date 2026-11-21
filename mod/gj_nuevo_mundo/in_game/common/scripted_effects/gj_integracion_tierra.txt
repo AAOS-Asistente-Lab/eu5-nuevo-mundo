@@ -1,5 +1,5 @@
 ﻿# GJ Nuevo Mundo, integracion: tierra con dueno al empezar. GENERADO por funde-partes.mjs desde
-# vinculo.json (lo calcula reparte-tierra.mjs). 1551 localizaciones repartidas, 9 capitales llevadas a su zona y 188 localizaciones de trozos sueltos abandonadas.
+# vinculo.json (lo calcula reparte-tierra.mjs). 1475 localizaciones repartidas, 10 capitales llevadas a su zona y 193 localizaciones de trozos sueltos abandonadas.
 
 # Marca la tierra que una faccion gana al empezar: gj_fundar_faccion pasa todos sus pops (scope: localizacion).
 gj_marca_tierra_nueva = {
@@ -7,6 +7,34 @@ gj_marca_tierra_nueva = {
 }
 
 gj_reparte_tierra = {
+	# YGK: su capital (rnw_loc_02319) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_02377
+	location:rnw_loc_02377 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	c:YGK = { set_capital = location:rnw_loc_02377 }
+	# CBG: su capital (rnw_loc_03501) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_03430
+	location:rnw_loc_03430 = { change_location_owner = c:CBG change_location_controller = c:CBG add_core = c:CBG gj_marca_tierra_nueva = yes }
+	c:CBG = { set_capital = location:rnw_loc_03430 }
+	# EYJ: su capital (rnw_loc_05927) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_05517
+	c:EYJ = { set_capital = location:rnw_loc_05517 }
+	# FDE: su capital (rnw_loc_00880) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_00937
+	location:rnw_loc_00937 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
+	c:FDE = { set_capital = location:rnw_loc_00937 }
+	# JEJ: su capital (rnw_loc_05166) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_03195
+	location:rnw_loc_03195 = { change_location_owner = c:JEJ change_location_controller = c:JEJ add_core = c:JEJ gj_marca_tierra_nueva = yes }
+	c:JEJ = { set_capital = location:rnw_loc_03195 }
+	# OKD: su capital (rnw_loc_05492) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_04079
+	location:rnw_loc_04079 = { change_location_owner = c:OKD change_location_controller = c:OKD add_core = c:OKD gj_marca_tierra_nueva = yes }
+	c:OKD = { set_capital = location:rnw_loc_04079 }
+	# OXA: su capital (rnw_loc_00531) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_00105
+	location:rnw_loc_00105 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
+	c:OXA = { set_capital = location:rnw_loc_00105 }
+	# QKM: su capital (rnw_loc_00953) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_02379
+	location:rnw_loc_02379 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	c:QKM = { set_capital = location:rnw_loc_02379 }
+	# SGG: su capital (rnw_loc_04822) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_04275
+	c:SGG = { set_capital = location:rnw_loc_04275 }
+	# THJ: su capital (rnw_loc_01323) estaba fuera de su zona o la ha perdido; pasa a rnw_loc_00677
+	location:rnw_loc_00677 = { change_location_owner = c:THJ change_location_controller = c:THJ add_core = c:THJ gj_marca_tierra_nueva = yes }
+	c:THJ = { set_capital = location:rnw_loc_00677 }
 	location:rnw_loc_00045 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00046 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00047 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
@@ -23,7 +51,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_00091 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00092 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00103 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
-	location:rnw_loc_00105 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00119 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00120 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00121 = { change_location_owner = c:OXA change_location_controller = c:OXA add_core = c:OXA gj_marca_tierra_nueva = yes }
@@ -104,7 +131,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_00674 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00675 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00676 = { change_location_owner = c:THJ change_location_controller = c:THJ add_core = c:THJ gj_marca_tierra_nueva = yes }
-	location:rnw_loc_00677 = { change_location_owner = c:THJ change_location_controller = c:THJ add_core = c:THJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00682 = { change_location_owner = c:THJ change_location_controller = c:THJ add_core = c:THJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00687 = { change_location_owner = c:THJ change_location_controller = c:THJ add_core = c:THJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00695 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
@@ -178,7 +204,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_00929 = { change_location_owner = c:THJ change_location_controller = c:THJ add_core = c:THJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00931 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00935 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
-	location:rnw_loc_00937 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00942 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
 	location:rnw_loc_00947 = { change_location_owner = c:JXO change_location_controller = c:JXO add_core = c:JXO every_pop = { change_pop_culture = c:JXO.culture change_pop_religion = c:JXO.religion } }
 	location:rnw_loc_00949 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
@@ -291,12 +316,10 @@ gj_reparte_tierra = {
 	location:rnw_loc_01280 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01281 = { change_location_owner = c:YAI change_location_controller = c:YAI add_core = c:YAI every_pop = { change_pop_culture = c:YAI.culture change_pop_religion = c:YAI.religion } }
 	location:rnw_loc_01284 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01286 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01294 = { change_location_owner = c:WWA change_location_controller = c:WWA add_core = c:WWA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01295 = { change_location_owner = c:DNO change_location_controller = c:DNO add_core = c:DNO every_pop = { change_pop_culture = c:DNO.culture change_pop_religion = c:DNO.religion } }
 	location:rnw_loc_01299 = { change_location_owner = c:JXO change_location_controller = c:JXO add_core = c:JXO every_pop = { change_pop_culture = c:JXO.culture change_pop_religion = c:JXO.religion } }
 	location:rnw_loc_01300 = { change_location_owner = c:WWA change_location_controller = c:WWA add_core = c:WWA gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01301 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01302 = { change_location_owner = c:JXO change_location_controller = c:JXO add_core = c:JXO every_pop = { change_pop_culture = c:JXO.culture change_pop_religion = c:JXO.religion } }
 	location:rnw_loc_01307 = { change_location_owner = c:DNO change_location_controller = c:DNO add_core = c:DNO every_pop = { change_pop_culture = c:DNO.culture change_pop_religion = c:DNO.religion } }
 	location:rnw_loc_01308 = { change_location_owner = c:DNO change_location_controller = c:DNO add_core = c:DNO every_pop = { change_pop_culture = c:DNO.culture change_pop_religion = c:DNO.religion } }
@@ -311,7 +334,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_01329 = { change_location_owner = c:WWA change_location_controller = c:WWA add_core = c:WWA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01336 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01339 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01340 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01345 = { change_location_owner = c:FDE change_location_controller = c:FDE add_core = c:FDE gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01348 = { change_location_owner = c:WWA change_location_controller = c:WWA add_core = c:WWA gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01350 = { change_location_owner = c:WWA change_location_controller = c:WWA add_core = c:WWA gj_marca_tierra_nueva = yes }
@@ -335,16 +357,13 @@ gj_reparte_tierra = {
 	location:rnw_loc_01452 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01453 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01457 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01462 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01466 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01484 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01490 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01507 = { change_location_owner = c:UGK change_location_controller = c:UGK add_core = c:UGK every_pop = { change_pop_culture = c:UGK.culture change_pop_religion = c:UGK.religion } }
-	location:rnw_loc_01515 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01522 = { change_location_owner = c:UGK change_location_controller = c:UGK add_core = c:UGK every_pop = { change_pop_culture = c:UGK.culture change_pop_religion = c:UGK.religion } }
 	location:rnw_loc_01526 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01527 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01529 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01534 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01542 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01547 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
@@ -355,141 +374,123 @@ gj_reparte_tierra = {
 	location:rnw_loc_01563 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01566 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01575 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01583 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01585 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01586 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01587 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01588 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01599 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01601 = { change_location_owner = c:UGK change_location_controller = c:UGK add_core = c:UGK every_pop = { change_pop_culture = c:UGK.culture change_pop_religion = c:UGK.religion } }
 	location:rnw_loc_01605 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01613 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01614 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01617 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01619 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01623 = { change_location_owner = c:UGK change_location_controller = c:UGK add_core = c:UGK every_pop = { change_pop_culture = c:UGK.culture change_pop_religion = c:UGK.religion } }
 	location:rnw_loc_01631 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01632 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01643 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01644 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01647 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
-	location:rnw_loc_01650 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01651 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01653 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01655 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01657 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01667 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01668 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01676 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01678 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01680 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01681 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01682 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01683 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01686 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01693 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01702 = { change_location_owner = c:YJN change_location_controller = c:YJN add_core = c:YJN every_pop = { change_pop_culture = c:YJN.culture change_pop_religion = c:YJN.religion } }
+	location:rnw_loc_01702 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01705 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
 	location:rnw_loc_01706 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01708 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01709 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01710 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01712 = { change_location_owner = c:JDO change_location_controller = c:JDO add_core = c:JDO every_pop = { change_pop_culture = c:JDO.culture change_pop_religion = c:JDO.religion } }
 	location:rnw_loc_01714 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01717 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01722 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01726 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01737 = { change_location_owner = c:ZDE change_location_controller = c:ZDE add_core = c:ZDE every_pop = { change_pop_culture = c:ZDE.culture change_pop_religion = c:ZDE.religion } }
 	location:rnw_loc_01739 = { change_location_owner = c:ZDE change_location_controller = c:ZDE add_core = c:ZDE every_pop = { change_pop_culture = c:ZDE.culture change_pop_religion = c:ZDE.religion } }
 	location:rnw_loc_01740 = { change_location_owner = c:ZDE change_location_controller = c:ZDE add_core = c:ZDE every_pop = { change_pop_culture = c:ZDE.culture change_pop_religion = c:ZDE.religion } }
-	location:rnw_loc_01743 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01745 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01748 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01749 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01754 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01756 = { change_location_owner = c:YZU change_location_controller = c:YZU add_core = c:YZU every_pop = { change_pop_culture = c:YZU.culture change_pop_religion = c:YZU.religion } }
-	location:rnw_loc_01763 = { change_location_owner = c:YJN change_location_controller = c:YJN add_core = c:YJN every_pop = { change_pop_culture = c:YJN.culture change_pop_religion = c:YJN.religion } }
-	location:rnw_loc_01767 = { change_location_owner = c:YJN change_location_controller = c:YJN add_core = c:YJN every_pop = { change_pop_culture = c:YJN.culture change_pop_religion = c:YJN.religion } }
-	location:rnw_loc_01770 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01779 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_01763 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_01767 = { change_location_owner = c:ZDE change_location_controller = c:ZDE add_core = c:ZDE every_pop = { change_pop_culture = c:ZDE.culture change_pop_religion = c:ZDE.religion } }
 	location:rnw_loc_01783 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01794 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01795 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01803 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01806 = { change_location_owner = c:YJN change_location_controller = c:YJN add_core = c:YJN every_pop = { change_pop_culture = c:YJN.culture change_pop_religion = c:YJN.religion } }
-	location:rnw_loc_01811 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_01806 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01827 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
+	location:rnw_loc_01829 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01833 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01834 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01839 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01857 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01859 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_01865 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
+	location:rnw_loc_01869 = { change_location_owner = c:PYM change_location_controller = c:PYM add_core = c:PYM every_pop = { change_pop_culture = c:PYM.culture change_pop_religion = c:PYM.religion } }
 	location:rnw_loc_01882 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_01886 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01888 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01890 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_01892 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01899 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_01894 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01901 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_01906 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01909 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_01916 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
+	location:rnw_loc_01919 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01920 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
+	location:rnw_loc_01924 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_01926 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01933 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_01956 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_01957 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_01967 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01969 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_01970 = { change_location_owner = c:PYM change_location_controller = c:PYM add_core = c:PYM every_pop = { change_pop_culture = c:PYM.culture change_pop_religion = c:PYM.religion } }
 	location:rnw_loc_01974 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_01975 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_01984 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
 	location:rnw_loc_02002 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02003 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02004 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02005 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02007 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02008 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02010 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02012 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02018 = { change_location_owner = c:JFK change_location_controller = c:JFK add_core = c:JFK every_pop = { change_pop_culture = c:JFK.culture change_pop_religion = c:JFK.religion } }
 	location:rnw_loc_02021 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02022 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02025 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02025 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02028 = { change_location_owner = c:YJN change_location_controller = c:YJN add_core = c:YJN every_pop = { change_pop_culture = c:YJN.culture change_pop_religion = c:YJN.religion } }
 	location:rnw_loc_02052 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02057 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02059 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02062 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02064 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02067 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02068 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02069 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
-	location:rnw_loc_02071 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02069 = { change_location_owner = c:HHD change_location_controller = c:HHD add_core = c:HHD every_pop = { change_pop_culture = c:HHD.culture change_pop_religion = c:HHD.religion } }
+	location:rnw_loc_02071 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02072 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02073 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02081 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
+	location:rnw_loc_02088 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02090 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02095 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02097 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
+	location:rnw_loc_02098 = { change_location_owner = c:HHD change_location_controller = c:HHD add_core = c:HHD every_pop = { change_pop_culture = c:HHD.culture change_pop_religion = c:HHD.religion } }
 	location:rnw_loc_02099 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02101 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02102 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02108 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02111 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02114 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02116 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02118 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02118 = { change_location_owner = c:HHD change_location_controller = c:HHD add_core = c:HHD every_pop = { change_pop_culture = c:HHD.culture change_pop_religion = c:HHD.religion } }
 	location:rnw_loc_02120 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02122 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02124 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02125 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02127 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02129 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02129 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02131 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02138 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02141 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
-	location:rnw_loc_02142 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
-	location:rnw_loc_02146 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02147 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
-	location:rnw_loc_02156 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02139 = { change_location_owner = c:HHD change_location_controller = c:HHD add_core = c:HHD every_pop = { change_pop_culture = c:HHD.culture change_pop_religion = c:HHD.religion } }
+	location:rnw_loc_02141 = { change_location_owner = c:HHD change_location_controller = c:HHD add_core = c:HHD every_pop = { change_pop_culture = c:HHD.culture change_pop_religion = c:HHD.religion } }
+	location:rnw_loc_02147 = { change_location_owner = c:HHD change_location_controller = c:HHD add_core = c:HHD every_pop = { change_pop_culture = c:HHD.culture change_pop_religion = c:HHD.religion } }
+	location:rnw_loc_02154 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02156 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02161 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02162 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02178 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02170 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02180 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02181 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02183 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
@@ -499,25 +500,29 @@ gj_reparte_tierra = {
 	location:rnw_loc_02189 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02190 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02191 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02193 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02196 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02203 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02205 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02206 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02207 = { change_location_owner = c:GQC change_location_controller = c:GQC add_core = c:GQC every_pop = { change_pop_culture = c:GQC.culture change_pop_religion = c:GQC.religion } }
-	location:rnw_loc_02209 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02208 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02209 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02211 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02212 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02213 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02219 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02224 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02227 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02235 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02237 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02240 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02238 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
+	location:rnw_loc_02239 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02248 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02249 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02249 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02250 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02252 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02253 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02256 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02258 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
 	location:rnw_loc_02259 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02261 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02263 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
@@ -525,84 +530,79 @@ gj_reparte_tierra = {
 	location:rnw_loc_02266 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02268 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02272 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02273 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
-	location:rnw_loc_02274 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02273 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02277 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02281 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02285 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02286 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
+	location:rnw_loc_02288 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02290 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02291 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02292 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02298 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02302 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02304 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02308 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02308 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02310 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02312 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02315 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02315 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02318 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
+	location:rnw_loc_02319 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02320 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02321 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02322 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
 	location:rnw_loc_02324 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02328 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02330 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
-	location:rnw_loc_02331 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02330 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
+	location:rnw_loc_02331 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
+	location:rnw_loc_02333 = { change_location_owner = c:NPC change_location_controller = c:NPC add_core = c:NPC every_pop = { change_pop_culture = c:NPC.culture change_pop_religion = c:NPC.religion } }
 	location:rnw_loc_02334 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02336 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02340 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02346 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02347 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
+	location:rnw_loc_02349 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02351 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02353 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02355 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02357 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02359 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02360 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
 	location:rnw_loc_02361 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02367 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02367 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02369 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02372 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02372 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02373 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02374 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02375 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02377 = { change_location_owner = c:YEK change_location_controller = c:YEK add_core = c:YEK every_pop = { change_pop_culture = c:YEK.culture change_pop_religion = c:YEK.religion } }
-	location:rnw_loc_02378 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
-	location:rnw_loc_02379 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02380 = { change_location_owner = c:ZET change_location_controller = c:ZET add_core = c:ZET every_pop = { change_pop_culture = c:ZET.culture change_pop_religion = c:ZET.religion } }
-	location:rnw_loc_02387 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02380 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02383 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02387 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02389 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02392 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02394 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02397 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02400 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02401 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02405 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
+	location:rnw_loc_02405 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02406 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02410 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02411 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02412 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02413 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02413 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02416 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02417 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02417 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02421 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02426 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02428 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02428 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02430 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02431 = { change_location_owner = c:VOC change_location_controller = c:VOC add_core = c:VOC every_pop = { change_pop_culture = c:VOC.culture change_pop_religion = c:VOC.religion } }
-	location:rnw_loc_02432 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02431 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02432 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02433 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02434 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02435 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02437 = { change_location_owner = c:VOC change_location_controller = c:VOC add_core = c:VOC every_pop = { change_pop_culture = c:VOC.culture change_pop_religion = c:VOC.religion } }
+	location:rnw_loc_02437 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02438 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02439 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02445 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02446 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
 	location:rnw_loc_02451 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02453 = { change_location_owner = c:NFD change_location_controller = c:NFD add_core = c:NFD every_pop = { change_pop_culture = c:NFD.culture change_pop_religion = c:NFD.religion } }
+	location:rnw_loc_02453 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02454 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02455 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02455 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02458 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02460 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02461 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
@@ -614,9 +614,8 @@ gj_reparte_tierra = {
 	location:rnw_loc_02472 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02474 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02475 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02478 = { change_location_owner = c:NFD change_location_controller = c:NFD add_core = c:NFD every_pop = { change_pop_culture = c:NFD.culture change_pop_religion = c:NFD.religion } }
-	location:rnw_loc_02479 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
-	location:rnw_loc_02483 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
+	location:rnw_loc_02478 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
+	location:rnw_loc_02479 = { change_location_owner = c:UXN change_location_controller = c:UXN add_core = c:UXN every_pop = { change_pop_culture = c:UXN.culture change_pop_religion = c:UXN.religion } }
 	location:rnw_loc_02485 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02486 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02490 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
@@ -624,57 +623,49 @@ gj_reparte_tierra = {
 	location:rnw_loc_02494 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02499 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02500 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02502 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02502 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02504 = { change_location_owner = c:KWV change_location_controller = c:KWV add_core = c:KWV every_pop = { change_pop_culture = c:KWV.culture change_pop_religion = c:KWV.religion } }
 	location:rnw_loc_02505 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02507 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02508 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02509 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
-	location:rnw_loc_02510 = { change_location_owner = c:NFD change_location_controller = c:NFD add_core = c:NFD every_pop = { change_pop_culture = c:NFD.culture change_pop_religion = c:NFD.religion } }
+	location:rnw_loc_02510 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02511 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02512 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02514 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02516 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02519 = { change_location_owner = c:RBS change_location_controller = c:RBS add_core = c:RBS every_pop = { change_pop_culture = c:RBS.culture change_pop_religion = c:RBS.religion } }
 	location:rnw_loc_02522 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02523 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02526 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02528 = { change_location_owner = c:KWV change_location_controller = c:KWV add_core = c:KWV every_pop = { change_pop_culture = c:KWV.culture change_pop_religion = c:KWV.religion } }
 	location:rnw_loc_02533 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02535 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02537 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02543 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02543 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02544 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02546 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02547 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02549 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02549 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02550 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02551 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02552 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02553 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02555 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02558 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02560 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02561 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02562 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02565 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02567 = { change_location_owner = c:GQT change_location_controller = c:GQT add_core = c:GQT every_pop = { change_pop_culture = c:GQT.culture change_pop_religion = c:GQT.religion } }
 	location:rnw_loc_02568 = { change_location_owner = c:KWV change_location_controller = c:KWV add_core = c:KWV every_pop = { change_pop_culture = c:KWV.culture change_pop_religion = c:KWV.religion } }
 	location:rnw_loc_02570 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02573 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02576 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02579 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02581 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02582 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02583 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02586 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02586 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02587 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02588 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02590 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02592 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02593 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02595 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02596 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02597 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02598 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02600 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
@@ -682,24 +673,20 @@ gj_reparte_tierra = {
 	location:rnw_loc_02604 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02607 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02608 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02609 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02610 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02611 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02609 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02612 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02613 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02614 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02615 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02617 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02618 = { change_location_owner = c:KWV change_location_controller = c:KWV add_core = c:KWV every_pop = { change_pop_culture = c:KWV.culture change_pop_religion = c:KWV.religion } }
 	location:rnw_loc_02619 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02622 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02623 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02627 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02630 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02630 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02631 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02632 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02633 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02636 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02636 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02638 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02639 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02640 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
@@ -711,15 +698,12 @@ gj_reparte_tierra = {
 	location:rnw_loc_02647 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02648 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02649 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02650 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02652 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02653 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02655 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02658 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02660 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02661 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02662 = { change_location_owner = c:KLY change_location_controller = c:KLY add_core = c:KLY every_pop = { change_pop_culture = c:KLY.culture change_pop_religion = c:KLY.religion } }
-	location:rnw_loc_02664 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02664 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02666 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02668 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02669 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
@@ -735,20 +719,15 @@ gj_reparte_tierra = {
 	location:rnw_loc_02687 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02688 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02689 = { change_location_owner = c:KLY change_location_controller = c:KLY add_core = c:KLY every_pop = { change_pop_culture = c:KLY.culture change_pop_religion = c:KLY.religion } }
-	location:rnw_loc_02692 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02695 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02696 = { change_location_owner = c:GTJ change_location_controller = c:GTJ add_core = c:GTJ every_pop = { change_pop_culture = c:GTJ.culture change_pop_religion = c:GTJ.religion } }
-	location:rnw_loc_02697 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02697 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02699 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02700 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02701 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02702 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02703 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02704 = { change_location_owner = c:UAK change_location_controller = c:UAK add_core = c:UAK every_pop = { change_pop_culture = c:UAK.culture change_pop_religion = c:UAK.religion } }
 	location:rnw_loc_02705 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02706 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02707 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02708 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02709 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02710 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02711 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
@@ -757,27 +736,20 @@ gj_reparte_tierra = {
 	location:rnw_loc_02716 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02717 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02718 = { change_location_owner = c:KLY change_location_controller = c:KLY add_core = c:KLY every_pop = { change_pop_culture = c:KLY.culture change_pop_religion = c:KLY.religion } }
-	location:rnw_loc_02722 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
+	location:rnw_loc_02722 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02724 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02725 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02727 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02728 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02729 = { change_location_owner = c:GTJ change_location_controller = c:GTJ add_core = c:GTJ every_pop = { change_pop_culture = c:GTJ.culture change_pop_religion = c:GTJ.religion } }
-	location:rnw_loc_02730 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02731 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02732 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02734 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02736 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02738 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02739 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02740 = { change_location_owner = c:UAK change_location_controller = c:UAK add_core = c:UAK every_pop = { change_pop_culture = c:UAK.culture change_pop_religion = c:UAK.religion } }
-	location:rnw_loc_02742 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02744 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02750 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02751 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02752 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02754 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02756 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02757 = { change_location_owner = c:UAK change_location_controller = c:UAK add_core = c:UAK every_pop = { change_pop_culture = c:UAK.culture change_pop_religion = c:UAK.religion } }
 	location:rnw_loc_02758 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02764 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
@@ -785,22 +757,15 @@ gj_reparte_tierra = {
 	location:rnw_loc_02766 = { change_location_owner = c:GTJ change_location_controller = c:GTJ add_core = c:GTJ every_pop = { change_pop_culture = c:GTJ.culture change_pop_religion = c:GTJ.religion } }
 	location:rnw_loc_02768 = { change_location_owner = c:UAK change_location_controller = c:UAK add_core = c:UAK every_pop = { change_pop_culture = c:UAK.culture change_pop_religion = c:UAK.religion } }
 	location:rnw_loc_02769 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02770 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02771 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02772 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02773 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02774 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02775 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02776 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02777 = { change_location_owner = c:UAK change_location_controller = c:UAK add_core = c:UAK every_pop = { change_pop_culture = c:UAK.culture change_pop_religion = c:UAK.religion } }
 	location:rnw_loc_02779 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02780 = { change_location_owner = c:KLY change_location_controller = c:KLY add_core = c:KLY every_pop = { change_pop_culture = c:KLY.culture change_pop_religion = c:KLY.religion } }
 	location:rnw_loc_02783 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02784 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02790 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02792 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02795 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02798 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02801 = { change_location_owner = c:KLY change_location_controller = c:KLY add_core = c:KLY every_pop = { change_pop_culture = c:KLY.culture change_pop_religion = c:KLY.religion } }
 	location:rnw_loc_02804 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02805 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
@@ -809,10 +774,8 @@ gj_reparte_tierra = {
 	location:rnw_loc_02809 = { change_location_owner = c:QKM change_location_controller = c:QKM add_core = c:QKM gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02810 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02811 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
-	location:rnw_loc_02813 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02814 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02815 = { change_location_owner = c:JTZ change_location_controller = c:JTZ add_core = c:JTZ every_pop = { change_pop_culture = c:JTZ.culture change_pop_religion = c:JTZ.religion } }
-	location:rnw_loc_02816 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02818 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02819 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02822 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
@@ -829,7 +792,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_02847 = { change_location_owner = c:GTJ change_location_controller = c:GTJ add_core = c:GTJ every_pop = { change_pop_culture = c:GTJ.culture change_pop_religion = c:GTJ.religion } }
 	location:rnw_loc_02850 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02853 = { change_location_owner = c:GTJ change_location_controller = c:GTJ add_core = c:GTJ every_pop = { change_pop_culture = c:GTJ.culture change_pop_religion = c:GTJ.religion } }
-	location:rnw_loc_02855 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02859 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02862 = { change_location_owner = c:GTJ change_location_controller = c:GTJ add_core = c:GTJ every_pop = { change_pop_culture = c:GTJ.culture change_pop_religion = c:GTJ.religion } }
 	location:rnw_loc_02867 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
@@ -843,7 +805,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_02884 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02885 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02886 = { change_location_owner = c:JTZ change_location_controller = c:JTZ add_core = c:JTZ every_pop = { change_pop_culture = c:JTZ.culture change_pop_religion = c:JTZ.religion } }
-	location:rnw_loc_02889 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02890 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02892 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02893 = { change_location_owner = c:GTJ change_location_controller = c:GTJ add_core = c:GTJ every_pop = { change_pop_culture = c:GTJ.culture change_pop_religion = c:GTJ.religion } }
@@ -851,11 +812,7 @@ gj_reparte_tierra = {
 	location:rnw_loc_02895 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02897 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02898 = { change_location_owner = c:GTJ change_location_controller = c:GTJ add_core = c:GTJ every_pop = { change_pop_culture = c:GTJ.culture change_pop_religion = c:GTJ.religion } }
-	location:rnw_loc_02903 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02904 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
-	location:rnw_loc_02907 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02908 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02912 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02918 = { change_location_owner = c:JTZ change_location_controller = c:JTZ add_core = c:JTZ every_pop = { change_pop_culture = c:JTZ.culture change_pop_religion = c:JTZ.religion } }
 	location:rnw_loc_02919 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02920 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
@@ -867,28 +824,18 @@ gj_reparte_tierra = {
 	location:rnw_loc_02935 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02936 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02940 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
-	location:rnw_loc_02943 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02944 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02945 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02948 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02949 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
-	location:rnw_loc_02950 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02951 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02952 = { change_location_owner = c:JTZ change_location_controller = c:JTZ add_core = c:JTZ every_pop = { change_pop_culture = c:JTZ.culture change_pop_religion = c:JTZ.religion } }
 	location:rnw_loc_02954 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_02956 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
-	location:rnw_loc_02960 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02975 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02983 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02989 = { change_location_owner = c:QPF change_location_controller = c:QPF add_core = c:QPF gj_marca_tierra_nueva = yes }
 	location:rnw_loc_02990 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
-	location:rnw_loc_02991 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
-	location:rnw_loc_02994 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_02995 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_03000 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
-	location:rnw_loc_03007 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_03008 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
-	location:rnw_loc_03028 = { change_location_owner = c:YGK change_location_controller = c:YGK add_core = c:YGK every_pop = { change_pop_culture = c:YGK.culture change_pop_religion = c:YGK.religion } }
 	location:rnw_loc_03031 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_03049 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
 	location:rnw_loc_03054 = { change_location_owner = c:ZDG change_location_controller = c:ZDG add_core = c:ZDG every_pop = { change_pop_culture = c:ZDG.culture change_pop_religion = c:ZDG.religion } }
@@ -909,7 +856,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_03190 = { change_location_owner = c:JEJ change_location_controller = c:JEJ add_core = c:JEJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_03192 = { change_location_owner = c:JEJ change_location_controller = c:JEJ add_core = c:JEJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_03194 = { change_location_owner = c:JEJ change_location_controller = c:JEJ add_core = c:JEJ gj_marca_tierra_nueva = yes }
-	location:rnw_loc_03195 = { change_location_owner = c:JEJ change_location_controller = c:JEJ add_core = c:JEJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_03196 = { change_location_owner = c:JEJ change_location_controller = c:JEJ add_core = c:JEJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_03197 = { change_location_owner = c:JEJ change_location_controller = c:JEJ add_core = c:JEJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_03198 = { change_location_owner = c:JEJ change_location_controller = c:JEJ add_core = c:JEJ gj_marca_tierra_nueva = yes }
@@ -967,7 +913,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_03426 = { change_location_owner = c:HLH change_location_controller = c:HLH add_core = c:HLH every_pop = { change_pop_culture = c:HLH.culture change_pop_religion = c:HLH.religion } }
 	location:rnw_loc_03427 = { change_location_owner = c:HLH change_location_controller = c:HLH add_core = c:HLH every_pop = { change_pop_culture = c:HLH.culture change_pop_religion = c:HLH.religion } }
 	location:rnw_loc_03428 = { change_location_owner = c:MMW change_location_controller = c:MMW add_core = c:MMW every_pop = { change_pop_culture = c:MMW.culture change_pop_religion = c:MMW.religion } }
-	location:rnw_loc_03430 = { change_location_owner = c:CBG change_location_controller = c:CBG add_core = c:CBG gj_marca_tierra_nueva = yes }
 	location:rnw_loc_03431 = { change_location_owner = c:HLH change_location_controller = c:HLH add_core = c:HLH every_pop = { change_pop_culture = c:HLH.culture change_pop_religion = c:HLH.religion } }
 	location:rnw_loc_03432 = { change_location_owner = c:CBG change_location_controller = c:CBG add_core = c:CBG gj_marca_tierra_nueva = yes }
 	location:rnw_loc_03433 = { change_location_owner = c:CBG change_location_controller = c:CBG add_core = c:CBG gj_marca_tierra_nueva = yes }
@@ -1210,7 +1155,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_04072 = { change_location_owner = c:WTT change_location_controller = c:WTT add_core = c:WTT every_pop = { change_pop_culture = c:WTT.culture change_pop_religion = c:WTT.religion } }
 	location:rnw_loc_04076 = { change_location_owner = c:SGG change_location_controller = c:SGG add_core = c:SGG gj_marca_tierra_nueva = yes }
 	location:rnw_loc_04077 = { change_location_owner = c:OKD change_location_controller = c:OKD add_core = c:OKD gj_marca_tierra_nueva = yes }
-	location:rnw_loc_04079 = { change_location_owner = c:OKD change_location_controller = c:OKD add_core = c:OKD gj_marca_tierra_nueva = yes }
 	location:rnw_loc_04083 = { change_location_owner = c:QJZ change_location_controller = c:QJZ add_core = c:QJZ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_04088 = { change_location_owner = c:WTT change_location_controller = c:WTT add_core = c:WTT every_pop = { change_pop_culture = c:WTT.culture change_pop_religion = c:WTT.religion } }
 	location:rnw_loc_04093 = { change_location_owner = c:QJZ change_location_controller = c:QJZ add_core = c:QJZ gj_marca_tierra_nueva = yes }
@@ -1558,24 +1502,6 @@ gj_reparte_tierra = {
 	location:rnw_loc_05887 = { change_location_owner = c:EYJ change_location_controller = c:EYJ add_core = c:EYJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_05889 = { change_location_owner = c:EYJ change_location_controller = c:EYJ add_core = c:EYJ gj_marca_tierra_nueva = yes }
 	location:rnw_loc_05897 = { change_location_owner = c:EYJ change_location_controller = c:EYJ add_core = c:EYJ gj_marca_tierra_nueva = yes }
-	# CBG: su capital (rnw_loc_03501) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:CBG = { set_capital = location:rnw_loc_03430 }
-	# EYJ: su capital (rnw_loc_05927) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:EYJ = { set_capital = location:rnw_loc_05517 }
-	# FDE: su capital (rnw_loc_00880) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:FDE = { set_capital = location:rnw_loc_00937 }
-	# JEJ: su capital (rnw_loc_05166) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:JEJ = { set_capital = location:rnw_loc_03195 }
-	# OKD: su capital (rnw_loc_05492) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:OKD = { set_capital = location:rnw_loc_04079 }
-	# OXA: su capital (rnw_loc_00531) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:OXA = { set_capital = location:rnw_loc_00105 }
-	# QKM: su capital (rnw_loc_00953) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:QKM = { set_capital = location:rnw_loc_02379 }
-	# SGG: su capital (rnw_loc_04822) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:SGG = { set_capital = location:rnw_loc_04275 }
-	# THJ: su capital (rnw_loc_01323) estaba fuera de su zona; pasa a su localizacion mas cerca del centro
-	c:THJ = { set_capital = location:rnw_loc_00677 }
 	# trozos sueltos que nadie ha tomado: quedan sin dueno, para colonizar
 	c:QKM = { abandon_location = location:rnw_loc_00407 }
 	c:QKM = { abandon_location = location:rnw_loc_00437 }
@@ -1598,9 +1524,14 @@ gj_reparte_tierra = {
 	c:QKM = { abandon_location = location:rnw_loc_01246 }
 	c:QKM = { abandon_location = location:rnw_loc_01257 }
 	c:THJ = { abandon_location = location:rnw_loc_01269 }
+	c:FDE = { abandon_location = location:rnw_loc_01286 }
+	c:FDE = { abandon_location = location:rnw_loc_01301 }
 	c:QKM = { abandon_location = location:rnw_loc_01306 }
 	c:QKM = { abandon_location = location:rnw_loc_01312 }
+	c:FDE = { abandon_location = location:rnw_loc_01340 }
 	c:THJ = { abandon_location = location:rnw_loc_01351 }
+	c:FDE = { abandon_location = location:rnw_loc_01599 }
+	c:FDE = { abandon_location = location:rnw_loc_01619 }
 	c:YAI = { abandon_location = location:rnw_loc_01741 }
 	c:YAI = { abandon_location = location:rnw_loc_01786 }
 	c:YAI = { abandon_location = location:rnw_loc_01853 }

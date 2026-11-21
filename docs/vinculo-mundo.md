@@ -1,6 +1,6 @@
 # Vinculo de las facciones con el mundo
 
-Escrito por asigna-facciones.mjs el 2026-11-21 09:45. Mundo: **RNW: Custom world 35CL** (`rnw_exp_world_35clmr62cr`, version 1.2.2). Paises de America que se pueden elegir: 130.
+Escrito por asigna-facciones.mjs el 2026-11-21 10:28. Mundo: **RNW: Custom world 35CL** (`rnw_exp_world_35clmr62cr`, version 1.2.2). Paises de America que se pueden elegir: 130.
 
 En la pantalla de seleccion de pais ya salen con el nombre de la faccion (si no, con el del mundo: elige por la etiqueta).
 
@@ -49,16 +49,16 @@ En la pantalla de seleccion de pais ya salen con el nombre de la faccion (si no,
 | Menor S7: marchas de Orunmar | S | 176 | 148 |
 
 ## Tierra con dueno al empezar (reparte-tierra.mjs)
-Nuevo Mundo: 5932 localizaciones de tierra. Con dueno en el mundo de RNW: 1303 (22.0 %), con 31 paises partidos en varios trozos. Tras crecer las facciones y dejar a cada pais en su nucleo: 1781 (30.0 %). Tras crecer los demas: **2426 (40.9 %)**, repartidas entre **130 paises**; el resto queda libre para colonizar (188 localizaciones de trozos sueltos se abandonan). Nadie absorbe a nadie.
+Nuevo Mundo: 5932 localizaciones de tierra. Con dueno en el mundo de RNW: 1303 (22.0 %), con 31 paises partidos en varios trozos. Tras crecer las facciones y dejar a cada pais en su nucleo: 1755 (29.6 %). Tras crecer los demas: **2323 (39.2 %)**, repartidas entre **130 paises**; el resto queda libre para colonizar (193 localizaciones de trozos sueltos se abandonan). Nadie absorbe a nadie.
 
 **Paises partidos en varios trozos: 0**.
 
 | Tamano (localizaciones) | Paises |
 |---|---|
-| 1-5 | 56 |
-| 6-15 | 33 |
+| 1-5 | 60 |
+| 6-15 | 31 |
 | 16-45 | 26 |
-| 46-90 | 10 |
+| 46-90 | 8 |
 | 91 o mas | 5 |
 
 | Zona | Faccion | Pais | En el mundo de RNW | Al empezar | De ellas, en su zona | De su zona |
@@ -76,7 +76,10 @@ Nuevo Mundo: 5932 localizaciones de tierra. Con dueno en el mundo de RNW: 1303 (
 | thalassar | thalassar | EYJ | 49 | 78 | 68 | 25 % |
 | velathi | velathi | SGG | 28 | 98 | 98 | 25 % |
 
-Capital llevada a su zona: ankaru OKD de rnw_loc_05492 a rnw_loc_04079; hrimval OXA de rnw_loc_00531 a rnw_loc_00105; kaivan QKM de rnw_loc_00953 a rnw_loc_02379; lagunas FDE de rnw_loc_00880 a rnw_loc_00937; marea_negra JEJ de rnw_loc_05166 a rnw_loc_03195; skarren THJ de rnw_loc_01323 a rnw_loc_00677; sorava CBG de rnw_loc_03501 a rnw_loc_03430; thalassar EYJ de rnw_loc_05927 a rnw_loc_05517; velathi SGG de rnw_loc_04822 a rnw_loc_04275.
+Sub-zonas que piden las mecanicas (localizaciones de la faccion / de la sub-zona): durnhal en gj_zona_caldera: 39/48; kaivan en gj_zona_estepa_alta: 56/206; kaivan en gj_zona_estepa_baja: 133/263; kaivan en gj_zona_marca_occidental: 13/273; kaivan en gj_zona_valles_orientales: 8/159.
+
+
+Capital mudada (a su zona, o porque la ha perdido): estado de RNW YGK de rnw_loc_02319 a rnw_loc_02377; ankaru OKD de rnw_loc_05492 a rnw_loc_04079; hrimval OXA de rnw_loc_00531 a rnw_loc_00105; kaivan QKM de rnw_loc_00953 a rnw_loc_02379; lagunas FDE de rnw_loc_00880 a rnw_loc_00937; marea_negra JEJ de rnw_loc_05166 a rnw_loc_03195; skarren THJ de rnw_loc_01323 a rnw_loc_00677; sorava CBG de rnw_loc_03501 a rnw_loc_03430; thalassar EYJ de rnw_loc_05927 a rnw_loc_05517; velathi SGG de rnw_loc_04822 a rnw_loc_04275.
 
 
 ## Vegetacion del Nuevo Mundo (mezcla-vegetacion.mjs)

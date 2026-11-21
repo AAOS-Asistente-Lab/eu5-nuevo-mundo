@@ -49,7 +49,7 @@ En «DLC y mods», la colección activa en este orden exacto (lo que va más aba
 - [ ] Guarda, cierra y mira `Documents/Paradox Interactive/Europa Universalis V/logs/error.log`: busca líneas con `gj_`.
 
 ## 5. Multijugador
-Los dos con los pasos 0-3 hechos y la misma huella del mod (`929ee71d517fa233`, la imprime `asigna-facciones.mjs`; la de los gráficos, `exporta-3d.mjs`): abrid una sala y **comparad la suma de control**. Si coincide, jugad 2 años sin desincronizaros, una facción cada uno.
+Los dos con los pasos 0-3 hechos y la misma huella del mod (`f38da466466c7925`, la imprime `asigna-facciones.mjs`; la de los gráficos, `exporta-3d.mjs`): abrid una sala y **comparad la suma de control**. Si coincide, jugad 2 años sin desincronizaros, una facción cada uno.
 
 ## Rehacer el mod (solo si cambian las partes o el mundo)
 Con Node 22 o más y el juego cerrado:

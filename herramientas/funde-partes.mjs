@@ -429,6 +429,11 @@ const dadas = Object.entries(TIERRA.da || {}).sort(([a], [b]) => a.localeCompare
 const capitales = Object.entries(TIERRA.capital || {}).sort(([a], [b]) => a.localeCompare(b));
 const sueltas = Object.entries(TIERRA.suelta || {}).sort(([a], [b]) => a.localeCompare(b));
 const popsDe = (dueno) => (tagsFaccion.has(dueno) ? 'gj_marca_tierra_nueva = yes' : `every_pop = { change_pop_culture = c:${dueno}.culture change_pop_religion = c:${dueno}.religion }`);
+// primero la capital nueva de quien la muda (los estados de RNW antes que las facciones): asi
+// ningun pais se queda sin tierra ni sin capital a mitad del efecto
+const daLinea = ([l, dueno]) => `\tlocation:${l} = { change_location_owner = c:${dueno} change_location_controller = c:${dueno} add_core = c:${dueno} ${popsDe(dueno)} }`;
+const capOrden = [...capitales].sort(([a], [b]) => (tagsFaccion.has(a) - tagsFaccion.has(b)) || a.localeCompare(b));
+const capLocs = new Set(capOrden.map(([, c]) => c.a));
 escribeConBom(I('in_game/common/scripted_effects/gj_integracion_tierra.txt'),
 `# GJ Nuevo Mundo, integracion: tierra con dueno al empezar. GENERADO por funde-partes.mjs desde
 # vinculo.json (lo calcula reparte-tierra.mjs). ${dadas.length ? `${dadas.length} localizaciones repartidas, ${capitales.length} capitales llevadas a su zona y ${sueltas.length} localizaciones de trozos sueltos abandonadas.` : 'Sin mundo vinculado: no cambia nada.'}
@@ -439,8 +444,8 @@ gj_marca_tierra_nueva = {
 }
 
 gj_reparte_tierra = {
-${dadas.map(([l, dueno]) => `\tlocation:${l} = { change_location_owner = c:${dueno} change_location_controller = c:${dueno} add_core = c:${dueno} ${popsDe(dueno)} }`).join('\n')}
-${capitales.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su zona; pasa a su localizacion mas cerca del centro\n\tc:${t2} = { set_capital = location:${c.a} }`).join('\n')}
+${capOrden.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su zona o la ha perdido; pasa a ${c.a}\n${TIERRA.da[c.a] ? daLinea([c.a, TIERRA.da[c.a]]) + '\n' : ''}\tc:${t2} = { set_capital = location:${c.a} }`).join('\n')}
+${dadas.filter(([l]) => !capLocs.has(l)).map(daLinea).join('\n')}
 	# trozos sueltos que nadie ha tomado: quedan sin dueno, para colonizar
 ${sueltas.map(([l, t2]) => `\tc:${t2} = { abandon_location = location:${l} }`).join('\n')}
 }

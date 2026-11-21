@@ -16,6 +16,7 @@
 
 export const FRACCION_FACCION = 0.25; // parte de su zona que tiene cada faccion al empezar
 export const FACCION_MINIMO = 30;     // ninguna faccion empieza con menos en su zona
+export const MINIMO_SUBZONA = 8;      // localizaciones de la faccion en cada sub-zona de su zona
 // [parte de los paises, talla minima, talla maxima]
 export const TALLAS = [[0.45, 8, 18], [0.40, 20, 50], [0.15, 55, 110]];
 
@@ -39,7 +40,7 @@ export function trozosDe(locs, vec) {
   return r;
 }
 
-export function reparteTierra({ liga, vec, paises, asignados, facciones, fraccionFaccion = FRACCION_FACCION, faccionMinimo = FACCION_MINIMO, tallas = TALLAS }) {
+export function reparteTierra({ liga, vec, paises, asignados, facciones, subzonas = [], minimoSubzona = MINIMO_SUBZONA, fraccionFaccion = FRACCION_FACCION, faccionMinimo = FACCION_MINIMO, tallas = TALLAS }) {
   const tierra = [...liga.tierra].sort();
   const esTierra = new Set(tierra);
   const zonaId = (l) => liga.zonaDe.get(l)?.id;
@@ -71,7 +72,7 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, fraccio
   for (const p of porTag) if (zonaDeTag.has(p.tag)) dejaNucleo(p);
 
   // crecimiento compacto: de la tierra libre que toca la del pais, la mas cerca de un punto
-  const crecedor = (tag, punto, libre) => {
+  const crecedor = (tag, punto, libre, antesLibre = true) => {
     const dist = distA(punto);
     const borde = new Map(); // libre que toca -> distancia
     const mira = (l) => { for (const v of [...(vec.get(l) || [])].sort()) if (esTierra.has(v) && !borde.has(v) && libre(v)) borde.set(v, dist(v)); };
@@ -82,7 +83,7 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, fraccio
         let mejor = null, dm = Infinity, ocupada = true;
         for (const [l, d] of borde) {
           if (!libre(l)) { borde.delete(l); continue; }
-          const o = dueno.has(l); // antes la tierra sin dueno que la de otro pais
+          const o = antesLibre && dueno.has(l); // antes la tierra sin dueno que la de otro pais
           if ((ocupada && !o) || (o === ocupada && (d < dm || (d === dm && l < mejor)))) { mejor = l; dm = d; ocupada = o; }
         }
         if (mejor === null) return false;
@@ -109,11 +110,52 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, fraccio
       for (const l of mias()) dueno.delete(l);
       semilla = [...trozosZ[0]].sort((a, b) => (dueno.has(a) - dueno.has(b)) || dist(a) - dist(b) || a.localeCompare(b))[0];
     }
+    const enZona = () => mias().filter((l) => zonaId(l) === z).length;
+    if (semilla) { const c0 = crecedor(d.tag, centroDe(z), tomable); c0.siembra(semilla); c0.toma(); }
+    // un brazo hasta cada sub-zona gj_zona_* de su zona (mas de la mitad dentro) donde aun no tiene
+    // MINIMO_SUBZONA localizaciones: crece hacia el centro de la sub-zona, sin soltarse del nucleo.
+    // Lo piden sus mecanicas (los cuatro clanes de Kaivan votan si la faccion tiene tierra en su cuarto).
+    for (const sz of [...subzonas].sort((a, b) => a.nombre.localeCompare(b.nombre))) {
+      const ls = sz.locs.filter((l) => esTierra.has(l) && liga.xy.has(l));
+      if (!ls.length || ls.filter((l) => zonaId(l) === z).length * 2 <= ls.length) continue;
+      const tengo = () => ls.filter((l) => dueno.get(l) === d.tag).length;
+      const punto = [0, 1].map((i) => ls.reduce((s, l) => s + liga.xy.get(l)[i], 0) / ls.length);
+      const falta = () => tengo() < Math.min(minimoSubzona, ls.filter((l) => tomable(l) || dueno.get(l) === d.tag).length);
+      if (!falta()) continue;
+      // el camino mas corto por tierra desde la faccion hasta la sub-zona. Puede salir de la zona
+      // (la zona viene en trozos); nunca pisa otra faccion ni una capital.
+      const enSub = new Set(ls);
+      // Si no hay otro paso (un istmo), cruza la capital de un estado de RNW: ese estado la muda.
+      const pasable = (l) => esTierra.has(l) && (!dueno.has(l) || dueno.get(l) === d.tag || !zonaDeTag.has(dueno.get(l)));
+      const coste = new Map(mias().map((l) => [l, 0])), de = new Map(mias().map((l) => [l, null]));
+      let fin = null;
+      for (let ahora = [...coste.keys()], luego = []; (ahora.length || luego.length) && !fin;) { // 0-1: primero sin capitales
+        if (!ahora.length) { ahora = luego; luego = []; }
+        const l = ahora.shift();
+        if (enSub.has(l) && dueno.get(l) !== d.tag) { fin = l; break; }
+        for (const v of [...(vec.get(l) || [])].sort()) {
+          if (!pasable(v)) continue;
+          const cap = dueno.get(v) !== d.tag && capitales.has(v) ? 1 : 0, c = coste.get(l) + cap;
+          if (coste.has(v) && coste.get(v) <= c) continue;
+          coste.set(v, c); de.set(v, l); (cap ? luego : ahora).push(v);
+        }
+      }
+      for (let l = fin; l && de.get(l) !== null; l = de.get(l)) dueno.set(l, d.tag);
+      const brazo = crecedor(d.tag, punto, (l) => enSub.has(l) && tomable(l), false);
+      while (falta() && brazo.toma());
+    }
     const c = crecedor(d.tag, centroDe(z), tomable);
-    if (semilla) c.siembra(semilla);
-    for (let n = mias().filter((l) => zonaId(l) === z).length; n < meta && c.toma(); n++);
+    for (let n = enZona(); n < meta && c.toma(); n++);
   }
   for (const p of porTag) if (!zonaDeTag.has(p.tag)) dejaNucleo(p);
+  // nadie absorbe a nadie: el estado que se ha quedado sin tierra (el pasillo de una faccion ha
+  // cruzado su capital) vuelve a empezar en la tierra libre mas cerca de donde estaba
+  for (const p of porTag) {
+    if (zonaDeTag.has(p.tag) || !liga.xy.has(p.capital) || tierra.some((l) => dueno.get(l) === p.tag)) continue;
+    const dist = distA(liga.xy.get(p.capital));
+    const s = tierra.filter((l) => !dueno.has(l)).sort((a, b) => dist(a) - dist(b) || a.localeCompare(b))[0];
+    if (s) dueno.set(s, p.tag);
+  }
   const conDuenoFacciones = dueno.size;
 
   // 4. los demas: por turnos, hacia su capital
@@ -132,6 +174,12 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, fraccio
     else if (!t && a) suelta[l] = a;
   }
   const capital = {};
+  for (const p of porTag) {
+    if (zonaDeTag.has(p.tag) || dueno.get(p.capital) === p.tag || !liga.xy.has(p.capital)) continue;
+    const dist = distA(liga.xy.get(p.capital));
+    const s = tierra.filter((l) => dueno.get(l) === p.tag).sort((a, b) => dist(a) - dist(b) || a.localeCompare(b))[0];
+    if (s) capital[p.tag] = { de: p.capital, a: s, clave: 'estado de RNW' };
+  }
   for (const [z, d] of [...duenoZona].sort(([a], [b]) => a.localeCompare(b))) {
     const p = paises.find((x) => x.tag === d.tag);
     if (!p || (dueno.get(p.capital) === d.tag && zonaId(p.capital) === z)) continue;
@@ -150,11 +198,16 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, fraccio
     const ls = por.get(d.tag) || [];
     return { zona: z, ...d, inicial: p.locs.filter((l) => esTierra.has(l)).length, final: ls.length, enZona: ls.filter((l) => zonaId(l) === z).length, zonaLocs: tierra.filter((l) => zonaId(l) === z).length };
   });
+  const pies = [];
+  for (const [z, d] of [...duenoZona].sort(([a], [b]) => a.localeCompare(b))) for (const sz of [...subzonas].sort((a, b) => a.nombre.localeCompare(b.nombre))) {
+    const ls = sz.locs.filter((l) => esTierra.has(l));
+    if (ls.length && ls.filter((l) => zonaId(l) === z).length * 2 > ls.length) pies.push({ clave: d.clave, nombre: sz.nombre, tiene: ls.filter((l) => dueno.get(l) === d.tag).length, total: ls.length });
+  }
   const TRAMOS = [[1, 5], [6, 15], [16, 45], [46, 90], [91, Infinity]];
   const tramos = TRAMOS.map(([a, b]) => ({ de: a, a: b, paises: [...por.values()].filter((ls) => ls.length >= a && ls.length <= b).length }));
   return {
     da, suelta, capital,
-    informe: { total, conDuenoAntes, conDuenoFacciones, conDuenoDespues: dueno.size, paises: por.size, partidosAntes, partidos, sinTierra, abandonadas: Object.keys(suelta).length, filas, tramos },
+    informe: { total, conDuenoAntes, conDuenoFacciones, conDuenoDespues: dueno.size, paises: por.size, partidosAntes, partidos, sinTierra, abandonadas: Object.keys(suelta).length, filas, tramos, pies },
   };
 }
 
@@ -173,5 +226,8 @@ ${i.tramos.map((t) => `| ${t.a === Infinity ? `${t.de} o mas` : `${t.de}-${t.a}`
 | Zona | Faccion | Pais | En el mundo de RNW | Al empezar | De ellas, en su zona | De su zona |
 |---|---|---|---|---|---|---|
 ${i.filas.map((f) => `| ${f.zona} | ${f.clave} | ${f.tag} | ${f.inicial} | ${f.final} | ${f.enZona} | ${(100 * f.enZona / f.zonaLocs).toFixed(0)} % |`).join('\n')}
-${Object.keys(r.capital || {}).length ? `\nCapital llevada a su zona: ${Object.entries(r.capital).map(([t, c]) => `${c.clave} ${t} de ${c.de} a ${c.a}`).join('; ')}.\n` : ''}`;
+${i.pies.length ? `
+Sub-zonas que piden las mecanicas (localizaciones de la faccion / de la sub-zona): ${i.pies.map((p) => `${p.clave} en ${p.nombre}: ${p.tiene}/${p.total}`).join('; ')}.
+` : ''}
+${Object.keys(r.capital || {}).length ? `\nCapital mudada (a su zona, o porque la ha perdido): ${Object.entries(r.capital).map(([t, c]) => `${c.clave} ${t} de ${c.de} a ${c.a}`).join('; ')}.\n` : ''}`;
 }

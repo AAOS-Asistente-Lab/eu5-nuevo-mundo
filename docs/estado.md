@@ -1,6 +1,6 @@
 # Estado: el mundo v3 (35CL)
 
-`mod/gj_nuevo_mundo` es la copia instalada para jugar sobre el mundo «RNW: Custom world 35CL» (`rnw_exp_world_35clmr62cr`, de `mundo/mundo-35cl.rnworld`). Su huella de montaje es `929ee71d517fa233`: dos montajes seguidos, y en dos PC distintos, dan los mismos bytes. El comprobador pasa con 0 errores, **el juego lo carga sin ningún error del mod en `error.log`** y **una partida empieza y corre** (21-11, EU5 1.4.9, Durnhal, de abril a julio de 1337). Cómo jugarlo está en `docs/como-jugar.md`.
+`mod/gj_nuevo_mundo` es la copia instalada para jugar sobre el mundo «RNW: Custom world 35CL» (`rnw_exp_world_35clmr62cr`, de `mundo/mundo-35cl.rnworld`). Su huella de montaje es `f38da466466c7925`: dos montajes seguidos, y en dos PC distintos, dan los mismos bytes. El comprobador pasa con 0 errores, **el juego lo carga sin ningún error del mod en `error.log`** y **una partida empieza y corre** (21-11, EU5 1.4.9, Durnhal, de abril a julio de 1337). Cómo jugarlo está en `docs/como-jugar.md`.
 
 ## Qué cambia del v2 al v3 (21-11, rama `javier/pulido`)
 - **Muchos más países, más pequeños y cada uno de una pieza.** Nadie absorbe a nadie: los 130 países de RNW siguen en el mapa. Antes las 12 facciones se quedaban su zona entera (72,5 % del mapa entre unos 70 países). RNW trae 31 países partidos en varios trozos; ahora no queda ninguno.
@@ -14,17 +14,18 @@ Un efecto de `on_game_start` (`gj_reparte_tierra`) deja el mapa repartido antes 
 1. **Cada país se queda solo con su núcleo.** La facción, su trozo con más tierra en su zona del dibujo; los demás, el trozo de su capital.
 2. **Cada facción crece desde su núcleo, dentro de su zona, hasta el 25 % de ella** (mínimo 30 localizaciones), tomando siempre la localización que toca más cerca del centro de la zona: sale una mancha compacta. Primero la tierra sin dueño; si no le llega, la de los estados de RNW de su zona, nunca su capital. Si la zona viene en varios trozos (lagos, estrechos, islas) y en el del núcleo no cabe, la facción se muda al trozo más grande (la Liga y Sorava).
 3. **Los demás países crecen por turnos**, una localización cada uno, la libre que tocan más cerca de su capital, hasta una talla que sale de su tag: el 45 % de 8-18 localizaciones, el 40 % de 20-50 y el 15 % de 55-110.
-4. **Los trozos sueltos que nadie ha tomado se abandonan** (`abandon_location`: quedan sin dueño), igual que la tierra que nadie alcanza: es **tierra libre para colonizar**.
-5. Los pops de la tierra que gana una facción pasan a su cultura y su fe (`gj_fundar_faccion`); los de la que gana otro país, a la cultura y la fe de ese país.
+4. **Kaïvan saca un pasillo hasta cada cuarto de su zona** (las cuatro sub-zonas de los clanes: un clan solo vota si Kaïvan tiene tierra en la suya), con 8 localizaciones como mínimo en cada una (`MINIMO_SUBZONA`). El pasillo va por el camino de tierra más corto, sin soltarse del país. A los valles orientales solo se llega por un istmo donde está la capital de un estado de RNW (YGK): el pasillo la cruza y ese estado vuelve a empezar en la tierra libre de al lado, con capital nueva. Durnhal hace lo mismo con su caldera.
+5. **Los trozos sueltos que nadie ha tomado se abandonan** (`abandon_location`: quedan sin dueño), igual que la tierra que nadie alcanza: es **tierra libre para colonizar**.
+6. Los pops de la tierra que gana una facción pasan a su cultura y su fe (`gj_fundar_faccion`); los de la que gana otro país, a la cultura y la fe de ese país.
 
-**Tierra con dueño al empezar: 40,9 %** del Nuevo Mundo (2.426 de 5.932 localizaciones; RNW deja un 22,0 %), entre **130 países, ninguno partido** (`node herramientas/comprueba-trozos.mjs --mundo <carpeta>` lo cuenta):
+**Tierra con dueño al empezar: 39,2 %** del Nuevo Mundo (2.323 de 5.932 localizaciones; RNW deja un 22,0 %), entre **130 países, ninguno partido** (`node herramientas/comprueba-trozos.mjs --mundo <carpeta>` lo cuenta):
 
 | Tamaño (localizaciones) | Países |
 |---|---|
-| 1-5 | 56 |
-| 6-15 | 33 |
+| 1-5 | 60 |
+| 6-15 | 31 |
 | 16-45 | 26 |
-| 46-90 | 10 |
+| 46-90 | 8 |
 | 91 o más | 5 |
 
 Los de 1-5 son ciudades-estado de RNW encerradas entre vecinos o dentro de una facción: no tienen tierra libre que tocar.
@@ -44,7 +45,8 @@ Los de 1-5 son ciudades-estado de RNW encerradas entre vecinos o dentro de una f
 | Hrímval | 39 | 39 | 25 % |
 | Marea Negra | 21 | 21 | 21 % |
 
-- **Capitales en su zona.** Una facción que pierde su capital o la tiene fuera de su zona la pasa (`set_capital`) a su localización más cercana al centro de la zona. Son 9 de las 12 (la lista está en `docs/vinculo-mundo.md`).
+- **Kaïvan en los cuatro cuartos:** estepa alta 56, estepa baja 133, marca occidental 13, valles orientales 8.
+- **Capitales en su zona.** Una facción que pierde su capital o la tiene fuera de su zona la pasa (`set_capital`) a su localización más cercana al centro de la zona. Son 9 de las 12, más el estado YGK (la lista está en `docs/vinculo-mundo.md`).
 - **Marea Negra** se queda en 21: su zona son islas y el trozo mayor no da más.
 - **Mandos**, en `herramientas/reparte-tierra.mjs`: `FRACCION_FACCION` (0,25), `FACCION_MINIMO` (30) y `TALLAS`. Subir `TALLAS` llena más el mapa a costa de países más grandes.
 
@@ -98,10 +100,9 @@ Están en `docs/avisos-partida.txt`. Salen al empezar, no al cargar el menú:
 - «El país no tiene pops de su cultura principal»: el juego lo mira antes de que corra `gj_fundar_faccion`. Para quitarlo habría que poner la cultura y la fe en los ficheros de inicio del mundo en vez de cambiarlas al empezar.
 
 ## Pendiente
-1. **Decidir cuánto se llena el mapa.** Con países de una pieza queda el 40,9 % con dueño. Es un mando (`TALLAS`), y hay 56 ciudades-estado de 1-5 localizaciones.
-2. **Los cuatro clanes de Kaïvan** piden tierra de la facción en cada cuarto de su zona; con la mancha compacta puede faltarle alguno al empezar (antes tenía la zona entera). Hay que mirarlo en `partes/kaivan`.
-3. **Thalassar** puede empezar sin puertos en `gj_zona_mar_interior`: «dominar el mar» pasa a ser un objetivo de expansión.
-4. **Nombres con el rango delante:** la selección de país enseña «County of Kaïvan» o «Theocracy of High Kingdom of Ostrevar».
+1. **Decidir cuánto se llena el mapa.** Con países de una pieza queda el 39,2 % con dueño. Es un mando (`TALLAS`), y hay 60 ciudades-estado de 1-5 localizaciones.
+2. **Thalassar** puede empezar sin puertos en `gj_zona_mar_interior`: «dominar el mar» pasa a ser un objetivo de expansión.
+3. **Nombres con el rango delante:** la selección de país enseña «County of Kaïvan» o «Theocracy of High Kingdom of Ostrevar».
 
 ## Lo que no se ha probado
 - Más de cuatro meses de partida, ni otra facción que Durnhal.
