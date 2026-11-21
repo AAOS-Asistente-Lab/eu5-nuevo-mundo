@@ -162,7 +162,8 @@ export function ficherosCulturas(T = cargaEstilos()) {
   const usados = new Set(), texto = [], colores = [], grupos = [], culturas = [], lenguas = [];
   for (const g of T.grupos) {
     const nomG = unico(T, 'grupo', g.id, g.grupo, usados);
-    texto.push([g.grupo, nomG], [g.lengua, unico(T, 'lengua', g.id, g.lengua, usados)]);
+    // el juego pide <grupo>_desc (localization_util.cpp:103 "TODO : Write a desc"): el nombre vale
+    texto.push([g.grupo, nomG], [`${g.grupo}_desc`, nomG], [g.lengua, unico(T, 'lengua', g.id, g.lengua, usados)]);
     grupos.push(`${g.grupo} = {\n}\n`);
     colores.push(`\t${g.lengua} = ${color(g.lengua)}`);
     const lista = (tipo, n) => { const u = new Set(); return Array.from({ length: n }, (_, i) => unico(T, tipo, g.id, `${g.lengua}-${i}`, u)); };

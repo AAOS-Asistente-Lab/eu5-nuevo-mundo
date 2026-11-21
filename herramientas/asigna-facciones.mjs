@@ -598,6 +598,12 @@ if (tierraR && fu.status === 0) {
   const refs = Object.fromEntries(SP.REFERENCIAS.filter(enSetup).map((f) => [f, fs.readFileSync(enSetup(f), 'utf8')]));
   const sp = SP.arreglaSetup({ t10: fs.readFileSync(dest10, 'utf8'), otros: refs, nativos: nativos || new Set(), retirados: tierraR.retirados, modo: modoRet, area: (l) => jer.get(l)?.area, vec: vecM, nm });
   fs.writeFileSync(dest10, sp.t10, 'utf8');
+  if (modoRet === 'vacio' && sp.fuera.size) { // el bloque vacio pide is_historic en la definicion (copia de la del mundo)
+    const fDef = enMundo('in_game', 'setup', 'countries', SP.DEFINICIONES) || muere(`no encuentro ${SP.DEFINICIONES} en el mundo`);
+    const h = SP.marcaHistoricos(fs.readFileSync(fDef, 'utf8'), sp.fuera);
+    if (h.faltan.length) muere(`retirados sin definicion en ${SP.DEFINICIONES}: ${h.faltan.slice(0, 10).join(' ')}`);
+    fs.writeFileSync(path.join(obraMod, 'in_game', 'setup', 'countries', SP.DEFINICIONES), h.texto, 'utf8');
+  }
   for (const [f, t] of Object.entries(sp.otros)) if (t !== refs[f]) fs.writeFileSync(path.join(obraMod, 'main_menu', 'setup', '1337', f), t, 'utf8');
   console.log(SP.textoSetup(sp.informe));
   // la copia tiene que dar, en el Nuevo Mundo, exactamente el reparto

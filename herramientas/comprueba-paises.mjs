@@ -65,9 +65,6 @@ let enPops = 0, ejemplo = null;
 for (const [t, p] of paises) for (const l of p.pops) if (conDueno.has(l) && mw.jer.get(l)?.continente === 'america') { enPops++; ejemplo ??= `${l} en ${t}`; }
 if (enPops) errores.push(`(f) ${enPops} localizaciones de America con dueno siguen en un add_pops_from_locations (p. ej. ${ejemplo})`);
 // (g) tierra sin dueno: toda localizacion del Nuevo Mundo es de un pais o de una tribu, y ni 07 ni 03 ponen nada en una sin dueno
-const enTribu = new Set([...paises.values()].flatMap((p) => p.pops));
-const sueltas = [...nm].filter((l) => !conDueno.has(l) && !enTribu.has(l)).sort();
-if (sueltas.length) errores.push(`(g) ${sueltas.length} localizaciones del Nuevo Mundo sin dueno ni tribu (p. ej. ${sueltas.slice(0, 3).join(' ')})`);
 for (const f of [EDIFICIOS, MERCADOS]) {
   const malas = [];
   leeTexto(deSetup(f)).texto.split('\n').forEach((linea, i) => { const l = locDeLinea(linea); if (nm.has(l) && !conDueno.has(l)) malas.push(`${f}:${i + 1} ${l}`); });

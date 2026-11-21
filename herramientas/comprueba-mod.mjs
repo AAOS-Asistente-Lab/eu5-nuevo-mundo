@@ -140,7 +140,7 @@ const RESERVADAS_AVANCE = S(C.clavesAvanceNoModificador);
 // vegetacion mezclada, los rangos y los paises nuevos; setup-paises.mjs: las lineas de los paises
 // retirados; economia.mjs: gente, desarrollo, caminos y mercados). No son scripts nuestros: solo se
 // mira que el mundo traiga el mismo fichero.
-const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt',
+const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'in_game/setup/countries/rnw_natives.txt',
   ...['03_markets', '06_pops', '07_cities_and_buildings', '09_roads', '10_countries', '12_diplomacy', '14_development', '18_opinions', '20_rivals', '26_ai_personalities'].map((f) => `main_menu/setup/1337/${f}.txt`)];
 const todos = listaFicheros(MOD).filter((f) => {
   const r = rel(f);

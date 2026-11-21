@@ -30,7 +30,19 @@ import { fileURLToPath } from 'node:url';
 import { analiza, esBloque, valoresSueltos } from './pdx.mjs';
 
 // ---------------------------------------------------------------- mandos
-export const RETIRADOS = 'quitar'; // 'quitar' o 'vacio' (asigna-facciones.mjs --retirados vacio)
+// 'vacio' o 'quitar' (asigna-facciones.mjs --retirados quitar). Probado en partida el 21/11 (b9cc8e2):
+// con 'quitar' el juego da ~45.000 lineas por los 934 tags con definicion y sin bloque
+// (event_target_links.cpp:2954 "has invalid government type", initialize_from_bookmark.cpp:504/507/
+// 534/617...). Con 'vacio' el bloque se queda sin tierra y la definicion se marca is_historic = yes
+// (marcaHistoricos), como OGK y HLE del juego (in_game/setup/countries/south_germany.txt:517 y 602).
+export const RETIRADOS = 'vacio';
+export const DEFINICIONES = 'rnw_natives.txt'; // in_game/setup/countries del mundo: la copia lleva is_historic
+// Marca is_historic = yes en la definicion de cada retirado; devuelve el texto y los que no encuentra.
+export function marcaHistoricos(defs, fuera) {
+  const vistos = new Set();
+  const texto = defs.replace(/^﻿?([A-Z][A-Z0-9]{2}) = \{[^\n]*\n/gm, (m, tag) => (fuera.has(tag) ? (vistos.add(tag), `${m}\tis_historic = yes\n`) : m));
+  return { texto, faltan: [...fuera].filter((t) => !vistos.has(t)).sort() };
+}
 export const REFERENCIAS = ['03_markets.txt', '07_cities_and_buildings.txt', '12_diplomacy.txt', '18_opinions.txt', '20_rivals.txt', '26_ai_personalities.txt'];
 export const EDIFICIOS = '07_cities_and_buildings.txt', MERCADOS = '03_markets.txt';
 // Un add_market en tierra sin dueno se mueve como mucho estos pasos por tierra; mas lejos, su zona
@@ -50,9 +62,26 @@ export const TECNOLOGIA_NUEVOS = 2; // si el pais de RNW mas cercano no trae sta
 // Es game/main_menu/setup/templates/amerindian_monarchy.txt sin lo que pide fe o cultura (polygyny,
 // laws/01_common.txt:1724, pide fe pagana; clergy_land_rights, clergy_estate.txt:137, fe no cristiana)
 // y sin reformas: los 13 estados de RNW con ese include no traen ninguna.
+// Probado en partida el 21/11 (b9cc8e2): sin valores de sociedad ni marriage_law el juego avisa
+// (initialize_from_bookmark.cpp:178 "has no society values scripted" y :1842 "has no marriage_law
+// defined"). Valores: los de templates/catholic_monarchy_not_present.txt; monogamous_marriage
+// (laws/01_common.txt:1674) solo excluye a las teocracias catolicas.
 export const GOBIERNO_NUEVOS = `\t\tgovernment = {
 \t\t\ttype = monarchy
 \t\t\their_selection = cognatic_primogeniture
+\t\t\tcentralization_vs_decentralization = 40
+\t\t\ttraditionalist_vs_innovative = -30
+\t\t\tspiritualist_vs_humanist = -50
+\t\t\taristocracy_vs_plutocracy = -40
+\t\t\tserfdom_vs_free_subjects = -10
+\t\t\tmercantilism_vs_free_trade = -10
+\t\t\tbelligerent_vs_conciliatory = 10
+\t\t\tquality_vs_quantity = 0
+\t\t\toffensive_vs_defensive = -20
+\t\t\tland_vs_naval = 0
+\t\t\tcapital_economy_vs_traditional_economy = 70
+\t\t\tindividualism_vs_communalism = 20
+\t\t\toutward_vs_inward = -20
 \t\t\tparliament = {
 \t\t\t\tparliament_type = assembly
 \t\t\t}
@@ -63,6 +92,7 @@ export const GOBIERNO_NUEVOS = `\t\tgovernment = {
 \t\t\t\tallow_hunting communal_lands partial_yield
 \t\t\t}
 \t\t\tlaws = {
+\t\t\t\tmarriage_law = monogamous_marriage
 \t\t\t\their_religion_law = heir_any_religion
 \t\t\t}
 \t\t\truler = random
@@ -126,40 +156,23 @@ export function arreglaSetup({ t10, otros = {}, nativos, retirados = [], modo = 
     if (!quedan.length) { fuera.add(tag); tribusVacias++; }
     return ponLista(b, 'add_pops_from_locations', quedan);
   });
-  // 1b. tierra suelta -> tribu mas cercana: a capas por la tierra suelta, desde la tierra que tenia
-  // cada tribu en RNW (aunque ya sea de un estado; una tribu vaciada que gana tierra no se retira)
-  const tribu = new Map(), suelta = (l) => nm.has(l) && !conDueno.has(l);
-  for (const [t, p] of antes) if (nativos.has(t)) for (const l of p.pops) if (!tribu.has(l)) tribu.set(l, t);
-  // Primero solo por tierra suelta; lo que quede (islas, bolsas entre estados), por cualquier casilla.
-  const sueltas = new Set([...nm].filter((l) => suelta(l) && !tribu.has(l))), gana = new Map();
-  for (const porTodo of [false, true]) {
-    const de = new Map(tribu);
-    for (let capa = [...de.keys()].sort(); capa.length && sueltas.size;) {
-      const sig = [];
-      for (const l of capa) for (const w of [...(vec.get(l) || [])].sort()) {
-        if (de.has(w)) continue;
-        const t = de.get(l);
-        if (sueltas.delete(w)) { tribu.set(w, t); if (!gana.has(t)) gana.set(t, []); gana.get(t).push(w); } else if (!porTodo) continue;
-        de.set(w, t); sig.push(w);
-      }
-      capa = sig;
-    }
-  }
-  let aTribus = 0;
-  texto = texto.replace(RE_BLOQUE, (b, tag) => {
-    if (!gana.has(tag)) return b;
-    aTribus += gana.get(tag).length;
-    if (fuera.delete(tag)) tribusVacias--;
-    return ponLista(b, 'add_pops_from_locations', [...(lista(b, 'add_pops_from_locations') || []), ...gana.get(tag).sort()]);
-  });
-  // 2. retirados
+  // La tierra de un estado retirado que el reparto deja libre se queda sin dueno y sin tribu (214
+  // localizaciones): darsela a la tribu mas cercana se probo en partida (21/11) y el juego la rechaza
+  // si sus pops son de otra cultura (country.cpp:7300 "is assigned location ... but it has no valid
+  // pops", 80 casos; las tribus revividas asi, "does not exist, nor has cores"). En c83f781 ya habia
+  // 93 localizaciones asi y el juego no decia nada de ellas.
+  const suelta = (l) => nm.has(l) && !conDueno.has(l);
+  // 2. retirados. Con 'vacio' conservan la capital (o reciben una: las tribus no la traen), como HLE:
+  // sin ella el juego avisa (initialize_from_bookmark.cpp:534 "has not capital set").
   const vistos = new Set();
   texto = texto.replace(RE_BLOQUE, (b, tag) => {
     if (!fuera.has(tag)) return b;
     vistos.add(tag);
     if (modo === 'quitar') return '';
-    let v = b.replace(/^\t\tcapital = \S+[^\n]*\n/m, '');
+    let v = b;
     for (const m of [...v.matchAll(/^\t\t(own_[a-z_]+|add_pops_from_locations) = \{/gm)]) v = ponLista(v, m[1], []);
+    const cap = [...antes.get(tag).pops].sort()[0];
+    if (!/^\t\tcapital = /m.test(v) && cap) v = v.replace(/^(\t[A-Z][A-Z0-9]{2} = \{[^\n]*\n)/, `$1\t\tcapital = ${cap}\n`);
     return v;
   });
   const sinBloque = [...fuera].filter((t) => !vistos.has(t)).sort();
@@ -176,7 +189,7 @@ export function arreglaSetup({ t10, otros = {}, nativos, retirados = [], modo = 
   let areasNuevas = 0, paisesAreas = 0;
   texto = texto.replace(RE_BLOQUE, (b, tag) => {
     const t = despues.get(tag), suyas = (t?.own || []).filter((l) => nm.has(l));
-    if (!suyas.length) return b;
+    if (!suyas.length && !(fuera.has(tag) && t?.capital)) return b; // el retirado tambien conoce su capital (:537)
     const pide = new Set();
     for (const l of suyas) { pide.add(area(l)); for (const w of vec.get(l) || []) pide.add(area(w)); }
     pide.add(area(t.capital));
@@ -212,10 +225,10 @@ export function arreglaSetup({ t10, otros = {}, nativos, retirados = [], modo = 
       perdidos.push(l); return [];
     }).join('\n');
   }
-  return { t10: texto, otros: fueraOtros, informe: { retirados: fuera.size - tribusVacias, tribusVacias, sacadas, aTribus, sinTribu: [...sueltas].sort(), conTierra, lineas, areasNuevas, paisesAreas, en07, movidos, perdidos, modo } };
+  return { t10: texto, otros: fueraOtros, fuera, informe: { retirados: fuera.size - tribusVacias, tribusVacias, sacadas, conTierra, lineas, areasNuevas, paisesAreas, en07, movidos, perdidos, modo } };
 }
 
-export const textoSetup = (i) => `Setup de paises (setup-paises.mjs, retirados: ${i.modo}): ${i.retirados} estados y ${i.tribusVacias} tribus vacias retirados; ${i.sacadas} localizaciones con dueno fuera de las tribus; ${Object.entries(i.lineas).map(([f, n]) => `${n} lineas en ${f}`).join(', ')}; ${i.aTribus} localizaciones sueltas a la tribu mas cercana${i.sinTribu.length ? ` (${i.sinTribu.length} sin tribu al alcance)` : ''}; ${i.areasNuevas} areas descubiertas nuevas en ${i.paisesAreas} paises; ${i.en07} lineas de 07 en tierra sin dueno; ${i.movidos.length} mercados de 03 movidos a tierra con dueno (${i.movidos.join(' ') || '-'})${i.perdidos.length ? ` y ${i.perdidos.length} quitados, sin tierra con dueno y rango a ${MERCADO_PASOS} pasos (${i.perdidos.join(' ')})` : ''}.${i.conTierra.length ? ` Retirados que aun tienen tierra fuera del Nuevo Mundo (se quedan): ${i.conTierra.join(' ')}.` : ''}`;
+export const textoSetup = (i) => `Setup de paises (setup-paises.mjs, retirados: ${i.modo}): ${i.retirados} estados y ${i.tribusVacias} tribus vacias retirados; ${i.sacadas} localizaciones con dueno fuera de las tribus; ${Object.entries(i.lineas).map(([f, n]) => `${n} lineas en ${f}`).join(', ')}; ${i.areasNuevas} areas descubiertas nuevas en ${i.paisesAreas} paises; ${i.en07} lineas de 07 en tierra sin dueno; ${i.movidos.length} mercados de 03 movidos a tierra con dueno (${i.movidos.join(' ') || '-'})${i.perdidos.length ? ` y ${i.perdidos.length} quitados, sin tierra con dueno y rango a ${MERCADO_PASOS} pasos (${i.perdidos.join(' ')})` : ''}.${i.conTierra.length ? ` Retirados que aun tienen tierra fuera del Nuevo Mundo (se quedan): ${i.conTierra.join(' ')}.` : ''}`;
 
 // ---------------------------------------------------------------- comprobacion
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url) && process.argv.includes('--prueba')) {
@@ -232,22 +245,24 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     [EDIFICIOS]: 'locations = {\n\tl3 = { rank = town }\n\tl4 = { rank = town town_setup = x }\n\tm = { tag = AAA level = 1 location = l4 }\n}\n', [MERCADOS]: 'market_manager = {\n\tadd_market = l4\n\tadd_market = l7\n}\n' };
   const area = (l) => ({ l1: 'a1', l2: 'a2', l3: 'a3', l4: 'a4', l5: 'a5', l6: 'a6', l7: 'a7', l8: 'a8', l9: 'a9' })[l];
   const vec = new Map([['l2', new Set(['l9'])], ['l9', new Set(['l5', 'w1'])], ['w1', new Set(['l8'])], ['l4', new Set(['l3'])], ['l1', new Set(['l6'])]]), nm = new Set(['l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8', 'l9']);
-  const r = arreglaSetup({ t10, otros, nativos: new Set(['AAA', 'BBB', 'TTT', 'UUU', 'CCC', 'WWW']), retirados: ['BBB', 'CCC'], area, vec, nm });
+  const r = arreglaSetup({ t10, otros, nativos: new Set(['AAA', 'BBB', 'TTT', 'UUU', 'CCC', 'WWW']), retirados: ['BBB', 'CCC'], modo: 'quitar', area, vec, nm });
   const d = tierraDe(r.t10);
-  assert.deepEqual([...d.keys()], ['AAA', 'TTT', 'UUU', 'CCC']); // BBB retirado, WWW vacia; CCC aun tiene tierra
-  assert.deepEqual(d.get('UUU').pops, ['l6']); // vaciada, pero gana la suelta junto a su tierra de RNW: no se retira
-  assert.deepEqual(d.get('TTT').pops, ['l9', 'l5', 'l8']); // l5, suelta, pasa a la tribu vecina; l8, isla, a la de mas cerca por mar
-  assert.deepEqual(r.informe.sinTribu, ['l4', 'l7']); // ninguna tribu las alcanza por ninguna casilla
+  assert.deepEqual([...d.keys()], ['AAA', 'TTT', 'CCC']); // BBB retirado, UUU y WWW vacias; CCC aun tiene tierra
+  assert.deepEqual([...r.fuera].sort(), ['BBB', 'UUU', 'WWW']);
+  assert.deepEqual(d.get('TTT').pops, ['l9']); // pierde l2 (con dueno); la tierra suelta no se le da
+  assert.deepEqual(marcaHistoricos('AAA = {\n\tcolor = x\n}\nBBB = { # b\n\tcolor = y\n}\n', new Set(['BBB', 'ZZZ'])), { texto: 'AAA = {\n\tcolor = x\n}\nBBB = { # b\n\tis_historic = yes\n\tcolor = y\n}\n', faltan: ['ZZZ'] });
   assert.equal(r.otros[EDIFICIOS], 'locations = {\n\tl3 = { rank = town }\n}\n'); // fuera el rango y el edificio de l4, sin dueno
   assert.equal(r.otros[MERCADOS], 'market_manager = {\n\tadd_market = l3\n}\n'); // l4, a la tierra con dueno y rango mas cercana; l7, sin sitio, fuera
   assert.deepEqual(r.informe.perdidos, ['l7']);
   assert.deepEqual(r.informe.conTierra, ['CCC']);
   assert.equal(r.otros['20_rivals.txt'], 'x = {\n\trival = { first = AAA second = CCC } # comentario BBB\n}\n');
-  assert.equal(r.otros['26_ai_personalities.txt'], '\tUUU = { ai_personality = ai_balanced }\n');
+  assert.equal(r.otros['26_ai_personalities.txt'], '');
   assert.match(r.t10, /discovered_areas = \{\n\t\t\ta1\n\t\t\ta2 a3 a6 a9\n\t\t\}/); // su tierra, la vecina y la capital de su rival
   assert.match(r.t10, /\tCCC = \{[\s\S]*?capital = l3\n\t\tdiscovered_areas = \{\n\t\t\ta1 a3\n/);
   const v = tierraDe(arreglaSetup({ t10, nativos: new Set(['BBB']), retirados: ['BBB'], modo: 'vacio', area, vec, nm }).t10).get('BBB');
-  assert.deepEqual(v, { own: [], pops: [], capital: null });
+  assert.deepEqual(v, { own: [], pops: [], capital: 'l1' }); // vacio: conserva la capital
+  const vt = arreglaSetup({ t10, nativos: new Set(['UUU']), retirados: [], modo: 'vacio', area, vec, nm }).t10;
+  assert.match(vt, /\tUUU = \{\n\t\tcapital = l1\n\t\tdiscovered_areas = \{\n\t\t\ta1\n\t\t\}\n\t\ttype = pop\n\t\tadd_pops_from_locations = \{\n\t\t\}/); // tribu vaciada: capital y su area
   assert.throws(() => filtraLineas('dependency = {\n\tfirst = BBB\n}', new Set(['BBB'])), /una linea/);
   console.log('setup-paises: prueba PASA');
 }

@@ -5,7 +5,11 @@
 // `separacion` pasos de otra ciudad o pueblo. Determinista. Lo escribe funde-partes.mjs en
 // gj_rangos_iniciales (change_location_rank). `veto`: localizaciones con un market_village del setup,
 // que no cabe en una ciudad ni en un pueblo; se quedan rurales.
-export const PUEBLO_CADA = 10; // Europa del juego: ~10 % de pueblos y ciudades (estudio-v5/economia.md); antes 17
+// Calibrado en partida (21/11): con la gente y los pueblos de la Europa media (uno cada 10) un pais de
+// 110 localizaciones da 40-60 de base fiscal; para los 100-200 que pide Javier hace falta la densidad
+// urbana de Napoles o Bohemia.
+export const PUEBLO_CADA = 7;
+export const CIUDAD_CADA = 35; // de esos, una ciudad cada tantas localizaciones (ademas de la capital)
 export const SEPARACION = 3;
 
 export function rangosIniciales({ dueno, capitales, vec, costa, veg, yaTienen = new Map(), cada = PUEBLO_CADA, separacion = SEPARACION, veto = new Set() }) {
@@ -35,11 +39,11 @@ export function rangosIniciales({ dueno, capitales, vec, costa, veg, yaTienen = 
   for (const [t, ls] of [...por].sort(([a], [b]) => a.localeCompare(b))) {
     const cap = capitales.get(t);
     const quiere = Math.floor(ls.length / cada);
-    let tiene = ls.filter((l) => l !== cap && rangoDe(l)).length;
+    let tiene = ls.filter((l) => l !== cap && rangoDe(l)).length, ciudades = Math.floor(ls.length / CIUDAD_CADA) - ls.filter((l) => l !== cap && esCiudad(rangoDe(l))).length;
     for (const l of [...ls].filter((x) => !rangoDe(x) && !veto.has(x)).sort((a, b) => punt(b) - punt(a) || a.localeCompare(b))) {
       if (tiene >= quiere) break;
       if (cerca(l)) continue;
-      rangos[l] = 'town'; tiene++;
+      rangos[l] = ciudades-- > 0 ? 'city' : 'town'; tiene++;
     }
   }
   return Object.fromEntries(Object.entries(rangos).sort(([a], [b]) => a.localeCompare(b)));

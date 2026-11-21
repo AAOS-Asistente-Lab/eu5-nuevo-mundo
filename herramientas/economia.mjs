@@ -22,23 +22,28 @@ import { leeTexto, analizaFichero, esBloque, hijo, valoresSueltos, escribeConBom
 
 // ---------------------------------------------------------------- mandos (se calibran en partida)
 export const MANDOS = {
-  POB_FACTOR: 1.0,           // gente de cada localizacion = media europea de su rango x esto
+  POB_FACTOR: 2.0,           // gente de cada localizacion = media europea de su rango x esto
   POB_VARIA: [0.6, 1.5],     // cuanto conserva de la variacion de RNW: raiz(gente de RNW / mediana), entre estos topes
   TRIBUS_QUEDAN: { kaivan: 0.2 }, // parte de los tribesmen que sigue tribal, por faccion (Kaivan tiene estamento de tribus); el resto, 0
   TIPOS: ['nobles', 'clergy', 'burghers', 'peasants'], // clases que se copian de Europa (ni esclavos ni tribus)
-  DEV: { rural: 14, town: 20, city: 24, megalopolis: 28 }, // desarrollo objetivo por rango
+  DEV: { rural: 16, town: 24, city: 30, megalopolis: 34 }, // desarrollo objetivo por rango
   DEV_CAPITAL: 4, DEV_COSTA: 2, DEV_CAMINO: 1, // y lo que suma ser capital, tener puerto o camino
   TECNOLOGIA: 3,             // starting_technology_level (Europa: 3)
-  CAMINOS: 0.20,             // parte de las localizaciones de cada pais con camino
+  CAMINOS: 0.35,             // parte de las localizaciones de cada pais con camino
   // banda del indice a la que se lleva cada pais con su factor de gente (null: sin igualar). Sale de
   // estima-economia.mjs: mediana del rango europeo (POR, 3350) / y x raiz de 2, la proporcion de 100-200.
   // Con la base fiscal del lobby, estima-economia.mjs --lobby da la banda que toca (BASE_OBJETIVO x indice por punto).
-  CIFRA_BANDA: [2370, 4740],
+  CIFRA_BANDA: null,
   BASE_OBJETIVO: [100, 200], // base fiscal de salida que pide Javier, en la lista de paises del lobby
   DISPERSION_MAX: 1.5,       // si el indice por punto de base fiscal de los europeos medidos varia mas que esto, el indice no sirve
   K: [0.35, 4],              // topes de ese factor (hasta 2,5 es la densidad de NAP o BOH; de ahi a 4 solo una ciudad-estado como LPX)
   CIFRA: { PESO_POP: 1, PESO_EDIF: 2, DEV_ESCALA: 10, PASO: 0.04, PASO_CAMINO: 0.02, CTRL_MIN: 0.15, TRIBU_CTRL: 0.5 },
   SETUP: { town: 'gj_pueblo', city: 'gj_ciudad', megalopolis: 'gj_ciudad' }, // town_setup por rango
+  // Probado y descartado en partida (21/11): un local_governor en las ciudades con camino a la capital no
+  // cambia la base fiscal de salida (Isbrant 56,67 -> 57,54) y cuesta 18 de oro al mes en mantenimiento.
+  // Mercados (medido en partida, 21/11): la riqueza de una localizacion va con su acceso a mercado. Sin
+  // mercado propio, solo los 29 de RNW, la base fiscal se hunde (Isbrant 0,72; Hrimval 0,83; Durnhal 49).
+  MERCADO_EN_CIUDADES: false, // ademas de en la capital, un mercado en cada ciudad
 };
 // Edificios de los town_setup de RNW y del juego para America (mexican_city, rnw_andes_town) que
 // no dieron "invalid building" en c83f781, y tres de iberian_city en las ciudades; todos a nivel 1
@@ -47,7 +52,7 @@ export const MANDOS = {
 // acceso baja de 0,75, con minimo 1). El marketplace tiene otro tope (market_max_level) y a 2 no fallo.
 export const TOWN_SETUPS = {
   gj_pueblo: { temple: 1, granary: 1, marketplace: 1, mason: 1, pottery_guild: 1, tools_guild: 1, weapon_guild: 1, tannery: 1, brewery: 1, cloth_guild: 1, fine_cloth_guild: 1 },
-  gj_ciudad: { temple: 1, granary: 1, marketplace: 2, mason: 1, pottery_guild: 1, tools_guild: 1, weapon_guild: 1, tannery: 1, brewery: 1, cloth_guild: 1, fine_cloth_guild: 1, stockade: 1, scriptorium: 1, furniture_guild: 1 },
+  gj_ciudad: { temple: 1, granary: 1, marketplace: 2, mason: 2, pottery_guild: 2, tools_guild: 2, weapon_guild: 2, tannery: 2, brewery: 2, cloth_guild: 2, fine_cloth_guild: 2, stockade: 1, scriptorium: 1, furniture_guild: 2 },
 };
 export const textoTownSetups = () => `# GJ Nuevo Mundo (economia.mjs): pueblos y ciudades de la tierra con dueno del Nuevo Mundo.\n\n${Object.entries(TOWN_SETUPS).map(([k, b]) => `${k} = {\n${Object.entries(b).map(([e, n]) => `\t${e} = ${n}`).join('\n')}\n}\n`).join('\n')}`;
 
@@ -268,6 +273,9 @@ export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rang
   const t09 = leeW('09_roads.txt'), viejosC = leeCaminos(t09), conC = new Set(viejosC.flat()), nuevosC = [];
   for (const t of tags) nuevosC.push(...caminosPais({ locs: por.get(t), capital: capitales.get(t), vec, destinos: por.get(t).filter((l) => rangos.has(l) && l !== capitales.get(t)), parte: m.CAMINOS, yaTienen: conC }));
   for (const p of nuevosC) p.forEach((l) => conC.add(l));
+  // sin repetir un camino que ya trae el mundo (road_manager.cpp:349 "Road specified ... more than once")
+  const clave = ([a, b]) => (a < b ? `${a}|${b}` : `${b}|${a}`), yaC = new Set(viejosC.map(clave));
+  nuevosC.splice(0, nuevosC.length, ...nuevosC.filter((p) => !yaC.has(clave(p))));
   const pares = parCamino([...viejosC, ...nuevosC]);
   // desarrollo: el termino de la localizacion lleva la suma de las reglas al objetivo
   const t14 = leeW('14_development.txt'), reglas = leeReglas(t14), plant = leePlantillas(dirs), devFin = new Map(), devLoc = new Map();
@@ -311,7 +319,7 @@ export function aplicaEconomia({ obra, mundo, juego, jer, dueno, capitales, rang
   escribe('14_development.txt', `${s14.slice(0, c14)}\n\t# GJ Nuevo Mundo (economia.mjs): desarrollo de la tierra con dueno\n${[...devLoc].sort(([a], [b]) => (a < b ? -1 : 1)).map(([l, v]) => `\t${l} = ${v}`).join('\n')}\n${s14.slice(c14)}`);
   const c09 = cierre(t09);
   escribe('09_roads.txt', `${t09.slice(0, c09)}\n\t# GJ Nuevo Mundo (economia.mjs): caminos de cada capital\n${nuevosC.map(([a, b]) => `\t${a} = ${b}`).join('\n')}\n${t09.slice(c09)}`);
-  const t03 = leeW('03_markets.txt'), ya03 = leeMercados(t03), mercados = tags.map((t) => capitales.get(t)).filter((l) => !ya03.has(l)), c03 = cierre(t03);
+  const t03 = leeW('03_markets.txt'), ya03 = leeMercados(t03), mercados = [...new Set([...tags.map((t) => capitales.get(t)), ...(m.MERCADO_EN_CIUDADES ? [...dueno.keys()].filter((l) => m.SETUP[rangos.get(l)] === m.SETUP.city).sort() : [])])].filter((l) => !ya03.has(l)), c03 = cierre(t03);
   escribe('03_markets.txt', `${t03.slice(0, c03)}\n\t# GJ Nuevo Mundo (economia.mjs): la capital de cada pais\n${mercados.map((l) => `\tadd_market = ${l}`).join('\n')}\n${t03.slice(c03)}`);
   // tecnologia en la copia de 10_countries que ya esta escrita
   const r10 = path.join(obra, ...SET, '10_countries.txt'), mios = new Set(tags);
