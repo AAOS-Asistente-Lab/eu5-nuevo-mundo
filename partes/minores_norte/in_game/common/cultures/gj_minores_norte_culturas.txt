@@ -136,7 +136,7 @@ gj_aryuki = {
 
 	color = gj_minores_norte_map_aryuki
 
-	tags = { mongol_gfx central_asian_gfx turkic_gfx eastern_european_gfx }
+	tags = { mongol_gfx central_asian_gfx turkic_gfx middle_east_gfx afrasian_gfx }
 
 	opinions = {
 		gj_hondarri = negative

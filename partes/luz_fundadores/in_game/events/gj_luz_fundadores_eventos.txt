@@ -81,7 +81,6 @@ gj_luz_fundadores.2 = {
 		name = gj_luz_fundadores.2.a
 		add_religious_influence = religious_influence_severe_bonus
 		add_legitimacy = legitimacy_weak_bonus
-		scope:gj_difunto = { set_variable = gj_fundador_aclamado }
 		custom_tooltip = gj_luz_fundadores_canonizar_tt
 	}
 

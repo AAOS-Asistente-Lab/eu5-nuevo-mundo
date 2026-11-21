@@ -52,7 +52,7 @@ gj_mundo_bestias_kraken_vivo = {
 gj_mundo_bestias_pais_estrecho = {
 	any_owned_location = {
 		gj_zona_estrecho = yes
-		has_ports = yes
+		is_port = yes
 	}
 }
 

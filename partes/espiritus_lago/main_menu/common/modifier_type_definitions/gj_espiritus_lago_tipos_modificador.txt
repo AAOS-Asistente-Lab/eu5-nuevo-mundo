@@ -1,0 +1,8 @@
+# Coste del precio de elegir espiritu (lo usan el aspecto Fuego de Orilla y la escuela de los barqueros).
+gj_espiritus_lago_precio_presagio_cost_modifier = {
+	color = bad
+	percent = yes
+	game_data = {
+		category = country
+	}
+}

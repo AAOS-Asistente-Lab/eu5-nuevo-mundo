@@ -418,17 +418,18 @@ ${FUND.map(llamada).join('\n')}
 }
 `);
 
-// Tierra de cada faccion al empezar (reparte-tierra.mjs, via vinculo.json): absorbe los estados de
-// RNW con la capital en su zona y le da la tierra libre de la zona. La tierra que pasa a una
-// faccion lleva gj_tierra_nueva, y gj_fundar_faccion pasa todos sus pops a la cultura y la fe de
-// la faccion. Sin mundo, el efecto no hace nada.
-const TIERRA = VINC.tierra || { absorbe: {}, da: {} };
+// Tierra al empezar (reparte-tierra.mjs, via vinculo.json): reparte tierra libre entre las facciones
+// y los demas paises del mundo; nadie absorbe a nadie. La tierra que pasa a una faccion lleva
+// gj_tierra_nueva, y gj_fundar_faccion pasa todos sus pops a la cultura y la fe de la faccion; la
+// que pasa a otro pais toma aqui mismo la cultura y la fe de ese pais. Sin mundo, no hace nada.
+const TIERRA = VINC.tierra || { da: {} };
 const tagsFaccion = new Set(Object.values(VINC.paises || {}));
-const absorciones = Object.entries(TIERRA.absorbe || {}).sort(([a], [b]) => a.localeCompare(b));
 const dadas = Object.entries(TIERRA.da || {}).sort(([a], [b]) => a.localeCompare(b));
+const capitales = Object.entries(TIERRA.capital || {}).sort(([a], [b]) => a.localeCompare(b));
+const popsDe = (dueno) => (tagsFaccion.has(dueno) ? 'gj_marca_tierra_nueva = yes' : `every_pop = { change_pop_culture = c:${dueno}.culture change_pop_religion = c:${dueno}.religion }`);
 escribeConBom(I('in_game/common/scripted_effects/gj_integracion_tierra.txt'),
-`# GJ Nuevo Mundo, integracion: tierra de cada faccion al empezar. GENERADO por funde-partes.mjs desde
-# vinculo.json (lo calcula reparte-tierra.mjs). ${absorciones.length ? `${absorciones.reduce((s, [, ts]) => s + ts.length, 0)} estados absorbidos y ${dadas.length} localizaciones libres repartidas.` : 'Sin mundo vinculado: no cambia nada.'}
+`# GJ Nuevo Mundo, integracion: tierra con dueno al empezar. GENERADO por funde-partes.mjs desde
+# vinculo.json (lo calcula reparte-tierra.mjs). ${dadas.length ? `${dadas.length} localizaciones libres repartidas y ${capitales.length} capitales llevadas a su zona.` : 'Sin mundo vinculado: no cambia nada.'}
 
 # Marca la tierra que una faccion gana al empezar: gj_fundar_faccion pasa todos sus pops (scope: localizacion).
 gj_marca_tierra_nueva = {
@@ -436,9 +437,8 @@ gj_marca_tierra_nueva = {
 }
 
 gj_reparte_tierra = {
-${absorciones.map(([dueno, ts]) => ts.map((t2) => `${tagsFaccion.has(dueno) ? `\tc:${t2} = { every_owned_location = { gj_marca_tierra_nueva = yes } }\n` : ''}\tc:${dueno} = { annex_country_diplomatically = { country = c:${t2} } }`).join('\n')).join('\n')}
-${dadas.map(([l, dueno]) => `\tlocation:${l} = { change_location_owner = c:${dueno} change_location_controller = c:${dueno} add_core = c:${dueno}${tagsFaccion.has(dueno) ? ' gj_marca_tierra_nueva = yes' : ''} }`).join('\n')}
-${Object.entries(TIERRA.capital || {}).sort(([a], [b]) => a.localeCompare(b)).map(([t2, c]) => `\t# ${t2} no tenia ningun estado en su zona: la capital pasa a ella\n\tc:${t2} = { set_capital = location:${c.a} }`).join('\n')}
+${dadas.map(([l, dueno]) => `\tlocation:${l} = { change_location_owner = c:${dueno} change_location_controller = c:${dueno} add_core = c:${dueno} ${popsDe(dueno)} }`).join('\n')}
+${capitales.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su zona; pasa a su localizacion mas cerca del centro\n\tc:${t2} = { set_capital = location:${c.a} }`).join('\n')}
 }
 `);
 

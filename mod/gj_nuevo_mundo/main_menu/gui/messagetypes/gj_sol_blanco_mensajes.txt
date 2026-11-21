@@ -1,0 +1,41 @@
+﻿# Mensajes de las acciones religiosas del Sol Blanco (el motor busca PERFORM_<accion>_ACTION; el juego base usa WE_PERFORM_ para el jugador).
+PERFORM_gj_sol_blanco_rito_contrapeso_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+message_category = society
+}
+
+WE_PERFORM_gj_sol_blanco_rito_contrapeso_ACTION={
+log=yes
+onmap=no
+popup=yes
+idle=no
+option=yes
+pausepopup=no
+message_category = society
+}
+
+PERFORM_gj_sol_blanco_festival_luces_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+message_category = society
+}
+
+WE_PERFORM_gj_sol_blanco_festival_luces_ACTION={
+log=yes
+onmap=no
+popup=yes
+idle=no
+option=yes
+pausepopup=no
+message_category = society
+}
+

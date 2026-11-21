@@ -7,7 +7,7 @@ gj_minores_sur_concejo_de_gremios = {
 	potential = { gj_minores_sur_estilo_ciudad = yes }
 	age = age_2_renaissance
 	icon = scholasticism
-	requires = guilds
+	requires = global_burghers_max_literacy_advance
 
 	global_production_efficiency = 0.05
 	global_burghers_estate_power = 0.05

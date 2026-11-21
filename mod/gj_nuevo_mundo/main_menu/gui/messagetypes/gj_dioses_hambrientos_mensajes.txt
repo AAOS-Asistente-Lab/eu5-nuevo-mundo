@@ -1,0 +1,61 @@
+﻿# Mensajes de las acciones religiosas de Los Dioses Hambrientos (el motor busca PERFORM_<accion>_ACTION; el juego base usa WE_PERFORM_ para el jugador).
+PERFORM_gj_dioses_hambrientos_ofrenda_de_cautivos_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+message_category = society
+}
+
+WE_PERFORM_gj_dioses_hambrientos_ofrenda_de_cautivos_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+message_category = society
+}
+
+PERFORM_gj_dioses_hambrientos_gran_banquete_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+message_category = society
+}
+
+WE_PERFORM_gj_dioses_hambrientos_gran_banquete_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+message_category = society
+}
+
+PERFORM_gj_dioses_hambrientos_ayuno_penitente_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+message_category = society
+}
+
+WE_PERFORM_gj_dioses_hambrientos_ayuno_penitente_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+message_category = society
+}
+

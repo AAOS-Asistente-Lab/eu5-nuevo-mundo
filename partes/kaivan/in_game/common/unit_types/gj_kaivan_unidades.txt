@@ -12,7 +12,6 @@ a_gj_kaivan_arqueros_1 = {
 	buildable = yes
 	upgrades_to_only = a_gj_kaivan_arqueros_2
 
-	assault = no
 	morale_damage_done = 0.15
 	initiative = 1
 	movement_speed = 0.5
@@ -38,7 +37,6 @@ a_gj_kaivan_arqueros_2 = {
 	buildable = yes
 	upgrades_to_only = a_gj_kaivan_arqueros_3
 
-	assault = no
 	morale_damage_done = 0.15
 	initiative = 1
 	movement_speed = 0.5
@@ -64,7 +62,6 @@ a_gj_kaivan_arqueros_3 = {
 	buildable = yes
 	upgrades_to_only = a_gj_kaivan_arqueros_4
 
-	assault = no
 	morale_damage_done = 0.15
 	initiative = 1
 	movement_speed = 0.5
@@ -90,7 +87,6 @@ a_gj_kaivan_arqueros_4 = {
 	buildable = yes
 	upgrades_to_only = a_gj_kaivan_arqueros_5
 
-	assault = no
 	morale_damage_done = 0.15
 	initiative = 1
 	movement_speed = 0.5
@@ -116,7 +112,6 @@ a_gj_kaivan_arqueros_5 = {
 	buildable = yes
 	upgrades_to_only = a_gj_kaivan_arqueros_6
 
-	assault = no
 	morale_damage_done = 0.15
 	initiative = 1
 	movement_speed = 0.5
@@ -141,7 +136,6 @@ a_gj_kaivan_arqueros_6 = {
 	is_special = yes
 	buildable = yes
 
-	assault = no
 	morale_damage_done = 0.15
 	initiative = 1
 	movement_speed = 0.5

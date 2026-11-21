@@ -75,6 +75,22 @@
  gj_espiritus_lago_select_omen_god_desc: "Nuestro gobernante escogerá a qué espíritu del lago pedirá consejo."
  gj_espiritus_lago_select_omen_god_tt: "Elige un espíritu del lago para que guíe nuestro [omen|e]."
 
+ gj_espiritus_lago_precio_presagio: "Elegir espíritu"
+ MODIFIER_TYPE_NAME_gj_espiritus_lago_precio_presagio_cost_modifier: "Coste de elegir espíritu del lago"
+ MODIFIER_TYPE_DESC_gj_espiritus_lago_precio_presagio_cost_modifier: "Esto afecta al [costs|e] de [ShowGenericActionName('gj_espiritus_lago_select_omen_god')]."
+ PERFORM_gj_espiritus_lago_select_omen_ACTION_TITLE: "Presagio invocado"
+ PERFORM_gj_espiritus_lago_select_omen_ACTION_SETUP: "Cuando se invoca un [omen|e] de un espíritu del lago."
+ PERFORM_gj_espiritus_lago_select_omen_ACTION_HEADER: "$MESSENGER$"
+ PERFORM_gj_espiritus_lago_select_omen_ACTION_EFFECTS: "El lago nos ha concedido el [omen|e] [target_2.GetName]."
+ PERFORM_gj_espiritus_lago_select_omen_ACTION_LOG: "Presagio invocado: [target_2.GetName]."
+ PERFORM_gj_espiritus_lago_select_omen_ACTION_MAP: ""
+ WE_PERFORM_gj_espiritus_lago_select_omen_ACTION_TITLE: "Presagio invocado"
+ WE_PERFORM_gj_espiritus_lago_select_omen_ACTION_SETUP: "Cuando invocamos un [omen|e] de un espíritu del lago."
+ WE_PERFORM_gj_espiritus_lago_select_omen_ACTION_HEADER: "$MESSENGER$"
+ WE_PERFORM_gj_espiritus_lago_select_omen_ACTION_EFFECTS: "El lago nos ha concedido el [omen|e] [target_2.GetName]."
+ WE_PERFORM_gj_espiritus_lago_select_omen_ACTION_LOG: "Presagio invocado: [target_2.GetName]."
+ WE_PERFORM_gj_espiritus_lago_select_omen_ACTION_MAP: ""
+
  # ===== Modificadores =====
  STATIC_MODIFIER_NAME_gj_espiritus_lago_lectura_mercaderes: "Lectura del hielo: los mercaderes"
  STATIC_MODIFIER_NAME_gj_espiritus_lago_lectura_incursion: "Lectura del hielo: la incursión"

@@ -679,6 +679,8 @@ gj_skarren.22 = {
 
 gj_skarren.40 = {
 	type = country_event
+	title = empty_text
+	desc = empty_text
 	hidden = yes
 
 	trigger = {

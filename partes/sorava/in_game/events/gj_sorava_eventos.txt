@@ -782,7 +782,7 @@ gj_sorava.40 = {
 	}
 
 	option = {
-		name = gj_sorava.40.a
+		name = gj_sorava.40.garantia
 		change_gold_effect = { scale = -8 }
 		gj_sorava_cambiar_palabra = { valor = 15 }
 	}

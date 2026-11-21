@@ -329,3 +329,7 @@
  gj_minores_norte_ma_tarea_guardia_desc: "Formar a la Guardia con picas largas."
  gj_minores_norte_ma_tarea_relevo: "La Guardia en línea"
  gj_minores_norte_ma_tarea_relevo_desc: "Que la Guardia sepa batirse también en campo abierto."
+
+ # ===== Descripciones de grupos culturales usados por las culturas del norte =====
+ gj_grupo_ostrevari_desc: "Los pueblos de los valles occidentales y de sus marismas y atalayas: ciudades de puentes, clanes de turba y marcas de frontera que comparten el río, la costumbre de medir lo que se debe y el recelo hacia el vecino de arriba."
+ gj_grupo_fiordo_desc: "Los pueblos que viven del fiordo y de la sal: remeros, salineros y ahumadores que aprenden a leer el mar antes que a leer y no juran a nadie que no tenga quilla."

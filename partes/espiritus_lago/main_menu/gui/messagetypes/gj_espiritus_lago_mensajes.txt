@@ -1,0 +1,22 @@
+# Mensajes de las acciones de presagio (el motor busca PERFORM_<accion>_ACTION; el juego base usa WE_PERFORM_ para el jugador).
+PERFORM_gj_espiritus_lago_select_omen_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+sound=yes
+message_category = government
+}
+
+WE_PERFORM_gj_espiritus_lago_select_omen_ACTION={
+log=yes
+onmap=no
+popup=no
+idle=no
+option=no
+pausepopup=no
+sound=yes
+message_category = government
+}

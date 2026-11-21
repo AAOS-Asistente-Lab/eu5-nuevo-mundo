@@ -35,7 +35,7 @@ gj_ondani = {
 
 	color = gj_map_ondani
 
-	tags = { polynesian_gfx austronesian_gfx }
+	tags = { polynesian_gfx austronesian_gfx indian_gfx afrasian_gfx }
 
 	country_modifier = {
 		global_sailors_modifier = 0.10

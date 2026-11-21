@@ -147,7 +147,7 @@
  # ===== .40 Comienza la Quiebra =====
  gj_sorava.40.title: "La Quiebra de las Casas"
  gj_sorava.40.desc: "Las Casas menores han empezado a cerrar sus mostradores: nadie quiere prestar a un país que no cumple lo que firma. En el Concejo, el pesador mayor deja la balanza en el suelo."
- gj_sorava.40.a: "Poner el tesoro como garantía."
+ gj_sorava.40.garantia: "Poner el tesoro como garantía."
  gj_sorava.40.b: "Declarar una moratoria y ganar tiempo."
 
  # ===== .41 Termina la Quiebra =====

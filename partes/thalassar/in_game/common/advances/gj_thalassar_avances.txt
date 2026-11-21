@@ -64,8 +64,6 @@ gj_thalassar_gremio_de_cartografos = {
 	age = age_2_renaissance
 	unlock_unit = n_gj_thalassar_galera_de_cristal_2
 
-	requires = gj_thalassar_diques_y_esclusas
-
 	exploration_mission_speed_modifier = 0.15
 	naval_range_modifier = 0.1
 }
@@ -76,8 +74,6 @@ gj_thalassar_coros_del_abismo = {
 
 	age = age_2_renaissance
 	unlock_unit = n_gj_thalassar_nave_de_marea_2
-
-	requires = gj_thalassar_cultivo_de_perlas
 
 	naval_morale_modifier = 0.1
 	navy_light_ship_power = 0.1
@@ -102,8 +98,6 @@ gj_thalassar_nobleza_sumergida = {
 	age = age_2_renaissance
 	unlock_unit = a_gj_thalassar_guardia_de_marea_2
 
-	requires = gj_thalassar_memoria_de_ahtessa
-
 	monthly_prestige = 0.05
 	global_nobles_estate_power = -0.1
 }
@@ -118,8 +112,6 @@ gj_thalassar_astilleros_de_nacar = {
 	unlock_unit = n_gj_thalassar_nave_de_marea_3
 	unlock_unit = n_gj_thalassar_galera_de_cristal_3
 
-	requires = gj_thalassar_coros_del_abismo
-
 	ship_build_speed = 0.2
 	navy_galley_power = 0.1
 }
@@ -129,8 +121,6 @@ gj_thalassar_bancos_de_marea = {
 	content_priority = 500
 
 	age = age_3_discovery
-
-	requires = gj_thalassar_aduanas_de_cristal
 
 	global_trade_center_power = 0.1
 	merchant_power_from_maritime_modifier = 0.1
@@ -143,8 +133,6 @@ gj_thalassar_astronomia_de_las_mareas = {
 	age = age_3_discovery
 	unlock_unit = a_gj_thalassar_guardia_de_marea_3
 
-	requires = gj_thalassar_gremio_de_cartografos
-
 	research_speed_modifier = 0.1
 	global_institution_growth_modifier = 0.1
 }
@@ -154,8 +142,6 @@ gj_thalassar_pesca_de_profundidad = {
 	content_priority = 300
 
 	age = age_3_discovery
-
-	requires = gj_thalassar_cultivo_de_perlas
 
 	global_fish_output_modifier = 0.15
 	global_gems_output_modifier = 0.1
@@ -171,8 +157,6 @@ gj_thalassar_bastiones_de_coral = {
 	unlock_unit = n_gj_thalassar_nave_de_marea_4
 	unlock_unit = n_gj_thalassar_galera_de_cristal_4
 
-	requires = gj_thalassar_astilleros_de_nacar
-
 	blockade_efficiency = 0.2
 }
 
@@ -182,8 +166,6 @@ gj_thalassar_cantores_de_ahtessa = {
 
 	age = age_4_reformation
 	unlock_unit = a_gj_thalassar_guardia_de_marea_4
-
-	requires = gj_thalassar_nobleza_sumergida
 
 	monthly_prestige = 0.1
 	global_max_literacy = 5
@@ -195,8 +177,6 @@ gj_thalassar_camaras_de_comercio_marino = {
 
 	age = age_4_reformation
 
-	requires = gj_thalassar_bancos_de_marea
-
 	merchant_power_from_maritime_modifier = 0.15
 	trade_income = 0.05
 }
@@ -206,8 +186,6 @@ gj_thalassar_medicina_del_agua = {
 	content_priority = 300
 
 	age = age_4_reformation
-
-	requires = gj_thalassar_astronomia_de_las_mareas
 
 	global_disease_resistance = 0.07
 }
@@ -222,8 +200,6 @@ gj_thalassar_arsenal_de_cristal = {
 	unlock_unit = n_gj_thalassar_nave_de_marea_5
 	unlock_unit = n_gj_thalassar_galera_de_cristal_5
 
-	requires = gj_thalassar_bastiones_de_coral
-
 	navy_heavy_ship_power = 0.1
 	navy_maintenance_efficiency = 0.1
 }
@@ -233,8 +209,6 @@ gj_thalassar_tributo_del_mar = {
 	content_priority = 500
 
 	age = age_5_absolutism
-
-	requires = gj_thalassar_camaras_de_comercio_marino
 
 	tax_income_efficiency = small_tax_income_efficiency_bonus
 	global_trade_protection_factor = 0.1
@@ -247,8 +221,6 @@ gj_thalassar_ingenieria_hidraulica = {
 	age = age_5_absolutism
 	unlock_unit = a_gj_thalassar_guardia_de_marea_5
 
-	requires = gj_thalassar_medicina_del_agua
-
 	global_build_buildings_efficiency = 0.1
 	building_upkeep_efficiency = 0.05
 }
@@ -258,8 +230,6 @@ gj_thalassar_archivo_de_las_profundidades = {
 	content_priority = 400
 
 	age = age_5_absolutism
-
-	requires = gj_thalassar_cantores_de_ahtessa
 
 	global_monthly_literacy = 0.01
 	research_speed_modifier = 0.1
@@ -274,8 +244,6 @@ gj_thalassar_mareas_domadas = {
 	age = age_6_revolutions
 	unlock_unit = a_gj_thalassar_guardia_de_marea_6
 
-	requires = gj_thalassar_ingenieria_hidraulica
-
 	global_production_efficiency = small_production_efficiency_bonus
 	global_non_rural_monthly_development = 0.001
 }
@@ -285,8 +253,6 @@ gj_thalassar_la_emersion = {
 	content_priority = 700
 
 	age = age_6_revolutions
-
-	requires = gj_thalassar_tributo_del_mar
 
 	government_reform_slots = 1
 	monthly_legitimacy = 0.05
@@ -300,8 +266,6 @@ gj_thalassar_flota_de_la_alborada = {
 	unlock_unit = n_gj_thalassar_nave_de_marea_6
 	unlock_unit = n_gj_thalassar_galera_de_cristal_6
 
-	requires = gj_thalassar_arsenal_de_cristal
-
 	navy_light_ship_power = 0.1
 	naval_range_modifier = 0.15
 }
@@ -311,8 +275,6 @@ gj_thalassar_concordia_de_los_cuatro_mares = {
 	content_priority = 400
 
 	age = age_6_revolutions
-
-	requires = gj_thalassar_archivo_de_las_profundidades
 
 	diplomatic_reputation = diplomatic_reputation_mild_bonus
 	trade_income = 0.05
@@ -340,8 +302,6 @@ gj_talasio_piel_de_sal = {
 
 	age = age_3_discovery
 
-	requires = gj_talasio_canto_de_las_conchas
-
 	global_disease_resistance = 0.05
 	naval_morale_modifier = 0.05
 }
@@ -353,8 +313,6 @@ gj_talasio_heredad_del_dique = {
 	content_priority = 300
 
 	age = age_5_absolutism
-
-	requires = gj_talasio_piel_de_sal
 
 	global_construction_speed = 0.05
 	global_population_capacity_modifier = 0.1

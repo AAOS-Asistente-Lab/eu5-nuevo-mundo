@@ -1,0 +1,4 @@
+﻿# Icono vanilla reutilizado para el coste de elegir espiritu.
+gj_espiritus_lago_precio_presagio_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/cleansing_ritual_purity_cost_modifier.dds"
+}

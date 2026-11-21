@@ -67,8 +67,6 @@ gj_durnhal_galerias_profundas = {
 	global_coal_output_modifier = 0.1
 	global_copper_output_modifier = 0.1
 	ai_weight = { add = 10 }
-
-	requires = mining_law_advance
 }
 
 gj_durnhal_cartas_de_gremio = {
@@ -114,8 +112,6 @@ gj_durnhal_martillo_y_pica = {
 	unlock_unit = a_gj_durnhal_tirador_2
 	unlock_unit = a_gj_durnhal_bombarda_2
 	ai_weight = { add = 10 }
-
-	requires = gj_durnhal_escudo_y_martillo
 }
 
 gj_durnhal_fundicion_de_runa = {
@@ -160,8 +156,6 @@ gj_durnhal_bombardas_en_la_brecha = {
 	unlock_unit = a_gj_durnhal_tirador_3
 	unlock_unit = a_gj_durnhal_bombarda_3
 	ai_weight = { add = 10 }
-
-	requires = gj_durnhal_martillo_y_pica
 }
 
 gj_durnhal_minas_hondas = {
@@ -182,8 +176,6 @@ gj_durnhal_banco_de_las_casas = {
 	stability_cost_efficiency = 0.1
 	tax_income_efficiency = 0.05
 	ai_weight = { add = 10 }
-
-	requires = gj_durnhal_prestamos_de_la_forja
 }
 
 gj_durnhal_gremio_de_artilleros = {
@@ -207,8 +199,6 @@ gj_durnhal_frente_de_acero = {
 	unlock_unit = a_gj_durnhal_tirador_4
 	unlock_unit = a_gj_durnhal_bombarda_4
 	ai_weight = { add = 10 }
-
-	requires = gj_durnhal_bombardas_en_la_brecha
 }
 
 gj_durnhal_hornos_de_coque = {
@@ -243,8 +233,6 @@ gj_durnhal_trueno_de_las_casas = {
 	unlock_unit = a_gj_durnhal_tirador_5
 	unlock_unit = a_gj_durnhal_bombarda_5
 	ai_weight = { add = 10 }
-
-	requires = gj_durnhal_frente_de_acero
 }
 
 gj_durnhal_vapor_de_runa = {
@@ -289,8 +277,6 @@ gj_durnhal_martillo_de_la_nueva_era = {
 	unlock_unit = a_gj_durnhal_tirador_6
 	unlock_unit = a_gj_durnhal_bombarda_6
 	ai_weight = { add = 10 }
-
-	requires = gj_durnhal_trueno_de_las_casas
 }
 
 gj_durnhal_cultura_orfebres_de_veta = {

@@ -143,7 +143,10 @@ const todos = listaFicheros(MOD).filter((f) => {
   else err(r, 0, 'es la copia de un fichero del mundo, pero el mundo no lo trae');
   return false;
 });
-const txts = todos.filter((f) => f.endsWith('.txt'));
+// gui/ no son scripts (tipos de mensaje, ventanas): el juego los lee con otro formato
+const txts = todos.filter((f) => f.endsWith('.txt') && !rel(f).split('/').includes('gui'));
+// tipos de modificador que define el propio mod
+for (const f of txts) if (rel(f).startsWith('main_menu/common/modifier_type_definitions/')) for (const m of leeTexto(f).texto.matchAll(/^([A-Za-z0-9_]+)\s*=\s*\{/gm)) J.modifier_types.add(m[1]);
 const ymls = todos.filter((f) => f.endsWith('.yml'));
 const arboles = new Map();
 
@@ -464,7 +467,7 @@ for (const f of ymls) {
     for (const d of val.matchAll(/\$([A-Za-z0-9_]+)\$/g)) if (!loc[m[1]].has(d[1])) aviso(r, l, `$${d[1]}$ no esta en el mod (puede ser del juego)`);
   });
 }
-for (const [k, o] of locNecesaria) for (const lg of LENGUAS) if (!loc[lg].has(k)) err(o.f, o.l, `falta la localizacion '${k}' en ${lg}`);
+for (const [k, o] of locNecesaria) for (const lg of LENGUAS) if (!loc[lg].has(k) && !locJuego(lg).has(k)) err(o.f, o.l, `falta la localizacion '${k}' en ${lg}`);
 for (const k of loc.spanish.keys()) if (!loc.english.has(k) && !locReplace.has(k)) err(loc.spanish.get(k).r, loc.spanish.get(k).l, `'${k}' esta en spanish y no en english`);
 for (const k of loc.english.keys()) if (!loc.spanish.has(k) && !locReplace.has(k)) err(loc.english.get(k).r, loc.english.get(k).l, `'${k}' esta en english y no en spanish`);
 for (const k of loc.spanish.keys()) if (!locNecesaria.has(k) && !locOpcional.has(k) && !locReplace.has(k)) aviso(loc.spanish.get(k).r, loc.spanish.get(k).l, `'${k}' no lo usa ningun script del mod`);

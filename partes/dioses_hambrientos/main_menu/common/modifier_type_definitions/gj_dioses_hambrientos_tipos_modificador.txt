@@ -1,0 +1,25 @@
+﻿# Coste de los precios de las acciones religiosas de Los Dioses Hambrientos.
+gj_dioses_hambrientos_ofrenda_de_cautivos_cost_modifier = {
+	color = bad
+	percent = yes
+	game_data = {
+		category = country
+	}
+}
+
+gj_dioses_hambrientos_gran_banquete_cost_modifier = {
+	color = bad
+	percent = yes
+	game_data = {
+		category = country
+	}
+}
+
+gj_dioses_hambrientos_ayuno_penitente_cost_modifier = {
+	color = bad
+	percent = yes
+	game_data = {
+		category = country
+	}
+}
+

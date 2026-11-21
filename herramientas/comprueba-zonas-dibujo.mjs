@@ -8,7 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readPngFile } from '../mapa/png.mjs';
+import { readPngFile } from './png.mjs';
 import { cargaMapa, defineZonas, DIR_MAPA } from './zonas-mapa.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));

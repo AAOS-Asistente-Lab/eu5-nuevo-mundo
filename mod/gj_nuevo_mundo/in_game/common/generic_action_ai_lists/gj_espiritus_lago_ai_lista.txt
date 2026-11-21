@@ -1,0 +1,10 @@
+﻿# Lista de IA de las acciones de presagio de los Espiritus del Lago (como omens_list del juego base).
+gj_espiritus_lago_omens_list = {
+	potential = {
+		religion ?= religion:gj_espiritus_lago
+	}
+	actions = {
+		gj_espiritus_lago_select_omen_god
+		gj_espiritus_lago_select_omen
+	}
+}

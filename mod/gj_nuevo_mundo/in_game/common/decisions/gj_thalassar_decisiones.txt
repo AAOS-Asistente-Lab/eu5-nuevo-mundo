@@ -228,7 +228,6 @@ gj_thalassar_alzar_fase_5 = {
 				change_development = development_mild_bonus
 			}
 			unlock_government_reform_effect = { type = gj_thalassar_corona_emergida }
-			set_variable = { name = gj_ciudad_alzada value = 1 }
 			add_prestige = prestige_mild_bonus
 			trigger_event_non_silently = gj_thalassar.25
 		}

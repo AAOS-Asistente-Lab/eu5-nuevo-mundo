@@ -1,0 +1,10 @@
+﻿# Lista de IA de las acciones religiosas del Sol Blanco (como yanantin_list del juego base).
+gj_sol_blanco_acciones_list = {
+	potential = {
+		religion ?= religion:gj_sol_blanco
+	}
+	actions = {
+		gj_sol_blanco_rito_contrapeso
+		gj_sol_blanco_festival_luces
+	}
+}

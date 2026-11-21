@@ -441,6 +441,9 @@ gj_llama_profunda.11 = {
 # .20 Oculto: da el panteon de partida a quien sigue la fe y aun no lo tiene
 gj_llama_profunda.20 = {
 	type = country_event
+	outcome = neutral
+	title = empty_text
+	desc = empty_text
 	hidden = yes
 
 	trigger = {

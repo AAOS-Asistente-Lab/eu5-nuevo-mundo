@@ -96,7 +96,7 @@ gj_ostrevar_archivos_del_censo = {
 	global_monthly_literacy = 0.02
 	diplomatic_capacity = 0.5
 	ai_weight = { add = 10 }
-	requires = chancery_records
+	requires = government_size_renaissance
 }
 
 gj_ostrevar_calles_empedradas = {

@@ -1,0 +1,4 @@
+﻿# Opinion entre miembros de la Liga de la Sal y la Llama (la exige el tipo de organizacion internacional).
+io_opinion_gj_liga_sal_llama = {
+	value = 20
+}

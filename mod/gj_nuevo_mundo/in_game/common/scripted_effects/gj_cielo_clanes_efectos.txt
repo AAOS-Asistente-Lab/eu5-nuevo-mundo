@@ -38,11 +38,11 @@ gj_cielo_clanes_fija_dios = {
 			name = gj_reinados_cielo
 			add = 1
 		}
-		else = {
-			set_variable = {
-				name = gj_reinados_cielo
-				value = 1
-			}
+	}
+	else = {
+		set_variable = {
+			name = gj_reinados_cielo
+			value = 1
 		}
 	}
 }
@@ -123,16 +123,16 @@ gj_cielo_clanes_presagio_cometa = {
 		}
 		add_prestige = prestige_weak_bonus
 		gj_cielo_clanes_favor = { n = 1 }
-		else = {
-			add_prestige = prestige_weak_bonus
-			if = {
-				limit = {
-					has_variable = gj_dios_reinado
-					var:gj_dios_reinado = 1
-				}
-				add_legitimacy = legitimacy_weak_penalty
-				gj_cielo_clanes_favor = { n = -1 }
+	}
+	else = {
+		add_prestige = prestige_weak_bonus
+		if = {
+			limit = {
+				has_variable = gj_dios_reinado
+				var:gj_dios_reinado = 1
 			}
+			add_legitimacy = legitimacy_weak_penalty
+			gj_cielo_clanes_favor = { n = -1 }
 		}
 	}
 }
@@ -154,13 +154,13 @@ gj_cielo_clanes_presagio_eclipse = {
 			mode = add_and_extend
 		}
 		gj_cielo_clanes_favor = { n = 1 }
-		else = {
-			add_country_modifier = {
-				modifier = gj_presagio_eclipse_malo
-				years = modifier_duration_years_short
-				mode = add_and_extend
-			}
-			gj_cielo_clanes_favor = { n = -1 }
+	}
+	else = {
+		add_country_modifier = {
+			modifier = gj_presagio_eclipse_malo
+			years = modifier_duration_years_short
+			mode = add_and_extend
 		}
+		gj_cielo_clanes_favor = { n = -1 }
 	}
 }

@@ -8,7 +8,7 @@ gj_kaivani = {
 
 	color = rgb { 176 128 58 }
 
-	tags = { turkic_gfx central_asian_gfx }
+	tags = { turkic_gfx central_asian_gfx middle_east_gfx afrasian_gfx }
 
 	# Rasgos de la cultura: se aplican al pais cuya cultura primaria es esta,
 	# a las locations donde es la dominante y a sus personajes.

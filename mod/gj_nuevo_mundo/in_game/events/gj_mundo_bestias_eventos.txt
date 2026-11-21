@@ -567,7 +567,7 @@ gj_mundo_bestias.22 = {
 		random_owned_location = {
 			limit = {
 				gj_zona_estrecho = yes
-				has_ports = yes
+				is_port = yes
 			}
 			add_location_modifier = { modifier = gj_mundo_bestias_pesca_vacia years = 3 mode = add_and_extend }
 		}
@@ -862,6 +862,8 @@ gj_mundo_bestias.34 = {
 # .40 Presagio (oculto): reparte un cometa o un eclipse a todo el mundo a la vez
 gj_mundo_bestias.40 = {
 	type = country_event
+	title = empty_text
+	desc = empty_text
 	hidden = yes
 
 	trigger = {
@@ -1030,6 +1032,8 @@ gj_mundo_bestias.45 = {
 # .46 La cadena de presagios (oculto): arma el siguiente y lanza el presente
 gj_mundo_bestias.46 = {
 	type = country_event
+	title = empty_text
+	desc = empty_text
 	hidden = yes
 
 	immediate = {

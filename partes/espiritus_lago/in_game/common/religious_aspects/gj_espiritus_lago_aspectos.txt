@@ -56,7 +56,7 @@ gj_espiritus_lago_aspecto_fuego_de_orilla = {
 
 	modifier = {
 		omen_time_modifier = 0.2
-		select_omen_god_cost_modifier = -0.2
+		gj_espiritus_lago_precio_presagio_cost_modifier = -0.2
 		monthly_legitimacy = 0.05
 	}
 

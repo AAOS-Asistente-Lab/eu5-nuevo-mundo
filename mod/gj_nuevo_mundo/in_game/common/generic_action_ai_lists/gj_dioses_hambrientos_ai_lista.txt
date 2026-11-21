@@ -1,0 +1,11 @@
+﻿# Lista de IA de las acciones religiosas de Los Dioses Hambrientos (como yanantin_list del juego base).
+gj_dioses_hambrientos_acciones_list = {
+	potential = {
+		religion ?= religion:gj_dioses_hambrientos
+	}
+	actions = {
+		gj_dioses_hambrientos_ofrenda_de_cautivos
+		gj_dioses_hambrientos_gran_banquete
+		gj_dioses_hambrientos_ayuno_penitente
+	}
+}

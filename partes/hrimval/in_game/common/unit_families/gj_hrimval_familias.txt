@@ -1,0 +1,4 @@
+﻿# Familia de los Gigantes de Escarcha: el tope de 3 regimientos se comparte entre sus 6 versiones.
+gj_hrimval_gigantes = {
+	limit = 3
+}

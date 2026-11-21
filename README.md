@@ -11,13 +11,13 @@ Un mod de Europa Universalis V con un Nuevo Mundo propio, pensado para jugar en 
 El mapa lo hace Random New World, con un continente dibujado por nosotros. Este mod pone el contenido encima.
 
 ## Estado
-Jugable sobre el mundo v2, «RNW: Custom world 35CL»: las 12 facciones empiezan en su zona del mapa, con el 72,5 % del Nuevo Mundo con dueño, sus capitales dentro y la vegetación mezclada. Lo que hace el v2 y lo pendiente (más países y más pequeños, y el 3D del mapa) está en `docs/estado.md`. Para jugar: `docs/como-jugar.md`.
+Jugable sobre el mundo v3, «RNW: Custom world 35CL»: las 12 facciones empiezan dentro de su zona del mapa (cada una con una cuarta parte de ella), entre 130 países de todos los tamaños; el 48,5 % del Nuevo Mundo tiene dueño y el resto queda libre para colonizar. Capitales dentro de su zona, vegetación mezclada, y árboles y suelo del mapa a juego (mod local de gráficos). El juego carga el mod sin errores suyos; falta probarlo en partida. Lo que hace y lo pendiente está en `docs/estado.md`. Para jugar: `docs/como-jugar.md`.
 
 ## Qué hay aquí
 | Carpeta | Contenido |
 |---|---|
-| `docs/como-jugar.md` | Cómo rehacer el mundo v2, instalar el mod, el orden de la colección y el multijugador. |
-| `docs/estado.md` | Qué hace el v2, sus cifras y lo pendiente, con el plan del 3D. |
+| `docs/como-jugar.md` | Cómo rehacer el mundo, instalar el mod, el orden de la colección y el multijugador. |
+| `docs/estado.md` | Qué hace el v3, sus cifras, lo comprobado y lo pendiente. |
 | `docs/estudio-3d.md` | Por qué sale tanto desierto y cómo hacer que los árboles y el suelo del mapa sigan a la vegetación. |
 | `docs/vinculo-mundo.md` | Qué país del mundo es cada facción, las zonas y las cifras del reparto. |
 | `docs/peticion.md` | Lo que pidieron los jugadores. |
@@ -25,10 +25,10 @@ Jugable sobre el mundo v2, «RNW: Custom world 35CL»: las 12 facciones empiezan
 | `docs/plan.md` | Las fases, los caminos y los riesgos. |
 | `docs/contrato-partes.md` | Las reglas que sigue cada parte del contenido. |
 | `docs/estudio-rnw.md`, `docs/formato-eu5.md` y `docs/mapa.md` | Cómo funciona Random New World, cómo se hace un mod de EU5 y el dibujo del mapa. |
-| `mundo/` | `mundo-35cl.rnworld` (el mundo v2), el dibujo (`mascara.png`, `zonas.png`, `zonas.json`) y su vista. |
-| `mod/gj_nuevo_mundo` | El mod listo para cargar, ya vinculado al mundo v2. Se copia tal cual: la suma de control depende de cada byte. |
+| `mundo/` | `mundo-35cl.rnworld` (el mundo), el dibujo (`mascara.png`, `zonas.png`, `zonas.json`) y su vista. |
+| `mod/gj_nuevo_mundo` | El mod listo para cargar, ya vinculado al mundo. Se copia tal cual: la suma de control depende de cada byte. |
 | `partes/` | El contenido de cada facción, religión y mecánica de mundo, antes de integrarlo. |
-| `herramientas/` | Los guiones en Node que funden las partes, vinculan el mod a un mundo y lo comprueban. |
+| `herramientas/` | Los guiones en Node que funden las partes, vinculan el mod a un mundo y lo comprueban, y `exporta-3d` (Node y el Python de RNW) para los árboles y el suelo. |
 
 ## Requisitos para jugar
 - EU5 1.4.9 y los mismos DLC.

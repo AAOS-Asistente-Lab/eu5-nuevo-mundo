@@ -1086,6 +1086,9 @@ gj_ostrevar.34 = {
 
 gj_ostrevar.40 = {
 	type = country_event
+	outcome = neutral
+	title = empty_text
+	desc = empty_text
 	hidden = yes
 	trigger = {
 		gj_es_ostrevar = yes

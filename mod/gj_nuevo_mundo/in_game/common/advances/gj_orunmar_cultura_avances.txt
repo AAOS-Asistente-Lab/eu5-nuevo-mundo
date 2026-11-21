@@ -12,7 +12,6 @@ gj_orunmar_cultura_costumbre_del_banquete = {
 gj_orunmar_cultura_ojo_del_tintorero = {
 	potential = { culture = culture:gj_orunmari }
 	age = age_3_discovery
-	requires = gj_orunmar_cultura_costumbre_del_banquete
 
 	global_dyes_output_modifier = 0.1
 	research_speed_modifier = 0.05

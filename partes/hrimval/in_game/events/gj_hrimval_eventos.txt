@@ -9,7 +9,7 @@ gj_hrimval.1 = {
 
 	option = {
 		name = gj_hrimval.1.a
-		add_cultural_tradition = cultural_tradition_weak_bonus
+		culture = { add_cultural_tradition = cultural_tradition_weak_bonus }
 		change_gold_effect = { scale = -1 }
 	}
 	option = {
@@ -274,7 +274,7 @@ gj_hrimval.13 = {
 	}
 	option = {
 		name = gj_hrimval.13.b
-		add_cultural_tradition = cultural_tradition_weak_bonus
+		culture = { add_cultural_tradition = cultural_tradition_weak_bonus }
 	}
 }
 
@@ -408,11 +408,12 @@ gj_hrimval.20 = {
 
 	option = {
 		name = gj_hrimval.20.a
-		u
+		add_army_tradition = army_tradition_weak_bonus
+		add_legitimacy = legitimacy_weak_bonus
 	}
 	option = {
 		name = gj_hrimval.20.b
-		j
+		add_manpower = { value = monthly_manpower multiply = 3 }
 	}
 }
 
@@ -446,11 +447,11 @@ gj_hrimval.22 = {
 
 	option = {
 		name = gj_hrimval.22.a
-		u
+		add_stability = stability_weak_bonus
 	}
 	option = {
 		name = gj_hrimval.22.b
-		d
+		gj_hrimval_recoge_caidos = { N = 5 }
 	}
 }
 
@@ -462,11 +463,12 @@ gj_hrimval.23 = {
 
 	option = {
 		name = gj_hrimval.23.a
-		o
+		change_gold_effect = { scale = -2 }
+		add_stability = stability_weak_bonus
 	}
 	option = {
 		name = gj_hrimval.23.b
-		d
+		add_legitimacy = legitimacy_weak_bonus
 	}
 }
 
@@ -518,11 +520,11 @@ gj_hrimval.31 = {
 
 	option = {
 		name = gj_hrimval.31.a
-		o
+		gj_hrimval_recoge_caidos = { N = 6 }
 	}
 	option = {
 		name = gj_hrimval.31.b
-		j
+		add_army_tradition = army_tradition_weak_bonus
 	}
 }
 
@@ -534,11 +536,13 @@ gj_hrimval.40 = {
 
 	option = {
 		name = gj_hrimval.40.a
-		u
+		gj_hrimval_recoge_caidos = { N = 4 }
+		add_legitimacy = legitimacy_weak_penalty
 	}
 	option = {
 		name = gj_hrimval.40.b
-		d
+		add_manpower = { value = monthly_manpower multiply = 3 }
+		add_stability = stability_weak_penalty
 	}
 }
 
@@ -550,11 +554,11 @@ gj_hrimval.41 = {
 
 	option = {
 		name = gj_hrimval.41.a
-		o
+		add_stability = stability_weak_bonus
 	}
 	option = {
 		name = gj_hrimval.41.b
-		d
+		add_prestige = prestige_weak_bonus
 	}
 }
 
@@ -589,11 +593,12 @@ gj_hrimval.43 = {
 
 	option = {
 		name = gj_hrimval.43.a
-		a
+		add_research_progress = research_progress_weak_bonus
+		change_gold_effect = { scale = -1 }
 	}
 	option = {
 		name = gj_hrimval.43.b
-		d
+		add_stability = stability_weak_bonus
 	}
 }
 

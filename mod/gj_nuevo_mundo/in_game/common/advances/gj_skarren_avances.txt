@@ -65,7 +65,7 @@ gj_skarren_pacto_de_sangre = {
 	land_morale_modifier = 0.05
 	army_tradition_from_battle = 0.1
 
-	requires = gj_skarren_casas_largas
+	requires = medieval_military
 }
 
 gj_skarren_mercado_del_botin = {
@@ -95,7 +95,7 @@ gj_skarren_sagas_recitadas = {
 	monthly_prestige = 0.05
 	cultural_tradition = 1
 
-	requires = gj_skarren_piedra_de_runas
+	requires = renaissance_court
 }
 
 gj_skarren_calafateo_de_brea = {
@@ -125,7 +125,7 @@ gj_skarren_abordaje_en_masa = {
 	ship_capture_chance = 0.2
 	naval_morale_modifier = 0.05
 
-	requires = boarding_parties
+	requires = naval_morale_advance_2
 }
 
 gj_skarren_dinero_de_proteccion = {
@@ -135,7 +135,7 @@ gj_skarren_dinero_de_proteccion = {
 	amount_looted_modifier = 0.1
 	casus_belli_creation_speed = 0.1
 
-	requires = claim_fabrication
+	requires = diplomatic_training
 }
 
 gj_skarren_corsarios_del_norte = {
@@ -165,7 +165,7 @@ gj_skarren_senores_de_bahia = {
 	diplomatic_capacity = 1
 	monthly_legitimacy = 0.05
 
-	requires = gj_skarren_sagas_recitadas
+	requires = diplomatic_range_age_3
 }
 
 gj_skarren_diezmo_del_saqueo = {
@@ -175,7 +175,7 @@ gj_skarren_diezmo_del_saqueo = {
 	amount_looted_modifier = 0.1
 	prestige_from_naval_battle = 0.15
 
-	requires = gj_skarren_dinero_de_proteccion
+	requires = gj_skarren_corsarios_del_norte
 }
 
 gj_skarren_escuadras_de_asalto = {
@@ -225,7 +225,7 @@ gj_skarren_ultimo_saqueo = {
 	amount_looted_modifier = 0.1
 	monthly_prestige = 0.1
 
-	requires = gj_skarren_diezmo_del_saqueo
+	requires = gj_skarren_vapor_y_arpon
 }
 
 gj_skarren_la_gran_saga = {
@@ -235,7 +235,7 @@ gj_skarren_la_gran_saga = {
 	monthly_legitimacy = 0.1
 	diplomatic_reputation = 2
 
-	requires = gj_skarren_senores_de_bahia
+	requires = gj_skarren_ultimo_saqueo
 }
 
 gj_skarren_cultura_voz_del_fiordo = {

@@ -14,7 +14,7 @@ gj_escuela_barqueros = {
 
 	modifier = {
 		global_merchant_capacity_modifier = 0.1
-		select_omen_god_cost_modifier = -0.1
+		gj_espiritus_lago_precio_presagio_cost_modifier = -0.1
 	}
 }
 

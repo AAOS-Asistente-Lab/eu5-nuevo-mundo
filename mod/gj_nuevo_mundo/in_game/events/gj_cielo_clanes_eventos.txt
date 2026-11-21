@@ -491,6 +491,9 @@ gj_cielo_clanes.11 = {
 # Oculto: recalcula el favor cada ano
 gj_cielo_clanes.12 = {
 	type = country_event
+	title = gj_cielo_clanes.12.title
+	desc = gj_cielo_clanes.12.desc
+	outcome = neutral
 	hidden = yes
 
 	trigger = {

@@ -1,0 +1,13 @@
+﻿# Iconos de los modificadores de coste: se reutiliza un icono del juego base.
+gj_dioses_hambrientos_ofrenda_de_cautivos_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/greek_festivals_cost_modifier.dds"
+}
+
+gj_dioses_hambrientos_gran_banquete_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/greek_festivals_cost_modifier.dds"
+}
+
+gj_dioses_hambrientos_ayuno_penitente_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/greek_festivals_cost_modifier.dds"
+}
+

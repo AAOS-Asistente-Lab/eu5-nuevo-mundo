@@ -13,7 +13,7 @@ gj_marea_negra_cultura_tradicion_del_nudo = {
 	potential = {
 		culture = culture:gj_mareano
 	}
-	requires = cultural_acceptance_advance
+	requires = pop_promotion_speed_age_3
 	monthly_prestige = 0.05
 	global_population_growth = 0.0005
 }
@@ -23,7 +23,7 @@ gj_marea_negra_cultura_memoria_de_las_deudas = {
 	potential = {
 		culture = culture:gj_mareano
 	}
-	requires = cultural_acceptance_advance
+	requires = pop_promotion_speed_age_5
 	stability_cost_efficiency = 0.1
 	monthly_legitimacy = 0.05
 }

@@ -130,7 +130,7 @@ gj_velathi_aserradero_vivo = {
 			icon = gj_velathi_aserradero_vivo
 			lumber = 0.02
 			produced = furniture
-			output = 0.1
+			output = 0.012
 			debug_max_profit = rural_profit_margin
 			category = guild_input
 		}

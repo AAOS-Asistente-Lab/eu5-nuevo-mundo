@@ -13,7 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readPngFile } from '../mapa/png.mjs';
+import { readPngFile } from './png.mjs';
 import { centros, vecinos } from './mundo.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));

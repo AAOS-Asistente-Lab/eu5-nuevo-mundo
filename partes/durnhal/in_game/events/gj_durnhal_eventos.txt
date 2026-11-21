@@ -542,7 +542,6 @@ gj_durnhal.30 = {
 	desc = gj_durnhal.30.desc
 	outcome = negative
 	category = disaster_event
-	orphan = yes
 
 	trigger = {
 		gj_es_durnhal = yes
@@ -572,7 +571,6 @@ gj_durnhal.31 = {
 	desc = gj_durnhal.31.desc
 	outcome = negative
 	category = disaster_event
-	orphan = yes
 
 	trigger = {
 		gj_es_durnhal = yes
@@ -592,7 +590,6 @@ gj_durnhal.32 = {
 	desc = gj_durnhal.32.desc
 	outcome = negative
 	category = disaster_event
-	orphan = yes
 
 	trigger = {
 		gj_es_durnhal = yes
@@ -618,7 +615,6 @@ gj_durnhal.33 = {
 	desc = gj_durnhal.33.desc
 	outcome = negative
 	category = disaster_event
-	orphan = yes
 
 	trigger = {
 		gj_es_durnhal = yes

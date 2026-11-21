@@ -18,7 +18,7 @@
 - Reforma inicial: `gj_thalassar_consejo_de_las_mareas` (unique; `potential = { gj_es_thalassar = yes }`).
 
 ## Formable «Thalassar Restaurada»
-El formable necesita un tag, un nombre, una bandera y una geografía, así que lo escribe la integración. La condición ya está lista: `gj_thalassar_ciudad_alzada = yes` (fase 5 completada). Al cumplirse se han desbloqueado además la reforma `gj_thalassar_corona_emergida` y la variable de país `gj_ciudad_alzada = 1`.
+El formable necesita un tag, un nombre, una bandera y una geografía, así que lo escribe la integración. La condición ya está lista: `gj_thalassar_ciudad_alzada = yes` (fase 5 completada). Al cumplirse se ha desbloqueado además la reforma `gj_thalassar_corona_emergida`.
 
 ## Ganchos de on_action
 `on_action/gj_thalassar_on_action.txt` añade `gj_thalassar_pulso_anual` y `gj_thalassar_pulso_bienal` a `yearly_country_pulse` y `biyearly_country_pulse` del juego base. Si el motor no fusiona esas claves con las del base, la integración debe llamar a esos dos on_actions desde su propio gancho. Todos los eventos temáticos salen de ahí.

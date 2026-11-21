@@ -8,6 +8,11 @@
 gj_hrimval_recoge_caidos = {
 	if = {
 		limit = { gj_es_hrimval = yes }
+		# Arranque: la Corte empieza con 10 caidos guardados (IDENTIDAD.md)
+		if = {
+			limit = { NOT = { has_variable = gj_caidos } }
+			set_variable = { name = gj_caidos value = 10 }
+		}
 		change_variable = { name = gj_caidos add = $N$ }
 		clamp_variable = { name = gj_caidos min = 0 max = 100 }
 		capital ?= {

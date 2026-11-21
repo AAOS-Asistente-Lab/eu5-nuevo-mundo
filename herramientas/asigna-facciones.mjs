@@ -15,7 +15,7 @@
 //   --destino <carpeta> donde instalar (por defecto Documents/.../mod)
 //   --sin-mapa          no usa el mapa final (mapa/final/zonas.json) aunque el mundo encaje
 //   --zonas-mapa        usa el mapa final aunque el mundo no encaje (solo para probar)
-//   --sin-reparto       no da a cada faccion su zona al empezar (reparte-tierra.mjs)
+//   --sin-reparto       no reparte la tierra libre al empezar (reparte-tierra.mjs)
 //   --sin-vegetacion    no mezcla la vegetacion (mezcla-vegetacion.mjs)
 //
 // Con un mundo hecho con el dibujo de mapa/final, cada faccion se queda el pais con mas
@@ -275,15 +275,21 @@ for (const z of [...zonasUsadas].sort()) {
 
 // ---------------------------------------------------------------- tierra de cada faccion al empezar
 const vecM = conMapa ? await vecinos(MUNDO, JUEGO) : null;
-const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones }) : null;
+// sub-zonas de localizacion que piden las partes: cada faccion tendra un pie en las de su zona
+const locsDeArea = new Map();
+for (const [l, j] of jer) { if (!locsDeArea.has(j.area)) locsDeArea.set(j.area, []); locsDeArea.get(j.area).push(l); }
+const subzonas = Object.entries(zonas).filter(([, d]) => d.ambito === 'localizacion')
+  .map(([nombre, d]) => ({ nombre, locs: d.lista.flatMap((x) => (x.tipo === 'location' ? [x.clave] : x.tipo === 'area' ? locsDeArea.get(x.clave) || [] : [])).sort() }))
+  .filter((s) => s.locs.length);
+const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas }) : null;
 
 // ---------------------------------------------------------------- vegetacion mezclada
-// Ciudades de las facciones: su capital y las de los estados que absorben al empezar.
+// Ciudades de las facciones: sus capitales.
 let vegR = null;
 if (conMapa && !tiene('--sin-vegetacion')) {
   const capitalDe = new Map(paises.map((p) => [p.tag, tierraR?.capital?.[p.tag]?.a || p.capital])); // con la capital ya llevada a su zona
   const tagsF = Object.values(asignados).map((p) => p.tag);
-  const ciudades = [...tagsF, ...tagsF.flatMap((t) => tierraR?.absorbe[t] || [])].map((t) => capitalDe.get(t)).filter(Boolean);
+  const ciudades = tagsF.map((t) => capitalDe.get(t)).filter(Boolean);
   const sur = new Set(FAC.facciones.filter((f) => f.continente === 'sur').map(facZona));
   const zonaSurFaccion = new Set(liga.tierra.filter((l) => sur.has(liga.zonaDe.get(l)?.id)));
   const tabla = tablaDelJuego(leeTexto(path.join(JUEGO, 'in_game', 'map_data', 'location_templates.txt')).texto);
@@ -345,7 +351,7 @@ const vinculo = {
   mundo: { id: metaMundo.id, name: metaMundo.name, version: metaMundo.version },
   paises: paisesVinculo,
   zonas,
-  tierra: tierraR ? { absorbe: tierraR.absorbe, da: tierraR.da, capital: tierraR.capital } : null,
+  tierra: tierraR ? { da: tierraR.da, capital: tierraR.capital } : null,
   recursos: Object.fromEntries(rec.cambian.map((l) => [l, rec.asignado.get(l)])),
 };
 const rutaVinculo = path.join(OBRA, 'vinculo.json');
