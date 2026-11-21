@@ -364,6 +364,7 @@ if (conMapa && !tiene('--sin-vegetacion')) {
 }
 
 // ---------------------------------------------------------------- ciudades y pueblos (rangos.mjs)
+const { MANDOS: ECO, aplicaEconomia } = await import('./economia.mjs'); // aqui y no arriba: el import es de este corte
 let rangosR = null, duenoFin = null;
 if (tierraR) {
   duenoFin = new Map();
@@ -383,7 +384,9 @@ if (tierraR) {
   // copia de 07, con town_setup y sus edificios
   const setupR = r, efectoR = {};
   const n = (x) => Object.values(r).filter((v) => v === x).length;
-  rangosR = { rangos: r, setup: setupR, efecto: efectoR, veto: veto.size, ciudades: n('city'), pueblos: n('town'), cada, ya: [...yaTienen.keys()].filter((l) => liga.tierra.includes(l)).length };
+  // rango final de la tierra con dueno (el de RNW y el nuestro) y capitales, para economia.mjs
+  const fin = new Map([...[...yaTienen].filter(([l]) => duenoFin.has(l)), ...Object.entries(r)]);
+  rangosR = { rangos: r, setup: setupR, efecto: efectoR, veto: veto.size, ciudades: n('city'), pueblos: n('town'), cada, ya: [...yaTienen.keys()].filter((l) => liga.tierra.includes(l)).length, fin, capitales: capitalesFin };
 }
 
 // ---------------------------------------------------------------- informe
@@ -469,30 +472,30 @@ if (vegR?.cambia.size && fu.status === 0) {
   console.log(`Vegetacion: ${n} localizaciones cambiadas en in_game/map_data/location_templates.txt (copia del del mundo).`);
 }
 // Las ciudades y los pueblos van en una copia del 07_cities_and_buildings.txt del mundo, con el
-// town_setup de la localizacion con rango de RNW mas cercana (del mismo rango si la hay): asi el
-// juego pone sus edificios al empezar y la pantalla de eleccion ya los ensena. Un
-// change_location_rank en un gancho cambia el rango, pero no trae los edificios del setup.
+// town_setup de economia.mjs (TOWN_SETUPS): asi el juego pone sus edificios al empezar y la pantalla
+// de eleccion ya los ensena. Un change_location_rank en un gancho cambia el rango, pero no trae los
+// edificios del setup. Las lineas de RNW del Nuevo Mundo: con dueno, el mismo town_setup nuestro; sin
+// dueno, sin town_setup (error.log de c83f781: "not owned by someone, you can't set it up through town_setup").
 if (rangosR && Object.keys(rangosR.setup).length && fu.status === 0) {
   const f7 = enMundo('main_menu', 'setup', '1337', '07_cities_and_buildings.txt') || muere('no encuentro 07_cities_and_buildings.txt');
   const t7 = fs.readFileSync(f7, 'utf8');
-  const cen7 = await centros(MUNDO, JUEGO);
   const fin = t7.search(/^\}/m); // cierre del bloque locations={
-  const conSetup = [...t7.slice(0, fin).matchAll(/^\s*([A-Za-z0-9_\-.]+)\s*=\s*\{[^}\n]*?\brank\s*=\s*([a-z_]+)[^}\n]*?\btown_setup\s*=\s*([A-Za-z0-9_]+)/gm)]
-    .map((x) => ({ l: x[1], r: x[2], s: x[3] })).filter((x) => cen7.has(x.l) && jer.get(x.l)?.continente === 'america');
-  const xyDe = (l) => { const c = cen7.get(l); return Array.isArray(c) ? c : [c.x, c.y]; };
-  const setupDe = (l, r) => {
-    const [x, y] = xyDe(l), d = (o) => { const [a, b] = xyDe(o.l); return (a - x) ** 2 + (b - y) ** 2; };
-    const lista = conSetup.filter((o) => o.r === r).length ? conSetup.filter((o) => o.r === r) : conSetup;
-    return lista.length ? lista.reduce((m, o) => (d(o) < d(m) ? o : m)).s : null;
-  };
-  const lineas = Object.entries(rangosR.setup).filter(([l]) => cen7.has(l)).map(([l, r]) => { const s = setupDe(l, r); return `\t${l} = { rank = ${r}${s ? ` town_setup = ${s}` : ''} }`; });
-  const nuestras = new Set(Object.keys(rangosR.setup).filter((l) => cen7.has(l)));
-  let quitadas = 0;
-  const cabeza = t7.slice(0, fin).replace(/^\s*([A-Za-z0-9_\-.]+)\s*=\s*\{[^}\n]*?\brank\s*=[^}\n]*\}[^\n]*\r?\n/gm, (m, l) => (nuestras.has(l) ? (quitadas++, '') : m));
+  const ts = (r) => ECO.SETUP[r] || muere(`economia.mjs no tiene town_setup para el rango ${r}`);
+  const lineas = Object.entries(rangosR.setup).map(([l, r]) => `\t${l} = { rank = ${r} town_setup = ${ts(r)} }`);
+  const nuestras = new Set(Object.keys(rangosR.setup)), nm7 = new Set(liga.tierra);
+  let quitadas = 0, sinDueno = 0, otroSetup = 0;
+  const cabeza = t7.slice(0, fin).split('\n').flatMap((ln) => {
+    const x = ln.match(/^\s*([A-Za-z0-9_\-.]+)\s*=\s*\{[^}]*?\brank\s*=\s*([a-z_]+)/);
+    if (!x || !nm7.has(x[1])) return [ln];
+    if (nuestras.has(x[1])) { quitadas++; return []; }
+    if (!duenoFin.has(x[1])) { if (/\btown_setup\b/.test(ln)) sinDueno++; return [ln.replace(/\s*\btown_setup\s*=\s*[A-Za-z0-9_]+/, '')]; }
+    otroSetup++;
+    return [/\btown_setup\b/.test(ln) ? ln.replace(/\btown_setup\s*=\s*[A-Za-z0-9_]+/, `town_setup = ${ts(x[2])}`) : ln.replace(/\s*\}([^}]*)$/, ` town_setup = ${ts(x[2])} }$1`)];
+  }).join('\n');
   const dest = path.join(obraMod, 'main_menu', 'setup', '1337', '07_cities_and_buildings.txt');
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.writeFileSync(dest, cabeza + `\n\t# GJ Nuevo Mundo (asigna-facciones.mjs): ${lineas.length} ciudades y pueblos de la tierra repartida\n${lineas.join('\n')}\n` + t7.slice(fin), 'utf8');
-  console.log(`Rangos: ${lineas.length} localizaciones en main_menu/setup/1337/07_cities_and_buildings.txt (copia del del mundo; ${quitadas} lineas de RNW sustituidas).`);
+  console.log(`Rangos: ${lineas.length} localizaciones en main_menu/setup/1337/07_cities_and_buildings.txt (copia del del mundo; ${quitadas} lineas de RNW sustituidas, ${otroSetup} con nuestro town_setup, ${sinDueno} sin dueno sin town_setup).`);
 }
 // La tierra al empezar va en una copia de 10_countries.txt del mundo (decision de los jugadores,
 // 21-11 tarde): cada pais tiene en el setup su tierra final, asi que sus ciudades reciben los
@@ -599,6 +602,27 @@ if (tierraR && fu.status === 0) {
   if (malas.length) muere(`la copia de 10_countries no da el reparto en ${malas.length} localizaciones (p. ej. ${malas.slice(0, 3).join(' ')})`);
   nuevosR = (tierraR.nuevos || []).filter((nv) => nv.cultura);
   console.log(`Tierra en el setup: ${cambiadas} localizaciones cambian de lista en main_menu/setup/1337/10_countries.txt (copia del del mundo), comprobada; ${nuevosR.length} paises nuevos.`);
+}
+// Economia de salida (economia.mjs, estudio-v5/economia.md): copias de 06_pops, 14_development,
+// 09_roads y 03_markets del mundo, la tecnologia en la copia de 10_countries y los town_setup.
+// Los bienes que cambia asigna-recursos van tambien en la copia de location_templates: el juego
+// pone la aldea (farming_village, forest_village) por el bien de la plantilla, y el
+// change_raw_material del arranque la dejaba invalida (error.log de c83f781: las 90 "invalid
+// building" son todas de localizaciones que cambian de bien). El efecto se queda (ya no cambia nada).
+if (rangosR && fu.status === 0) {
+  const tribus = new Map(Object.entries(ECO.TRIBUS_QUEDAN).filter(([k]) => asignados[k]).map(([k, v]) => [asignados[k].tag, v]));
+  const capEco = new Map([...rangosR.capitales].filter(([t, l]) => duenoFin.get(l) === t));
+  const sinCap = [...new Set(duenoFin.values())].filter((t) => !capEco.has(t));
+  if (sinCap.length) muere(`economia: paises con tierra y sin capital propia: ${sinCap.join(' ')}`);
+  const eco = aplicaEconomia({ obra: obraMod, mundo: MUNDO, juego: JUEGO, jer, dueno: duenoFin, capitales: capEco, rangos: rangosR.fin, vec: vecM, tribus });
+  const rT = path.join(obraMod, 'in_game', 'map_data', 'location_templates.txt');
+  const tT = fs.readFileSync(fs.existsSync(rT) ? rT : enMundo('in_game', 'map_data', 'location_templates.txt'), 'utf8');
+  let nBien = 0;
+  const tT2 = tT.replace(/^(\s*)([A-Za-z0-9_\-.]+)(\s*=\s*\{[^\n]*?\braw_material\s*=\s*)([A-Za-z_]+)/gm, (m, sp, l, pre, b) => { const v = vinculo.recursos[l]; if (!v || v === b) return m; nBien++; return sp + l + pre + v; });
+  fs.mkdirSync(path.dirname(rT), { recursive: true });
+  fs.writeFileSync(rT, tT2, 'utf8');
+  const ks = [...eco.factor.values()];
+  console.log(`Economia: ${eco.cambian} localizaciones con gente nueva en 06_pops (${eco.sinGente} sin gente en RNW, igual), desarrollo en 14_development, ${eco.caminos} caminos nuevos en 09_roads (${eco.conCamino} de ${eco.tierra} localizaciones con camino), ${eco.mercados} mercados en 03_markets, tecnologia ${ECO.TECNOLOGIA} en ${eco.tecnologia} paises; factor de gente por pais ${Math.min(...ks)}-${Math.max(...ks)}; ${nBien} bienes en location_templates.`);
 }
 if (fu.status !== 0) muere('funde-partes ha fallado: no sigo');
 const rutaMeta = path.join(obraMod, '.metadata', 'metadata.json');
