@@ -8,9 +8,13 @@
 //   10_countries   (la copia ya escrita) starting_technology_level como Europa
 // y el town_setup de los pueblos y ciudades (TOWN_SETUPS, todos los edificios a nivel 1: lo que dice el
 // error.log de c83f781 es que con poco acceso a mercado el tope de guild_max_level cae a 1).
-// La "base fiscal" no se calcula sin el juego: cifraPais es un indice comparable (mismo calculo para
-// Europa y para nosotros, estima-economia.mjs lo imprime) y sirve para igualar a los paises con un
-// factor de gente por pais.
+// La "base fiscal" no se calcula sin el juego: es riqueza x control, y la riqueza es el beneficio de RGO
+// y edificios mas el comercio de burgueses (main_menu/localization/english/game_concepts_l_english.yml
+// lineas 1732 y 1738); tax_per_pop de los estamentos solo reparte esa riqueza entre ellos (linea 1741).
+// cifraPais es un indice comparable (mismo calculo para Europa y para nosotros, estima-economia.mjs lo
+// imprime) y sirve para igualar a los paises con un factor de gente por pais: por eso cada pais cae en
+// CIFRA_BANDA por construccion, y eso no prueba nada. La prueba es la base fiscal del lobby: con ella,
+// calibraLobby (estima-economia.mjs --lobby) dice si el indice la sigue y que CIFRA_BANDA toca.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,7 +32,10 @@ export const MANDOS = {
   CAMINOS: 0.20,             // parte de las localizaciones de cada pais con camino
   // banda del indice a la que se lleva cada pais con su factor de gente (null: sin igualar). Sale de
   // estima-economia.mjs: mediana del rango europeo (POR, 3350) / y x raiz de 2, la proporcion de 100-200.
+  // Con la base fiscal del lobby, estima-economia.mjs --lobby da la banda que toca (BASE_OBJETIVO x indice por punto).
   CIFRA_BANDA: [2370, 4740],
+  BASE_OBJETIVO: [100, 200], // base fiscal de salida que pide Javier, en la lista de paises del lobby
+  DISPERSION_MAX: 1.5,       // si el indice por punto de base fiscal de los europeos medidos varia mas que esto, el indice no sirve
   K: [0.35, 4],              // topes de ese factor (hasta 2,5 es la densidad de NAP o BOH; de ahi a 4 solo una ciudad-estado como LPX)
   CIFRA: { PESO_POP: 1, PESO_EDIF: 2, DEV_ESCALA: 10, PASO: 0.04, PASO_CAMINO: 0.02, CTRL_MIN: 0.15, TRIBU_CTRL: 0.5 },
   SETUP: { town: 'gj_pueblo', city: 'gj_ciudad', megalopolis: 'gj_ciudad' }, // town_setup por rango
@@ -143,6 +150,17 @@ export function cifraPais({ locs, capital, vec, caminos, rec, m = MANDOS.CIFRA }
     B += ctrl * m.PESO_EDIF * r.niveles;
   }
   return { cifra: A + B, A, B };
+}
+// Calibracion con la base fiscal leida en el lobby. indices: Map(tag -> indice); lobby: Map(tag -> base
+// fiscal medida); europeos: los tags que fijan la escala. Devuelve el indice por punto de base fiscal
+// (mediana de los europeos medidos), cuanto varia entre ellos (max / min: 1 = el indice sigue a la base
+// fiscal) y la CIFRA_BANDA que corresponde a BASE_OBJETIVO.
+export function calibraLobby({ indices, lobby, europeos, m = MANDOS }) {
+  const pares = [...lobby].filter(([t, b]) => europeos.has(t) && b > 0 && indices.get(t) > 0)
+    .map(([t, b]) => ({ tag: t, base: b, porPunto: indices.get(t) / b })).sort((a, b) => a.porPunto - b.porPunto || (a.tag < b.tag ? -1 : 1));
+  if (!pares.length) return null;
+  const h = pares.length >> 1, porPunto = pares.length % 2 ? pares[h].porPunto : (pares[h - 1].porPunto + pares[h].porPunto) / 2;
+  return { pares, porPunto, dispersion: pares.at(-1).porPunto / pares[0].porPunto, banda: m.BASE_OBJETIVO.map((b) => Math.round(b * porPunto)) };
 }
 const parCamino = (pares) => { const s = new Set(); for (const [a, b] of pares) { s.add(`${a}|${b}`); s.add(`${b}|${a}`); } return s; };
 
@@ -326,5 +344,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   assert.deepEqual(caminosPais({ locs: ['a', 'b', 'c', 'd'], capital: 'c', vec, destinos: [], parte: 1 }), [['c', 'a'], ['c', 'b'], ['a', 'd']], 'relleno alrededor de la capital');
   const ci = cifraPais({ locs: ['c', 'a'], capital: 'c', vec, caminos: new Set(), rec: () => ({ noTrib: 10, trib: 0, dev: 10, niveles: 0 }) });
   assert.ok(Math.abs(ci.cifra - (20 + 20 * (1 - MANDOS.CIFRA.PASO))) < 1e-9, 'cifra con un paso');
+  const cal = calibraLobby({ indices: new Map([['POL', 2000], ['POR', 3000], ['ENG', 8000], ['GQT', 4000]]), lobby: new Map([['POL', 100], ['POR', 120], ['ENG', 400], ['GQT', 1]]), europeos: new Set(['POL', 'POR', 'ENG']) });
+  assert.equal(cal.porPunto, 20, 'mediana de 20, 25 y 20 (los nuestros no fijan la escala)');
+  assert.equal(cal.dispersion, 25 / 20, 'dispersion max / min');
+  assert.deepEqual(cal.banda, [2000, 4000], 'banda = BASE_OBJETIVO x indice por punto');
+  assert.equal(calibraLobby({ indices: new Map(), lobby: new Map([['POL', 100]]), europeos: new Set(['POL']) }), null, 'sin indice, sin calibracion');
   console.log('economia.mjs: comprobacion PASA');
 }
