@@ -1199,359 +1199,219 @@ locations={
 	rnw_loc_07196 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_07203 = { rank = town town_setup = south_east_woodlands_town }
 
-	# GJ Nuevo Mundo (asigna-facciones.mjs): 368 ciudades y pueblos de la tierra repartida
-	rnw_loc_00058 = { rank = city town_setup = mexican_city }
-	rnw_loc_00077 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_00126 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_00246 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_00285 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_00328 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_00428 = { rank = town town_setup = south_east_woodlands_town }
+	# GJ Nuevo Mundo (asigna-facciones.mjs): 228 ciudades y pueblos de la tierra repartida
+	rnw_loc_00020 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00028 = { rank = city town_setup = mexican_city }
+	rnw_loc_00035 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00078 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_00092 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00096 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00179 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00188 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_00191 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_00250 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_00286 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00368 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00390 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00427 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00429 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_00451 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_00529 = { rank = city town_setup = mexican_city }
-	rnw_loc_00538 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_00639 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00547 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00551 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00614 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00647 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_00658 = { rank = city town_setup = mexican_city }
 	rnw_loc_00666 = { rank = city town_setup = mexican_city }
 	rnw_loc_00674 = { rank = city town_setup = mexican_city }
 	rnw_loc_00684 = { rank = city town_setup = mexican_city }
-	rnw_loc_00697 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_00721 = { rank = city town_setup = mexican_city }
+	rnw_loc_00722 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_00725 = { rank = city town_setup = mexican_city }
 	rnw_loc_00759 = { rank = city town_setup = mexican_city }
-	rnw_loc_00760 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_00774 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_00788 = { rank = city town_setup = mexican_city }
-	rnw_loc_00809 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_00817 = { rank = city town_setup = mexican_city }
-	rnw_loc_00871 = { rank = city town_setup = mexican_city }
-	rnw_loc_00877 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_00883 = { rank = city town_setup = mexican_city }
 	rnw_loc_00905 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_00945 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_00959 = { rank = city town_setup = mexican_city }
-	rnw_loc_00968 = { rank = city town_setup = mexican_city }
-	rnw_loc_00998 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01002 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01004 = { rank = city town_setup = mexican_city }
-	rnw_loc_01011 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01026 = { rank = city town_setup = mexican_city }
-	rnw_loc_01032 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01074 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01140 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01046 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_01053 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_01150 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_01160 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_01182 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01212 = { rank = city town_setup = mexican_city }
-	rnw_loc_01213 = { rank = city town_setup = mexican_city }
-	rnw_loc_01236 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01283 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01318 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01345 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01369 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01244 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01306 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_01373 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_01424 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_01465 = { rank = city town_setup = mexican_city }
-	rnw_loc_01522 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01537 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01539 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_01560 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01588 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_01589 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01623 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01619 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_01636 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_01639 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01655 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01681 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_01687 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_01692 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01719 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01761 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_01778 = { rank = city town_setup = mexican_city }
-	rnw_loc_01820 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01825 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01849 = { rank = city town_setup = mexican_city }
 	rnw_loc_01874 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01892 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01903 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_01914 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01894 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_01940 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01947 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_01955 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_01965 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_02010 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02029 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_02116 = { rank = city town_setup = mexican_city }
-	rnw_loc_02131 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02133 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02145 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02152 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02167 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02220 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_02173 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02251 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02263 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02298 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02302 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02319 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02348 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02396 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02399 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02419 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02427 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02468 = { rank = city town_setup = mexican_city }
+	rnw_loc_02329 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_02366 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_02428 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_02471 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02495 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02496 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02557 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02563 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_02571 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02573 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_02576 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02581 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02588 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02604 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_02615 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02625 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02666 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02683 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02764 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_02773 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_02789 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02811 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_02852 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_02857 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_02886 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02927 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_02992 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_02954 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_02988 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_03023 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03026 = { rank = city town_setup = mexican_city }
-	rnw_loc_03038 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03056 = { rank = city town_setup = mexican_city }
 	rnw_loc_03064 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03120 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03178 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03201 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03224 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03258 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03267 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03309 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03321 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03326 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03376 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03119 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_03142 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03161 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03172 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03215 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03291 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_03401 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03410 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_03413 = { rank = city town_setup = mexican_city }
 	rnw_loc_03423 = { rank = city town_setup = mexican_city }
-	rnw_loc_03426 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03431 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03445 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03464 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03481 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03529 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_03549 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03567 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03580 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03633 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03653 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03659 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03674 = { rank = city town_setup = mexican_city }
+	rnw_loc_03574 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03615 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_03699 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03727 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_03737 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03769 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03791 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03795 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03751 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_03763 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_03808 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_03874 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03913 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03936 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_03966 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03957 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_03964 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04024 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_04029 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_04042 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04050 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04057 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_04060 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04068 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04114 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04135 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04140 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04154 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04174 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04202 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04205 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04223 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04240 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04263 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04278 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04340 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04345 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04370 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04390 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_04316 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_04340 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_04378 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_04403 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04411 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04413 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04426 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04446 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04461 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04520 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04524 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04534 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_04453 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_04496 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04569 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04572 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04593 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04598 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04608 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04619 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04621 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04634 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04635 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04640 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_04644 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04647 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04669 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04670 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04680 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_04682 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04683 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04700 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04702 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04737 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04740 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04752 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04756 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04759 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04833 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04845 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04877 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04908 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_04960 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04970 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_04978 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_05007 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
+	rnw_loc_04705 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_05047 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05116 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05120 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_05157 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05163 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05165 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_05056 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05168 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05169 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05175 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05184 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05190 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_05224 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05230 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05260 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05274 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05296 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05298 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_05294 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05306 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05314 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05315 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_05338 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05351 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05352 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05364 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05371 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05413 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05423 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05459 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05476 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05477 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_05467 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05484 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05497 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05512 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05515 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05520 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05522 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_05558 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05574 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05612 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05620 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05637 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05649 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_05653 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05663 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05666 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05719 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_05726 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05729 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05739 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_05765 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_05789 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05814 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05836 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05852 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05874 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_05878 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_05845 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_05910 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_05914 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05928 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_05929 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_05947 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05949 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_05958 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05961 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_05983 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_05993 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06003 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06004 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06005 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06087 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_06040 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
+	rnw_loc_06046 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_06090 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06092 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06098 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06099 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06103 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_06116 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06122 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06143 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06172 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06183 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06192 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06205 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06209 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06211 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06216 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
+	rnw_loc_06190 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
+	rnw_loc_06213 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_06220 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06272 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06281 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06288 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06293 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06294 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06324 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06325 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06352 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06364 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06373 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06381 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_06393 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_06402 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06414 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06440 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06468 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_06469 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06484 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06487 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_06495 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_06528 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06537 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_06570 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_06585 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06606 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_06589 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06608 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06636 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
+	rnw_loc_06620 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_06649 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_06663 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06667 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
-	rnw_loc_06684 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06688 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06712 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_06733 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_06735 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06746 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06768 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06774 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_06790 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_06816 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06817 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06819 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_06821 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06838 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
 	rnw_loc_06851 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06853 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_06861 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06889 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06908 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_06920 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_06909 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06932 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_06976 = { rank = town town_setup = south_east_woodlands_town }
-	rnw_loc_06983 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_06986 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_07026 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_07095 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_07111 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_07116 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_07124 = { rank = town town_setup = rnw_andes_town_4adc68a8fd96 }
+	rnw_loc_07141 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_07192 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_07194 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_07203 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
@@ -1561,13 +1421,13 @@ locations={
 	rnw_loc_07344 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_07345 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_07386 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_07400 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_07403 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_07407 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_07419 = { rank = town town_setup = south_east_woodlands_town }
 	rnw_loc_07440 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_07480 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
-	rnw_loc_07495 = { rank = town town_setup = south_east_woodlands_town }
+	rnw_loc_07495 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
 	rnw_loc_07497 = { rank = city town_setup = rnw_mexican_city_b0eca1a5737e }
+	rnw_loc_07524 = { rank = town town_setup = south_east_woodlands_town }
 }
 
 # for the unique and special buildings

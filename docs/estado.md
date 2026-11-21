@@ -1,6 +1,12 @@
 # Estado: el mundo v4 (SBMN)
 
-`mod/gj_nuevo_mundo` es la copia instalada para jugar sobre el mundo «RNW: Custom world SBMN» (`rnw_exp_world_sbmnl6s3sw`, de `mundo/mundo-sbmn.rnworld`). Su huella de montaje es `dc3d90eec16205e9`: dos montajes seguidos dan los mismos bytes. El comprobador pasa con 0 errores. Cómo jugarlo está en `docs/como-jugar.md`. Lo visto en partida está más abajo.
+`mod/gj_nuevo_mundo` es la copia instalada para jugar sobre el mundo «RNW: Custom world SBMN» (`rnw_exp_world_sbmnl6s3sw`, de `mundo/mundo-sbmn.rnworld`). Su huella de montaje es `b3aa64467542ec41`: dos montajes seguidos dan los mismos bytes. El comprobador pasa con 0 errores. Cómo jugarlo está en `docs/como-jugar.md`. Lo visto en partida está más abajo.
+
+## Tercera tanda de arreglos (21-11, tarde; la pidieron los jugadores tras ver la segunda en partida)
+- **Más tierra con dueño: el 80,6 % del Nuevo Mundo** (antes el 60,7 %), entre 221 países (antes 194). Las 12 facciones crecen un 37 % (el 35 % de su zona, mínimo 42) y los 15 menores un 38 % (talla de 30 a 56). El resto se rellena con **27 países nuevos** (`reparte-tierra.mjs`, paso 4c): de 21 a 60 localizaciones, de una pieza, con la cultura y la fe de la mayoría de sus pops, el nombre de su capital (como los de RNW) y el gobierno del país de RNW más cercano. Van en `in_game/setup/countries/gj_paises_nuevos.txt` y en una copia de `main_menu/setup/1337/10_countries.txt` del mundo.
+- **Un estado de RNW no baja de 6 localizaciones** porque crezcan a su costa una facción o un menor (`PISO_ESTADO`): las ciudades-estado de 1-5 se quedan en 58 (eran 56; sin el piso serían 75).
+- **Bienes, un poco de todo:** la comida baja del 43,6 % al 30,9 % (la fruta, del 8,2 % al 3,5 %); los metales y los preciosos suben del 5,9 % al 15,4 % (hierro 5 %, cobre 3 %, estaño y plomo 2 %, oro 1,5 %, plata 1,8 %), con una densidad parecida en todas las regiones (del 14,8 % al 16,7 %). Ningún bien pasa del 6 % del continente ni del 10 % de una región, y el que el clima deja en muchas partes no baja del 1 % (`asigna-recursos.mjs`, paso 4c).
+- **Rangos sin errores al cargar:** el `town_setup` de la copia de 07 va solo en la tierra que ya es de su dueño al empezar; la que cambia de manos recibe su rango después del lobby (`gj_rangos_iniciales`). Donde RNW pone un `market_village` no se pone ciudad ni pueblo.
 
 ## Qué cambia del v3 al v4 (21-11, rama `javier/pulido`; lo pidió Javier tras ver el v3 en partida)
 - **La tierra es más ancha y los mares interiores, más pequeños.** El dibujo se ensancha con `herramientas/ensancha-tierra.mjs` (`docs/mapa.md` §7): la tierra pasa del 16,0 % al 20,3 % de la hoja y el mar entre Durnhal y Ostrevar se queda en el 42 % de lo que era, con penínsulas. La forma de los continentes es la misma. **El mundo es otro** (SBMN en vez de 35CL): hay que volver a generarlo y cambiarlo en la colección.
@@ -15,6 +21,8 @@
 - **Las herramientas funcionan en un clon limpio:** faltaba `mapa/png.mjs` en el repo; ahora es `herramientas/png.mjs`.
 
 ## El reparto de tierra
+Las tablas de esta sección son las del v4 antes de la tercera tanda; las cifras nuevas están arriba.
+
 El arranque va en dos tiempos. En `on_game_start` (`gj_integracion_arranque`) entran los bienes y el nombre y el color de cada facción, y la pantalla de selección ya los enseña; las ciudades y los pueblos van en la copia de `main_menu/setup/1337/07_cities_and_buildings.txt`, con su `town_setup`. Después del lobby (`gj_integracion_inicio`, una sola vez por partida) entran la tierra (`gj_reparte_tierra`) y la cultura y la fe: antes no hay pops del setup, y la tierra cambiada se quedaría con pops de otro dueño (error.log, `country_manager.cpp:375`). Lo calcula `herramientas/reparte-tierra.mjs`. Regla de los jugadores (21-11): **un país no puede estar partido en trozos sueltos por el continente.**
 
 1. **Cada país se queda solo con su núcleo.** La facción, su trozo con más tierra en su zona del dibujo; los demás, el trozo de su capital.
@@ -75,7 +83,7 @@ Tarnavia se queda en ciudad-estado: su zona del dibujo (el cabo de Ostrevar) vie
 - **Kaïvan en los cuatro cuartos:** estepa alta 97, estepa baja 170, marca occidental 8, valles orientales 8.
 - **Capitales en su zona.** Una facción que pierde su capital o la tiene fuera de su zona la pasa (`set_capital`) a su localización más cercana al centro de la zona. Son 4 de las 12 (Hrímval, Kaïvan, la Liga y Marea Negra), más los 6 menores que se mudan lejos de su capital. La capital nueva va a la localización con más gente del país (la lista está en `docs/vinculo-mundo.md`).
 - **Marea Negra** se queda en 25: su zona son islas y el trozo mayor no da más.
-- **Mandos**, en `herramientas/reparte-tierra.mjs`: `FRACCION_FACCION` (0,25), `FACCION_MINIMO` (30), `TALLAS`, `TALLA_MENOR` (22-40), `CON_DUENO` (0,60) y `ESTIRON_MAXIMO` (3). Bajar `CON_DUENO` deja más tierra libre.
+- **Mandos**, en `herramientas/reparte-tierra.mjs`: `FRACCION_FACCION` (0,35), `FACCION_MINIMO` (42), `TALLAS`, `TALLA_MENOR` (30-56), `CON_DUENO` (0,60), `ESTIRON_MAXIMO` (3), `CON_DUENO_TOTAL` (0,80, con los países nuevos), `TALLA_NUEVO` (20-60) y `PISO_ESTADO` (6; a 0, las facciones salen más compactas y quedan más ciudades-estado). Bajar `CON_DUENO` deja más tierra libre.
 
 ## Vegetación mezclada
 Se reescribe la vegetación de cada localización en una copia de `in_game/map_data/location_templates.txt` del mundo (solo cambia el valor de `vegetation`). Es determinista: un ruido por posición, mezclado con lo que traía RNW y limitado por lo que el clima admite en el juego base. Hay cultivos alrededor de las capitales. Cambian 4.640 localizaciones.
@@ -134,7 +142,7 @@ Están en `docs/avisos-partida.txt`. Salen al empezar, no al cargar el menú:
 - «El país no tiene pops de su cultura principal»: el juego lo mira antes de que corra `gj_fundar_faccion`. Para quitarlo habría que poner la cultura y la fe en los ficheros de inicio del mundo en vez de cambiarlas al empezar.
 
 ## Pendiente
-1. **Cuánto se llena el mapa: Javier (21-11, mediodía) pidió dejar libre alrededor del 40 %; queda libre el 39,4 %.** Es un mando (`CON_DUENO`), y hay 56 ciudades-estado de 1-5 localizaciones.
+1. **Cuánto se llena el mapa:** con la tercera tanda queda libre el 19,4 % (`CON_DUENO_TOTAL`); siguen 58 ciudades-estado de 1-5 localizaciones, encerradas entre vecinos.
 2. **Thalassar** puede empezar sin puertos en `gj_zona_mar_interior`: «dominar el mar» pasa a ser un objetivo de expansión.
 3. **Nombres con el rango delante:** la selección de país enseña «County of Kaïvan» o «Theocracy of High Kingdom of Ostrevar».
 

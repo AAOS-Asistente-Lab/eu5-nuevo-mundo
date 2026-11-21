@@ -307,7 +307,8 @@ for (const z of [...zonasUsadas].sort()) {
 // ---------------------------------------------------------------- tierra de cada faccion al empezar
 const vecM = conMapa ? await vecinos(MUNDO, JUEGO) : null;
 // gente de cada localizacion (06_pops.txt del mundo): la capital nueva de quien la muda va a la mas poblada
-const poblacionM = new Map();
+const poblacionM = new Map(), culturaM = new Map(), feM = new Map(); // loc -> Map(cultura|fe -> gente)
+const sumaEn = (m, l, k, v) => { if (!m.has(l)) m.set(l, new Map()); m.get(l).set(k, (m.get(l).get(k) || 0) + v); };
 if (conMapa) {
   const fp = enMundo('main_menu', 'setup', '1337', '06_pops.txt');
   let loc = null;
@@ -316,6 +317,9 @@ if (conMapa) {
     if (c) { loc = c[1]; continue; }
     const s = loc && linea.match(/\bsize\s*=\s*([\d.]+)/);
     if (s) poblacionM.set(loc, (poblacionM.get(loc) || 0) + +s[1]);
+    const cu = s && linea.match(/\bculture\s*=\s*(\w+)/), fe = s && linea.match(/\breligion\s*=\s*(\w+)/);
+    if (cu) sumaEn(culturaM, loc, cu[1], +s[1]);
+    if (fe) sumaEn(feM, loc, fe[1], +s[1]);
   }
 }
 // sub-zonas de localizacion que piden las partes: cada faccion llega con un brazo a las de su zona
@@ -327,7 +331,22 @@ const subzonas = Object.entries(zonas).filter(([, d]) => d.ambito === 'localizac
 const fPuertos = conMapa ? enMundo('in_game', 'map_data', 'ports.csv') : null;
 const puertos = new Set(fPuertos ? leeTexto(fPuertos).texto.split(/\r?\n/).slice(1).map((x) => x.split(';')[0]).filter(Boolean) : []);
 const rioM = conMapa ? await rios(MUNDO, JUEGO) : new Map();
-const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, provincia: new Map([...jer].map(([l, j]) => [l, j.provincia])), puntua: conMapa ? puntuaCapital({ plant: mundoM.plant, costa: mundoM.costa, puertos, vec: vecM, poblacion: poblacionM, rio: rioM }) : null, plant: mundoM?.plant || new Map(), rio: rioM, menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
+// tags libres para los paises nuevos: X.. que no use ni el juego ni el mundo
+const tagsUsados = new Set(paises.map((p) => p.tag));
+for (const dir of [JUEGO, MUNDO]) {
+  const d = path.join(dir, 'in_game', 'setup', 'countries');
+  if (fs.existsSync(d)) for (const x of fs.readdirSync(d).filter((y) => y.endsWith('.txt'))) for (const m of leeTexto(path.join(d, x)).texto.matchAll(/^\s*([A-Z][A-Z0-9]{2})\s*=\s*\{/gm)) tagsUsados.add(m[1]);
+}
+{ const f10 = enMundo('main_menu', 'setup', '1337', '10_countries.txt'); if (f10) for (const m of leeTexto(f10).texto.matchAll(/^\t([A-Z][A-Z0-9]{2}) = \{/gm)) tagsUsados.add(m[1]); }
+let iTag = 0;
+const nuevoTag = () => { const A = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; for (; iTag < 676; iTag++) { const tg = 'X' + A[Math.floor(iTag / 26)] + A[iTag % 26]; if (!tagsUsados.has(tg)) { tagsUsados.add(tg); iTag++; return tg; } } muere('no quedan tags X.. libres'); };
+const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, provincia: new Map([...jer].map(([l, j]) => [l, j.provincia])), puntua: conMapa ? puntuaCapital({ plant: mundoM.plant, costa: mundoM.costa, puertos, vec: vecM, poblacion: poblacionM, rio: rioM }) : null, plant: mundoM?.plant || new Map(), rio: rioM, nuevoTag: tiene('--sin-nuevos') ? null : nuevoTag, menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
+
+// Tierra de los paises nuevos sin dueno en el setup de RNW: va en su entrada de la copia de
+// 10_countries (ya es suya al empezar, con sus pops); la que era de un estado de RNW, por efecto.
+const conDuenoRNW = new Set(paises.flatMap((p) => p.locs));
+const enSetupNuevo = new Map();
+for (const nv of tierraR?.nuevos || []) for (const l of nv.locs) if (!conDuenoRNW.has(l)) { enSetupNuevo.set(l, nv.tag); delete tierraR.da[l]; }
 
 // ---------------------------------------------------------------- vegetacion mezclada
 // Ciudades de las facciones: sus capitales.
@@ -348,14 +367,21 @@ if (tierraR) {
   const duenoFin = new Map();
   for (const p of paises) for (const l of p.locs) if (liga.tierra.includes(l) && !tierraR.suelta[l]) duenoFin.set(l, p.tag);
   for (const [l, t] of Object.entries(tierraR.da)) duenoFin.set(l, t);
-  const capitalesFin = new Map(paises.map((p) => [p.tag, tierraR.capital?.[p.tag]?.a || p.capital]));
+  for (const [l, t] of enSetupNuevo) duenoFin.set(l, t);
+  const capitalesFin = new Map([...paises.map((p) => [p.tag, tierraR.capital?.[p.tag]?.a || p.capital]), ...(tierraR.nuevos || []).map((nv) => [nv.tag, nv.capital])]);
   const f07 = enMundo('main_menu', 'setup', '1337', '07_cities_and_buildings.txt');
   const yaTienen = new Map(f07 ? [...leeTexto(f07).texto.matchAll(/^\s*([A-Za-z0-9_\-.]+)\s*=\s*\{\s*rank\s*=\s*([a-z_]+)/gm)].map((m) => [m[1], m[2]]) : []);
   const vegFin = new Map(liga.tierra.map((l) => [l, vegR?.veg.get(l) || mundoM.plant.get(l)?.veg]));
   const cada = Number(arg('--pueblo-cada', PUEBLO_CADA));
-  const r = rangosIniciales({ dueno: duenoFin, capitales: capitalesFin, vec: vecM, costa: mundoM.costa, veg: vegFin, yaTienen, cada });
+  // sin rango nuevo donde RNW pone un market_village (no cabe en una ciudad: error.log, building_manager)
+  const veto = new Set(f07 ? [...leeTexto(f07).texto.matchAll(/\bmarket_village\s*=\s*\{[^}]*\blocation\s*=\s*([A-Za-z0-9_\-.]+)/g)].map((m) => m[1]) : []);
+  const r = rangosIniciales({ dueno: duenoFin, capitales: capitalesFin, vec: vecM, costa: mundoM.costa, veg: vegFin, yaTienen, cada, veto });
+  // en el setup (con town_setup y sus edificios), solo donde la localizacion ya es de su dueno final
+  // al empezar; si no, el juego no pone los edificios (error.log, initialize_from_bookmark): por efecto
+  const enSetup = (l) => enSetupNuevo.has(l) || (conDuenoRNW.has(l) && !tierraR.da[l] && !tierraR.suelta[l]);
+  const setupR = Object.fromEntries(Object.entries(r).filter(([l]) => enSetup(l))), efectoR = Object.fromEntries(Object.entries(r).filter(([l]) => !enSetup(l)));
   const n = (x) => Object.values(r).filter((v) => v === x).length;
-  rangosR = { rangos: r, ciudades: n('city'), pueblos: n('town'), cada, ya: [...yaTienen.keys()].filter((l) => liga.tierra.includes(l)).length };
+  rangosR = { rangos: r, setup: setupR, efecto: efectoR, veto: veto.size, ciudades: n('city'), pueblos: n('town'), cada, ya: [...yaTienen.keys()].filter((l) => liga.tierra.includes(l)).length };
 }
 
 // ---------------------------------------------------------------- informe
@@ -417,7 +443,7 @@ const vinculo = {
   paises: paisesVinculo,
   menores: Object.fromEntries(Object.entries(menores).map(([k, p]) => [k, p.tag]).sort()),
   zonas,
-  tierra: tierraR ? { da: tierraR.da, suelta: tierraR.suelta, capital: tierraR.capital, rangos: rangosR?.rangos || {} } : null,
+  tierra: tierraR ? { da: tierraR.da, suelta: tierraR.suelta, capital: tierraR.capital, rangos: rangosR?.efecto || {}, nuevos: Object.fromEntries([...enSetupNuevo].sort()) } : null,
   recursos: Object.fromEntries(rec.cambian.map((l) => [l, rec.asignado.get(l)])),
 };
 const rutaVinculo = path.join(OBRA, 'vinculo.json');
@@ -444,7 +470,7 @@ if (vegR?.cambia.size && fu.status === 0) {
 // town_setup de la localizacion con rango de RNW mas cercana (del mismo rango si la hay): asi el
 // juego pone sus edificios al empezar y la pantalla de eleccion ya los ensena. Un
 // change_location_rank en un gancho cambia el rango, pero no trae los edificios del setup.
-if (rangosR && Object.keys(rangosR.rangos).length && fu.status === 0) {
+if (rangosR && Object.keys(rangosR.setup).length && fu.status === 0) {
   const f7 = enMundo('main_menu', 'setup', '1337', '07_cities_and_buildings.txt') || muere('no encuentro 07_cities_and_buildings.txt');
   const t7 = fs.readFileSync(f7, 'utf8');
   const cen7 = await centros(MUNDO, JUEGO);
@@ -457,11 +483,72 @@ if (rangosR && Object.keys(rangosR.rangos).length && fu.status === 0) {
     const lista = conSetup.filter((o) => o.r === r).length ? conSetup.filter((o) => o.r === r) : conSetup;
     return lista.length ? lista.reduce((m, o) => (d(o) < d(m) ? o : m)).s : null;
   };
-  const lineas = Object.entries(rangosR.rangos).filter(([l]) => cen7.has(l)).map(([l, r]) => { const s = setupDe(l, r); return `\t${l} = { rank = ${r}${s ? ` town_setup = ${s}` : ''} }`; });
+  const lineas = Object.entries(rangosR.setup).filter(([l]) => cen7.has(l)).map(([l, r]) => { const s = setupDe(l, r); return `\t${l} = { rank = ${r}${s ? ` town_setup = ${s}` : ''} }`; });
   const dest = path.join(obraMod, 'main_menu', 'setup', '1337', '07_cities_and_buildings.txt');
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.writeFileSync(dest, t7.slice(0, fin) + `\n\t# GJ Nuevo Mundo (asigna-facciones.mjs): ${lineas.length} ciudades y pueblos de la tierra repartida\n${lineas.join('\n')}\n` + t7.slice(fin), 'utf8');
   console.log(`Rangos: ${lineas.length} localizaciones en main_menu/setup/1337/07_cities_and_buildings.txt (copia del del mundo).`);
+}
+// Paises nuevos (reparte-tierra.mjs): la tierra que nadie tenia al empezar se reparte en paises de
+// 20-60 localizaciones. Cada uno lleva su definicion (la cultura y la fe de la mayoria de sus pops),
+// su nombre (el de su capital, como los paises de RNW) y su entrada en una copia de 10_countries.txt
+// del mundo, con el include, la tecnologia y el gobierno del pais de RNW mas cercano. La tierra que
+// ya es suya en el setup va en esa entrada; la que era de un estado de RNW, por gj_reparte_tierra.
+let nuevosR = null;
+if (tierraR?.nuevos?.length && fu.status === 0) {
+  const f10 = enMundo('main_menu', 'setup', '1337', '10_countries.txt') || muere('no encuentro 10_countries.txt');
+  const t10 = fs.readFileSync(f10, 'utf8');
+  const cen10 = await centros(MUNDO, JUEGO);
+  const xy = (l) => { const c = cen10.get(l); return !c ? null : Array.isArray(c) ? c : [c.x, c.y]; };
+  // hijos de primer nivel de una entrada (dos tabuladores), con sus bloques enteros
+  const hijos = (texto) => {
+    const r = []; let act = null, prof = 0;
+    for (const linea of texto.split(/\r?\n/)) {
+      if (!act) { const m = linea.match(/^\t\t([a-z_]+) =/); if (!m) continue; act = { clave: m[1], lineas: [] }; }
+      act.lineas.push(linea);
+      prof += (linea.match(/\{/g) || []).length - (linea.match(/\}/g) || []).length;
+      if (prof <= 0) { r.push(act); act = null; prof = 0; }
+    }
+    return r;
+  };
+  const plantillas = [];
+  for (const m of t10.matchAll(/^\t([A-Z][A-Z0-9]{2}) = \{\r?\n([\s\S]*?)^\t\}/gm)) {
+    const hs = hijos(m[2]), cap = hs.find((h) => h.clave === 'capital')?.lineas[0].match(/= (\S+)/)?.[1];
+    if (!cap || hs.some((h) => h.clave === 'type') || !hs.some((h) => h.clave === 'government') || jer.get(cap)?.continente !== 'america' || !xy(cap)) continue;
+    plantillas.push({ tag: m[1], capital: cap, hijos: hs.filter((h) => ['include', 'starting_technology_level', 'government'].includes(h.clave)) });
+  }
+  if (!plantillas.length) muere('no hay paises de RNW en America para copiar el gobierno');
+  const cercana = (l) => { const [x, y] = xy(l); let mej = null, d0 = Infinity; for (const p of plantillas) { const [a, b] = xy(p.capital); const d = (a - x) ** 2 + (b - y) ** 2; if (d < d0 || (d === d0 && p.tag < mej.tag)) { d0 = d; mej = p; } } return mej; };
+  const mayoria = (m, locs) => { const c = new Map(); for (const l of locs) for (const [k, n] of m.get(l) || []) c.set(k, (c.get(k) || 0) + n); return [...c].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] || null; };
+  const areasDe = (locs) => { const s = new Set(); for (const l of locs) { s.add(jer.get(l)?.area); for (const w of vecM.get(l) || []) s.add(jer.get(w)?.area); } s.delete(undefined); return [...s].sort(); };
+  const color = (tag, k) => { const h = crypto.createHash('sha256').update(`gj-nuevo-${k}-${tag}`).digest(); return `rgb { ${40 + (h[0] % 176)} ${40 + (h[1] % 176)} ${40 + (h[2] % 176)} }`; };
+  const nombresDe = (lg) => { const m = new Map(); const f = enMundo('main_menu', 'localization', lg, `rnw_new_world_l_${lg}.yml`); if (f) for (const x of leeTexto(f).texto.matchAll(/^\s*(rnw_loc_\d+):\d*\s*"([^"]*)"/gm)) m.set(x[1], x[2]); return m; };
+  const nomEn = nombresDe('english');
+  const propiasDe = new Map(); for (const [l, t] of enSetupNuevo) { if (!propiasDe.has(t)) propiasDe.set(t, []); propiasDe.get(t).push(l); }
+  const defs = [], entradas = [], sinCultura = [];
+  for (const nv of [...tierraR.nuevos].sort((a, b) => a.tag.localeCompare(b.tag))) {
+    const propias = (propiasDe.get(nv.tag) || []).sort();
+    if (!propias.includes(nv.capital)) muere(`${nv.tag}: su capital ${nv.capital} no es tierra sin dueno del setup`);
+    const cultura = mayoria(culturaM, nv.locs), fe = mayoria(feM, nv.locs);
+    if (!cultura || !fe) { sinCultura.push(nv.tag); continue; }
+    const p = cercana(nv.capital);
+    defs.push(`${nv.tag} = {\n\tcolor = ${color(nv.tag, 1)}\n\tcolor2 = ${color(nv.tag, 2)}\n\n\tculture_definition = ${cultura}\n\treligion_definition = ${fe}\n}\n`);
+    entradas.push(`\t${nv.tag} = {\n\t\town_control_core = {\n\t\t\t${propias.join(' ')}\n\t\t}\n\t\tcapital = ${nv.capital}\n${p.hijos.map((h) => h.lineas.join('\n')).join('\n')}\n\t\tdiscovered_areas = {\n\t\t\t${areasDe(nv.locs).join(' ')}\n\t\t}\n\t}`);
+    nv.cultura = cultura; nv.fe = fe; nv.plantilla = p.tag; nv.nombre = nomEn.get(nv.capital) || nv.capital;
+  }
+  if (sinCultura.length) muere(`paises nuevos sin pops con cultura y fe: ${sinCultura.join(' ')}`);
+  escribeConBom(path.join(obraMod, 'in_game', 'setup', 'countries', 'gj_paises_nuevos.txt'), `# GJ Nuevo Mundo (asigna-facciones.mjs): paises nuevos en la tierra que nadie tenia al empezar.\n# Cultura y fe: las de la mayoria de sus pops.\n\n${defs.join('\n')}`);
+  for (const lg of fs.readdirSync(path.join(obraMod, 'main_menu', 'localization')).filter((d) => fs.statSync(path.join(obraMod, 'main_menu', 'localization', d)).isDirectory()).sort()) {
+    const nom = lg === 'english' ? nomEn : nombresDe(lg);
+    const lineas = tierraR.nuevos.filter((nv) => nv.cultura).sort((a, b) => a.tag.localeCompare(b.tag)).flatMap((nv) => { const n = (nom.get(nv.capital) || nv.nombre).replace(/"/g, ''); return [` ${nv.tag}: "${n}"`, ` ${nv.tag}_ADJ: "${n}"`]; });
+    escribeConBom(path.join(obraMod, 'main_menu', 'localization', lg, `gj_paises_nuevos_l_${lg}.yml`), `l_${lg}:\n # GENERADO por asigna-facciones.mjs: el nombre de su capital\n${lineas.join('\n')}\n`);
+  }
+  const cierre = t10.match(/\r?\n\}\r?\n\}\s*$/) || muere('10_countries.txt: no encuentro el cierre de countries = { countries = {');
+  const dest10 = path.join(obraMod, 'main_menu', 'setup', '1337', '10_countries.txt');
+  fs.mkdirSync(path.dirname(dest10), { recursive: true });
+  fs.writeFileSync(dest10, t10.slice(0, cierre.index) + `\n\t# GJ Nuevo Mundo (asigna-facciones.mjs): ${entradas.length} paises nuevos\n${entradas.join('\n')}` + t10.slice(cierre.index), 'utf8');
+  nuevosR = tierraR.nuevos.filter((nv) => nv.cultura);
+  console.log(`Paises nuevos: ${nuevosR.length} (${[...propiasDe.values()].reduce((s, x) => s + x.length, 0)} localizaciones suyas en el setup) en main_menu/setup/1337/10_countries.txt (copia del del mundo), in_game/setup/countries/gj_paises_nuevos.txt y su localizacion.`);
 }
 if (fu.status !== 0) muere('funde-partes ha fallado: no sigo');
 const rutaMeta = path.join(obraMod, '.metadata', 'metadata.json');

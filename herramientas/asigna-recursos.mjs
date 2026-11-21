@@ -30,7 +30,18 @@ export const TOPE_REGION = 0.25; // ninguna region con mas de esta parte de un b
 // tambien se concentran asi (mayor cuota de una region: clavo 95 %, pimienta 45 %, elefantes 37 %,
 // te 35 %, marfil 31 %).
 export const ATADOS_AL_CLIMA = ['cloves', 'pepper', 'elephants', 'tea', 'ivory'];
-export const HOLGURA_TOPE = 1.15; // al recortar por region, el bien que entra puede pasar su tope del Nuevo Mundo hasta un 15 %
+export const HOLGURA_TOPE = 1.15;
+// un poco de todo (paso 4c)
+export const OBJETIVO_METAL = { iron: 0.05, copper: 0.03, tin: 0.02, lead: 0.02, goods_gold: 0.015, silver: 0.015 };
+export const TOPE_GLOBAL = 0.045;    // ningun bien por encima de esta parte del Nuevo Mundo...
+export const TOPE_BASICO = 0.06;     // ...salvo los BASICOS_6 mas comunes
+export const BASICOS_6 = 4;
+export const TOPE_EN_REGION = 0.10;  // en cada region, ningun bien por encima de esta parte de sus localizaciones
+export const TOPE_COMIDA = 0.40;     // la comida junta
+export const COMIDA_MINIMA = 0.33;  // el suelo no quita comida por debajo de esto
+export const SUELO_BIEN = 0.01;      // el bien que el clima deja en el 5 % o mas de la tierra no baja de aqui
+// comida: los bienes con food >= 4 en el juego (in_game/common/goods/03_food.txt)
+export const COMIDA = new Set(['fish', 'wheat', 'maize', 'rice', 'millet', 'legumes', 'potato', 'livestock', 'olives', 'fruit']); // al recortar por region, el bien que entra puede pasar su tope del Nuevo Mundo hasta un 15 %
 export const TOPE_BIEN = 0.08;   // ningun bien por encima de esta parte del Nuevo Mundo
 export const EXP_PRIOR = Number(process.env.GJ_EXP_PRIOR || 0.6);
 
@@ -279,6 +290,96 @@ export async function asignaRecursos({ juego = juegoPorDefecto(), mundo = null, 
       for (const l of mias.slice(0, Math.max(0, mias.length - tope))) { const o = siguiente(l, new Set([b, ...protegidos]), HOLGURA_TOPE); if (o) { cambia(l, o); garantias.recortados++; } }
     }
   }
+  // 4c. un poco de todo (jugadores, 21-11 tarde: «tiene que ser un poco de todo, no muchisimo de
+  //     una cosa y poco de las otras»). Metales con suelo alto y por igual en todas las regiones;
+  //     ningun bien por encima de TOPE_GLOBAL (los BASICOS_6 mas comunes, TOPE_BASICO); en cada
+  //     region, ningun bien por encima de TOPE_EN_REGION; la comida junta, como mucho TOPE_COMIDA.
+  const N = M.locsAmerica.length;
+  const regionDe = (l) => M.jer.get(l).region || '?';
+  const enReg = new Map(); // region -> Map(bien -> n)
+  for (const l of M.locsAmerica) { const r = regionDe(l), b = asignado.get(l); if (!enReg.has(r)) enReg.set(r, new Map()); enReg.get(r).set(b, (enReg.get(r).get(b) || 0) + 1); }
+  const pon = (l, b) => { const r = enReg.get(regionDe(l)), v = asignado.get(l); r.set(v, r.get(v) - 1); r.set(b, (r.get(b) || 0) + 1); cambia(l, b); };
+  const metal = new Set(Object.keys(OBJETIVO_METAL).filter((b) => bienes.has(b)));
+  const comidaN = () => [...total].filter(([b]) => COMIDA.has(b)).reduce((s, [, k]) => s + k, 0);
+  const basicos = new Set([...total].filter(([b]) => !metal.has(b)).sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0])).slice(0, BASICOS_6).map(([b]) => b));
+  const capG = (b) => Math.floor(N * (basicos.has(b) ? TOPE_BASICO : TOPE_GLOBAL));
+  const capR = (r) => Math.max(1, Math.floor(TOPE_EN_REGION * porRegion.get(r).length));
+  const cuotaR = (b) => Math.max(2, Math.ceil(TOPE_REGION * (total.get(b) || 0))); // lo mas que puede tener una region de un bien
+  // el bien que entra en lugar de otro: apto (P > 0), por debajo de sus topes, y el menos usado
+  const elige = (l, fuera) => {
+    const r = regionDe(l), sobraComida = comidaN() >= TOPE_COMIDA * N;
+    const c = [...P.get(l)].filter(([b, p]) => p > 0 && !fuera.has(b) && !metal.has(b) && (total.get(b) || 0) < capG(b) && (enReg.get(r).get(b) || 0) < capR(r) && (enReg.get(r).get(b) || 0) < cuotaR(b) && !(sobraComida && COMIDA.has(b)) && mancha(l, b) <= MAX_JUNTAS)
+      .map(([b, p]) => [b, p * (1 - (total.get(b) || 0) / capG(b))]).sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]));
+    return c[0]?.[0];
+  };
+  // el metal entra mejor donde hay comida o un basico, y casi nunca donde hay un bien raro (menos del 1 %)
+  const puntMetal = (l, b) => ((P.get(l).get(b) || 0) + 0.05) * relieve(l) * (COMIDA.has(asignado.get(l)) || basicos.has(asignado.get(l)) ? 1.5 : 1) * ((total.get(asignado.get(l)) || 0) < 0.01 * N ? 0.2 : 1);
+  const balance = { metalEnAreas: 0, metalPuesto: 0, metalQuitado: 0, cambios: 0, suelo: 0 };
+  // metales: primero uno en cada area (el que mas falta), despues la cuota de cada region
+  const falta = (b) => OBJETIVO_METAL[b] * N - (total.get(b) || 0);
+  for (const a of ordenAreas) {
+    const ls = areas.get(a);
+    if (ls.some((l) => metal.has(asignado.get(l)))) continue;
+    const c = ls.flatMap((l) => [...metal].map((b) => [l, b, puntMetal(l, b) * (1 + Math.max(0, falta(b)) / N * 50)])).filter(([l, b]) => mancha(l, b) <= MAX_JUNTAS)
+      .sort((x, y) => y[2] - x[2] || x[0].localeCompare(y[0]) || x[1].localeCompare(y[1]))[0];
+    if (c) { pon(c[0], c[1]); balance.metalEnAreas++; }
+  }
+  for (const [r, ls] of [...porRegion].sort(([a], [b]) => a.localeCompare(b))) for (const b of [...metal].sort()) {
+    const q = Math.max(1, Math.round(OBJETIVO_METAL[b] * ls.length));
+    let n = enReg.get(r).get(b) || 0;
+    if (n < q) for (const [l] of ls.filter((l) => !metal.has(asignado.get(l))).map((l) => [l, puntMetal(l, b)]).sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]))) {
+      if (n >= q) break; if (mancha(l, b) > MAX_JUNTAS) continue; pon(l, b); n++; balance.metalPuesto++;
+    }
+    if (n > 2 * q) for (const l of ls.filter((l) => asignado.get(l) === b).sort((x, y) => puntMetal(x, b) - puntMetal(y, b) || x.localeCompare(y))) {
+      if (n <= 2 * q) break; const o = elige(l, new Set([b])); if (o) { pon(l, o); n--; balance.metalQuitado++; }
+    }
+  }
+  // topes: global, por region y de la comida, en tres vueltas (lo que entra puede pasarse a su vez)
+  for (let vuelta = 0; vuelta < 3; vuelta++) {
+    for (const b of [...total.keys()].sort()) {
+      if (metal.has(b) || (total.get(b) || 0) <= capG(b)) continue;
+      for (const l of M.locsAmerica.filter((l) => asignado.get(l) === b).sort((x, y) => (P.get(x).get(b) || 0) - (P.get(y).get(b) || 0) || x.localeCompare(y))) {
+        if (total.get(b) <= capG(b)) break; const o = elige(l, new Set([b])); if (o) { pon(l, o); balance.cambios++; }
+      }
+    }
+    for (const [r, ls] of [...porRegion].sort(([a], [b]) => a.localeCompare(b))) for (const b of [...enReg.get(r).keys()].sort()) {
+      // (tambien los atados al clima: en una region, ninguno por encima del tope)
+      if (metal.has(b) || (enReg.get(r).get(b) || 0) <= capR(r)) continue;
+      for (const l of ls.filter((l) => asignado.get(l) === b).sort((x, y) => (P.get(x).get(b) || 0) - (P.get(y).get(b) || 0) || x.localeCompare(y))) {
+        if (enReg.get(r).get(b) <= capR(r)) break; const o = elige(l, new Set([b])); if (o) { pon(l, o); balance.cambios++; }
+      }
+    }
+    for (const [r, ls] of [...porRegion].sort(([a], [b]) => a.localeCompare(b))) for (const b of [...enReg.get(r).keys()].sort()) {
+      if (metal.has(b) || ATADOS_AL_CLIMA.includes(b) || (enReg.get(r).get(b) || 0) <= cuotaR(b)) continue;
+      for (const l of ls.filter((l) => asignado.get(l) === b).sort((x, y) => (P.get(x).get(b) || 0) - (P.get(y).get(b) || 0) || x.localeCompare(y))) {
+        if (enReg.get(r).get(b) <= cuotaR(b)) break; const o = elige(l, new Set([b])); if (o) { pon(l, o); balance.cambios++; }
+      }
+    }
+    // suelo: el bien que el clima deja en muchas partes no se queda en casi nada (el maiz, la
+    // patata); entra en lugar de los bienes de mas del 3 %, con los mismos topes
+    for (const b of [...bienes.keys()].filter((x) => !metal.has(x)).sort()) {
+      const suelo = Math.floor(SUELO_BIEN * N);
+      if ((total.get(b) || 0) >= suelo) continue;
+      const aptas = M.locsAmerica.filter((l) => (P.get(l).get(b) || 0) > 0);
+      if (aptas.length < 0.05 * N) continue;
+      for (const l of aptas.filter((l) => !metal.has(asignado.get(l)) && asignado.get(l) !== b && !ATADOS_AL_CLIMA.includes(asignado.get(l)) && (total.get(asignado.get(l)) || 0) > 0.03 * N).sort((x, y) => (P.get(y).get(b) || 0) - (P.get(x).get(b) || 0) || x.localeCompare(y))) {
+        if ((total.get(b) || 0) >= suelo) break;
+        const r = regionDe(l), ya = enReg.get(r).get(b) || 0;
+        if (ya >= capR(r) || ya >= cuotaR(b) || mancha(l, b) > MAX_JUNTAS) continue;
+        if (COMIDA.has(b) && !COMIDA.has(asignado.get(l)) && comidaN() >= TOPE_COMIDA * N) continue;
+        if (!COMIDA.has(b) && COMIDA.has(asignado.get(l)) && comidaN() <= COMIDA_MINIMA * N) continue;
+        pon(l, b); balance.suelo++;
+      }
+    }
+    if (comidaN() > TOPE_COMIDA * N) {
+      // primero la comida mas comun, para no borrar las raras (la patata)
+      for (const l of M.locsAmerica.filter((l) => COMIDA.has(asignado.get(l))).sort((x, y) => (total.get(asignado.get(y)) || 0) - (total.get(asignado.get(x)) || 0) || (P.get(x).get(asignado.get(x)) || 0) - (P.get(y).get(asignado.get(y)) || 0) || x.localeCompare(y))) {
+        if (comidaN() <= TOPE_COMIDA * N) break; const o = elige(l, new Set([...COMIDA])); if (o) { pon(l, o); balance.cambios++; }
+      }
+    }
+  }
+  garantias.balance = balance;
+
   // estadisticas (las manchas se miden de nuevo: el paso 4 puede haberlas partido)
   const porSub = {};
   for (const l of M.locsAmerica) { const s = M.jer.get(l).subcontinente || '?'; (porSub[s] ??= new Map()).set(asignado.get(l), (porSub[s].get(asignado.get(l)) || 0) + 1); }

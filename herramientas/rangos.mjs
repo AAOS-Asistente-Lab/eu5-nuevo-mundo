@@ -3,11 +3,12 @@
 // toda rural. Aqui: la capital de cada pais pasa a ciudad, y cada pais tiene ademas un pueblo cada
 // `cada` localizaciones, en las mejores (costa, cultivos o pradera), separados al menos
 // `separacion` pasos de otra ciudad o pueblo. Determinista. Lo escribe funde-partes.mjs en
-// gj_rangos_iniciales (change_location_rank).
+// gj_rangos_iniciales (change_location_rank). `veto`: localizaciones con un market_village del setup,
+// que no cabe en una ciudad ni en un pueblo; se quedan rurales.
 export const PUEBLO_CADA = 17; // la cifra la confirman los jugadores
 export const SEPARACION = 3;
 
-export function rangosIniciales({ dueno, capitales, vec, costa, veg, yaTienen = new Map(), cada = PUEBLO_CADA, separacion = SEPARACION }) {
+export function rangosIniciales({ dueno, capitales, vec, costa, veg, yaTienen = new Map(), cada = PUEBLO_CADA, separacion = SEPARACION, veto = new Set() }) {
   const por = new Map();
   for (const [l, t] of dueno) { if (!por.has(t)) por.set(t, []); por.get(t).push(l); }
   const rangos = {};
@@ -27,10 +28,10 @@ export function rangosIniciales({ dueno, capitales, vec, costa, veg, yaTienen = 
     + 0.5 * [...(vec.get(l) || [])].filter((w) => veg.get(w) === 'farmland').length;
   for (const [t, ls] of [...por].sort(([a], [b]) => a.localeCompare(b))) {
     const cap = capitales.get(t);
-    if (cap && dueno.get(cap) === t && !esCiudad(rangoDe(cap))) rangos[cap] = 'city';
+    if (cap && dueno.get(cap) === t && !veto.has(cap) && !esCiudad(rangoDe(cap))) rangos[cap] = 'city';
     const quiere = Math.floor(ls.length / cada);
     let tiene = ls.filter((l) => l !== cap && rangoDe(l)).length;
-    for (const l of [...ls].filter((x) => !rangoDe(x)).sort((a, b) => punt(b) - punt(a) || a.localeCompare(b))) {
+    for (const l of [...ls].filter((x) => !rangoDe(x) && !veto.has(x)).sort((a, b) => punt(b) - punt(a) || a.localeCompare(b))) {
       if (tiene >= quiere) break;
       if (cerca(l)) continue;
       rangos[l] = 'town'; tiene++;

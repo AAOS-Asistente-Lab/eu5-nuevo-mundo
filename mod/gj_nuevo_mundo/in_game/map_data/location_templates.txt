@@ -22680,7 +22680,7 @@ rnw_loc_00956 = { topography = wetlands vegetation = sparse climate = oceanic re
 rnw_loc_00957 = { topography = flatland vegetation = grasslands climate = oceanic religion = yupik_shamanism culture = atka_culture raw_material = clay natural_harbor_suitability = 0.50 }
 rnw_loc_00958 = { topography = hills vegetation = grasslands climate = oceanic religion = yupik_shamanism culture = unalaska_culture raw_material = salt natural_harbor_suitability = 0.75 }
 rnw_loc_00959 = { topography = wetlands vegetation = grasslands climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = salt natural_harbor_suitability = 0.00 }
-rnw_loc_00960 = { topography = wetlands vegetation = grasslands climate = oceanic religion = midewiwin_religion culture = stadaconan_culture raw_material = salt natural_harbor_suitability = 0.00 }
+rnw_loc_00960 = { topography = wetlands vegetation = woods climate = oceanic religion = midewiwin_religion culture = stadaconan_culture raw_material = salt natural_harbor_suitability = 0.00 }
 rnw_loc_00961 = { topography = flatland vegetation = grasslands climate = continental religion = dene_totemism culture = haida_culture raw_material = fur}
 rnw_loc_00962 = { topography = hills vegetation = woods climate = continental religion = midewiwin_religion culture = piikani_culture raw_material = legumes}
 rnw_loc_00963 = { topography = hills vegetation = grasslands climate = oceanic religion = yupik_shamanism culture = unalaska_culture raw_material = salt natural_harbor_suitability = 0.60 }
@@ -22760,7 +22760,7 @@ rnw_loc_01035 = { topography = flatland vegetation = grasslands climate = oceani
 rnw_loc_01036 = { topography = plateau vegetation = woods climate = continental religion = dene_totemism culture = haida_culture raw_material = lumber}
 rnw_loc_01037 = { topography = flatland vegetation = grasslands climate = oceanic religion = yupik_shamanism culture = unalaska_culture raw_material = wool}
 rnw_loc_01038 = { topography = mountains vegetation = grasslands climate = continental religion = salishan_totemism culture = spokane_culture raw_material = lumber}
-rnw_loc_01039 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = wolastoqiyik_culture raw_material = legumes natural_harbor_suitability = 0.00 }
+rnw_loc_01039 = { topography = flatland vegetation = sparse climate = cold_semi_arid religion = midewiwin_religion culture = wolastoqiyik_culture raw_material = legumes natural_harbor_suitability = 0.00 }
 rnw_loc_01040 = { topography = flatland vegetation = grasslands climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = livestock}
 rnw_loc_01041 = { topography = flatland vegetation = woods climate = continental religion = yupik_shamanism culture = kaniag_culture raw_material = legumes}
 rnw_loc_01042 = { topography = flatland vegetation = woods climate = continental religion = midewiwin_religion culture = timiscaming_culture raw_material = wild_game}
@@ -22780,7 +22780,7 @@ rnw_loc_01055 = { topography = flatland vegetation = woods climate = oceanic rel
 rnw_loc_01056 = { topography = flatland vegetation = woods climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = clay natural_harbor_suitability = 0.00 }
 rnw_loc_01057 = { topography = wetlands vegetation = grasslands climate = oceanic religion = yupik_shamanism culture = unalaska_culture raw_material = salt natural_harbor_suitability = 0.50 }
 rnw_loc_01058 = { topography = hills vegetation = woods climate = continental religion = dene_totemism culture = haida_culture raw_material = wild_game}
-rnw_loc_01059 = { topography = flatland vegetation = grasslands climate = oceanic religion = iroquoian_totemism culture = stadaconan_culture raw_material = salt natural_harbor_suitability = 0.00 }
+rnw_loc_01059 = { topography = flatland vegetation = sparse climate = oceanic religion = iroquoian_totemism culture = stadaconan_culture raw_material = salt natural_harbor_suitability = 0.00 }
 rnw_loc_01060 = { topography = flatland vegetation = grasslands climate = continental religion = salishan_totemism culture = nootka_culture raw_material = lumber}
 rnw_loc_01061 = { topography = flatland vegetation = woods climate = continental religion = salishan_totemism culture = makah_culture raw_material = fur}
 rnw_loc_01062 = { topography = flatland vegetation = woods climate = continental religion = salishan_totemism culture = twana_culture raw_material = fur}
@@ -22852,7 +22852,7 @@ rnw_loc_01127 = { topography = flatland vegetation = farmland climate = oceanic 
 rnw_loc_01128 = { topography = flatland vegetation = forest climate = continental religion = yupik_shamanism culture = kaniag_culture raw_material = maize}
 rnw_loc_01129 = { topography = flatland vegetation = grasslands climate = continental religion = yupik_shamanism culture = kaniag_culture raw_material = fur}
 rnw_loc_01130 = { topography = flatland vegetation = sparse climate = continental religion = dene_totemism culture = haida_culture raw_material = sand}
-rnw_loc_01131 = { topography = flatland vegetation = farmland climate = cold_semi_arid religion = midewiwin_religion culture = atikamekw_culture raw_material = fish natural_harbor_suitability = 0.00 }
+rnw_loc_01131 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = atikamekw_culture raw_material = fish natural_harbor_suitability = 0.00 }
 rnw_loc_01132 = { topography = flatland vegetation = forest climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = clay natural_harbor_suitability = 0.00 }
 rnw_loc_01133 = { topography = mountains vegetation = forest climate = oceanic religion = midewiwin_religion culture = ojibwe_culture raw_material = livestock}
 rnw_loc_01134 = { topography = flatland vegetation = woods climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = legumes}
@@ -22933,16 +22933,16 @@ rnw_loc_01208 = { topography = flatland vegetation = woods climate = continental
 rnw_loc_01209 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = maize}
 rnw_loc_01210 = { topography = plateau vegetation = forest climate = continental religion = salishan_totemism culture = palouse_culture raw_material = wild_game}
 rnw_loc_01211 = { topography = hills vegetation = grasslands climate = continental religion = great_plains_shamanism culture = nueta_culture raw_material = wild_game}
-rnw_loc_01212 = { topography = flatland vegetation = farmland climate = cold_semi_arid religion = iroquoian_totemism culture = maisouna_culture raw_material = fish natural_harbor_suitability = 0.00 }
+rnw_loc_01212 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = iroquoian_totemism culture = maisouna_culture raw_material = fish natural_harbor_suitability = 0.00 }
 rnw_loc_01213 = { topography = flatland vegetation = grasslands climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = maize}
 rnw_loc_01214 = { topography = flatland vegetation = forest climate = continental religion = midewiwin_religion culture = mikmaq_culture raw_material = wild_game}
 rnw_loc_01215 = { topography = plateau vegetation = forest climate = continental religion = pomo_shamanism culture = nimiipuu_culture raw_material = lumber}
 rnw_loc_01216 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = mikmaq_culture raw_material = fiber_crops}
 rnw_loc_01217 = { topography = hills vegetation = grasslands climate = oceanic religion = yupik_shamanism culture = unalaska_culture raw_material = potato}
 rnw_loc_01218 = { topography = hills vegetation = grasslands climate = continental religion = midewiwin_religion culture = ojibwe_culture raw_material = lumber}
-rnw_loc_01219 = { topography = flatland vegetation = farmland climate = cold_semi_arid religion = midewiwin_religion culture = weskarini_culture raw_material = salt natural_harbor_suitability = 0.20 }
+rnw_loc_01219 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = weskarini_culture raw_material = salt natural_harbor_suitability = 0.20 }
 rnw_loc_01220 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = paiute_shamanism culture = yapahruka_culture raw_material = fish natural_harbor_suitability = 0.40 }
-rnw_loc_01221 = { topography = flatland vegetation = farmland climate = cold_semi_arid religion = iroquoian_totemism culture = maisouna_culture raw_material = livestock}
+rnw_loc_01221 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = iroquoian_totemism culture = maisouna_culture raw_material = livestock}
 rnw_loc_01222 = { topography = flatland vegetation = sparse climate = continental religion = dene_totemism culture = haida_culture raw_material = legumes}
 rnw_loc_01223 = { topography = hills vegetation = woods climate = continental religion = dene_totemism culture = haida_culture raw_material = fish natural_harbor_suitability = 0.00 }
 rnw_loc_01224 = { topography = hills vegetation = woods climate = continental religion = pomo_shamanism culture = nimiipuu_culture raw_material = lumber}
@@ -22968,7 +22968,7 @@ rnw_loc_01243 = { topography = hills vegetation = grasslands climate = continent
 rnw_loc_01244 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = clay natural_harbor_suitability = 0.00 }
 rnw_loc_01245 = { topography = flatland vegetation = grasslands climate = continental religion = yupik_shamanism culture = unalaska_culture raw_material = fruit}
 rnw_loc_01246 = { topography = flatland vegetation = woods climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = wild_game}
-rnw_loc_01247 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = iroquoian_totemism culture = stadaconan_culture raw_material = salt}
+rnw_loc_01247 = { topography = flatland vegetation = sparse climate = cold_semi_arid religion = iroquoian_totemism culture = stadaconan_culture raw_material = salt}
 rnw_loc_01248 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = sand natural_harbor_suitability = 0.00 }
 rnw_loc_01249 = { topography = flatland vegetation = sparse climate = continental religion = yupik_shamanism culture = kaniag_culture raw_material = legumes}
 rnw_loc_01250 = { topography = flatland vegetation = woods climate = continental religion = great_plains_shamanism culture = ashshipite_culture raw_material = legumes}
@@ -22986,13 +22986,13 @@ rnw_loc_01261 = { topography = flatland vegetation = sparse climate = continenta
 rnw_loc_01262 = { topography = hills vegetation = forest climate = continental religion = salishan_totemism culture = yakama_culture raw_material = lumber}
 rnw_loc_01263 = { topography = flatland vegetation = woods climate = subtropical religion = great_plains_shamanism culture = ashalaho_culture raw_material = legumes}
 rnw_loc_01264 = { topography = flatland vegetation = woods climate = continental religion = midewiwin_religion culture = missisage_culture raw_material = wild_game}
-rnw_loc_01265 = { topography = flatland vegetation = farmland climate = cold_semi_arid religion = iroquoian_totemism culture = maisouna_culture raw_material = salt}
+rnw_loc_01265 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = iroquoian_totemism culture = maisouna_culture raw_material = salt}
 rnw_loc_01266 = { topography = flatland vegetation = woods climate = subtropical religion = great_plains_shamanism culture = ashalaho_culture raw_material = wool}
-rnw_loc_01267 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = eastern_abenaki_culture raw_material = wool}
+rnw_loc_01267 = { topography = flatland vegetation = sparse climate = cold_semi_arid religion = midewiwin_religion culture = eastern_abenaki_culture raw_material = wool}
 rnw_loc_01268 = { topography = flatland vegetation = sparse climate = continental religion = dene_totemism culture = haida_culture raw_material = maize}
 rnw_loc_01269 = { topography = hills vegetation = grasslands climate = continental religion = pomo_shamanism culture = chinook_culture raw_material = lumber}
 rnw_loc_01270 = { topography = flatland vegetation = woods climate = continental religion = great_plains_shamanism culture = ashshipite_culture raw_material = fruit}
-rnw_loc_01271 = { topography = flatland vegetation = farmland climate = cold_semi_arid religion = midewiwin_religion culture = weskarini_culture raw_material = salt}
+rnw_loc_01271 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = weskarini_culture raw_material = salt}
 rnw_loc_01272 = { topography = flatland vegetation = woods climate = continental religion = salishan_totemism culture = saleesh_culture raw_material = maize}
 rnw_loc_01273 = { topography = flatland vegetation = woods climate = subtropical religion = great_plains_shamanism culture = kaigwu_culture raw_material = fish natural_harbor_suitability = 1.00 }
 rnw_loc_01274 = { topography = flatland vegetation = woods climate = continental religion = midewiwin_religion culture = nipissing_culture raw_material = wild_game}
@@ -23058,7 +23058,7 @@ rnw_loc_01333 = { topography = flatland vegetation = grasslands climate = contin
 rnw_loc_01334 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = penobscot_culture raw_material = wild_game}
 rnw_loc_01335 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = penobscot_culture raw_material = fish natural_harbor_suitability = 0.00 }
 rnw_loc_01336 = { topography = flatland vegetation = grasslands climate = continental religion = dene_totemism culture = haida_culture raw_material = fur}
-rnw_loc_01337 = { topography = flatland vegetation = farmland climate = cold_semi_arid religion = midewiwin_religion culture = western_abenaki_culture raw_material = wild_game}
+rnw_loc_01337 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = western_abenaki_culture raw_material = wild_game}
 rnw_loc_01338 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = wild_game}
 rnw_loc_01339 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = fiber_crops}
 rnw_loc_01340 = { topography = hills vegetation = sparse climate = continental religion = dene_totemism culture = haida_culture raw_material = lumber natural_harbor_suitability = 0.00 }
@@ -23226,7 +23226,7 @@ rnw_loc_01501 = { topography = flatland vegetation = sparse climate = continenta
 rnw_loc_01502 = { topography = flatland vegetation = woods climate = oceanic religion = pomo_shamanism culture = alsea_culture raw_material = lumber}
 rnw_loc_01503 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = maize}
 rnw_loc_01504 = { topography = flatland vegetation = woods climate = continental religion = iroquoian_totemism culture = kanienkehaka_culture raw_material = fiber_crops}
-rnw_loc_01505 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = mikmaq_culture raw_material = fish natural_harbor_suitability = 0.00 }
+rnw_loc_01505 = { topography = flatland vegetation = sparse climate = cold_semi_arid religion = midewiwin_religion culture = mikmaq_culture raw_material = fish natural_harbor_suitability = 0.00 }
 rnw_loc_01506 = { topography = wetlands vegetation = grasslands climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = salt natural_harbor_suitability = 0.00 }
 rnw_loc_01507 = { topography = hills vegetation = grasslands climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = fur}
 rnw_loc_01508 = { topography = hills vegetation = grasslands climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = fish natural_harbor_suitability = 0.50 }
@@ -23264,12 +23264,12 @@ rnw_loc_01539 = { topography = wetlands vegetation = sparse climate = oceanic re
 rnw_loc_01540 = { topography = flatland vegetation = sparse climate = continental religion = paiute_shamanism culture = numu_culture raw_material = iron}
 rnw_loc_01541 = { topography = flatland vegetation = sparse climate = continental religion = yupik_shamanism culture = unalaska_culture raw_material = fruit}
 rnw_loc_01542 = { topography = flatland vegetation = sparse climate = continental religion = iroquoian_totemism culture = onyotaaka_culture raw_material = maize}
-rnw_loc_01543 = { topography = flatland vegetation = grasslands climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = wool}
+rnw_loc_01543 = { topography = flatland vegetation = farmland climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = wool}
 rnw_loc_01544 = { topography = flatland vegetation = grasslands climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = livestock}
 rnw_loc_01545 = { topography = mountains vegetation = sparse climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = stone}
 rnw_loc_01546 = { topography = hills vegetation = grasslands climate = oceanic religion = mississippian_ceremonial culture = hocak_culture raw_material = potato}
 rnw_loc_01547 = { topography = hills vegetation = sparse climate = continental religion = pomo_shamanism culture = molalla_culture raw_material = wild_game}
-rnw_loc_01548 = { topography = flatland vegetation = woods climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = livestock}
+rnw_loc_01548 = { topography = flatland vegetation = farmland climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = livestock}
 rnw_loc_01549 = { topography = wetlands vegetation = grasslands climate = oceanic religion = yupik_shamanism culture = unalaska_culture raw_material = salt natural_harbor_suitability = 0.20 }
 rnw_loc_01550 = { topography = flatland vegetation = sparse climate = continental religion = midewiwin_religion culture = penobscot_culture raw_material = fruit}
 rnw_loc_01551 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = nanwuinenan_culture raw_material = wild_game}
@@ -23324,7 +23324,7 @@ rnw_loc_01599 = { topography = flatland vegetation = woods climate = continental
 rnw_loc_01600 = { topography = flatland vegetation = grasslands climate = cold_semi_arid religion = midewiwin_religion culture = mikmaq_culture raw_material = legumes natural_harbor_suitability = 0.00 }
 rnw_loc_01601 = { topography = flatland vegetation = sparse climate = continental religion = yupik_shamanism culture = unalaska_culture raw_material = wild_game}
 rnw_loc_01602 = { topography = flatland vegetation = sparse climate = continental religion = iroquoian_totemism culture = onyotaaka_culture raw_material = fur}
-rnw_loc_01603 = { topography = wetlands vegetation = grasslands climate = mediterranean religion = midewiwin_religion culture = mikmaq_culture raw_material = medicaments}
+rnw_loc_01603 = { topography = wetlands vegetation = farmland climate = mediterranean religion = midewiwin_religion culture = mikmaq_culture raw_material = medicaments}
 rnw_loc_01604 = { topography = flatland vegetation = woods climate = continental religion = yupik_shamanism culture = unalaska_culture raw_material = legumes}
 rnw_loc_01605 = { topography = flatland vegetation = grasslands climate = cold_arid religion = midewiwin_religion culture = bodewadomik_culture raw_material = mercury}
 rnw_loc_01606 = { topography = flatland vegetation = grasslands climate = continental religion = iroquoian_totemism culture = onghniaahra_culture raw_material = lumber}
@@ -23361,14 +23361,14 @@ rnw_loc_01636 = { topography = flatland vegetation = grasslands climate = oceani
 rnw_loc_01637 = { topography = mountains vegetation = forest climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = stone}
 rnw_loc_01638 = { topography = wetlands vegetation = grasslands climate = subtropical religion = dene_totemism culture = haida_culture raw_material = wild_game natural_harbor_suitability = 0.00 }
 rnw_loc_01639 = { topography = flatland vegetation = grasslands climate = continental religion = midewiwin_religion culture = pennacook_culture raw_material = legumes}
-rnw_loc_01640 = { topography = flatland vegetation = sparse climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = wool}
+rnw_loc_01640 = { topography = flatland vegetation = farmland climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = wool}
 rnw_loc_01641 = { topography = flatland vegetation = sparse climate = continental religion = midewiwin_religion culture = mikmaq_culture raw_material = wild_game}
 rnw_loc_01642 = { topography = flatland vegetation = forest climate = continental religion = great_plains_shamanism culture = skiri_culture raw_material = fur}
 rnw_loc_01643 = { topography = hills vegetation = sparse climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = fur}
 rnw_loc_01644 = { topography = flatland vegetation = grasslands climate = continental religion = pomo_shamanism culture = molalla_culture raw_material = fur}
 rnw_loc_01645 = { topography = flatland vegetation = sparse climate = continental religion = pomo_shamanism culture = ewksikni_culture raw_material = fur}
-rnw_loc_01646 = { topography = wetlands vegetation = woods climate = mediterranean religion = midewiwin_religion culture = mikmaq_culture raw_material = tin}
-rnw_loc_01647 = { topography = flatland vegetation = grasslands climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = maize}
+rnw_loc_01646 = { topography = wetlands vegetation = farmland climate = mediterranean religion = midewiwin_religion culture = mikmaq_culture raw_material = tin}
+rnw_loc_01647 = { topography = flatland vegetation = farmland climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = maize}
 rnw_loc_01648 = { topography = plateau vegetation = sparse climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = fur}
 rnw_loc_01649 = { topography = flatland vegetation = sparse climate = continental religion = midewiwin_religion culture = pennacook_culture raw_material = maize}
 rnw_loc_01650 = { topography = hills vegetation = woods climate = oceanic religion = midewiwin_religion culture = beothuk_culture raw_material = wild_game}
@@ -23409,7 +23409,7 @@ rnw_loc_01684 = { topography = flatland vegetation = forest climate = continenta
 rnw_loc_01685 = { topography = flatland vegetation = forest climate = continental religion = midewiwin_religion culture = mikmaq_culture raw_material = fur}
 rnw_loc_01686 = { topography = flatland vegetation = sparse climate = continental religion = great_plains_shamanism culture = yattinde_culture raw_material = maize}
 rnw_loc_01687 = { topography = flatland vegetation = farmland climate = continental religion = paiute_shamanism culture = kuccuntikka_culture raw_material = wild_game}
-rnw_loc_01688 = { topography = wetlands vegetation = woods climate = mediterranean religion = midewiwin_religion culture = mikmaq_culture raw_material = legumes}
+rnw_loc_01688 = { topography = wetlands vegetation = farmland climate = mediterranean religion = midewiwin_religion culture = mikmaq_culture raw_material = legumes}
 rnw_loc_01689 = { topography = flatland vegetation = forest climate = continental religion = iroquoian_totemism culture = onondowaga_culture raw_material = lumber}
 rnw_loc_01690 = { topography = flatland vegetation = woods climate = continental religion = dene_totemism culture = inde_culture raw_material = maize}
 rnw_loc_01691 = { topography = flatland vegetation = sparse climate = continental religion = pomo_shamanism culture = ewksikni_culture raw_material = fish}
@@ -23417,7 +23417,7 @@ rnw_loc_01692 = { topography = flatland vegetation = grasslands climate = contin
 rnw_loc_01693 = { topography = hills vegetation = sparse climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = lumber}
 rnw_loc_01694 = { topography = flatland vegetation = woods climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = clay natural_harbor_suitability = 0.00 }
 rnw_loc_01695 = { topography = flatland vegetation = jungle climate = subtropical religion = dene_totemism culture = haida_culture raw_material = maize natural_harbor_suitability = 0.00 }
-rnw_loc_01696 = { topography = flatland vegetation = forest climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = livestock}
+rnw_loc_01696 = { topography = flatland vegetation = farmland climate = oceanic religion = midewiwin_religion culture = mikmaq_culture raw_material = livestock}
 rnw_loc_01697 = { topography = hills vegetation = grasslands climate = oceanic religion = dene_totemism culture = haida_culture raw_material = fish natural_harbor_suitability = -0.10 }
 rnw_loc_01698 = { topography = hills vegetation = woods climate = continental religion = paiute_shamanism culture = penkwitikka_culture raw_material = copper}
 rnw_loc_01699 = { topography = flatland vegetation = grasslands climate = cold_arid religion = midewiwin_religion culture = meskwaki_culture raw_material = wild_game}
@@ -23450,7 +23450,7 @@ rnw_loc_01724 = { topography = flatland vegetation = woods climate = continental
 rnw_loc_01725 = { topography = flatland vegetation = woods climate = oceanic religion = mississippian_ceremonial culture = niuachi_culture raw_material = medicaments}
 rnw_loc_01726 = { topography = plateau vegetation = forest climate = continental religion = midewiwin_religion culture = beothuk_culture raw_material = wool}
 rnw_loc_01727 = { topography = flatland vegetation = woods climate = continental religion = great_plains_shamanism culture = skiri_culture raw_material = clay natural_harbor_suitability = 0.00 }
-rnw_loc_01728 = { topography = wetlands vegetation = sparse climate = mediterranean religion = midewiwin_religion culture = mikmaq_culture raw_material = fish natural_harbor_suitability = 0.00 }
+rnw_loc_01728 = { topography = wetlands vegetation = woods climate = mediterranean religion = midewiwin_religion culture = mikmaq_culture raw_material = fish natural_harbor_suitability = 0.00 }
 rnw_loc_01729 = { topography = hills vegetation = woods climate = oceanic religion = dene_totemism culture = haida_culture raw_material = fish natural_harbor_suitability = 0.00 }
 rnw_loc_01730 = { topography = flatland vegetation = woods climate = continental religion = paiute_shamanism culture = haivodika_culture raw_material = wild_game}
 rnw_loc_01731 = { topography = flatland vegetation = farmland climate = continental religion = paiute_shamanism culture = kuccuntikka_culture raw_material = wild_game}

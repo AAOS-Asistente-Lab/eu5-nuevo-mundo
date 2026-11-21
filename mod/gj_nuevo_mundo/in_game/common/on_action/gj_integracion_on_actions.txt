@@ -282,6 +282,7 @@ gj_integracion_inicio = {
 			limit = { NOT = { has_global_variable = gj_integracion_hecha } }
 			set_global_variable = gj_integracion_hecha
 			gj_reparte_tierra = yes
+			gj_rangos_iniciales = yes
 			every_country = {
 				limit = { gj_ostrevar_tag_inicial = yes }
 				gj_fundar_faccion = { cultura = gj_ostrevari religion = gj_luz_fundadores }

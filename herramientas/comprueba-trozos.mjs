@@ -16,7 +16,8 @@ const v = JSON.parse(fs.readFileSync(arg('--vinculo', path.join(AQUI, '..', 'tmp
 const lista = hijo(hijo(analizaFichero(path.join(MUNDO, 'main_menu', 'setup', '1337', '10_countries.txt')).arbol, 'countries').v, 'countries');
 const antes = new Map();
 for (const it of lista.v.items) if (it.k && esBloque(it.v)) for (const x of it.v.items) if (x.k && /^own_/.test(x.k) && esBloque(x.v)) for (const l of valoresSueltos(x.v)) if (l.startsWith('rnw_loc_')) antes.set(l, it.k);
-const despues = new Map([...antes, ...Object.entries(v.tierra?.da || {})]);
+// la tierra de los paises nuevos que ya es suya en el setup (nuestra copia de 10_countries) y la repartida
+const despues = new Map([...antes, ...Object.entries(v.tierra?.nuevos || {}), ...Object.entries(v.tierra?.da || {})]);
 for (const l of Object.keys(v.tierra?.suelta || {})) despues.delete(l);
 export function trozos(dueno) {
   const por = new Map();

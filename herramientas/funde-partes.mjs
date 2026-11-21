@@ -453,6 +453,7 @@ gj_integracion_inicio = {
 \t\t\tlimit = { NOT = { has_global_variable = gj_integracion_hecha } }
 \t\t\tset_global_variable = gj_integracion_hecha
 \t\t\tgj_reparte_tierra = yes
+\t\t\tgj_rangos_iniciales = yes
 ${[...FUND, ...MEN.filter((m) => m.tag)].map(llamada).join('\n').replace(/^/gm, '\t')}
 \t\t}
 \t}
@@ -469,6 +470,8 @@ const tagsFaccion = new Set([...Object.values(VINC.paises || {}), ...Object.valu
 const dadas = Object.entries(TIERRA.da || {}).sort(([a], [b]) => a.localeCompare(b));
 const capitales = Object.entries(TIERRA.capital || {}).sort(([a], [b]) => a.localeCompare(b));
 const sueltas = Object.entries(TIERRA.suelta || {}).sort(([a], [b]) => a.localeCompare(b));
+// rangos de la tierra que cambia de dueno al empezar (los de la tierra que ya era suya van en la copia de 07)
+const rangos = Object.entries(TIERRA.rangos || {}).sort(([a], [b]) => a.localeCompare(b));
 const popsDe = (dueno) => (tagsFaccion.has(dueno) ? 'gj_marca_tierra_nueva = yes' : `every_pop = { change_pop_culture = c:${dueno}.culture change_pop_religion = c:${dueno}.religion }`);
 // primero la capital nueva de quien la muda (los estados de RNW antes que las facciones): asi
 // ningun pais se queda sin tierra ni sin capital a mitad del efecto
@@ -489,6 +492,13 @@ ${capOrden.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su 
 ${dadas.filter(([l]) => !capLocs.has(l)).map(daLinea).join('\n')}
 	# trozos sueltos que nadie ha tomado: quedan sin dueno, para colonizar
 ${sueltas.map(([l, t2]) => `\tc:${t2} = { abandon_location = location:${l} }`).join('\n')}
+}
+
+# Ciudades y pueblos de la tierra que cambia de dueno al empezar (asigna-facciones.mjs): la capital
+# de cada pais, ciudad; un pueblo cada --pueblo-cada localizaciones. Los de la tierra que ya era de
+# su dueno van en la copia de 07_cities_and_buildings, con sus edificios.
+gj_rangos_iniciales = {
+${rangos.map(([l, r]) => `\tlocation:${l} = { change_location_rank = location_rank:${r} }`).join('\n')}
 }
 `);
 

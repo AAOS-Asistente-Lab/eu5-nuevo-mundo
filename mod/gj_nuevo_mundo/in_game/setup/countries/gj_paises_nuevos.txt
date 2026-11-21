@@ -1,0 +1,218 @@
+﻿# GJ Nuevo Mundo (asigna-facciones.mjs): paises nuevos en la tierra que nadie tenia al empezar.
+# Cultura y fe: las de la mayoria de sus pops.
+
+XAA = {
+	color = rgb { 117 64 101 }
+	color2 = rgb { 52 195 84 }
+
+	culture_definition = pomo_culture
+	religion_definition = pomo_shamanism
+}
+
+XAB = {
+	color = rgb { 67 66 83 }
+	color2 = rgb { 98 95 141 }
+
+	culture_definition = purun_awqa_culture
+	religion_definition = tain_feyentun_religion
+}
+
+XAC = {
+	color = rgb { 189 46 203 }
+	color2 = rgb { 93 180 47 }
+
+	culture_definition = pehuenche_culture
+	religion_definition = tain_feyentun_religion
+}
+
+XAD = {
+	color = rgb { 56 78 47 }
+	color2 = rgb { 84 137 59 }
+
+	culture_definition = charka_culture
+	religion_definition = mororuma_religion
+}
+
+XAE = {
+	color = rgb { 110 88 51 }
+	color2 = rgb { 85 171 119 }
+
+	culture_definition = nongatl_culture
+	religion_definition = pomo_shamanism
+}
+
+XAF = {
+	color = rgb { 75 67 129 }
+	color2 = rgb { 60 198 46 }
+
+	culture_definition = katapas_culture
+	religion_definition = wan_aisa_religion
+}
+
+XAG = {
+	color = rgb { 113 50 81 }
+	color2 = rgb { 107 84 51 }
+
+	culture_definition = cochimi_culture
+	religion_definition = yuman_religion
+}
+
+XAI = {
+	color = rgb { 61 44 115 }
+	color2 = rgb { 61 104 61 }
+
+	culture_definition = munsee_culture
+	religion_definition = midewiwin_religion
+}
+
+XAJ = {
+	color = rgb { 75 139 80 }
+	color2 = rgb { 71 180 47 }
+
+	culture_definition = naso_culture
+	religion_definition = suwo_religion
+}
+
+XAK = {
+	color = rgb { 133 47 195 }
+	color2 = rgb { 63 139 208 }
+
+	culture_definition = modokni_culture
+	religion_definition = pomo_shamanism
+}
+
+XAM = {
+	color = rgb { 152 94 41 }
+	color2 = rgb { 113 119 52 }
+
+	culture_definition = kalapuyan_culture
+	religion_definition = pomo_shamanism
+}
+
+XAN = {
+	color = rgb { 50 175 68 }
+	color2 = rgb { 202 55 67 }
+
+	culture_definition = chinook_culture
+	religion_definition = pomo_shamanism
+}
+
+XAO = {
+	color = rgb { 128 84 170 }
+	color2 = rgb { 139 47 108 }
+
+	culture_definition = tepecan_culture
+	religion_definition = chichimecah_religion
+}
+
+XAQ = {
+	color = rgb { 109 153 43 }
+	color2 = rgb { 95 65 78 }
+
+	culture_definition = manta_culture
+	religion_definition = umina_religion
+}
+
+XAR = {
+	color = rgb { 201 46 90 }
+	color2 = rgb { 140 61 60 }
+
+	culture_definition = pikumche_culture
+	religion_definition = tain_feyentun_religion
+}
+
+XAS = {
+	color = rgb { 104 57 116 }
+	color2 = rgb { 141 53 63 }
+
+	culture_definition = nimiipuu_culture
+	religion_definition = pomo_shamanism
+}
+
+XAT = {
+	color = rgb { 102 106 102 }
+	color2 = rgb { 64 150 149 }
+
+	culture_definition = kalapuyan_culture
+	religion_definition = pomo_shamanism
+}
+
+XAV = {
+	color = rgb { 101 86 92 }
+	color2 = rgb { 103 87 55 }
+
+	culture_definition = chinook_culture
+	religion_definition = pomo_shamanism
+}
+
+XAW = {
+	color = rgb { 150 155 92 }
+	color2 = rgb { 208 186 89 }
+
+	culture_definition = chinook_culture
+	religion_definition = pomo_shamanism
+}
+
+XAX = {
+	color = rgb { 114 103 65 }
+	color2 = rgb { 155 93 117 }
+
+	culture_definition = takelma_culture
+	religion_definition = pomo_shamanism
+}
+
+XAY = {
+	color = rgb { 53 69 213 }
+	color2 = rgb { 166 41 44 }
+
+	culture_definition = onondowaga_culture
+	religion_definition = iroquoian_totemism
+}
+
+XAZ = {
+	color = rgb { 114 65 152 }
+	color2 = rgb { 111 81 61 }
+
+	culture_definition = nomlaki_culture
+	religion_definition = pomo_shamanism
+}
+
+XBA = {
+	color = rgb { 55 183 114 }
+	color2 = rgb { 114 92 100 }
+
+	culture_definition = guaicura_culture
+	religion_definition = pericu_religion
+}
+
+XBB = {
+	color = rgb { 101 98 52 }
+	color2 = rgb { 102 65 194 }
+
+	culture_definition = guaicura_culture
+	religion_definition = pericu_religion
+}
+
+XBC = {
+	color = rgb { 67 86 160 }
+	color2 = rgb { 206 65 88 }
+
+	culture_definition = gayogohono_culture
+	religion_definition = iroquoian_totemism
+}
+
+XBD = {
+	color = rgb { 42 84 131 }
+	color2 = rgb { 109 65 43 }
+
+	culture_definition = yanesha_culture
+	religion_definition = naylamp_religion
+}
+
+XBE = {
+	color = rgb { 46 151 75 }
+	color2 = rgb { 156 68 129 }
+
+	culture_definition = purun_awqa_culture
+	religion_definition = tain_feyentun_religion
+}

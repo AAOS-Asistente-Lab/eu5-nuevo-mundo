@@ -87,7 +87,7 @@ gj_menor_brazalmar_tag_inicial = {
 }
 
 gj_menor_ondan_tag_inicial = {
-	tag = JGM
+	tag = NAO
 }
 
 gj_menor_cabo_halcor_tag_inicial = {
@@ -103,7 +103,7 @@ gj_menor_sotolar_tag_inicial = {
 }
 
 gj_menor_yorumbe_tag_inicial = {
-	tag = XUV
+	tag = VOT
 }
 
 gj_menor_pakhun_tag_inicial = {

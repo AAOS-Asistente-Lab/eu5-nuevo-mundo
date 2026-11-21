@@ -130,19 +130,30 @@ const VOCAB = S(C.vocab), SCOPES_JUEGO = S(C.scopes), GFX = S(C.gfx), ICON_AV = 
 // Campos que el motor conoce y ningun script del juego usa (salen en eu5.exe entre los de su
 // base de datos): has_rite_power va junto a has_avatars, el campo de religion que si se usa.
 for (const k of ['has_rite_power']) VOCAB.add(k);
+// religion_definition solo sale en el setup de paises del juego (in_game/setup/countries), que el
+// vocabulario no lee; culture_definition, su pareja, si sale en scripts
+VOCAB.add('religion_definition');
 const RESERVADAS_AVANCE = S(C.clavesAvanceNoModificador);
 
 // ---------------------------------------------------------------- ficheros del mod
 // Ficheros del mundo que la copia vinculada reescribe a proposito (asigna-facciones.mjs: la
-// vegetacion mezclada y los rangos). No son scripts nuestros: solo se mira que el mundo traiga el mismo fichero.
-const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'main_menu/setup/1337/07_cities_and_buildings.txt'];
+// vegetacion mezclada, los rangos y los paises nuevos). No son scripts nuestros: solo se mira que el mundo traiga el mismo fichero.
+const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'main_menu/setup/1337/07_cities_and_buildings.txt', 'main_menu/setup/1337/10_countries.txt'];
 const todos = listaFicheros(MOD).filter((f) => {
   const r = rel(f);
   if (!COPIAS_MUNDO.includes(r)) return true;
-  if (MUNDO && fs.existsSync(path.join(MUNDO, r))) aviso(r, 0, 'sustituye al del mundo a proposito (vegetacion o rangos)');
+  if (MUNDO && fs.existsSync(path.join(MUNDO, r))) aviso(r, 0, 'sustituye al del mundo a proposito (vegetacion, rangos o paises nuevos)');
   else err(r, 0, 'es la copia de un fichero del mundo, pero el mundo no lo trae');
   return false;
 });
+// Paises que crea el propio mod (in_game/setup/countries, asigna-facciones.mjs): su nombre y su
+// adjetivo van sin prefijo, como los del juego. El tag no puede ser uno del juego ni del mundo.
+const tagsMod = new Map();
+for (const f of todos.filter((x) => rel(x).startsWith('in_game/setup/countries/'))) leeTexto(f).texto.split('\n').forEach((ln, i) => { const m = ln.match(/^\uFEFF?([A-Z][A-Z0-9]{2})\s*=\s*\{/); if (m) tagsMod.set(m[1], [rel(f), i + 1]); });
+if (tagsMod.size) for (const dir of [JUEGO, MUNDO].filter(Boolean)) {
+  const d = path.join(dir, 'in_game', 'setup', 'countries');
+  if (fs.existsSync(d)) for (const x of fs.readdirSync(d).filter((y) => y.endsWith('.txt'))) for (const m of leeTexto(path.join(d, x)).texto.matchAll(/^\uFEFF?([A-Z][A-Z0-9]{2})\s*=\s*\{/gm)) if (tagsMod.has(m[1])) err(...tagsMod.get(m[1]), `el tag ${m[1]} ya lo usa ${dir === JUEGO ? 'el juego' : 'el mundo'} (${x})`);
+}
 // gui/ no son scripts (tipos de mensaje, ventanas): el juego los lee con otro formato
 const txts = todos.filter((f) => f.endsWith('.txt') && !rel(f).split('/').includes('gui'));
 // tipos de modificador que define el propio mod
@@ -460,7 +471,7 @@ for (const f of ymls) {
     if (loc[m[1]].has(k)) err(r, l, `clave '${k}' repetida`);
     loc[m[1]].set(k, { val, r, l });
     if (esReplace) { locReplace.add(k); if (!locJuego(m[1]).has(k)) err(r, l, `clave '${k}' en replace/ que no existe en el juego: no pisa nada`); }
-    else if (!/gj_|GJ_/.test(k)) err(r, l, `clave '${k}' sin prefijo gj_: puede pisar una del juego`);
+    else if (!/gj_|GJ_/.test(k) && !tagsMod.has(k.replace(/_ADJ$/, ''))) err(r, l, `clave '${k}' sin prefijo gj_: puede pisar una del juego`);
     for (const s of val.matchAll(/SCOPE\.s[A-Za-z]+\('([a-z_0-9]+)'\)/g)) if (!scopesMod.has(s[1])) err(r, l, `el texto usa el scope '${s[1]}', que no se guarda en ningun evento`);
     const abre = (val.match(/\[/g) || []).length, cierra = (val.match(/\]/g) || []).length;
     if (abre !== cierra) err(r, l, 'corchetes [ ] desequilibrados');
