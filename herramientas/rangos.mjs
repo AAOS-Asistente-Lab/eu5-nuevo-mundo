@@ -5,7 +5,7 @@
 // `separacion` pasos de otra ciudad o pueblo. Determinista. Lo escribe funde-partes.mjs en
 // gj_rangos_iniciales (change_location_rank). `veto`: localizaciones con un market_village del setup,
 // que no cabe en una ciudad ni en un pueblo; se quedan rurales.
-export const PUEBLO_CADA = 17; // la cifra la confirman los jugadores
+export const PUEBLO_CADA = 10; // Europa del juego: ~10 % de pueblos y ciudades (estudio-v5/economia.md); antes 17
 export const SEPARACION = 3;
 
 export function rangosIniciales({ dueno, capitales, vec, costa, veg, yaTienen = new Map(), cada = PUEBLO_CADA, separacion = SEPARACION, veto = new Set() }) {

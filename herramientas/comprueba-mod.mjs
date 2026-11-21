@@ -137,12 +137,14 @@ const RESERVADAS_AVANCE = S(C.clavesAvanceNoModificador);
 
 // ---------------------------------------------------------------- ficheros del mod
 // Ficheros del mundo que la copia vinculada reescribe a proposito (asigna-facciones.mjs: la
-// vegetacion mezclada, los rangos y los paises nuevos). No son scripts nuestros: solo se mira que el mundo traiga el mismo fichero.
-const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'main_menu/setup/1337/07_cities_and_buildings.txt', 'main_menu/setup/1337/10_countries.txt'];
+// vegetacion mezclada, los rangos y los paises nuevos; economia.mjs: gente, desarrollo, caminos y mercados).
+// No son scripts nuestros: solo se mira que el mundo traiga el mismo fichero.
+const COPIAS_MUNDO = ['in_game/map_data/location_templates.txt', 'main_menu/setup/1337/07_cities_and_buildings.txt', 'main_menu/setup/1337/10_countries.txt',
+  'main_menu/setup/1337/06_pops.txt', 'main_menu/setup/1337/14_development.txt', 'main_menu/setup/1337/09_roads.txt', 'main_menu/setup/1337/03_markets.txt'];
 const todos = listaFicheros(MOD).filter((f) => {
   const r = rel(f);
   if (!COPIAS_MUNDO.includes(r)) return true;
-  if (MUNDO && fs.existsSync(path.join(MUNDO, r))) aviso(r, 0, 'sustituye al del mundo a proposito (vegetacion, rangos o paises nuevos)');
+  if (MUNDO && fs.existsSync(path.join(MUNDO, r))) aviso(r, 0, 'sustituye al del mundo a proposito (vegetacion, rangos, paises nuevos o economia)');
   else err(r, 0, 'es la copia de un fichero del mundo, pero el mundo no lo trae');
   return false;
 });
