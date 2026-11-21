@@ -17,6 +17,7 @@
 //   --zonas-mapa        usa el mapa final aunque el mundo no encaje (solo para probar)
 //   --sin-reparto       no reparte la tierra al empezar (reparte-tierra.mjs)
 //   --sin-vegetacion    no mezcla la vegetacion (mezcla-vegetacion.mjs)
+//   --dueno <json>      guarda el reparto final (pais de cada localizacion) para pinta-paises.mjs
 //   --pueblo-cada <n>   un pueblo cada n localizaciones de cada pais (rangos.mjs; por defecto 17)
 //
 // Con un mundo hecho con el dibujo de mapa/final, cada faccion se queda el pais con mas
@@ -33,7 +34,8 @@ import { analizaFichero, leeTexto, esBloque, hijo, valoresSueltos, escribeConBom
 import { asignaRecursos, informeRecursos } from './asigna-recursos.mjs';
 import { cargaMundo, vecinos, centros, rios, paisesDelMundo } from './mundo.mjs';
 import { mezclaVegetacion, textoVegetacion, tablaDelJuego } from './mezcla-vegetacion.mjs';
-import { reparteTierra, textoTierra, TALLA_MENOR } from './reparte-tierra.mjs';
+import { TALLA_MENOR } from './reparte-tierra.mjs';
+import { repartePaises, textoPaises } from './reparte-paises.mjs';
 import { rangosIniciales, PUEBLO_CADA } from './rangos.mjs';
 import { puntuaCapital } from './capitales.mjs';
 import { ligaMapa, defineZonas, DIR_MAPA, CALIDAD_MINIMA } from './zonas-mapa.mjs';
@@ -332,7 +334,7 @@ const fPuertos = conMapa ? enMundo('in_game', 'map_data', 'ports.csv') : null;
 const puertos = new Set(fPuertos ? leeTexto(fPuertos).texto.split(/\r?\n/).slice(1).map((x) => x.split(';')[0]).filter(Boolean) : []);
 const rioM = conMapa ? await rios(MUNDO, JUEGO) : new Map();
 // tags libres para los paises nuevos: X.. que no use ni el juego ni el mundo
-const tagsUsados = new Set(paises.map((p) => p.tag));
+const tagsUsados = new Set([...paises.map((p) => p.tag), 'XAD']); // XAD: su hash choca con la clave name_li3.mandarin_language del juego (error.log, pdx_localize.cpp:187)
 for (const dir of [JUEGO, MUNDO]) {
   const d = path.join(dir, 'in_game', 'setup', 'countries');
   if (fs.existsSync(d)) for (const x of fs.readdirSync(d).filter((y) => y.endsWith('.txt'))) for (const m of leeTexto(path.join(d, x)).texto.matchAll(/^\s*([A-Z][A-Z0-9]{2})\s*=\s*\{/gm)) tagsUsados.add(m[1]);
@@ -340,7 +342,7 @@ for (const dir of [JUEGO, MUNDO]) {
 { const f10 = enMundo('main_menu', 'setup', '1337', '10_countries.txt'); if (f10) for (const m of leeTexto(f10).texto.matchAll(/^\t([A-Z][A-Z0-9]{2}) = \{/gm)) tagsUsados.add(m[1]); }
 let iTag = 0;
 const nuevoTag = () => { const A = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; for (; iTag < 676; iTag++) { const tg = 'X' + A[Math.floor(iTag / 26)] + A[iTag % 26]; if (!tagsUsados.has(tg)) { tagsUsados.add(tg); iTag++; return tg; } } muere('no quedan tags X.. libres'); };
-const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, provincia: new Map([...jer].map(([l, j]) => [l, j.provincia])), puntua: conMapa ? puntuaCapital({ plant: mundoM.plant, costa: mundoM.costa, puertos, vec: vecM, poblacion: poblacionM, rio: rioM }) : null, plant: mundoM?.plant || new Map(), rio: rioM, nuevoTag: tiene('--sin-nuevos') ? null : nuevoTag, menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
+const tierraR = conMapa && !tiene('--sin-reparto') ? repartePaises({ liga, vec: vecM, costa: mundoM.costa, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, provincia: new Map([...jer].map(([l, j]) => [l, j.provincia])), puntua: conMapa ? puntuaCapital({ plant: mundoM.plant, costa: mundoM.costa, puertos, vec: vecM, poblacion: poblacionM, rio: rioM }) : null, plant: mundoM?.plant || new Map(), rio: rioM, nuevoTag: tiene('--sin-nuevos') ? null : nuevoTag, menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ clave: m.clave, tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
 
 // Tierra de los paises nuevos sin dueno en el setup de RNW: va en su entrada de la copia de
 // 10_countries (ya es suya al empezar, con sus pops); la que era de un estado de RNW, por efecto.
@@ -369,6 +371,7 @@ if (tierraR) {
   for (const [l, t] of Object.entries(tierraR.da)) duenoFin.set(l, t);
   for (const [l, t] of enSetupNuevo) duenoFin.set(l, t);
   const capitalesFin = new Map([...paises.map((p) => [p.tag, tierraR.capital?.[p.tag]?.a || p.capital]), ...(tierraR.nuevos || []).map((nv) => [nv.tag, nv.capital])]);
+  if (arg('--dueno', null)) fs.writeFileSync(path.resolve(arg('--dueno')), JSON.stringify({ dueno: Object.fromEntries(duenoFin), capitales: Object.fromEntries([...capitalesFin].filter(([t]) => [...duenoFin.values()].includes(t))), tierra: liga.tierra }));
   const f07 = enMundo('main_menu', 'setup', '1337', '07_cities_and_buildings.txt');
   const yaTienen = new Map(f07 ? [...leeTexto(f07).texto.matchAll(/^\s*([A-Za-z0-9_\-.]+)\s*=\s*\{\s*rank\s*=\s*([a-z_]+)/gm)].map((m) => [m[1], m[2]]) : []);
   const vegFin = new Map(liga.tierra.map((l) => [l, vegR?.veg.get(l) || mundoM.plant.get(l)?.veg]));
@@ -406,7 +409,7 @@ ${filas.map(filaInf).join('\n')}
 
 ${sinPais.length ? `**Sin pais:** ${sinPais.join(', ')}. No se crean en esta partida.\n\n` : ''}${filasMenores.length ? `## Menores con nombre (${Object.keys(menores).length} de ${filasMenores.length})\n| Menor | Tag | Nombre en el mundo | Locs | Capital | Zona de la capital |\n|---|---|---|---|---|---|\n${filasMenores.map(({ m, p, donde }) => (p ? `| ${m.nombre.es} | ${p.tag} | ${p.nombre} | ${p.n} | ${p.capital} | ${donde} |` : `| ${m.nombre.es} | - | sin estado libre | | | |`)).join('\n')}\n\n` : ''}${textoMapa}
 
-${tierraR ? textoTierra(tierraR) : ''}
+${tierraR ? textoPaises(tierraR) : ''}
 
 ${vegR ? textoVegetacion(vegR) : ''}
 ${rangosR ? `## Ciudades y pueblos al empezar (rangos.mjs)

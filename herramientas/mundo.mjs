@@ -99,7 +99,7 @@ export function paisesDelMundo(dir, juego = juegoPorDefecto()) {
 // Cada localizacion tiene un color en map_data/named_locations/*.txt (nombre = rrggbb). Dos
 // localizaciones son vecinas si sus colores se tocan en locations.png (izquierda o arriba).
 // Se lee el PNG a trozos (el crudo pesa ~400 MB) y se guarda en cache por huella del fichero.
-function coloresDeLocalizaciones(dir, juego) {
+export function coloresDeLocalizaciones(dir, juego) {
   const d = enMundo(dir, juego, 'in_game', 'map_data', 'named_locations');
   if (!d) throw new Error('no encuentro map_data/named_locations');
   const porColor = new Map();
@@ -189,7 +189,7 @@ async function leeLocalizaciones(dir, juego) {
 }
 
 // Filas de un PNG de 8 bits sin entrelazar (RGB, RGBA o con paleta), ya sin filtro: alFila(fila, y).
-async function filasDePng(fichero, alFila) {
+export async function filasDePng(fichero, alFila) {
   const buf = fs.readFileSync(fichero);
   const w = buf.readUInt32BE(16), h = buf.readUInt32BE(20), prof = buf[24], tipo = buf[25];
   if (prof !== 8 || ![2, 3, 6].includes(tipo) || buf[28]) throw new Error(`${fichero}: formato PNG no previsto`);
