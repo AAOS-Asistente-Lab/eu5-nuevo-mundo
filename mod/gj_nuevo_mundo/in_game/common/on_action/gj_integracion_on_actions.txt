@@ -157,6 +157,7 @@ yearly_country_pulse = {
 gj_integracion_inicio = {
 	effect = {
 		gj_asigna_recursos = yes
+		gj_reparte_tierra = yes
 		every_country = {
 			limit = { gj_ostrevar_tag_inicial = yes }
 			gj_fundar_faccion = { clave = ostrevar cultura = gj_ostrevari religion = gj_luz_fundadores nombre = GJ_OSTREVAR color = gj_pais_ostrevar }

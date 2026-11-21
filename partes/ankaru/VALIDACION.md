@@ -15,7 +15,7 @@ Los 15 ficheros `.txt` tienen las llaves `{ }` equilibradas (profundidad final 0
 
 ## 3. Etiquetas, ids, prefijos y rutas
 - 0 etiquetas de país, 0 `c:`, 0 `location:` y 0 ids de location. Las únicas palabras de tres letras en mayúscula son operadores (`NOT`) y un comentario.
-- 0 letras de unidad, 0 rutas y 0 `fil<ruta>` en ningún fichero.
+- 0 letras de unidad, 0 rutas y 0 `file:///` en ningún fichero.
 - 0 nombres de personas ni de modelos.
 - Todas las claves propias llevan `gj_ank_` o `gj_ankaru_`, o son las del contrato (`gj_ankaruno`, `gj_grupo_solar`, `gj_lengua_ankaruna`, `gj_es_*`). Los ficheros llevan el prefijo `gj_ankaru_`.
 - Los 19 ficheros están dentro de `partes/ankaru/`. No hay nada fuera.

@@ -1,0 +1,7 @@
+# Lo que escriben las herramientas al trabajar (no se versiona)
+herramientas/local.json
+herramientas/cache/
+tmp-*/
+/VINCULO.md
+/INTEGRACION.md
+/FALLOS-PARTES.md

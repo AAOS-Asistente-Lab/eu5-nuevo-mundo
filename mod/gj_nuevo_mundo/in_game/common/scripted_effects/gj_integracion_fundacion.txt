@@ -1,6 +1,6 @@
 ﻿# GJ Nuevo Mundo, integracion: convierte un pais generado por RNW en una faccion (scope: pais).
 # Pasa a la cultura y la fe de la faccion los pops y los personajes que tenian la cultura o la
-# religion de partida del pais; los demas se quedan como estaban.
+# religion de partida del pais, y todos los de la tierra que gana al empezar (gj_tierra_nueva).
 gj_fundar_faccion = {
 	set_variable = gj_faccion_$clave$
 
@@ -8,13 +8,24 @@ gj_fundar_faccion = {
 	religion = { save_scope_as = gj_religion_vieja }
 
 	every_owned_location = {
-		every_pop = {
-			limit = { culture = scope:gj_cultura_vieja }
-			change_pop_culture = culture:$cultura$
+		if = {
+			# tierra que la faccion gana al empezar (gj_reparte_tierra): todos sus pops
+			limit = { has_variable = gj_tierra_nueva }
+			every_pop = {
+				change_pop_culture = culture:$cultura$
+				change_pop_religion = religion:$religion$
+			}
+			remove_variable = gj_tierra_nueva
 		}
-		every_pop = {
-			limit = { religion = scope:gj_religion_vieja }
-			change_pop_religion = religion:$religion$
+		else = {
+			every_pop = {
+				limit = { culture = scope:gj_cultura_vieja }
+				change_pop_culture = culture:$cultura$
+			}
+			every_pop = {
+				limit = { religion = scope:gj_religion_vieja }
+				change_pop_religion = religion:$religion$
+			}
 		}
 	}
 	every_character = {

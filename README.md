@@ -11,22 +11,28 @@ Un mod de Europa Universalis V con un Nuevo Mundo propio, pensado para jugar en 
 El mapa lo hace Random New World, con un continente dibujado por nosotros. Este mod pone el contenido encima.
 
 ## Estado
-En construcción. La fase 1 es una prueba fina de punta a punta con el Alto Reino de Ostrevar. El contenido de las demás facciones se está escribiendo por partes en `partes/`.
+Jugable sobre el mundo v2, «RNW: Custom world 35CL»: las 12 facciones empiezan en su zona del mapa, con el 72,5 % del Nuevo Mundo con dueño, sus capitales dentro y la vegetación mezclada. Lo que hace el v2 y lo pendiente (más países y más pequeños, y el 3D del mapa) está en `docs/estado.md`. Para jugar: `docs/como-jugar.md`.
 
 ## Qué hay aquí
 | Carpeta | Contenido |
 |---|---|
+| `docs/como-jugar.md` | Cómo rehacer el mundo v2, instalar el mod, el orden de la colección y el multijugador. |
+| `docs/estado.md` | Qué hace el v2, sus cifras y lo pendiente, con el plan del 3D. |
+| `docs/estudio-3d.md` | Por qué sale tanto desierto y cómo hacer que los árboles y el suelo del mapa sigan a la vegetación. |
+| `docs/vinculo-mundo.md` | Qué país del mundo es cada facción, las zonas y las cifras del reparto. |
 | `docs/peticion.md` | Lo que pidieron los jugadores. |
 | `docs/mecanicas.md` | El diseño de las facciones, las religiones y las mecánicas. |
 | `docs/plan.md` | Las fases, los caminos y los riesgos. |
 | `docs/contrato-partes.md` | Las reglas que sigue cada parte del contenido. |
-| `docs/estudio-rnw.md` y `docs/formato-eu5.md` | Cómo funciona Random New World y cómo se hace un mod de EU5. |
+| `docs/estudio-rnw.md`, `docs/formato-eu5.md` y `docs/mapa.md` | Cómo funciona Random New World, cómo se hace un mod de EU5 y el dibujo del mapa. |
+| `mundo/` | `mundo-35cl.rnworld` (el mundo v2), el dibujo (`mascara.png`, `zonas.png`, `zonas.json`) y su vista. |
+| `mod/gj_nuevo_mundo` | El mod listo para cargar, ya vinculado al mundo v2. Se copia tal cual: la suma de control depende de cada byte. |
 | `partes/` | El contenido de cada facción, religión y mecánica de mundo, antes de integrarlo. |
-| `mod/` | El mod listo para cargar en el juego, cuando esté. |
+| `herramientas/` | Los guiones en Node que funden las partes, vinculan el mod a un mundo y lo comprueban. |
 
 ## Requisitos para jugar
-- La misma versión de EU5 y los mismos DLC.
-- Los mismos mods, en el mismo orden.
-- Random New World 1.2.2, para rehacer el mismo mundo con el fichero `.rnworld` que se comparte aparte.
+- EU5 1.4.9 y los mismos DLC.
+- Random New World 1.2.2 y Community Mod Framework, en el orden de `docs/como-jugar.md`.
+- El mundo rehecho con `mundo/mundo-35cl.rnworld` y el mod de `mod/gj_nuevo_mundo`, sin tocar.
 
 Todos los nombres, historias y textos son originales.

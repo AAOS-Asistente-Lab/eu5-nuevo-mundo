@@ -1,23 +1,23 @@
 # Vinculo de las facciones con el mundo
 
-Escrito por asigna-facciones.mjs el 2026-11-21 02:08. Mundo: **RNW: Custom world ZANQ** (`rnw_exp_world_zanqre3hye`, version 1.2.2). Paises de America que se pueden elegir: 170.
+Escrito por asigna-facciones.mjs el 2026-11-21 04:30. Mundo: **RNW: Custom world 35CL** (`rnw_exp_world_35clmr62cr`, version 1.2.2). Paises de America que se pueden elegir: 130.
 
 En la pantalla de seleccion de pais ya salen con el nombre de la faccion (si no, con el del mundo: elige por la etiqueta).
 
 | Faccion | Tag | Nombre en el mundo | Locs | Capital | Region | Puntos | Siguientes |
 |---|---|---|---|---|---|---|---|
-| Alto Reino de Ostrevar | VOX | Ishta | 6 | rnw_loc_02718 | west_coast_region | 6 en su zona | GCF (1), XXX (1) |
-| Teocracia de Ankarú | TWT | Aga-Itonama | 22 | rnw_loc_05041 | colombia_region | 21 en su zona | DFC (7), OVE (4), VJU (4) |
-| Hegemonía Carmesí de Orunmar | QMN | Willka Tampu | 7 | rnw_loc_05116 | chaco_region | 7 en su zona | JXM (6), FXC (4), EAL (3) |
-| Durnhal | NQB | Illenllecillam | 3 | rnw_loc_00883 | canada_region | 3 en su zona | XWF (3) |
-| Kaïvan | IPF | Tumshukara | 12 | rnw_loc_02155 | caribbean_region | 12 en su zona | WKG (9), ESM (8), AGU (7) |
-| Corte Insepulta de Hrímval | MSS | Tlokyhano' | 1 | rnw_loc_01846 | aridoamerica_region | ninguno en su zona: el mas cerca, a 408 px | WJK (415 px), XWF (157 px), MFR (376 px) |
-| Skarren | XMP | Tliateixneim | 2 | rnw_loc_00552 | alaska_region | 2 en su zona | FVH (1) |
-| Liga de las Mil Lagunas | LBQ | Yanaleguas | 10 | rnw_loc_01173 | great_plains_region | 10 en su zona | CRP (7), ZDE (7), GHX (6) |
-| Sorava | VZR | Maunqesa | 4 | rnw_loc_03445 | mesoamerica_region | 4 en su zona | UVY (3), DQD (2) |
-| Thalassar | RWX | Angualas | 8 | rnw_loc_05176 | andes_region | 8 en su zona | XED (15), RZX (6), DMV (4) |
-| Hermandad de la Marea Negra | DGS | Ramalameque | 3 | rnw_loc_03232 | central_america_region | ninguno en su zona: el mas cerca, a 238 px | MZA (444 px), JHH (487 px), RBS (488 px) |
-| Velathi | XED | Tatsugwen | 52 | rnw_loc_05095 | andes_region | 37 en su zona | EYJ (10), JXO (8), VOW (7) |
+| Alto Reino de Ostrevar | QPF | Cumwornos | 7 | rnw_loc_02148 | west_coast_region | 7 en su zona | YAI (6), JTZ (5), UAK (4) |
+| Teocracia de Ankarú | OKD | Vautteir | 160 | rnw_loc_05492 | la_plata_region | 56 en su zona | OCW (31), ZPZ (20), TWB (17) |
+| Hegemonía Carmesí de Orunmar | QJZ | Rapa | 11 | rnw_loc_04574 | chaco_region | 11 en su zona | QSG (9), YWQ (6), PIV (4) |
+| Durnhal | WWA | Klikitsen | 30 | rnw_loc_01014 | canada_region | 29 en su zona | - |
+| Kaïvan | QKM | Aranagunypacam | 100 | rnw_loc_00953 | east_coast_region | 56 en su zona | BZM (25), RBS (21), YJN (14) |
+| Corte Insepulta de Hrímval | OXA | Tcheskó lähä | 1 | rnw_loc_00531 | great_plains_region | ninguno en su zona: el mas cerca, a 315 px | NQB (319 px), DQD (360 px), LBQ (362 px) |
+| Skarren | THJ | Guweis | 7 | rnw_loc_01323 | alaska_region | 6 en su zona | YAI (5), KTI (2) |
+| Liga de las Mil Lagunas | FDE | Sanaguas | 35 | rnw_loc_00880 | great_plains_region | 25 en su zona | QKM (44), DQD (21), JDO (12) |
+| Sorava | CBG | Calanaku | 10 | rnw_loc_03501 | mesoamerica_region | 4 en su zona | HLH (3), MTQ (3), OFR (2) |
+| Thalassar | EYJ | Peitlizul | 49 | rnw_loc_05927 | andes_region | 39 en su zona | OMB (22), KXG (11), ZYW (11) |
+| Hermandad de la Marea Negra | JEJ | Kla Ranquil | 20 | rnw_loc_05166 | chaco_region | ninguno en su zona: el mas cerca, a 438 px | TWB (508 px), XUV (510 px), PIV (222 px) |
+| Velathi | SGG | Kellollampaya | 28 | rnw_loc_04822 | andes_region | 28 en su zona | WTT (22), MZA (17), MGJ (16) |
 
 **Mapa final:** se usa. El 99.4 % de la tierra cae dentro de una zona del dibujo (hace falta el 85 %). Ajuste: x = 3.998 * x_dibujo + -2106.0, y = 4.001 * y_dibujo + 4.4 (escala esperada 4).
 
@@ -47,6 +47,45 @@ En la pantalla de seleccion de pais ya salen con el nombre de la faccion (si no,
 | Menor S5: norte de Velathi | S | 53 | 54 |
 | Menor S6: sur de Orunmar | S | 163 | 161 |
 | Menor S7: marchas de Orunmar | S | 176 | 148 |
+
+## Tierra con dueno al empezar (reparte-tierra.mjs)
+Nuevo Mundo: 5932 localizaciones de tierra. Con dueno en el mundo de RNW: 1303 (22.0 %). Tras absorber: 1303 (22.0 %). Tras rellenar: **4301 (72.5 %)**; objetivo 70 %-75 % (4301).
+
+| Zona | Quien | Pais | Inicial | Estados absorbidos (locs) | Tierra libre | Al empezar |
+|---|---|---|---|---|---|---|
+| ankaru | ankaru | OKD | 160 | 1 (1) | 282 | 443 |
+| durnhal | durnhal | WWA | 30 | 0 (0) | 236 | 266 |
+| hrimval | hrimval | OXA | 1 | 0 (0) | 136 | 137 |
+| kaivan | kaivan | QKM | 100 | 30 (184) | 582 | 866 |
+| liga | lagunas | FDE | 35 | 27 (147) | 108 | 290 |
+| marea-negra | marea_negra | JEJ | 20 | 0 (0) | 85 | 105 |
+| menor-s2 | menor | TWB | 47 | 7 (124) | 40 | 211 |
+| orunmar | orunmar | QJZ | 11 | 13 (36) | 463 | 510 |
+| ostrevar | ostrevar | QPF | 7 | 4 (11) | 390 | 408 |
+| skarren | skarren | THJ | 7 | 2 (15) | 234 | 256 |
+| sorava | sorava | CBG | 10 | 5 (10) | 165 | 185 |
+| thalassar | thalassar | EYJ | 49 | 14 (85) | 92 | 226 |
+| velathi | velathi | SGG | 28 | 14 (185) | 185 | 398 |
+
+Capital llevada a su zona (no habia ningun estado dentro): ankaru OKD de rnw_loc_05492 a rnw_loc_04456; hrimval OXA de rnw_loc_00531 a rnw_loc_00105; kaivan QKM de rnw_loc_00953 a rnw_loc_02278; marea_negra JEJ de rnw_loc_05166 a rnw_loc_03195.
+
+
+## Vegetacion del Nuevo Mundo (mezcla-vegetacion.mjs)
+5932 localizaciones de tierra; cambian 3589. Mancha mas grande: localizaciones seguidas del mismo tipo. Desierto en las zonas de las facciones del sur (2006 localizaciones): 30.4 % antes, 5.6 % despues.
+
+| Tipo | Antes | Despues | Mancha mayor antes | Despues |
+|---|---|---|---|---|
+| grasslands | 36.5 % | 30.0 % | 327 | 30 |
+| desert | 18.2 % | 5.6 % | 416 | 20 |
+| woods | 15.3 % | 24.6 % | 121 | 28 |
+| jungle | 12.5 % | 6.5 % | 179 | 25 |
+| forest | 11.0 % | 13.4 % | 59 | 30 |
+| sparse | 6.4 % | 17.1 % | 29 | 28 |
+| farmland | 0.0 % | 2.8 % | 0 | 9 |
+| arbolado (woods+forest+jungle juntos) | 38.9 % | 44.5 % | 197 | 50 |
+
+Terreno (topography), sin cambios: flatland 48.3 %, hills 21.7 %, plateau 12.6 %, mountains 11.2 %, wetlands 6.1 %.
+
 
 ## Zonas (16)
 - `gj_zona_caldera` (localizacion): 48 localizaciones dentro del Circo de Durnhal (0.4 del radio)

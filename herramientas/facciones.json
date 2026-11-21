@@ -1,0 +1,558 @@
+{
+  "_nota": "Datos de integracion de cada faccion (CONTRATO-PARTES §6). Los nombres y colores son provisionales hasta leer el IDENTIDAD.md de cada parte; asigna-facciones.mjs elige un pais del mundo para cada una, en el orden de la lista. preferencias: proporcion de localizaciones propias con ese clima, topografia o vegetacion, y costa = proporcion con puerto. rgb (si esta) manda sobre color (hsv360). Ya leidos: IDENTIDAD.md de ostrevar y lagunas. recursos: identidades de zona que prefiere la faccion (asigna-recursos.mjs; PLAN 5: enanos metales, comerciantes perlas y especias, tall cultivos variados).",
+  "facciones": [
+    {
+      "clave": "ostrevar",
+      "continente": "norte",
+      "cultura": "gj_ostrevari",
+      "religion": "gj_luz_fundadores",
+      "nombre": {
+        "es": "Alto Reino de Ostrevar",
+        "en": "High Kingdom of Ostrevar"
+      },
+      "adj": {
+        "es": "ostrevario",
+        "en": "Ostrevari"
+      },
+      "color": [
+        208,
+        52,
+        62
+      ],
+      "talla": 135,
+      "prefiere": {
+        "clima": [
+          "continental",
+          "oceanic",
+          "mediterranean"
+        ],
+        "topo": [
+          "flatland",
+          "hills"
+        ],
+        "gobierno": "monarchy"
+      },
+      "rgb": [
+        74,
+        120,
+        168
+      ],
+      "recursos": [
+        "cereales",
+        "frutas_vino",
+        "joyas"
+      ]
+    },
+    {
+      "clave": "ankaru",
+      "continente": "sur",
+      "cultura": "gj_ankaruno",
+      "religion": "gj_sol_blanco",
+      "nombre": {
+        "es": "Teocracia de Ankarú",
+        "en": "Theocracy of Ankaru"
+      },
+      "adj": {
+        "es": "ankaruna",
+        "en": "Ankaruni"
+      },
+      "color": [
+        44,
+        70,
+        86
+      ],
+      "talla": 16,
+      "prefiere": {
+        "topo": [
+          "plateau",
+          "mountains",
+          "hills"
+        ],
+        "clima": [
+          "tropical",
+          "subtropical"
+        ]
+      },
+      "recursos": [
+        "cereales",
+        "metales"
+      ]
+    },
+    {
+      "clave": "orunmar",
+      "continente": "sur",
+      "cultura": "gj_orunmari",
+      "religion": "gj_dioses_hambrientos",
+      "nombre": {
+        "es": "Hegemonía Carmesí de Orunmar",
+        "en": "Crimson Hegemony of Orunmar"
+      },
+      "adj": {
+        "es": "orunmarí",
+        "en": "Orunmari"
+      },
+      "color": [
+        354,
+        72,
+        58
+      ],
+      "talla": 30,
+      "cerca_de": "ankaru",
+      "prefiere": {
+        "veg": [
+          "jungle",
+          "forest"
+        ],
+        "topo": [
+          "hills",
+          "plateau"
+        ]
+      },
+      "recursos": [
+        "especias_tintes",
+        "madera"
+      ]
+    },
+    {
+      "clave": "durnhal",
+      "continente": "norte",
+      "cultura": "gj_durnhali",
+      "religion": "gj_llama_profunda",
+      "nombre": {
+        "es": "Durnhal",
+        "en": "Durnhal"
+      },
+      "adj": {
+        "es": "durnhalí",
+        "en": "Durnhali"
+      },
+      "color": [
+        20,
+        60,
+        45
+      ],
+      "talla": 14,
+      "prefiere": {
+        "topo": [
+          "mountains",
+          "hills",
+          "plateau"
+        ]
+      },
+      "recursos": [
+        "metales",
+        "joyas"
+      ]
+    },
+    {
+      "clave": "kaivan",
+      "continente": "norte",
+      "cultura": "gj_kaivani",
+      "religion": "gj_cielo_clanes",
+      "nombre": {
+        "es": "Kaïvan",
+        "en": "Kaivan"
+      },
+      "adj": {
+        "es": "kaivaní",
+        "en": "Kaivani"
+      },
+      "color": [
+        48,
+        55,
+        70
+      ],
+      "talla": 34,
+      "cerca_de": "ostrevar",
+      "prefiere": {
+        "veg": [
+          "grasslands",
+          "sparse"
+        ],
+        "clima": [
+          "cold_semi_arid",
+          "continental",
+          "cold_arid"
+        ]
+      },
+      "recursos": [
+        "ganado"
+      ]
+    },
+    {
+      "clave": "hrimval",
+      "continente": "norte",
+      "cultura": "gj_insepulto",
+      "religion": "gj_escarcha_silente",
+      "nombre": {
+        "es": "Corte Insepulta de Hrímval",
+        "en": "Unburied Court of Hrimval"
+      },
+      "adj": {
+        "es": "hrimvalí",
+        "en": "Hrimvali"
+      },
+      "color": [
+        196,
+        18,
+        88
+      ],
+      "talla": 7,
+      "prefiere": {
+        "clima": [
+          "arctic",
+          "subpolar"
+        ]
+      },
+      "recursos": [
+        "pieles"
+      ]
+    },
+    {
+      "clave": "skarren",
+      "continente": "norte",
+      "cultura": "gj_skarren",
+      "religion": "gj_espiritus_lago",
+      "escuela": "gj_escuela_sagas",
+      "nombre": {
+        "es": "Skarren",
+        "en": "Skarren"
+      },
+      "adj": {
+        "es": "skarren",
+        "en": "Skarren"
+      },
+      "color": [
+        222,
+        45,
+        40
+      ],
+      "talla": 8,
+      "prefiere": {
+        "clima": [
+          "subpolar",
+          "oceanic"
+        ],
+        "costa": 1
+      },
+      "recursos": [
+        "pesca",
+        "madera",
+        "pieles"
+      ]
+    },
+    {
+      "clave": "lagunas",
+      "continente": "norte",
+      "cultura": "gj_lagunero",
+      "religion": "gj_espiritus_lago",
+      "escuela": "gj_escuela_barqueros",
+      "nombre": {
+        "es": "Liga de las Mil Lagunas",
+        "en": "League of a Thousand Lagoons"
+      },
+      "adj": {
+        "es": "laguneño",
+        "en": "Lagooner"
+      },
+      "color": [
+        178,
+        55,
+        70
+      ],
+      "talla": 16,
+      "cerca_de": "skarren",
+      "prefiere": {
+        "topo": [
+          "wetlands",
+          "flatland"
+        ],
+        "costa": 0.6,
+        "gobierno": "republic"
+      },
+      "rgb": [
+        52,
+        138,
+        176
+      ],
+      "gobierno": "republic",
+      "recursos": [
+        "pesca"
+      ],
+      "zona_mapa": "liga"
+    },
+    {
+      "clave": "sorava",
+      "continente": "sur",
+      "cultura": "gj_soravi",
+      "religion": "gj_pacto_balanza",
+      "nombre": {
+        "es": "Sorava",
+        "en": "Sorava"
+      },
+      "adj": {
+        "es": "soraví",
+        "en": "Soravi"
+      },
+      "color": [
+        30,
+        75,
+        80
+      ],
+      "talla": 15,
+      "prefiere": {
+        "clima": [
+          "subtropical",
+          "tropical",
+          "mediterranean"
+        ],
+        "costa": 0.7
+      },
+      "recursos": [
+        "joyas",
+        "especias_tintes"
+      ]
+    },
+    {
+      "clave": "thalassar",
+      "continente": "sur",
+      "cultura": "gj_talasio",
+      "religion": "gj_mar_dormido",
+      "nombre": {
+        "es": "Thalassar",
+        "en": "Thalassar"
+      },
+      "adj": {
+        "es": "talasio",
+        "en": "Thalassian"
+      },
+      "color": [
+        190,
+        70,
+        75
+      ],
+      "talla": 8,
+      "prefiere": {
+        "clima": [
+          "tropical",
+          "subtropical"
+        ],
+        "costa": 1
+      },
+      "recursos": [
+        "pesca",
+        "joyas"
+      ]
+    },
+    {
+      "clave": "marea_negra",
+      "continente": "sur",
+      "cultura": "gj_mareano",
+      "religion": "gj_mar_dormido",
+      "escuela": "gj_escuela_marea_negra",
+      "nombre": {
+        "es": "Hermandad de la Marea Negra",
+        "en": "Brotherhood of the Black Tide"
+      },
+      "adj": {
+        "es": "mareana",
+        "en": "Black Tide"
+      },
+      "color": [
+        260,
+        30,
+        25
+      ],
+      "talla": 4,
+      "cerca_de": "sorava",
+      "prefiere": {
+        "costa": 1
+      },
+      "recursos": [
+        "pesca"
+      ],
+      "zona_mapa": "marea-negra"
+    },
+    {
+      "clave": "velathi",
+      "continente": "sur",
+      "cultura": "gj_velathi",
+      "religion": "gj_senda_verde",
+      "nombre": {
+        "es": "Velathi",
+        "en": "Velathi"
+      },
+      "adj": {
+        "es": "velathi",
+        "en": "Velathi"
+      },
+      "color": [
+        120,
+        55,
+        45
+      ],
+      "talla": 15,
+      "prefiere": {
+        "veg": [
+          "forest",
+          "woods",
+          "jungle"
+        ]
+      },
+      "recursos": [
+        "madera",
+        "pieles"
+      ]
+    }
+  ],
+  "grupos_religion": {
+    "gj_fe_norte": {
+      "es": "Fes del Norte",
+      "en": "Northern Faiths",
+      "adj_es": "del Norte",
+      "adj_en": "Northern",
+      "desc_es": "Las fes que nacieron en el norte del Nuevo Mundo, entre lagos, fiordos, estepas y montañas.",
+      "desc_en": "The faiths born in the north of the New World, among lakes, fjords, steppes and mountains.",
+      "color": [
+        210,
+        25,
+        80
+      ]
+    },
+    "gj_fe_sur": {
+      "es": "Fes del Sur",
+      "en": "Southern Faiths",
+      "adj_es": "del Sur",
+      "adj_en": "Southern",
+      "desc_es": "Las fes que nacieron en el sur del Nuevo Mundo, entre selvas, mesetas, islas y mares cálidos.",
+      "desc_en": "The faiths born in the south of the New World, among jungles, highlands, islands and warm seas.",
+      "color": [
+        40,
+        45,
+        85
+      ]
+    }
+  },
+  "zonas": {
+    "_nota": "Con un mundo hecho con el mapa final (mapa/final/zonas.json) manda «mapa» (zonas-mapa.mjs); si no, «faccion» (las areas de su pais), «parte» [i, n] (el trozo i de n, en orden de nombre), «areas» o «subcontinente». «ambito»: localizacion (por defecto), pais_capital o pais_frontera, el scope con que la usa la parte.",
+    "gj_zona_estepa": {
+      "faccion": "kaivan",
+      "ambito": "pais_frontera",
+      "mapa": {
+        "regla": "zona"
+      }
+    },
+    "gj_zona_estepa_alta": {
+      "faccion": "kaivan",
+      "parte": [
+        1,
+        4
+      ],
+      "mapa": {
+        "regla": "alto"
+      }
+    },
+    "gj_zona_marca_occidental": {
+      "faccion": "kaivan",
+      "parte": [
+        2,
+        4
+      ],
+      "mapa": {
+        "regla": "oeste"
+      }
+    },
+    "gj_zona_valles_orientales": {
+      "faccion": "kaivan",
+      "parte": [
+        3,
+        4
+      ],
+      "mapa": {
+        "regla": "este"
+      }
+    },
+    "gj_zona_estepa_baja": {
+      "faccion": "kaivan",
+      "parte": [
+        4,
+        4
+      ],
+      "mapa": {
+        "regla": "bajo"
+      }
+    },
+    "gj_zona_estrecho": {
+      "faccion": "sorava",
+      "mapa": {
+        "regla": "estrecho",
+        "minimo": 8
+      }
+    },
+    "gj_zona_mar_interior": {
+      "faccion": "thalassar",
+      "mapa": {
+        "regla": "mar_interior",
+        "minimo": 10
+      }
+    },
+    "gj_zona_norte": {
+      "ambito": "pais_capital",
+      "subcontinente": "north_america",
+      "mapa": {
+        "regla": "continente",
+        "continente": "N"
+      }
+    },
+    "gj_zona_caldera": {
+      "faccion": "durnhal",
+      "mapa": {
+        "regla": "circo",
+        "nombre": "Circo de Durnhal",
+        "interior": 0.4
+      }
+    },
+    "gj_zona_ruina_enana": {
+      "mapa": {
+        "regla": "ruina_enana",
+        "n": 5
+      }
+    },
+    "gj_zona_ruina_atlante": {
+      "mapa": {
+        "regla": "ruina_atlante",
+        "n": 5
+      }
+    },
+    "gj_zona_ruina_antigua": {
+      "mapa": {
+        "regla": "ruina_antigua",
+        "n": 5
+      }
+    },
+    "gj_zona_veta_fuego": {
+      "mapa": {
+        "regla": "veta_fuego",
+        "n": 2
+      }
+    },
+    "gj_zona_veta_marea": {
+      "mapa": {
+        "regla": "veta_marea",
+        "n": 1
+      }
+    },
+    "gj_zona_veta_raiz": {
+      "mapa": {
+        "regla": "veta_raiz",
+        "n": 2
+      }
+    },
+    "gj_zona_veta_estrella": {
+      "mapa": {
+        "regla": "veta_estrella",
+        "n": 1
+      }
+    }
+  }
+}
