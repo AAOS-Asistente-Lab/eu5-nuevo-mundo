@@ -1,6 +1,8 @@
 // comprueba-trozos.mjs: cuantos trozos de tierra seguida tiene cada pais del Nuevo Mundo, en el
 // mundo de RNW y tras nuestro reparto (tmp-instalar/vinculo.json). Dos localizaciones estan
-// seguidas si se tocan en locations.png. Uso: node comprueba-trozos.mjs --mundo <carpeta> [--todos]
+// seguidas si se tocan en locations.png. Uso: node comprueba-trozos.mjs --mundo <carpeta> [--mod <mod>] [--todos]
+// Con --mod y una copia de 10_countries en el mod (la tierra en el setup), cuenta la de esa copia:
+// la que carga el juego.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,12 +15,18 @@ const arg = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] :
 const MUNDO = path.resolve(arg('--mundo'));
 const vec = await vecinos(MUNDO, juegoPorDefecto());
 const v = JSON.parse(fs.readFileSync(arg('--vinculo', path.join(AQUI, '..', 'tmp-instalar', 'vinculo.json')), 'utf8'));
+const propios = (f) => { const lista = hijo(hijo(analizaFichero(f).arbol, 'countries').v, 'countries'); const m = new Map();
+  for (const it of lista.v.items) if (it.k && esBloque(it.v)) for (const x of it.v.items) if (x.k && /^own_/.test(x.k) && esBloque(x.v)) for (const l of valoresSueltos(x.v)) if (l.startsWith('rnw_loc_')) m.set(l, it.k);
+  return m; };
 const lista = hijo(hijo(analizaFichero(path.join(MUNDO, 'main_menu', 'setup', '1337', '10_countries.txt')).arbol, 'countries').v, 'countries');
 const antes = new Map();
 for (const it of lista.v.items) if (it.k && esBloque(it.v)) for (const x of it.v.items) if (x.k && /^own_/.test(x.k) && esBloque(x.v)) for (const l of valoresSueltos(x.v)) if (l.startsWith('rnw_loc_')) antes.set(l, it.k);
 // la tierra de los paises nuevos que ya es suya en el setup (nuestra copia de 10_countries) y la repartida
-const despues = new Map([...antes, ...Object.entries(v.tierra?.nuevos || {}), ...Object.entries(v.tierra?.da || {})]);
-for (const l of Object.keys(v.tierra?.suelta || {})) despues.delete(l);
+const copia = arg('--mod') ? path.join(path.resolve(arg('--mod')), 'main_menu', 'setup', '1337', '10_countries.txt') : null;
+const enCopia = copia && fs.existsSync(copia);
+const despues = enCopia ? propios(copia) : new Map([...antes, ...Object.entries(v.tierra?.nuevos || {}), ...Object.entries(v.tierra?.da || {})]);
+if (!enCopia) for (const l of Object.keys(v.tierra?.suelta || {})) despues.delete(l);
+if (enCopia) console.log('Tierra tras el reparto: la de la copia de 10_countries del mod.');
 export function trozos(dueno) {
   const por = new Map();
   for (const [l, t] of dueno) { if (!por.has(t)) por.set(t, []); por.get(t).push(l); }

@@ -1912,7 +1912,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_02167 = { change_raw_material = goods:copper }
 	location:rnw_loc_02168 = { change_raw_material = goods:marble }
 	location:rnw_loc_02169 = { change_raw_material = goods:livestock }
-	location:rnw_loc_02170 = { change_raw_material = goods:potato }
+	location:rnw_loc_02170 = { change_raw_material = goods:mercury }
 	location:rnw_loc_02171 = { change_raw_material = goods:silver }
 	location:rnw_loc_02172 = { change_raw_material = goods:marble }
 	location:rnw_loc_02173 = { change_raw_material = goods:alum }
@@ -2583,7 +2583,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_02875 = { change_raw_material = goods:camels }
 	location:rnw_loc_02876 = { change_raw_material = goods:rice }
 	location:rnw_loc_02877 = { change_raw_material = goods:coffee }
-	location:rnw_loc_02878 = { change_raw_material = goods:potato }
+	location:rnw_loc_02878 = { change_raw_material = goods:mercury }
 	location:rnw_loc_02879 = { change_raw_material = goods:fruit }
 	location:rnw_loc_02880 = { change_raw_material = goods:sugar }
 	location:rnw_loc_02881 = { change_raw_material = goods:fruit }
@@ -2992,7 +2992,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_03302 = { change_raw_material = goods:camels }
 	location:rnw_loc_03304 = { change_raw_material = goods:camels }
 	location:rnw_loc_03305 = { change_raw_material = goods:camels }
-	location:rnw_loc_03306 = { change_raw_material = goods:cotton }
+	location:rnw_loc_03306 = { change_raw_material = goods:wool }
 	location:rnw_loc_03307 = { change_raw_material = goods:legumes }
 	location:rnw_loc_03308 = { change_raw_material = goods:gems }
 	location:rnw_loc_03309 = { change_raw_material = goods:fruit }
@@ -3194,7 +3194,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_03515 = { change_raw_material = goods:incense }
 	location:rnw_loc_03516 = { change_raw_material = goods:lumber }
 	location:rnw_loc_03517 = { change_raw_material = goods:copper }
-	location:rnw_loc_03518 = { change_raw_material = goods:elephants }
+	location:rnw_loc_03518 = { change_raw_material = goods:saltpeter }
 	location:rnw_loc_03519 = { change_raw_material = goods:elephants }
 	location:rnw_loc_03520 = { change_raw_material = goods:camels }
 	location:rnw_loc_03521 = { change_raw_material = goods:fruit }
@@ -3267,7 +3267,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_03590 = { change_raw_material = goods:elephants }
 	location:rnw_loc_03591 = { change_raw_material = goods:elephants }
 	location:rnw_loc_03592 = { change_raw_material = goods:tea }
-	location:rnw_loc_03593 = { change_raw_material = goods:medicaments }
+	location:rnw_loc_03593 = { change_raw_material = goods:saltpeter }
 	location:rnw_loc_03594 = { change_raw_material = goods:incense }
 	location:rnw_loc_03595 = { change_raw_material = goods:rice }
 	location:rnw_loc_03596 = { change_raw_material = goods:copper }
@@ -3372,7 +3372,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_03699 = { change_raw_material = goods:lead }
 	location:rnw_loc_03700 = { change_raw_material = goods:elephants }
 	location:rnw_loc_03701 = { change_raw_material = goods:rice }
-	location:rnw_loc_03702 = { change_raw_material = goods:amber }
+	location:rnw_loc_03702 = { change_raw_material = goods:saltpeter }
 	location:rnw_loc_03703 = { change_raw_material = goods:lead }
 	location:rnw_loc_03704 = { change_raw_material = goods:goods_gold }
 	location:rnw_loc_03705 = { change_raw_material = goods:rice }
@@ -4409,7 +4409,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_04818 = { change_raw_material = goods:tea }
 	location:rnw_loc_04819 = { change_raw_material = goods:camels }
 	location:rnw_loc_04820 = { change_raw_material = goods:incense }
-	location:rnw_loc_04821 = { change_raw_material = goods:elephants }
+	location:rnw_loc_04821 = { change_raw_material = goods:saltpeter }
 	location:rnw_loc_04822 = { change_raw_material = goods:lead }
 	location:rnw_loc_04823 = { change_raw_material = goods:camels }
 	location:rnw_loc_04824 = { change_raw_material = goods:copper }
@@ -5257,7 +5257,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_05712 = { change_raw_material = goods:salt }
 	location:rnw_loc_05713 = { change_raw_material = goods:rice }
 	location:rnw_loc_05714 = { change_raw_material = goods:silk }
-	location:rnw_loc_05715 = { change_raw_material = goods:saffron }
+	location:rnw_loc_05715 = { change_raw_material = goods:saltpeter }
 	location:rnw_loc_05716 = { change_raw_material = goods:sand }
 	location:rnw_loc_05717 = { change_raw_material = goods:cotton }
 	location:rnw_loc_05718 = { change_raw_material = goods:livestock }
@@ -5321,7 +5321,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_05779 = { change_raw_material = goods:potato }
 	location:rnw_loc_05780 = { change_raw_material = goods:fruit }
 	location:rnw_loc_05781 = { change_raw_material = goods:goods_gold }
-	location:rnw_loc_05782 = { change_raw_material = goods:alum }
+	location:rnw_loc_05782 = { change_raw_material = goods:saltpeter }
 	location:rnw_loc_05783 = { change_raw_material = goods:livestock }
 	location:rnw_loc_05784 = { change_raw_material = goods:maize }
 	location:rnw_loc_05785 = { change_raw_material = goods:fish }
@@ -5505,7 +5505,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_05971 = { change_raw_material = goods:livestock }
 	location:rnw_loc_05972 = { change_raw_material = goods:iron }
 	location:rnw_loc_05973 = { change_raw_material = goods:iron }
-	location:rnw_loc_05974 = { change_raw_material = goods:tin }
+	location:rnw_loc_05974 = { change_raw_material = goods:mercury }
 	location:rnw_loc_05975 = { change_raw_material = goods:fiber_crops }
 	location:rnw_loc_05976 = { change_raw_material = goods:iron }
 	location:rnw_loc_05977 = { change_raw_material = goods:iron }
@@ -5521,7 +5521,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_05989 = { change_raw_material = goods:salt }
 	location:rnw_loc_05990 = { change_raw_material = goods:wine }
 	location:rnw_loc_05991 = { change_raw_material = goods:tin }
-	location:rnw_loc_05992 = { change_raw_material = goods:tin }
+	location:rnw_loc_05992 = { change_raw_material = goods:dyes }
 	location:rnw_loc_05993 = { change_raw_material = goods:horses }
 	location:rnw_loc_05994 = { change_raw_material = goods:lead }
 	location:rnw_loc_05995 = { change_raw_material = goods:tin }
@@ -5531,7 +5531,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_05999 = { change_raw_material = goods:cotton }
 	location:rnw_loc_06000 = { change_raw_material = goods:tin }
 	location:rnw_loc_06001 = { change_raw_material = goods:legumes }
-	location:rnw_loc_06002 = { change_raw_material = goods:tin }
+	location:rnw_loc_06002 = { change_raw_material = goods:mercury }
 	location:rnw_loc_06004 = { change_raw_material = goods:fur }
 	location:rnw_loc_06006 = { change_raw_material = goods:silver }
 	location:rnw_loc_06007 = { change_raw_material = goods:cotton }
@@ -5548,7 +5548,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_06019 = { change_raw_material = goods:lead }
 	location:rnw_loc_06020 = { change_raw_material = goods:livestock }
 	location:rnw_loc_06021 = { change_raw_material = goods:salt }
-	location:rnw_loc_06022 = { change_raw_material = goods:silk }
+	location:rnw_loc_06022 = { change_raw_material = goods:tin }
 	location:rnw_loc_06023 = { change_raw_material = goods:cotton }
 	location:rnw_loc_06024 = { change_raw_material = goods:wheat }
 	location:rnw_loc_06025 = { change_raw_material = goods:tin }
@@ -5593,7 +5593,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_06065 = { change_raw_material = goods:marble }
 	location:rnw_loc_06066 = { change_raw_material = goods:dyes }
 	location:rnw_loc_06067 = { change_raw_material = goods:horses }
-	location:rnw_loc_06068 = { change_raw_material = goods:alum }
+	location:rnw_loc_06068 = { change_raw_material = goods:mercury }
 	location:rnw_loc_06069 = { change_raw_material = goods:stone }
 	location:rnw_loc_06070 = { change_raw_material = goods:cotton }
 	location:rnw_loc_06071 = { change_raw_material = goods:medicaments }
@@ -5606,8 +5606,8 @@ gj_asigna_recursos = {
 	location:rnw_loc_06078 = { change_raw_material = goods:silver }
 	location:rnw_loc_06079 = { change_raw_material = goods:medicaments }
 	location:rnw_loc_06080 = { change_raw_material = goods:iron }
-	location:rnw_loc_06081 = { change_raw_material = goods:dyes }
-	location:rnw_loc_06082 = { change_raw_material = goods:silk }
+	location:rnw_loc_06081 = { change_raw_material = goods:tin }
+	location:rnw_loc_06082 = { change_raw_material = goods:tin }
 	location:rnw_loc_06083 = { change_raw_material = goods:lead }
 	location:rnw_loc_06084 = { change_raw_material = goods:fiber_crops }
 	location:rnw_loc_06085 = { change_raw_material = goods:goods_gold }
@@ -5737,7 +5737,7 @@ gj_asigna_recursos = {
 	location:rnw_loc_06216 = { change_raw_material = goods:olives }
 	location:rnw_loc_06218 = { change_raw_material = goods:olives }
 	location:rnw_loc_06219 = { change_raw_material = goods:goods_gold }
-	location:rnw_loc_06220 = { change_raw_material = goods:dyes }
+	location:rnw_loc_06220 = { change_raw_material = goods:wool }
 	location:rnw_loc_06221 = { change_raw_material = goods:olives }
 	location:rnw_loc_06222 = { change_raw_material = goods:silk }
 	location:rnw_loc_06223 = { change_raw_material = goods:dyes }

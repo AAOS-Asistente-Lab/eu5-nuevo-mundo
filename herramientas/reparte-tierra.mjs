@@ -404,12 +404,16 @@ export function reparteTierra({ liga, vec, paises, asignados, facciones, subzona
   const gente = (l) => poblacion.get(l) || 0;
   for (const p of porTag) {
     if (zonaDeTag.has(p.tag) || !liga.xy.has(p.capital)) continue;
-    const suyas = tierra.filter((l) => dueno.get(l) === p.tag);
-    if (!suyas.length) continue;
-    const cen = [0, 1].map((i) => suyas.reduce((s, l) => s + liga.xy.get(l)[i], 0) / suyas.length);
+    const todas = tierra.filter((l) => dueno.get(l) === p.tag);
+    if (!todas.length) continue;
+    // la de un menor, dentro de su zona del dibujo si tiene tierra en ella (Brazalmar se iba a la de Sorava)
+    const zonaPropia = esMenor.has(p.tag) ? menores.find((m) => m.tag === p.tag)?.zona : null;
+    const enZona = zonaPropia ? todas.filter((l) => zonaId(l) === zonaPropia) : [];
+    const suyas = enZona.length ? enZona : todas;
+    const cen = [0, 1].map((i) => todas.reduce((s, l) => s + liga.xy.get(l)[i], 0) / todas.length);
     const pt = puntua ? (l) => puntua(l, cen, liga.xy) : null;
     const tiene = dueno.get(p.capital) === p.tag;
-    if (tiene && !(pt && esMala(plant.get(p.capital)))) continue;
+    if (tiene && !(pt && esMala(plant.get(p.capital))) && (!enZona.length || enZona.includes(p.capital))) continue;
     const dist = distA(puntoDe(p));
     // la mejor que no sea MALA; una capital MALA solo se queda si el pais no tiene otra cosa
     const s = [...suyas].sort(pt ? (a, b) => (esMala(plant.get(a)) - esMala(plant.get(b))) || pt(b) - pt(a) || a.localeCompare(b) : (a, b) => gente(b) - gente(a) || dist(a) - dist(b) || a.localeCompare(b))[0];

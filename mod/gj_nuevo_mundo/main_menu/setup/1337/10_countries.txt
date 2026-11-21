@@ -55020,6 +55020,7 @@ countries = {
 	QKM = {
 		own_control_core = {
 			rnw_loc_06746
+			rnw_loc_06694 rnw_loc_06763 rnw_loc_06766
 		}
 		capital = rnw_loc_06746
 		starting_technology_level = 2
@@ -55061,8 +55062,9 @@ countries = {
 	PDY = {
 		own_control_core = {
 			rnw_loc_03182 rnw_loc_03306 rnw_loc_03392
+			rnw_loc_02450 rnw_loc_02522 rnw_loc_02529 rnw_loc_02631 rnw_loc_02634 rnw_loc_02660 rnw_loc_02668 rnw_loc_02669 rnw_loc_02676 rnw_loc_02695 rnw_loc_02702 rnw_loc_02757 rnw_loc_02762 rnw_loc_02798 rnw_loc_02808 rnw_loc_02813 rnw_loc_02828 rnw_loc_02829 rnw_loc_02837 rnw_loc_02853 rnw_loc_02877 rnw_loc_02887 rnw_loc_02892 rnw_loc_02913 rnw_loc_02918 rnw_loc_02927 rnw_loc_02930 rnw_loc_02931 rnw_loc_02960 rnw_loc_02966 rnw_loc_02979 rnw_loc_02984 rnw_loc_02992 rnw_loc_03007 rnw_loc_03026 rnw_loc_03032 rnw_loc_03039 rnw_loc_03054 rnw_loc_03087 rnw_loc_03144
 		}
-		capital = rnw_loc_03306
+		capital = rnw_loc_03026
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55113,8 +55115,9 @@ countries = {
 	WYG = {
 		own_control_core = {
 			rnw_loc_03197 rnw_loc_03303 rnw_loc_03357
+			rnw_loc_02427 rnw_loc_02490 rnw_loc_02513 rnw_loc_02587 rnw_loc_02612 rnw_loc_02628 rnw_loc_02650 rnw_loc_02652 rnw_loc_02666 rnw_loc_02685 rnw_loc_02714 rnw_loc_02716 rnw_loc_02727 rnw_loc_02767 rnw_loc_02812 rnw_loc_02830 rnw_loc_02834 rnw_loc_02847 rnw_loc_02861 rnw_loc_02870 rnw_loc_02886 rnw_loc_02902 rnw_loc_02904 rnw_loc_02910 rnw_loc_02911 rnw_loc_02945 rnw_loc_02947 rnw_loc_03014 rnw_loc_03020 rnw_loc_03043 rnw_loc_03046 rnw_loc_03048 rnw_loc_03059 rnw_loc_03125 rnw_loc_03128
 		}
-		capital = rnw_loc_03303
+		capital = rnw_loc_02666
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55140,8 +55143,9 @@ countries = {
 	EWT = {
 		own_control_core = {
 			rnw_loc_06658
+			rnw_loc_06665 rnw_loc_06688 rnw_loc_06692 rnw_loc_06751 rnw_loc_06755
 		}
-		capital = rnw_loc_06658
+		capital = rnw_loc_06688
 		starting_technology_level = 2
 		discovered_areas = {
 			apure_area boiaca_area caracas_area chunsa_area la_plata_sea_zones_area ngulumapu_area pampa_area rnw_area_0056
@@ -55179,15 +55183,9 @@ countries = {
 	}
 	ESM = {
 		own_control_core = {
-			rnw_loc_00479 rnw_loc_00735 rnw_loc_00760 rnw_loc_00784 rnw_loc_00807 rnw_loc_00836 rnw_loc_00863 rnw_loc_00875
-			rnw_loc_00949 rnw_loc_00987 rnw_loc_01011 rnw_loc_01043 rnw_loc_01047 rnw_loc_01099 rnw_loc_01105 rnw_loc_01117
-			rnw_loc_01141 rnw_loc_01166 rnw_loc_01182 rnw_loc_01183 rnw_loc_01201 rnw_loc_01212 rnw_loc_01219 rnw_loc_01226
-			rnw_loc_01234 rnw_loc_01264 rnw_loc_01265 rnw_loc_01271 rnw_loc_01274 rnw_loc_01298 rnw_loc_01326 rnw_loc_01348
-			rnw_loc_01349 rnw_loc_01360 rnw_loc_01370 rnw_loc_01379 rnw_loc_01387 rnw_loc_01390 rnw_loc_01423 rnw_loc_01443
-			rnw_loc_01444 rnw_loc_01445 rnw_loc_01470 rnw_loc_01485 rnw_loc_01504 rnw_loc_01511 rnw_loc_01528 rnw_loc_01535
-			rnw_loc_01564 rnw_loc_01582 rnw_loc_01606 rnw_loc_01626 rnw_loc_01630 rnw_loc_01689 rnw_loc_01711
+			rnw_loc_00824 rnw_loc_00832 rnw_loc_00846 rnw_loc_00864 rnw_loc_00876 rnw_loc_00884 rnw_loc_00896 rnw_loc_00900 rnw_loc_00914 rnw_loc_00924 rnw_loc_00939 rnw_loc_00943 rnw_loc_00947 rnw_loc_00966 rnw_loc_00970 rnw_loc_00973 rnw_loc_00996 rnw_loc_01008 rnw_loc_01015 rnw_loc_01017 rnw_loc_01030 rnw_loc_01031 rnw_loc_01035 rnw_loc_01065 rnw_loc_01067 rnw_loc_01074 rnw_loc_01078 rnw_loc_01084 rnw_loc_01089 rnw_loc_01093 rnw_loc_01095 rnw_loc_01096 rnw_loc_01100 rnw_loc_01110 rnw_loc_01118 rnw_loc_01119 rnw_loc_01125 rnw_loc_01148 rnw_loc_01157 rnw_loc_01158 rnw_loc_01188 rnw_loc_01199 rnw_loc_01204 rnw_loc_01209 rnw_loc_01214 rnw_loc_01238 rnw_loc_01246 rnw_loc_01259 rnw_loc_01275 rnw_loc_01292 rnw_loc_01297 rnw_loc_01299 rnw_loc_01304 rnw_loc_01327 rnw_loc_01338 rnw_loc_01342 rnw_loc_01343 rnw_loc_01347 rnw_loc_01368 rnw_loc_01377 rnw_loc_01380 rnw_loc_01396 rnw_loc_01403 rnw_loc_01408 rnw_loc_01419 rnw_loc_01420 rnw_loc_01421 rnw_loc_01426 rnw_loc_01437 rnw_loc_01441 rnw_loc_01448 rnw_loc_01451 rnw_loc_01455 rnw_loc_01468 rnw_loc_01489 rnw_loc_01498 rnw_loc_01501 rnw_loc_01503 rnw_loc_01506 rnw_loc_01532 rnw_loc_01537 rnw_loc_01543 rnw_loc_01544 rnw_loc_01545 rnw_loc_01548 rnw_loc_01562 rnw_loc_01565 rnw_loc_01572 rnw_loc_01579 rnw_loc_01585 rnw_loc_01587 rnw_loc_01593 rnw_loc_01594 rnw_loc_01603 rnw_loc_01608 rnw_loc_01617 rnw_loc_01621 rnw_loc_01627 rnw_loc_01628 rnw_loc_01640 rnw_loc_01646 rnw_loc_01648 rnw_loc_01655 rnw_loc_01662 rnw_loc_01688 rnw_loc_01696 rnw_loc_01705 rnw_loc_01719 rnw_loc_01723 rnw_loc_01726 rnw_loc_01728 rnw_loc_01733 rnw_loc_01751 rnw_loc_01759 rnw_loc_01770 rnw_loc_01771 rnw_loc_01780 rnw_loc_01781 rnw_loc_01786 rnw_loc_01792 rnw_loc_01801 rnw_loc_01802 rnw_loc_01807 rnw_loc_01808 rnw_loc_01813 rnw_loc_01824 rnw_loc_01827 rnw_loc_01830 rnw_loc_01832 rnw_loc_01839 rnw_loc_01840 rnw_loc_01842 rnw_loc_01865 rnw_loc_01875 rnw_loc_01898 rnw_loc_01904 rnw_loc_01913 rnw_loc_01916 rnw_loc_01925 rnw_loc_01976 rnw_loc_01981 rnw_loc_01985
 		}
-		capital = rnw_loc_00479
+		capital = rnw_loc_01640
 		include = "amerindian_advanced_monarchy_not_nahuatl"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55216,6 +55214,7 @@ countries = {
 	MTQ = {
 		own_control_core = {
 			rnw_loc_05351 rnw_loc_05396
+			rnw_loc_05468 rnw_loc_05559 rnw_loc_05597
 		}
 		capital = rnw_loc_05351
 		include = "andean_monarchy"
@@ -55243,8 +55242,9 @@ countries = {
 	DNO = {
 		own_control_core = {
 			rnw_loc_05408
+			rnw_loc_05387 rnw_loc_05409 rnw_loc_05448 rnw_loc_05466 rnw_loc_05479 rnw_loc_05503 rnw_loc_05521 rnw_loc_05530 rnw_loc_05537 rnw_loc_05583 rnw_loc_05587 rnw_loc_05592 rnw_loc_05596 rnw_loc_05644 rnw_loc_05649 rnw_loc_05656 rnw_loc_05659 rnw_loc_05679 rnw_loc_05685 rnw_loc_05723 rnw_loc_05749 rnw_loc_05794 rnw_loc_05829
 		}
-		capital = rnw_loc_05408
+		capital = rnw_loc_05583
 		include = "andean_monarchy"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55270,6 +55270,7 @@ countries = {
 	ZDG = {
 		own_control_core = {
 			rnw_loc_05512
+			rnw_loc_05610
 		}
 		capital = rnw_loc_05512
 		starting_technology_level = 0
@@ -55302,11 +55303,7 @@ countries = {
 	}
 	GTJ = {
 		own_control_core = {
-			rnw_loc_06452 rnw_loc_06488 rnw_loc_06494 rnw_loc_06499 rnw_loc_06504 rnw_loc_06507 rnw_loc_06547 rnw_loc_06548
-			rnw_loc_06549 rnw_loc_06550 rnw_loc_06590 rnw_loc_06611 rnw_loc_06616 rnw_loc_06625 rnw_loc_06627 rnw_loc_06681
-			rnw_loc_06691 rnw_loc_06705 rnw_loc_06717 rnw_loc_06727 rnw_loc_06745 rnw_loc_06748 rnw_loc_06785 rnw_loc_06806
-			rnw_loc_06817 rnw_loc_06825 rnw_loc_06866 rnw_loc_06882 rnw_loc_06893 rnw_loc_06905 rnw_loc_06952 rnw_loc_06961
-			rnw_loc_06980 rnw_loc_06994 rnw_loc_07017 rnw_loc_07036 rnw_loc_07056 rnw_loc_07099
+			rnw_loc_06817
 		}
 		capital = rnw_loc_06817
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -55342,6 +55339,7 @@ countries = {
 			rnw_loc_07008 rnw_loc_07029 rnw_loc_07037 rnw_loc_07040 rnw_loc_07052 rnw_loc_07068 rnw_loc_07070 rnw_loc_07087
 			rnw_loc_07093 rnw_loc_07104 rnw_loc_07113 rnw_loc_07143 rnw_loc_07151 rnw_loc_07152 rnw_loc_07170 rnw_loc_07179
 			rnw_loc_07202 rnw_loc_07212
+			rnw_loc_06705 rnw_loc_06748 rnw_loc_06845 rnw_loc_06924 rnw_loc_06941 rnw_loc_07016 rnw_loc_07017 rnw_loc_07036 rnw_loc_07042 rnw_loc_07056 rnw_loc_07076 rnw_loc_07099 rnw_loc_07102 rnw_loc_07108 rnw_loc_07112 rnw_loc_07122 rnw_loc_07129 rnw_loc_07131 rnw_loc_07133 rnw_loc_07157 rnw_loc_07160 rnw_loc_07162 rnw_loc_07169 rnw_loc_07171 rnw_loc_07173 rnw_loc_07183 rnw_loc_07188 rnw_loc_07206 rnw_loc_07207 rnw_loc_07208 rnw_loc_07217 rnw_loc_07221 rnw_loc_07223 rnw_loc_07225 rnw_loc_07242 rnw_loc_07243 rnw_loc_07244 rnw_loc_07252 rnw_loc_07263 rnw_loc_07265 rnw_loc_07267 rnw_loc_07269 rnw_loc_07270 rnw_loc_07272 rnw_loc_07273 rnw_loc_07286 rnw_loc_07288 rnw_loc_07290 rnw_loc_07307 rnw_loc_07316 rnw_loc_07322 rnw_loc_07324 rnw_loc_07333 rnw_loc_07339 rnw_loc_07353 rnw_loc_07356 rnw_loc_07361 rnw_loc_07365 rnw_loc_07383 rnw_loc_07391 rnw_loc_07392 rnw_loc_07396 rnw_loc_07402 rnw_loc_07405 rnw_loc_07407 rnw_loc_07429 rnw_loc_07451 rnw_loc_07475
 		}
 		capital = rnw_loc_06932
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -55369,7 +55367,8 @@ countries = {
 	}
 	ZET = {
 		own_control_core = {
-			rnw_loc_07497 rnw_loc_07499 rnw_loc_07503 rnw_loc_07529 rnw_loc_07530
+			rnw_loc_07497 rnw_loc_07499 rnw_loc_07503
+			rnw_loc_07496
 		}
 		capital = rnw_loc_07497
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -55398,9 +55397,9 @@ countries = {
 	}
 	HHD = {
 		own_control_core = {
-			rnw_loc_02493 rnw_loc_02506 rnw_loc_02559 rnw_loc_02604 rnw_loc_02672 rnw_loc_02797 rnw_loc_02873 rnw_loc_02988
+			rnw_loc_02559 rnw_loc_02604 rnw_loc_02672 rnw_loc_02797 rnw_loc_02873 rnw_loc_02988
 		}
-		capital = rnw_loc_02604
+		capital = rnw_loc_02988
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55452,8 +55451,7 @@ countries = {
 	}
 	OKD = {
 		own_control_core = {
-			rnw_loc_06810 rnw_loc_06877 rnw_loc_06889 rnw_loc_06925 rnw_loc_06934 rnw_loc_06968 rnw_loc_06969 rnw_loc_06987
-			rnw_loc_06998 rnw_loc_07041
+			rnw_loc_06877 rnw_loc_06889 rnw_loc_06934 rnw_loc_06968 rnw_loc_06987 rnw_loc_06998
 		}
 		capital = rnw_loc_06889
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -55480,10 +55478,9 @@ countries = {
 	}
 	CRP = {
 		own_control_core = {
-			rnw_loc_05926 rnw_loc_06364 rnw_loc_06546 rnw_loc_06584 rnw_loc_06618 rnw_loc_06869 rnw_loc_06873 rnw_loc_06989
-			rnw_loc_07156 rnw_loc_07165 rnw_loc_07166 rnw_loc_07178 rnw_loc_07211
+			rnw_loc_04174 rnw_loc_04175 rnw_loc_04188 rnw_loc_04191 rnw_loc_04192 rnw_loc_04193 rnw_loc_04194 rnw_loc_04195 rnw_loc_04196 rnw_loc_04197 rnw_loc_04198 rnw_loc_04199 rnw_loc_04200 rnw_loc_04201 rnw_loc_04202 rnw_loc_04204 rnw_loc_04207 rnw_loc_04208 rnw_loc_04211 rnw_loc_04212 rnw_loc_04213 rnw_loc_04214 rnw_loc_04216 rnw_loc_04217 rnw_loc_04218
 		}
-		capital = rnw_loc_07165
+		capital = rnw_loc_04202
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55510,8 +55507,9 @@ countries = {
 	DMA = {
 		own_control_core = {
 			rnw_loc_05538
+			rnw_loc_04970 rnw_loc_04984 rnw_loc_05022 rnw_loc_05040 rnw_loc_05089 rnw_loc_05097 rnw_loc_05160 rnw_loc_05190 rnw_loc_05195 rnw_loc_05255 rnw_loc_05256 rnw_loc_05265 rnw_loc_05304 rnw_loc_05312 rnw_loc_05341 rnw_loc_05361 rnw_loc_05368 rnw_loc_05391 rnw_loc_05397 rnw_loc_05401 rnw_loc_05427 rnw_loc_05433 rnw_loc_05450 rnw_loc_05470 rnw_loc_05481 rnw_loc_05485 rnw_loc_05492 rnw_loc_05501 rnw_loc_05541
 		}
-		capital = rnw_loc_05538
+		capital = rnw_loc_04970
 		starting_technology_level = 0
 		discovered_areas = {
 			boiaca_area orinucu_area rnw_area_0087 rnw_area_0090 rnw_area_0093
@@ -55544,7 +55542,7 @@ countries = {
 		own_control_core = {
 			rnw_loc_06067 rnw_loc_06156 rnw_loc_06183 rnw_loc_06188 rnw_loc_06251 rnw_loc_06267 rnw_loc_06271 rnw_loc_06307
 		}
-		capital = rnw_loc_06251
+		capital = rnw_loc_06183
 		include = "andean_monarchy"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55571,8 +55569,8 @@ countries = {
 	}
 	KDN = {
 		own_control_core = {
-			rnw_loc_07048 rnw_loc_07114 rnw_loc_07118 rnw_loc_07125 rnw_loc_07163 rnw_loc_07190 rnw_loc_07194 rnw_loc_07218
-			rnw_loc_07293 rnw_loc_07308 rnw_loc_07328 rnw_loc_07388 rnw_loc_07408 rnw_loc_07417 rnw_loc_07458
+			rnw_loc_07048 rnw_loc_07114 rnw_loc_07118 rnw_loc_07125 rnw_loc_07163 rnw_loc_07190 rnw_loc_07194 rnw_loc_07218 rnw_loc_07293 rnw_loc_07308 rnw_loc_07328 rnw_loc_07388 rnw_loc_07408 rnw_loc_07417
+			rnw_loc_07456
 		}
 		capital = rnw_loc_07194
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -55600,7 +55598,7 @@ countries = {
 	}
 	JDO = {
 		own_control_core = {
-			rnw_loc_02051 rnw_loc_02074 rnw_loc_02083 rnw_loc_02098 rnw_loc_02133 rnw_loc_02180 rnw_loc_02208 rnw_loc_02265
+			rnw_loc_02051 rnw_loc_02074 rnw_loc_02083 rnw_loc_02098 rnw_loc_02133 rnw_loc_02180
 		}
 		capital = rnw_loc_02133
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -55629,11 +55627,9 @@ countries = {
 	}
 	TBH = {
 		own_control_core = {
-			rnw_loc_02073 rnw_loc_02087 rnw_loc_02100 rnw_loc_02131 rnw_loc_02162 rnw_loc_02189 rnw_loc_02190 rnw_loc_02202
-			rnw_loc_02210 rnw_loc_02217 rnw_loc_02222 rnw_loc_02223 rnw_loc_02230 rnw_loc_02235 rnw_loc_02259 rnw_loc_02267
-			rnw_loc_02270 rnw_loc_02273 rnw_loc_02278 rnw_loc_02313 rnw_loc_02332 rnw_loc_02336 rnw_loc_02344 rnw_loc_02352
+			rnw_loc_00049 rnw_loc_00050 rnw_loc_00054 rnw_loc_00057 rnw_loc_00068 rnw_loc_00077 rnw_loc_00080 rnw_loc_00083 rnw_loc_00098 rnw_loc_00099 rnw_loc_00106 rnw_loc_00112 rnw_loc_00122 rnw_loc_00124 rnw_loc_00126 rnw_loc_00128 rnw_loc_00129 rnw_loc_00149 rnw_loc_00156 rnw_loc_00164 rnw_loc_00166 rnw_loc_00175 rnw_loc_00178 rnw_loc_00186 rnw_loc_00194 rnw_loc_00200 rnw_loc_00201 rnw_loc_00219 rnw_loc_00221 rnw_loc_00222 rnw_loc_00238 rnw_loc_00239 rnw_loc_00241 rnw_loc_00242 rnw_loc_00269 rnw_loc_00282 rnw_loc_00289 rnw_loc_00295 rnw_loc_00306 rnw_loc_00324 rnw_loc_00328 rnw_loc_00345 rnw_loc_00348 rnw_loc_00351 rnw_loc_00356 rnw_loc_00357 rnw_loc_00369 rnw_loc_00376 rnw_loc_00382 rnw_loc_00407 rnw_loc_00408 rnw_loc_00425 rnw_loc_00434 rnw_loc_00467 rnw_loc_00504
 		}
-		capital = rnw_loc_02162
+		capital = rnw_loc_00242
 		include = "amerindian_advanced_monarchy_not_nahuatl"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55660,8 +55656,7 @@ countries = {
 	}
 	YJW = {
 		own_control_core = {
-			rnw_loc_02393 rnw_loc_02462 rnw_loc_02486 rnw_loc_02500 rnw_loc_02534 rnw_loc_02563 rnw_loc_02574 rnw_loc_02616
-			rnw_loc_02681 rnw_loc_02689 rnw_loc_02782
+			rnw_loc_02486 rnw_loc_02563 rnw_loc_02574 rnw_loc_02681 rnw_loc_02689 rnw_loc_02782
 		}
 		capital = rnw_loc_02563
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -55691,8 +55686,9 @@ countries = {
 	LBQ = {
 		own_control_core = {
 			rnw_loc_05042 rnw_loc_05067 rnw_loc_05082 rnw_loc_05098 rnw_loc_05107 rnw_loc_05167
+			rnw_loc_04710 rnw_loc_04714 rnw_loc_04757 rnw_loc_04759 rnw_loc_04814 rnw_loc_04815 rnw_loc_04862 rnw_loc_04863 rnw_loc_04870 rnw_loc_04891 rnw_loc_04939 rnw_loc_04964 rnw_loc_04977 rnw_loc_04993 rnw_loc_05012 rnw_loc_05015 rnw_loc_05030 rnw_loc_05033 rnw_loc_05054 rnw_loc_05130
 		}
-		capital = rnw_loc_05067
+		capital = rnw_loc_04759
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55716,7 +55712,8 @@ countries = {
 	}
 	ZDE = {
 		own_control_core = {
-			rnw_loc_01004 rnw_loc_01039 rnw_loc_01150 rnw_loc_01177 rnw_loc_01239 rnw_loc_01335 rnw_loc_01447
+			rnw_loc_01004 rnw_loc_01039 rnw_loc_01150 rnw_loc_01177 rnw_loc_01239 rnw_loc_01335
+			rnw_loc_00735 rnw_loc_00760 rnw_loc_00784 rnw_loc_00807 rnw_loc_00836 rnw_loc_00863 rnw_loc_00875 rnw_loc_00891 rnw_loc_00949 rnw_loc_00960 rnw_loc_00987 rnw_loc_01011 rnw_loc_01043 rnw_loc_01047 rnw_loc_01059 rnw_loc_01099 rnw_loc_01105 rnw_loc_01117 rnw_loc_01131 rnw_loc_01141 rnw_loc_01166 rnw_loc_01182 rnw_loc_01183 rnw_loc_01201 rnw_loc_01212 rnw_loc_01219 rnw_loc_01221 rnw_loc_01226 rnw_loc_01234 rnw_loc_01264 rnw_loc_01265 rnw_loc_01271 rnw_loc_01274 rnw_loc_01298 rnw_loc_01326 rnw_loc_01348 rnw_loc_01349 rnw_loc_01370 rnw_loc_01379 rnw_loc_01387 rnw_loc_01390 rnw_loc_01423 rnw_loc_01432 rnw_loc_01443 rnw_loc_01444 rnw_loc_01445 rnw_loc_01470 rnw_loc_01485 rnw_loc_01492 rnw_loc_01504 rnw_loc_01511 rnw_loc_01528 rnw_loc_01535 rnw_loc_01542 rnw_loc_01564 rnw_loc_01582 rnw_loc_01606 rnw_loc_01626 rnw_loc_01630 rnw_loc_01689 rnw_loc_01711
 		}
 		capital = rnw_loc_01004
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -55775,6 +55772,7 @@ countries = {
 	RWF = {
 		own_control_core = {
 			rnw_loc_06781 rnw_loc_06792 rnw_loc_06830 rnw_loc_06872 rnw_loc_06920 rnw_loc_07039 rnw_loc_07050
+			rnw_loc_07117 rnw_loc_07119 rnw_loc_07196 rnw_loc_07231
 		}
 		capital = rnw_loc_06920
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -55801,7 +55799,7 @@ countries = {
 	}
 	RZX = {
 		own_control_core = {
-			rnw_loc_06565 rnw_loc_06973 rnw_loc_07005 rnw_loc_07075 rnw_loc_07095
+			rnw_loc_06973 rnw_loc_07005 rnw_loc_07075 rnw_loc_07095
 		}
 		capital = rnw_loc_07095
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -55858,6 +55856,7 @@ countries = {
 	QWP = {
 		own_control_core = {
 			rnw_loc_05314 rnw_loc_05399 rnw_loc_05563
+			rnw_loc_04833 rnw_loc_04839 rnw_loc_04894 rnw_loc_04899 rnw_loc_04914 rnw_loc_04938 rnw_loc_04944 rnw_loc_04953 rnw_loc_04958 rnw_loc_04974 rnw_loc_04991 rnw_loc_05041 rnw_loc_05062 rnw_loc_05129 rnw_loc_05139 rnw_loc_05154 rnw_loc_05182 rnw_loc_05205 rnw_loc_05239 rnw_loc_05242 rnw_loc_05246 rnw_loc_05271 rnw_loc_05297 rnw_loc_05335 rnw_loc_05344 rnw_loc_05349
 		}
 		capital = rnw_loc_05314
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -55883,10 +55882,10 @@ countries = {
 	}
 	EYJ = {
 		own_control_core = {
-			rnw_loc_02779 rnw_loc_02833 rnw_loc_02872 rnw_loc_02952 rnw_loc_03024 rnw_loc_03027 rnw_loc_03030 rnw_loc_03069
-			rnw_loc_03079
+			rnw_loc_02779 rnw_loc_02833 rnw_loc_02872 rnw_loc_03027 rnw_loc_03069 rnw_loc_03079
+			rnw_loc_02680 rnw_loc_02756 rnw_loc_02937 rnw_loc_03025
 		}
-		capital = rnw_loc_02779
+		capital = rnw_loc_02756
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -55910,8 +55909,7 @@ countries = {
 	}
 	JXO = {
 		own_control_core = {
-			rnw_loc_06186 rnw_loc_06215 rnw_loc_06248 rnw_loc_06249 rnw_loc_06281 rnw_loc_06311 rnw_loc_06318 rnw_loc_06355
-			rnw_loc_06358 rnw_loc_06394 rnw_loc_06413
+			rnw_loc_06281 rnw_loc_06311 rnw_loc_06358 rnw_loc_06394 rnw_loc_06413
 		}
 		capital = rnw_loc_06281
 		include = "andean_monarchy"
@@ -56010,8 +56008,9 @@ countries = {
 	OXA = {
 		own_control_core = {
 			rnw_loc_04384 rnw_loc_04385 rnw_loc_04396 rnw_loc_04401 rnw_loc_04410 rnw_loc_04425 rnw_loc_04447
+			rnw_loc_04346 rnw_loc_04359 rnw_loc_04370 rnw_loc_04371 rnw_loc_04373 rnw_loc_04374 rnw_loc_04375 rnw_loc_04381 rnw_loc_04383 rnw_loc_04391 rnw_loc_04393 rnw_loc_04395 rnw_loc_04398 rnw_loc_04405 rnw_loc_04406 rnw_loc_04415 rnw_loc_04421 rnw_loc_04422 rnw_loc_04424 rnw_loc_04426 rnw_loc_04427 rnw_loc_04429 rnw_loc_04432 rnw_loc_04437 rnw_loc_04438 rnw_loc_04443 rnw_loc_04445 rnw_loc_04448 rnw_loc_04456 rnw_loc_04457 rnw_loc_04458 rnw_loc_04460 rnw_loc_04462 rnw_loc_04463 rnw_loc_04466 rnw_loc_04467 rnw_loc_04473 rnw_loc_04475 rnw_loc_04476 rnw_loc_04477 rnw_loc_04478 rnw_loc_04483 rnw_loc_04484 rnw_loc_04487 rnw_loc_04488 rnw_loc_04489 rnw_loc_04491 rnw_loc_04493 rnw_loc_04495 rnw_loc_04497 rnw_loc_04499 rnw_loc_04500 rnw_loc_04501 rnw_loc_04503 rnw_loc_04504 rnw_loc_04505 rnw_loc_04506 rnw_loc_04507 rnw_loc_04510 rnw_loc_04511 rnw_loc_04513 rnw_loc_04514 rnw_loc_04515 rnw_loc_04516 rnw_loc_04517 rnw_loc_04519 rnw_loc_04520 rnw_loc_04521 rnw_loc_04522 rnw_loc_04523 rnw_loc_04526 rnw_loc_04528
 		}
-		capital = rnw_loc_04410
+		capital = rnw_loc_04426
 		include = "amerindian_advanced_monarchy_not_nahuatl"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -56077,6 +56076,7 @@ countries = {
 	JTZ = {
 		own_control_core = {
 			rnw_loc_05294
+			rnw_loc_05307
 		}
 		capital = rnw_loc_05294
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -56168,8 +56168,9 @@ countries = {
 	ZXI = {
 		own_control_core = {
 			rnw_loc_03708 rnw_loc_03789 rnw_loc_03794 rnw_loc_03808 rnw_loc_03821 rnw_loc_03845 rnw_loc_03887
+			rnw_loc_03750 rnw_loc_03767 rnw_loc_03773 rnw_loc_03838 rnw_loc_03844 rnw_loc_03867 rnw_loc_03896 rnw_loc_03899 rnw_loc_03907 rnw_loc_03910 rnw_loc_03958 rnw_loc_03959 rnw_loc_03963 rnw_loc_03970 rnw_loc_03975 rnw_loc_03986 rnw_loc_04013 rnw_loc_04015 rnw_loc_04017 rnw_loc_04020 rnw_loc_04021 rnw_loc_04049 rnw_loc_04058
 		}
-		capital = rnw_loc_03887
+		capital = rnw_loc_03808
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -56206,8 +56207,9 @@ countries = {
 			rnw_loc_06392 rnw_loc_06399 rnw_loc_06400 rnw_loc_06401 rnw_loc_06403 rnw_loc_06404 rnw_loc_06405 rnw_loc_06430
 			rnw_loc_06450 rnw_loc_06454 rnw_loc_06459 rnw_loc_06462 rnw_loc_06470 rnw_loc_06478 rnw_loc_06510 rnw_loc_06524
 			rnw_loc_06528
+			rnw_loc_05161 rnw_loc_05171 rnw_loc_05222 rnw_loc_05227 rnw_loc_05292 rnw_loc_05325 rnw_loc_05329 rnw_loc_05345 rnw_loc_05376 rnw_loc_05407 rnw_loc_05410 rnw_loc_05414 rnw_loc_05416 rnw_loc_05419 rnw_loc_05428 rnw_loc_05460 rnw_loc_05480 rnw_loc_05482 rnw_loc_05488 rnw_loc_05496 rnw_loc_05500 rnw_loc_05513 rnw_loc_05517 rnw_loc_05531 rnw_loc_05569 rnw_loc_05577 rnw_loc_05581 rnw_loc_05584 rnw_loc_05589 rnw_loc_05602 rnw_loc_05608 rnw_loc_05609 rnw_loc_05622 rnw_loc_05632 rnw_loc_05639 rnw_loc_05640 rnw_loc_05645 rnw_loc_05653 rnw_loc_05674 rnw_loc_05680 rnw_loc_05681 rnw_loc_05688 rnw_loc_05693 rnw_loc_05696 rnw_loc_05704 rnw_loc_05710 rnw_loc_05711 rnw_loc_05715 rnw_loc_05736 rnw_loc_05739 rnw_loc_05741 rnw_loc_05746 rnw_loc_05747 rnw_loc_05757 rnw_loc_05758 rnw_loc_05770 rnw_loc_05779 rnw_loc_05782 rnw_loc_05791 rnw_loc_05793 rnw_loc_05800 rnw_loc_05813 rnw_loc_05824 rnw_loc_05833 rnw_loc_05835 rnw_loc_05843 rnw_loc_05854 rnw_loc_05855 rnw_loc_05865 rnw_loc_05867 rnw_loc_05873 rnw_loc_05876 rnw_loc_05892 rnw_loc_05893 rnw_loc_05899 rnw_loc_05904 rnw_loc_05920 rnw_loc_05932 rnw_loc_05961 rnw_loc_05964 rnw_loc_05971 rnw_loc_05973 rnw_loc_05983 rnw_loc_05988 rnw_loc_05997 rnw_loc_06000 rnw_loc_06004 rnw_loc_06005 rnw_loc_06011 rnw_loc_06014 rnw_loc_06015 rnw_loc_06018 rnw_loc_06032 rnw_loc_06078 rnw_loc_06079 rnw_loc_06086 rnw_loc_06101 rnw_loc_06102 rnw_loc_06106 rnw_loc_06107 rnw_loc_06110 rnw_loc_06111 rnw_loc_06117 rnw_loc_06119 rnw_loc_06123 rnw_loc_06124 rnw_loc_06129 rnw_loc_06135 rnw_loc_06159 rnw_loc_06176 rnw_loc_06187 rnw_loc_06199 rnw_loc_06205 rnw_loc_06226 rnw_loc_06259 rnw_loc_06273 rnw_loc_06280 rnw_loc_06290 rnw_loc_06314 rnw_loc_06332 rnw_loc_06396 rnw_loc_06398 rnw_loc_06457 rnw_loc_06484 rnw_loc_06491 rnw_loc_06506 rnw_loc_06527
 		}
-		capital = rnw_loc_06277
+		capital = rnw_loc_06484
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -56233,8 +56235,8 @@ countries = {
 	}
 	UQV = {
 		own_control_core = {
-			rnw_loc_06506 rnw_loc_06678 rnw_loc_06768 rnw_loc_06800 rnw_loc_06820 rnw_loc_06892 rnw_loc_06948 rnw_loc_06964
-			rnw_loc_07013
+			rnw_loc_06678 rnw_loc_06768 rnw_loc_06800 rnw_loc_06820 rnw_loc_06892 rnw_loc_06948 rnw_loc_06964 rnw_loc_07013
+			rnw_loc_07014 rnw_loc_07091
 		}
 		capital = rnw_loc_06768
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -56342,6 +56344,7 @@ countries = {
 	RZL = {
 		own_control_core = {
 			rnw_loc_05184
+			rnw_loc_05122 rnw_loc_05199
 		}
 		capital = rnw_loc_05184
 		include = "andean_monarchy"
@@ -56369,6 +56372,7 @@ countries = {
 	AGU = {
 		own_control_core = {
 			rnw_loc_05224
+			rnw_loc_05083 rnw_loc_05131 rnw_loc_05152 rnw_loc_05177
 		}
 		capital = rnw_loc_05224
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -56435,6 +56439,7 @@ countries = {
 	VOW = {
 		own_control_core = {
 			rnw_loc_02852
+			rnw_loc_02754
 		}
 		capital = rnw_loc_02852
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -56461,8 +56466,9 @@ countries = {
 	DFC = {
 		own_control_core = {
 			rnw_loc_02699
+			rnw_loc_02684 rnw_loc_02764 rnw_loc_02790 rnw_loc_02835 rnw_loc_02840 rnw_loc_02921 rnw_loc_02942
 		}
-		capital = rnw_loc_02699
+		capital = rnw_loc_02764
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -56490,8 +56496,9 @@ countries = {
 			rnw_loc_02367 rnw_loc_02371 rnw_loc_02438 rnw_loc_02449 rnw_loc_02475 rnw_loc_02514 rnw_loc_02517 rnw_loc_02523
 			rnw_loc_02532 rnw_loc_02564 rnw_loc_02588 rnw_loc_02609 rnw_loc_02627 rnw_loc_02630 rnw_loc_02667 rnw_loc_02706
 			rnw_loc_02721 rnw_loc_02739 rnw_loc_02745
+			rnw_loc_02370 rnw_loc_02528
 		}
-		capital = rnw_loc_02706
+		capital = rnw_loc_02588
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -56517,6 +56524,7 @@ countries = {
 	UPS = {
 		own_control_core = {
 			rnw_loc_04024 rnw_loc_04030
+			rnw_loc_03662 rnw_loc_03663 rnw_loc_03746 rnw_loc_03752 rnw_loc_03774 rnw_loc_03779 rnw_loc_03783 rnw_loc_03784 rnw_loc_03787 rnw_loc_03803 rnw_loc_03806 rnw_loc_03811 rnw_loc_03812 rnw_loc_03850 rnw_loc_03851 rnw_loc_03853 rnw_loc_03859 rnw_loc_03863 rnw_loc_03866 rnw_loc_03869 rnw_loc_03874 rnw_loc_03876 rnw_loc_03904 rnw_loc_03905 rnw_loc_03912 rnw_loc_03913 rnw_loc_03914 rnw_loc_03917 rnw_loc_03927 rnw_loc_03928 rnw_loc_03932 rnw_loc_03933 rnw_loc_03950 rnw_loc_03960 rnw_loc_03968 rnw_loc_03969 rnw_loc_03982 rnw_loc_03992 rnw_loc_04002 rnw_loc_04038 rnw_loc_04041 rnw_loc_04066
 		}
 		capital = rnw_loc_04024
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -56545,6 +56553,7 @@ countries = {
 	DQD = {
 		own_control_core = {
 			rnw_loc_04050 rnw_loc_04071 rnw_loc_04089 rnw_loc_04096
+			rnw_loc_03941 rnw_loc_03943 rnw_loc_03952 rnw_loc_03978 rnw_loc_03979 rnw_loc_04003 rnw_loc_04006 rnw_loc_04008 rnw_loc_04009 rnw_loc_04014 rnw_loc_04018 rnw_loc_04019 rnw_loc_04043 rnw_loc_04054 rnw_loc_04057 rnw_loc_04061 rnw_loc_04069 rnw_loc_04077 rnw_loc_04085 rnw_loc_04093 rnw_loc_04100
 		}
 		capital = rnw_loc_04050
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -56627,6 +56636,7 @@ countries = {
 	SGG = {
 		own_control_core = {
 			rnw_loc_07440
+			rnw_loc_07445 rnw_loc_07452 rnw_loc_07458 rnw_loc_07479 rnw_loc_07486 rnw_loc_07489 rnw_loc_07494 rnw_loc_07506 rnw_loc_07508 rnw_loc_07521
 		}
 		capital = rnw_loc_07440
 		include = "amerindian_monarchy"
@@ -56697,6 +56707,7 @@ countries = {
 	JEF = {
 		own_control_core = {
 			rnw_loc_04613 rnw_loc_04619
+			rnw_loc_04534 rnw_loc_04535 rnw_loc_04539 rnw_loc_04542 rnw_loc_04543 rnw_loc_04547 rnw_loc_04554 rnw_loc_04555 rnw_loc_04557 rnw_loc_04561 rnw_loc_04565 rnw_loc_04566 rnw_loc_04568 rnw_loc_04571 rnw_loc_04573 rnw_loc_04575 rnw_loc_04576 rnw_loc_04578 rnw_loc_04585 rnw_loc_04587 rnw_loc_04592 rnw_loc_04600 rnw_loc_04602 rnw_loc_04611 rnw_loc_04618 rnw_loc_04620 rnw_loc_04622 rnw_loc_04630 rnw_loc_04632 rnw_loc_04636
 		}
 		capital = rnw_loc_04619
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -56724,9 +56735,9 @@ countries = {
 	}
 	PHF = {
 		own_control_core = {
-			rnw_loc_04597 rnw_loc_04637 rnw_loc_04644 rnw_loc_04653 rnw_loc_04665
+			rnw_loc_04637 rnw_loc_04644 rnw_loc_04653 rnw_loc_04665
 		}
-		capital = rnw_loc_04665
+		capital = rnw_loc_04644
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -56752,6 +56763,7 @@ countries = {
 	DNW = {
 		own_control_core = {
 			rnw_loc_04670
+			rnw_loc_04659 rnw_loc_04663 rnw_loc_04681 rnw_loc_04695 rnw_loc_04698 rnw_loc_04713 rnw_loc_04721 rnw_loc_04723 rnw_loc_04733 rnw_loc_04736 rnw_loc_04750 rnw_loc_04781 rnw_loc_04782 rnw_loc_04787
 		}
 		capital = rnw_loc_04670
 		starting_technology_level = 2
@@ -56792,6 +56804,7 @@ countries = {
 	MZA = {
 		own_control_core = {
 			rnw_loc_05283 rnw_loc_05343 rnw_loc_05423 rnw_loc_05493
+			rnw_loc_05561 rnw_loc_05562
 		}
 		capital = rnw_loc_05423
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -56817,7 +56830,7 @@ countries = {
 	}
 	YPA = {
 		own_control_core = {
-			rnw_loc_00872 rnw_loc_00878 rnw_loc_00917 rnw_loc_01026 rnw_loc_01040 rnw_loc_01044 rnw_loc_01095
+			rnw_loc_00872 rnw_loc_00878 rnw_loc_00917 rnw_loc_01026 rnw_loc_01040 rnw_loc_01044
 		}
 		capital = rnw_loc_01026
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -56844,10 +56857,8 @@ countries = {
 	}
 	OUV = {
 		own_control_core = {
-			rnw_loc_01984 rnw_loc_02005 rnw_loc_02007 rnw_loc_02303 rnw_loc_02312 rnw_loc_02316 rnw_loc_02319 rnw_loc_02322
-			rnw_loc_02327 rnw_loc_02337 rnw_loc_02345 rnw_loc_02353 rnw_loc_02361 rnw_loc_02380 rnw_loc_02397 rnw_loc_02400
-			rnw_loc_02415 rnw_loc_02437 rnw_loc_02465 rnw_loc_02474 rnw_loc_02481 rnw_loc_02571 rnw_loc_02692 rnw_loc_02698
-			rnw_loc_02881 rnw_loc_03038
+			rnw_loc_02303 rnw_loc_02312 rnw_loc_02316 rnw_loc_02319 rnw_loc_02322 rnw_loc_02327 rnw_loc_02337 rnw_loc_02345 rnw_loc_02353 rnw_loc_02361 rnw_loc_02380 rnw_loc_02397 rnw_loc_02400 rnw_loc_02415 rnw_loc_02437 rnw_loc_02465 rnw_loc_02474 rnw_loc_02481 rnw_loc_02571 rnw_loc_02692 rnw_loc_02698 rnw_loc_02881
+			rnw_loc_02210 rnw_loc_02259 rnw_loc_02270 rnw_loc_02336 rnw_loc_02352 rnw_loc_02420 rnw_loc_02447 rnw_loc_02459 rnw_loc_02489 rnw_loc_02501 rnw_loc_02540 rnw_loc_02552 rnw_loc_02568 rnw_loc_02575 rnw_loc_02586 rnw_loc_02649 rnw_loc_02761
 		}
 		capital = rnw_loc_02571
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -56943,7 +56954,8 @@ countries = {
 	}
 	MDZ = {
 		own_control_core = {
-			rnw_loc_06031 rnw_loc_06114 rnw_loc_06122 rnw_loc_06164 rnw_loc_06209 rnw_loc_06216 rnw_loc_06218 rnw_loc_06304
+			rnw_loc_06031 rnw_loc_06114 rnw_loc_06122 rnw_loc_06216 rnw_loc_06218 rnw_loc_06304
+			rnw_loc_05930 rnw_loc_05974 rnw_loc_06016 rnw_loc_06027 rnw_loc_06140
 		}
 		capital = rnw_loc_06122
 		include = "andean_monarchy"
@@ -56973,14 +56985,7 @@ countries = {
 	}
 	NPC = {
 		own_control_core = {
-			rnw_loc_06545 rnw_loc_06591 rnw_loc_06639 rnw_loc_06651 rnw_loc_06652 rnw_loc_06656 rnw_loc_06663 rnw_loc_06671
-			rnw_loc_06683 rnw_loc_06688 rnw_loc_06692 rnw_loc_06694 rnw_loc_06697 rnw_loc_06701 rnw_loc_06706 rnw_loc_06720
-			rnw_loc_06725 rnw_loc_06731 rnw_loc_06738 rnw_loc_06747 rnw_loc_06751 rnw_loc_06771 rnw_loc_06776 rnw_loc_06787
-			rnw_loc_06789 rnw_loc_06790 rnw_loc_06797 rnw_loc_06799 rnw_loc_06822 rnw_loc_06826 rnw_loc_06832 rnw_loc_06853
-			rnw_loc_06857 rnw_loc_06858 rnw_loc_06901 rnw_loc_06912 rnw_loc_06918 rnw_loc_06943 rnw_loc_06946 rnw_loc_06971
-			rnw_loc_06985 rnw_loc_06996 rnw_loc_07000 rnw_loc_07006 rnw_loc_07032 rnw_loc_07054 rnw_loc_07063 rnw_loc_07071
-			rnw_loc_07073 rnw_loc_07098 rnw_loc_07105 rnw_loc_07106 rnw_loc_07130 rnw_loc_07139 rnw_loc_07154 rnw_loc_07159
-			rnw_loc_07161 rnw_loc_07191 rnw_loc_07195 rnw_loc_07198 rnw_loc_07228
+			rnw_loc_06545 rnw_loc_06591 rnw_loc_06639 rnw_loc_06651 rnw_loc_06652 rnw_loc_06656 rnw_loc_06663 rnw_loc_06671 rnw_loc_06683 rnw_loc_06697 rnw_loc_06701 rnw_loc_06706 rnw_loc_06720 rnw_loc_06725 rnw_loc_06731 rnw_loc_06738 rnw_loc_06747 rnw_loc_06771 rnw_loc_06776 rnw_loc_06787 rnw_loc_06789 rnw_loc_06790 rnw_loc_06797 rnw_loc_06799 rnw_loc_06822 rnw_loc_06826 rnw_loc_06832 rnw_loc_06853 rnw_loc_06857 rnw_loc_06858 rnw_loc_06901 rnw_loc_06912 rnw_loc_06918 rnw_loc_06943 rnw_loc_06946 rnw_loc_06971 rnw_loc_06985 rnw_loc_06996 rnw_loc_07000 rnw_loc_07006 rnw_loc_07032 rnw_loc_07054 rnw_loc_07063 rnw_loc_07071 rnw_loc_07073 rnw_loc_07098 rnw_loc_07105 rnw_loc_07106 rnw_loc_07130 rnw_loc_07139 rnw_loc_07154 rnw_loc_07159 rnw_loc_07161 rnw_loc_07191 rnw_loc_07195 rnw_loc_07198 rnw_loc_07228
 		}
 		capital = rnw_loc_06656
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -57010,6 +57015,7 @@ countries = {
 	EID = {
 		own_control_core = {
 			rnw_loc_05398 rnw_loc_05459
+			rnw_loc_05426
 		}
 		capital = rnw_loc_05459
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -57068,9 +57074,9 @@ countries = {
 	}
 	LPX = {
 		own_control_core = {
-			rnw_loc_04093
+			rnw_loc_03385 rnw_loc_03418 rnw_loc_03445 rnw_loc_03459 rnw_loc_03533 rnw_loc_03568 rnw_loc_03617 rnw_loc_03687 rnw_loc_03755 rnw_loc_03758 rnw_loc_03848
 		}
-		capital = rnw_loc_04093
+		capital = rnw_loc_03445
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -57094,7 +57100,7 @@ countries = {
 	}
 	YGK = {
 		own_control_core = {
-			rnw_loc_02409 rnw_loc_02495 rnw_loc_02496 rnw_loc_02620 rnw_loc_02658 rnw_loc_02680 rnw_loc_02766
+			rnw_loc_02409 rnw_loc_02495 rnw_loc_02496
 		}
 		capital = rnw_loc_02495
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -57123,8 +57129,9 @@ countries = {
 	NMJ = {
 		own_control_core = {
 			rnw_loc_02726 rnw_loc_02737 rnw_loc_02869 rnw_loc_02978 rnw_loc_03058 rnw_loc_03064
+			rnw_loc_02766 rnw_loc_02905 rnw_loc_02907
 		}
-		capital = rnw_loc_02869
+		capital = rnw_loc_03064
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -57150,6 +57157,7 @@ countries = {
 	YHB = {
 		own_control_core = {
 			rnw_loc_02789 rnw_loc_02920 rnw_loc_02959
+			rnw_loc_02807
 		}
 		capital = rnw_loc_02789
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -57175,9 +57183,8 @@ countries = {
 	}
 	QAG = {
 		own_control_core = {
-			rnw_loc_00556 rnw_loc_00582 rnw_loc_00583 rnw_loc_00607 rnw_loc_00656 rnw_loc_00666 rnw_loc_00690 rnw_loc_00757
-			rnw_loc_00777 rnw_loc_01543 rnw_loc_01548 rnw_loc_01565 rnw_loc_01603 rnw_loc_01640 rnw_loc_01646 rnw_loc_01655
-			rnw_loc_01688 rnw_loc_01696 rnw_loc_01728 rnw_loc_01792
+			rnw_loc_00556 rnw_loc_00582 rnw_loc_00583 rnw_loc_00607 rnw_loc_00656 rnw_loc_00666 rnw_loc_00690 rnw_loc_00757 rnw_loc_00777
+			rnw_loc_00571
 		}
 		capital = rnw_loc_00666
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -57206,6 +57213,7 @@ countries = {
 	RQI = {
 		own_control_core = {
 			rnw_loc_05663
+			rnw_loc_05568 rnw_loc_05576 rnw_loc_05599 rnw_loc_05699 rnw_loc_05763 rnw_loc_05790 rnw_loc_05848 rnw_loc_05851 rnw_loc_05919 rnw_loc_05962 rnw_loc_06024 rnw_loc_06084
 		}
 		capital = rnw_loc_05663
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -59772,6 +59780,7 @@ countries = {
 	VZN = {
 		own_control_core = {
 			rnw_loc_00591 rnw_loc_00623 rnw_loc_00658 rnw_loc_00663 rnw_loc_00723 rnw_loc_00762
+			rnw_loc_00518 rnw_loc_00533
 		}
 		capital = rnw_loc_00658
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -59843,9 +59852,9 @@ countries = {
 	}
 	HME = {
 		own_control_core = {
-			rnw_loc_00671
+			rnw_loc_02232 rnw_loc_02252 rnw_loc_02298 rnw_loc_02305 rnw_loc_02318 rnw_loc_02323 rnw_loc_02347 rnw_loc_02359 rnw_loc_02399 rnw_loc_02402 rnw_loc_02403 rnw_loc_02407 rnw_loc_02419 rnw_loc_02422 rnw_loc_02433 rnw_loc_02488 rnw_loc_02494 rnw_loc_02505 rnw_loc_02521 rnw_loc_02537 rnw_loc_02538 rnw_loc_02543 rnw_loc_02560 rnw_loc_02570 rnw_loc_02577 rnw_loc_02607 rnw_loc_02614 rnw_loc_02619 rnw_loc_02633 rnw_loc_02648 rnw_loc_02694 rnw_loc_02700 rnw_loc_02719 rnw_loc_02731 rnw_loc_02735 rnw_loc_02744 rnw_loc_02811 rnw_loc_02818
 		}
-		capital = rnw_loc_00671
+		capital = rnw_loc_02399
 		include = "amerindian_advanced_monarchy_not_nahuatl"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -59872,6 +59881,7 @@ countries = {
 	ZLL = {
 		own_control_core = {
 			rnw_loc_00674 rnw_loc_00830 rnw_loc_00853 rnw_loc_00919
+			rnw_loc_00742 rnw_loc_00835 rnw_loc_00855 rnw_loc_00856 rnw_loc_00931 rnw_loc_00945 rnw_loc_00991 rnw_loc_00998 rnw_loc_01014 rnw_loc_01034 rnw_loc_01050 rnw_loc_01070 rnw_loc_01094 rnw_loc_01104 rnw_loc_01133 rnw_loc_01154 rnw_loc_01156 rnw_loc_01172 rnw_loc_01193 rnw_loc_01194 rnw_loc_01197 rnw_loc_01198 rnw_loc_01251 rnw_loc_01252 rnw_loc_01310 rnw_loc_01311 rnw_loc_01312 rnw_loc_01331 rnw_loc_01332 rnw_loc_01374 rnw_loc_01386 rnw_loc_01410 rnw_loc_01413 rnw_loc_01428 rnw_loc_01440 rnw_loc_01473 rnw_loc_01476 rnw_loc_01482 rnw_loc_01494 rnw_loc_01531 rnw_loc_01546 rnw_loc_01558 rnw_loc_01581
 		}
 		capital = rnw_loc_00674
 		include = "amerindian_monarchy"
@@ -59998,8 +60008,7 @@ countries = {
 	}
 	UFE = {
 		own_control_core = {
-			rnw_loc_00322 rnw_loc_00338 rnw_loc_00364 rnw_loc_00433 rnw_loc_00545 rnw_loc_00588 rnw_loc_00675 rnw_loc_00685
-			rnw_loc_00721 rnw_loc_00727 rnw_loc_00729 rnw_loc_00756 rnw_loc_00779 rnw_loc_00805
+			rnw_loc_00675 rnw_loc_00685 rnw_loc_00721 rnw_loc_00727 rnw_loc_00729 rnw_loc_00756 rnw_loc_00779 rnw_loc_00805
 		}
 		capital = rnw_loc_00721
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -60028,6 +60037,7 @@ countries = {
 	SXU = {
 		own_control_core = {
 			rnw_loc_00566 rnw_loc_00616 rnw_loc_00644 rnw_loc_00705 rnw_loc_00725
+			rnw_loc_00498 rnw_loc_00525 rnw_loc_00532 rnw_loc_00563 rnw_loc_00579
 		}
 		capital = rnw_loc_00725
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -60330,8 +60340,8 @@ countries = {
 	}
 	GYC = {
 		own_control_core = {
-			rnw_loc_00426 rnw_loc_00430 rnw_loc_00457 rnw_loc_00465 rnw_loc_00497 rnw_loc_00506 rnw_loc_00548 rnw_loc_00562
-			rnw_loc_00724 rnw_loc_00728 rnw_loc_00788 rnw_loc_00806 rnw_loc_00847 rnw_loc_00876 rnw_loc_00894 rnw_loc_00924
+			rnw_loc_00724 rnw_loc_00728 rnw_loc_00788 rnw_loc_00806 rnw_loc_00847 rnw_loc_00894
+			rnw_loc_00671
 		}
 		capital = rnw_loc_00788
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -60616,9 +60626,9 @@ countries = {
 	}
 	VYW = {
 		own_control_core = {
-			rnw_loc_00855 rnw_loc_00856 rnw_loc_00945 rnw_loc_01014
+			rnw_loc_00037 rnw_loc_00046 rnw_loc_00047 rnw_loc_00048 rnw_loc_00052 rnw_loc_00055 rnw_loc_00058 rnw_loc_00066 rnw_loc_00067 rnw_loc_00072 rnw_loc_00074 rnw_loc_00075 rnw_loc_00081 rnw_loc_00085 rnw_loc_00087 rnw_loc_00089 rnw_loc_00100 rnw_loc_00102 rnw_loc_00103 rnw_loc_00104 rnw_loc_00114 rnw_loc_00117 rnw_loc_00132 rnw_loc_00133 rnw_loc_00134 rnw_loc_00141 rnw_loc_00144 rnw_loc_00150 rnw_loc_00158 rnw_loc_00159 rnw_loc_00160 rnw_loc_00162 rnw_loc_00165 rnw_loc_00169 rnw_loc_00171 rnw_loc_00181 rnw_loc_00184 rnw_loc_00189 rnw_loc_00192 rnw_loc_00198 rnw_loc_00205 rnw_loc_00207 rnw_loc_00212 rnw_loc_00220 rnw_loc_00235 rnw_loc_00237 rnw_loc_00245 rnw_loc_00246 rnw_loc_00247 rnw_loc_00253 rnw_loc_00272 rnw_loc_00273 rnw_loc_00285 rnw_loc_00291 rnw_loc_00340
 		}
-		capital = rnw_loc_00855
+		capital = rnw_loc_00058
 		include = "amerindian_monarchy"
 		starting_technology_level = 1
 		discovered_areas = {
@@ -60740,8 +60750,7 @@ countries = {
 	}
 	PJC = {
 		own_control_core = {
-			rnw_loc_00785 rnw_loc_00825 rnw_loc_00871 rnw_loc_00891 rnw_loc_00960 rnw_loc_01059 rnw_loc_01131 rnw_loc_01221
-			rnw_loc_01299 rnw_loc_01343 rnw_loc_01403
+			rnw_loc_00785 rnw_loc_00825 rnw_loc_00871
 		}
 		capital = rnw_loc_00871
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -60907,8 +60916,7 @@ countries = {
 	}
 	ELB = {
 		own_control_core = {
-			rnw_loc_00563 rnw_loc_00686 rnw_loc_00710 rnw_loc_00769 rnw_loc_00839 rnw_loc_00879 rnw_loc_00900 rnw_loc_00905
-			rnw_loc_00978 rnw_loc_01008 rnw_loc_01065
+			rnw_loc_00686 rnw_loc_00710 rnw_loc_00769 rnw_loc_00839 rnw_loc_00879 rnw_loc_00905 rnw_loc_00978
 		}
 		capital = rnw_loc_00905
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -61513,12 +61521,7 @@ countries = {
 	}
 	HQX = {
 		own_control_core = {
-			rnw_loc_00518 rnw_loc_00532 rnw_loc_00533 rnw_loc_00571 rnw_loc_00973 rnw_loc_00996 rnw_loc_01015 rnw_loc_01035
-			rnw_loc_01067 rnw_loc_01069 rnw_loc_01084 rnw_loc_01089 rnw_loc_01100 rnw_loc_01118 rnw_loc_01119 rnw_loc_01157
-			rnw_loc_01188 rnw_loc_01214 rnw_loc_01238 rnw_loc_01275 rnw_loc_01342 rnw_loc_01396 rnw_loc_01408 rnw_loc_01419
-			rnw_loc_01426 rnw_loc_01448 rnw_loc_01451 rnw_loc_01488 rnw_loc_01489 rnw_loc_01501 rnw_loc_01503 rnw_loc_01505
-			rnw_loc_01506 rnw_loc_01520 rnw_loc_01562 rnw_loc_01579 rnw_loc_01592 rnw_loc_01599 rnw_loc_01600 rnw_loc_01661
-			rnw_loc_01677 rnw_loc_01745 rnw_loc_01778 rnw_loc_02220
+			rnw_loc_01069
 		}
 		capital = rnw_loc_01069
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -61877,6 +61880,7 @@ countries = {
 			rnw_loc_01391 rnw_loc_01392 rnw_loc_01404 rnw_loc_01405 rnw_loc_01415 rnw_loc_01435 rnw_loc_01436 rnw_loc_01456
 			rnw_loc_01460 rnw_loc_01474 rnw_loc_01478 rnw_loc_01486 rnw_loc_01509 rnw_loc_01521 rnw_loc_01533 rnw_loc_01541
 			rnw_loc_01560 rnw_loc_01563 rnw_loc_01604 rnw_loc_01656 rnw_loc_01667 rnw_loc_01672 rnw_loc_01721
+			rnw_loc_00554 rnw_loc_00569 rnw_loc_00587 rnw_loc_00597 rnw_loc_00599 rnw_loc_00611 rnw_loc_00612 rnw_loc_00621 rnw_loc_00635 rnw_loc_00637 rnw_loc_00639 rnw_loc_00648 rnw_loc_00667 rnw_loc_00668 rnw_loc_00672 rnw_loc_00679 rnw_loc_00681 rnw_loc_00691 rnw_loc_00697 rnw_loc_00708 rnw_loc_00711 rnw_loc_00713 rnw_loc_00719 rnw_loc_00726 rnw_loc_00730 rnw_loc_00731 rnw_loc_00736 rnw_loc_00737 rnw_loc_00739 rnw_loc_00745 rnw_loc_00780 rnw_loc_00787 rnw_loc_00789 rnw_loc_00790 rnw_loc_00791 rnw_loc_00798 rnw_loc_00809 rnw_loc_00814 rnw_loc_00826 rnw_loc_00834 rnw_loc_00837 rnw_loc_00857 rnw_loc_00865 rnw_loc_00868 rnw_loc_00873 rnw_loc_00877 rnw_loc_00880 rnw_loc_00893 rnw_loc_00897 rnw_loc_00899 rnw_loc_00906 rnw_loc_00913 rnw_loc_00918 rnw_loc_00921 rnw_loc_00927 rnw_loc_00948 rnw_loc_00951 rnw_loc_00953 rnw_loc_00958 rnw_loc_00961 rnw_loc_00963 rnw_loc_00974 rnw_loc_00976 rnw_loc_00988 rnw_loc_00989 rnw_loc_00993 rnw_loc_00997 rnw_loc_01001 rnw_loc_01012 rnw_loc_01037 rnw_loc_01041 rnw_loc_01045 rnw_loc_01057 rnw_loc_01079 rnw_loc_01082 rnw_loc_01107 rnw_loc_01111 rnw_loc_01129 rnw_loc_01135 rnw_loc_01151 rnw_loc_01159 rnw_loc_01176 rnw_loc_01206 rnw_loc_01217 rnw_loc_01231 rnw_loc_01301 rnw_loc_01318 rnw_loc_01320 rnw_loc_01329 rnw_loc_01357 rnw_loc_01365 rnw_loc_01385 rnw_loc_01463 rnw_loc_01467 rnw_loc_01496 rnw_loc_01538 rnw_loc_01549 rnw_loc_01615 rnw_loc_01663 rnw_loc_01749
 		}
 		capital = rnw_loc_01160
 		include = "amerindian_monarchy"
@@ -62756,14 +62760,8 @@ countries = {
 	}
 	AMF = {
 		own_control_core = {
-			rnw_loc_01247 rnw_loc_01267 rnw_loc_01286 rnw_loc_01334 rnw_loc_01337 rnw_loc_01384 rnw_loc_01394 rnw_loc_01402
-			rnw_loc_01414 rnw_loc_01446 rnw_loc_01465 rnw_loc_01477 rnw_loc_01492 rnw_loc_01500 rnw_loc_01519 rnw_loc_01542
-			rnw_loc_01550 rnw_loc_01557 rnw_loc_01567 rnw_loc_01571 rnw_loc_01598 rnw_loc_01602 rnw_loc_01620 rnw_loc_01623
-			rnw_loc_01635 rnw_loc_01639 rnw_loc_01641 rnw_loc_01649 rnw_loc_01658 rnw_loc_01660 rnw_loc_01669 rnw_loc_01683
-			rnw_loc_01685 rnw_loc_01692 rnw_loc_01701 rnw_loc_01706 rnw_loc_01718 rnw_loc_01724 rnw_loc_01744 rnw_loc_01754
-			rnw_loc_01757 rnw_loc_01758 rnw_loc_01775 rnw_loc_01790 rnw_loc_01791 rnw_loc_01804 rnw_loc_01829 rnw_loc_01834
-			rnw_loc_01838 rnw_loc_01841 rnw_loc_01860 rnw_loc_01870 rnw_loc_01908 rnw_loc_01953 rnw_loc_01968 rnw_loc_01970
-			rnw_loc_02046 rnw_loc_02047 rnw_loc_02048 rnw_loc_02081
+			rnw_loc_01247 rnw_loc_01267 rnw_loc_01286 rnw_loc_01334 rnw_loc_01337 rnw_loc_01384 rnw_loc_01394 rnw_loc_01402 rnw_loc_01414 rnw_loc_01446 rnw_loc_01465 rnw_loc_01477 rnw_loc_01500 rnw_loc_01567 rnw_loc_01571
+			rnw_loc_01360
 		}
 		capital = rnw_loc_01465
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -63290,8 +63288,7 @@ countries = {
 	}
 	NPJ = {
 		own_control_core = {
-			rnw_loc_01455 rnw_loc_01532 rnw_loc_01544 rnw_loc_01559 rnw_loc_01636 rnw_loc_01647 rnw_loc_01650 rnw_loc_01734
-			rnw_loc_01735
+			rnw_loc_01559 rnw_loc_01636 rnw_loc_01647 rnw_loc_01650 rnw_loc_01734 rnw_loc_01735
 		}
 		capital = rnw_loc_01636
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -63544,17 +63541,7 @@ countries = {
 	}
 	IMM = {
 		own_control_core = {
-			rnw_loc_00915 rnw_loc_00928 rnw_loc_00964 rnw_loc_00967 rnw_loc_00980 rnw_loc_00984 rnw_loc_00986 rnw_loc_00994
-			rnw_loc_01020 rnw_loc_01023 rnw_loc_01058 rnw_loc_01066 rnw_loc_01081 rnw_loc_01085 rnw_loc_01086 rnw_loc_01090
-			rnw_loc_01101 rnw_loc_01108 rnw_loc_01120 rnw_loc_01130 rnw_loc_01137 rnw_loc_01142 rnw_loc_01145 rnw_loc_01161
-			rnw_loc_01162 rnw_loc_01173 rnw_loc_01180 rnw_loc_01185 rnw_loc_01186 rnw_loc_01192 rnw_loc_01206 rnw_loc_01222
-			rnw_loc_01223 rnw_loc_01229 rnw_loc_01230 rnw_loc_01231 rnw_loc_01240 rnw_loc_01256 rnw_loc_01268 rnw_loc_01277
-			rnw_loc_01280 rnw_loc_01284 rnw_loc_01289 rnw_loc_01290 rnw_loc_01293 rnw_loc_01301 rnw_loc_01302 rnw_loc_01314
-			rnw_loc_01315 rnw_loc_01322 rnw_loc_01329 rnw_loc_01336 rnw_loc_01340 rnw_loc_01344 rnw_loc_01351 rnw_loc_01371
-			rnw_loc_01376 rnw_loc_01382 rnw_loc_01406 rnw_loc_01425 rnw_loc_01433 rnw_loc_01442 rnw_loc_01457 rnw_loc_01459
-			rnw_loc_01461 rnw_loc_01479 rnw_loc_01497 rnw_loc_01512 rnw_loc_01527 rnw_loc_01552 rnw_loc_01554 rnw_loc_01629
-			rnw_loc_01638 rnw_loc_01695 rnw_loc_01697 rnw_loc_01729 rnw_loc_01929 rnw_loc_01930 rnw_loc_01935 rnw_loc_01980
-			rnw_loc_01983 rnw_loc_01996 rnw_loc_02036 rnw_loc_02121 rnw_loc_02167
+			rnw_loc_01697 rnw_loc_01729
 		}
 		capital = rnw_loc_01729
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -64071,19 +64058,10 @@ countries = {
 	}
 	YEK = {
 		own_control_core = {
-			rnw_loc_01705 rnw_loc_01770 rnw_loc_01771 rnw_loc_01780 rnw_loc_01801 rnw_loc_01802 rnw_loc_01807 rnw_loc_01824
-			rnw_loc_01827 rnw_loc_01832 rnw_loc_01842 rnw_loc_01868 rnw_loc_01874 rnw_loc_01888 rnw_loc_01898 rnw_loc_01915
-			rnw_loc_01956 rnw_loc_01963 rnw_loc_01979 rnw_loc_01981 rnw_loc_01995 rnw_loc_02010 rnw_loc_02015 rnw_loc_02024
-			rnw_loc_02028 rnw_loc_02043 rnw_loc_02076 rnw_loc_02079 rnw_loc_02082 rnw_loc_02097 rnw_loc_02102 rnw_loc_02103
-			rnw_loc_02112 rnw_loc_02136 rnw_loc_02146 rnw_loc_02152 rnw_loc_02155 rnw_loc_02156 rnw_loc_02166 rnw_loc_02174
-			rnw_loc_02209 rnw_loc_02211 rnw_loc_02212 rnw_loc_02224 rnw_loc_02239 rnw_loc_02250 rnw_loc_02251 rnw_loc_02257
-			rnw_loc_02269 rnw_loc_02279 rnw_loc_02282 rnw_loc_02294 rnw_loc_02300 rnw_loc_02302 rnw_loc_02321 rnw_loc_02343
-			rnw_loc_02356 rnw_loc_02357 rnw_loc_02358 rnw_loc_02368 rnw_loc_02377 rnw_loc_02382 rnw_loc_02388 rnw_loc_02423
-			rnw_loc_02426 rnw_loc_02431 rnw_loc_02441 rnw_loc_02461 rnw_loc_02480 rnw_loc_02482 rnw_loc_02485 rnw_loc_02491
-			rnw_loc_02492 rnw_loc_02498 rnw_loc_02545 rnw_loc_02551 rnw_loc_02557 rnw_loc_02569 rnw_loc_02581 rnw_loc_02596
-			rnw_loc_02624 rnw_loc_02635 rnw_loc_02718
+			rnw_loc_01868 rnw_loc_01874 rnw_loc_01888 rnw_loc_01915 rnw_loc_01956 rnw_loc_01963 rnw_loc_01979 rnw_loc_01995 rnw_loc_02010 rnw_loc_02015 rnw_loc_02024 rnw_loc_02028 rnw_loc_02043 rnw_loc_02076 rnw_loc_02079 rnw_loc_02082 rnw_loc_02097 rnw_loc_02102 rnw_loc_02103 rnw_loc_02112 rnw_loc_02136 rnw_loc_02146 rnw_loc_02152 rnw_loc_02155 rnw_loc_02156 rnw_loc_02166 rnw_loc_02174 rnw_loc_02209 rnw_loc_02211 rnw_loc_02212 rnw_loc_02224 rnw_loc_02239 rnw_loc_02250 rnw_loc_02251 rnw_loc_02257 rnw_loc_02269 rnw_loc_02279 rnw_loc_02282 rnw_loc_02294 rnw_loc_02300 rnw_loc_02302 rnw_loc_02321 rnw_loc_02343 rnw_loc_02356 rnw_loc_02357 rnw_loc_02358 rnw_loc_02368 rnw_loc_02377 rnw_loc_02382 rnw_loc_02388 rnw_loc_02423 rnw_loc_02426 rnw_loc_02431 rnw_loc_02441 rnw_loc_02461 rnw_loc_02480 rnw_loc_02482 rnw_loc_02485 rnw_loc_02491 rnw_loc_02492 rnw_loc_02498 rnw_loc_02545 rnw_loc_02551 rnw_loc_02557 rnw_loc_02569 rnw_loc_02581 rnw_loc_02596 rnw_loc_02624 rnw_loc_02635 rnw_loc_02718
+			rnw_loc_01447 rnw_loc_01519 rnw_loc_01550 rnw_loc_01557 rnw_loc_01598 rnw_loc_01602 rnw_loc_01620 rnw_loc_01623 rnw_loc_01632 rnw_loc_01635 rnw_loc_01639 rnw_loc_01641 rnw_loc_01649 rnw_loc_01654 rnw_loc_01658 rnw_loc_01660 rnw_loc_01669 rnw_loc_01681 rnw_loc_01683 rnw_loc_01684 rnw_loc_01692 rnw_loc_01699 rnw_loc_01700 rnw_loc_01701 rnw_loc_01706 rnw_loc_01715 rnw_loc_01718 rnw_loc_01724 rnw_loc_01744 rnw_loc_01752 rnw_loc_01754 rnw_loc_01756 rnw_loc_01757 rnw_loc_01758 rnw_loc_01775 rnw_loc_01776 rnw_loc_01777 rnw_loc_01778 rnw_loc_01790 rnw_loc_01791 rnw_loc_01795 rnw_loc_01804 rnw_loc_01806 rnw_loc_01812 rnw_loc_01820 rnw_loc_01821 rnw_loc_01829 rnw_loc_01834 rnw_loc_01838 rnw_loc_01841 rnw_loc_01859 rnw_loc_01860 rnw_loc_01863 rnw_loc_01867 rnw_loc_01869 rnw_loc_01870 rnw_loc_01873 rnw_loc_01880 rnw_loc_01882 rnw_loc_01885 rnw_loc_01889 rnw_loc_01892 rnw_loc_01895 rnw_loc_01903 rnw_loc_01908 rnw_loc_01914 rnw_loc_01938 rnw_loc_01942 rnw_loc_01948 rnw_loc_01950 rnw_loc_01953 rnw_loc_01966 rnw_loc_01968 rnw_loc_01970 rnw_loc_01973 rnw_loc_01975 rnw_loc_01987 rnw_loc_01989 rnw_loc_01990 rnw_loc_01998 rnw_loc_02021 rnw_loc_02038 rnw_loc_02046 rnw_loc_02047 rnw_loc_02048 rnw_loc_02077 rnw_loc_02078 rnw_loc_02081 rnw_loc_02105 rnw_loc_02117 rnw_loc_02122 rnw_loc_02125 rnw_loc_02128 rnw_loc_02145 rnw_loc_02163 rnw_loc_02185 rnw_loc_02191 rnw_loc_02192 rnw_loc_02194 rnw_loc_02195 rnw_loc_02216 rnw_loc_02220 rnw_loc_02221 rnw_loc_02227 rnw_loc_02237 rnw_loc_02244 rnw_loc_02247 rnw_loc_02262 rnw_loc_02264 rnw_loc_02283 rnw_loc_02288 rnw_loc_02292 rnw_loc_02295 rnw_loc_02310 rnw_loc_02311 rnw_loc_02326 rnw_loc_02333 rnw_loc_02339 rnw_loc_02354 rnw_loc_02362 rnw_loc_02363 rnw_loc_02376 rnw_loc_02386 rnw_loc_02392 rnw_loc_02395 rnw_loc_02396 rnw_loc_02398 rnw_loc_02430 rnw_loc_02445 rnw_loc_02452 rnw_loc_02455 rnw_loc_02468 rnw_loc_02499 rnw_loc_02503 rnw_loc_02504 rnw_loc_02508 rnw_loc_02520 rnw_loc_02530 rnw_loc_02546 rnw_loc_02556 rnw_loc_02558 rnw_loc_02580 rnw_loc_02585 rnw_loc_02597 rnw_loc_02599 rnw_loc_02600 rnw_loc_02602 rnw_loc_02605 rnw_loc_02618 rnw_loc_02623 rnw_loc_02626 rnw_loc_02629 rnw_loc_02632 rnw_loc_02642 rnw_loc_02646 rnw_loc_02655 rnw_loc_02656 rnw_loc_02662 rnw_loc_02673 rnw_loc_02674 rnw_loc_02686 rnw_loc_02687 rnw_loc_02704 rnw_loc_02708 rnw_loc_02711 rnw_loc_02713 rnw_loc_02717 rnw_loc_02722 rnw_loc_02724 rnw_loc_02741 rnw_loc_02748 rnw_loc_02751 rnw_loc_02752 rnw_loc_02765 rnw_loc_02768 rnw_loc_02769 rnw_loc_02770 rnw_loc_02771 rnw_loc_02776 rnw_loc_02784 rnw_loc_02788 rnw_loc_02791 rnw_loc_02792 rnw_loc_02793 rnw_loc_02799 rnw_loc_02805 rnw_loc_02815 rnw_loc_02816 rnw_loc_02823 rnw_loc_02841 rnw_loc_02844 rnw_loc_02845 rnw_loc_02846 rnw_loc_02848 rnw_loc_02855 rnw_loc_02859 rnw_loc_02862 rnw_loc_02863 rnw_loc_02867 rnw_loc_02879 rnw_loc_02880 rnw_loc_02885 rnw_loc_02895 rnw_loc_02897 rnw_loc_02903 rnw_loc_02914 rnw_loc_02923 rnw_loc_02932 rnw_loc_02938 rnw_loc_02943 rnw_loc_02944 rnw_loc_02946 rnw_loc_02956 rnw_loc_02957 rnw_loc_02958 rnw_loc_02961 rnw_loc_02962 rnw_loc_02972 rnw_loc_02985 rnw_loc_02986 rnw_loc_02989 rnw_loc_02994 rnw_loc_02996 rnw_loc_02999 rnw_loc_03005 rnw_loc_03011 rnw_loc_03015 rnw_loc_03017 rnw_loc_03018 rnw_loc_03029 rnw_loc_03050 rnw_loc_03051 rnw_loc_03052 rnw_loc_03057 rnw_loc_03061 rnw_loc_03066 rnw_loc_03068 rnw_loc_03070 rnw_loc_03082 rnw_loc_03083 rnw_loc_03084 rnw_loc_03090 rnw_loc_03095 rnw_loc_03102 rnw_loc_03103 rnw_loc_03108 rnw_loc_03110 rnw_loc_03111 rnw_loc_03114 rnw_loc_03118 rnw_loc_03123 rnw_loc_03133 rnw_loc_03134 rnw_loc_03135 rnw_loc_03140 rnw_loc_03141 rnw_loc_03145 rnw_loc_03146 rnw_loc_03148 rnw_loc_03152 rnw_loc_03153 rnw_loc_03156 rnw_loc_03157 rnw_loc_03159 rnw_loc_03179 rnw_loc_03185 rnw_loc_03191 rnw_loc_03194 rnw_loc_03198 rnw_loc_03204 rnw_loc_03206 rnw_loc_03207 rnw_loc_03210 rnw_loc_03213 rnw_loc_03216 rnw_loc_03228 rnw_loc_03235 rnw_loc_03236 rnw_loc_03240 rnw_loc_03248 rnw_loc_03249 rnw_loc_03255 rnw_loc_03256 rnw_loc_03266 rnw_loc_03271 rnw_loc_03280 rnw_loc_03281 rnw_loc_03282 rnw_loc_03288 rnw_loc_03309 rnw_loc_03322 rnw_loc_03325 rnw_loc_03332 rnw_loc_03334 rnw_loc_03340 rnw_loc_03352 rnw_loc_03370 rnw_loc_03373 rnw_loc_03382 rnw_loc_03384 rnw_loc_03387 rnw_loc_03393 rnw_loc_03398 rnw_loc_03405 rnw_loc_03415 rnw_loc_03416 rnw_loc_03419 rnw_loc_03434 rnw_loc_03444 rnw_loc_03448 rnw_loc_03452 rnw_loc_03453 rnw_loc_03467 rnw_loc_03472 rnw_loc_03488 rnw_loc_03501 rnw_loc_03505 rnw_loc_03509 rnw_loc_03512 rnw_loc_03513 rnw_loc_03535 rnw_loc_03537 rnw_loc_03538 rnw_loc_03548 rnw_loc_03563 rnw_loc_03571 rnw_loc_03572 rnw_loc_03601
 		}
-		capital = rnw_loc_01898
+		capital = rnw_loc_01778
 		include = "amerindian_advanced_monarchy_not_nahuatl"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -64428,10 +64406,8 @@ countries = {
 	}
 	XFO = {
 		own_control_core = {
-			rnw_loc_01759 rnw_loc_01813 rnw_loc_01839 rnw_loc_01875 rnw_loc_01904 rnw_loc_01913 rnw_loc_01916 rnw_loc_01925
-			rnw_loc_01976 rnw_loc_01985 rnw_loc_01988 rnw_loc_02029 rnw_loc_02049 rnw_loc_02061 rnw_loc_02064 rnw_loc_02106
-			rnw_loc_02107 rnw_loc_02118 rnw_loc_02123 rnw_loc_02142 rnw_loc_02188 rnw_loc_02191 rnw_loc_02192 rnw_loc_02244
-			rnw_loc_02262 rnw_loc_02283
+			rnw_loc_01988 rnw_loc_02029 rnw_loc_02049 rnw_loc_02061 rnw_loc_02064 rnw_loc_02106 rnw_loc_02107 rnw_loc_02118 rnw_loc_02123 rnw_loc_02142 rnw_loc_02188
+			rnw_loc_01741 rnw_loc_01852 rnw_loc_01861 rnw_loc_01886 rnw_loc_01905 rnw_loc_01909 rnw_loc_01922 rnw_loc_01952 rnw_loc_01959 rnw_loc_01964 rnw_loc_01994 rnw_loc_02003 rnw_loc_02011 rnw_loc_02044 rnw_loc_02059 rnw_loc_02072 rnw_loc_02080 rnw_loc_02084 rnw_loc_02099 rnw_loc_02111 rnw_loc_02113 rnw_loc_02137 rnw_loc_02159 rnw_loc_02164 rnw_loc_02171 rnw_loc_02182 rnw_loc_02201
 		}
 		capital = rnw_loc_02029
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -64735,8 +64711,9 @@ countries = {
 			rnw_loc_01851 rnw_loc_01854 rnw_loc_01878 rnw_loc_01907 rnw_loc_01912 rnw_loc_01932 rnw_loc_01962 rnw_loc_01986
 			rnw_loc_02000 rnw_loc_02012 rnw_loc_02023 rnw_loc_02033 rnw_loc_02037 rnw_loc_02039 rnw_loc_02040 rnw_loc_02065
 			rnw_loc_02104 rnw_loc_02114 rnw_loc_02124 rnw_loc_02144 rnw_loc_02170 rnw_loc_02199
+			rnw_loc_00838 rnw_loc_00866 rnw_loc_00881 rnw_loc_00887 rnw_loc_00902 rnw_loc_00908 rnw_loc_00956 rnw_loc_00962 rnw_loc_00985 rnw_loc_01002 rnw_loc_01006 rnw_loc_01010 rnw_loc_01013 rnw_loc_01016 rnw_loc_01055 rnw_loc_01075 rnw_loc_01087 rnw_loc_01091 rnw_loc_01097 rnw_loc_01098 rnw_loc_01114 rnw_loc_01140 rnw_loc_01165 rnw_loc_01181 rnw_loc_01196 rnw_loc_01200 rnw_loc_01207 rnw_loc_01208 rnw_loc_01236 rnw_loc_01250 rnw_loc_01260 rnw_loc_01263 rnw_loc_01266 rnw_loc_01270 rnw_loc_01272 rnw_loc_01273 rnw_loc_01282 rnw_loc_01283 rnw_loc_01291 rnw_loc_01303 rnw_loc_01308 rnw_loc_01309 rnw_loc_01316 rnw_loc_01333 rnw_loc_01345 rnw_loc_01354 rnw_loc_01355 rnw_loc_01359 rnw_loc_01362 rnw_loc_01363 rnw_loc_01389 rnw_loc_01400 rnw_loc_01401 rnw_loc_01412 rnw_loc_01417 rnw_loc_01422 rnw_loc_01434 rnw_loc_01439 rnw_loc_01450 rnw_loc_01452 rnw_loc_01454 rnw_loc_01464 rnw_loc_01469 rnw_loc_01472 rnw_loc_01475 rnw_loc_01481 rnw_loc_01493 rnw_loc_01495 rnw_loc_01515 rnw_loc_01516 rnw_loc_01522 rnw_loc_01524 rnw_loc_01530 rnw_loc_01551 rnw_loc_01556 rnw_loc_01569 rnw_loc_01575 rnw_loc_01578 rnw_loc_01580 rnw_loc_01586 rnw_loc_01590 rnw_loc_01591 rnw_loc_01597 rnw_loc_01607 rnw_loc_01609 rnw_loc_01610 rnw_loc_01614 rnw_loc_01616 rnw_loc_01624 rnw_loc_01625 rnw_loc_01631 rnw_loc_01634 rnw_loc_01642 rnw_loc_01653 rnw_loc_01657 rnw_loc_01664 rnw_loc_01665 rnw_loc_01666 rnw_loc_01674 rnw_loc_01675 rnw_loc_01678 rnw_loc_01686 rnw_loc_01690 rnw_loc_01698 rnw_loc_01709 rnw_loc_01722 rnw_loc_01727 rnw_loc_01730 rnw_loc_01731 rnw_loc_01732 rnw_loc_01737 rnw_loc_01738 rnw_loc_01740 rnw_loc_01742 rnw_loc_01746 rnw_loc_01750 rnw_loc_01762 rnw_loc_01768 rnw_loc_01784 rnw_loc_01787 rnw_loc_01789 rnw_loc_01798 rnw_loc_01799 rnw_loc_01800 rnw_loc_01803 rnw_loc_01811 rnw_loc_01815 rnw_loc_01816 rnw_loc_01837 rnw_loc_01843 rnw_loc_01844 rnw_loc_01848 rnw_loc_01858 rnw_loc_01862 rnw_loc_01866 rnw_loc_01872 rnw_loc_01877 rnw_loc_01900 rnw_loc_01901 rnw_loc_01902 rnw_loc_01906 rnw_loc_01920 rnw_loc_01924 rnw_loc_01936 rnw_loc_01941 rnw_loc_01946 rnw_loc_01957 rnw_loc_01961 rnw_loc_01967 rnw_loc_01971 rnw_loc_01972 rnw_loc_01999 rnw_loc_02013 rnw_loc_02088 rnw_loc_02126 rnw_loc_02127
 		}
-		capital = rnw_loc_02104
+		capital = rnw_loc_01687
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -64923,8 +64900,9 @@ countries = {
 			rnw_loc_01954 rnw_loc_01965 rnw_loc_02016 rnw_loc_02020 rnw_loc_02026 rnw_loc_02030 rnw_loc_02034 rnw_loc_02035
 			rnw_loc_02053 rnw_loc_02068 rnw_loc_02069 rnw_loc_02086 rnw_loc_02115 rnw_loc_02120 rnw_loc_02143 rnw_loc_02160
 			rnw_loc_02161 rnw_loc_02165 rnw_loc_02207 rnw_loc_02228 rnw_loc_02229 rnw_loc_02240 rnw_loc_02263 rnw_loc_02328
+			rnw_loc_01679 rnw_loc_01825 rnw_loc_01833 rnw_loc_01910 rnw_loc_01911 rnw_loc_01928 rnw_loc_01929 rnw_loc_01930 rnw_loc_01939 rnw_loc_01980 rnw_loc_01983 rnw_loc_01991 rnw_loc_01992 rnw_loc_02022 rnw_loc_02036 rnw_loc_02054 rnw_loc_02073 rnw_loc_02085 rnw_loc_02087 rnw_loc_02100 rnw_loc_02121 rnw_loc_02129 rnw_loc_02131 rnw_loc_02162 rnw_loc_02167 rnw_loc_02177 rnw_loc_02189 rnw_loc_02190 rnw_loc_02202 rnw_loc_02208 rnw_loc_02217 rnw_loc_02222 rnw_loc_02223 rnw_loc_02230 rnw_loc_02235 rnw_loc_02261 rnw_loc_02265 rnw_loc_02266 rnw_loc_02267 rnw_loc_02273 rnw_loc_02278 rnw_loc_02290 rnw_loc_02313 rnw_loc_02332 rnw_loc_02334 rnw_loc_02335 rnw_loc_02344 rnw_loc_02369 rnw_loc_02378 rnw_loc_02393 rnw_loc_02434 rnw_loc_02442 rnw_loc_02443 rnw_loc_02446 rnw_loc_02454 rnw_loc_02457 rnw_loc_02458 rnw_loc_02462 rnw_loc_02493 rnw_loc_02500 rnw_loc_02506 rnw_loc_02527 rnw_loc_02534 rnw_loc_02548 rnw_loc_02554 rnw_loc_02565 rnw_loc_02601 rnw_loc_02608 rnw_loc_02611 rnw_loc_02616 rnw_loc_02620 rnw_loc_02625 rnw_loc_02651 rnw_loc_02664 rnw_loc_02665 rnw_loc_02670 rnw_loc_02671 rnw_loc_02682 rnw_loc_02691 rnw_loc_02701 rnw_loc_02709 rnw_loc_02749 rnw_loc_02758 rnw_loc_02759 rnw_loc_02760 rnw_loc_02778 rnw_loc_02781 rnw_loc_02796 rnw_loc_02800 rnw_loc_02817 rnw_loc_02832 rnw_loc_02839 rnw_loc_02843 rnw_loc_02851 rnw_loc_02860 rnw_loc_02871 rnw_loc_02890 rnw_loc_02891 rnw_loc_02901 rnw_loc_02908 rnw_loc_02915 rnw_loc_02916 rnw_loc_02919 rnw_loc_02925 rnw_loc_02934 rnw_loc_02935 rnw_loc_02936 rnw_loc_02952 rnw_loc_02964 rnw_loc_02965 rnw_loc_02970 rnw_loc_02971 rnw_loc_02973 rnw_loc_02976 rnw_loc_02977 rnw_loc_02987 rnw_loc_02991 rnw_loc_02995 rnw_loc_02997 rnw_loc_03012 rnw_loc_03024 rnw_loc_03030 rnw_loc_03033 rnw_loc_03035 rnw_loc_03038 rnw_loc_03041 rnw_loc_03042 rnw_loc_03044 rnw_loc_03045 rnw_loc_03075 rnw_loc_03085 rnw_loc_03086 rnw_loc_03091 rnw_loc_03092 rnw_loc_03094 rnw_loc_03097 rnw_loc_03098 rnw_loc_03101 rnw_loc_03104 rnw_loc_03107 rnw_loc_03127 rnw_loc_03136 rnw_loc_03147 rnw_loc_03150 rnw_loc_03151 rnw_loc_03154 rnw_loc_03155 rnw_loc_03165 rnw_loc_03169 rnw_loc_03174 rnw_loc_03175 rnw_loc_03178 rnw_loc_03188 rnw_loc_03189 rnw_loc_03195 rnw_loc_03199 rnw_loc_03205 rnw_loc_03214 rnw_loc_03224 rnw_loc_03227 rnw_loc_03233 rnw_loc_03234 rnw_loc_03250 rnw_loc_03253 rnw_loc_03259 rnw_loc_03260 rnw_loc_03267 rnw_loc_03273 rnw_loc_03274 rnw_loc_03275 rnw_loc_03283 rnw_loc_03290 rnw_loc_03292 rnw_loc_03294 rnw_loc_03302 rnw_loc_03304 rnw_loc_03311 rnw_loc_03324 rnw_loc_03346 rnw_loc_03350 rnw_loc_03351 rnw_loc_03353 rnw_loc_03369 rnw_loc_03380 rnw_loc_03386 rnw_loc_03399 rnw_loc_03403 rnw_loc_03407 rnw_loc_03410 rnw_loc_03425 rnw_loc_03441 rnw_loc_03455 rnw_loc_03457 rnw_loc_03460 rnw_loc_03461 rnw_loc_03464 rnw_loc_03469 rnw_loc_03474 rnw_loc_03499 rnw_loc_03522 rnw_loc_03526 rnw_loc_03531 rnw_loc_03546 rnw_loc_03552 rnw_loc_03555 rnw_loc_03576 rnw_loc_03577 rnw_loc_03578 rnw_loc_03588 rnw_loc_03594 rnw_loc_03597 rnw_loc_03602 rnw_loc_03611 rnw_loc_03613 rnw_loc_03622 rnw_loc_03626 rnw_loc_03642 rnw_loc_03643 rnw_loc_03644 rnw_loc_03651 rnw_loc_03670 rnw_loc_03671 rnw_loc_03682 rnw_loc_03683 rnw_loc_03696 rnw_loc_03700 rnw_loc_03717 rnw_loc_03721 rnw_loc_03729 rnw_loc_03733 rnw_loc_03742 rnw_loc_03769 rnw_loc_03799 rnw_loc_03815 rnw_loc_03862
 		}
-		capital = rnw_loc_02161
+		capital = rnw_loc_01965
 		include = "amerindian_advanced_monarchy_not_nahuatl"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -65626,7 +65604,8 @@ countries = {
 	}
 	XOF = {
 		own_control_core = {
-			rnw_loc_02408 rnw_loc_02471 rnw_loc_02539 rnw_loc_02603 rnw_loc_02640 rnw_loc_02691 rnw_loc_02807
+			rnw_loc_02408 rnw_loc_02471 rnw_loc_02539 rnw_loc_02603 rnw_loc_02640
+			rnw_loc_02348 rnw_loc_02436
 		}
 		capital = rnw_loc_02471
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -65882,10 +65861,9 @@ countries = {
 	}
 	LUU = {
 		own_control_core = {
-			rnw_loc_02420 rnw_loc_02447 rnw_loc_02459 rnw_loc_02489 rnw_loc_02501 rnw_loc_02540 rnw_loc_02552 rnw_loc_02568
-			rnw_loc_02575 rnw_loc_02645
+			rnw_loc_00383 rnw_loc_00386 rnw_loc_00389 rnw_loc_00399 rnw_loc_00404 rnw_loc_00409 rnw_loc_00420 rnw_loc_00428 rnw_loc_00437 rnw_loc_00438 rnw_loc_00442 rnw_loc_00450 rnw_loc_00456 rnw_loc_00461 rnw_loc_00473 rnw_loc_00487 rnw_loc_00492 rnw_loc_00502 rnw_loc_00509 rnw_loc_00510 rnw_loc_00524 rnw_loc_00528 rnw_loc_00538 rnw_loc_00539 rnw_loc_00540 rnw_loc_00570 rnw_loc_00581 rnw_loc_00585 rnw_loc_00598 rnw_loc_00601 rnw_loc_00606 rnw_loc_00631 rnw_loc_00633 rnw_loc_00636 rnw_loc_00638 rnw_loc_00659 rnw_loc_00682 rnw_loc_00683 rnw_loc_00694 rnw_loc_00704 rnw_loc_00758
 		}
-		capital = rnw_loc_02540
+		capital = rnw_loc_00502
 		include = "amerindian_monarchy"
 		starting_technology_level = 1
 		discovered_areas = {
@@ -66008,6 +65986,7 @@ countries = {
 	IHD = {
 		own_control_core = {
 			rnw_loc_02365 rnw_loc_02453 rnw_loc_02573 rnw_loc_02579
+			rnw_loc_02658
 		}
 		capital = rnw_loc_02573
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -66194,9 +66173,7 @@ countries = {
 	}
 	QRC = {
 		own_control_core = {
-			rnw_loc_02261 rnw_loc_02266 rnw_loc_02290 rnw_loc_02334 rnw_loc_02335 rnw_loc_02348 rnw_loc_02434 rnw_loc_02436
-			rnw_loc_02443 rnw_loc_02457 rnw_loc_02548 rnw_loc_02554 rnw_loc_02565 rnw_loc_02601 rnw_loc_02615 rnw_loc_02651
-			rnw_loc_02682 rnw_loc_02688 rnw_loc_02754 rnw_loc_02756
+			rnw_loc_02615 rnw_loc_02688
 		}
 		capital = rnw_loc_02615
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -66384,8 +66361,9 @@ countries = {
 			rnw_loc_02176 rnw_loc_02179 rnw_loc_02183 rnw_loc_02233 rnw_loc_02234 rnw_loc_02243 rnw_loc_02271 rnw_loc_02285
 			rnw_loc_02308 rnw_loc_02315 rnw_loc_02329 rnw_loc_02350 rnw_loc_02372 rnw_loc_02373 rnw_loc_02394 rnw_loc_02401
 			rnw_loc_02487 rnw_loc_02510 rnw_loc_02541 rnw_loc_02566 rnw_loc_02591 rnw_loc_02644
+			rnw_loc_02355 rnw_loc_02519 rnw_loc_02723 rnw_loc_02733 rnw_loc_02742 rnw_loc_02802
 		}
-		capital = rnw_loc_02644
+		capital = rnw_loc_02116
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -66570,10 +66548,9 @@ countries = {
 	}
 	DKZ = {
 		own_control_core = {
-			rnw_loc_02369 rnw_loc_02378 rnw_loc_02428 rnw_loc_02442 rnw_loc_02446 rnw_loc_02454 rnw_loc_02458 rnw_loc_02460
-			rnw_loc_02518 rnw_loc_02527 rnw_loc_02595 rnw_loc_02611 rnw_loc_02683 rnw_loc_02736
+			rnw_loc_02428 rnw_loc_02460 rnw_loc_02518 rnw_loc_02595 rnw_loc_02683 rnw_loc_02736
 		}
-		capital = rnw_loc_02683
+		capital = rnw_loc_02428
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -66981,8 +66958,9 @@ countries = {
 	TDS = {
 		own_control_core = {
 			rnw_loc_02466 rnw_loc_02472 rnw_loc_02484 rnw_loc_02567 rnw_loc_02592 rnw_loc_02729 rnw_loc_02801
+			rnw_loc_02414 rnw_loc_02497 rnw_loc_02531 rnw_loc_02562 rnw_loc_02584 rnw_loc_02622 rnw_loc_02712 rnw_loc_02809 rnw_loc_02819 rnw_loc_02883 rnw_loc_02889 rnw_loc_02893 rnw_loc_02922 rnw_loc_02928 rnw_loc_03000 rnw_loc_03001 rnw_loc_03022 rnw_loc_03040
 		}
-		capital = rnw_loc_02801
+		capital = rnw_loc_03040
 		include = "amerindian_monarchy"
 		starting_technology_level = 0
 		discovered_areas = {
@@ -67213,8 +67191,9 @@ countries = {
 	YUG = {
 		own_control_core = {
 			rnw_loc_02831 rnw_loc_02850
+			rnw_loc_02258 rnw_loc_02293 rnw_loc_02301 rnw_loc_02317 rnw_loc_02324 rnw_loc_02383 rnw_loc_02390 rnw_loc_02406 rnw_loc_02432 rnw_loc_02456 rnw_loc_02476 rnw_loc_02511 rnw_loc_02524 rnw_loc_02526 rnw_loc_02533 rnw_loc_02572 rnw_loc_02582 rnw_loc_02606 rnw_loc_02610 rnw_loc_02643 rnw_loc_02657 rnw_loc_02675 rnw_loc_02693 rnw_loc_02772 rnw_loc_02780 rnw_loc_02795 rnw_loc_02866 rnw_loc_02898 rnw_loc_02940
 		}
-		capital = rnw_loc_02850
+		capital = rnw_loc_02476
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -68815,8 +68794,9 @@ countries = {
 	TFZ = {
 		own_control_core = {
 			rnw_loc_03211 rnw_loc_03308 rnw_loc_03423 rnw_loc_03446
+			rnw_loc_02974 rnw_loc_03003 rnw_loc_03008 rnw_loc_03021 rnw_loc_03060 rnw_loc_03073 rnw_loc_03076 rnw_loc_03088 rnw_loc_03089 rnw_loc_03105 rnw_loc_03115 rnw_loc_03122 rnw_loc_03129 rnw_loc_03163 rnw_loc_03167 rnw_loc_03173 rnw_loc_03218 rnw_loc_03219 rnw_loc_03221 rnw_loc_03241 rnw_loc_03246 rnw_loc_03254 rnw_loc_03258 rnw_loc_03264 rnw_loc_03320 rnw_loc_03321 rnw_loc_03331 rnw_loc_03333 rnw_loc_03360 rnw_loc_03424 rnw_loc_03438 rnw_loc_03504 rnw_loc_03508 rnw_loc_03525 rnw_loc_03557 rnw_loc_03589 rnw_loc_03632 rnw_loc_03706 rnw_loc_03716 rnw_loc_03775 rnw_loc_03790
 		}
-		capital = rnw_loc_03211
+		capital = rnw_loc_03423
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -68956,9 +68936,9 @@ countries = {
 	}
 	PFN = {
 		own_control_core = {
-			rnw_loc_03244
+			rnw_loc_04080 rnw_loc_04086 rnw_loc_04088 rnw_loc_04098 rnw_loc_04103 rnw_loc_04105 rnw_loc_04108 rnw_loc_04113 rnw_loc_04114 rnw_loc_04115 rnw_loc_04116 rnw_loc_04117 rnw_loc_04118 rnw_loc_04119 rnw_loc_04120 rnw_loc_04121 rnw_loc_04123 rnw_loc_04124 rnw_loc_04125 rnw_loc_04126 rnw_loc_04127 rnw_loc_04128 rnw_loc_04129 rnw_loc_04130 rnw_loc_04131 rnw_loc_04132 rnw_loc_04134 rnw_loc_04137 rnw_loc_04138 rnw_loc_04139 rnw_loc_04140 rnw_loc_04142 rnw_loc_04143 rnw_loc_04144 rnw_loc_04150 rnw_loc_04152 rnw_loc_04156 rnw_loc_04157 rnw_loc_04159 rnw_loc_04167 rnw_loc_04171
 		}
-		capital = rnw_loc_03244
+		capital = rnw_loc_04114
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -69143,8 +69123,9 @@ countries = {
 	ZEM = {
 		own_control_core = {
 			rnw_loc_03287 rnw_loc_03397 rnw_loc_03413 rnw_loc_03454 rnw_loc_03516
+			rnw_loc_02868 rnw_loc_02899 rnw_loc_02981 rnw_loc_03016 rnw_loc_03055 rnw_loc_03109 rnw_loc_03139 rnw_loc_03244
 		}
-		capital = rnw_loc_03287
+		capital = rnw_loc_03413
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -69239,8 +69220,9 @@ countries = {
 	DWH = {
 		own_control_core = {
 			rnw_loc_03296 rnw_loc_03329 rnw_loc_03401
+			rnw_loc_03121 rnw_loc_03162 rnw_loc_03166 rnw_loc_03202 rnw_loc_03257 rnw_loc_03263 rnw_loc_03277 rnw_loc_03299 rnw_loc_03383 rnw_loc_03404 rnw_loc_03411 rnw_loc_03487 rnw_loc_03515 rnw_loc_03582 rnw_loc_03592 rnw_loc_03593 rnw_loc_03612 rnw_loc_03653 rnw_loc_03697
 		}
-		capital = rnw_loc_03296
+		capital = rnw_loc_03401
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -70485,6 +70467,7 @@ countries = {
 	VRH = {
 		own_control_core = {
 			rnw_loc_03532 rnw_loc_03549 rnw_loc_03558 rnw_loc_03637 rnw_loc_03638
+			rnw_loc_03358 rnw_loc_03402 rnw_loc_03417 rnw_loc_03439 rnw_loc_03463 rnw_loc_03468 rnw_loc_03497 rnw_loc_03498
 		}
 		capital = rnw_loc_03549
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -70630,6 +70613,7 @@ countries = {
 	ISZ = {
 		own_control_core = {
 			rnw_loc_03477 rnw_loc_03523 rnw_loc_03527 rnw_loc_03580 rnw_loc_03600 rnw_loc_03605
+			rnw_loc_03503 rnw_loc_03604 rnw_loc_03606 rnw_loc_03654 rnw_loc_03668 rnw_loc_03673 rnw_loc_03724 rnw_loc_03735 rnw_loc_03770 rnw_loc_03791 rnw_loc_03796 rnw_loc_03820 rnw_loc_03832 rnw_loc_03833 rnw_loc_03846 rnw_loc_03849 rnw_loc_03877 rnw_loc_03879 rnw_loc_03900 rnw_loc_03918 rnw_loc_03922 rnw_loc_03923 rnw_loc_03936 rnw_loc_03942 rnw_loc_03945 rnw_loc_03983 rnw_loc_03985 rnw_loc_03990 rnw_loc_03993 rnw_loc_03995 rnw_loc_04005 rnw_loc_04025 rnw_loc_04027 rnw_loc_04039 rnw_loc_04047 rnw_loc_04052 rnw_loc_04055 rnw_loc_04074
 		}
 		capital = rnw_loc_03580
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -70931,6 +70915,7 @@ countries = {
 	JVG = {
 		own_control_core = {
 			rnw_loc_03534 rnw_loc_03574 rnw_loc_03586 rnw_loc_03610 rnw_loc_03674
+			rnw_loc_03649 rnw_loc_03678 rnw_loc_03693 rnw_loc_03715 rnw_loc_03745 rnw_loc_03753 rnw_loc_03771 rnw_loc_03795 rnw_loc_03804 rnw_loc_03813 rnw_loc_03817 rnw_loc_03827 rnw_loc_03841 rnw_loc_03868 rnw_loc_03878 rnw_loc_03881 rnw_loc_03882 rnw_loc_03915
 		}
 		capital = rnw_loc_03674
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -71072,6 +71057,7 @@ countries = {
 		own_control_core = {
 			rnw_loc_03551 rnw_loc_03623 rnw_loc_03629 rnw_loc_03639 rnw_loc_03666 rnw_loc_03676 rnw_loc_03686 rnw_loc_03698
 			rnw_loc_03699 rnw_loc_03703 rnw_loc_03731 rnw_loc_03732 rnw_loc_03754 rnw_loc_03760 rnw_loc_03781
+			rnw_loc_03618
 		}
 		capital = rnw_loc_03699
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -71236,6 +71222,7 @@ countries = {
 	LAX = {
 		own_control_core = {
 			rnw_loc_03647 rnw_loc_03727 rnw_loc_03741
+			rnw_loc_03476 rnw_loc_03560 rnw_loc_03567 rnw_loc_03585 rnw_loc_03591 rnw_loc_03608 rnw_loc_03619 rnw_loc_03645 rnw_loc_03646 rnw_loc_03656 rnw_loc_03660 rnw_loc_03677 rnw_loc_03694 rnw_loc_03695 rnw_loc_03705 rnw_loc_03719 rnw_loc_03740 rnw_loc_03747 rnw_loc_03819 rnw_loc_03824 rnw_loc_03857 rnw_loc_03861
 		}
 		capital = rnw_loc_03727
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -71265,6 +71252,7 @@ countries = {
 		own_control_core = {
 			rnw_loc_03536 rnw_loc_03543 rnw_loc_03561 rnw_loc_03620 rnw_loc_03621 rnw_loc_03657 rnw_loc_03661 rnw_loc_03692
 			rnw_loc_03702 rnw_loc_03737 rnw_loc_03762 rnw_loc_03765 rnw_loc_03766
+			rnw_loc_03431 rnw_loc_03450 rnw_loc_03528 rnw_loc_03599 rnw_loc_03709 rnw_loc_03786 rnw_loc_03797 rnw_loc_03798 rnw_loc_03823 rnw_loc_03828 rnw_loc_03830 rnw_loc_03840 rnw_loc_03856 rnw_loc_03858 rnw_loc_03875 rnw_loc_03883 rnw_loc_03884 rnw_loc_03885 rnw_loc_03898 rnw_loc_03901 rnw_loc_03902 rnw_loc_03908 rnw_loc_03911 rnw_loc_03916 rnw_loc_03919 rnw_loc_03925 rnw_loc_03947 rnw_loc_03956 rnw_loc_03966 rnw_loc_03972 rnw_loc_04000 rnw_loc_04001 rnw_loc_04011 rnw_loc_04022 rnw_loc_04034 rnw_loc_04045 rnw_loc_04056
 		}
 		capital = rnw_loc_03737
 		include = "amerindian_monarchy"
@@ -72483,6 +72471,7 @@ countries = {
 	FVQ = {
 		own_control_core = {
 			rnw_loc_04037 rnw_loc_04042 rnw_loc_04046 rnw_loc_04063
+			rnw_loc_03120 rnw_loc_03124 rnw_loc_03201 rnw_loc_03208 rnw_loc_03225 rnw_loc_03270 rnw_loc_03305 rnw_loc_03312 rnw_loc_03313 rnw_loc_03314 rnw_loc_03319 rnw_loc_03326 rnw_loc_03363 rnw_loc_03371 rnw_loc_03376 rnw_loc_03377 rnw_loc_03389 rnw_loc_03390 rnw_loc_03391 rnw_loc_03395 rnw_loc_03400 rnw_loc_03412 rnw_loc_03422 rnw_loc_03426 rnw_loc_03432 rnw_loc_03437 rnw_loc_03442 rnw_loc_03443 rnw_loc_03449 rnw_loc_03458 rnw_loc_03471 rnw_loc_03475 rnw_loc_03479 rnw_loc_03482 rnw_loc_03484 rnw_loc_03485 rnw_loc_03486 rnw_loc_03491 rnw_loc_03500 rnw_loc_03502 rnw_loc_03506 rnw_loc_03518 rnw_loc_03519 rnw_loc_03524 rnw_loc_03540 rnw_loc_03541 rnw_loc_03542 rnw_loc_03545 rnw_loc_03547 rnw_loc_03556 rnw_loc_03559 rnw_loc_03564 rnw_loc_03565 rnw_loc_03573 rnw_loc_03579 rnw_loc_03584 rnw_loc_03614 rnw_loc_03625 rnw_loc_03628 rnw_loc_03630 rnw_loc_03631 rnw_loc_03640 rnw_loc_03641 rnw_loc_03652 rnw_loc_03667 rnw_loc_03684 rnw_loc_03685 rnw_loc_03688 rnw_loc_03704 rnw_loc_03722 rnw_loc_03723 rnw_loc_03725 rnw_loc_03734 rnw_loc_03743 rnw_loc_03761 rnw_loc_03764 rnw_loc_03780 rnw_loc_03788 rnw_loc_03800 rnw_loc_03816 rnw_loc_03854 rnw_loc_03860 rnw_loc_03864 rnw_loc_03926 rnw_loc_03953 rnw_loc_03961 rnw_loc_03974 rnw_loc_03980 rnw_loc_04012 rnw_loc_04072
 		}
 		capital = rnw_loc_04042
 		starting_technology_level = 2
@@ -72591,6 +72580,7 @@ countries = {
 	WGA = {
 		own_control_core = {
 			rnw_loc_04060
+			rnw_loc_04007 rnw_loc_04035
 		}
 		capital = rnw_loc_04060
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -72662,7 +72652,8 @@ countries = {
 	}
 	LIY = {
 		own_control_core = {
-			rnw_loc_03996 rnw_loc_04016 rnw_loc_04048 rnw_loc_04068 rnw_loc_04076 rnw_loc_04100
+			rnw_loc_03996 rnw_loc_04016 rnw_loc_04048 rnw_loc_04068 rnw_loc_04076
+			rnw_loc_03633 rnw_loc_03634 rnw_loc_03659 rnw_loc_03664 rnw_loc_03672 rnw_loc_03690 rnw_loc_03701 rnw_loc_03711 rnw_loc_03718 rnw_loc_03726 rnw_loc_03738 rnw_loc_03739 rnw_loc_03749 rnw_loc_03756 rnw_loc_03793 rnw_loc_03801 rnw_loc_03807 rnw_loc_03809 rnw_loc_03814 rnw_loc_03818 rnw_loc_03826 rnw_loc_03835 rnw_loc_03837 rnw_loc_03847 rnw_loc_03870 rnw_loc_03880 rnw_loc_03889 rnw_loc_03892 rnw_loc_03903 rnw_loc_03906 rnw_loc_03920 rnw_loc_03929 rnw_loc_03940 rnw_loc_03951 rnw_loc_03977 rnw_loc_03999
 		}
 		capital = rnw_loc_04068
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -73063,7 +73054,7 @@ countries = {
 	}
 	DTK = {
 		own_control_core = {
-			rnw_loc_04038 rnw_loc_04133 rnw_loc_04135 rnw_loc_04136
+			rnw_loc_04133 rnw_loc_04135 rnw_loc_04136
 		}
 		capital = rnw_loc_04135
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -73507,8 +73498,9 @@ countries = {
 	JEJ = {
 		own_control_core = {
 			rnw_loc_04225 rnw_loc_04234
+			rnw_loc_04215 rnw_loc_04219 rnw_loc_04220 rnw_loc_04221 rnw_loc_04223 rnw_loc_04226 rnw_loc_04228 rnw_loc_04230
 		}
-		capital = rnw_loc_04225
+		capital = rnw_loc_04223
 		starting_technology_level = 2
 		discovered_areas = {
 			central_america_sea_zones_area cuba_area kuskatan_area rnw_area_0046 rnw_area_0047 rnw_area_0048 rnw_sea_area_0003
@@ -73637,6 +73629,7 @@ countries = {
 	PWG = {
 		own_control_core = {
 			rnw_loc_04240 rnw_loc_04249
+			rnw_loc_04229 rnw_loc_04231 rnw_loc_04232 rnw_loc_04233 rnw_loc_04241
 		}
 		capital = rnw_loc_04240
 		starting_technology_level = 2
@@ -73675,9 +73668,9 @@ countries = {
 	}
 	ANF = {
 		own_control_core = {
-			rnw_loc_04226 rnw_loc_04233 rnw_loc_04241
+			rnw_loc_04279 rnw_loc_04286 rnw_loc_04293 rnw_loc_04295 rnw_loc_04301 rnw_loc_04304 rnw_loc_04306 rnw_loc_04308 rnw_loc_04311 rnw_loc_04313 rnw_loc_04318 rnw_loc_04320 rnw_loc_04321 rnw_loc_04331 rnw_loc_04332 rnw_loc_04337 rnw_loc_04342 rnw_loc_04344 rnw_loc_04350 rnw_loc_04354 rnw_loc_04355 rnw_loc_04357 rnw_loc_04358 rnw_loc_04360 rnw_loc_04362 rnw_loc_04372 rnw_loc_04379 rnw_loc_04387 rnw_loc_04388 rnw_loc_04390 rnw_loc_04392 rnw_loc_04394 rnw_loc_04404 rnw_loc_04409 rnw_loc_04414 rnw_loc_04417 rnw_loc_04419 rnw_loc_04420 rnw_loc_04428 rnw_loc_04436 rnw_loc_04439 rnw_loc_04442 rnw_loc_04444 rnw_loc_04449 rnw_loc_04454 rnw_loc_04455 rnw_loc_04461 rnw_loc_04464 rnw_loc_04470 rnw_loc_04479
 		}
-		capital = rnw_loc_04241
+		capital = rnw_loc_04286
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -73703,8 +73696,9 @@ countries = {
 	NPB = {
 		own_control_core = {
 			rnw_loc_04242 rnw_loc_04246 rnw_loc_04263
+			rnw_loc_04235 rnw_loc_04236 rnw_loc_04237 rnw_loc_04238 rnw_loc_04239 rnw_loc_04243 rnw_loc_04245 rnw_loc_04247 rnw_loc_04248 rnw_loc_04250 rnw_loc_04251 rnw_loc_04252 rnw_loc_04253 rnw_loc_04254 rnw_loc_04255 rnw_loc_04256 rnw_loc_04258 rnw_loc_04259 rnw_loc_04260 rnw_loc_04261 rnw_loc_04264 rnw_loc_04265 rnw_loc_04266 rnw_loc_04267 rnw_loc_04268 rnw_loc_04269 rnw_loc_04271 rnw_loc_04272 rnw_loc_04273 rnw_loc_04274 rnw_loc_04278 rnw_loc_04280 rnw_loc_04284 rnw_loc_04294 rnw_loc_04310 rnw_loc_04317
 		}
-		capital = rnw_loc_04246
+		capital = rnw_loc_04263
 		starting_technology_level = 2
 		discovered_areas = {
 			cuba_area hispaniola_area kuskatan_area maryland_area pindorama_area rnw_area_0046 rnw_area_0047 rnw_area_0048
@@ -74156,9 +74150,9 @@ countries = {
 	}
 	TUQ = {
 		own_control_core = {
-			rnw_loc_04340 rnw_loc_04345 rnw_loc_04349 rnw_loc_04356 rnw_loc_04363 rnw_loc_04369 rnw_loc_04375
+			rnw_loc_04340 rnw_loc_04345 rnw_loc_04349 rnw_loc_04356 rnw_loc_04363 rnw_loc_04369
 		}
-		capital = rnw_loc_04345
+		capital = rnw_loc_04340
 		starting_technology_level = 2
 		discovered_areas = {
 			cuba_area imabite_area kuskatan_area maryland_area nekokiaw_area panama_area peten_area rnw_area_0043
@@ -75086,7 +75080,8 @@ countries = {
 	}
 	MPN = {
 		own_control_core = {
-			rnw_loc_04569 rnw_loc_04664 rnw_loc_04676 rnw_loc_04696 rnw_loc_04724 rnw_loc_04749 rnw_loc_04770 rnw_loc_04796
+			rnw_loc_04569 rnw_loc_04664
+			rnw_loc_04570 rnw_loc_04577 rnw_loc_04579 rnw_loc_04581 rnw_loc_04586 rnw_loc_04594 rnw_loc_04608 rnw_loc_04625 rnw_loc_04631 rnw_loc_04643 rnw_loc_04660 rnw_loc_04661 rnw_loc_04667 rnw_loc_04677 rnw_loc_04683 rnw_loc_04684 rnw_loc_04687 rnw_loc_04688 rnw_loc_04692 rnw_loc_04697 rnw_loc_04707 rnw_loc_04717 rnw_loc_04719 rnw_loc_04720 rnw_loc_04735 rnw_loc_04755 rnw_loc_04762 rnw_loc_04778 rnw_loc_04785 rnw_loc_04788 rnw_loc_04798 rnw_loc_04800 rnw_loc_04802 rnw_loc_04806 rnw_loc_04807 rnw_loc_04819 rnw_loc_04821 rnw_loc_04823 rnw_loc_04829 rnw_loc_04848 rnw_loc_04854 rnw_loc_04855 rnw_loc_04878 rnw_loc_04884 rnw_loc_04889 rnw_loc_04892 rnw_loc_04897 rnw_loc_04913 rnw_loc_04924 rnw_loc_04930 rnw_loc_05002
 		}
 		capital = rnw_loc_04569
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -75298,6 +75293,7 @@ countries = {
 	MTJ = {
 		own_control_core = {
 			rnw_loc_04593
+			rnw_loc_04597 rnw_loc_04607 rnw_loc_04628 rnw_loc_04652 rnw_loc_04679
 		}
 		capital = rnw_loc_04593
 		starting_technology_level = 2
@@ -75406,6 +75402,7 @@ countries = {
 	VOO = {
 		own_control_core = {
 			rnw_loc_04604 rnw_loc_04614 rnw_loc_04621 rnw_loc_04638 rnw_loc_04642 rnw_loc_04651
+			rnw_loc_04494 rnw_loc_04518 rnw_loc_04524 rnw_loc_04525 rnw_loc_04529 rnw_loc_04537 rnw_loc_04540 rnw_loc_04549 rnw_loc_04550 rnw_loc_04552 rnw_loc_04564 rnw_loc_04574 rnw_loc_04582 rnw_loc_04583
 		}
 		capital = rnw_loc_04621
 		starting_technology_level = 2
@@ -75509,6 +75506,7 @@ countries = {
 	IXO = {
 		own_control_core = {
 			rnw_loc_04635
+			rnw_loc_04623 rnw_loc_04624 rnw_loc_04646 rnw_loc_04648 rnw_loc_04649 rnw_loc_04668 rnw_loc_04678
 		}
 		capital = rnw_loc_04635
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -75537,6 +75535,7 @@ countries = {
 	DPN = {
 		own_control_core = {
 			rnw_loc_04610 rnw_loc_04629 rnw_loc_04640 rnw_loc_04654 rnw_loc_04655 rnw_loc_04673 rnw_loc_04686
+			rnw_loc_04553 rnw_loc_04556 rnw_loc_04560 rnw_loc_04562 rnw_loc_04563 rnw_loc_04572 rnw_loc_04580 rnw_loc_04595 rnw_loc_04601 rnw_loc_04639
 		}
 		capital = rnw_loc_04640
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -75674,6 +75673,7 @@ countries = {
 	KQS = {
 		own_control_core = {
 			rnw_loc_04669 rnw_loc_04694
+			rnw_loc_04676 rnw_loc_04696 rnw_loc_04724 rnw_loc_04770 rnw_loc_04825 rnw_loc_04852 rnw_loc_04859 rnw_loc_04881 rnw_loc_04900 rnw_loc_04903 rnw_loc_04916 rnw_loc_04925 rnw_loc_04926 rnw_loc_04951
 		}
 		capital = rnw_loc_04669
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -75727,6 +75727,7 @@ countries = {
 		own_control_core = {
 			rnw_loc_04615 rnw_loc_04633 rnw_loc_04645 rnw_loc_04657 rnw_loc_04658 rnw_loc_04671 rnw_loc_04682 rnw_loc_04685
 			rnw_loc_04690 rnw_loc_04699 rnw_loc_04709 rnw_loc_04715 rnw_loc_04731 rnw_loc_04795
+			rnw_loc_04588 rnw_loc_04675 rnw_loc_04756 rnw_loc_04822
 		}
 		capital = rnw_loc_04682
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -75825,6 +75826,7 @@ countries = {
 	DNC = {
 		own_control_core = {
 			rnw_loc_04702 rnw_loc_04722 rnw_loc_04734
+			rnw_loc_04680 rnw_loc_04691 rnw_loc_04704 rnw_loc_04751 rnw_loc_04753 rnw_loc_04754 rnw_loc_04764 rnw_loc_04766 rnw_loc_04769 rnw_loc_04783 rnw_loc_04792 rnw_loc_04812 rnw_loc_04824 rnw_loc_04828 rnw_loc_04843 rnw_loc_04845 rnw_loc_04847 rnw_loc_04858 rnw_loc_04861 rnw_loc_04865 rnw_loc_04868 rnw_loc_04873 rnw_loc_04876 rnw_loc_04879 rnw_loc_04883 rnw_loc_04896 rnw_loc_04901 rnw_loc_04906 rnw_loc_04911 rnw_loc_04920 rnw_loc_04922 rnw_loc_04936 rnw_loc_04942 rnw_loc_04963 rnw_loc_04982 rnw_loc_04985 rnw_loc_04989 rnw_loc_04992 rnw_loc_05018
 		}
 		capital = rnw_loc_04702
 		starting_technology_level = 2
@@ -75911,6 +75913,7 @@ countries = {
 	PXW = {
 		own_control_core = {
 			rnw_loc_04708 rnw_loc_04711 rnw_loc_04740
+			rnw_loc_04716 rnw_loc_04752 rnw_loc_04758 rnw_loc_04760 rnw_loc_04790 rnw_loc_04794 rnw_loc_04797 rnw_loc_04804 rnw_loc_04808 rnw_loc_04813 rnw_loc_04827 rnw_loc_04831 rnw_loc_04857 rnw_loc_04893
 		}
 		capital = rnw_loc_04740
 		starting_technology_level = 2
@@ -77163,6 +77166,7 @@ countries = {
 	QMJ = {
 		own_control_core = {
 			rnw_loc_05047
+			rnw_loc_04737 rnw_loc_04738 rnw_loc_04763 rnw_loc_04773 rnw_loc_04779 rnw_loc_04786 rnw_loc_04793 rnw_loc_04801 rnw_loc_04803 rnw_loc_04856 rnw_loc_04860 rnw_loc_04867 rnw_loc_04872 rnw_loc_04905 rnw_loc_04907 rnw_loc_04937 rnw_loc_04948 rnw_loc_04949 rnw_loc_04959 rnw_loc_04961 rnw_loc_04981 rnw_loc_04995 rnw_loc_05001 rnw_loc_05035 rnw_loc_05038 rnw_loc_05050 rnw_loc_05055 rnw_loc_05058 rnw_loc_05071 rnw_loc_05073 rnw_loc_05075 rnw_loc_05132
 		}
 		capital = rnw_loc_05047
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -77592,8 +77596,9 @@ countries = {
 	ROZ = {
 		own_control_core = {
 			rnw_loc_05140
+			rnw_loc_04700 rnw_loc_04746 rnw_loc_04761 rnw_loc_04775 rnw_loc_04777 rnw_loc_04784 rnw_loc_04791 rnw_loc_04817 rnw_loc_04818 rnw_loc_04834 rnw_loc_04877 rnw_loc_04886 rnw_loc_04915 rnw_loc_04932 rnw_loc_04979 rnw_loc_04990 rnw_loc_05011 rnw_loc_05048 rnw_loc_05072 rnw_loc_05079 rnw_loc_05118 rnw_loc_05119 rnw_loc_05155 rnw_loc_05206 rnw_loc_05220
 		}
-		capital = rnw_loc_05140
+		capital = rnw_loc_04700
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -77731,6 +77736,7 @@ countries = {
 	JJX = {
 		own_control_core = {
 			rnw_loc_05168
+			rnw_loc_05127 rnw_loc_05196 rnw_loc_05214 rnw_loc_05253 rnw_loc_05266 rnw_loc_05288 rnw_loc_05308 rnw_loc_05321 rnw_loc_05323
 		}
 		capital = rnw_loc_05168
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -77758,6 +77764,7 @@ countries = {
 	XZJ = {
 		own_control_core = {
 			rnw_loc_05169
+			rnw_loc_05009 rnw_loc_05019 rnw_loc_05029 rnw_loc_05070 rnw_loc_05074 rnw_loc_05077 rnw_loc_05084 rnw_loc_05146 rnw_loc_05233 rnw_loc_05235 rnw_loc_05285 rnw_loc_05311 rnw_loc_05324
 		}
 		capital = rnw_loc_05169
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -78011,6 +78018,7 @@ countries = {
 	GTL = {
 		own_control_core = {
 			rnw_loc_05230
+			rnw_loc_05225 rnw_loc_05259 rnw_loc_05359
 		}
 		capital = rnw_loc_05230
 		include = "amerindian_monarchy"
@@ -78363,8 +78371,9 @@ countries = {
 	PUX = {
 		own_control_core = {
 			rnw_loc_05200 rnw_loc_05226 rnw_loc_05276 rnw_loc_05284 rnw_loc_05370
+			rnw_loc_05066 rnw_loc_05103 rnw_loc_05111 rnw_loc_05141 rnw_loc_05231 rnw_loc_05272 rnw_loc_05289 rnw_loc_05365 rnw_loc_05456 rnw_loc_05574
 		}
-		capital = rnw_loc_05284
+		capital = rnw_loc_05574
 		include = "andean_monarchy"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -78456,6 +78465,7 @@ countries = {
 	FZX = {
 		own_control_core = {
 			rnw_loc_05298
+			rnw_loc_05339 rnw_loc_05340 rnw_loc_05346 rnw_loc_05463 rnw_loc_05524 rnw_loc_05654
 		}
 		capital = rnw_loc_05298
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -78482,6 +78492,7 @@ countries = {
 	SXA = {
 		own_control_core = {
 			rnw_loc_05306
+			rnw_loc_04908 rnw_loc_04921 rnw_loc_04927 rnw_loc_04933 rnw_loc_04943 rnw_loc_04973 rnw_loc_04975 rnw_loc_04978 rnw_loc_04980 rnw_loc_05004 rnw_loc_05013 rnw_loc_05021 rnw_loc_05024 rnw_loc_05034 rnw_loc_05046 rnw_loc_05051 rnw_loc_05057 rnw_loc_05092 rnw_loc_05096 rnw_loc_05101 rnw_loc_05108 rnw_loc_05114 rnw_loc_05120 rnw_loc_05124 rnw_loc_05148 rnw_loc_05159 rnw_loc_05162 rnw_loc_05164 rnw_loc_05174 rnw_loc_05188 rnw_loc_05197 rnw_loc_05202 rnw_loc_05209 rnw_loc_05210 rnw_loc_05212 rnw_loc_05215 rnw_loc_05240 rnw_loc_05245 rnw_loc_05247 rnw_loc_05251 rnw_loc_05273 rnw_loc_05290 rnw_loc_05291 rnw_loc_05313 rnw_loc_05330 rnw_loc_05336 rnw_loc_05350 rnw_loc_05380 rnw_loc_05389 rnw_loc_05392 rnw_loc_05393 rnw_loc_05395 rnw_loc_05430 rnw_loc_05444 rnw_loc_05528
 		}
 		capital = rnw_loc_05306
 		include = "andean_monarchy"
@@ -78650,6 +78661,7 @@ countries = {
 	QBB = {
 		own_control_core = {
 			rnw_loc_05338
+			rnw_loc_05000 rnw_loc_05090 rnw_loc_05158 rnw_loc_05244
 		}
 		capital = rnw_loc_05338
 		starting_technology_level = 2
@@ -78962,8 +78974,9 @@ countries = {
 	QVA = {
 		own_control_core = {
 			rnw_loc_05406
+			rnw_loc_05474 rnw_loc_05499 rnw_loc_05516 rnw_loc_05571 rnw_loc_05658 rnw_loc_05707 rnw_loc_05797 rnw_loc_05828 rnw_loc_05913 rnw_loc_05963 rnw_loc_05981 rnw_loc_05982 rnw_loc_06095 rnw_loc_06128 rnw_loc_06148 rnw_loc_06149 rnw_loc_06170 rnw_loc_06204 rnw_loc_06221 rnw_loc_06242 rnw_loc_06261 rnw_loc_06272 rnw_loc_06283 rnw_loc_06320 rnw_loc_06325 rnw_loc_06349 rnw_loc_06415
 		}
-		capital = rnw_loc_05406
+		capital = rnw_loc_06325
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -79011,8 +79024,9 @@ countries = {
 	WTM = {
 		own_control_core = {
 			rnw_loc_05347 rnw_loc_05366 rnw_loc_05412 rnw_loc_05415
+			rnw_loc_05116 rnw_loc_05173 rnw_loc_05194 rnw_loc_05302 rnw_loc_05303 rnw_loc_05319 rnw_loc_05371 rnw_loc_05375 rnw_loc_05386 rnw_loc_05443 rnw_loc_05447 rnw_loc_05455 rnw_loc_05457 rnw_loc_05464 rnw_loc_05465 rnw_loc_05475 rnw_loc_05486 rnw_loc_05490 rnw_loc_05498 rnw_loc_05527 rnw_loc_05542 rnw_loc_05545 rnw_loc_05549 rnw_loc_05550 rnw_loc_05551 rnw_loc_05555 rnw_loc_05585 rnw_loc_05593 rnw_loc_05600 rnw_loc_05604 rnw_loc_05618 rnw_loc_05631 rnw_loc_05634 rnw_loc_05638 rnw_loc_05655 rnw_loc_05660 rnw_loc_05666 rnw_loc_05668 rnw_loc_05669 rnw_loc_05678 rnw_loc_05684 rnw_loc_05703 rnw_loc_05732 rnw_loc_05733 rnw_loc_05745 rnw_loc_05756 rnw_loc_05774 rnw_loc_05788 rnw_loc_05807 rnw_loc_05811 rnw_loc_05837 rnw_loc_05864 rnw_loc_05888 rnw_loc_05916 rnw_loc_05922 rnw_loc_05923 rnw_loc_05955 rnw_loc_05958 rnw_loc_05968 rnw_loc_05978 rnw_loc_06008 rnw_loc_06009 rnw_loc_06060 rnw_loc_06105 rnw_loc_06109 rnw_loc_06115 rnw_loc_06126 rnw_loc_06178 rnw_loc_06181 rnw_loc_06211 rnw_loc_06296
 		}
-		capital = rnw_loc_05415
+		capital = rnw_loc_05666
 		include = "andean_monarchy"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -79105,8 +79119,9 @@ countries = {
 	YJA = {
 		own_control_core = {
 			rnw_loc_05429
+			rnw_loc_04805 rnw_loc_04820 rnw_loc_04864 rnw_loc_04923 rnw_loc_05023 rnw_loc_05032 rnw_loc_05069 rnw_loc_05113 rnw_loc_05117 rnw_loc_05123 rnw_loc_05137 rnw_loc_05145 rnw_loc_05157 rnw_loc_05185 rnw_loc_05211 rnw_loc_05236 rnw_loc_05270 rnw_loc_05301 rnw_loc_05369 rnw_loc_05436 rnw_loc_05453 rnw_loc_05462 rnw_loc_05526 rnw_loc_05554 rnw_loc_05598 rnw_loc_05612 rnw_loc_05748 rnw_loc_05810
 		}
-		capital = rnw_loc_05429
+		capital = rnw_loc_05612
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -79176,8 +79191,9 @@ countries = {
 	FAN = {
 		own_control_core = {
 			rnw_loc_05439
+			rnw_loc_04940 rnw_loc_04960 rnw_loc_04986 rnw_loc_05007 rnw_loc_05027 rnw_loc_05028 rnw_loc_05031 rnw_loc_05037 rnw_loc_05061 rnw_loc_05076 rnw_loc_05100 rnw_loc_05133 rnw_loc_05138 rnw_loc_05147 rnw_loc_05166 rnw_loc_05178 rnw_loc_05187 rnw_loc_05263 rnw_loc_05293 rnw_loc_05299 rnw_loc_05383 rnw_loc_05384 rnw_loc_05445
 		}
-		capital = rnw_loc_05439
+		capital = rnw_loc_04960
 		starting_technology_level = 0
 		discovered_areas = {
 			boiaca_area rnw_area_0090 rnw_area_0091 rnw_area_0093 rnw_area_0094
@@ -79320,6 +79336,7 @@ countries = {
 	VQS = {
 		own_control_core = {
 			rnw_loc_05452
+			rnw_loc_05567
 		}
 		capital = rnw_loc_05452
 		starting_technology_level = 2
@@ -79359,8 +79376,9 @@ countries = {
 	DSC = {
 		own_control_core = {
 			rnw_loc_05411 rnw_loc_05418 rnw_loc_05461 rnw_loc_05483 rnw_loc_05484
+			rnw_loc_05264 rnw_loc_05320 rnw_loc_05360 rnw_loc_05382 rnw_loc_05404 rnw_loc_05570
 		}
-		capital = rnw_loc_05461
+		capital = rnw_loc_05484
 		starting_technology_level = 0
 		discovered_areas = {
 			apure_area boiaca_area chunsa_area cuyo_area quitu_area rnw_area_0064 rnw_area_0090 rnw_area_0091
@@ -79460,6 +79478,7 @@ countries = {
 	OEO = {
 		own_control_core = {
 			rnw_loc_05467
+			rnw_loc_05504
 		}
 		capital = rnw_loc_05467
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -79760,9 +79779,8 @@ countries = {
 	}
 	AFZ = {
 		own_control_core = {
-			rnw_loc_05417 rnw_loc_05515 rnw_loc_05534 rnw_loc_05557 rnw_loc_05628 rnw_loc_05648 rnw_loc_05661 rnw_loc_05671
-			rnw_loc_05675 rnw_loc_05705 rnw_loc_05713 rnw_loc_05737 rnw_loc_05742 rnw_loc_05744 rnw_loc_05750 rnw_loc_05766
-			rnw_loc_05777 rnw_loc_05798 rnw_loc_05836 rnw_loc_05838 rnw_loc_05907 rnw_loc_05952 rnw_loc_06012
+			rnw_loc_05417 rnw_loc_05515 rnw_loc_05534 rnw_loc_05557 rnw_loc_05628 rnw_loc_05705
+			rnw_loc_05125 rnw_loc_05149 rnw_loc_05180 rnw_loc_05241 rnw_loc_05262 rnw_loc_05333 rnw_loc_05633
 		}
 		capital = rnw_loc_05515
 		starting_technology_level = 2
@@ -80276,6 +80294,7 @@ countries = {
 	VBM = {
 		own_control_core = {
 			rnw_loc_05603 rnw_loc_05605 rnw_loc_05620 rnw_loc_05728
+			rnw_loc_05695 rnw_loc_05771 rnw_loc_05796
 		}
 		capital = rnw_loc_05620
 		starting_technology_level = 1
@@ -80399,8 +80418,8 @@ countries = {
 	}
 	MJE = {
 		own_control_core = {
-			rnw_loc_05543 rnw_loc_05623 rnw_loc_05625 rnw_loc_05633 rnw_loc_05637 rnw_loc_05650 rnw_loc_05664 rnw_loc_05717
-			rnw_loc_05734 rnw_loc_05751 rnw_loc_05754 rnw_loc_05814 rnw_loc_05815 rnw_loc_05817 rnw_loc_05853 rnw_loc_06379
+			rnw_loc_05543 rnw_loc_05623 rnw_loc_05625 rnw_loc_05637 rnw_loc_05650 rnw_loc_05717 rnw_loc_05754 rnw_loc_05815 rnw_loc_05853
+			rnw_loc_05727 rnw_loc_05795 rnw_loc_05805
 		}
 		capital = rnw_loc_05637
 		include = "andean_monarchy"
@@ -80452,8 +80471,9 @@ countries = {
 	ZFJ = {
 		own_control_core = {
 			rnw_loc_05643 rnw_loc_05687 rnw_loc_05721 rnw_loc_05735 rnw_loc_05784
+			rnw_loc_05730 rnw_loc_05802 rnw_loc_05825 rnw_loc_05861 rnw_loc_05874 rnw_loc_05880 rnw_loc_05909 rnw_loc_05945 rnw_loc_05949 rnw_loc_06013 rnw_loc_06037 rnw_loc_06038 rnw_loc_06063 rnw_loc_06138 rnw_loc_06154 rnw_loc_06155 rnw_loc_06180 rnw_loc_06246 rnw_loc_06253 rnw_loc_06256 rnw_loc_06305 rnw_loc_06312 rnw_loc_06388 rnw_loc_06389 rnw_loc_06447 rnw_loc_06468 rnw_loc_06481 rnw_loc_06497 rnw_loc_06505
 		}
-		capital = rnw_loc_05643
+		capital = rnw_loc_06447
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -80958,13 +80978,10 @@ countries = {
 	}
 	LPN = {
 		own_control_core = {
-			rnw_loc_05695 rnw_loc_05727 rnw_loc_05771 rnw_loc_05795 rnw_loc_05796 rnw_loc_05805 rnw_loc_05887 rnw_loc_05895
-			rnw_loc_05943 rnw_loc_05944 rnw_loc_05946 rnw_loc_05979 rnw_loc_05990 rnw_loc_06007 rnw_loc_06021 rnw_loc_06041
-			rnw_loc_06054 rnw_loc_06066 rnw_loc_06113 rnw_loc_06116 rnw_loc_06139 rnw_loc_06147 rnw_loc_06193 rnw_loc_06214
-			rnw_loc_06232 rnw_loc_06260 rnw_loc_06263 rnw_loc_06265 rnw_loc_06297 rnw_loc_06316 rnw_loc_06317 rnw_loc_06329
-			rnw_loc_06337 rnw_loc_06366 rnw_loc_06367 rnw_loc_06402 rnw_loc_06411 rnw_loc_06418 rnw_loc_06434 rnw_loc_06436
+			rnw_loc_05943 rnw_loc_05944 rnw_loc_05990 rnw_loc_06041 rnw_loc_06066 rnw_loc_06116 rnw_loc_06139 rnw_loc_06147 rnw_loc_06193 rnw_loc_06214 rnw_loc_06232 rnw_loc_06260 rnw_loc_06263 rnw_loc_06265 rnw_loc_06297 rnw_loc_06316 rnw_loc_06317 rnw_loc_06329 rnw_loc_06337 rnw_loc_06366 rnw_loc_06367 rnw_loc_06402 rnw_loc_06411 rnw_loc_06418 rnw_loc_06434 rnw_loc_06436
+			rnw_loc_05088 rnw_loc_05176 rnw_loc_05179 rnw_loc_05183 rnw_loc_05219 rnw_loc_05254 rnw_loc_05278 rnw_loc_05286 rnw_loc_05317 rnw_loc_05326 rnw_loc_05353 rnw_loc_05354 rnw_loc_05355 rnw_loc_05356 rnw_loc_05367 rnw_loc_05377 rnw_loc_05424 rnw_loc_05431 rnw_loc_05435 rnw_loc_05469 rnw_loc_05473 rnw_loc_05507 rnw_loc_05518 rnw_loc_05519 rnw_loc_05522 rnw_loc_05532 rnw_loc_05540 rnw_loc_05546 rnw_loc_05564 rnw_loc_05613 rnw_loc_05615 rnw_loc_05619 rnw_loc_05635 rnw_loc_05648 rnw_loc_05661 rnw_loc_05664 rnw_loc_05671 rnw_loc_05673 rnw_loc_05675 rnw_loc_05694 rnw_loc_05701 rnw_loc_05712 rnw_loc_05713 rnw_loc_05724 rnw_loc_05734 rnw_loc_05737 rnw_loc_05742 rnw_loc_05744 rnw_loc_05750 rnw_loc_05751 rnw_loc_05764 rnw_loc_05766 rnw_loc_05772 rnw_loc_05777 rnw_loc_05786 rnw_loc_05798 rnw_loc_05804 rnw_loc_05814 rnw_loc_05817 rnw_loc_05820 rnw_loc_05831 rnw_loc_05834 rnw_loc_05836 rnw_loc_05838 rnw_loc_05844 rnw_loc_05859 rnw_loc_05872 rnw_loc_05875 rnw_loc_05877 rnw_loc_05883 rnw_loc_05889 rnw_loc_05894 rnw_loc_05907 rnw_loc_05917 rnw_loc_05928 rnw_loc_05935 rnw_loc_05936 rnw_loc_05950 rnw_loc_05951 rnw_loc_05952 rnw_loc_05989 rnw_loc_05996 rnw_loc_06012 rnw_loc_06019 rnw_loc_06033 rnw_loc_06034 rnw_loc_06043 rnw_loc_06049 rnw_loc_06058 rnw_loc_06075 rnw_loc_06089 rnw_loc_06098 rnw_loc_06103 rnw_loc_06125 rnw_loc_06133 rnw_loc_06134 rnw_loc_06136 rnw_loc_06163 rnw_loc_06198 rnw_loc_06203 rnw_loc_06222 rnw_loc_06223 rnw_loc_06227 rnw_loc_06231 rnw_loc_06233 rnw_loc_06244 rnw_loc_06269 rnw_loc_06274 rnw_loc_06292 rnw_loc_06294 rnw_loc_06295 rnw_loc_06300 rnw_loc_06301 rnw_loc_06327 rnw_loc_06336 rnw_loc_06345 rnw_loc_06346 rnw_loc_06365 rnw_loc_06369 rnw_loc_06380 rnw_loc_06390 rnw_loc_06407 rnw_loc_06409 rnw_loc_06410 rnw_loc_06417 rnw_loc_06422 rnw_loc_06432 rnw_loc_06433 rnw_loc_06448 rnw_loc_06451 rnw_loc_06452 rnw_loc_06456 rnw_loc_06463 rnw_loc_06476 rnw_loc_06482 rnw_loc_06483 rnw_loc_06488 rnw_loc_06489 rnw_loc_06494 rnw_loc_06499 rnw_loc_06504 rnw_loc_06507 rnw_loc_06514 rnw_loc_06515 rnw_loc_06519 rnw_loc_06522 rnw_loc_06523 rnw_loc_06530 rnw_loc_06539 rnw_loc_06547 rnw_loc_06548 rnw_loc_06549 rnw_loc_06550 rnw_loc_06552 rnw_loc_06563 rnw_loc_06572 rnw_loc_06583 rnw_loc_06588 rnw_loc_06590 rnw_loc_06596 rnw_loc_06606 rnw_loc_06611 rnw_loc_06612 rnw_loc_06616 rnw_loc_06619 rnw_loc_06625 rnw_loc_06627 rnw_loc_06633 rnw_loc_06642 rnw_loc_06657 rnw_loc_06681 rnw_loc_06711 rnw_loc_06713 rnw_loc_06716 rnw_loc_06717 rnw_loc_06724 rnw_loc_06745 rnw_loc_06753 rnw_loc_06785 rnw_loc_06806 rnw_loc_06825 rnw_loc_06882 rnw_loc_06893 rnw_loc_06905 rnw_loc_06952 rnw_loc_06980 rnw_loc_07043
 		}
-		capital = rnw_loc_05771
+		capital = rnw_loc_06402
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -81169,8 +81186,9 @@ countries = {
 		own_control_core = {
 			rnw_loc_05697 rnw_loc_05759 rnw_loc_05767 rnw_loc_05799 rnw_loc_05806 rnw_loc_05910 rnw_loc_05941 rnw_loc_06035
 			rnw_loc_06055
+			rnw_loc_05614 rnw_loc_05621 rnw_loc_05657 rnw_loc_05676 rnw_loc_05682 rnw_loc_05698 rnw_loc_05725
 		}
-		capital = rnw_loc_05799
+		capital = rnw_loc_05910
 		include = "andean_monarchy"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -81377,8 +81395,9 @@ countries = {
 	LUQ = {
 		own_control_core = {
 			rnw_loc_05808 rnw_loc_05860 rnw_loc_05862 rnw_loc_05929 rnw_loc_05953 rnw_loc_05986
+			rnw_loc_05520 rnw_loc_05525 rnw_loc_05606 rnw_loc_05641 rnw_loc_05651 rnw_loc_05677 rnw_loc_05752 rnw_loc_05769 rnw_loc_05787 rnw_loc_05816 rnw_loc_05818 rnw_loc_05896
 		}
-		capital = rnw_loc_05862
+		capital = rnw_loc_05929
 		include = "andean_monarchy"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -81428,6 +81447,7 @@ countries = {
 		own_control_core = {
 			rnw_loc_05801 rnw_loc_05826 rnw_loc_05878 rnw_loc_05885 rnw_loc_05954 rnw_loc_06017 rnw_loc_06023 rnw_loc_06104
 			rnw_loc_06131
+			rnw_loc_05887 rnw_loc_05895 rnw_loc_05979 rnw_loc_06007
 		}
 		capital = rnw_loc_05878
 		starting_technology_level = 2
@@ -81490,8 +81510,9 @@ countries = {
 	OGV = {
 		own_control_core = {
 			rnw_loc_05768 rnw_loc_05780 rnw_loc_05879 rnw_loc_05886 rnw_loc_05890 rnw_loc_05905 rnw_loc_05993
+			rnw_loc_05578 rnw_loc_05582 rnw_loc_05624 rnw_loc_05646 rnw_loc_05716 rnw_loc_05718
 		}
-		capital = rnw_loc_05890
+		capital = rnw_loc_05993
 		starting_technology_level = 2
 		discovered_areas = {
 			apure_area boiaca_area chunsa_area pampa_area rnw_area_0056 rnw_area_0059 rnw_area_0064 rnw_area_0087
@@ -81938,7 +81959,7 @@ countries = {
 			rnw_loc_05839 rnw_loc_05868 rnw_loc_05869 rnw_loc_05901 rnw_loc_05931 rnw_loc_05940 rnw_loc_05984 rnw_loc_05985
 			rnw_loc_06070 rnw_loc_06081 rnw_loc_06082 rnw_loc_06168 rnw_loc_06184 rnw_loc_06220 rnw_loc_06282
 		}
-		capital = rnw_loc_05985
+		capital = rnw_loc_06220
 		starting_technology_level = 2
 		discovered_areas = {
 			apure_area boiaca_area caly_area chunsa_area pampa_area rnw_area_0059 rnw_area_0087 rnw_area_0090
@@ -82113,6 +82134,7 @@ countries = {
 	BPL = {
 		own_control_core = {
 			rnw_loc_06087 rnw_loc_06194 rnw_loc_06206 rnw_loc_06235
+			rnw_loc_05946 rnw_loc_06021 rnw_loc_06054 rnw_loc_06113
 		}
 		capital = rnw_loc_06087
 		starting_technology_level = 2
@@ -82156,6 +82178,7 @@ countries = {
 			rnw_loc_05533 rnw_loc_05690 rnw_loc_05706 rnw_loc_05760 rnw_loc_05789 rnw_loc_05840 rnw_loc_05857 rnw_loc_05863
 			rnw_loc_05906 rnw_loc_05965 rnw_loc_05991 rnw_loc_05994 rnw_loc_06052 rnw_loc_06090 rnw_loc_06097 rnw_loc_06142
 			rnw_loc_06157 rnw_loc_06177 rnw_loc_06185 rnw_loc_06208 rnw_loc_06245 rnw_loc_06264 rnw_loc_06310
+			rnw_loc_05258 rnw_loc_05322 rnw_loc_05352 rnw_loc_05357 rnw_loc_05358 rnw_loc_05381 rnw_loc_05394 rnw_loc_05405 rnw_loc_05434 rnw_loc_05442 rnw_loc_05471 rnw_loc_05508 rnw_loc_05510 rnw_loc_05523 rnw_loc_05539 rnw_loc_05552 rnw_loc_05572 rnw_loc_05611 rnw_loc_05616 rnw_loc_05672 rnw_loc_05702 rnw_loc_05753 rnw_loc_05781 rnw_loc_05924
 		}
 		capital = rnw_loc_06090
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -82209,6 +82232,7 @@ countries = {
 			rnw_loc_05921 rnw_loc_05933 rnw_loc_05937 rnw_loc_05976 rnw_loc_05977 rnw_loc_05992 rnw_loc_05995 rnw_loc_06002
 			rnw_loc_06026 rnw_loc_06028 rnw_loc_06065 rnw_loc_06068 rnw_loc_06072 rnw_loc_06093 rnw_loc_06099 rnw_loc_06100
 			rnw_loc_06108 rnw_loc_06118 rnw_loc_06141 rnw_loc_06165 rnw_loc_06166 rnw_loc_06173 rnw_loc_06190 rnw_loc_06200
+			rnw_loc_05156 rnw_loc_05163 rnw_loc_05170 rnw_loc_05191 rnw_loc_05198 rnw_loc_05243 rnw_loc_05279 rnw_loc_05282 rnw_loc_05296 rnw_loc_05318 rnw_loc_05331 rnw_loc_05364 rnw_loc_05372 rnw_loc_05374 rnw_loc_05385 rnw_loc_05421 rnw_loc_05422 rnw_loc_05438 rnw_loc_05440 rnw_loc_05478 rnw_loc_05489 rnw_loc_05494 rnw_loc_05495 rnw_loc_05502 rnw_loc_05529 rnw_loc_05536 rnw_loc_05544 rnw_loc_05548 rnw_loc_05553 rnw_loc_05560 rnw_loc_05565 rnw_loc_05566 rnw_loc_05579 rnw_loc_05580 rnw_loc_05586 rnw_loc_05595 rnw_loc_05617 rnw_loc_05626 rnw_loc_05629 rnw_loc_05630 rnw_loc_05642 rnw_loc_05647 rnw_loc_05652 rnw_loc_05662 rnw_loc_05665 rnw_loc_05667 rnw_loc_05670 rnw_loc_05683 rnw_loc_05686 rnw_loc_05692 rnw_loc_05709 rnw_loc_05720 rnw_loc_05726 rnw_loc_05729 rnw_loc_05731 rnw_loc_05738 rnw_loc_05740 rnw_loc_05743 rnw_loc_05755 rnw_loc_05762 rnw_loc_05773 rnw_loc_05775 rnw_loc_05776 rnw_loc_05783 rnw_loc_05792 rnw_loc_05809 rnw_loc_05821 rnw_loc_05842 rnw_loc_05852 rnw_loc_05866 rnw_loc_05870 rnw_loc_05881 rnw_loc_05884 rnw_loc_05891 rnw_loc_05897 rnw_loc_05912 rnw_loc_05927 rnw_loc_05947 rnw_loc_05948 rnw_loc_05957 rnw_loc_05959 rnw_loc_05960 rnw_loc_05972 rnw_loc_05975 rnw_loc_05980 rnw_loc_06003 rnw_loc_06022 rnw_loc_06025 rnw_loc_06029 rnw_loc_06036 rnw_loc_06039 rnw_loc_06042 rnw_loc_06044 rnw_loc_06053 rnw_loc_06056 rnw_loc_06061 rnw_loc_06062 rnw_loc_06073 rnw_loc_06076 rnw_loc_06077 rnw_loc_06083 rnw_loc_06088 rnw_loc_06091 rnw_loc_06094 rnw_loc_06120 rnw_loc_06144 rnw_loc_06145 rnw_loc_06150 rnw_loc_06151 rnw_loc_06152 rnw_loc_06164 rnw_loc_06169 rnw_loc_06186 rnw_loc_06191 rnw_loc_06192 rnw_loc_06195 rnw_loc_06196 rnw_loc_06202 rnw_loc_06207 rnw_loc_06209 rnw_loc_06210 rnw_loc_06212 rnw_loc_06215 rnw_loc_06228 rnw_loc_06236 rnw_loc_06237 rnw_loc_06239 rnw_loc_06240 rnw_loc_06241 rnw_loc_06248 rnw_loc_06249 rnw_loc_06252 rnw_loc_06255 rnw_loc_06262 rnw_loc_06268 rnw_loc_06275 rnw_loc_06286 rnw_loc_06287 rnw_loc_06308 rnw_loc_06319 rnw_loc_06323 rnw_loc_06324 rnw_loc_06331 rnw_loc_06342 rnw_loc_06343 rnw_loc_06348 rnw_loc_06355 rnw_loc_06356 rnw_loc_06357 rnw_loc_06361 rnw_loc_06374 rnw_loc_06382 rnw_loc_06387 rnw_loc_06414 rnw_loc_06419 rnw_loc_06420 rnw_loc_06421 rnw_loc_06437 rnw_loc_06455 rnw_loc_06467
 		}
 		capital = rnw_loc_06099
 		starting_technology_level = 2
@@ -82343,7 +82367,7 @@ countries = {
 		own_control_core = {
 			rnw_loc_05999 rnw_loc_06050 rnw_loc_06051 rnw_loc_06132 rnw_loc_06172 rnw_loc_06189
 		}
-		capital = rnw_loc_06132
+		capital = rnw_loc_06172
 		starting_technology_level = 2
 		discovered_areas = {
 			boiaca_area caly_area caracas_area chunsa_area rnw_area_0060 rnw_area_0087 rnw_area_0090 rnw_area_0091
@@ -82403,9 +82427,7 @@ countries = {
 	}
 	EBV = {
 		own_control_core = {
-			rnw_loc_05930 rnw_loc_05959 rnw_loc_05974 rnw_loc_06016 rnw_loc_06022 rnw_loc_06025 rnw_loc_06027 rnw_loc_06039
-			rnw_loc_06042 rnw_loc_06076 rnw_loc_06120 rnw_loc_06140 rnw_loc_06143 rnw_loc_06169 rnw_loc_06202 rnw_loc_06207
-			rnw_loc_06210 rnw_loc_06228 rnw_loc_06236 rnw_loc_06252 rnw_loc_06286
+			rnw_loc_06143
 		}
 		capital = rnw_loc_06143
 		include = "andean_monarchy"
@@ -82618,8 +82640,8 @@ countries = {
 	}
 	WFH = {
 		own_control_core = {
-			rnw_loc_06247 rnw_loc_06266 rnw_loc_06288 rnw_loc_06338 rnw_loc_06340 rnw_loc_06350 rnw_loc_06351 rnw_loc_06359
-			rnw_loc_06360 rnw_loc_06397 rnw_loc_06429 rnw_loc_06446 rnw_loc_06755
+			rnw_loc_06247 rnw_loc_06266 rnw_loc_06288 rnw_loc_06338 rnw_loc_06340 rnw_loc_06350 rnw_loc_06351 rnw_loc_06359 rnw_loc_06360 rnw_loc_06397 rnw_loc_06429 rnw_loc_06446
+			rnw_loc_06379
 		}
 		capital = rnw_loc_06288
 		include = "andean_monarchy"
@@ -82648,7 +82670,7 @@ countries = {
 	}
 	DZR = {
 		own_control_core = {
-			rnw_loc_06293 rnw_loc_06375 rnw_loc_06665 rnw_loc_06763 rnw_loc_06766
+			rnw_loc_06293 rnw_loc_06375
 		}
 		capital = rnw_loc_06293
 		starting_technology_level = 2
@@ -83162,6 +83184,7 @@ countries = {
 		own_control_core = {
 			rnw_loc_06229 rnw_loc_06230 rnw_loc_06257 rnw_loc_06326 rnw_loc_06344 rnw_loc_06391 rnw_loc_06408 rnw_loc_06423
 			rnw_loc_06464 rnw_loc_06469 rnw_loc_06474 rnw_loc_06496 rnw_loc_06500 rnw_loc_06503 rnw_loc_06508 rnw_loc_06509
+			rnw_loc_04866 rnw_loc_04874 rnw_loc_04880 rnw_loc_04912 rnw_loc_04956 rnw_loc_04966 rnw_loc_04971 rnw_loc_04983 rnw_loc_05020 rnw_loc_05045 rnw_loc_05049 rnw_loc_05086 rnw_loc_05087 rnw_loc_05095 rnw_loc_05201 rnw_loc_05218 rnw_loc_05234 rnw_loc_05267 rnw_loc_05268 rnw_loc_05309 rnw_loc_05327 rnw_loc_05328 rnw_loc_05363 rnw_loc_05373 rnw_loc_05378 rnw_loc_05379 rnw_loc_05400 rnw_loc_05402 rnw_loc_05403 rnw_loc_05432 rnw_loc_05472 rnw_loc_05476 rnw_loc_05477 rnw_loc_05487 rnw_loc_05491 rnw_loc_05505 rnw_loc_05511 rnw_loc_05547 rnw_loc_05556 rnw_loc_05575 rnw_loc_05588 rnw_loc_05591 rnw_loc_05594 rnw_loc_05601 rnw_loc_05607 rnw_loc_05627 rnw_loc_05700 rnw_loc_05708 rnw_loc_05714 rnw_loc_05719 rnw_loc_05722 rnw_loc_05812 rnw_loc_05822 rnw_loc_05832 rnw_loc_05898 rnw_loc_05908 rnw_loc_05925 rnw_loc_05967 rnw_loc_05987 rnw_loc_06010 rnw_loc_06085 rnw_loc_06092 rnw_loc_06289 rnw_loc_06352 rnw_loc_06412 rnw_loc_06438 rnw_loc_06540 rnw_loc_06556 rnw_loc_06613
 		}
 		capital = rnw_loc_06469
 		include = "andean_monarchy"
@@ -83303,8 +83326,8 @@ countries = {
 	}
 	FZO = {
 		own_control_core = {
-			rnw_loc_06484 rnw_loc_06491 rnw_loc_06498 rnw_loc_06537 rnw_loc_06541 rnw_loc_06551 rnw_loc_06554 rnw_loc_06562
-			rnw_loc_06587 rnw_loc_06605 rnw_loc_06607 rnw_loc_06621 rnw_loc_06641 rnw_loc_06654 rnw_loc_06672 rnw_loc_06709
+			rnw_loc_06498 rnw_loc_06537 rnw_loc_06541 rnw_loc_06551 rnw_loc_06554 rnw_loc_06562 rnw_loc_06587 rnw_loc_06605 rnw_loc_06607 rnw_loc_06621 rnw_loc_06641 rnw_loc_06654 rnw_loc_06672 rnw_loc_06709
+			rnw_loc_06566 rnw_loc_06722
 		}
 		capital = rnw_loc_06537
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -83605,14 +83628,8 @@ countries = {
 	}
 	GGO = {
 		own_control_core = {
-			rnw_loc_05739 rnw_loc_05835 rnw_loc_05843 rnw_loc_05865 rnw_loc_05904 rnw_loc_05971 rnw_loc_05988 rnw_loc_06032
-			rnw_loc_06079 rnw_loc_06117 rnw_loc_06124 rnw_loc_06176 rnw_loc_06187 rnw_loc_06199 rnw_loc_06205 rnw_loc_06243
-			rnw_loc_06259 rnw_loc_06280 rnw_loc_06313 rnw_loc_06322 rnw_loc_06335 rnw_loc_06353 rnw_loc_06363 rnw_loc_06371
-			rnw_loc_06428 rnw_loc_06439 rnw_loc_06442 rnw_loc_06460 rnw_loc_06465 rnw_loc_06471 rnw_loc_06475 rnw_loc_06480
-			rnw_loc_06485 rnw_loc_06486 rnw_loc_06512 rnw_loc_06520 rnw_loc_06525 rnw_loc_06531 rnw_loc_06536 rnw_loc_06542
-			rnw_loc_06553 rnw_loc_06568 rnw_loc_06574 rnw_loc_06575 rnw_loc_06592 rnw_loc_06594 rnw_loc_06609 rnw_loc_06614
-			rnw_loc_06615 rnw_loc_06636 rnw_loc_06643 rnw_loc_06669 rnw_loc_06698 rnw_loc_06700 rnw_loc_06715 rnw_loc_06764
-			rnw_loc_06769 rnw_loc_06779 rnw_loc_06813 rnw_loc_06815 rnw_loc_06823
+			rnw_loc_06313 rnw_loc_06322 rnw_loc_06335 rnw_loc_06353 rnw_loc_06363 rnw_loc_06371 rnw_loc_06442 rnw_loc_06465 rnw_loc_06471 rnw_loc_06475 rnw_loc_06525 rnw_loc_06568 rnw_loc_06574 rnw_loc_06575 rnw_loc_06592 rnw_loc_06594 rnw_loc_06609 rnw_loc_06636 rnw_loc_06669 rnw_loc_06698 rnw_loc_06715 rnw_loc_06815 rnw_loc_06823
+			rnw_loc_06364
 		}
 		capital = rnw_loc_06698
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -83844,7 +83861,7 @@ countries = {
 	}
 	YDU = {
 		own_control_core = {
-			rnw_loc_06523 rnw_loc_06564 rnw_loc_06569 rnw_loc_06603 rnw_loc_06730 rnw_loc_06816 rnw_loc_06977
+			rnw_loc_06564 rnw_loc_06569 rnw_loc_06603 rnw_loc_06730 rnw_loc_06816 rnw_loc_06977
 		}
 		capital = rnw_loc_06816
 		include = "amerindian_monarchy"
@@ -84442,6 +84459,7 @@ countries = {
 	JVJ = {
 		own_control_core = {
 			rnw_loc_07007 rnw_loc_07090 rnw_loc_07116 rnw_loc_07155 rnw_loc_07201
+			rnw_loc_07175 rnw_loc_07215 rnw_loc_07236 rnw_loc_07254
 		}
 		capital = rnw_loc_07116
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
@@ -84657,15 +84675,10 @@ countries = {
 	}
 	VOT = {
 		own_control_core = {
-			rnw_loc_06517 rnw_loc_06566 rnw_loc_06567 rnw_loc_06589 rnw_loc_06600 rnw_loc_06604 rnw_loc_06617 rnw_loc_06626
-			rnw_loc_06659 rnw_loc_06689 rnw_loc_06690 rnw_loc_06693 rnw_loc_06722 rnw_loc_06757 rnw_loc_06767 rnw_loc_06775
-			rnw_loc_06836 rnw_loc_06843 rnw_loc_06868 rnw_loc_06888 rnw_loc_06890 rnw_loc_06902 rnw_loc_06916 rnw_loc_06922
-			rnw_loc_06956 rnw_loc_06958 rnw_loc_06959 rnw_loc_06982 rnw_loc_06986 rnw_loc_07002 rnw_loc_07011 rnw_loc_07014
-			rnw_loc_07015 rnw_loc_07035 rnw_loc_07046 rnw_loc_07049 rnw_loc_07060 rnw_loc_07091 rnw_loc_07117 rnw_loc_07119
-			rnw_loc_07175 rnw_loc_07196 rnw_loc_07215 rnw_loc_07231 rnw_loc_07236 rnw_loc_07254 rnw_loc_07291 rnw_loc_07318
-			rnw_loc_07326 rnw_loc_07472 rnw_loc_07478
+			rnw_loc_06517 rnw_loc_06567 rnw_loc_06589 rnw_loc_06617 rnw_loc_06689 rnw_loc_06690 rnw_loc_06693 rnw_loc_06757 rnw_loc_06775 rnw_loc_06836 rnw_loc_06868 rnw_loc_06890 rnw_loc_06916 rnw_loc_06959 rnw_loc_06986 rnw_loc_07002 rnw_loc_07011 rnw_loc_07015 rnw_loc_07035
+			rnw_loc_06428 rnw_loc_06439 rnw_loc_06460 rnw_loc_06480 rnw_loc_06485 rnw_loc_06486 rnw_loc_06512 rnw_loc_06520 rnw_loc_06531 rnw_loc_06536 rnw_loc_06542 rnw_loc_06553 rnw_loc_06614 rnw_loc_06615 rnw_loc_06643 rnw_loc_06700 rnw_loc_06764 rnw_loc_06769 rnw_loc_06779 rnw_loc_06810 rnw_loc_06813 rnw_loc_06925 rnw_loc_06969 rnw_loc_07041
 		}
-		capital = rnw_loc_07196
+		capital = rnw_loc_06589
 		include = "amerindian_advanced_republic_not_nahuatl_no_coast"
 		starting_technology_level = 2
 		discovered_areas = {
@@ -84930,6 +84943,7 @@ countries = {
 	FLM = {
 		own_control_core = {
 			rnw_loc_07248 rnw_loc_07277 rnw_loc_07279 rnw_loc_07330 rnw_loc_07349 rnw_loc_07414
+			rnw_loc_07431
 		}
 		capital = rnw_loc_07279
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -85140,6 +85154,7 @@ countries = {
 	FPB = {
 		own_control_core = {
 			rnw_loc_07258 rnw_loc_07302 rnw_loc_07311 rnw_loc_07325 rnw_loc_07382
+			rnw_loc_07239 rnw_loc_07284 rnw_loc_07319 rnw_loc_07341 rnw_loc_07371 rnw_loc_07426
 		}
 		capital = rnw_loc_07325
 		include = "amerindian_monarchy"
@@ -85192,8 +85207,8 @@ countries = {
 	}
 	TBT = {
 		own_control_core = {
-			rnw_loc_07131 rnw_loc_07157 rnw_loc_07171 rnw_loc_07208 rnw_loc_07223 rnw_loc_07243 rnw_loc_07244 rnw_loc_07269
-			rnw_loc_07270 rnw_loc_07273 rnw_loc_07276 rnw_loc_07283 rnw_loc_07329 rnw_loc_07336 rnw_loc_07346 rnw_loc_07381
+			rnw_loc_07276 rnw_loc_07283 rnw_loc_07329 rnw_loc_07336 rnw_loc_07346 rnw_loc_07381
+			rnw_loc_07384
 		}
 		capital = rnw_loc_07336
 		include = "amerindian_monarchy"
@@ -85271,6 +85286,7 @@ countries = {
 	KPG = {
 		own_control_core = {
 			rnw_loc_07149 rnw_loc_07189 rnw_loc_07238 rnw_loc_07262 rnw_loc_07345 rnw_loc_07374
+			rnw_loc_07390 rnw_loc_07418 rnw_loc_07454
 		}
 		capital = rnw_loc_07345
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -85459,7 +85475,8 @@ countries = {
 	}
 	RNY = {
 		own_control_core = {
-			rnw_loc_07386 rnw_loc_07404 rnw_loc_07441 rnw_loc_07446 rnw_loc_07467 rnw_loc_07486
+			rnw_loc_07386 rnw_loc_07404 rnw_loc_07441 rnw_loc_07446 rnw_loc_07467
+			rnw_loc_07477
 		}
 		capital = rnw_loc_07386
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -85646,6 +85663,7 @@ countries = {
 	QPW = {
 		own_control_core = {
 			rnw_loc_07403 rnw_loc_07443
+			rnw_loc_07393 rnw_loc_07434 rnw_loc_07436 rnw_loc_07474
 		}
 		capital = rnw_loc_07403
 		include = "amerindian_monarchy"
@@ -85903,7 +85921,8 @@ countries = {
 	}
 	ZHM = {
 		own_control_core = {
-			rnw_loc_07384 rnw_loc_07438 rnw_loc_07462 rnw_loc_07480
+			rnw_loc_07438 rnw_loc_07462 rnw_loc_07480
+			rnw_loc_07298 rnw_loc_07299 rnw_loc_07323 rnw_loc_07331 rnw_loc_07334 rnw_loc_07342 rnw_loc_07363 rnw_loc_07378 rnw_loc_07400 rnw_loc_07420 rnw_loc_07421 rnw_loc_07427 rnw_loc_07428 rnw_loc_07442 rnw_loc_07447 rnw_loc_07449 rnw_loc_07492
 		}
 		capital = rnw_loc_07480
 		include = "amerindian_monarchy"
@@ -86172,7 +86191,7 @@ countries = {
 	}
 	XAB = {
 		own_control_core = {
-			rnw_loc_06315 rnw_loc_06354 rnw_loc_06393 rnw_loc_06424 rnw_loc_06443 rnw_loc_06444 rnw_loc_06493 rnw_loc_06511 rnw_loc_06513 rnw_loc_06518 rnw_loc_06526 rnw_loc_06538 rnw_loc_06543 rnw_loc_06557 rnw_loc_06570 rnw_loc_06576 rnw_loc_06595 rnw_loc_06630 rnw_loc_06646 rnw_loc_06661 rnw_loc_06668 rnw_loc_06670 rnw_loc_06703 rnw_loc_06704 rnw_loc_06732 rnw_loc_06734 rnw_loc_06737 rnw_loc_06749 rnw_loc_06770 rnw_loc_06803 rnw_loc_06814 rnw_loc_06821 rnw_loc_06848 rnw_loc_06852 rnw_loc_06891 rnw_loc_06903 rnw_loc_06910 rnw_loc_06960 rnw_loc_06975 rnw_loc_06988 rnw_loc_06992 rnw_loc_06993 rnw_loc_07061 rnw_loc_07072 rnw_loc_07080 rnw_loc_07103
+			rnw_loc_06303 rnw_loc_06315 rnw_loc_06354 rnw_loc_06393 rnw_loc_06424 rnw_loc_06443 rnw_loc_06444 rnw_loc_06493 rnw_loc_06511 rnw_loc_06513 rnw_loc_06518 rnw_loc_06526 rnw_loc_06538 rnw_loc_06543 rnw_loc_06557 rnw_loc_06570 rnw_loc_06576 rnw_loc_06595 rnw_loc_06630 rnw_loc_06646 rnw_loc_06661 rnw_loc_06668 rnw_loc_06670 rnw_loc_06703 rnw_loc_06704 rnw_loc_06732 rnw_loc_06734 rnw_loc_06737 rnw_loc_06749 rnw_loc_06770 rnw_loc_06803 rnw_loc_06814 rnw_loc_06821 rnw_loc_06848 rnw_loc_06852 rnw_loc_06891 rnw_loc_06903 rnw_loc_06910 rnw_loc_06960 rnw_loc_06975 rnw_loc_06988 rnw_loc_06992 rnw_loc_06993 rnw_loc_07061 rnw_loc_07072 rnw_loc_07080 rnw_loc_07103
 		}
 		capital = rnw_loc_06821
 		include = "amerindian_monarchy"
@@ -86201,7 +86220,7 @@ countries = {
 	}
 	XAC = {
 		own_control_core = {
-			rnw_loc_06677 rnw_loc_06726 rnw_loc_06808 rnw_loc_06861 rnw_loc_06862 rnw_loc_06863 rnw_loc_06906
+			rnw_loc_06604 rnw_loc_06626 rnw_loc_06659 rnw_loc_06677 rnw_loc_06726 rnw_loc_06767 rnw_loc_06808 rnw_loc_06843 rnw_loc_06861 rnw_loc_06862 rnw_loc_06863 rnw_loc_06888 rnw_loc_06902 rnw_loc_06906 rnw_loc_06922 rnw_loc_06956 rnw_loc_06958 rnw_loc_06982 rnw_loc_07046 rnw_loc_07049 rnw_loc_07060
 		}
 		capital = rnw_loc_06861
 		include = "andean_monarchy"
@@ -86572,7 +86591,7 @@ countries = {
 	}
 	XAS = {
 		own_control_core = {
-			rnw_loc_00394 rnw_loc_00451 rnw_loc_00475 rnw_loc_00499 rnw_loc_00508 rnw_loc_00558 rnw_loc_00564 rnw_loc_00614 rnw_loc_00622 rnw_loc_00624 rnw_loc_00626 rnw_loc_00634 rnw_loc_00676 rnw_loc_00695 rnw_loc_00699 rnw_loc_00709 rnw_loc_00717 rnw_loc_00718 rnw_loc_00732 rnw_loc_00733 rnw_loc_00746 rnw_loc_00749 rnw_loc_00752 rnw_loc_00755 rnw_loc_00767 rnw_loc_00774 rnw_loc_00775 rnw_loc_00776 rnw_loc_00802 rnw_loc_00810 rnw_loc_00815 rnw_loc_00816 rnw_loc_00828 rnw_loc_00842 rnw_loc_00852 rnw_loc_00867 rnw_loc_00885 rnw_loc_00888 rnw_loc_00910 rnw_loc_00936 rnw_loc_00937 rnw_loc_00942 rnw_loc_00955 rnw_loc_01022 rnw_loc_01028
+			rnw_loc_00394 rnw_loc_00451 rnw_loc_00475 rnw_loc_00499 rnw_loc_00508 rnw_loc_00558 rnw_loc_00564 rnw_loc_00614 rnw_loc_00622 rnw_loc_00624 rnw_loc_00626 rnw_loc_00634 rnw_loc_00642 rnw_loc_00676 rnw_loc_00695 rnw_loc_00699 rnw_loc_00709 rnw_loc_00717 rnw_loc_00718 rnw_loc_00732 rnw_loc_00733 rnw_loc_00746 rnw_loc_00749 rnw_loc_00752 rnw_loc_00755 rnw_loc_00767 rnw_loc_00774 rnw_loc_00775 rnw_loc_00776 rnw_loc_00802 rnw_loc_00810 rnw_loc_00815 rnw_loc_00816 rnw_loc_00828 rnw_loc_00842 rnw_loc_00852 rnw_loc_00867 rnw_loc_00885 rnw_loc_00888 rnw_loc_00910 rnw_loc_00936 rnw_loc_00937 rnw_loc_00942 rnw_loc_00955 rnw_loc_01022 rnw_loc_01028
 		}
 		capital = rnw_loc_00451
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -86599,7 +86618,7 @@ countries = {
 	}
 	XAT = {
 		own_control_core = {
-			rnw_loc_01566 rnw_loc_01611 rnw_loc_01619 rnw_loc_01668 rnw_loc_01680 rnw_loc_01704 rnw_loc_01725 rnw_loc_01748 rnw_loc_01753 rnw_loc_01763 rnw_loc_01769 rnw_loc_01810 rnw_loc_01823 rnw_loc_01828 rnw_loc_01831 rnw_loc_01845 rnw_loc_01849 rnw_loc_01864 rnw_loc_01890 rnw_loc_01894 rnw_loc_01896 rnw_loc_01921 rnw_loc_01926 rnw_loc_01947 rnw_loc_01949 rnw_loc_01951 rnw_loc_01969 rnw_loc_01997 rnw_loc_02014 rnw_loc_02019 rnw_loc_02027 rnw_loc_02041 rnw_loc_02056 rnw_loc_02060 rnw_loc_02063 rnw_loc_02110 rnw_loc_02130 rnw_loc_02134 rnw_loc_02150 rnw_loc_02175 rnw_loc_02193 rnw_loc_02198 rnw_loc_02225 rnw_loc_02226 rnw_loc_02276 rnw_loc_02277 rnw_loc_02291 rnw_loc_02309 rnw_loc_02314 rnw_loc_02325 rnw_loc_02331 rnw_loc_02342 rnw_loc_02351 rnw_loc_02387
+			rnw_loc_01566 rnw_loc_01611 rnw_loc_01619 rnw_loc_01668 rnw_loc_01680 rnw_loc_01704 rnw_loc_01710 rnw_loc_01725 rnw_loc_01748 rnw_loc_01753 rnw_loc_01763 rnw_loc_01769 rnw_loc_01810 rnw_loc_01823 rnw_loc_01828 rnw_loc_01831 rnw_loc_01845 rnw_loc_01849 rnw_loc_01864 rnw_loc_01890 rnw_loc_01894 rnw_loc_01896 rnw_loc_01921 rnw_loc_01926 rnw_loc_01947 rnw_loc_01949 rnw_loc_01951 rnw_loc_01969 rnw_loc_01997 rnw_loc_02014 rnw_loc_02019 rnw_loc_02027 rnw_loc_02041 rnw_loc_02056 rnw_loc_02060 rnw_loc_02063 rnw_loc_02110 rnw_loc_02130 rnw_loc_02134 rnw_loc_02150 rnw_loc_02175 rnw_loc_02193 rnw_loc_02198 rnw_loc_02225 rnw_loc_02226 rnw_loc_02276 rnw_loc_02277 rnw_loc_02291 rnw_loc_02309 rnw_loc_02314 rnw_loc_02325 rnw_loc_02331 rnw_loc_02342 rnw_loc_02351 rnw_loc_02387
 		}
 		capital = rnw_loc_01849
 		include = "amerindian_monarchy"
@@ -86714,7 +86733,7 @@ countries = {
 	}
 	XAY = {
 		own_control_core = {
-			rnw_loc_00720 rnw_loc_00786 rnw_loc_00792 rnw_loc_00819 rnw_loc_00821 rnw_loc_00843 rnw_loc_00869 rnw_loc_00907 rnw_loc_00925 rnw_loc_00930 rnw_loc_00954 rnw_loc_01036 rnw_loc_01046
+			rnw_loc_00720 rnw_loc_00786 rnw_loc_00792 rnw_loc_00819 rnw_loc_00821 rnw_loc_00843 rnw_loc_00869 rnw_loc_00907 rnw_loc_00915 rnw_loc_00925 rnw_loc_00928 rnw_loc_00930 rnw_loc_00954 rnw_loc_00967 rnw_loc_00980 rnw_loc_00986 rnw_loc_00994 rnw_loc_01020 rnw_loc_01023 rnw_loc_01036 rnw_loc_01046 rnw_loc_01058 rnw_loc_01086 rnw_loc_01090 rnw_loc_01120 rnw_loc_01142 rnw_loc_01145 rnw_loc_01162 rnw_loc_01185 rnw_loc_01192 rnw_loc_01229 rnw_loc_01280 rnw_loc_01293 rnw_loc_01302 rnw_loc_01315 rnw_loc_01340 rnw_loc_01406
 		}
 		capital = rnw_loc_01046
 		include = "amerindian_advanced_monarchy_not_nahuatl"
@@ -86741,7 +86760,7 @@ countries = {
 	}
 	XAZ = {
 		own_control_core = {
-			rnw_loc_01871 rnw_loc_01876 rnw_loc_01881 rnw_loc_01899 rnw_loc_01934 rnw_loc_01960 rnw_loc_02006 rnw_loc_02017 rnw_loc_02057 rnw_loc_02093 rnw_loc_02094 rnw_loc_02101 rnw_loc_02138 rnw_loc_02147 rnw_loc_02168 rnw_loc_02169 rnw_loc_02173 rnw_loc_02178 rnw_loc_02186 rnw_loc_02204 rnw_loc_02205 rnw_loc_02215 rnw_loc_02218 rnw_loc_02231 rnw_loc_02245 rnw_loc_02246 rnw_loc_02253 rnw_loc_02268 rnw_loc_02274 rnw_loc_02275 rnw_loc_02280 rnw_loc_02284 rnw_loc_02306 rnw_loc_02307 rnw_loc_02360 rnw_loc_02366 rnw_loc_02374 rnw_loc_02384 rnw_loc_02421 rnw_loc_02444 rnw_loc_02448 rnw_loc_02464 rnw_loc_02479 rnw_loc_02516 rnw_loc_02549 rnw_loc_02621
+			rnw_loc_01871 rnw_loc_01876 rnw_loc_01881 rnw_loc_01899 rnw_loc_01934 rnw_loc_01935 rnw_loc_01960 rnw_loc_01996 rnw_loc_02006 rnw_loc_02017 rnw_loc_02057 rnw_loc_02093 rnw_loc_02094 rnw_loc_02101 rnw_loc_02138 rnw_loc_02147 rnw_loc_02168 rnw_loc_02169 rnw_loc_02173 rnw_loc_02178 rnw_loc_02186 rnw_loc_02204 rnw_loc_02205 rnw_loc_02215 rnw_loc_02218 rnw_loc_02231 rnw_loc_02245 rnw_loc_02246 rnw_loc_02253 rnw_loc_02268 rnw_loc_02274 rnw_loc_02275 rnw_loc_02280 rnw_loc_02284 rnw_loc_02306 rnw_loc_02307 rnw_loc_02360 rnw_loc_02366 rnw_loc_02374 rnw_loc_02384 rnw_loc_02421 rnw_loc_02444 rnw_loc_02448 rnw_loc_02464 rnw_loc_02479 rnw_loc_02516 rnw_loc_02549 rnw_loc_02621
 		}
 		capital = rnw_loc_02366
 		include = "amerindian_advanced_monarchy_not_nahuatl_no_coast"
@@ -86768,7 +86787,7 @@ countries = {
 	}
 	XBA = {
 		own_control_core = {
-			rnw_loc_02576 rnw_loc_02613 rnw_loc_02677 rnw_loc_02690 rnw_loc_02743 rnw_loc_02746 rnw_loc_02750 rnw_loc_02774 rnw_loc_02775 rnw_loc_02783 rnw_loc_02814 rnw_loc_02858 rnw_loc_02875 rnw_loc_02888 rnw_loc_02900 rnw_loc_02953 rnw_loc_02954 rnw_loc_02955 rnw_loc_02975 rnw_loc_02983 rnw_loc_02998 rnw_loc_03004 rnw_loc_03031 rnw_loc_03056 rnw_loc_03067 rnw_loc_03077 rnw_loc_03081 rnw_loc_03112 rnw_loc_03130 rnw_loc_03131 rnw_loc_03164 rnw_loc_03176 rnw_loc_03183 rnw_loc_03193 rnw_loc_03203 rnw_loc_03226 rnw_loc_03245 rnw_loc_03247 rnw_loc_03268 rnw_loc_03276 rnw_loc_03284 rnw_loc_03297 rnw_loc_03298 rnw_loc_03354 rnw_loc_03361 rnw_loc_03362 rnw_loc_03364 rnw_loc_03372 rnw_loc_03379 rnw_loc_03408 rnw_loc_03414 rnw_loc_03433 rnw_loc_03462 rnw_loc_03481
+			rnw_loc_02576 rnw_loc_02613 rnw_loc_02677 rnw_loc_02690 rnw_loc_02707 rnw_loc_02743 rnw_loc_02746 rnw_loc_02750 rnw_loc_02774 rnw_loc_02775 rnw_loc_02783 rnw_loc_02814 rnw_loc_02858 rnw_loc_02875 rnw_loc_02888 rnw_loc_02900 rnw_loc_02953 rnw_loc_02954 rnw_loc_02955 rnw_loc_02975 rnw_loc_02983 rnw_loc_02998 rnw_loc_03004 rnw_loc_03031 rnw_loc_03056 rnw_loc_03067 rnw_loc_03077 rnw_loc_03081 rnw_loc_03112 rnw_loc_03130 rnw_loc_03131 rnw_loc_03164 rnw_loc_03176 rnw_loc_03183 rnw_loc_03193 rnw_loc_03203 rnw_loc_03226 rnw_loc_03245 rnw_loc_03247 rnw_loc_03268 rnw_loc_03276 rnw_loc_03284 rnw_loc_03297 rnw_loc_03298 rnw_loc_03354 rnw_loc_03361 rnw_loc_03362 rnw_loc_03364 rnw_loc_03372 rnw_loc_03379 rnw_loc_03408 rnw_loc_03414 rnw_loc_03433 rnw_loc_03462 rnw_loc_03481
 		}
 		capital = rnw_loc_03056
 		include = "amerindian_monarchy"
@@ -86826,7 +86845,7 @@ countries = {
 	}
 	XBC = {
 		own_control_core = {
-			rnw_loc_00848 rnw_loc_00933 rnw_loc_00935 rnw_loc_00940 rnw_loc_00965 rnw_loc_00981 rnw_loc_00990 rnw_loc_01021 rnw_loc_01053 rnw_loc_01121 rnw_loc_01168 rnw_loc_01190 rnw_loc_01195
+			rnw_loc_00848 rnw_loc_00933 rnw_loc_00935 rnw_loc_00940 rnw_loc_00964 rnw_loc_00965 rnw_loc_00981 rnw_loc_00990 rnw_loc_01021 rnw_loc_01053 rnw_loc_01066 rnw_loc_01085 rnw_loc_01101 rnw_loc_01121 rnw_loc_01137 rnw_loc_01168 rnw_loc_01173 rnw_loc_01186 rnw_loc_01190 rnw_loc_01195 rnw_loc_01277 rnw_loc_01284 rnw_loc_01290 rnw_loc_01322 rnw_loc_01351
 		}
 		capital = rnw_loc_01053
 		include = "amerindian_advanced_monarchy_not_nahuatl"

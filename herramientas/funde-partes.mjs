@@ -475,7 +475,9 @@ const rangos = Object.entries(TIERRA.rangos || {}).sort(([a], [b]) => a.localeCo
 const popsDe = (dueno) => (tagsFaccion.has(dueno) ? 'gj_marca_tierra_nueva = yes' : `every_pop = { change_pop_culture = c:${dueno}.culture change_pop_religion = c:${dueno}.religion }`);
 // primero la capital nueva de quien la muda (los estados de RNW antes que las facciones): asi
 // ningun pais se queda sin tierra ni sin capital a mitad del efecto
-const daLinea = ([l, dueno]) => `\tlocation:${l} = { change_location_owner = c:${dueno} change_location_controller = c:${dueno} add_core = c:${dueno} ${popsDe(dueno)} }`;
+// con la tierra en el setup (copia de 10_countries, TIERRA.enSetup) aqui solo cambian la cultura y la fe
+const enSetup = !!TIERRA.enSetup;
+const daLinea = ([l, dueno]) => (enSetup ? `\tlocation:${l} = { ${popsDe(dueno)} }` : `\tlocation:${l} = { change_location_owner = c:${dueno} change_location_controller = c:${dueno} add_core = c:${dueno} ${popsDe(dueno)} }`);
 const capOrden = [...capitales].sort(([a], [b]) => (tagsFaccion.has(a) - tagsFaccion.has(b)) || a.localeCompare(b));
 const capLocs = new Set(capOrden.map(([, c]) => c.a));
 escribeConBom(I('in_game/common/scripted_effects/gj_integracion_tierra.txt'),
@@ -488,10 +490,9 @@ gj_marca_tierra_nueva = {
 }
 
 gj_reparte_tierra = {
-${capOrden.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su zona o la ha perdido; pasa a ${c.a}\n${TIERRA.da[c.a] ? daLinea([c.a, TIERRA.da[c.a]]) + '\n' : ''}\tc:${t2} = { set_capital = location:${c.a} }`).join('\n')}
-${dadas.filter(([l]) => !capLocs.has(l)).map(daLinea).join('\n')}
-	# trozos sueltos que nadie ha tomado: quedan sin dueno, para colonizar
-${sueltas.map(([l, t2]) => `\tc:${t2} = { abandon_location = location:${l} }`).join('\n')}
+${enSetup ? '\t# la tierra y las capitales van en el setup (copia de 10_countries): aqui, la cultura y la fe de la tierra que cambia de manos' : capOrden.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su zona o la ha perdido; pasa a ${c.a}\n${TIERRA.da[c.a] ? daLinea([c.a, TIERRA.da[c.a]]) + '\n' : ''}\tc:${t2} = { set_capital = location:${c.a} }`).join('\n')}
+${dadas.filter(([l]) => enSetup || !capLocs.has(l)).map(daLinea).join('\n')}
+${enSetup ? '' : '\t# trozos sueltos que nadie ha tomado: quedan sin dueno, para colonizar\n'}${enSetup ? '' : sueltas.map(([l, t2]) => `\tc:${t2} = { abandon_location = location:${l} }`).join('\n')}
 }
 
 # Ciudades y pueblos de la tierra que cambia de dueno al empezar (asigna-facciones.mjs): la capital
@@ -503,17 +504,26 @@ ${rangos.map(([l, r]) => `\tlocation:${l} = { change_location_rank = location_ra
 `);
 
 // El nombre de una faccion es su titulo entero («Alto Reino de Ostrevar»): que el juego no le ponga
-// el rango delante («Condado de ...»). La regla se suma a las del juego, que solo usa la suya de
-// reserva (fallback = yes) cuando no cuadra ninguna otra.
-escribeConBom(I('in_game/common/customizable_localization/gj_integracion_nombres.txt'),
-`# GJ Nuevo Mundo, integracion: nombre propio de las facciones. GENERADO por funde-partes.mjs.
-INJECT:country_name_construction = {
-\ttext = {
-\t\tlocalization_key = country_name_construction_name
-\t\ttrigger = { has_variable = gj_nombre_propio }
-\t}
+// el rango delante («County of ...»). El juego usa la primera regla que cuadra, y su ultima regla
+// (la de reserva) no tiene condicion: una regla anadida con INJECT queda detras y nunca se usa (el
+// panel de seleccion y la barra decian «County of High Kingdom of Ostrevar»). Por eso la lista
+// entera del juego se sustituye (REPLACE) con la nuestra delante; el resto, igual que en el juego.
+{
+  const fN = path.join(JUEGO, 'in_game', 'common', 'customizable_localization', 'country_name_construction.txt');
+  const tN = leeTexto(fN).texto;
+  const ini = tN.search(/^country_name_construction\s*=\s*\{/m);
+  if (ini < 0) throw new Error('funde-partes: no encuentro country_name_construction en el juego');
+  let prof = 0, fin = -1;
+  for (let i = tN.indexOf('{', ini); i < tN.length; i++) { if (tN[i] === '{') prof++; else if (tN[i] === '}' && --prof === 0) { fin = i + 1; break; } }
+  if (fin < 0) throw new Error('funde-partes: country_name_construction del juego sin cerrar');
+  const bloqueN = tN.slice(ini, fin);
+  const tipo = bloqueN.match(/^\s*type\s*=\s*country[^\n]*\n/m);
+  if (!tipo) throw new Error('funde-partes: country_name_construction del juego sin type = country');
+  const pos = tipo.index + tipo[0].length;
+  const nuestra = '\ttext = {\n\t\tlocalization_key = country_name_construction_name # GJ Nuevo Mundo: el nombre propio de las facciones, sin rango\n\t\ttrigger = { has_variable = gj_nombre_propio }\n\t}\n';
+  escribeConBom(I('in_game/common/customizable_localization/gj_integracion_nombres.txt'),
+    `# GJ Nuevo Mundo, integracion: nombre propio de las facciones. GENERADO por funde-partes.mjs desde\n# el country_name_construction.txt del juego, con nuestra regla delante.\nREPLACE:${bloqueN.slice(0, pos)}${nuestra}${bloqueN.slice(pos)}\n`);
 }
-`);
 
 // Recursos por zonas (asigna-recursos.mjs, via vinculo.json). Sin mundo, el efecto no hace nada.
 const recursos = Object.entries(VINC.recursos || {}).sort(([a], [b]) => a.localeCompare(b));

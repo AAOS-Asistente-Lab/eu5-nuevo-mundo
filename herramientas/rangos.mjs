@@ -26,9 +26,14 @@ export function rangosIniciales({ dueno, capitales, vec, costa, veg, yaTienen = 
   };
   const punt = (l) => (costa.has(l) ? 2 : 0) + (veg.get(l) === 'farmland' ? 2 : veg.get(l) === 'grasslands' ? 0.5 : 0)
     + 0.5 * [...(vec.get(l) || [])].filter((w) => veg.get(w) === 'farmland').length;
-  for (const [t, ls] of [...por].sort(([a], [b]) => a.localeCompare(b))) {
+  // primero todas las capitales: si no, un pais anterior en el orden pondria un pueblo pegado a la
+  // capital de uno posterior (la separacion no se cumpliria entre paises)
+  for (const [t] of [...por].sort(([a], [b]) => a.localeCompare(b))) {
     const cap = capitales.get(t);
     if (cap && dueno.get(cap) === t && !veto.has(cap) && !esCiudad(rangoDe(cap))) rangos[cap] = 'city';
+  }
+  for (const [t, ls] of [...por].sort(([a], [b]) => a.localeCompare(b))) {
+    const cap = capitales.get(t);
     const quiere = Math.floor(ls.length / cada);
     let tiene = ls.filter((l) => l !== cap && rangoDe(l)).length;
     for (const l of [...ls].filter((x) => !rangoDe(x) && !veto.has(x)).sort((a, b) => punt(b) - punt(a) || a.localeCompare(b))) {
