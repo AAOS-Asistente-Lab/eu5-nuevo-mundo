@@ -418,18 +418,20 @@ ${FUND.map(llamada).join('\n')}
 }
 `);
 
-// Tierra al empezar (reparte-tierra.mjs, via vinculo.json): reparte tierra libre entre las facciones
-// y los demas paises del mundo; nadie absorbe a nadie. La tierra que pasa a una faccion lleva
+// Tierra al empezar (reparte-tierra.mjs, via vinculo.json): cada pais queda de una pieza. Reparte
+// tierra entre las facciones y los demas paises del mundo y abandona los trozos sueltos que traia
+// RNW; nadie absorbe a nadie. La tierra que pasa a una faccion lleva
 // gj_tierra_nueva, y gj_fundar_faccion pasa todos sus pops a la cultura y la fe de la faccion; la
 // que pasa a otro pais toma aqui mismo la cultura y la fe de ese pais. Sin mundo, no hace nada.
 const TIERRA = VINC.tierra || { da: {} };
 const tagsFaccion = new Set(Object.values(VINC.paises || {}));
 const dadas = Object.entries(TIERRA.da || {}).sort(([a], [b]) => a.localeCompare(b));
 const capitales = Object.entries(TIERRA.capital || {}).sort(([a], [b]) => a.localeCompare(b));
+const sueltas = Object.entries(TIERRA.suelta || {}).sort(([a], [b]) => a.localeCompare(b));
 const popsDe = (dueno) => (tagsFaccion.has(dueno) ? 'gj_marca_tierra_nueva = yes' : `every_pop = { change_pop_culture = c:${dueno}.culture change_pop_religion = c:${dueno}.religion }`);
 escribeConBom(I('in_game/common/scripted_effects/gj_integracion_tierra.txt'),
 `# GJ Nuevo Mundo, integracion: tierra con dueno al empezar. GENERADO por funde-partes.mjs desde
-# vinculo.json (lo calcula reparte-tierra.mjs). ${dadas.length ? `${dadas.length} localizaciones libres repartidas y ${capitales.length} capitales llevadas a su zona.` : 'Sin mundo vinculado: no cambia nada.'}
+# vinculo.json (lo calcula reparte-tierra.mjs). ${dadas.length ? `${dadas.length} localizaciones repartidas, ${capitales.length} capitales llevadas a su zona y ${sueltas.length} localizaciones de trozos sueltos abandonadas.` : 'Sin mundo vinculado: no cambia nada.'}
 
 # Marca la tierra que una faccion gana al empezar: gj_fundar_faccion pasa todos sus pops (scope: localizacion).
 gj_marca_tierra_nueva = {
@@ -439,6 +441,8 @@ gj_marca_tierra_nueva = {
 gj_reparte_tierra = {
 ${dadas.map(([l, dueno]) => `\tlocation:${l} = { change_location_owner = c:${dueno} change_location_controller = c:${dueno} add_core = c:${dueno} ${popsDe(dueno)} }`).join('\n')}
 ${capitales.map(([t2, c]) => `\t# ${t2}: su capital (${c.de}) estaba fuera de su zona; pasa a su localizacion mas cerca del centro\n\tc:${t2} = { set_capital = location:${c.a} }`).join('\n')}
+	# trozos sueltos que nadie ha tomado: quedan sin dueno, para colonizar
+${sueltas.map(([l, t2]) => `\tc:${t2} = { abandon_location = location:${l} }`).join('\n')}
 }
 `);
 

@@ -15,7 +15,7 @@
 //   --destino <carpeta> donde instalar (por defecto Documents/.../mod)
 //   --sin-mapa          no usa el mapa final (mapa/final/zonas.json) aunque el mundo encaje
 //   --zonas-mapa        usa el mapa final aunque el mundo no encaje (solo para probar)
-//   --sin-reparto       no reparte la tierra libre al empezar (reparte-tierra.mjs)
+//   --sin-reparto       no reparte la tierra al empezar (reparte-tierra.mjs)
 //   --sin-vegetacion    no mezcla la vegetacion (mezcla-vegetacion.mjs)
 //
 // Con un mundo hecho con el dibujo de mapa/final, cada faccion se queda el pais con mas
@@ -275,13 +275,7 @@ for (const z of [...zonasUsadas].sort()) {
 
 // ---------------------------------------------------------------- tierra de cada faccion al empezar
 const vecM = conMapa ? await vecinos(MUNDO, JUEGO) : null;
-// sub-zonas de localizacion que piden las partes: cada faccion tendra un pie en las de su zona
-const locsDeArea = new Map();
-for (const [l, j] of jer) { if (!locsDeArea.has(j.area)) locsDeArea.set(j.area, []); locsDeArea.get(j.area).push(l); }
-const subzonas = Object.entries(zonas).filter(([, d]) => d.ambito === 'localizacion')
-  .map(([nombre, d]) => ({ nombre, locs: d.lista.flatMap((x) => (x.tipo === 'location' ? [x.clave] : x.tipo === 'area' ? locsDeArea.get(x.clave) || [] : [])).sort() }))
-  .filter((s) => s.locs.length);
-const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas }) : null;
+const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones }) : null;
 
 // ---------------------------------------------------------------- vegetacion mezclada
 // Ciudades de las facciones: sus capitales.
@@ -351,7 +345,7 @@ const vinculo = {
   mundo: { id: metaMundo.id, name: metaMundo.name, version: metaMundo.version },
   paises: paisesVinculo,
   zonas,
-  tierra: tierraR ? { da: tierraR.da, capital: tierraR.capital } : null,
+  tierra: tierraR ? { da: tierraR.da, suelta: tierraR.suelta, capital: tierraR.capital } : null,
   recursos: Object.fromEntries(rec.cambian.map((l) => [l, rec.asignado.get(l)])),
 };
 const rutaVinculo = path.join(OBRA, 'vinculo.json');

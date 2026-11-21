@@ -21,7 +21,7 @@ Con Node 22 o más, el juego cerrado y 8 GB de RAM libres, desde la carpeta del 
 ```
 node herramientas/exporta-3d.mjs
 ```
-Vuelve a generar el mundo con nuestra vegetación y deja en `Documents/.../mod/` el mod **GJ Nuevo Mundo: gráficos** (`gj_nuevo_mundo_graficos`, unos 825 MB, no va en el repo). Al acabar imprime la huella de los gráficos: tiene que ser `12555ea8e1ff3c91` en los dos PC. Sin este paso se puede jugar igual, pero el mapa enseña las selvas y desiertos viejos de RNW.
+Vuelve a generar el mundo con nuestra vegetación y deja en `Documents/.../mod/` el mod **GJ Nuevo Mundo: gráficos** (`gj_nuevo_mundo_graficos`, unos 825 MB, no va en el repo). Al acabar imprime la huella de los gráficos: tiene que ser `fc42a7df0ea4b950` en los dos PC. Sin este paso se puede jugar igual, pero el mapa enseña las selvas y desiertos viejos de RNW.
 
 Sin Node, hay un atajo para el mundo: `<RNW>/generator/python/python.exe -m rnw.cli import-world mundo/mundo-35cl.rnworld` y después `... -m rnw.cli world <el código que imprime> --install --land-image mundo/mascara.png` hacen lo mismo que el paso 1 sin abrir la ventana.
 
@@ -42,14 +42,14 @@ En «DLC y mods», la colección activa en este orden exacto (lo que va más aba
 
 ## 4. Qué mirar
 - [ ] **Selección de país:** las 12 facciones están en su sitio, con el país que dice `docs/vinculo-mundo.md`. Si alguna sale con el nombre del mundo, búscala por la etiqueta: el nombre cambia al empezar.
-- [ ] **Al empezar:** cada facción tiene una cuarta parte de su zona, su capital dentro, su nombre, color, cultura y fe, y los pops de su tierra nueva han cambiado a las dos. Alrededor hay muchos países pequeños y medianos (130 en total; el 48,5 % del Nuevo Mundo tiene dueño) y tierra libre para colonizar.
+- [ ] **Al empezar:** cada facción tiene una cuarta parte de su zona, su capital dentro, su nombre, color, cultura y fe, y los pops de su tierra nueva han cambiado a las dos. Alrededor hay muchos países pequeños y medianos (130 en total, cada uno de una pieza; el 40,9 % del Nuevo Mundo tiene dueño) y tierra libre para colonizar.
 - [ ] **El mapa:** los bosques y las selvas salen en manchas pequeñas y mezcladas, sin grandes desiertos en el sur (con el mod de gráficos).
 - [ ] **Consola:** `event gj_ostrevar.1`, `.2` y `.3` salen con título, texto y opciones, sin claves en bruto.
 - [ ] **Juega 5 años** a velocidad alta: no se cuelga y los eventos de las facciones salen alguna vez.
 - [ ] Guarda, cierra y mira `Documents/Paradox Interactive/Europa Universalis V/logs/error.log`: busca líneas con `gj_`.
 
 ## 5. Multijugador
-Los dos con los pasos 0-3 hechos y la misma huella del mod (`a6d9b3756aa24429`, la imprime `asigna-facciones.mjs`; la de los gráficos, `exporta-3d.mjs`): abrid una sala y **comparad la suma de control**. Si coincide, jugad 2 años sin desincronizaros, una facción cada uno.
+Los dos con los pasos 0-3 hechos y la misma huella del mod (`929ee71d517fa233`, la imprime `asigna-facciones.mjs`; la de los gráficos, `exporta-3d.mjs`): abrid una sala y **comparad la suma de control**. Si coincide, jugad 2 años sin desincronizaros, una facción cada uno.
 
 ## Rehacer el mod (solo si cambian las partes o el mundo)
 Con Node 22 o más y el juego cerrado:

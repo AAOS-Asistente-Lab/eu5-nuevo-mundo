@@ -1,0 +1,76 @@
+[building_type.cpp:2530]: gj_marea_negra_astillero_corsario has a too high efficiency for sailors, as its 0.1 when 0.0125 is allowed
+[building_type.cpp:2530]: gj_marea_negra_casa_de_las_cuerdas has a too high efficiency for sailors, as its 0.1 when 0.0125 is allowed
+[building_type.cpp:2530]: gj_thalassar_arsenal_sumergido_2 has a too high efficiency for sailors, as its 0.02 when 0.0125 is allowed
+[building_type.cpp:2530]: gj_thalassar_arsenal_sumergido_3 has a too high efficiency for sailors, as its 0.03333 when 0.0125 is allowed
+[building_type.cpp:2530]: gj_thalassar_faro_de_marea_1 has a too high efficiency for sailors, as its 0.02 when 0.0125 is allowed
+[building_type.cpp:2530]: gj_thalassar_faro_de_marea_2 has a too high efficiency for sailors, as its 0.04 when 0.0125 is allowed
+[building_type.cpp:2530]: gj_thalassar_faro_de_marea_3 has a too high efficiency for sailors, as its 0.06 when 0.0125 is allowed
+[building_type.cpp:2532]: gj_kaivan_campamento_kan has a too high efficiency for manpower, as its 0.3 when 0.0125 is allowed
+[building_type.cpp:2532]: gj_orunmar_atalaya_de_la_niebla has a too high efficiency for manpower, as its 0.02 when 0.0125 is allowed
+[building_type.cpp:2558]: gj_hrimval_osario_mayor has a too high efficiency for manpower, as its 0.05 when 0.0125 is allowed
+[building_type.cpp:2558]: gj_hrimval_tumulo_hielo has a too high efficiency for manpower, as its 0.016 when 0.0125 is allowed
+[building_type.cpp:2569]: gj_marea_negra_almacen_del_botin is not a foreign building but has a 'merchant_capacity_from_building' modifier
+[building_type.cpp:2569]: gj_marea_negra_puerto_libre is not a foreign building but has a 'merchant_capacity_from_building' modifier
+[building_type.cpp:2569]: gj_skarren_lonja_del_botin is not a foreign building but has a 'merchant_capacity_from_building' modifier
+[building_type.cpp:2573]: gj_skarren_lonja_del_botin is not a foreign building but has a 'merchant_power_from_building' modifier
+[graphical_culturetype.cpp:522]: Culture definition 'gj_aryuki' has graphical cultures with conflicting priorities: 'mongol_gfx' and 'turkic_gfx' both have priority 300
+[graphical_culturetype.cpp:522]: Culture definition 'gj_isbranti' has graphical cultures with conflicting priorities: 'norwegian_gfx' and 'swedish_gfx' both have priority 400
+[graphical_culturetype.cpp:522]: Culture definition 'gj_tarnavi' has graphical cultures with conflicting priorities: 'north_german_gfx' and 'swedish_gfx' both have priority 400
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_aryuki
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_brazalmi
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_cenizario
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_halcori
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_hondarri
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_isbranti
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_marismeno
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_nenvari
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_ondani
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_pakhuni
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_sotolari
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_tarnavi
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_tirnauki
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_vigiano
+[initialize_from_bookmark.cpp:1470]: Culture has no pops in the setup: gj_yorumbi
+[initialize_from_bookmark.cpp:226]: The country 'CBG Sorava' has no pops of its official religion 'gj_pacto_balanza' .
+[initialize_from_bookmark.cpp:226]: The country 'EYJ Thalassar' has no pops of its official religion 'gj_mar_dormido' .
+[initialize_from_bookmark.cpp:226]: The country 'FDE League of a Thousand Lagoons' has no pops of its official religion 'gj_espiritus_lago' .
+[initialize_from_bookmark.cpp:226]: The country 'JEJ Brotherhood of the Black Tide' has no pops of its official religion 'gj_mar_dormido' .
+[initialize_from_bookmark.cpp:226]: The country 'OKD Theocracy of Ankaru' has no pops of its official religion 'gj_sol_blanco' .
+[initialize_from_bookmark.cpp:226]: The country 'OXA Unburied Court of Hrimval' has no pops of its official religion 'gj_escarcha_silente' .
+[initialize_from_bookmark.cpp:226]: The country 'QJZ Crimson Hegemony of Orunmar' has no pops of its official religion 'gj_dioses_hambrientos' .
+[initialize_from_bookmark.cpp:226]: The country 'QKM Kaivan' has no pops of its official religion 'gj_cielo_clanes' .
+[initialize_from_bookmark.cpp:226]: The country 'QPF High Kingdom of Ostrevar' has no pops of its official religion 'gj_luz_fundadores' .
+[initialize_from_bookmark.cpp:226]: The country 'SGG Velathi' has no pops of its official religion 'gj_senda_verde' .
+[initialize_from_bookmark.cpp:226]: The country 'THJ Skarren' has no pops of its official religion 'gj_espiritus_lago' .
+[initialize_from_bookmark.cpp:226]: The country 'WWA Durnhal' has no pops of its official religion 'gj_llama_profunda' .
+[initialize_from_bookmark.cpp:232]: The country 'CBG Sorava' has no pops of its primary culture 'gj_soravi' .
+[initialize_from_bookmark.cpp:232]: The country 'EYJ Thalassar' has no pops of its primary culture 'gj_talasio' .
+[initialize_from_bookmark.cpp:232]: The country 'FDE League of a Thousand Lagoons' has no pops of its primary culture 'gj_lagunero' .
+[initialize_from_bookmark.cpp:232]: The country 'JEJ Brotherhood of the Black Tide' has no pops of its primary culture 'gj_mareano' .
+[initialize_from_bookmark.cpp:232]: The country 'OKD Theocracy of Ankaru' has no pops of its primary culture 'gj_ankaruno' .
+[initialize_from_bookmark.cpp:232]: The country 'OXA Unburied Court of Hrimval' has no pops of its primary culture 'gj_insepulto' .
+[initialize_from_bookmark.cpp:232]: The country 'QJZ Crimson Hegemony of Orunmar' has no pops of its primary culture 'gj_orunmari' .
+[initialize_from_bookmark.cpp:232]: The country 'QKM Kaivan' has no pops of its primary culture 'gj_kaivani' .
+[initialize_from_bookmark.cpp:232]: The country 'QPF High Kingdom of Ostrevar' has no pops of its primary culture 'gj_ostrevari' .
+[initialize_from_bookmark.cpp:232]: The country 'SGG Velathi' has no pops of its primary culture 'gj_velathi' .
+[initialize_from_bookmark.cpp:232]: The country 'THJ Skarren' has no pops of its primary culture 'gj_skarren' .
+[initialize_from_bookmark.cpp:232]: The country 'WWA Durnhal' has no pops of its primary culture 'gj_durnhali' .
+[initialize_from_bookmark.cpp:246]: The country 'CBG Sorava' has a primary culture 'gj_soravi' 0.0000, but the dominant culture for the upper class is 'chango_culture' 0.1522.
+[initialize_from_bookmark.cpp:246]: The country 'EYJ Thalassar' has a primary culture 'gj_talasio' 0.0000, but the dominant culture for the upper class is 'pikumche_culture' 0.6827.
+[initialize_from_bookmark.cpp:246]: The country 'FDE League of a Thousand Lagoons' has a primary culture 'gj_lagunero' 0.0000, but the dominant culture for the upper class is 'comecrudo_culture' 0.7483.
+[initialize_from_bookmark.cpp:246]: The country 'JEJ Brotherhood of the Black Tide' has a primary culture 'gj_mareano' 0.0000, but the dominant culture for the upper class is 'purun_awqa_culture' 0.2159.
+[initialize_from_bookmark.cpp:246]: The country 'OKD Theocracy of Ankaru' has a primary culture 'gj_ankaruno' 0.0000, but the dominant culture for the upper class is 'aimara_culture' 0.6127.
+[initialize_from_bookmark.cpp:246]: The country 'OXA Unburied Court of Hrimval' has a primary culture 'gj_insepulto' 0.0000, but the dominant culture for the upper class is 'coahuilteco_culture' 0.0000.
+[initialize_from_bookmark.cpp:246]: The country 'QJZ Crimson Hegemony of Orunmar' has a primary culture 'gj_orunmari' 0.0000, but the dominant culture for the upper class is 'huarco_culture' 0.0919.
+[initialize_from_bookmark.cpp:246]: The country 'QKM Kaivan' has a primary culture 'gj_kaivani' 0.0000, but the dominant culture for the upper class is 'comecrudo_culture' 0.3820.
+[initialize_from_bookmark.cpp:246]: The country 'QPF High Kingdom of Ostrevar' has a primary culture 'gj_ostrevari' 0.0000, but the dominant culture for the upper class is 'cochimi_culture' 0.0770.
+[initialize_from_bookmark.cpp:246]: The country 'SGG Velathi' has a primary culture 'gj_velathi' 0.0000, but the dominant culture for the upper class is 'sanaviron_culture' 0.1355.
+[initialize_from_bookmark.cpp:246]: The country 'THJ Skarren' has a primary culture 'gj_skarren' 0.0000, but the dominant culture for the upper class is 'ohlone_culture' 0.0737.
+[initialize_from_bookmark.cpp:246]: The country 'WWA Durnhal' has a primary culture 'gj_durnhali' 0.0000, but the dominant culture for the upper class is 'halkomelem_culture' 0.1595.
+[static_modifier.cpp:537]: Modifier 'gj_escarcha_silente_nieve_viva' was not used by the script or code but exists in the database, this is a waste
+[static_modifier.cpp:537]: Modifier 'gj_expedicion_fervor' was not used by the script or code but exists in the database, this is a waste
+[static_modifier.cpp:537]: Modifier 'gj_hrimval_corte_dormida' was not used by the script or code but exists in the database, this is a waste
+[static_modifier.cpp:537]: Modifier 'gj_lumbre_consagrada_modifier' was not used by the script or code but exists in the database, this is a waste
+[static_modifier.cpp:537]: Modifier 'gj_ostrevar_cuenta_del_ejercito' was not used by the script or code but exists in the database, this is a waste
+[static_modifier.cpp:537]: Modifier 'gj_ostrevar_legado_6_rio' was not used by the script or code but exists in the database, this is a waste
+[static_modifier.cpp:537]: Modifier 'gj_veta_reconquista' was not used by the script or code but exists in the database, this is a waste

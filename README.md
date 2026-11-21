@@ -11,7 +11,7 @@ Un mod de Europa Universalis V con un Nuevo Mundo propio, pensado para jugar en 
 El mapa lo hace Random New World, con un continente dibujado por nosotros. Este mod pone el contenido encima.
 
 ## Estado
-Jugable sobre el mundo v3, «RNW: Custom world 35CL»: las 12 facciones empiezan dentro de su zona del mapa (cada una con una cuarta parte de ella), entre 130 países de todos los tamaños; el 48,5 % del Nuevo Mundo tiene dueño y el resto queda libre para colonizar. Capitales dentro de su zona, vegetación mezclada, y árboles y suelo del mapa a juego (mod local de gráficos). El juego carga el mod sin errores suyos; falta probarlo en partida. Lo que hace y lo pendiente está en `docs/estado.md`. Para jugar: `docs/como-jugar.md`.
+Jugable sobre el mundo v3, «RNW: Custom world 35CL»: las 12 facciones empiezan dentro de su zona del mapa (cada una con una cuarta parte de ella), entre 130 países de todos los tamaños; el 40,9 % del Nuevo Mundo tiene dueño y el resto queda libre para colonizar. Ningún país está partido en trozos. Capitales dentro de su zona, vegetación mezclada, y árboles y suelo del mapa a juego (mod local de gráficos). El juego carga el mod sin errores suyos y una partida empieza y corre. Lo que hace y lo pendiente está en `docs/estado.md`. Para jugar: `docs/como-jugar.md`.
 
 ## Qué hay aquí
 | Carpeta | Contenido |

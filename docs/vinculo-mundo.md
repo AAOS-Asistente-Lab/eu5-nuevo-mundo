@@ -1,6 +1,6 @@
 # Vinculo de las facciones con el mundo
 
-Escrito por asigna-facciones.mjs el 2026-11-21 09:02. Mundo: **RNW: Custom world 35CL** (`rnw_exp_world_35clmr62cr`, version 1.2.2). Paises de America que se pueden elegir: 130.
+Escrito por asigna-facciones.mjs el 2026-11-21 09:45. Mundo: **RNW: Custom world 35CL** (`rnw_exp_world_35clmr62cr`, version 1.2.2). Paises de America que se pueden elegir: 130.
 
 En la pantalla de seleccion de pais ya salen con el nombre de la faccion (si no, con el del mundo: elige por la etiqueta).
 
@@ -49,47 +49,49 @@ En la pantalla de seleccion de pais ya salen con el nombre de la faccion (si no,
 | Menor S7: marchas de Orunmar | S | 176 | 148 |
 
 ## Tierra con dueno al empezar (reparte-tierra.mjs)
-Nuevo Mundo: 5932 localizaciones de tierra. Con dueno en el mundo de RNW: 1303 (22.0 %). Tras crecer las facciones: 2107 (35.5 %). Tras crecer los demas: **2878 (48.5 %)**, repartidas entre **130 paises**; el resto queda libre para colonizar. Nadie absorbe a nadie.
+Nuevo Mundo: 5932 localizaciones de tierra. Con dueno en el mundo de RNW: 1303 (22.0 %), con 31 paises partidos en varios trozos. Tras crecer las facciones y dejar a cada pais en su nucleo: 1781 (30.0 %). Tras crecer los demas: **2426 (40.9 %)**, repartidas entre **130 paises**; el resto queda libre para colonizar (188 localizaciones de trozos sueltos se abandonan). Nadie absorbe a nadie.
+
+**Paises partidos en varios trozos: 0**.
 
 | Tamano (localizaciones) | Paises |
 |---|---|
-| 1-5 | 47 |
-| 6-15 | 41 |
-| 16-45 | 23 |
-| 46-90 | 13 |
-| 91 o mas | 6 |
+| 1-5 | 56 |
+| 6-15 | 33 |
+| 16-45 | 26 |
+| 46-90 | 10 |
+| 91 o mas | 5 |
 
 | Zona | Faccion | Pais | En el mundo de RNW | Al empezar | De ellas, en su zona | De su zona |
 |---|---|---|---|---|---|---|
-| ankaru | ankaru | OKD | 160 | 218 | 114 | 25 % |
-| durnhal | durnhal | WWA | 30 | 76 | 75 | 25 % |
-| hrimval | hrimval | OXA | 1 | 40 | 39 | 25 % |
-| kaivan | kaivan | QKM | 100 | 272 | 228 | 25 % |
-| liga | lagunas | FDE | 35 | 74 | 64 | 18 % |
-| marea-negra | marea_negra | JEJ | 20 | 41 | 21 | 21 % |
+| ankaru | ankaru | OKD | 160 | 114 | 114 | 25 % |
+| durnhal | durnhal | WWA | 30 | 75 | 75 | 25 % |
+| hrimval | hrimval | OXA | 1 | 39 | 39 | 25 % |
+| kaivan | kaivan | QKM | 100 | 253 | 228 | 25 % |
+| liga | lagunas | FDE | 35 | 88 | 88 | 25 % |
+| marea-negra | marea_negra | JEJ | 20 | 21 | 21 | 21 % |
 | orunmar | orunmar | QJZ | 11 | 146 | 146 | 25 % |
 | ostrevar | ostrevar | QPF | 7 | 119 | 119 | 25 % |
-| skarren | skarren | THJ | 7 | 72 | 71 | 25 % |
-| sorava | sorava | CBG | 10 | 57 | 51 | 25 % |
-| thalassar | thalassar | EYJ | 49 | 49 | 39 | 14 % |
+| skarren | skarren | THJ | 7 | 71 | 71 | 25 % |
+| sorava | sorava | CBG | 10 | 51 | 51 | 25 % |
+| thalassar | thalassar | EYJ | 49 | 78 | 68 | 25 % |
 | velathi | velathi | SGG | 28 | 98 | 98 | 25 % |
 
-Capital llevada a su zona: ankaru OKD de rnw_loc_05492 a rnw_loc_04221; hrimval OXA de rnw_loc_00531 a rnw_loc_00105; kaivan QKM de rnw_loc_00953 a rnw_loc_02261; marea_negra JEJ de rnw_loc_05166 a rnw_loc_03195.
+Capital llevada a su zona: ankaru OKD de rnw_loc_05492 a rnw_loc_04079; hrimval OXA de rnw_loc_00531 a rnw_loc_00105; kaivan QKM de rnw_loc_00953 a rnw_loc_02379; lagunas FDE de rnw_loc_00880 a rnw_loc_00937; marea_negra JEJ de rnw_loc_05166 a rnw_loc_03195; skarren THJ de rnw_loc_01323 a rnw_loc_00677; sorava CBG de rnw_loc_03501 a rnw_loc_03430; thalassar EYJ de rnw_loc_05927 a rnw_loc_05517; velathi SGG de rnw_loc_04822 a rnw_loc_04275.
 
 
 ## Vegetacion del Nuevo Mundo (mezcla-vegetacion.mjs)
-5932 localizaciones de tierra; cambian 3607. Mancha mas grande: localizaciones seguidas del mismo tipo. Desierto en las zonas de las facciones del sur (2006 localizaciones): 30.4 % antes, 5.9 % despues.
+5932 localizaciones de tierra; cambian 3593. Mancha mas grande: localizaciones seguidas del mismo tipo. Desierto en las zonas de las facciones del sur (2006 localizaciones): 30.4 % antes, 6.1 % despues.
 
 | Tipo | Antes | Despues | Mancha mayor antes | Despues |
 |---|---|---|---|---|
-| grasslands | 36.5 % | 29.5 % | 327 | 29 |
-| desert | 18.2 % | 6.1 % | 416 | 19 |
-| woods | 15.3 % | 24.8 % | 121 | 28 |
-| jungle | 12.5 % | 6.2 % | 179 | 25 |
+| grasslands | 36.5 % | 28.9 % | 327 | 29 |
+| desert | 18.2 % | 6.3 % | 416 | 20 |
+| woods | 15.3 % | 25.2 % | 121 | 28 |
+| jungle | 12.5 % | 6.3 % | 179 | 25 |
 | forest | 11.0 % | 14.8 % | 59 | 29 |
-| sparse | 6.4 % | 17.7 % | 29 | 29 |
+| sparse | 6.4 % | 17.6 % | 29 | 29 |
 | farmland | 0.0 % | 1.0 % | 0 | 8 |
-| arbolado (woods+forest+jungle juntos) | 38.9 % | 45.7 % | 197 | 50 |
+| arbolado (woods+forest+jungle juntos) | 38.9 % | 46.2 % | 197 | 50 |
 
 Terreno (topography), sin cambios: flatland 48.3 %, hills 21.7 %, plateau 12.6 %, mountains 11.2 %, wetlands 6.1 %.
 
