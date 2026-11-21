@@ -1,7 +1,7 @@
 // economia.mjs: que los paises del Nuevo Mundo empiecen con una economia de pais europeo mediano
 // (tmp-mundo/estudio-v5/economia.md). Solo en la tierra con dueno; la libre queda como la trae RNW.
 // Escribe copias de los ficheros del setup del mundo (el juego carga la del mod en su lugar):
-//   06_pops        tribesmen a campesinos; gente por localizacion y clases como la Europa del juego, por rango
+//   06_pops        sin tribesmen; gente por localizacion y clases como la Europa del juego, por rango
 //   14_development el desarrollo de cada localizacion, al de Europa (mas en capital, ciudades y costa)
 //   09_roads       caminos desde cada capital a sus pueblos y ciudades, y alrededor, hasta CAMINOS
 //   03_markets     un mercado en la capital de cada pais
@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { leeTexto, analizaFichero, esBloque, hijo, valoresSueltos, escribeConBom } from './pdx.mjs';
 
 // ---------------------------------------------------------------- mandos (se calibran en partida)
+export const RGO_BASE = 0.33; // parte del tope de RGO con que carga el juego (00_defines.txt:1951)
 export const F_RGO_PAIS = fileURLToPath(new URL('./rgo-pais.json', import.meta.url));
 export const MANDOS = {
   POB_FACTOR: 2.0,           // gente de cada localizacion = media europea de su rango x esto
@@ -31,7 +32,7 @@ export const MANDOS = {
   // Medido en partida (21/11, mide-riqueza.mjs): a 0,33 la mediana de los 55 paises ya es la europea (2,19
   // de riqueza por localizacion frente a 2,27) y a 0,67 se dispara a 4,99. Por eso el mando general se queda
   // en la carga del juego y solo suben, cada uno con su parte (RGO_PAIS), los paises que quedan por debajo.
-  RGO_PARTE: 0.33,
+  RGO_PARTE: RGO_BASE,
   // tag -> parte, para el pais que no vale con RGO_PARTE (lo escribe mide-riqueza.mjs --calibra)
   RGO_PAIS: fs.existsSync(F_RGO_PAIS) ? JSON.parse(fs.readFileSync(F_RGO_PAIS, 'utf8')) : {},
   TIPOS: ['nobles', 'clergy', 'burghers', 'peasants'], // clases que se copian de Europa (ni esclavos ni tribus)
@@ -249,8 +250,8 @@ export const textoRgo = (suben = []) => `# GJ Nuevo Mundo (economia.mjs): nivele
 // niveles con que carga el juego (33 % del tope) y los que hay que sumar para llegar a `parte` del tope, con
 // decimales: aplicaEconomia los redondea arrastrando el resto de una localizacion a la siguiente del pais
 export function nivelRgo(tope, parte) {
-  const carga = Math.round(0.33 * tope);
-  return { carga, extra: Math.max(0, Math.min(Math.floor(tope) - carga, (parte - 0.33) * tope)) };
+  const carga = Math.round(RGO_BASE * tope);
+  return { carga, extra: Math.max(0, Math.min(Math.floor(tope) - carga, (parte - RGO_BASE) * tope)) };
 }
 
 // ---------------------------------------------------------------- caminos de un pais

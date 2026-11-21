@@ -178,7 +178,7 @@ gj_kaivan.3 = {
 		name = gj_kaivan.3.a
 		ai_chance = { base = 50 }
 		add_gold = { value = root.monthly_income_trade_and_tax multiply = -4 }
-		if = { limit = { country_has_estate = estate_type:tribes_estate } add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_mild_bonus } }
+		add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_mild_bonus }
 		add_legitimacy = legitimacy_weak_penalty
 		set_variable = { name = gj_kaivan_rebelde value = 0 }
 	}
@@ -545,11 +545,11 @@ gj_kaivan.36 = {
 		capital = {
 			change_development = development_weak_bonus
 		}
-		if = { limit = { country_has_estate = estate_type:tribes_estate } add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_penalty } }
+		add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_penalty }
 	}
 	option = {
 		name = gj_kaivan.36.b
-		if = { limit = { country_has_estate = estate_type:tribes_estate } add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_bonus } }
+		add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_bonus }
 	}
 }
 
@@ -829,7 +829,7 @@ gj_kaivan.45 = {
 	option = {
 		name = gj_kaivan.45.c
 		add_prestige = prestige_weak_penalty
-		if = { limit = { country_has_estate = estate_type:tribes_estate } add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_bonus } }
+		add_estate_satisfaction = { type = estate_type:tribes_estate value = estate_satisfaction_weak_bonus }
 	}
 }
 

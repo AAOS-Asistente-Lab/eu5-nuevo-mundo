@@ -10,6 +10,8 @@ import os from 'node:os';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { tierraDe } from './setup-paises.mjs';
+import { escribeConBom } from './pdx.mjs';
+import { MANDOS, F_RGO_PAIS, RGO_BASE as BASE } from './economia.mjs';
 
 const EUROPA = ['HUN', 'BOH', 'POL', 'CAS', 'ARA', 'POR', 'ENG', 'FRA', 'NAP', 'DAN', 'SWE', 'SCO'];
 const FICHEROS = ['in_game/common/on_action/zz_gj_medida.txt', 'in_game/common/script_values/zz_gj_medida.txt'];
@@ -45,7 +47,6 @@ export function leeMedida(log) {
 // Parte del tope de RGO que le toca a un pais para llegar a `objetivo` de riqueza por localizacion: recta entre
 // lo medido el mes 1 (w0: los obreros nuevos aun no trabajan, sale igual que en el lobby) y lo medido despues
 // (w) con la parte `p` de ahora. null: ya llega sin subir nada. BASE es la carga del juego (33 % del tope).
-const BASE = 0.33;
 export function parteNueva({ p, w0, w, objetivo }) {
   if (w0 >= objetivo) return null;
   // sin pendiente medida, la tipica (21/11: de 0,33 a 0,67 la riqueza por localizacion sube entre 2 y 4)
@@ -61,7 +62,7 @@ const leeTodo = (I) => ({
 });
 if (modo === '--poner') {
   const I = arg('--poner'), tags = [...new Set([...tagsDe(JSON.parse(fs.readFileSync(arg('--vinculo') || 'tmp-instalar/vinculo.json', 'utf8'))), ...EUROPA])].sort();
-  const pon = (f, t) => { const d = path.join(I, f); fs.mkdirSync(path.dirname(d), { recursive: true }); fs.writeFileSync(d, `﻿${t}`, 'utf8'); };
+  const pon = (f, t) => escribeConBom(path.join(I, f), t);
   pon(FICHEROS[0], textoPulso(tags)); pon(FICHEROS[1], textoValores);
   console.log(`medida puesta para ${tags.length} paises en ${I}`);
 } else if (modo === '--quitar') {
@@ -81,7 +82,6 @@ if (modo === '--poner') {
 } else if (modo === '--calibra') {
   // node herramientas/mide-riqueza.mjs --calibra <mod instalado> [--log f] [--mes N] [--objetivo 2.5]
   // Escribe herramientas/rgo-pais.json (lo lee economia.mjs) con la parte de RGO de cada pais que no llega.
-  const { MANDOS, F_RGO_PAIS } = await import('./economia.mjs');
   const { tierra, med } = leeTodo(arg('--calibra')), objetivo = Number(arg('--objetivo') || 2.5), mes = Number(arg('--mes') || 3), sale = {};
   for (const [t, v] of [...med].sort()) {
     const locs = tierra.get(t)?.own.length;
