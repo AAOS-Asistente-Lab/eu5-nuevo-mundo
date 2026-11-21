@@ -405,6 +405,355 @@
       ]
     }
   ],
+  "_nota_menores": "Los 15 menores con nombre (partes/minores_norte y minores_sur): su contenido se activa por cultura. asigna-facciones.mjs da cada uno a un estado de RNW que no sea faccion: el que tiene la capital en la primera de sus zonas del dibujo que tenga alguno libre (si no, el mas cercano a esa zona). Religion: la que recomienda el NECESITA.md de cada parte (la del vecino); la Ultima Ceniza lleva la de sus amigos de Ostrevar, no la de Hrimval, su rival.",
+  "menores": [
+    {
+      "clave": "tarnavia",
+      "continente": "norte",
+      "cultura": "gj_tarnavi",
+      "religion": "gj_luz_fundadores",
+      "nombre": {
+        "es": "Ciudad Libre de Tarnavia",
+        "en": "Free City of Tarnavia"
+      },
+      "adj": {
+        "es": "tarnavio",
+        "en": "Tarnavian"
+      },
+      "rgb": [
+        225,
+        165,
+        120
+      ],
+      "zonas": [
+        "menor-n4",
+        "ostrevar"
+      ]
+    },
+    {
+      "clave": "nenvar",
+      "continente": "norte",
+      "cultura": "gj_nenvari",
+      "religion": "gj_espiritus_lago",
+      "nombre": {
+        "es": "Cofradía de Nenvar",
+        "en": "Brotherhood of Nenvar"
+      },
+      "adj": {
+        "es": "nenvari",
+        "en": "Nenvari"
+      },
+      "rgb": [
+        20,
+        110,
+        90
+      ],
+      "zonas": [
+        "menor-n6",
+        "liga"
+      ]
+    },
+    {
+      "clave": "isbrant",
+      "continente": "norte",
+      "cultura": "gj_isbranti",
+      "religion": "gj_espiritus_lago",
+      "nombre": {
+        "es": "Hansa de Isbrant",
+        "en": "Hanse of Isbrant"
+      },
+      "adj": {
+        "es": "isbranto",
+        "en": "Isbranti"
+      },
+      "rgb": [
+        160,
+        170,
+        185
+      ],
+      "zonas": [
+        "menor-n2",
+        "menor-n3",
+        "skarren"
+      ]
+    },
+    {
+      "clave": "hondarr",
+      "continente": "norte",
+      "cultura": "gj_hondarri",
+      "religion": "gj_llama_profunda",
+      "nombre": {
+        "es": "Clan de Hondarr",
+        "en": "Clan of Hondarr"
+      },
+      "adj": {
+        "es": "hondarri",
+        "en": "Hondarri"
+      },
+      "rgb": [
+        150,
+        105,
+        55
+      ],
+      "zonas": [
+        "menor-n5",
+        "durnhal"
+      ]
+    },
+    {
+      "clave": "tres_pozos",
+      "continente": "norte",
+      "cultura": "gj_aryuki",
+      "religion": "gj_cielo_clanes",
+      "nombre": {
+        "es": "Horda de los Tres Pozos",
+        "en": "Horde of the Three Wells"
+      },
+      "adj": {
+        "es": "aryuki",
+        "en": "Aryuki"
+      },
+      "rgb": [
+        240,
+        200,
+        60
+      ],
+      "zonas": [
+        "menor-n7",
+        "kaivan"
+      ]
+    },
+    {
+      "clave": "marisma_gris",
+      "continente": "norte",
+      "cultura": "gj_marismeno",
+      "religion": "gj_luz_fundadores",
+      "nombre": {
+        "es": "Clanes de la Marisma Gris",
+        "en": "Clans of the Grey Marsh"
+      },
+      "adj": {
+        "es": "marismeño",
+        "en": "Marshfolk"
+      },
+      "rgb": [
+        95,
+        125,
+        70
+      ],
+      "zonas": [
+        "ostrevar",
+        "menor-n4"
+      ]
+    },
+    {
+      "clave": "vigia_alto",
+      "continente": "norte",
+      "cultura": "gj_vigiano",
+      "religion": "gj_luz_fundadores",
+      "nombre": {
+        "es": "Marca del Vigía Alto",
+        "en": "March of the High Watch"
+      },
+      "adj": {
+        "es": "vigiano",
+        "en": "Watchman"
+      },
+      "rgb": [
+        150,
+        60,
+        110
+      ],
+      "zonas": [
+        "menor-n5",
+        "ostrevar"
+      ]
+    },
+    {
+      "clave": "ultima_ceniza",
+      "continente": "norte",
+      "cultura": "gj_cenizario",
+      "religion": "gj_luz_fundadores",
+      "nombre": {
+        "es": "Capítulo de la Última Ceniza",
+        "en": "Chapter of the Last Ash"
+      },
+      "adj": {
+        "es": "cenizario",
+        "en": "Ashen"
+      },
+      "rgb": [
+        105,
+        105,
+        120
+      ],
+      "zonas": [
+        "menor-n2",
+        "hrimval"
+      ]
+    },
+    {
+      "clave": "brazalmar",
+      "continente": "sur",
+      "cultura": "gj_brazalmi",
+      "religion": "gj_pacto_balanza",
+      "nombre": {
+        "es": "Concejo de Brazalmar",
+        "en": "Council of Brazalmar"
+      },
+      "adj": {
+        "es": "brazalmí",
+        "en": "Brazalmi"
+      },
+      "rgb": [
+        165,
+        120,
+        180
+      ],
+      "zonas": [
+        "menor-s1",
+        "sorava"
+      ]
+    },
+    {
+      "clave": "ondan",
+      "continente": "sur",
+      "cultura": "gj_ondani",
+      "religion": "gj_mar_dormido",
+      "nombre": {
+        "es": "Hermandad de Ondán",
+        "en": "Brotherhood of Ondan"
+      },
+      "adj": {
+        "es": "ondaní",
+        "en": "Ondani"
+      },
+      "rgb": [
+        130,
+        215,
+        200
+      ],
+      "zonas": [
+        "menor-s2",
+        "thalassar"
+      ]
+    },
+    {
+      "clave": "cabo_halcor",
+      "continente": "sur",
+      "cultura": "gj_halcori",
+      "religion": "gj_pacto_balanza",
+      "nombre": {
+        "es": "Señorío de Cabo Halcor",
+        "en": "Lordship of Cape Halcor"
+      },
+      "adj": {
+        "es": "halcorí",
+        "en": "Halcori"
+      },
+      "rgb": [
+        175,
+        80,
+        50
+      ],
+      "zonas": [
+        "menor-s1",
+        "sorava"
+      ]
+    },
+    {
+      "clave": "tirnauk",
+      "continente": "sur",
+      "cultura": "gj_tirnauki",
+      "religion": "gj_sol_blanco",
+      "nombre": {
+        "es": "Santuario de Tirnauk",
+        "en": "Sanctuary of Tirnauk"
+      },
+      "adj": {
+        "es": "tirnauki",
+        "en": "Tirnauki"
+      },
+      "rgb": [
+        240,
+        235,
+        200
+      ],
+      "zonas": [
+        "menor-s3",
+        "ankaru"
+      ]
+    },
+    {
+      "clave": "sotolar",
+      "continente": "sur",
+      "cultura": "gj_sotolari",
+      "religion": "gj_senda_verde",
+      "nombre": {
+        "es": "Marca de Sotolar",
+        "en": "March of Sotolar"
+      },
+      "adj": {
+        "es": "sotolarí",
+        "en": "Sotolari"
+      },
+      "rgb": [
+        110,
+        140,
+        72
+      ],
+      "zonas": [
+        "menor-s5",
+        "velathi"
+      ]
+    },
+    {
+      "clave": "yorumbe",
+      "continente": "sur",
+      "cultura": "gj_yorumbi",
+      "religion": "gj_dioses_hambrientos",
+      "nombre": {
+        "es": "Jefatura del Yorumbe",
+        "en": "Chiefdom of the Yorumbe"
+      },
+      "adj": {
+        "es": "yorumbí",
+        "en": "Yorumbi"
+      },
+      "rgb": [
+        200,
+        85,
+        110
+      ],
+      "zonas": [
+        "menor-s6",
+        "orunmar"
+      ]
+    },
+    {
+      "clave": "pakhun",
+      "continente": "sur",
+      "cultura": "gj_pakhuni",
+      "religion": "gj_dioses_hambrientos",
+      "nombre": {
+        "es": "Clanes de Pakhun",
+        "en": "Clans of Pakhun"
+      },
+      "adj": {
+        "es": "pakhuní",
+        "en": "Pakhuni"
+      },
+      "rgb": [
+        150,
+        165,
+        70
+      ],
+      "zonas": [
+        "menor-s7",
+        "orunmar"
+      ]
+    }
+  ],
   "grupos_religion": {
     "gj_fe_norte": {
       "es": "Fes del Norte",

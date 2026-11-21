@@ -12,8 +12,8 @@
     "relationships": [
         {
             "rel_type": "dependency",
-            "id": "rnw_exp_world_35clmr62cr",
-            "display_name": "RNW: Custom world 35CL",
+            "id": "rnw_exp_world_sbmnl6s3sw",
+            "display_name": "RNW: Custom world SBMN",
             "resource_type": "mod",
             "version": "1.2.2"
         }

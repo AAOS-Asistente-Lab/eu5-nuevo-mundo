@@ -213,5 +213,65 @@ gj_integracion_inicio = {
 			limit = { gj_velathi_tag_inicial = yes }
 			gj_fundar_faccion = { clave = velathi cultura = gj_velathi religion = gj_senda_verde nombre = GJ_VELATHI color = gj_pais_velathi }
 		}
+		every_country = {
+			limit = { gj_menor_tarnavia_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_tarnavia cultura = gj_tarnavi religion = gj_luz_fundadores nombre = GJ_MENOR_TARNAVIA color = gj_pais_menor_tarnavia }
+		}
+		every_country = {
+			limit = { gj_menor_nenvar_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_nenvar cultura = gj_nenvari religion = gj_espiritus_lago nombre = GJ_MENOR_NENVAR color = gj_pais_menor_nenvar }
+		}
+		every_country = {
+			limit = { gj_menor_isbrant_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_isbrant cultura = gj_isbranti religion = gj_espiritus_lago nombre = GJ_MENOR_ISBRANT color = gj_pais_menor_isbrant }
+		}
+		every_country = {
+			limit = { gj_menor_hondarr_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_hondarr cultura = gj_hondarri religion = gj_llama_profunda nombre = GJ_MENOR_HONDARR color = gj_pais_menor_hondarr }
+		}
+		every_country = {
+			limit = { gj_menor_tres_pozos_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_tres_pozos cultura = gj_aryuki religion = gj_cielo_clanes nombre = GJ_MENOR_TRES_POZOS color = gj_pais_menor_tres_pozos }
+		}
+		every_country = {
+			limit = { gj_menor_marisma_gris_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_marisma_gris cultura = gj_marismeno religion = gj_luz_fundadores nombre = GJ_MENOR_MARISMA_GRIS color = gj_pais_menor_marisma_gris }
+		}
+		every_country = {
+			limit = { gj_menor_vigia_alto_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_vigia_alto cultura = gj_vigiano religion = gj_luz_fundadores nombre = GJ_MENOR_VIGIA_ALTO color = gj_pais_menor_vigia_alto }
+		}
+		every_country = {
+			limit = { gj_menor_ultima_ceniza_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_ultima_ceniza cultura = gj_cenizario religion = gj_luz_fundadores nombre = GJ_MENOR_ULTIMA_CENIZA color = gj_pais_menor_ultima_ceniza }
+		}
+		every_country = {
+			limit = { gj_menor_brazalmar_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_brazalmar cultura = gj_brazalmi religion = gj_pacto_balanza nombre = GJ_MENOR_BRAZALMAR color = gj_pais_menor_brazalmar }
+		}
+		every_country = {
+			limit = { gj_menor_ondan_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_ondan cultura = gj_ondani religion = gj_mar_dormido nombre = GJ_MENOR_ONDAN color = gj_pais_menor_ondan }
+		}
+		every_country = {
+			limit = { gj_menor_cabo_halcor_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_cabo_halcor cultura = gj_halcori religion = gj_pacto_balanza nombre = GJ_MENOR_CABO_HALCOR color = gj_pais_menor_cabo_halcor }
+		}
+		every_country = {
+			limit = { gj_menor_tirnauk_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_tirnauk cultura = gj_tirnauki religion = gj_sol_blanco nombre = GJ_MENOR_TIRNAUK color = gj_pais_menor_tirnauk }
+		}
+		every_country = {
+			limit = { gj_menor_sotolar_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_sotolar cultura = gj_sotolari religion = gj_senda_verde nombre = GJ_MENOR_SOTOLAR color = gj_pais_menor_sotolar }
+		}
+		every_country = {
+			limit = { gj_menor_yorumbe_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_yorumbe cultura = gj_yorumbi religion = gj_dioses_hambrientos nombre = GJ_MENOR_YORUMBE color = gj_pais_menor_yorumbe }
+		}
+		every_country = {
+			limit = { gj_menor_pakhun_tag_inicial = yes }
+			gj_fundar_faccion = { clave = menor_pakhun cultura = gj_pakhuni religion = gj_dioses_hambrientos nombre = GJ_MENOR_PAKHUN color = gj_pais_menor_pakhun }
+		}
 	}
 }

@@ -1,0 +1,1018 @@
+{
+ "ancho": 2520,
+ "alto": 2048,
+ "semilla": 52021,
+ "escala_lienzo": 4,
+ "nota": "Coordenadas del dibujo en la hoja real de RNW (x a la derecha, y hacia abajo); por 4 = lienzo de RNW. zonas.png: un color por zona; ver color_rgb. Una localizacion pertenece a la zona de su pixel central.",
+ "rasgos": {
+  "circos": [
+   {
+    "nombre": "Circo de Durnhal",
+    "centro": [
+     1210,
+     566
+    ],
+    "radios": [
+     144,
+     96
+    ],
+    "pasos_grados": [
+     165,
+     350,
+     272,
+     75
+    ]
+   },
+   {
+    "nombre": "Circo de Ankaru",
+    "centro": [
+     1272,
+     1686
+    ],
+    "radios": [
+     125,
+     88
+    ],
+    "pasos_grados": [
+     3,
+     272,
+     182
+    ]
+   },
+   {
+    "nombre": "Anillo del Kan (Kaivan)",
+    "centro": [
+     1800,
+     862
+    ],
+    "radios": [
+     61,
+     44
+    ],
+    "pasos_grados": [
+     200,
+     20
+    ]
+   },
+   {
+    "nombre": "Caldera Carmesi (Orunmar)",
+    "centro": [
+     1843,
+     1742
+    ],
+    "radios": [
+     63,
+     48
+    ],
+    "pasos_grados": [
+     250,
+     80
+    ]
+   }
+  ],
+  "distrito_finlandes": {
+   "nombre": "Mil Lagunas (finlandes)",
+   "centro": [
+    1747,
+    501
+   ],
+   "radios": [
+    288,
+    158
+   ],
+   "estrias_grados": 62
+  },
+  "lagos_grandes": [
+   {
+    "centro": [
+     1262,
+     1686
+    ],
+    "semiejes": [
+     50,
+     35
+    ]
+   },
+   {
+    "centro": [
+     1205,
+     588
+    ],
+    "semiejes": [
+     29,
+     18
+    ]
+   },
+   {
+    "centro": [
+     1642,
+     837
+    ],
+    "semiejes": [
+     35,
+     19
+    ]
+   },
+   {
+    "centro": [
+     1742,
+     1642
+    ],
+    "semiejes": [
+     25,
+     16
+    ]
+   },
+   {
+    "centro": [
+     763,
+     1584
+    ],
+    "semiejes": [
+     27,
+     15
+    ]
+   },
+   {
+    "centro": [
+     1848,
+     451
+    ],
+    "semiejes": [
+     23,
+     13
+    ]
+   },
+   {
+    "centro": [
+     1800,
+     864
+    ],
+    "semiejes": [
+     15,
+     11
+    ]
+   },
+   {
+    "centro": [
+     1843,
+     1744
+    ],
+    "semiejes": [
+     16,
+     12
+    ]
+   }
+  ],
+  "mares_interiores": [
+   {
+    "nombre": "Baltico",
+    "centro": [
+     898,
+     682
+    ],
+    "boca": "Estrecho de los Cuervos, de (1176,926) a (1272,1013)"
+   },
+   {
+    "nombre": "Mar de las Perlas",
+    "centro": [
+     974,
+     1814
+    ],
+    "boca": "Paso de las Perlas (965,1910) y boca este (1118,1834)"
+   }
+  ],
+  "estrecho_entre_mundos": {
+   "franja_y": [
+    1037,
+    1181
+   ],
+   "cabos": {
+    "cuerno_de_kaivan": [
+     1805,
+     1090
+    ],
+    "cabo_de_sorava": [
+     1754,
+     1099
+    ]
+   }
+  }
+ },
+ "zonas": [
+  {
+   "id": "kaivan",
+   "nombre": "Kaivan",
+   "continente": "N",
+   "tamano": "grande",
+   "semilla": [
+    1752,
+    816
+   ],
+   "px": 125740,
+   "pct_del_continente": 29.9,
+   "localizaciones_aprox": 1002,
+   "caja": [
+    1195,
+    510,
+    2013,
+    984
+   ],
+   "centroide": [
+    1662,
+    782
+   ],
+   "pct_montana": 4.9,
+   "pct_altas": 11.6,
+   "pct_llanura": 27.4,
+   "px_de_lago": 0,
+   "extra": [
+    [
+     1330,
+     926,
+     0
+    ]
+   ],
+   "color_rgb": [
+    170,
+    49,
+    49
+   ]
+  },
+  {
+   "id": "ostrevar",
+   "nombre": "Alto Reino de Ostrevar",
+   "continente": "N",
+   "tamano": "mediano",
+   "semilla": [
+    744,
+    773
+   ],
+   "px": 66195,
+   "pct_del_continente": 15.7,
+   "localizaciones_aprox": 528,
+   "caja": [
+    546,
+    587,
+    1209,
+    1043
+   ],
+   "centroide": [
+    809,
+    822
+   ],
+   "pct_montana": 1.2,
+   "pct_altas": 1.6,
+   "pct_llanura": 14.4,
+   "px_de_lago": 0,
+   "extra": [
+    [
+     1032,
+     926,
+     0
+    ]
+   ],
+   "color_rgb": [
+    77,
+    203,
+    114
+   ]
+  },
+  {
+   "id": "durnhal",
+   "nombre": "Durnhal",
+   "continente": "N",
+   "tamano": "mediano",
+   "semilla": [
+    1210,
+    571
+   ],
+   "px": 41654,
+   "pct_del_continente": 9.9,
+   "localizaciones_aprox": 332,
+   "caja": [
+    1039,
+    372,
+    1356,
+    755
+   ],
+   "centroide": [
+    1228,
+    558
+   ],
+   "pct_montana": 11.7,
+   "pct_altas": 18.3,
+   "pct_llanura": 26.9,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    179,
+    125,
+    217
+   ]
+  },
+  {
+   "id": "liga",
+   "nombre": "Liga de las Mil Lagunas",
+   "continente": "N",
+   "tamano": "pequeno",
+   "semilla": [
+    1723,
+    490
+   ],
+   "px": 44799,
+   "pct_del_continente": 10.6,
+   "localizaciones_aprox": 357,
+   "caja": [
+    1461,
+    376,
+    1949,
+    652
+   ],
+   "centroide": [
+    1719,
+    522
+   ],
+   "pct_montana": 1.8,
+   "pct_altas": 2.4,
+   "pct_llanura": 12.6,
+   "px_de_lago": 0,
+   "extra": [
+    [
+     1560,
+     514
+    ]
+   ],
+   "color_rgb": [
+    170,
+    155,
+    49
+   ]
+  },
+  {
+   "id": "skarren",
+   "nombre": "Skarren",
+   "continente": "N",
+   "tamano": "pequeno",
+   "semilla": [
+    677,
+    403
+   ],
+   "px": 36773,
+   "pct_del_continente": 8.7,
+   "localizaciones_aprox": 293,
+   "caja": [
+    526,
+    291,
+    865,
+    615
+   ],
+   "centroide": [
+    725,
+    449
+   ],
+   "pct_montana": 2,
+   "pct_altas": 9.8,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    77,
+    182,
+    203
+   ]
+  },
+  {
+   "id": "hrimval",
+   "nombre": "Corte Insepulta de Hrimval",
+   "continente": "N",
+   "tamano": "pequeno",
+   "semilla": [
+    1267,
+    326
+   ],
+   "px": 21449,
+   "pct_del_continente": 5.1,
+   "localizaciones_aprox": 171,
+   "caja": [
+    1107,
+    250,
+    1405,
+    427
+   ],
+   "centroide": [
+    1257,
+    332
+   ],
+   "pct_montana": 9.4,
+   "pct_altas": 53.3,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    217,
+    125,
+    175
+   ]
+  },
+  {
+   "id": "menor-n2",
+   "nombre": "Menor N2: cabo gris de Skarren",
+   "continente": "N",
+   "tamano": "menor",
+   "semilla": [
+    984,
+    408
+   ],
+   "px": 31752,
+   "pct_del_continente": 7.5,
+   "localizaciones_aprox": 253,
+   "caja": [
+    827,
+    308,
+    1137,
+    529
+   ],
+   "centroide": [
+    966,
+    427
+   ],
+   "pct_montana": 1.5,
+   "pct_altas": 3.4,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    79,
+    170,
+    49
+   ]
+  },
+  {
+   "id": "menor-n3",
+   "nombre": "Menor N3: dedo del noroeste",
+   "continente": "N",
+   "tamano": "menor",
+   "semilla": [
+    528,
+    341
+   ],
+   "px": 5566,
+   "pct_del_continente": 1.3,
+   "localizaciones_aprox": 44,
+   "caja": [
+    457,
+    276,
+    608,
+    522
+   ],
+   "centroide": [
+    538,
+    361
+   ],
+   "pct_montana": 8.2,
+   "pct_altas": 13.9,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    83,
+    77,
+    203
+   ]
+  },
+  {
+   "id": "menor-n4",
+   "nombre": "Menor N4: cabo de Ostrevar",
+   "continente": "N",
+   "tamano": "menor",
+   "semilla": [
+    514,
+    821
+   ],
+   "px": 4560,
+   "pct_del_continente": 1.1,
+   "localizaciones_aprox": 36,
+   "caja": [
+    476,
+    715,
+    575,
+    912
+   ],
+   "centroide": [
+    528,
+    817
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    217,
+    156,
+    125
+   ]
+  },
+  {
+   "id": "menor-n5",
+   "nombre": "Menor N5: paso de la cuenca",
+   "continente": "N",
+   "tamano": "menor",
+   "semilla": [
+    1339,
+    701
+   ],
+   "px": 30862,
+   "pct_del_continente": 7.3,
+   "localizaciones_aprox": 246,
+   "caja": [
+    1324,
+    468,
+    1505,
+    811
+   ],
+   "centroide": [
+    1421,
+    657
+   ],
+   "pct_montana": 5,
+   "pct_altas": 9.9,
+   "pct_llanura": 0.6,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    49,
+    170,
+    125
+   ]
+  },
+  {
+   "id": "menor-n6",
+   "nombre": "Menor N6: costa del alba",
+   "continente": "N",
+   "tamano": "menor",
+   "semilla": [
+    1982,
+    710
+   ],
+   "px": 6242,
+   "pct_del_continente": 1.5,
+   "localizaciones_aprox": 50,
+   "caja": [
+    1950,
+    455,
+    2061,
+    871
+   ],
+   "centroide": [
+    2001,
+    677
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0.2,
+   "pct_llanura": 14,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    193,
+    77,
+    203
+   ]
+  },
+  {
+   "id": "menor-n7",
+   "nombre": "Menor N7: cuerno del estrecho",
+   "continente": "N",
+   "tamano": "menor",
+   "semilla": [
+    1824,
+    1032
+   ],
+   "px": 5068,
+   "pct_del_continente": 1.2,
+   "localizaciones_aprox": 40,
+   "caja": [
+    1781,
+    946,
+    1861,
+    1102
+   ],
+   "centroide": [
+    1825,
+    1016
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    198,
+    217,
+    125
+   ]
+  },
+  {
+   "id": "orunmar",
+   "nombre": "Hegemonia Carmesi de Orunmar",
+   "continente": "S",
+   "tamano": "grande",
+   "semilla": [
+    1800,
+    1622
+   ],
+   "px": 94229,
+   "pct_del_continente": 23.5,
+   "localizaciones_aprox": 751,
+   "caja": [
+    1515,
+    1462,
+    2092,
+    1871
+   ],
+   "centroide": [
+    1821,
+    1676
+   ],
+   "pct_montana": 8.6,
+   "pct_altas": 22.6,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    49,
+    109,
+    170
+   ]
+  },
+  {
+   "id": "sorava",
+   "nombre": "Sorava",
+   "continente": "S",
+   "tamano": "mediano",
+   "semilla": [
+    1330,
+    1344
+   ],
+   "px": 32474,
+   "pct_del_continente": 8.1,
+   "localizaciones_aprox": 259,
+   "caja": [
+    1183,
+    1195,
+    1500,
+    1451
+   ],
+   "centroide": [
+    1345,
+    1345
+   ],
+   "pct_montana": 3.1,
+   "pct_altas": 3.5,
+   "pct_llanura": 27.7,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    203,
+    77,
+    103
+   ]
+  },
+  {
+   "id": "ankaru",
+   "nombre": "Teocracia de Ankaru",
+   "continente": "S",
+   "tamano": "mediano",
+   "semilla": [
+    1272,
+    1686
+   ],
+   "px": 71228,
+   "pct_del_continente": 17.8,
+   "localizaciones_aprox": 568,
+   "caja": [
+    1062,
+    1448,
+    1527,
+    1789
+   ],
+   "centroide": [
+    1323,
+    1648
+   ],
+   "pct_montana": 10.3,
+   "pct_altas": 33.7,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    125,
+    217,
+    132
+   ]
+  },
+  {
+   "id": "velathi",
+   "nombre": "Velathi",
+   "continente": "S",
+   "tamano": "mediano",
+   "semilla": [
+    859,
+    1613
+   ],
+   "px": 48037,
+   "pct_del_continente": 12,
+   "localizaciones_aprox": 383,
+   "caja": [
+    655,
+    1466,
+    1043,
+    1952
+   ],
+   "centroide": [
+    835,
+    1649
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 4,
+   "px_de_lago": 0,
+   "extra": [
+    [
+     811,
+     1565
+    ]
+   ],
+   "color_rgb": [
+    95,
+    49,
+    170
+   ]
+  },
+  {
+   "id": "thalassar",
+   "nombre": "Thalassar",
+   "continente": "S",
+   "tamano": "pequeno",
+   "semilla": [
+    686,
+    1853
+   ],
+   "px": 34904,
+   "pct_del_continente": 8.7,
+   "localizaciones_aprox": 278,
+   "caja": [
+    516,
+    1746,
+    961,
+    2024
+   ],
+   "centroide": [
+    755,
+    1885
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 10.3,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    203,
+    162,
+    77
+   ]
+  },
+  {
+   "id": "marea-negra",
+   "nombre": "Hermandad de la Marea Negra",
+   "continente": "S",
+   "tamano": "muy pequeno",
+   "semilla": [
+    1925,
+    1973
+   ],
+   "px": 13782,
+   "pct_del_continente": 3.4,
+   "localizaciones_aprox": 110,
+   "caja": [
+    886,
+    1042,
+    2057,
+    2032
+   ],
+   "centroide": [
+    1638,
+    1458
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    125,
+    217,
+    213
+   ]
+  },
+  {
+   "id": "menor-s1",
+   "nombre": "Menor S1: cabo de Sorava",
+   "continente": "S",
+   "tamano": "menor",
+   "semilla": [
+    1646,
+    1253
+   ],
+   "px": 14217,
+   "pct_del_continente": 3.5,
+   "localizaciones_aprox": 113,
+   "caja": [
+    1489,
+    1153,
+    1717,
+    1341
+   ],
+   "centroide": [
+    1579,
+    1253
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    170,
+    49,
+    140
+   ]
+  },
+  {
+   "id": "menor-s2",
+   "nombre": "Menor S2: costa de las Perlas",
+   "continente": "S",
+   "tamano": "menor",
+   "semilla": [
+    1253,
+    1906
+   ],
+   "px": 37800,
+   "pct_del_continente": 9.4,
+   "localizaciones_aprox": 301,
+   "caja": [
+    958,
+    1810,
+    1403,
+    2003
+   ],
+   "centroide": [
+    1192,
+    1900
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    135,
+    203,
+    77
+   ]
+  },
+  {
+   "id": "menor-s3",
+   "nombre": "Menor S3: paso del Ocaso",
+   "continente": "S",
+   "tamano": "menor",
+   "semilla": [
+    1022,
+    1642
+   ],
+   "px": 4735,
+   "pct_del_continente": 1.2,
+   "localizaciones_aprox": 38,
+   "caja": [
+    1010,
+    1608,
+    1091,
+    1720
+   ],
+   "centroide": [
+    1047,
+    1659
+   ],
+   "pct_montana": 29,
+   "pct_altas": 31.7,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    125,
+    140,
+    217
+   ]
+  },
+  {
+   "id": "menor-s5",
+   "nombre": "Menor S5: norte de Velathi",
+   "continente": "S",
+   "tamano": "menor",
+   "semilla": [
+    706,
+    1507
+   ],
+   "px": 6693,
+   "pct_del_continente": 1.7,
+   "localizaciones_aprox": 53,
+   "caja": [
+    578,
+    1388,
+    775,
+    1626
+   ],
+   "centroide": [
+    703,
+    1476
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    170,
+    65,
+    49
+   ]
+  },
+  {
+   "id": "menor-s6",
+   "nombre": "Menor S6: sur de Orunmar",
+   "continente": "S",
+   "tamano": "menor",
+   "semilla": [
+    1934,
+    1862
+   ],
+   "px": 20413,
+   "pct_del_continente": 5.1,
+   "localizaciones_aprox": 163,
+   "caja": [
+    1813,
+    1669,
+    2119,
+    1908
+   ],
+   "centroide": [
+    1953,
+    1825
+   ],
+   "pct_montana": 0,
+   "pct_altas": 0,
+   "pct_llanura": 26.1,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    77,
+    203,
+    130
+   ]
+  },
+  {
+   "id": "menor-s7",
+   "nombre": "Menor S7: marchas de Orunmar",
+   "continente": "S",
+   "tamano": "menor",
+   "semilla": [
+    1637,
+    1536
+   ],
+   "px": 22031,
+   "pct_del_continente": 5.5,
+   "localizaciones_aprox": 176,
+   "caja": [
+    1459,
+    1454,
+    1737,
+    1685
+   ],
+   "centroide": [
+    1574,
+    1582
+   ],
+   "pct_montana": 9.3,
+   "pct_altas": 16.5,
+   "pct_llanura": 0,
+   "px_de_lago": 0,
+   "extra": [],
+   "color_rgb": [
+    190,
+    125,
+    217
+   ]
+  }
+ ]
+}

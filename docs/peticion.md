@@ -97,3 +97,8 @@ Van a jugar los dos en multijugador, con el mod Random New World (RNW).
 - **Reyes Velathi:** se mantiene el +150 de esperanza de vida, con dos condiciones:
   - el primer rey no puede ser malo;
   - el jugador tiene que poder gestionar la herencia.
+
+## Mapa y países: lo que pide Javier tras verlo en partida (21-11, mediodía)
+- **La tierra, más ancha; los mares interiores, más pequeños.** «Hay demasiada poca tierra, los ríos son muy cortitos, parecen tiras de tierra rodeada de mares. Me gusta la forma.» Sobre todo el mar entre Durnhal y Ostrevar; valen penínsulas que entren en el mar. **Esto corrige la preferencia de las 01:04** (continentes más finos): la forma se conserva, el grosor no.
+- **Menos tierra libre:** que quede libre alrededor del 40 % en vez del 60 %, con sub-civilizaciones o dando más tierra a las secundarias.
+- Hecho en el mundo v4 (SBMN): `docs/estado.md`.

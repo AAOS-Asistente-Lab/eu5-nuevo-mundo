@@ -32,7 +32,7 @@ import { analizaFichero, leeTexto, esBloque, hijo, valoresSueltos, escribeConBom
 import { asignaRecursos, informeRecursos } from './asigna-recursos.mjs';
 import { cargaMundo, vecinos, centros } from './mundo.mjs';
 import { mezclaVegetacion, textoVegetacion, tablaDelJuego } from './mezcla-vegetacion.mjs';
-import { reparteTierra, textoTierra } from './reparte-tierra.mjs';
+import { reparteTierra, textoTierra, TALLA_MENOR } from './reparte-tierra.mjs';
 import { ligaMapa, defineZonas, DIR_MAPA, CALIDAD_MINIMA } from './zonas-mapa.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
@@ -245,6 +245,34 @@ for (const f of FAC.facciones) {
   filas.push({ f, p, pt, alternativas: cands.slice(1, 4).map((c) => `${c.p.tag} (${c.pt.total.toFixed(1)})`) });
 }
 
+// ---------------------------------------------------------------- los menores con nombre
+// Cada menor de facciones.json recibe un estado de RNW que no sea faccion: el mayor de los que
+// tienen la capital en la primera de sus zonas del dibujo con alguno libre; si no hay ninguno, el
+// libre de su continente con la capital mas cerca de esa zona. Su contenido va por cultura.
+// reparte-tierra.mjs lo muda a la primera de sus zonas si no tiene tierra en ella.
+const menores = {};
+const filasMenores = [];
+if (conMapa) for (const m of FAC.menores || []) {
+  const libres = paises.filter((p) => !usados.has(p.tag) && liga.xy.has(p.capital));
+  let p = null, donde = null;
+  for (const z of m.zonas) {
+    // en su zona, el mayor que no pase de la talla de un menor; en otra (reparte-tierra lo mudara a la suya), el menor: no gasta un estado grande
+    p = libres.filter((x) => liga.zonaDe.get(x.capital)?.id === z).sort((a, b) => (z === m.zonas[0] ? (a.n > TALLA_MENOR[1]) - (b.n > TALLA_MENOR[1]) || b.n - a.n : a.n - b.n) || a.tag.localeCompare(b.tag))[0];
+    if (p) { donde = z; break; }
+  }
+  if (!p) {
+    const iz = liga.mapa.zonas.findIndex((z) => z.id === m.zonas[0]);
+    if (iz >= 0 && liga.mapa.centro[iz]) {
+      const [cx, cy] = liga.mapa.centro[iz], cont = liga.mapa.zonas[iz].continente;
+      const d = (x) => { const [a, b] = liga.xy.get(x.capital); return Math.hypot(a - cx, b - cy); };
+      p = libres.filter((x) => liga.zonaDe.get(x.capital)?.continente === cont).sort((a, b) => (a.n > TALLA_MENOR[1]) - (b.n > TALLA_MENOR[1]) || d(a) - d(b) || a.tag.localeCompare(b.tag))[0]; // antes uno que no pase de la talla de un menor
+      if (p) donde = `cerca de ${m.zonas[0]} (a ${Math.round(d(p))} px)`;
+    }
+  }
+  if (p) { menores[m.clave] = p; usados.add(p.tag); }
+  filasMenores.push({ m, p, donde });
+}
+
 // ---------------------------------------------------------------- zonas que piden las partes
 // Las zonas son triggers de LOCALIZACION (area = area:x). Regla por defecto: gj_zona_<clave>_*
 // son las areas del pais de esa faccion. facciones.json puede darlas a mano en "zonas":
@@ -275,13 +303,25 @@ for (const z of [...zonasUsadas].sort()) {
 
 // ---------------------------------------------------------------- tierra de cada faccion al empezar
 const vecM = conMapa ? await vecinos(MUNDO, JUEGO) : null;
+// gente de cada localizacion (06_pops.txt del mundo): la capital nueva de quien la muda va a la mas poblada
+const poblacionM = new Map();
+if (conMapa) {
+  const fp = enMundo('main_menu', 'setup', '1337', '06_pops.txt');
+  let loc = null;
+  if (fp) for (const linea of leeTexto(fp).texto.split('\n')) {
+    const c = linea.match(/^(\w+)\s*=\s*\{/);
+    if (c) { loc = c[1]; continue; }
+    const s = loc && linea.match(/\bsize\s*=\s*([\d.]+)/);
+    if (s) poblacionM.set(loc, (poblacionM.get(loc) || 0) + +s[1]);
+  }
+}
 // sub-zonas de localizacion que piden las partes: cada faccion llega con un brazo a las de su zona
 const locsDeArea = new Map();
 for (const [l, j] of jer) { if (!locsDeArea.has(j.area)) locsDeArea.set(j.area, []); locsDeArea.get(j.area).push(l); }
 const subzonas = Object.entries(zonas).filter(([, d]) => d.ambito === 'localizacion')
   .map(([nombre, d]) => ({ nombre, locs: d.lista.flatMap((x) => (x.tipo === 'location' ? [x.clave] : x.tipo === 'area' ? locsDeArea.get(x.clave) || [] : [])).sort() }))
   .filter((s) => s.locs.length >= 20); // las ruinas y las vetas (1-5 localizaciones) no cuentan
-const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas }) : null;
+const tierraR = conMapa && !tiene('--sin-reparto') ? reparteTierra({ liga, vec: vecM, paises, asignados, facciones: FAC.facciones, subzonas, poblacion: poblacionM, menores: (FAC.menores || []).filter((m) => menores[m.clave]).map((m) => ({ tag: menores[m.clave].tag, zona: m.zonas.find((z) => liga.mapa.zonas.some((x) => x.id === z)), zonas: m.zonas })) }) : null;
 
 // ---------------------------------------------------------------- vegetacion mezclada
 // Ciudades de las facciones: sus capitales.
@@ -317,7 +357,7 @@ En la pantalla de seleccion de pais ya salen con el nombre de la faccion (si no,
 |---|---|---|---|---|---|---|---|
 ${filas.map(filaInf).join('\n')}
 
-${sinPais.length ? `**Sin pais:** ${sinPais.join(', ')}. No se crean en esta partida.\n\n` : ''}${textoMapa}
+${sinPais.length ? `**Sin pais:** ${sinPais.join(', ')}. No se crean en esta partida.\n\n` : ''}${filasMenores.length ? `## Menores con nombre (${Object.keys(menores).length} de ${filasMenores.length})\n| Menor | Tag | Nombre en el mundo | Locs | Capital | Zona de la capital |\n|---|---|---|---|---|---|\n${filasMenores.map(({ m, p, donde }) => (p ? `| ${m.nombre.es} | ${p.tag} | ${p.nombre} | ${p.n} | ${p.capital} | ${donde} |` : `| ${m.nombre.es} | - | sin estado libre | | | |`)).join('\n')}\n\n` : ''}${textoMapa}
 
 ${tierraR ? textoTierra(tierraR) : ''}
 
@@ -350,6 +390,7 @@ console.log(informeRec.split('\n').filter((l) => /^\| (north|south)|Regla de mez
 const vinculo = {
   mundo: { id: metaMundo.id, name: metaMundo.name, version: metaMundo.version },
   paises: paisesVinculo,
+  menores: Object.fromEntries(Object.entries(menores).map(([k, p]) => [k, p.tag]).sort()),
   zonas,
   tierra: tierraR ? { da: tierraR.da, suelta: tierraR.suelta, capital: tierraR.capital } : null,
   recursos: Object.fromEntries(rec.cambian.map((l) => [l, rec.asignado.get(l)])),

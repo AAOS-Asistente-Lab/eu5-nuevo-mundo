@@ -1,7 +1,7 @@
 // exporta-3d.mjs: hace el mod local «GJ Nuevo Mundo: graficos», con los arboles 3D y el suelo del
 // mapa segun nuestra vegetacion mezclada. Vuelve a correr la generacion de RNW del mundo (unos
 // 10-15 min, 8 GB de RAM libres, juego cerrado) con exporta-3d.py y copia SOLO lo que cambia:
-// in_game/gfx/map/map_objects y in_game/gfx/terrain2/decals/*_materials.* (unos 830 MB: no van a git).
+// in_game/gfx/map/map_objects y in_game/gfx/terrain2/decals/*_materials.* (unos 880 MB: no van a git).
 // Si cualquier otro fichero sale distinto del mundo instalado, para sin instalar nada.
 //
 // Uso (con gj_nuevo_mundo y el mundo ya instalados):
@@ -41,7 +41,7 @@ const mundo = JSON.parse(fs.readFileSync(path.join(lib, 'world.json'), 'utf8'));
 fs.rmSync(OBRA, { recursive: true, force: true });
 const datos = path.join(OBRA, 'datos'), salida = path.join(OBRA, 'salida');
 fs.mkdirSync(datos, { recursive: true });
-fs.writeFileSync(path.join(datos, 'preferences.json'), JSON.stringify({ show_new_world: !!mundo.show_new_world }));
+fs.writeFileSync(path.join(datos, 'preferences.json'), JSON.stringify({ show_new_world: !fs.existsSync(path.join(MUNDO, 'main_menu', 'gfx', 'FX', 'rnw_new_world_cover.fxh')) }));
 console.log(`Generando ${mundo.id} con nuestra vegetacion (10-15 min)...`);
 const r = spawnSync(python, [path.join(AQUI, 'exporta-3d.py'), plantillas, path.join(lib, 'atlas.json'), mundo.code, path.join(lib, 'land_mask.png'), datos, salida],
   { stdio: ['ignore', fs.openSync(path.join(OBRA, 'exporta-3d.log'), 'w'), 'inherit'], env: { ...process.env, PYTHONPYCACHEPREFIX: path.join(OBRA, 'pyc') } });

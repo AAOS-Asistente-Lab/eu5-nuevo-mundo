@@ -42,3 +42,12 @@ export function readPngFile(ruta) {
   }
   return { width, height, rgba };
 }
+
+// writePngFile(ruta, ancho, alto, rgb): PNG RGB de 8 bits (rgb = Buffer de 3 bytes por pixel)
+export function writePngFile(ruta, W, H, rgb) {
+  const fila = W * 3, crudo = Buffer.alloc((fila + 1) * H);
+  for (let y = 0; y < H; y++) rgb.copy(crudo, y * (fila + 1) + 1, y * fila, (y + 1) * fila);
+  const trozo = (nombre, d) => { const t = Buffer.concat([Buffer.from(nombre, 'latin1'), d]), o = Buffer.alloc(8 + d.length + 4); o.writeUInt32BE(d.length, 0); t.copy(o, 4); o.writeUInt32BE(zlib.crc32(t), 8 + d.length); return o; };
+  const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(W, 0); ihdr.writeUInt32BE(H, 4); ihdr[8] = 8; ihdr[9] = 2;
+  fs.writeFileSync(ruta, Buffer.concat([Buffer.from([0x89, 0x50, 0x4e, 0x47, 13, 10, 26, 10]), trozo('IHDR', ihdr), trozo('IDAT', zlib.deflateSync(crudo, { level: 9 })), trozo('IEND', Buffer.alloc(0))]));
+}

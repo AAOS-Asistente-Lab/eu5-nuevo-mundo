@@ -9,7 +9,7 @@ RNW no simula el clima. Copia el clima y la vegetación del Viejo Mundo vanilla 
 - **Sin sorteo.** Gana siempre la clase mayoritaria (`eu5_biomes.py:452-469`), y eso exagera la mayoría: con clima arid sale desierto el 83,9 %, frente al 57,8 % en vanilla (dato de un lector).
 - **Sin ajuste.** No hay ningún ajuste de clima ni de vegetación: grep sin coincidencias en `settings.py`.
 
-Medido: el mundo de RNW tiene 1.081 de 5.932 localizaciones en desierto (18,2 %). Nuestro `gj_nuevo_mundo` ya lo baja a 332 (5,6 %): grasslands 1782, woods 1461, sparse 1013, forest 794, jungle 386, desert 332 y farmland 164.
+Medido (en el v3, mundo 35CL): el mundo de RNW tiene 1.081 de 5.932 localizaciones en desierto (18,2 %). Nuestro `gj_nuevo_mundo` ya lo baja a 332 (5,6 %): grasslands 1782, woods 1461, sparse 1013, forest 794, jungle 386, desert 332 y farmland 164.
 
 2. Opciones, de mejor a peor
 
@@ -71,7 +71,7 @@ Recomiendo (b), con (c-poda) de reserva si no hay CPython 3.12 o el jugador A di
 3. Prepara `<ruta>`:
    - un entorno uv propio, con `UV_CACHE_DIR` y `PYTHONPYCACHEPREFIX` en W:;
    - `<ruta>` en `sys.path`, solo para leer;
-   - copias de `world.json` y `land_mask.png`, desde `<appdata-local>/RandomNewWorld/generated/rnw_exp_world_35clmr62cr` o desde `eu5-mundo/mapa/final/mundo-35cl.rnworld`;
+   - copias de `world.json` y `land_mask.png`, desde `<carpeta del mundo>/.metadata/rnw-library` (o del `.rnworld` de `mundo/`);
    - una copia de la entrada de `cache/land`.
 4. Escribe el guion:
    - lee nuestra vegetación por clave de `gj_nuevo_mundo/in_game/map_data/location_templates.txt` y las claves por celda de `atlas.json`;

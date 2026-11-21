@@ -200,3 +200,12 @@ Para comprobarlo se usó solo Node (`mide.mjs`, `canales.mjs`). No se ha ejecuta
 6. **Los pasos y los istmos miden 16-34 px.** Hay que mirarlos en el panel y en la primera salida, porque RNW los suaviza al estirar.
 7. **Hay un lago con forma de «>» en la costa de los Skarren** (unos 300,400): es un brazo de fiordo que quedó cerrado. Es legal, pero tiene un aspecto artificial.
 8. **Los lagos de Velathi** siguen siendo elipses regulares. El campo finlandés se podría aplicar también allí.
+
+## 7. El ensanche (21-11): el dibujo que se usa ahora
+Javier vio el mundo 35CL en partida y pidió la tierra más ancha y los mares interiores más pequeños (`docs/peticion.md`). El dibujo de las secciones anteriores está en `mundo/35cl/`; el que se importa ahora, `mundo/mascara.png`, lo saca de él `node herramientas/ensancha-tierra.mjs` (determinista: dos pasadas dan los mismos bytes; SHA-256 `1c36bc3a…57a18d69`).
+
+- **Qué hace:** la tierra crece hacia el agua ancha (unos 8 px del dibujo en mar abierto) y, dentro de los tres mares interiores, hasta dejarlos a menos de la mitad, en forma de penínsulas unidas a la costa. Cada mar conserva un canal central hasta el océano, no se toca el agua estrecha (fiordos, estrechos) ni los lagos pintados, y los charcos que quedan cerrados pasan a lago o a tierra.
+- **Cifras:** tierra del 16,0 % al 20,3 % de la hoja (x1,27). Quedan de mar: el mar entre Durnhal y Ostrevar, el 42 % (194.071 → 80.784 px); la bahía de Kaïvan, el 45 %; el Mar de las Perlas, el 37 %. La tierra a menos de 15 px del mar baja del 49 % al 37 %.
+- **Las zonas** (`zonas.png`, `zonas.json`): la tierra nueva hereda la zona más cercana.
+- **El mundo:** no se importa a mano; lo genera `herramientas/genera-mundo.py` (ver `docs/como-jugar.md`). Con `location_px` 45 salen **7.533 localizaciones de tierra y 31.226 en total** (RNW rechaza a partir de 32.000), 194 estados y 618 desembocaduras de río. «Land» se queda en 226: con un dibujo no cambia la tierra, y con 280 la ventana de RNW daba «too many locations» al abrir el `.rnworld`.
+- **Mandos** (parámetros de `ensancha-tierra.mjs`): `--bahia` (cuánto se rellena un mar interior), `--fondo` (semiancho del canal que queda), `--fuera` (crecimiento en mar abierto), `--semilla`.

@@ -273,6 +273,17 @@ for (const f of F) {
   else FUND.push(f);
 }
 
+// Los menores con nombre (facciones.json «menores»): el mismo trato que una faccion (pais de
+// partida, cultura, fe, nombre y color); su contenido lo activa la cultura. Clave: menor_<clave>.
+const MEN = [];
+for (const m of CONF.menores || []) {
+  const falta = [];
+  if (!culturas.has(m.cultura)) falta.push(`cultura ${m.cultura}`);
+  if (!religiones.has(m.religion)) falta.push(`religion ${m.religion}`);
+  if (falta.length) faltan.push(`menor ${m.clave}: falta ${falta.join(', ')}`);
+  else MEN.push({ ...m, clave: `menor_${m.clave}`, tag: VINC.menores?.[m.clave] });
+}
+
 escribeConBom(I('in_game/common/religion_groups/gj_integracion_grupos_religion.txt'),
 `# GJ Nuevo Mundo, integracion: los dos grupos de las fes propias (CONTRATO-PARTES §5).
 ${Object.keys(CONF.grupos_religion).map((g) => `\n${g} = {\n\tcolor = ${g}\n\tconvert_slaves_at_start = no\n\tmodifier = {\n\t}\n}\n`).join('')}`);
@@ -280,7 +291,7 @@ ${Object.keys(CONF.grupos_religion).map((g) => `\n${g} = {\n\tcolor = ${g}\n\tco
 escribeConBom(I('main_menu/common/named_colors/gj_integracion_colores.txt'),
 `# GJ Nuevo Mundo, integracion: colores de los paises y de los grupos de religion.
 colors = {
-${F.map((f) => `\tgj_pais_${f.clave} = ${colorDe(f)}`).join('\n')}
+${[...F, ...MEN].map((f) => `\tgj_pais_${f.clave} = ${colorDe(f)}`).join('\n')}
 ${Object.entries(CONF.grupos_religion).map(([g, d]) => `\t${g} = ${hsv(d.color)}`).join('\n')}
 }
 `);
@@ -299,7 +310,7 @@ escribeConBom(I('in_game/common/scripted_triggers/gj_integracion_vinculo.txt'),
 `# GJ Nuevo Mundo, integracion: el pais de partida de cada faccion. GENERADO por funde-partes.mjs
 # desde vinculo.json (lo escribe asigna-facciones.mjs). Sin mundo, ninguna faccion se crea.
 # mundo: ${mundoTxt}
-${F.map((f) => { const t = VINC.paises[f.clave]; return `\ngj_${f.clave}_tag_inicial = {\n\t${t ? `tag = ${t}` : 'always = no'}\n}\n`; }).join('')}`);
+${F.map((f) => { const t = VINC.paises[f.clave]; return `\ngj_${f.clave}_tag_inicial = {\n\t${t ? `tag = ${t}` : 'always = no'}\n}\n`; }).join('')}${MEN.map((m) => `\ngj_${m.clave}_tag_inicial = {\n\t${m.tag ? `tag = ${m.tag}` : 'always = no'}\n}\n`).join('')}`);
 
 const zonasDef = triggersPartes;
 const zonas = zonasUsadas.filter((z) => !zonasDef.has(z));
@@ -413,7 +424,7 @@ gj_integracion_inicio = {
 \teffect = {
 \t\tgj_asigna_recursos = yes
 \t\tgj_reparte_tierra = yes
-${FUND.map(llamada).join('\n')}
+${[...FUND, ...MEN.filter((m) => m.tag)].map(llamada).join('\n')}
 \t}
 }
 `);
@@ -424,7 +435,7 @@ ${FUND.map(llamada).join('\n')}
 // gj_tierra_nueva, y gj_fundar_faccion pasa todos sus pops a la cultura y la fe de la faccion; la
 // que pasa a otro pais toma aqui mismo la cultura y la fe de ese pais. Sin mundo, no hace nada.
 const TIERRA = VINC.tierra || { da: {} };
-const tagsFaccion = new Set(Object.values(VINC.paises || {}));
+const tagsFaccion = new Set([...Object.values(VINC.paises || {}), ...Object.values(VINC.menores || {})]); // facciones y menores con nombre: los funda gj_fundar_faccion
 const dadas = Object.entries(TIERRA.da || {}).sort(([a], [b]) => a.localeCompare(b));
 const capitales = Object.entries(TIERRA.capital || {}).sort(([a], [b]) => a.localeCompare(b));
 const sueltas = Object.entries(TIERRA.suelta || {}).sort(([a], [b]) => a.localeCompare(b));
@@ -464,7 +475,7 @@ ${recursos.map(([l, b]) => `\tlocation:${l} = { change_raw_material = goods:${b}
 
 // textos de integracion
 const lineasLoc = (lg) => [
-  ...F.flatMap((f) => [` GJ_${f.clave.toUpperCase()}: "${f.nombre[lg]}"`, ` GJ_${f.clave.toUpperCase()}_ADJ: "${f.adj[lg]}"`]),
+  ...[...F, ...MEN].flatMap((f) => [` GJ_${f.clave.toUpperCase()}: "${f.nombre[lg]}"`, ` GJ_${f.clave.toUpperCase()}_ADJ: "${f.adj[lg]}"`]),
   ...Object.entries(CONF.grupos_religion).flatMap(([g, d]) => [` ${g}: "${d[lg]}"`, ` ${g}_ADJ: "${d['adj_' + lg]}"`, ` ${g}_desc: "${d['desc_' + lg]}"`]),
 ];
 for (const [lengua, lg] of [['spanish', 'es'], ['english', 'en']]) {
@@ -516,6 +527,7 @@ GENERADO por funde-partes.mjs. Mundo vinculado: ${mundoTxt}.
 ${partes.map((p) => `| ${p} | ${resumen[p].ficheros} | ${resumen[p].sinBom} | ${resumen[p].md.join(', ') || '—'} |`).join('\n')}
 
 ## Facciones
+- Menores con nombre (${MEN.filter((m) => m.tag).length} de ${(CONF.menores || []).length}): ${MEN.map((m) => m.clave.replace(/^menor_/, '') + (m.tag ? ` (${m.tag})` : ' (sin pais)')).join(', ') || 'ninguno'}.
 - Se crean al empezar (${FUND.length}): ${FUND.map((f) => f.clave + (VINC.paises[f.clave] ? ` (${VINC.paises[f.clave]})` : ' (sin pais)')).join(', ') || 'ninguna'}.
 - No se crean todavia (${faltan.length}): ${faltan.join('; ') || 'ninguna'}.
 

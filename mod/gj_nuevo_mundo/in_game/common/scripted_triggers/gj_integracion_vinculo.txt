@@ -1,51 +1,111 @@
 ﻿# GJ Nuevo Mundo, integracion: el pais de partida de cada faccion. GENERADO por funde-partes.mjs
 # desde vinculo.json (lo escribe asigna-facciones.mjs). Sin mundo, ninguna faccion se crea.
-# mundo: RNW: Custom world 35CL (rnw_exp_world_35clmr62cr)
+# mundo: RNW: Custom world SBMN (rnw_exp_world_sbmnl6s3sw)
 
 gj_ostrevar_tag_inicial = {
-	tag = QPF
+	tag = GQT
 }
 
 gj_ankaru_tag_inicial = {
-	tag = OKD
+	tag = EBT
 }
 
 gj_orunmar_tag_inicial = {
-	tag = QJZ
-}
-
-gj_durnhal_tag_inicial = {
-	tag = WWA
-}
-
-gj_kaivan_tag_inicial = {
-	tag = QKM
-}
-
-gj_hrimval_tag_inicial = {
-	tag = OXA
-}
-
-gj_skarren_tag_inicial = {
-	tag = THJ
-}
-
-gj_lagunas_tag_inicial = {
 	tag = FDE
 }
 
+gj_durnhal_tag_inicial = {
+	tag = VPO
+}
+
+gj_kaivan_tag_inicial = {
+	tag = YEK
+}
+
+gj_hrimval_tag_inicial = {
+	tag = VYW
+}
+
+gj_skarren_tag_inicial = {
+	tag = FYZ
+}
+
+gj_lagunas_tag_inicial = {
+	tag = ESM
+}
+
 gj_sorava_tag_inicial = {
-	tag = CBG
+	tag = OXA
 }
 
 gj_thalassar_tag_inicial = {
-	tag = EYJ
+	tag = PCU
 }
 
 gj_marea_negra_tag_inicial = {
-	tag = JEJ
+	tag = CRP
 }
 
 gj_velathi_tag_inicial = {
-	tag = SGG
+	tag = LPN
+}
+
+gj_menor_tarnavia_tag_inicial = {
+	tag = LPX
+}
+
+gj_menor_nenvar_tag_inicial = {
+	tag = HME
+}
+
+gj_menor_isbrant_tag_inicial = {
+	tag = TBH
+}
+
+gj_menor_hondarr_tag_inicial = {
+	tag = BZC
+}
+
+gj_menor_tres_pozos_tag_inicial = {
+	tag = PFN
+}
+
+gj_menor_marisma_gris_tag_inicial = {
+	tag = OUV
+}
+
+gj_menor_vigia_alto_tag_inicial = {
+	tag = ZLL
+}
+
+gj_menor_ultima_ceniza_tag_inicial = {
+	tag = LUU
+}
+
+gj_menor_brazalmar_tag_inicial = {
+	tag = ANF
+}
+
+gj_menor_ondan_tag_inicial = {
+	tag = JGM
+}
+
+gj_menor_cabo_halcor_tag_inicial = {
+	tag = NPB
+}
+
+gj_menor_tirnauk_tag_inicial = {
+	tag = INB
+}
+
+gj_menor_sotolar_tag_inicial = {
+	tag = JEF
+}
+
+gj_menor_yorumbe_tag_inicial = {
+	tag = XUV
+}
+
+gj_menor_pakhun_tag_inicial = {
+	tag = MPN
 }

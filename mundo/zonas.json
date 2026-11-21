@@ -209,22 +209,22 @@
     1752,
     816
    ],
-   "px": 125740,
-   "pct_del_continente": 29.9,
-   "localizaciones_aprox": 1002,
+   "px": 154652,
+   "pct_del_continente": 27.3,
+   "localizaciones_aprox": 1232,
    "caja": [
-    1195,
+    1171,
     510,
-    2013,
+    2019,
     984
    ],
    "centroide": [
-    1662,
-    782
+    1633,
+    780
    ],
-   "pct_montana": 4.9,
-   "pct_altas": 11.6,
-   "pct_llanura": 27.4,
+   "pct_montana": 4,
+   "pct_altas": 9.5,
+   "pct_llanura": 22.3,
    "px_de_lago": 0,
    "extra": [
     [
@@ -248,22 +248,22 @@
     744,
     773
    ],
-   "px": 66195,
-   "pct_del_continente": 15.7,
-   "localizaciones_aprox": 528,
+   "px": 109391,
+   "pct_del_continente": 19.3,
+   "localizaciones_aprox": 873,
    "caja": [
     546,
     587,
-    1209,
+    1211,
     1043
    ],
    "centroide": [
-    809,
-    822
+    854,
+    818
    ],
-   "pct_montana": 1.2,
-   "pct_altas": 1.6,
-   "pct_llanura": 14.4,
+   "pct_montana": 0.7,
+   "pct_altas": 1,
+   "pct_llanura": 8.7,
    "px_de_lago": 0,
    "extra": [
     [
@@ -287,22 +287,22 @@
     1210,
     571
    ],
-   "px": 41654,
-   "pct_del_continente": 9.9,
-   "localizaciones_aprox": 332,
+   "px": 77499,
+   "pct_del_continente": 13.7,
+   "localizaciones_aprox": 618,
    "caja": [
-    1039,
+    1013,
     372,
     1356,
-    755
+    786
    ],
    "centroide": [
-    1228,
-    558
+    1197,
+    611
    ],
-   "pct_montana": 11.7,
-   "pct_altas": 18.3,
-   "pct_llanura": 26.9,
+   "pct_montana": 6.3,
+   "pct_altas": 9.8,
+   "pct_llanura": 14.5,
    "px_de_lago": 0,
    "extra": [],
    "color_rgb": [
@@ -320,9 +320,9 @@
     1723,
     490
    ],
-   "px": 44799,
-   "pct_del_continente": 10.6,
-   "localizaciones_aprox": 357,
+   "px": 52103,
+   "pct_del_continente": 9.2,
+   "localizaciones_aprox": 415,
    "caja": [
     1461,
     376,
@@ -330,12 +330,12 @@
     652
    ],
    "centroide": [
-    1719,
-    522
+    1717,
+    528
    ],
-   "pct_montana": 1.8,
-   "pct_altas": 2.4,
-   "pct_llanura": 12.6,
+   "pct_montana": 1.5,
+   "pct_altas": 2.1,
+   "pct_llanura": 10.8,
    "px_de_lago": 0,
    "extra": [
     [
@@ -358,9 +358,9 @@
     677,
     403
    ],
-   "px": 36773,
-   "pct_del_continente": 8.7,
-   "localizaciones_aprox": 293,
+   "px": 52283,
+   "pct_del_continente": 9.2,
+   "localizaciones_aprox": 417,
    "caja": [
     526,
     291,
@@ -368,11 +368,11 @@
     615
    ],
    "centroide": [
-    725,
-    449
+    738,
+    466
    ],
-   "pct_montana": 2,
-   "pct_altas": 9.8,
+   "pct_montana": 1.4,
+   "pct_altas": 6.9,
    "pct_llanura": 0,
    "px_de_lago": 0,
    "extra": [],
@@ -391,9 +391,9 @@
     1267,
     326
    ],
-   "px": 21449,
-   "pct_del_continente": 5.1,
-   "localizaciones_aprox": 171,
+   "px": 21627,
+   "pct_del_continente": 3.8,
+   "localizaciones_aprox": 172,
    "caja": [
     1107,
     250,
@@ -405,7 +405,7 @@
     332
    ],
    "pct_montana": 9.4,
-   "pct_altas": 53.3,
+   "pct_altas": 52.9,
    "pct_llanura": 0,
    "px_de_lago": 0,
    "extra": [],
@@ -424,21 +424,21 @@
     984,
     408
    ],
-   "px": 31752,
-   "pct_del_continente": 7.5,
-   "localizaciones_aprox": 253,
+   "px": 44597,
+   "pct_del_continente": 7.9,
+   "localizaciones_aprox": 355,
    "caja": [
-    827,
-    308,
+    822,
+    300,
     1137,
-    529
+    574
    ],
    "centroide": [
-    966,
-    427
+    957,
+    448
    ],
-   "pct_montana": 1.5,
-   "pct_altas": 3.4,
+   "pct_montana": 1.1,
+   "pct_altas": 2.4,
    "pct_llanura": 0,
    "px_de_lago": 0,
    "extra": [],
@@ -458,7 +458,7 @@
     341
    ],
    "px": 5566,
-   "pct_del_continente": 1.3,
+   "pct_del_continente": 1,
    "localizaciones_aprox": 44,
    "caja": [
     457,
@@ -490,9 +490,9 @@
     514,
     821
    ],
-   "px": 4560,
-   "pct_del_continente": 1.1,
-   "localizaciones_aprox": 36,
+   "px": 5007,
+   "pct_del_continente": 0.9,
+   "localizaciones_aprox": 40,
    "caja": [
     476,
     715,
@@ -500,8 +500,8 @@
     912
    ],
    "centroide": [
-    528,
-    817
+    527,
+    814
    ],
    "pct_montana": 0,
    "pct_altas": 0,
@@ -523,22 +523,22 @@
     1339,
     701
    ],
-   "px": 30862,
-   "pct_del_continente": 7.3,
-   "localizaciones_aprox": 246,
+   "px": 32192,
+   "pct_del_continente": 5.7,
+   "localizaciones_aprox": 257,
    "caja": [
     1324,
-    468,
+    459,
     1505,
     811
    ],
    "centroide": [
-    1421,
+    1418,
     657
    ],
-   "pct_montana": 5,
-   "pct_altas": 9.9,
-   "pct_llanura": 0.6,
+   "pct_montana": 4.8,
+   "pct_altas": 9.4,
+   "pct_llanura": 0.5,
    "px_de_lago": 0,
    "extra": [],
    "color_rgb": [
@@ -557,7 +557,7 @@
     710
    ],
    "px": 6242,
-   "pct_del_continente": 1.5,
+   "pct_del_continente": 1.1,
    "localizaciones_aprox": 50,
    "caja": [
     1950,
@@ -590,7 +590,7 @@
     1032
    ],
    "px": 5068,
-   "pct_del_continente": 1.2,
+   "pct_del_continente": 0.9,
    "localizaciones_aprox": 40,
    "caja": [
     1781,
@@ -622,21 +622,21 @@
     1800,
     1622
    ],
-   "px": 94229,
-   "pct_del_continente": 23.5,
-   "localizaciones_aprox": 751,
+   "px": 97930,
+   "pct_del_continente": 20.3,
+   "localizaciones_aprox": 780,
    "caja": [
     1515,
     1462,
     2092,
-    1871
+    1881
    ],
    "centroide": [
-    1821,
-    1676
+    1817,
+    1677
    ],
-   "pct_montana": 8.6,
-   "pct_altas": 22.6,
+   "pct_montana": 8.3,
+   "pct_altas": 21.8,
    "pct_llanura": 0,
    "px_de_lago": 0,
    "extra": [],
@@ -655,22 +655,22 @@
     1330,
     1344
    ],
-   "px": 32474,
-   "pct_del_continente": 8.1,
-   "localizaciones_aprox": 259,
+   "px": 35832,
+   "pct_del_continente": 7.4,
+   "localizaciones_aprox": 286,
    "caja": [
-    1183,
+    1173,
     1195,
     1500,
-    1451
+    1453
    ],
    "centroide": [
-    1345,
-    1345
+    1344,
+    1344
    ],
-   "pct_montana": 3.1,
-   "pct_altas": 3.5,
-   "pct_llanura": 27.7,
+   "pct_montana": 2.8,
+   "pct_altas": 3.2,
+   "pct_llanura": 25.1,
    "px_de_lago": 0,
    "extra": [],
    "color_rgb": [
@@ -688,21 +688,21 @@
     1272,
     1686
    ],
-   "px": 71228,
-   "pct_del_continente": 17.8,
-   "localizaciones_aprox": 568,
+   "px": 84722,
+   "pct_del_continente": 17.5,
+   "localizaciones_aprox": 676,
    "caja": [
     1062,
     1448,
     1527,
-    1789
+    1800
    ],
    "centroide": [
-    1323,
-    1648
+    1309,
+    1657
    ],
-   "pct_montana": 10.3,
-   "pct_altas": 33.7,
+   "pct_montana": 8.6,
+   "pct_altas": 28.3,
    "pct_llanura": 0,
    "px_de_lago": 0,
    "extra": [],
@@ -721,22 +721,22 @@
     859,
     1613
    ],
-   "px": 48037,
-   "pct_del_continente": 12,
-   "localizaciones_aprox": 383,
+   "px": 76499,
+   "pct_del_continente": 15.8,
+   "localizaciones_aprox": 610,
    "caja": [
-    655,
-    1466,
-    1043,
+    648,
+    1463,
+    1048,
     1952
    ],
    "centroide": [
-    835,
-    1649
+    853,
+    1679
    ],
    "pct_montana": 0,
    "pct_altas": 0,
-   "pct_llanura": 4,
+   "pct_llanura": 2.5,
    "px_de_lago": 0,
    "extra": [
     [
@@ -759,9 +759,9 @@
     686,
     1853
    ],
-   "px": 34904,
-   "pct_del_continente": 8.7,
-   "localizaciones_aprox": 278,
+   "px": 42365,
+   "pct_del_continente": 8.8,
+   "localizaciones_aprox": 337,
    "caja": [
     516,
     1746,
@@ -769,12 +769,12 @@
     2024
    ],
    "centroide": [
-    755,
-    1885
+    772,
+    1884
    ],
    "pct_montana": 0,
    "pct_altas": 0,
-   "pct_llanura": 10.3,
+   "pct_llanura": 8.5,
    "px_de_lago": 0,
    "extra": [],
    "color_rgb": [
@@ -792,9 +792,9 @@
     1925,
     1973
    ],
-   "px": 13782,
-   "pct_del_continente": 3.4,
-   "localizaciones_aprox": 110,
+   "px": 14598,
+   "pct_del_continente": 3,
+   "localizaciones_aprox": 117,
    "caja": [
     886,
     1042,
@@ -802,8 +802,8 @@
     2032
    ],
    "centroide": [
-    1638,
-    1458
+    1643,
+    1440
    ],
    "pct_montana": 0,
    "pct_altas": 0,
@@ -825,18 +825,18 @@
     1646,
     1253
    ],
-   "px": 14217,
-   "pct_del_continente": 3.5,
-   "localizaciones_aprox": 113,
+   "px": 15705,
+   "pct_del_continente": 3.3,
+   "localizaciones_aprox": 125,
    "caja": [
     1489,
     1153,
     1717,
-    1341
+    1346
    ],
    "centroide": [
-    1579,
-    1253
+    1586,
+    1251
    ],
    "pct_montana": 0,
    "pct_altas": 0,
@@ -858,18 +858,18 @@
     1253,
     1906
    ],
-   "px": 37800,
-   "pct_del_continente": 9.4,
-   "localizaciones_aprox": 301,
+   "px": 57388,
+   "pct_del_continente": 11.9,
+   "localizaciones_aprox": 457,
    "caja": [
     958,
-    1810,
-    1403,
+    1772,
+    1413,
     2003
    ],
    "centroide": [
-    1192,
-    1900
+    1178,
+    1884
    ],
    "pct_montana": 0,
    "pct_altas": 0,
@@ -891,21 +891,21 @@
     1022,
     1642
    ],
-   "px": 4735,
-   "pct_del_continente": 1.2,
-   "localizaciones_aprox": 38,
+   "px": 6863,
+   "pct_del_continente": 1.4,
+   "localizaciones_aprox": 55,
    "caja": [
     1010,
     1608,
     1091,
-    1720
+    1791
    ],
    "centroide": [
-    1047,
-    1659
+    1051,
+    1683
    ],
-   "pct_montana": 29,
-   "pct_altas": 31.7,
+   "pct_montana": 20,
+   "pct_altas": 21.9,
    "pct_llanura": 0,
    "px_de_lago": 0,
    "extra": [],
@@ -925,7 +925,7 @@
     1507
    ],
    "px": 6693,
-   "pct_del_continente": 1.7,
+   "pct_del_continente": 1.4,
    "localizaciones_aprox": 53,
    "caja": [
     578,
@@ -957,22 +957,22 @@
     1934,
     1862
    ],
-   "px": 20413,
-   "pct_del_continente": 5.1,
-   "localizaciones_aprox": 163,
+   "px": 20689,
+   "pct_del_continente": 4.3,
+   "localizaciones_aprox": 165,
    "caja": [
     1813,
     1669,
     2119,
-    1908
+    1912
    ],
    "centroide": [
-    1953,
-    1825
+    1952,
+    1826
    ],
    "pct_montana": 0,
    "pct_altas": 0,
-   "pct_llanura": 26.1,
+   "pct_llanura": 25.8,
    "px_de_lago": 0,
    "extra": [],
    "color_rgb": [
@@ -990,21 +990,21 @@
     1637,
     1536
    ],
-   "px": 22031,
-   "pct_del_continente": 5.5,
-   "localizaciones_aprox": 176,
+   "px": 23699,
+   "pct_del_continente": 4.9,
+   "localizaciones_aprox": 189,
    "caja": [
     1459,
-    1454,
+    1446,
     1737,
     1685
    ],
    "centroide": [
-    1574,
-    1582
+    1578,
+    1579
    ],
-   "pct_montana": 9.3,
-   "pct_altas": 16.5,
+   "pct_montana": 8.6,
+   "pct_altas": 15.4,
    "pct_llanura": 0,
    "px_de_lago": 0,
    "extra": [],
@@ -1014,5 +1014,6 @@
     217
    ]
   }
- ]
+ ],
+ "nota_ensanche": "Tierra ensanchada con herramientas/ensancha-tierra.mjs (semilla 9) a partir de mundo/35cl. localizaciones_aprox sigue en la escala del dibujo fino (location_px 45)."
 }
