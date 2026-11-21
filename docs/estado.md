@@ -100,7 +100,7 @@ Están en `docs/avisos-partida.txt`. Salen al empezar, no al cargar el menú:
 - «El país no tiene pops de su cultura principal»: el juego lo mira antes de que corra `gj_fundar_faccion`. Para quitarlo habría que poner la cultura y la fe en los ficheros de inicio del mundo en vez de cambiarlas al empezar.
 
 ## Pendiente
-1. **Decidir cuánto se llena el mapa.** Con países de una pieza queda el 39,2 % con dueño. Es un mando (`TALLAS`), y hay 60 ciudades-estado de 1-5 localizaciones.
+1. **Cuánto se llena el mapa: decidido (Javier, 21-11), se queda en el 39,2 % con dueño.** Es un mando (`TALLAS`), y hay 60 ciudades-estado de 1-5 localizaciones.
 2. **Thalassar** puede empezar sin puertos en `gj_zona_mar_interior`: «dominar el mar» pasa a ser un objetivo de expansión.
 3. **Nombres con el rango delante:** la selección de país enseña «County of Kaïvan» o «Theocracy of High Kingdom of Ostrevar».
 
